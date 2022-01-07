@@ -47,23 +47,29 @@ exm_application_finalize (GObject *object)
 static void
 exm_application_activate (GApplication *app)
 {
-  GtkWindow *window;
+    GtkWindow *window;
 
-  /* It's good practice to check your parameters at the beginning of the
-   * function. It helps catch errors early and in development instead of
-   * by your users.
-   */
-  g_assert (GTK_IS_APPLICATION (app));
+    /* It's good practice to check your parameters at the beginning of the
+    * function. It helps catch errors early and in development instead of
+    * by your users.
+    */
+    g_assert (GTK_IS_APPLICATION (app));
 
-  /* Get the current window or create one if necessary. */
-  window = gtk_application_get_active_window (GTK_APPLICATION (app));
-  if (window == NULL)
+    GdkDisplay *display = gdk_display_get_default ();
+    GtkCssProvider *provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_resource (provider, "/com/mattjakeman/ExtensionManager/style.css");
+    gtk_style_context_add_provider_for_display (display, GTK_STYLE_PROVIDER (provider),
+                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    /* Get the current window or create one if necessary. */
+    window = gtk_application_get_active_window (GTK_APPLICATION (app));
+    if (window == NULL)
     window = g_object_new (EXM_TYPE_WINDOW,
                            "application", app,
                            NULL);
 
-  /* Ask the window manager/compositor to present the window. */
-  gtk_window_present (window);
+    /* Ask the window manager/compositor to present the window. */
+    gtk_window_present (window);
 }
 
 

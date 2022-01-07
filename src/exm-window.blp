@@ -33,8 +33,15 @@ template ExmWindow : Gtk.ApplicationWindow {
 				title: "Installed";
 				icon-name: "puzzle-piece-symbolic";
 
-				child: Gtk.ListView list_view {
+				child: Gtk.ScrolledWindow {
+					Adw.Clamp {
+						styles ["clamp"]
 
+						Gtk.ListBox list_box {
+							styles ["boxed-list"]
+							valign: start;
+						}
+					}
 				};
 			}
 
