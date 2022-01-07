@@ -10,7 +10,7 @@
         "--socket=fallback-x11",
         "--device=dri",
         "--socket=wayland",
-        "--talk-name=org.gnome.Shell.Extensions",
+        "--talk-name=org.gnome.Shell.Extensions"
     ],
     "cleanup" : [
         "/include",

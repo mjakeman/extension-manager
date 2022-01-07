@@ -1,8 +1,11 @@
 exm_sources = [
   'main.c',
   'exm-window.c',
-    'exm-application.c',
-  ]
+  'exm-application.c',
+
+  # Extension Management
+  'dbus/exm-manager.c'
+]
 
 exm_deps = [
   dependency('gtk4'),

@@ -19,6 +19,8 @@
 #include "exm-config.h"
 #include "exm-window.h"
 
+#include "dbus/exm-manager.h"
+
 #include <adwaita.h>
 
 struct _ExmWindow
@@ -44,4 +46,6 @@ static void
 exm_window_init (ExmWindow *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
+
+    ExmManager *manager = exm_manager_new ();
 }
