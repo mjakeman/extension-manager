@@ -50,8 +50,16 @@ template ExmWindow : Gtk.ApplicationWindow {
 				title: "Browse";
 				icon-name: "globe-symbolic";
 
-				child: Adw.StatusPage {
-					title: "Search for extensions";
+				child: Adw.Clamp {
+					styles ["clamp"]
+
+					Adw.StatusPage {
+						title: "Search for extensions";
+
+						child: Gtk.SearchEntry search_entry {
+							placeholder-text: "e.g. \"Blur my Shell\"";
+						};
+					}
 				};
 			}
 		}

@@ -22,6 +22,8 @@
 #include "model/exm-manager.h"
 #include "model/exm-extension.h"
 
+#include "web/exm-search-provider.h"
+
 #include <adwaita.h>
 
 struct _ExmWindow
@@ -29,10 +31,12 @@ struct _ExmWindow
     GtkApplicationWindow  parent_instance;
 
     ExmManager *manager;
+    ExmSearchProvider *search;
 
     /* Template widgets */
     AdwHeaderBar        *header_bar;
     GtkListBox          *list_box;
+    GtkSearchEntry      *search_entry;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -45,6 +49,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
 }
 
 static gboolean
@@ -103,6 +108,14 @@ widget_factory (ExmExtension* extension)
 }
 
 static void
+on_search_changed (GtkSearchEntry *search_entry,
+                   ExmWindow      *self)
+{
+    const char *query = gtk_editable_get_text (GTK_EDITABLE (search_entry));
+    exm_search_provider_query (self->search, query);
+}
+
+static void
 exm_window_init (ExmWindow *self)
 {
     GListModel *model;
@@ -114,6 +127,12 @@ exm_window_init (ExmWindow *self)
 
     // TODO: Recreate/Update model whenever extensions are changed
     gtk_list_box_bind_model (self->list_box, model,
-                             (GtkListBoxCreateWidgetFunc)widget_factory,
+                             (GtkListBoxCreateWidgetFunc) widget_factory,
                              NULL, NULL);
+
+    self->search = exm_search_provider_new ();
+    g_signal_connect (self->search_entry,
+                      "search-changed",
+                      G_CALLBACK (on_search_changed),
+                      self);
 }

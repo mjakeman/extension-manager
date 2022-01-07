@@ -5,12 +5,18 @@ exm_sources = [
 
   # Extension Management
   'model/exm-manager.c',
-  'model/exm-extension.c'
+  'model/exm-extension.c',
+
+  # Web Interface
+  'web/exm-search-provider.c',
+  'web/exm-search-result.c'
 ]
 
 exm_deps = [
   dependency('gtk4'),
   dependency('libadwaita-1'),
+  dependency('json-glib-1.0'),
+  dependency('libsoup-3.0')
 ]
 
 blueprints = custom_target('blueprints',
