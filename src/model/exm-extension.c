@@ -6,6 +6,7 @@ struct _ExmExtension
     gchar *uuid;
     gchar *display_name;
     gchar *description;
+    gboolean enabled;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtension, exm_extension, G_TYPE_OBJECT)
@@ -14,7 +15,7 @@ enum {
     PROP_0,
     PROP_UUID,
     PROP_DISPLAY_NAME,
-    // PROP_DICTIONARY,
+    PROP_ENABLED,
     PROP_DESCRIPTION,
     N_PROPS
 };
@@ -22,14 +23,16 @@ enum {
 static GParamSpec *properties [N_PROPS];
 
 ExmExtension *
-exm_extension_new (gchar *uuid,
-                   gchar *display_name,
-                   gchar *description)
+exm_extension_new (gchar    *uuid,
+                   gchar    *display_name,
+                   gchar    *description,
+                   gboolean  enabled)
 {
     return g_object_new (EXM_TYPE_EXTENSION,
                          "uuid", uuid,
                          "display-name", display_name,
                          "description", description,
+                         "enabled", enabled,
                          NULL);
 }
 
@@ -60,6 +63,9 @@ exm_extension_get_property (GObject    *object,
     case PROP_DESCRIPTION:
         g_value_set_string (value, self->description);
         break;
+    case PROP_ENABLED:
+        g_value_set_boolean (value, self->enabled);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -83,6 +89,9 @@ exm_extension_set_property (GObject      *object,
         break;
     case PROP_DESCRIPTION:
         self->description = g_value_dup_string (value);
+        break;
+    case PROP_ENABLED:
+        self->enabled = g_value_get_boolean (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -118,6 +127,13 @@ exm_extension_class_init (ExmExtensionClass *klass)
                              "Description",
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_ENABLED] =
+        g_param_spec_boolean ("enabled",
+                              "Enabled",
+                              "Enabled",
+                              FALSE,
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
