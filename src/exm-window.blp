@@ -1,0 +1,37 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmWindow : Gtk.ApplicationWindow {
+  default-width: 600;
+  default-height: 400;
+
+	[titlebar]
+  HeaderBar header_bar {
+		[end]
+    Gtk.MenuButton {
+      icon-name: "open-menu-symbolic";
+      menu-model: primary_menu;
+    }
+  }
+
+	Label label {
+		label: "Hello, World!";
+	}
+}
+
+menu primary_menu {
+  section {
+    item {
+      label: _("Preferences");
+      action: "app.preferences";
+    }
+    item {
+      label: _("Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+    item {
+      label: _("About Extension Manager");
+      action: "app.about";
+    }
+  }
+}
