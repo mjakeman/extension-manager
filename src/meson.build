@@ -4,7 +4,8 @@ exm_sources = [
   'exm-application.c',
 
   # Extension Management
-  'dbus/exm-manager.c'
+  'model/exm-manager.c',
+  'model/exm-extension.c'
 ]
 
 exm_deps = [

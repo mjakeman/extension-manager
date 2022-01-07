@@ -1,5 +1,7 @@
 #include "exm-manager.h"
 
+#include "exm-extension.h"
+
 #include <gio/gio.h>
 
 struct _ExmManager
@@ -7,12 +9,14 @@ struct _ExmManager
     GObject parent_instance;
 
     GDBusProxy* proxy;
+    GListModel *model;
 };
 
 G_DEFINE_FINAL_TYPE (ExmManager, exm_manager, G_TYPE_OBJECT)
 
 enum {
     PROP_0,
+    PROP_LIST_MODEL,
     N_PROPS
 };
 
@@ -41,10 +45,13 @@ exm_manager_get_property (GObject    *object,
     ExmManager *self = EXM_MANAGER (object);
 
     switch (prop_id)
-      {
-      default:
+    {
+    case PROP_LIST_MODEL:
+        g_value_set_object (value, self->model);
+        break;
+    default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    }
 }
 
 static void
@@ -70,11 +77,22 @@ exm_manager_class_init (ExmManagerClass *klass)
     object_class->finalize = exm_manager_finalize;
     object_class->get_property = exm_manager_get_property;
     object_class->set_property = exm_manager_set_property;
+
+    properties [PROP_LIST_MODEL]
+        = g_param_spec_object ("list-model",
+                               "List Model",
+                               "List Model",
+                               G_TYPE_LIST_MODEL,
+                               G_PARAM_READABLE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
-static void
+static GListModel *
 parse_extension_list (GVariant *exlist)
 {
+    GListStore *store;
+
     /* format: a{sa{sv}}
      * array of interfaces, where each interface is an array of properties
      * each interface corresponds to one extension
@@ -85,15 +103,51 @@ parse_extension_list (GVariant *exlist)
     gchar *exname, *prop_name;
     GVariant *prop_value;
 
+    store = g_list_store_new (EXM_TYPE_EXTENSION);
+
     g_variant_get (exlist, "(a{sa{sv}})", &iter);
     while (g_variant_iter_loop(iter, "{sa{sv}}", &exname, &iter2)) {
         g_print ("Extension Discovered: %s\n", exname);
 
+        ExmExtension *extension;
+
+        // Well-Defined Properties
+        gchar *uuid = NULL;
+        gchar *display_name = NULL;
+        gchar *description = NULL;
+
         while (g_variant_iter_loop(iter2, "{sv}", &prop_name, &prop_value))
         {
-            g_print ("Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
+            g_print (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
+
+            // Compare with DBus property names
+            if (strcmp (prop_name, "uuid") == 0)
+            {
+                g_variant_get (prop_value, "s", &uuid);
+
+                // Assert that this is the same as the extension name
+                g_assert (strcmp(exname, uuid) == 0);
+            }
+            else if (strcmp (prop_name, "name") == 0)
+            {
+                g_variant_get (prop_value, "s", &display_name);
+            }
+            else if (strcmp (prop_name, "description") == 0)
+            {
+                g_variant_get (prop_value, "s", &description);
+            }
         }
+
+        extension = exm_extension_new (uuid, display_name, description);
+        g_list_store_append (G_LIST_STORE (store), extension);
+
+        g_free (uuid);
+        g_free (display_name);
+        g_free (description);
     }
+    g_variant_iter_free (iter);
+
+    return G_LIST_MODEL (store);
 }
 
 static void
@@ -119,5 +173,5 @@ exm_manager_init (ExmManager *self)
         return;
     }
 
-    parse_extension_list (exlist);
+    self->model = parse_extension_list (exlist);
 }
