@@ -3,5 +3,7 @@
   <gresource prefix="/com/mattjakeman/ExtensionManager">
     <file>exm-window.ui</file>
     <file>gtk/help-overlay.ui</file>
+    <file preprocess="xml-stripblanks">icons/globe-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/puzzle-piece-symbolic.svg</file>
   </gresource>
 </gresources>

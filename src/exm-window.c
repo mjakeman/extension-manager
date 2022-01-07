@@ -19,13 +19,14 @@
 #include "exm-config.h"
 #include "exm-window.h"
 
+#include <adwaita.h>
+
 struct _ExmWindow
 {
     GtkApplicationWindow  parent_instance;
 
     /* Template widgets */
-    GtkHeaderBar        *header_bar;
-    GtkLabel            *label;
+    AdwHeaderBar        *header_bar;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -37,7 +38,6 @@ exm_window_class_init (ExmWindowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, label);
 }
 
 static void

@@ -6,7 +6,14 @@ template ExmWindow : Gtk.ApplicationWindow {
   default-height: 400;
 
 	[titlebar]
-  HeaderBar header_bar {
+  Adw.HeaderBar header_bar {
+  	centering-policy: strict;
+
+  	[title]
+  	Adw.ViewSwitcherTitle title {
+  		stack: view_stack;
+  	}
+
 		[end]
     Gtk.MenuButton {
       icon-name: "open-menu-symbolic";
@@ -14,9 +21,39 @@ template ExmWindow : Gtk.ApplicationWindow {
     }
   }
 
-	Label label {
-		label: "Hello, World!";
-	}
+  Gtk.Box {
+  	orientation: vertical;
+
+  	Adw.ViewStack view_stack {
+  		vexpand: true;
+  		hexpand: true;
+
+			Adw.ViewStackPage {
+				name: "installed";
+				title: "Installed";
+				icon-name: "puzzle-piece-symbolic";
+
+				child: Gtk.ListView {
+
+				};
+			}
+
+			Adw.ViewStackPage {
+				name: "browse";
+				title: "Browse";
+				icon-name: "globe-symbolic";
+
+				child: Adw.StatusPage {
+					title: "Search for extensions";
+				};
+			}
+		}
+
+		Adw.ViewSwitcherBar {
+			stack: view_stack;
+			reveal: bind title.title-visible;
+		}
+  }
 }
 
 menu primary_menu {
