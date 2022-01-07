@@ -70,6 +70,66 @@ exm_manager_set_property (GObject      *object,
 }
 
 static void
+enable_extension_done (GDBusProxy   *proxy,
+                       GAsyncResult *res,
+                       ExmExtension *extension)
+{
+    GError *error = NULL;
+    g_dbus_proxy_call_finish (proxy, res, &error);
+
+    if (error)
+    {
+        gchar *uuid;
+        g_object_get (extension, "uuid", &uuid, NULL);
+        g_critical ("Could not enable extension: %s\n", uuid);
+    }
+}
+
+void
+exm_manager_enable_extension (ExmManager *self, ExmExtension *extension)
+{
+    gchar *uuid;
+    g_object_get (extension, "uuid", &uuid, NULL);
+
+    g_dbus_proxy_call (self->proxy,
+                       "EnableExtension",
+                       g_variant_new ("(s)", uuid, NULL),
+                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
+                       (GAsyncReadyCallback) enable_extension_done,
+                       extension);
+}
+
+static void
+disable_extension_done (GDBusProxy   *proxy,
+                        GAsyncResult *res,
+                        ExmExtension *extension)
+{
+    GError *error = NULL;
+    g_dbus_proxy_call_finish (proxy, res, &error);
+
+    if (error)
+    {
+        gchar *uuid;
+        g_object_get (extension, "uuid", &uuid, NULL);
+        g_critical ("Could not disable extension: %s\n", uuid);
+    }
+}
+
+void
+exm_manager_disable_extension (ExmManager *self, ExmExtension *extension)
+{
+    gchar *uuid;
+    g_object_get (extension, "uuid", &uuid, NULL);
+
+    g_dbus_proxy_call (self->proxy,
+                       "DisableExtension",
+                       g_variant_new ("(s)", uuid, NULL),
+                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
+                       (GAsyncReadyCallback) disable_extension_done,
+                       extension);
+}
+
+static void
 exm_manager_class_init (ExmManagerClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -115,6 +175,7 @@ parse_extension_list (GVariant *exlist)
         gchar *uuid = NULL;
         gchar *display_name = NULL;
         gchar *description = NULL;
+        gboolean enabled = FALSE;
 
         while (g_variant_iter_loop(iter2, "{sv}", &prop_name, &prop_value))
         {
@@ -136,9 +197,15 @@ parse_extension_list (GVariant *exlist)
             {
                 g_variant_get (prop_value, "s", &description);
             }
+            else if (strcmp (prop_name, "state") == 0)
+            {
+                double state;
+                g_variant_get (prop_value, "d", &state);
+                enabled = (state == 1);
+            }
         }
 
-        extension = exm_extension_new (uuid, display_name, description);
+        extension = exm_extension_new (uuid, display_name, description, enabled);
         g_list_store_append (G_LIST_STORE (store), extension);
 
         g_free (uuid);
