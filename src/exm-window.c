@@ -186,21 +186,28 @@ search_widget_factory (ExmSearchResult *result,
 {
     GtkWidget *row;
     GtkWidget *box;
-    GtkWidget *label;
-    GtkWidget *install;
+    GtkWidget *description_label;
+    GtkWidget *button_box;
+    GtkWidget *install_btn;
+    GtkWidget *link_btn;
     GtkWidget *icon;
     GtkWidget *screenshot;
 
-    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri;
+    gchar *uri;
+
+    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
     g_object_get (result,
                   "uuid", &uuid,
                   "name", &name,
                   "creator", &creator,
                   "icon", &icon_uri,
                   "screenshot", &screenshot_uri,
+                  "link", &link,
+                  "description", &description,
                   NULL);
 
     name = g_markup_escape_text (name, -1);
+    uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
 
     row = adw_expander_row_new ();
 
@@ -214,26 +221,32 @@ search_widget_factory (ExmSearchResult *result,
     gtk_widget_add_css_class (box, "content");
     adw_expander_row_add_row (ADW_EXPANDER_ROW (row), box);
 
-    label = gtk_label_new (uuid);
-    gtk_label_set_xalign (GTK_LABEL (label), 0);
-    gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
-    gtk_widget_add_css_class (label, "description");
-    gtk_box_append (GTK_BOX (box), label);
+    description_label = gtk_label_new (description);
+    gtk_label_set_xalign (GTK_LABEL (description_label), 0);
+    gtk_label_set_wrap (GTK_LABEL (description_label), GTK_WRAP_WORD);
+    gtk_widget_add_css_class (description_label, "description");
+    gtk_box_append (GTK_BOX (box), description_label);
 
     // TODO: This should be on-demand otherwise we're downloading far too often
     /*screenshot = gtk_image_new ();
     exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
     gtk_box_append (GTK_BOX (box), screenshot);*/
 
-    install = gtk_button_new_with_label ("Install");
-    gtk_widget_set_halign (install, GTK_ALIGN_END);
-    g_signal_connect (install, "clicked", G_CALLBACK (install_remote), uuid);
-    gtk_box_append (GTK_BOX (box), install);
+    button_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+    gtk_widget_set_halign (button_box, GTK_ALIGN_END);
+    gtk_box_append (GTK_BOX (box), button_box);
+
+    link_btn = gtk_link_button_new_with_label (uri, "Go to Page");
+    gtk_box_append (GTK_BOX (button_box), link_btn);
+
+    install_btn = gtk_button_new_with_label ("Install");
+    g_signal_connect (install_btn, "clicked", G_CALLBACK (install_remote), uuid);
+    gtk_box_append (GTK_BOX (button_box), install_btn);
 
     if (exm_manager_is_installed_uuid (self->manager, uuid))
     {
-        gtk_button_set_label (GTK_BUTTON (install), "Installed");
-        gtk_widget_set_sensitive (install, FALSE);
+        gtk_button_set_label (GTK_BUTTON (install_btn), "Installed");
+        gtk_widget_set_sensitive (install_btn, FALSE);
     }
 
     return row;
