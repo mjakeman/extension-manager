@@ -10,6 +10,7 @@ struct _ExmSearchProvider
     GObject parent_instance;
 
     SoupSession *session;
+    GMutex mutex;
 };
 
 G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, G_TYPE_OBJECT)
@@ -33,44 +34,14 @@ exm_search_provider_finalize (GObject *object)
     ExmSearchProvider *self = (ExmSearchProvider *)object;
 
     g_object_unref (self->session);
+    g_mutex_clear (&self->mutex);
 
     G_OBJECT_CLASS (exm_search_provider_parent_class)->finalize (object);
 }
 
-static void
-exm_search_provider_get_property (GObject    *object,
-                                  guint       prop_id,
-                                  GValue     *value,
-                                  GParamSpec *pspec)
-{
-    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
-
-    switch (prop_id)
-      {
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
-}
-
-static void
-exm_search_provider_set_property (GObject      *object,
-                                  guint         prop_id,
-                                  const GValue *value,
-                                  GParamSpec   *pspec)
-{
-    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
-
-    switch (prop_id)
-      {
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
-}
-
 static GListModel *
-parse_search_results (ExmSearchProvider  *self,
-                      GBytes             *bytes,
-                      GError            **out_error)
+parse_search_results (GBytes  *bytes,
+                      GError **out_error)
 {
     JsonParser *parser;
     gconstpointer data;
@@ -120,23 +91,16 @@ parse_search_results (ExmSearchProvider  *self,
 }
 
 static void
-do_query_thread (GTask             *task,
-                 ExmSearchProvider *self,
-                 const char        *query,
-                 GCancellable      *cancellable)
+search_results_callback (GObject      *source,
+                         GAsyncResult *res,
+                         GTask        *task)
 {
-    // Query https://extensions.gnome.org/extension-query/?search={%s}
-
-    const gchar *url;
-    SoupMessage *msg;
     GBytes *bytes;
+    GListModel *model;
 
     GError *error = NULL;
 
-    url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s", query);
-    msg = soup_message_new (SOUP_METHOD_GET, url);
-
-    bytes = soup_session_send_and_read (self->session, msg, cancellable, &error);
+    bytes = soup_session_send_and_read_finish (SOUP_SESSION (source), res, &error);
 
     if (error)
     {
@@ -145,7 +109,7 @@ do_query_thread (GTask             *task,
     else
     {
         // Parse Search Results
-        GListModel *model = parse_search_results (self, bytes, &error);
+        model = parse_search_results (bytes, &error);
 
         if (model == NULL)
         {
@@ -159,7 +123,7 @@ do_query_thread (GTask             *task,
         g_bytes_unref (bytes);
     }
 
-    g_object_unref (msg);
+    g_object_unref (task);
 }
 
 void
@@ -170,11 +134,32 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
                                  gpointer             user_data)
 {
     GTask *task;
+    const gchar *url;
+    SoupMessage *msg;
 
     task = g_task_new (self, cancellable, callback, user_data);
-    g_task_set_task_data (task, g_strdup (query), (GDestroyNotify) g_free);
-    g_task_run_in_thread (task, (GTaskThreadFunc)do_query_thread);
-    g_object_unref (task);
+
+    // Query https://extensions.gnome.org/extension-query/?search={%s}
+
+    url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s", query);
+    msg = soup_message_new (SOUP_METHOD_GET, url);
+
+    if (!msg)
+    {
+        g_task_return_new_error (task, g_quark_from_string ("exm-search-provider"), -1,
+                                 "Could not construct message for uri: %s", url);
+        return;
+    }
+
+    g_mutex_lock (&self->mutex);
+    soup_session_send_and_read_async (self->session, msg,
+                                      G_PRIORITY_DEFAULT,
+                                      cancellable,
+                                      (GAsyncReadyCallback) search_results_callback,
+                                      task);
+
+    g_mutex_unlock (&self->mutex);
+    g_object_unref (msg);
 }
 
 GListModel *
@@ -193,12 +178,11 @@ exm_search_provider_class_init (ExmSearchProviderClass *klass)
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
     object_class->finalize = exm_search_provider_finalize;
-    object_class->get_property = exm_search_provider_get_property;
-    object_class->set_property = exm_search_provider_set_property;
 }
 
 static void
 exm_search_provider_init (ExmSearchProvider *self)
 {
     self->session = soup_session_new ();
+    g_mutex_init (&self->mutex);
 }

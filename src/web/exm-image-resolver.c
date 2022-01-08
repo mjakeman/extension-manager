@@ -30,6 +30,7 @@ exm_image_resolver_finalize (GObject *object)
 {
     ExmImageResolver *self = (ExmImageResolver *)object;
 
+    g_object_unref (self->session);
     g_mutex_clear (&self->mutex);
 
     G_OBJECT_CLASS (exm_image_resolver_parent_class)->finalize (object);
@@ -42,6 +43,7 @@ image_loaded_callback (GObject      *source,
 {
     GBytes *bytes;
     GdkTexture *texture;
+
     GError *error = NULL;
 
     bytes = soup_session_send_and_read_finish (SOUP_SESSION (source), res, &error);
