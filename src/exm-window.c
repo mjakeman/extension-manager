@@ -73,20 +73,32 @@ extension_state_set (GtkSwitch    *toggle,
     return FALSE;
 }
 
+static void
+extension_open_prefs (GtkButton    *button,
+                      ExmExtension *extension)
+{
+    GtkRoot *root = gtk_widget_get_root (GTK_WIDGET (button));
+    ExmWindow *self = EXM_WINDOW (root);
+
+    exm_manager_open_prefs (self->manager, extension);
+}
+
 static GtkWidget *
 widget_factory (ExmExtension* extension)
 {
     GtkWidget *row;
     GtkWidget *label;
     GtkWidget *toggle;
+    GtkWidget *prefs;
 
     gchar *name, *uuid, *description;
-    gboolean enabled;
+    gboolean enabled, has_prefs;
     g_object_get (extension,
                   "display-name", &name,
                   "uuid", &uuid,
                   "description", &description,
                   "enabled", &enabled,
+                  "has-prefs", &has_prefs,
                   NULL);
 
     name = g_markup_escape_text (name, -1);
@@ -102,6 +114,15 @@ widget_factory (ExmExtension* extension)
     gtk_widget_set_halign (toggle, GTK_ALIGN_CENTER);
     adw_expander_row_add_action (ADW_EXPANDER_ROW (row), toggle);
     g_signal_connect (toggle, "state-set", G_CALLBACK (extension_state_set), extension);
+
+    if (has_prefs)
+    {
+        prefs = gtk_button_new_from_icon_name ("settings-symbolic");
+        g_signal_connect (prefs, "clicked", G_CALLBACK (extension_open_prefs), extension);
+        gtk_widget_set_valign (prefs, GTK_ALIGN_CENTER);
+        gtk_widget_set_halign (prefs, GTK_ALIGN_CENTER);
+        adw_expander_row_add_action (ADW_EXPANDER_ROW (row), prefs);
+    }
 
     label = gtk_label_new (description);
     gtk_label_set_xalign (GTK_LABEL (label), 0);

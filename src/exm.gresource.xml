@@ -7,5 +7,6 @@
     <file>icons/plugin.png</file>
     <file preprocess="xml-stripblanks">icons/globe-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/puzzle-piece-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
   </gresource>
 </gresources>
