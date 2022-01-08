@@ -104,18 +104,45 @@ widget_factory (ExmExtension* extension)
     label = gtk_label_new (description);
     gtk_label_set_xalign (GTK_LABEL (label), 0);
     gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
-    gtk_widget_add_css_class (label, "description-label");
+    gtk_widget_add_css_class (label, "content");
     adw_expander_row_add_row (ADW_EXPANDER_ROW (row), label);
 
     return row;
 }
 
+static void
+on_install_done (GObject      *source,
+                 GAsyncResult *res,
+                 ExmWindow    *self)
+{
+    GError *error = NULL;
+    if (!exm_manager_install_finish (EXM_MANAGER (source), res, &error) && error)
+    {
+        // TODO: Properly log this
+        g_critical ("%s\n", error->message);
+    }
+}
+
+static void
+install_remote (GtkButton   *button,
+                const gchar *uuid)
+{
+    GtkRoot *root = gtk_widget_get_root (GTK_WIDGET (button));
+    ExmWindow *self = EXM_WINDOW (root);
+
+    exm_manager_install_async (self->manager, uuid, NULL,
+                               (GAsyncReadyCallback) on_install_done,
+                               self);
+}
+
 static GtkWidget *
-search_widget_factory (ExmSearchResult* result)
+search_widget_factory (ExmSearchResult *result,
+                       ExmWindow       *self)
 {
     GtkWidget *row;
-    GtkWidget *label;
     GtkWidget *box;
+    GtkWidget *label;
+    GtkWidget *install;
 
     gchar *uuid, *name, *creator;
     g_object_get (result,
@@ -132,11 +159,26 @@ search_widget_factory (ExmSearchResult* result)
     adw_expander_row_set_subtitle (ADW_EXPANDER_ROW (row), creator);
     adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), gtk_picture_new ());
 
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    gtk_widget_add_css_class (box, "content");
+    adw_expander_row_add_row (ADW_EXPANDER_ROW (row), box);
+
     label = gtk_label_new (uuid);
     gtk_label_set_xalign (GTK_LABEL (label), 0);
     gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
-    gtk_widget_add_css_class (label, "description-label");
-    adw_expander_row_add_row (ADW_EXPANDER_ROW (row), label);
+    gtk_widget_add_css_class (label, "description");
+    gtk_box_append (GTK_BOX (box), label);
+
+    install = gtk_button_new_with_label ("Install");
+    gtk_widget_set_halign (install, GTK_ALIGN_END);
+    g_signal_connect (install, "clicked", G_CALLBACK (install_remote), uuid);
+    gtk_box_append (GTK_BOX (box), install);
+
+    if (exm_manager_is_installed_uuid (self->manager, uuid))
+    {
+        gtk_button_set_label (GTK_BUTTON (install), "Installed");
+        gtk_widget_set_sensitive (install, FALSE);
+    }
 
     return row;
 }
@@ -153,7 +195,7 @@ on_search_result (GObject      *source,
 
     gtk_list_box_bind_model (self->search_results, model,
                              (GtkListBoxCreateWidgetFunc) search_widget_factory,
-                             NULL, NULL);
+                             g_object_ref (self), g_object_unref);
 }
 
 static void
