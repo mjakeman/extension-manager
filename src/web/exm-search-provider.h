@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glib-object.h>
+#include <gio/gio.h>
 
 G_BEGIN_DECLS
 
@@ -10,7 +11,16 @@ G_DECLARE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM, SEARCH_PROVID
 
 ExmSearchProvider *exm_search_provider_new (void);
 
-void exm_search_provider_query (ExmSearchProvider *provider,
-                                const gchar       *query);
+void
+exm_search_provider_query_async (ExmSearchProvider   *self,
+                                 const gchar         *query,
+                                 GCancellable        *cancellable,
+                                 GAsyncReadyCallback  callback,
+                                 gpointer             user_data);
+
+GListModel *
+exm_search_provider_query_finish (ExmSearchProvider  *self,
+                                  GAsyncResult       *result,
+                                  GError            **error);
 
 G_END_DECLS

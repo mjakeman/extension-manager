@@ -1,14 +1,27 @@
 #include "exm-search-result.h"
 
+#include <json-glib/json-glib.h>
+
 struct _ExmSearchResult
 {
     GObject parent_instance;
+
+    gchar *uuid;
+    gchar *name;
+    gchar *creator;
 };
 
-G_DEFINE_FINAL_TYPE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT)
+static void json_serializable_iface_init (JsonSerializableIface *iface);
+
+G_DEFINE_FINAL_TYPE_WITH_CODE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT,
+                               G_IMPLEMENT_INTERFACE (JSON_TYPE_SERIALIZABLE,
+                                                      json_serializable_iface_init))
 
 enum {
     PROP_0,
+    PROP_UUID,
+    PROP_NAME,
+    PROP_CREATOR,
     N_PROPS
 };
 
@@ -37,10 +50,19 @@ exm_search_result_get_property (GObject    *object,
     ExmSearchResult *self = EXM_SEARCH_RESULT (object);
 
     switch (prop_id)
-      {
-      default:
+    {
+    case PROP_UUID:
+        g_value_set_string (value, self->uuid);
+        break;
+    case PROP_NAME:
+        g_value_set_string (value, self->name);
+        break;
+    case PROP_CREATOR:
+        g_value_set_string (value, self->creator);
+        break;
+    default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    }
 }
 
 static void
@@ -52,10 +74,19 @@ exm_search_result_set_property (GObject      *object,
     ExmSearchResult *self = EXM_SEARCH_RESULT (object);
 
     switch (prop_id)
-      {
-      default:
+    {
+    case PROP_UUID:
+        self->uuid = g_value_dup_string (value);
+        break;
+    case PROP_NAME:
+        self->name = g_value_dup_string (value);
+        break;
+    case PROP_CREATOR:
+        self->creator = g_value_dup_string (value);
+        break;
+    default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    }
 }
 
 static void
@@ -66,9 +97,38 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
     object_class->finalize = exm_search_result_finalize;
     object_class->get_property = exm_search_result_get_property;
     object_class->set_property = exm_search_result_set_property;
+
+    properties [PROP_UUID] =
+        g_param_spec_string ("uuid",
+                             "UUID",
+                             "UUID",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_NAME] =
+        g_param_spec_string ("name",
+                             "Name",
+                             "Name",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_CREATOR] =
+        g_param_spec_string ("creator",
+                             "Creator",
+                             "Creator",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
 static void
 exm_search_result_init (ExmSearchResult *self)
 {
+}
+
+static void
+json_serializable_iface_init (JsonSerializableIface *iface)
+{
+
 }
