@@ -7,6 +7,7 @@ struct _ExmExtension
     gchar *display_name;
     gchar *description;
     gboolean enabled;
+    gboolean is_user;
     gboolean has_prefs;
     gboolean has_update;
 };
@@ -18,6 +19,7 @@ enum {
     PROP_UUID,
     PROP_DISPLAY_NAME,
     PROP_ENABLED,
+    PROP_IS_USER,
     PROP_DESCRIPTION,
     PROP_HAS_PREFS,
     PROP_HAS_UPDATE,
@@ -31,6 +33,7 @@ exm_extension_new (gchar    *uuid,
                    gchar    *display_name,
                    gchar    *description,
                    gboolean  enabled,
+                   gboolean  is_user,
                    gboolean  has_prefs,
                    gboolean  has_update)
 {
@@ -39,6 +42,7 @@ exm_extension_new (gchar    *uuid,
                          "display-name", display_name,
                          "description", description,
                          "enabled", enabled,
+                         "is-user", is_user,
                          "has-prefs", has_prefs,
                          "has-update", has_update,
                          NULL);
@@ -74,6 +78,9 @@ exm_extension_get_property (GObject    *object,
     case PROP_ENABLED:
         g_value_set_boolean (value, self->enabled);
         break;
+    case PROP_IS_USER:
+        g_value_set_boolean (value, self->is_user);
+        break;
     case PROP_HAS_PREFS:
         g_value_set_boolean (value, self->has_prefs);
         break;
@@ -106,6 +113,9 @@ exm_extension_set_property (GObject      *object,
         break;
     case PROP_ENABLED:
         self->enabled = g_value_get_boolean (value);
+        break;
+    case PROP_IS_USER:
+        self->is_user = g_value_get_boolean (value);
         break;
     case PROP_HAS_PREFS:
         self->has_prefs = g_value_get_boolean (value);
@@ -155,19 +165,26 @@ exm_extension_class_init (ExmExtensionClass *klass)
                               FALSE,
                               G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
 
+    properties [PROP_IS_USER] =
+        g_param_spec_boolean ("is-user",
+                              "Is User",
+                              "Is User",
+                              FALSE,
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
+
     properties [PROP_HAS_PREFS] =
         g_param_spec_boolean ("has-prefs",
                               "Has Preferences",
                               "Has Preferences",
                               FALSE,
-                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
     properties [PROP_HAS_UPDATE] =
         g_param_spec_boolean ("has-update",
                               "Has Update",
                               "Has Update",
                               FALSE,
-                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }

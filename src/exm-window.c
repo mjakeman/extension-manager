@@ -83,6 +83,52 @@ extension_open_prefs (GtkButton    *button,
     exm_manager_open_prefs (self->manager, extension);
 }
 
+typedef struct
+{
+    ExmManager *manager;
+    ExmExtension *extension;
+} RemoveDialogData;
+
+static void
+extension_remove_dialog_response (GtkDialog        *dialog,
+                                  int               response_id,
+                                  RemoveDialogData *data)
+{
+    gtk_window_destroy (GTK_WINDOW (dialog));
+
+    if (response_id == GTK_RESPONSE_YES)
+    {
+        exm_manager_remove_extension (data->manager, data->extension);
+    }
+
+    g_clear_pointer (&data->manager, g_object_unref);
+    g_clear_pointer (&data->extension, g_object_unref);
+    g_free (data);
+}
+
+static void
+extension_remove (GtkButton    *button,
+                  ExmExtension *extension)
+{
+    GtkRoot *root = gtk_widget_get_root (GTK_WIDGET (button));
+    ExmWindow *self = EXM_WINDOW (root);
+
+    GtkWidget *dlg;
+
+    dlg = gtk_message_dialog_new (GTK_WINDOW (self),
+                                  GTK_DIALOG_MODAL,
+                                  GTK_MESSAGE_QUESTION,
+                                  GTK_BUTTONS_YES_NO,
+                                  "Are you sure you want to uninstall?");
+
+    RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
+    data->manager = g_object_ref (self->manager);
+    data->extension = g_object_ref (extension);
+
+    g_signal_connect (dlg, "response", G_CALLBACK (extension_remove_dialog_response), data);
+    gtk_widget_show (dlg);
+}
+
 static GtkWidget *
 widget_factory (ExmExtension* extension)
 {
@@ -90,15 +136,17 @@ widget_factory (ExmExtension* extension)
     GtkWidget *label;
     GtkWidget *toggle;
     GtkWidget *prefs;
+    GtkWidget *remove;
 
     gchar *name, *uuid, *description;
-    gboolean enabled, has_prefs;
+    gboolean enabled, has_prefs, is_user;
     g_object_get (extension,
                   "display-name", &name,
                   "uuid", &uuid,
                   "description", &description,
                   "enabled", &enabled,
                   "has-prefs", &has_prefs,
+                  "is-user", &is_user,
                   NULL);
 
     name = g_markup_escape_text (name, -1);
@@ -118,9 +166,9 @@ widget_factory (ExmExtension* extension)
     if (has_prefs)
     {
         prefs = gtk_button_new_from_icon_name ("settings-symbolic");
-        g_signal_connect (prefs, "clicked", G_CALLBACK (extension_open_prefs), extension);
         gtk_widget_set_valign (prefs, GTK_ALIGN_CENTER);
         gtk_widget_set_halign (prefs, GTK_ALIGN_CENTER);
+        g_signal_connect (prefs, "clicked", G_CALLBACK (extension_open_prefs), extension);
         adw_expander_row_add_action (ADW_EXPANDER_ROW (row), prefs);
     }
 
@@ -129,6 +177,16 @@ widget_factory (ExmExtension* extension)
     gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
     gtk_widget_add_css_class (label, "content");
     adw_expander_row_add_row (ADW_EXPANDER_ROW (row), label);
+
+    if (is_user)
+    {
+        remove = gtk_button_new_with_label ("Remove");
+        gtk_widget_add_css_class (remove, "destructive-action");
+        gtk_widget_set_valign (remove, GTK_ALIGN_CENTER);
+        gtk_widget_set_halign (remove, GTK_ALIGN_END);
+        g_signal_connect (remove, "clicked", G_CALLBACK (extension_remove), extension);
+        adw_expander_row_add_row (ADW_EXPANDER_ROW (row), remove);
+    }
 
     return row;
 }

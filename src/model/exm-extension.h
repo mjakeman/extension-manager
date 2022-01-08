@@ -12,6 +12,7 @@ ExmExtension *exm_extension_new (gchar    *uuid,
                                  gchar    *display_name,
                                  gchar    *description,
                                  gboolean  enabled,
+                                 gboolean  is_user,
                                  gboolean  has_prefs,
                                  gboolean  has_update);
 

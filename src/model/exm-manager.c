@@ -153,7 +153,7 @@ exm_manager_remove_extension (ExmManager   *self,
     g_object_get (extension, "uuid", &uuid, NULL);
 
     g_dbus_proxy_call (self->proxy,
-                       "RemoveExtension",
+                       "UninstallExtension",
                        g_variant_new ("(s)", uuid, NULL),
                        G_DBUS_CALL_FLAGS_NONE, -1, NULL,
                        (GAsyncReadyCallback) remove_extension_done,
@@ -305,6 +305,7 @@ parse_extension_list (GVariant *exlist)
         gchar *display_name = NULL;
         gchar *description = NULL;
         gboolean enabled = FALSE;
+        gboolean is_user = FALSE;
         gboolean has_prefs = FALSE;
         gboolean has_update = FALSE;
 
@@ -342,9 +343,15 @@ parse_extension_list (GVariant *exlist)
                 g_variant_get (prop_value, "d", &state);
                 enabled = (state == 1);
             }
+            else if (strcmp (prop_name, "type") == 0)
+            {
+                double type;
+                g_variant_get (prop_value, "d", &type);
+                is_user = (type == 2);
+            }
         }
 
-        extension = exm_extension_new (uuid, display_name, description, enabled, has_prefs, has_update);
+        extension = exm_extension_new (uuid, display_name, description, enabled, is_user, has_prefs, has_update);
         g_list_store_append (G_LIST_STORE (store), extension);
 
         g_free (uuid);
