@@ -24,6 +24,7 @@
 
 #include "web/exm-search-provider.h"
 #include "web/exm-search-result.h"
+#include "web/exm-image-resolver.h"
 
 #include <adwaita.h>
 
@@ -33,6 +34,7 @@ struct _ExmWindow
 
     ExmManager *manager;
     ExmSearchProvider *search;
+    ExmImageResolver *resolver;
 
     /* Template widgets */
     AdwHeaderBar        *header_bar;
@@ -135,6 +137,48 @@ install_remote (GtkButton   *button,
                                self);
 }
 
+static void
+on_image_loaded (GObject      *source,
+                 GAsyncResult *res,
+                 GtkImage     *target)
+{
+    GError *error = NULL;
+    GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
+                                                             res, &error);
+    if (error)
+    {
+        // TODO: Properly log this
+        g_critical ("%s\n", error->message);
+        return;
+    }
+
+    gtk_image_set_from_paintable (target, GDK_PAINTABLE (texture));
+}
+
+static GtkWidget *
+create_thumbnail (ExmImageResolver *resolver,
+                  const gchar      *icon_uri)
+{
+    GtkWidget *icon;
+
+    icon = gtk_image_new ();
+    gtk_widget_set_valign (icon, GTK_ALIGN_CENTER);
+    gtk_widget_set_halign (icon, GTK_ALIGN_CENTER);
+
+    // Set to default icon
+    gtk_image_set_from_resource (GTK_IMAGE (icon), "/com/mattjakeman/ExtensionManager/icons/plugin.png");
+
+    // If not the default icon, lookup and lazily replace
+    if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
+    {
+        exm_image_resolver_resolve_async (resolver, icon_uri, NULL,
+                                          (GAsyncReadyCallback) on_image_loaded,
+                                          icon);
+    }
+
+    return icon;
+}
+
 static GtkWidget *
 search_widget_factory (ExmSearchResult *result,
                        ExmWindow       *self)
@@ -143,12 +187,16 @@ search_widget_factory (ExmSearchResult *result,
     GtkWidget *box;
     GtkWidget *label;
     GtkWidget *install;
+    GtkWidget *icon;
+    GtkWidget *screenshot;
 
-    gchar *uuid, *name, *creator;
+    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri;
     g_object_get (result,
                   "uuid", &uuid,
                   "name", &name,
                   "creator", &creator,
+                  "icon", &icon_uri,
+                  "screenshot", &screenshot_uri,
                   NULL);
 
     name = g_markup_escape_text (name, -1);
@@ -157,7 +205,9 @@ search_widget_factory (ExmSearchResult *result,
 
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), name);
     adw_expander_row_set_subtitle (ADW_EXPANDER_ROW (row), creator);
-    adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), gtk_picture_new ());
+
+    icon = create_thumbnail (self->resolver, icon_uri);
+    adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), icon);
 
     box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_add_css_class (box, "content");
@@ -168,6 +218,10 @@ search_widget_factory (ExmSearchResult *result,
     gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
     gtk_widget_add_css_class (label, "description");
     gtk_box_append (GTK_BOX (box), label);
+
+    screenshot = gtk_image_new ();
+    exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
+    gtk_box_append (GTK_BOX (box), screenshot);
 
     install = gtk_button_new_with_label ("Install");
     gtk_widget_set_halign (install, GTK_ALIGN_END);
@@ -221,6 +275,8 @@ exm_window_init (ExmWindow *self)
     GListModel *model;
 
     gtk_widget_init_template (GTK_WIDGET (self));
+
+    self->resolver = exm_image_resolver_new ();
 
     self->manager = exm_manager_new ();
     g_object_get (self->manager, "list-model", &model, NULL);
