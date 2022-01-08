@@ -4,5 +4,5 @@ Exec=extension-manager
 Icon=com.mattjakeman.ExtensionManager
 Terminal=false
 Type=Application
-Categories=GTK;
+Categories=GTK;Utility
 StartupNotify=true

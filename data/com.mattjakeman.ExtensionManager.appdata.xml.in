@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
+<component type="desktop-application">
 	<id>com.mattjakeman.ExtensionManager.desktop</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
+  <name>Extension Manager</name>
+  <summary>An extension manager for browsing and installing GNOME Shell Extensions.</summary>
+  <content_rating type="oars-1.1" />
 	<description>
-	  <p>No description</p>
+	  <p>An extension manager for browsing and installing GNOME Shell Extensions.</p>
 	</description>
+  <screenshots>
+    <screenshot type="default">
+      <caption>A utility for managing GNOME Shell Extensions</caption>
+      <image width="2099" height="1556">https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-combined.png?token=GHSAT0AAAAAABQAZ3HOIYZECGZ6OIPZYE4IYPCKHVQ</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Browse extensions.gnome.org right inside the app</caption>
+      <image width="1844" height="1444">https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-browse.png?token=GHSAT0AAAAAABQAZ3HOZ6FIJC5TTAO6FSN6YPCKI3A</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Manage the extensions you already have installed</caption>
+      <image width="1844" height="1444">https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-installed.png?token=GHSAT0AAAAAABQAZ3HODHOYG7PH5I2RBLQSYPCKI3A</image>
+    </screenshot>
+  </screenshots>
+  <launchable type="desktop-id">com.mattjakeman.ExtensionManager.desktop</launchable>
+  <url type="homepage">https://github.com/mjakeman/extension-manager</url>
+  <url type="bugtracker">https://github.com/mjakeman/extension-manager/issues</url>
+
+  <releases>
+    <release version="0.1.0" date="2022-01-08"/>
+  </releases>
 </component>
