@@ -23,6 +23,7 @@
 #include "model/exm-extension.h"
 
 #include "web/exm-search-provider.h"
+#include "web/exm-search-result.h"
 
 #include <adwaita.h>
 
@@ -37,6 +38,7 @@ struct _ExmWindow
     AdwHeaderBar        *header_bar;
     GtkListBox          *list_box;
     GtkSearchEntry      *search_entry;
+    GtkListBox          *search_results;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -50,6 +52,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_results);
 }
 
 static gboolean
@@ -107,12 +110,67 @@ widget_factory (ExmExtension* extension)
     return row;
 }
 
+static GtkWidget *
+search_widget_factory (ExmSearchResult* result)
+{
+    GtkWidget *row;
+    GtkWidget *label;
+    GtkWidget *box;
+
+    gchar *uuid, *name, *creator;
+    g_object_get (result,
+                  "uuid", &uuid,
+                  "name", &name,
+                  "creator", &creator,
+                  NULL);
+
+    name = g_markup_escape_text (name, -1);
+
+    row = adw_expander_row_new ();
+
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), name);
+    adw_expander_row_set_subtitle (ADW_EXPANDER_ROW (row), creator);
+    adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), gtk_picture_new ());
+
+    label = gtk_label_new (uuid);
+    gtk_label_set_xalign (GTK_LABEL (label), 0);
+    gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
+    gtk_widget_add_css_class (label, "description-label");
+    adw_expander_row_add_row (ADW_EXPANDER_ROW (row), label);
+
+    return row;
+}
+
+static void
+on_search_result (GObject      *source,
+                  GAsyncResult *res,
+                  ExmWindow    *self)
+{
+    GListModel *model;
+    GError *error = NULL;
+
+    model = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &error);
+
+    gtk_list_box_bind_model (self->search_results, model,
+                             (GtkListBoxCreateWidgetFunc) search_widget_factory,
+                             NULL, NULL);
+}
+
+static void
+search (ExmWindow *self, const gchar *query)
+{
+    // TODO: Loading Indicator
+    exm_search_provider_query_async (self->search, query, NULL,
+                                     (GAsyncReadyCallback) on_search_result,
+                                     self);
+}
+
 static void
 on_search_changed (GtkSearchEntry *search_entry,
                    ExmWindow      *self)
 {
     const char *query = gtk_editable_get_text (GTK_EDITABLE (search_entry));
-    exm_search_provider_query (self->search, query);
+    search (self, query);
 }
 
 static void
@@ -135,4 +193,7 @@ exm_window_init (ExmWindow *self)
                       "search-changed",
                       G_CALLBACK (on_search_changed),
                       self);
+
+    // Fire off a default search
+    search (self, "");
 }

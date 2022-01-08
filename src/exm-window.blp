@@ -50,14 +50,26 @@ template ExmWindow : Gtk.ApplicationWindow {
 				title: "Browse";
 				icon-name: "globe-symbolic";
 
-				child: Adw.Clamp {
-					styles ["clamp"]
-
+				child: Gtk.ScrolledWindow {
 					Adw.StatusPage {
 						title: "Search for extensions";
+						description: "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions.";
 
-						child: Gtk.SearchEntry search_entry {
-							placeholder-text: "e.g. \"Blur my Shell\"";
+						child: Adw.Clamp {
+							styles ["clamp"]
+
+							Gtk.Box {
+								orientation: vertical;
+
+								Gtk.SearchEntry search_entry {
+									placeholder-text: "e.g. \"Blur my Shell\"";
+								}
+
+								Gtk.ListBox search_results {
+									styles ["boxed-list"]
+									valign: start;
+								}
+							}
 						};
 					}
 				};
