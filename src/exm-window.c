@@ -169,12 +169,13 @@ create_thumbnail (ExmImageResolver *resolver,
     gtk_image_set_from_resource (GTK_IMAGE (icon), "/com/mattjakeman/ExtensionManager/icons/plugin.png");
 
     // If not the default icon, lookup and lazily replace
-    if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
+    // TODO: There are some outstanding threading issues so avoid downloading for now
+    /*if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
     {
         exm_image_resolver_resolve_async (resolver, icon_uri, NULL,
                                           (GAsyncReadyCallback) on_image_loaded,
                                           icon);
-    }
+    }*/
 
     return icon;
 }
@@ -219,9 +220,10 @@ search_widget_factory (ExmSearchResult *result,
     gtk_widget_add_css_class (label, "description");
     gtk_box_append (GTK_BOX (box), label);
 
-    screenshot = gtk_image_new ();
+    // TODO: This should be on-demand otherwise we're downloading far too often
+    /*screenshot = gtk_image_new ();
     exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
-    gtk_box_append (GTK_BOX (box), screenshot);
+    gtk_box_append (GTK_BOX (box), screenshot);*/
 
     install = gtk_button_new_with_label ("Install");
     gtk_widget_set_halign (install, GTK_ALIGN_END);
