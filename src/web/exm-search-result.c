@@ -9,6 +9,8 @@ struct _ExmSearchResult
     gchar *uuid;
     gchar *name;
     gchar *creator;
+    gchar *icon;
+    gchar *screenshot;
 };
 
 static void json_serializable_iface_init (JsonSerializableIface *iface);
@@ -22,6 +24,8 @@ enum {
     PROP_UUID,
     PROP_NAME,
     PROP_CREATOR,
+    PROP_ICON,
+    PROP_SCREENSHOT,
     N_PROPS
 };
 
@@ -60,6 +64,12 @@ exm_search_result_get_property (GObject    *object,
     case PROP_CREATOR:
         g_value_set_string (value, self->creator);
         break;
+    case PROP_ICON:
+        g_value_set_string (value, self->icon);
+        break;
+    case PROP_SCREENSHOT:
+        g_value_set_string (value, self->screenshot);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -83,6 +93,12 @@ exm_search_result_set_property (GObject      *object,
         break;
     case PROP_CREATOR:
         self->creator = g_value_dup_string (value);
+        break;
+    case PROP_ICON:
+        self->icon = g_value_dup_string (value);
+        break;
+    case PROP_SCREENSHOT:
+        self->screenshot = g_value_dup_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -116,6 +132,20 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
         g_param_spec_string ("creator",
                              "Creator",
                              "Creator",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_ICON] =
+        g_param_spec_string ("icon",
+                             "Icon",
+                             "Icon",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_SCREENSHOT] =
+        g_param_spec_string ("screenshot",
+                             "Screenshot",
+                             "Screenshot",
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
