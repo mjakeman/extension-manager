@@ -84,7 +84,8 @@ enable_extension_done (GDBusProxy   *proxy,
 }
 
 void
-exm_manager_enable_extension (ExmManager *self, ExmExtension *extension)
+exm_manager_enable_extension (ExmManager   *self,
+                              ExmExtension *extension)
 {
     gchar *uuid;
     g_object_get (extension, "uuid", &uuid, NULL);
@@ -114,7 +115,8 @@ disable_extension_done (GDBusProxy   *proxy,
 }
 
 void
-exm_manager_disable_extension (ExmManager *self, ExmExtension *extension)
+exm_manager_disable_extension (ExmManager   *self,
+                               ExmExtension *extension)
 {
     gchar *uuid;
     g_object_get (extension, "uuid", &uuid, NULL);
@@ -125,6 +127,59 @@ exm_manager_disable_extension (ExmManager *self, ExmExtension *extension)
                        G_DBUS_CALL_FLAGS_NONE, -1, NULL,
                        (GAsyncReadyCallback) disable_extension_done,
                        extension);
+}
+
+static void
+remove_extension_done (GDBusProxy   *proxy,
+                       GAsyncResult *res,
+                       ExmExtension *extension)
+{
+    GError *error = NULL;
+    g_dbus_proxy_call_finish (proxy, res, &error);
+
+    if (error)
+    {
+        gchar *uuid;
+        g_object_get (extension, "uuid", &uuid, NULL);
+        g_critical ("Could not remove extension: %s\n", uuid);
+    }
+}
+
+void
+exm_manager_remove_extension (ExmManager   *self,
+                              ExmExtension *extension)
+{
+    gchar *uuid;
+    g_object_get (extension, "uuid", &uuid, NULL);
+
+    g_dbus_proxy_call (self->proxy,
+                       "RemoveExtension",
+                       g_variant_new ("(s)", uuid, NULL),
+                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
+                       (GAsyncReadyCallback) remove_extension_done,
+                       extension);
+}
+
+void
+exm_manager_open_prefs (ExmManager   *self,
+                        ExmExtension *extension)
+{
+    gchar *uuid;
+    g_object_get (extension, "uuid", &uuid, NULL);
+
+    GError *error = NULL;
+
+    g_dbus_proxy_call_sync (self->proxy,
+                            "LaunchExtensionPrefs",
+                            g_variant_new ("(s)", uuid, NULL),
+                            G_DBUS_CALL_FLAGS_NONE, -1, NULL,
+                            &error);
+
+    if (error != NULL)
+    {
+        g_critical ("Could not open extension preferences: %s\n", error->message);
+        return;
+    }
 }
 
 gboolean
