@@ -79,7 +79,7 @@ enable_extension_done (GDBusProxy   *proxy,
     {
         gchar *uuid;
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_critical ("Could not enable extension: %s\n", uuid);
+        g_critical ("Could not enable extension '%s': %s\n", uuid, error->message);
     }
 }
 
@@ -110,7 +110,7 @@ disable_extension_done (GDBusProxy   *proxy,
     {
         gchar *uuid;
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_critical ("Could not disable extension: %s\n", uuid);
+        g_critical ("Could not disable extension '%s': %s\n", uuid, error->message);
     }
 }
 
@@ -141,7 +141,7 @@ remove_extension_done (GDBusProxy   *proxy,
     {
         gchar *uuid;
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_critical ("Could not remove extension: %s\n", uuid);
+        g_critical ("Could not remove extension '%s': %s\n", uuid, error->message);
     }
 }
 
@@ -160,6 +160,22 @@ exm_manager_remove_extension (ExmManager   *self,
                        extension);
 }
 
+static void
+open_prefs_done (GDBusProxy   *proxy,
+                 GAsyncResult *res,
+                 ExmExtension *extension)
+{
+    GError *error = NULL;
+    g_dbus_proxy_call_finish (proxy, res, &error);
+
+    if (error)
+    {
+        gchar *uuid;
+        g_object_get (extension, "uuid", &uuid, NULL);
+        g_critical ("Could not open extension preferences: %s\n", error->message);
+    }
+}
+
 void
 exm_manager_open_prefs (ExmManager   *self,
                         ExmExtension *extension)
@@ -167,19 +183,12 @@ exm_manager_open_prefs (ExmManager   *self,
     gchar *uuid;
     g_object_get (extension, "uuid", &uuid, NULL);
 
-    GError *error = NULL;
-
-    g_dbus_proxy_call_sync (self->proxy,
-                            "LaunchExtensionPrefs",
-                            g_variant_new ("(s)", uuid, NULL),
-                            G_DBUS_CALL_FLAGS_NONE, -1, NULL,
-                            &error);
-
-    if (error != NULL)
-    {
-        g_critical ("Could not open extension preferences: %s\n", error->message);
-        return;
-    }
+    g_dbus_proxy_call (self->proxy,
+                       "LaunchExtensionPrefs",
+                       g_variant_new ("(s)", uuid, NULL),
+                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
+                       (GAsyncReadyCallback) open_prefs_done,
+                       extension);
 }
 
 gboolean
