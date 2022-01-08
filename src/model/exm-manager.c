@@ -296,7 +296,7 @@ parse_extension_list (GVariant *exlist)
 
     g_variant_get (exlist, "(a{sa{sv}})", &iter);
     while (g_variant_iter_loop(iter, "{sa{sv}}", &exname, &iter2)) {
-        g_print ("Extension Discovered: %s\n", exname);
+        // g_print ("Extension Discovered: %s\n", exname);
 
         ExmExtension *extension;
 
@@ -311,7 +311,7 @@ parse_extension_list (GVariant *exlist)
 
         while (g_variant_iter_loop(iter2, "{sv}", &prop_name, &prop_value))
         {
-            g_print (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
+            // g_print (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
 
             // Compare with DBus property names
             if (strcmp (prop_name, "uuid") == 0)
@@ -364,6 +364,35 @@ parse_extension_list (GVariant *exlist)
 }
 
 static void
+update_extension_list (ExmManager *self)
+{
+    GError *error = NULL;
+
+    GVariant* exlist = g_dbus_proxy_call_sync (self->proxy, "ListExtensions", NULL, G_DBUS_CALL_FLAGS_NONE, -1, NULL, &error);
+
+    if (error != NULL)
+    {
+        g_critical ("Could not list extensions: %s\n", error->message);
+        return;
+    }
+
+    self->model = parse_extension_list (exlist);
+
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_LIST_MODEL]);
+}
+
+static void
+on_signal (GDBusProxy *proxy,
+           gchar      *sender_name,
+           gchar      *signal_name,
+           GVariant   *parameters,
+           ExmManager *self)
+{
+    g_print ("Signal received: %s\n", signal_name);
+    update_extension_list (self);
+}
+
+static void
 exm_manager_init (ExmManager *self)
 {
     GError *error = NULL;
@@ -378,13 +407,7 @@ exm_manager_init (ExmManager *self)
         return;
     }
 
-    GVariant* exlist = g_dbus_proxy_call_sync (self->proxy, "ListExtensions", NULL, G_DBUS_CALL_FLAGS_NONE, -1, NULL, &error);
+    update_extension_list (self);
 
-    if (error != NULL)
-    {
-        g_critical ("Could not list extensions: %s\n", error->message);
-        return;
-    }
-
-    self->model = parse_extension_list (exlist);
+    g_signal_connect (self->proxy, "g-signal", G_CALLBACK (on_signal), self);
 }

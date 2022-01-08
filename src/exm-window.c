@@ -36,6 +36,8 @@ struct _ExmWindow
     ExmSearchProvider *search;
     ExmImageResolver *resolver;
 
+    GListModel *search_results_model;
+
     /* Template widgets */
     AdwHeaderBar        *header_bar;
     GtkListBox          *list_box;
@@ -332,18 +334,23 @@ search_widget_factory (ExmSearchResult *result,
 }
 
 static void
+refresh_search (ExmWindow *self)
+{
+    gtk_list_box_bind_model (self->search_results, self->search_results_model,
+                             (GtkListBoxCreateWidgetFunc) search_widget_factory,
+                             g_object_ref (self), g_object_unref);
+}
+
+static void
 on_search_result (GObject      *source,
                   GAsyncResult *res,
                   ExmWindow    *self)
 {
-    GListModel *model;
     GError *error = NULL;
 
-    model = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &error);
+    self->search_results_model = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &error);
 
-    gtk_list_box_bind_model (self->search_results, model,
-                             (GtkListBoxCreateWidgetFunc) search_widget_factory,
-                             g_object_ref (self), g_object_unref);
+    refresh_search (self);
 }
 
 static void
@@ -364,23 +371,34 @@ on_search_changed (GtkSearchEntry *search_entry,
 }
 
 static void
-exm_window_init (ExmWindow *self)
+update_extensions_list (ExmWindow *self)
 {
     GListModel *model;
 
-    gtk_widget_init_template (GTK_WIDGET (self));
-
-    self->resolver = exm_image_resolver_new ();
-
-    self->manager = exm_manager_new ();
     g_object_get (self->manager, "list-model", &model, NULL);
-
-    // TODO: Recreate/Update model whenever extensions are changed
     gtk_list_box_bind_model (self->list_box, model,
                              (GtkListBoxCreateWidgetFunc) widget_factory,
                              NULL, NULL);
 
+    refresh_search (self);
+}
+
+static void
+exm_window_init (ExmWindow *self)
+{
+    gtk_widget_init_template (GTK_WIDGET (self));
+
+    self->manager = exm_manager_new ();
+    self->resolver = exm_image_resolver_new ();
     self->search = exm_search_provider_new ();
+
+    g_signal_connect_swapped (self->manager,
+                              "notify::list-model",
+                              G_CALLBACK (update_extensions_list),
+                              self);
+
+    update_extensions_list (self);
+
     g_signal_connect (self->search_entry,
                       "search-changed",
                       G_CALLBACK (on_search_changed),
