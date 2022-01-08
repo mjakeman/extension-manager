@@ -296,6 +296,8 @@ parse_extension_list (GVariant *exlist)
         gchar *display_name = NULL;
         gchar *description = NULL;
         gboolean enabled = FALSE;
+        gboolean has_prefs = FALSE;
+        gboolean has_update = FALSE;
 
         while (g_variant_iter_loop(iter2, "{sv}", &prop_name, &prop_value))
         {
@@ -317,6 +319,14 @@ parse_extension_list (GVariant *exlist)
             {
                 g_variant_get (prop_value, "s", &description);
             }
+            else if (strcmp (prop_name, "hasPrefs") == 0)
+            {
+                g_variant_get (prop_value, "b", &has_prefs);
+            }
+            else if (strcmp (prop_name, "hasUpdate") == 0)
+            {
+                g_variant_get (prop_value, "b", &has_update);
+            }
             else if (strcmp (prop_name, "state") == 0)
             {
                 double state;
@@ -325,7 +335,7 @@ parse_extension_list (GVariant *exlist)
             }
         }
 
-        extension = exm_extension_new (uuid, display_name, description, enabled);
+        extension = exm_extension_new (uuid, display_name, description, enabled, has_prefs, has_update);
         g_list_store_append (G_LIST_STORE (store), extension);
 
         g_free (uuid);

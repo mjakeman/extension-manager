@@ -7,6 +7,8 @@ struct _ExmExtension
     gchar *display_name;
     gchar *description;
     gboolean enabled;
+    gboolean has_prefs;
+    gboolean has_update;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtension, exm_extension, G_TYPE_OBJECT)
@@ -17,6 +19,8 @@ enum {
     PROP_DISPLAY_NAME,
     PROP_ENABLED,
     PROP_DESCRIPTION,
+    PROP_HAS_PREFS,
+    PROP_HAS_UPDATE,
     N_PROPS
 };
 
@@ -26,13 +30,17 @@ ExmExtension *
 exm_extension_new (gchar    *uuid,
                    gchar    *display_name,
                    gchar    *description,
-                   gboolean  enabled)
+                   gboolean  enabled,
+                   gboolean  has_prefs,
+                   gboolean  has_update)
 {
     return g_object_new (EXM_TYPE_EXTENSION,
                          "uuid", uuid,
                          "display-name", display_name,
                          "description", description,
                          "enabled", enabled,
+                         "has-prefs", has_prefs,
+                         "has-update", has_update,
                          NULL);
 }
 
@@ -66,6 +74,12 @@ exm_extension_get_property (GObject    *object,
     case PROP_ENABLED:
         g_value_set_boolean (value, self->enabled);
         break;
+    case PROP_HAS_PREFS:
+        g_value_set_boolean (value, self->has_prefs);
+        break;
+    case PROP_HAS_UPDATE:
+        g_value_set_boolean (value, self->has_update);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -92,6 +106,12 @@ exm_extension_set_property (GObject      *object,
         break;
     case PROP_ENABLED:
         self->enabled = g_value_get_boolean (value);
+        break;
+    case PROP_HAS_PREFS:
+        self->has_prefs = g_value_get_boolean (value);
+        break;
+    case PROP_HAS_UPDATE:
+        self->has_update = g_value_get_boolean (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -132,6 +152,20 @@ exm_extension_class_init (ExmExtensionClass *klass)
         g_param_spec_boolean ("enabled",
                               "Enabled",
                               "Enabled",
+                              FALSE,
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
+
+    properties [PROP_HAS_PREFS] =
+        g_param_spec_boolean ("has-prefs",
+                              "Has Preferences",
+                              "Has Preferences",
+                              FALSE,
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
+
+    properties [PROP_HAS_UPDATE] =
+        g_param_spec_boolean ("has-update",
+                              "Has Update",
+                              "Has Update",
                               FALSE,
                               G_PARAM_READWRITE|G_PARAM_CONSTRUCT);
 
