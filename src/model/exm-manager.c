@@ -2,8 +2,6 @@
 
 #include "exm-extension.h"
 
-#include <gio/gio.h>
-
 struct _ExmManager
 {
     GObject parent_instance;
@@ -127,6 +125,73 @@ exm_manager_disable_extension (ExmManager *self, ExmExtension *extension)
                        G_DBUS_CALL_FLAGS_NONE, -1, NULL,
                        (GAsyncReadyCallback) disable_extension_done,
                        extension);
+}
+
+gboolean
+exm_manager_is_installed_uuid (ExmManager  *self,
+                               const gchar *uuid)
+{
+    int n_items = g_list_model_get_n_items (self->model);
+    for (int i = 0; i < n_items; i++)
+    {
+        ExmExtension *ext = g_list_model_get_item (self->model, i);
+
+        gchar *cmp_uuid;
+        g_object_get (ext, "uuid", &cmp_uuid, NULL);
+
+        if (strcmp (uuid, cmp_uuid) == 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void
+do_install_thread (GTask        *task,
+                   ExmManager   *self,
+                   const char   *uuid,
+                   GCancellable *cancellable)
+{
+    GError *error = NULL;
+
+    g_dbus_proxy_call_sync (self->proxy,
+                            "InstallRemoteExtension",
+                            g_variant_new ("(s)", uuid, NULL),
+                            G_DBUS_CALL_FLAGS_NONE,
+                            -1, cancellable, &error);
+
+    if (error != NULL)
+    {
+        g_task_return_error (task, error);
+        return;
+    }
+
+    g_task_return_boolean (task, TRUE);
+}
+
+void
+exm_manager_install_async (ExmManager          *self,
+                           const gchar         *uuid,
+                           GCancellable        *cancellable,
+                           GAsyncReadyCallback  callback,
+                           gpointer             user_data)
+{
+    GTask *task;
+
+    task = g_task_new (self, cancellable, callback, user_data);
+    g_task_set_task_data (task, g_strdup (uuid), (GDestroyNotify) g_free);
+    g_task_run_in_thread (task, (GTaskThreadFunc)do_install_thread);
+    g_object_unref (task);
+}
+
+gboolean
+exm_manager_install_finish (ExmManager    *self,
+                            GAsyncResult  *result,
+                            GError       **error)
+{
+    g_return_val_if_fail (g_task_is_valid (result, self), FALSE);
+
+    return g_task_propagate_boolean (G_TASK (result), error);
 }
 
 static void
