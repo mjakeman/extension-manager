@@ -3,11 +3,13 @@
 #include <glib-object.h>
 #include <gio/gio.h>
 
+#include "exm-request-handler.h"
+
 G_BEGIN_DECLS
 
 #define EXM_TYPE_SEARCH_PROVIDER (exm_search_provider_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM, SEARCH_PROVIDER, GObject)
+G_DECLARE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM, SEARCH_PROVIDER, ExmRequestHandler)
 
 ExmSearchProvider *exm_search_provider_new (void);
 

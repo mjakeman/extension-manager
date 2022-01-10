@@ -10,7 +10,8 @@ exm_sources = [
   # Web Interface
   'web/exm-search-provider.c',
   'web/exm-search-result.c',
-  'web/exm-image-resolver.c'
+  'web/exm-image-resolver.c',
+  'web/exm-request-handler.c'
 ]
 
 exm_deps = [
