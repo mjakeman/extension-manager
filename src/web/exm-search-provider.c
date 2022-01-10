@@ -1,8 +1,7 @@
 #include "exm-search-provider.h"
 
-#include "exm-search-result.h"
+#include "model/exm-search-result.h"
 
-#include <libsoup/soup.h>
 #include <json-glib/json-glib.h>
 
 struct _ExmSearchProvider

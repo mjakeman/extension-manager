@@ -19,12 +19,13 @@
 #include "exm-config.h"
 #include "exm-window.h"
 
-#include "model/exm-manager.h"
-#include "model/exm-extension.h"
+#include "local/exm-manager.h"
+#include "local/exm-extension.h"
 
 #include "web/exm-search-provider.h"
-#include "web/exm-search-result.h"
 #include "web/exm-image-resolver.h"
+
+#include "web/model/exm-search-result.h"
 
 #include <adwaita.h>
 #include <glib/gi18n.h>

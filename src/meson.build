@@ -4,14 +4,15 @@ exm_sources = [
   'exm-application.c',
 
   # Extension Management
-  'model/exm-manager.c',
-  'model/exm-extension.c',
+  'local/exm-manager.c',
+  'local/exm-extension.c',
 
   # Web Interface
   'web/exm-search-provider.c',
-  'web/exm-search-result.c',
   'web/exm-image-resolver.c',
-  'web/exm-request-handler.c'
+  'web/exm-request-handler.c',
+  'web/model/exm-search-result.c',
+  'web/model/exm-comment.c'
 ]
 
 exm_deps = [
