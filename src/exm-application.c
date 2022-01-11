@@ -19,6 +19,8 @@
 #include "exm-application.h"
 #include "exm-window.h"
 
+#include <glib/gi18n.h>
+
 struct _ExmApplication
 {
     AdwApplication parent_instance;
@@ -104,15 +106,15 @@ exm_application_show_about (GSimpleAction *action,
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
     gtk_show_about_dialog (window,
-                           "program-name", "Extension Manager",
+                           "program-name", _("Extension Manager"),
                            "authors", authors,
-                           "comments", "A very simple tool for browsing, downloading, and managing GNOME shell extensions.",
+                           "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
                            "version", "0.1.0",
                            "copyright", "Copyright © Matthew Jakeman 2021",
                            "license-type", GTK_LICENSE_GPL_3_0,
                            "logo-icon-name", "com.mattjakeman.ExtensionManager",
                            "website", "https://github.com/mjakeman/extension-manager",
-                           "website-label", "Project Homepage",
+                           "website-label", _("Project Homepage"),
                            NULL);
 }
 
