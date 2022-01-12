@@ -37,9 +37,33 @@ template ExmWindow : Gtk.ApplicationWindow {
 					Adw.Clamp {
 						styles ["clamp"]
 
-						Gtk.ListBox list_box {
-							styles ["boxed-list"]
-							valign: start;
+						Gtk.Box {
+							orientation: vertical;
+							spacing: 10;
+
+							Gtk.Label {
+								styles ["heading"]
+								xalign: 0;
+								margin-top: 20;
+								label: "User-Installed Extensions";
+							}
+
+							Gtk.ListBox user_list_box {
+								styles ["boxed-list"]
+								valign: start;
+							}
+
+							Gtk.Label {
+								styles ["heading"]
+								xalign: 0;
+								margin-top: 20;
+								label: "System Extensions";
+							}
+
+							Gtk.ListBox system_list_box {
+								styles ["boxed-list"]
+								valign: start;
+							}
 						}
 					}
 				};

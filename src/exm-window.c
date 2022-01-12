@@ -41,7 +41,8 @@ struct _ExmWindow
 
     /* Template widgets */
     AdwHeaderBar        *header_bar;
-    GtkListBox          *list_box;
+    GtkListBox          *user_list_box;
+    GtkListBox          *system_list_box;
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
 };
@@ -55,7 +56,8 @@ exm_window_class_init (ExmWindowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, user_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, system_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_results);
 }
@@ -372,16 +374,30 @@ on_search_changed (GtkSearchEntry *search_entry,
 }
 
 static void
-update_extensions_list (ExmWindow *self)
+update_extensions_list (ExmWindow   *self,
+                        GtkListBox  *list_box,
+                        const gchar *property_name)
 {
     GListModel *model;
 
-    g_object_get (self->manager, "list-model", &model, NULL);
-    gtk_list_box_bind_model (self->list_box, model,
+    g_object_get (self->manager, property_name, &model, NULL);
+    gtk_list_box_bind_model (list_box, model,
                              (GtkListBoxCreateWidgetFunc) widget_factory,
                              NULL, NULL);
 
     refresh_search (self);
+}
+
+static void
+update_user_extensions_list (ExmWindow *self)
+{
+    update_extensions_list (self, self->user_list_box, "user-extensions");
+}
+
+static void
+update_system_extensions_list (ExmWindow *self)
+{
+    update_extensions_list (self, self->system_list_box, "system-extensions");
 }
 
 static void
@@ -394,11 +410,17 @@ exm_window_init (ExmWindow *self)
     self->search = exm_search_provider_new ();
 
     g_signal_connect_swapped (self->manager,
-                              "notify::list-model",
-                              G_CALLBACK (update_extensions_list),
+                              "notify::user-extensions",
+                              G_CALLBACK (update_user_extensions_list),
                               self);
 
-    update_extensions_list (self);
+    g_signal_connect_swapped (self->manager,
+                              "notify::system-extensions",
+                              G_CALLBACK (update_system_extensions_list),
+                              self);
+
+    update_user_extensions_list (self);
+    update_system_extensions_list (self);
 
     g_signal_connect (self->search_entry,
                       "search-changed",
