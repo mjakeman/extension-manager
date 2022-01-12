@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 17:15+0100\n"
+"POT-Creation-Date: 2022-01-12 22:44+1300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in:3
@@ -51,48 +51,56 @@ msgstr ""
 msgid "Project Homepage"
 msgstr ""
 
-#: src/exm-window.blp:33 src/exm-window.c:330
+#: src/exm-window.blp:33 src/exm-window.c:332
 msgid "Installed"
 msgstr ""
 
-#: src/exm-window.blp:50
+#: src/exm-window.blp:48
+msgid "User-Installed Extensions"
+msgstr ""
+
+#: src/exm-window.blp:60
+msgid "System Extensions"
+msgstr ""
+
+#: src/exm-window.blp:74
 msgid "Browse"
 msgstr ""
 
-#: src/exm-window.blp:55
+#: src/exm-window.blp:79
 msgid "Search for extensions"
 msgstr ""
 
-#: src/exm-window.blp:56
+#: src/exm-window.blp:80
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
 
-#: src/exm-window.blp:65
+#: src/exm-window.blp:89
 msgid "e.g. \"Blur my Shell\""
 msgstr ""
 
-#: src/exm-window.blp:89
+#: src/exm-window.blp:113
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: src/exm-window.blp:93
+#: src/exm-window.blp:117
 msgid "About Extension Manager"
 msgstr ""
 
-#: src/exm-window.c:125
+#: src/exm-window.c:127
 msgid "Are you sure you want to uninstall?"
 msgstr ""
 
-#: src/exm-window.c:186
+#: src/exm-window.c:188
 msgid "Remove"
 msgstr ""
 
-#: src/exm-window.c:321
+#: src/exm-window.c:323
 msgid "Go to Page"
 msgstr ""
 
-#: src/exm-window.c:324
+#: src/exm-window.c:326
 msgid "Install"
 msgstr ""
 
