@@ -7,14 +7,16 @@ struct _ExmManager
     GObject parent_instance;
 
     GDBusProxy* proxy;
-    GListModel *model;
+    GListModel *user_ext_model;
+    GListModel *system_ext_model;
 };
 
 G_DEFINE_FINAL_TYPE (ExmManager, exm_manager, G_TYPE_OBJECT)
 
 enum {
     PROP_0,
-    PROP_LIST_MODEL,
+    PROP_USER_EXTENSIONS,
+    PROP_SYSTEM_EXTENSIONS,
     N_PROPS
 };
 
@@ -44,8 +46,11 @@ exm_manager_get_property (GObject    *object,
 
     switch (prop_id)
     {
-    case PROP_LIST_MODEL:
-        g_value_set_object (value, self->model);
+    case PROP_USER_EXTENSIONS:
+        g_value_set_object (value, self->user_ext_model);
+        break;
+    case PROP_SYSTEM_EXTENSIONS:
+        g_value_set_object (value, self->system_ext_model);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -191,14 +196,14 @@ exm_manager_open_prefs (ExmManager   *self,
                        extension);
 }
 
-gboolean
-exm_manager_is_installed_uuid (ExmManager  *self,
-                               const gchar *uuid)
+static gboolean
+list_model_contains (GListModel  *model,
+                     const gchar *uuid)
 {
-    int n_items = g_list_model_get_n_items (self->model);
+    int n_items = g_list_model_get_n_items (model);
     for (int i = 0; i < n_items; i++)
     {
-        ExmExtension *ext = g_list_model_get_item (self->model, i);
+        ExmExtension *ext = g_list_model_get_item (model, i);
 
         gchar *cmp_uuid;
         g_object_get (ext, "uuid", &cmp_uuid, NULL);
@@ -206,6 +211,19 @@ exm_manager_is_installed_uuid (ExmManager  *self,
         if (strcmp (uuid, cmp_uuid) == 0)
             return TRUE;
     }
+
+    return FALSE;
+}
+
+gboolean
+exm_manager_is_installed_uuid (ExmManager  *self,
+                               const gchar *uuid)
+{
+    if (list_model_contains (self->user_ext_model, uuid))
+        return TRUE;
+
+    if (list_model_contains (self->system_ext_model, uuid))
+        return TRUE;
 
     return FALSE;
 }
@@ -267,20 +285,30 @@ exm_manager_class_init (ExmManagerClass *klass)
     object_class->get_property = exm_manager_get_property;
     object_class->set_property = exm_manager_set_property;
 
-    properties [PROP_LIST_MODEL]
-        = g_param_spec_object ("list-model",
-                               "List Model",
-                               "List Model",
+    properties [PROP_USER_EXTENSIONS]
+        = g_param_spec_object ("user-extensions",
+                               "User Extensions List Model",
+                               "User Extensions List Model",
+                               G_TYPE_LIST_MODEL,
+                               G_PARAM_READABLE);
+
+    properties [PROP_SYSTEM_EXTENSIONS]
+        = g_param_spec_object ("system-extensions",
+                               "System Extensions List Model",
+                               "System Extensions List Model",
                                G_TYPE_LIST_MODEL,
                                G_PARAM_READABLE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
-static GListModel *
-parse_extension_list (GVariant *exlist)
+static void
+parse_extension_list (GVariant   *exlist,
+                      GListModel **user_ext_model,
+                      GListModel **system_ext_model)
 {
-    GListStore *store;
+    GListStore *user_ext_store;
+    GListStore *system_ext_store;
 
     /* format: a{sa{sv}}
      * array of interfaces, where each interface is an array of properties
@@ -292,7 +320,8 @@ parse_extension_list (GVariant *exlist)
     gchar *exname, *prop_name;
     GVariant *prop_value;
 
-    store = g_list_store_new (EXM_TYPE_EXTENSION);
+    user_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
+    system_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
 
     g_variant_get (exlist, "(a{sa{sv}})", &iter);
     while (g_variant_iter_loop(iter, "{sa{sv}}", &exname, &iter2)) {
@@ -352,7 +381,7 @@ parse_extension_list (GVariant *exlist)
         }
 
         extension = exm_extension_new (uuid, display_name, description, enabled, is_user, has_prefs, has_update);
-        g_list_store_append (G_LIST_STORE (store), extension);
+        g_list_store_append ((is_user ? user_ext_store : system_ext_store), extension);
 
         g_free (uuid);
         g_free (display_name);
@@ -360,7 +389,8 @@ parse_extension_list (GVariant *exlist)
     }
     g_variant_iter_free (iter);
 
-    return G_LIST_MODEL (store);
+    *user_ext_model = G_LIST_MODEL (user_ext_store);
+    *system_ext_model = G_LIST_MODEL (system_ext_store);
 }
 
 static void
@@ -376,9 +406,14 @@ update_extension_list (ExmManager *self)
         return;
     }
 
-    self->model = parse_extension_list (exlist);
+    // Unref object if exists
+    g_clear_object (&self->user_ext_model);
+    g_clear_object (&self->system_ext_model);
 
-    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_LIST_MODEL]);
+    parse_extension_list (exlist, &self->user_ext_model, &self->system_ext_model);
+
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_USER_EXTENSIONS]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_SYSTEM_EXTENSIONS]);
 }
 
 static void
