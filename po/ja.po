@@ -1,0 +1,126 @@
+# Japanese translations for extension-manager package.
+# Copyright (C) 2022 extension-manager'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# 小山田 純 <oyamadajun@outlook.jp>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-12 22:44+1300\n"
+"PO-Revision-Date: 2022-01-13 01:37+0900\n"
+"Last-Translator: 小山田 純 <oyamadajun@outlook.jp>\n"
+"Language-Team: none\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Extension Manager"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:10
+msgid ""
+"An extension manager for browsing and installing GNOME Shell Extensions."
+msgstr ""
+"GNOME Shell 拡張機能 を探し、インストールできる、拡張機能マネジャーです。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "GNOME Shell 拡張機能 を管理するユーティリティ"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:18
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "アプリ内で extensions.gnome.org を探索"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:22
+msgid "Manage the extensions you already have installed"
+msgstr "今までにインストールした拡張機能も管理"
+
+#: src/exm-application.c:111
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"GNOME Shell 拡張機能 を探したり、インストールしたり、管理ができたりする、シ"
+"ンプルなツールです。"
+
+#: src/exm-application.c:117
+msgid "Project Homepage"
+msgstr "プロジェクトのGitHub"
+
+#: src/exm-window.blp:33 src/exm-window.c:332
+msgid "Installed"
+msgstr "インストール済み"
+
+#: src/exm-window.blp:48
+msgid "User-Installed Extensions"
+msgstr "手動でインストール"
+
+#: src/exm-window.blp:60
+msgid "System Extensions"
+msgstr "プリインストール"
+
+#: src/exm-window.blp:74
+msgid "Browse"
+msgstr "探す"
+
+#: src/exm-window.blp:79
+msgid "Search for extensions"
+msgstr "拡張機能を検索"
+
+#: src/exm-window.blp:80
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"キーワードを入力すると、'extensions.gnome.org' にある GNOME Shell 拡張機能を"
+"検索できます。"
+
+#: src/exm-window.blp:89
+msgid "e.g. \"Blur my Shell\""
+msgstr "例 \"Blur my Shell\""
+
+#: src/exm-window.blp:113
+msgid "Keyboard Shortcuts"
+msgstr "キーボードショートカット"
+
+#: src/exm-window.blp:117
+msgid "About Extension Manager"
+msgstr "Extension Manager について"
+
+#: src/exm-window.c:127
+msgid "Are you sure you want to uninstall?"
+msgstr "この拡張機能をアンインストールしますか？"
+
+#: src/exm-window.c:188
+msgid "Remove"
+msgstr "削除"
+
+#: src/exm-window.c:323
+msgid "Go to Page"
+msgstr "ブラウザで開く"
+
+#: src/exm-window.c:326
+msgid "Install"
+msgstr "インストール"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "一般"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "ショートカット一覧を見る"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "終了"
