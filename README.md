@@ -18,6 +18,16 @@ Things that are not yet supported:
 
 If there's something you'd like to see, contributions are welcome!
 
+## Installing
+Flatpak is the recommended way to install Extension Manager. 
+
+You can get the latest version from flathub by clicking the button below. There
+may also be independently-maintained packages available for your distribution.
+
+<a href="https://flathub.org/apps/details/com.mattjakeman.ExtensionManager">
+<img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
+</a>
+
 ## Building
 The easiest way to build is by cloning this repo with GNOME Builder. It
 will automatically resolve all relevant flatpak SDKs automatically.
