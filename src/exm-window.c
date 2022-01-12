@@ -379,9 +379,18 @@ update_extensions_list (ExmWindow   *self,
                         const gchar *property_name)
 {
     GListModel *model;
+    GtkExpression *expression;
+    GtkStringSorter *sorter;
+    GtkSortListModel *sorted_model;
 
     g_object_get (self->manager, property_name, &model, NULL);
-    gtk_list_box_bind_model (list_box, model,
+
+    // Sort alphabetically
+    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
+    sorter = gtk_string_sorter_new (expression);
+    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (sorter));
+
+    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
                              (GtkListBoxCreateWidgetFunc) widget_factory,
                              NULL, NULL);
 
