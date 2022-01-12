@@ -27,6 +27,7 @@
 #include "web/exm-image-resolver.h"
 
 #include <adwaita.h>
+#include <glib/gi18n.h>
 
 struct _ExmWindow
 {
@@ -121,7 +122,7 @@ extension_remove (GtkButton    *button,
                                   GTK_DIALOG_MODAL,
                                   GTK_MESSAGE_QUESTION,
                                   GTK_BUTTONS_YES_NO,
-                                  "Are you sure you want to uninstall?");
+                                  _("Are you sure you want to uninstall?"));
 
     RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
     data->manager = g_object_ref (self->manager);
@@ -182,7 +183,7 @@ widget_factory (ExmExtension* extension)
 
     if (is_user)
     {
-        remove = gtk_button_new_with_label ("Remove");
+        remove = gtk_button_new_with_label (_("Remove"));
         gtk_widget_add_css_class (remove, "destructive-action");
         gtk_widget_set_valign (remove, GTK_ALIGN_CENTER);
         gtk_widget_set_halign (remove, GTK_ALIGN_END);
@@ -317,16 +318,16 @@ search_widget_factory (ExmSearchResult *result,
     gtk_widget_set_halign (button_box, GTK_ALIGN_END);
     gtk_box_append (GTK_BOX (box), button_box);
 
-    link_btn = gtk_link_button_new_with_label (uri, "Go to Page");
+    link_btn = gtk_link_button_new_with_label (uri, _("Go to Page"));
     gtk_box_append (GTK_BOX (button_box), link_btn);
 
-    install_btn = gtk_button_new_with_label ("Install");
+    install_btn = gtk_button_new_with_label (_("Install"));
     g_signal_connect (install_btn, "clicked", G_CALLBACK (install_remote), uuid);
     gtk_box_append (GTK_BOX (button_box), install_btn);
 
     if (exm_manager_is_installed_uuid (self->manager, uuid))
     {
-        gtk_button_set_label (GTK_BUTTON (install_btn), "Installed");
+        gtk_button_set_label (GTK_BUTTON (install_btn), _("Installed"));
         gtk_widget_set_sensitive (install_btn, FALSE);
     }
 

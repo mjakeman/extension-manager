@@ -30,7 +30,7 @@ template ExmWindow : Gtk.ApplicationWindow {
 
 			Adw.ViewStackPage {
 				name: "installed";
-				title: "Installed";
+				title: _("Installed");
 				icon-name: "puzzle-piece-symbolic";
 
 				child: Gtk.ScrolledWindow {
@@ -47,13 +47,13 @@ template ExmWindow : Gtk.ApplicationWindow {
 
 			Adw.ViewStackPage {
 				name: "browse";
-				title: "Browse";
+				title: _("Browse");
 				icon-name: "globe-symbolic";
 
 				child: Gtk.ScrolledWindow {
 					Adw.StatusPage {
-						title: "Search for extensions";
-						description: "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions.";
+						title: _("Search for extensions");
+						description: _("Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions.");
 
 						child: Adw.Clamp {
 							styles ["clamp"]
@@ -62,7 +62,7 @@ template ExmWindow : Gtk.ApplicationWindow {
 								orientation: vertical;
 
 								Gtk.SearchEntry search_entry {
-									placeholder-text: "e.g. \"Blur my Shell\"";
+									placeholder-text: _("e.g. \"Blur my Shell\"");
 								}
 
 								Gtk.ListBox search_results {

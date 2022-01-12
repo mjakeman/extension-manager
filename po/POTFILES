@@ -1,7 +1,8 @@
 data/com.mattjakeman.ExtensionManager.desktop.in
 data/com.mattjakeman.ExtensionManager.appdata.xml.in
 data/com.mattjakeman.ExtensionManager.gschema.xml
-src/exm-window.ui
+src/exm-application.c
+src/exm-window.blp
 src/main.c
 src/exm-window.c
-
+src/gtk/help-overlay.blp
