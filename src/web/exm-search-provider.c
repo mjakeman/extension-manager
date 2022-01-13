@@ -1,26 +1,15 @@
 #include "exm-search-provider.h"
 
-#include "exm-search-result.h"
+#include "model/exm-search-result.h"
 
-#include <libsoup/soup.h>
 #include <json-glib/json-glib.h>
 
 struct _ExmSearchProvider
 {
-    GObject parent_instance;
-
-    SoupSession *session;
-    GMutex mutex;
+    ExmRequestHandler parent_instance;
 };
 
-G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, G_TYPE_OBJECT)
-
-enum {
-    PROP_0,
-    N_PROPS
-};
-
-static GParamSpec *properties [N_PROPS];
+G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM_TYPE_REQUEST_HANDLER)
 
 ExmSearchProvider *
 exm_search_provider_new (void)
@@ -32,9 +21,6 @@ static void
 exm_search_provider_finalize (GObject *object)
 {
     ExmSearchProvider *self = (ExmSearchProvider *)object;
-
-    g_object_unref (self->session);
-    g_mutex_clear (&self->mutex);
 
     G_OBJECT_CLASS (exm_search_provider_parent_class)->finalize (object);
 }
@@ -90,42 +76,6 @@ parse_search_results (GBytes  *bytes,
     return NULL;
 }
 
-static void
-search_results_callback (GObject      *source,
-                         GAsyncResult *res,
-                         GTask        *task)
-{
-    GBytes *bytes;
-    GListModel *model;
-
-    GError *error = NULL;
-
-    bytes = soup_session_send_and_read_finish (SOUP_SESSION (source), res, &error);
-
-    if (error)
-    {
-        g_task_return_error (task, error);
-    }
-    else
-    {
-        // Parse Search Results
-        model = parse_search_results (bytes, &error);
-
-        if (model == NULL)
-        {
-            g_task_return_error (task, error);
-        }
-        else
-        {
-            g_task_return_pointer (task, model, g_object_unref);
-        }
-
-        g_bytes_unref (bytes);
-    }
-
-    g_object_unref (task);
-}
-
 void
 exm_search_provider_query_async (ExmSearchProvider   *self,
                                  const gchar         *query,
@@ -133,33 +83,16 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
                                  GAsyncReadyCallback  callback,
                                  gpointer             user_data)
 {
-    GTask *task;
-    const gchar *url;
-    SoupMessage *msg;
-
-    task = g_task_new (self, cancellable, callback, user_data);
-
     // Query https://extensions.gnome.org/extension-query/?search={%s}
 
+    gchar *url;
     url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s", query);
-    msg = soup_message_new (SOUP_METHOD_GET, url);
 
-    if (!msg)
-    {
-        g_task_return_new_error (task, g_quark_from_string ("exm-search-provider"), -1,
-                                 "Could not construct message for uri: %s", url);
-        return;
-    }
-
-    g_mutex_lock (&self->mutex);
-    soup_session_send_and_read_async (self->session, msg,
-                                      G_PRIORITY_DEFAULT,
-                                      cancellable,
-                                      (GAsyncReadyCallback) search_results_callback,
-                                      task);
-
-    g_mutex_unlock (&self->mutex);
-    g_object_unref (msg);
+    exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
+                                       url,
+                                       cancellable,
+                                       callback,
+                                       user_data);
 }
 
 GListModel *
@@ -167,9 +100,13 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
                                   GAsyncResult       *result,
                                   GError            **error)
 {
-    g_return_val_if_fail (g_task_is_valid (result, self), NULL);
+    gpointer ret;
 
-    return g_task_propagate_pointer (G_TASK (result), error);
+    ret = exm_request_handler_request_finish (EXM_REQUEST_HANDLER (self),
+                                              result,
+                                              error);
+
+    return G_LIST_MODEL (ret);
 }
 
 static void
@@ -178,11 +115,13 @@ exm_search_provider_class_init (ExmSearchProviderClass *klass)
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
     object_class->finalize = exm_search_provider_finalize;
+
+    ExmRequestHandlerClass *request_handler_class = EXM_REQUEST_HANDLER_CLASS (klass);
+
+    request_handler_class->handle_response = (ResponseHandler) parse_search_results;
 }
 
 static void
 exm_search_provider_init (ExmSearchProvider *self)
 {
-    self->session = soup_session_new ();
-    g_mutex_init (&self->mutex);
 }
