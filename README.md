@@ -11,10 +11,12 @@ The tool supports:
  - Installation
  - Enabling and Disabling
  - Uninstall
+ - Translations ([help wanted!](https://github.com/mjakeman/extension-manager/issues/27))
  
 Things that are not yet supported:
  - Updating extensions in-app
- - Translations (help wanted)
+ - Screenshots &amp; Images
+ - Ratings &amp; Comments
 
 If there's something you'd like to see, contributions are welcome!
 
