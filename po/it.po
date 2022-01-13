@@ -1,0 +1,125 @@
+# Italian translation for extension-manager.
+# Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# musiclover <musiclover382@protonmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-12 22:44+1300\n"
+"PO-Revision-Date: 2022-01-12 15:30+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Gestore di estensioni"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:10
+msgid ""
+"An extension manager for browsing and installing GNOME Shell Extensions."
+msgstr ""
+"Un gestore di estensioni che permette di cercare e installare estensioni "
+"per GNOME."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Uno strumento per gestire le estensioni di GNOME"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:18
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Sfoglia extensions.gnome.org direttamente nell'applicazione"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:22
+msgid "Manage the extensions you already have installed"
+msgstr "Gestisci le estensioni già installate"
+
+#: src/exm-application.c:111
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"Uno strumento molto semplice per cercare, scaricare e gestire le estensioni "
+"di GNOME."
+
+#: src/exm-application.c:117
+msgid "Project Homepage"
+msgstr "Sito web"
+
+#: src/exm-window.blp:33 src/exm-window.c:332
+msgid "Installed"
+msgstr "Installate"
+
+#: src/exm-window.blp:48
+msgid "User-Installed Extensions"
+msgstr "Estensioni installate dall'utente"
+
+#: src/exm-window.blp:60
+msgid "System Extensions"
+msgstr "Estensioni integrate"
+
+#: src/exm-window.blp:74
+msgid "Browse"
+msgstr "Sfoglia"
+
+#: src/exm-window.blp:79
+msgid "Search for extensions"
+msgstr "Cerca estensioni"
+
+#: src/exm-window.blp:80
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr "Inserire un termine per cercare estensioni su 'extensions.gnome.org'."
+
+#: src/exm-window.blp:89
+msgid "e.g. \"Blur my Shell\""
+msgstr "es. \"Blur my Shell\""
+
+#: src/exm-window.blp:113
+msgid "Keyboard Shortcuts"
+msgstr "Scorciatoie da tastiera"
+
+#: src/exm-window.blp:117
+msgid "About Extension Manager"
+msgstr "Informazioni su Gestore di estensioni"
+
+#: src/exm-window.c:127
+msgid "Are you sure you want to uninstall?"
+msgstr "Disinstallare l'estensione?"
+
+#: src/exm-window.c:188
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: src/exm-window.c:323
+msgid "Go to Page"
+msgstr "Vai alla pagina"
+
+#: src/exm-window.c:326
+msgid "Install"
+msgstr "Installa"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Generale"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostra scorciatoie"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Esci"
