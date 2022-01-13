@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Rafał Baran <>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-12 22:44+1300\n"
+"PO-Revision-Date: 2022-01-12 20:48+0100\n"
+"Last-Translator: Rafał Baran <>\n"
+"Language-Team: Polish <>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 40.0\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Menedżer rozszerzeń"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:10
+msgid ""
+"An extension manager for browsing and installing GNOME Shell Extensions."
+msgstr ""
+"Menedżer rozszerzeń do przeglądania i instalowania rozszerzeń powłoki GNOME."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:18
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Przeglądaj extensions.gnome.org bezpośrednio w aplikacji"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:22
+msgid "Manage the extensions you already have installed"
+msgstr "Zarządzaj już zainstalowanymi rozszerzeniami"
+
+#: src/exm-application.c:111
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"Bardzo proste narzędzie do przeglądania, instalowania i zarządzania "
+"rozszerzeniami powłoki GNOME."
+
+#: src/exm-application.c:117
+msgid "Project Homepage"
+msgstr "Strona Główna projektu"
+
+#: src/exm-window.blp:33 src/exm-window.c:332
+msgid "Installed"
+msgstr "Zainstalowane"
+
+#: src/exm-window.blp:48
+msgid "User-Installed Extensions"
+msgstr "Ręcznie zainstalowane"
+
+#: src/exm-window.blp:60
+msgid "System Extensions"
+msgstr "Systemowe rozszerzenia"
+
+#: src/exm-window.blp:74
+msgid "Browse"
+msgstr "Przeglądaj"
+
+#: src/exm-window.blp:79
+msgid "Search for extensions"
+msgstr "Szukaj rozszerzeń"
+
+#: src/exm-window.blp:80
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr "Wpisz słowo kluczowe, aby wyszukać rozszerzenia w extensions.gnome.org"
+
+#: src/exm-window.blp:89
+msgid "e.g. \"Blur my Shell\""
+msgstr "np. \"Blur my Shell\""
+
+#: src/exm-window.blp:113
+msgid "Keyboard Shortcuts"
+msgstr "Skróty klawiszowe"
+
+#: src/exm-window.blp:117
+msgid "About Extension Manager"
+msgstr "O programie"
+
+#: src/exm-window.c:127
+msgid "Are you sure you want to uninstall?"
+msgstr "Czy na pewno chcesz odinstalować?"
+
+#: src/exm-window.c:188
+msgid "Remove"
+msgstr "Usuń"
+
+#: src/exm-window.c:323
+msgid "Go to Page"
+msgstr "Otwórz stronę"
+
+#: src/exm-window.c:326
+msgid "Install"
+msgstr "Zainstaluj"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Ogólne"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Pokaż skróty"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Wyjdź"
