@@ -78,6 +78,7 @@ template ExmWindow : Gtk.ApplicationWindow {
 					Adw.StatusPage {
 						title: _("Search for extensions");
 						description: _("Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions.");
+						valign: start;
 
 						child: Adw.Clamp {
 							styles ["clamp"]
@@ -87,6 +88,9 @@ template ExmWindow : Gtk.ApplicationWindow {
 
 								Gtk.SearchEntry search_entry {
 									placeholder-text: _("e.g. \"Blur my Shell\"");
+
+									// Hook for triggering initial search
+									realize => on_search_entry_realize();
 								}
 
 								Gtk.ListBox search_results {

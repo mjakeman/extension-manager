@@ -50,19 +50,6 @@ struct _ExmWindow
 
 G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
 
-static void
-exm_window_class_init (ExmWindowClass *klass)
-{
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, user_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, system_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_results);
-}
-
 static gboolean
 extension_state_set (GtkSwitch    *toggle,
                      gboolean      state,
@@ -411,6 +398,32 @@ update_system_extensions_list (ExmWindow *self)
 }
 
 static void
+on_search_entry_realize (GtkSearchEntry *search_entry)
+{
+    ExmWindow *self;
+
+    self = EXM_WINDOW (gtk_widget_get_root (GTK_WIDGET (search_entry)));
+
+    // Fire off a default search
+    search (self, "");
+}
+
+static void
+exm_window_class_init (ExmWindowClass *klass)
+{
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+
+    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, user_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, system_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_results);
+
+    gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
+}
+
+static void
 exm_window_init (ExmWindow *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
@@ -436,7 +449,4 @@ exm_window_init (ExmWindow *self)
                       "search-changed",
                       G_CALLBACK (on_search_changed),
                       self);
-
-    // Fire off a default search
-    search (self, "");
 }
