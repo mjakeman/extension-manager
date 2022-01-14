@@ -119,9 +119,38 @@ exm_application_show_about (GSimpleAction *action,
 }
 
 
+static gboolean
+map_setting_to_adw_style (GValue   *value,
+                          GVariant *variant)
+{
+    char *str;
+
+    g_variant_get (variant, "s", &str);
+
+    if (strcmp (str, "use-default") == 0)
+    {
+        g_value_set_enum (value, ADW_COLOR_SCHEME_DEFAULT);
+        return TRUE;
+    }
+    else if (strcmp (str, "force-light") == 0)
+    {
+        g_value_set_enum (value, ADW_COLOR_SCHEME_FORCE_LIGHT);
+        return TRUE;
+    }
+    else if (strcmp (str, "force-dark") == 0)
+    {
+        g_value_set_enum (value, ADW_COLOR_SCHEME_FORCE_DARK);
+        return TRUE;
+    }
+
+    return FALSE; // error
+}
+
 static void
 exm_application_init (ExmApplication *self)
 {
+    GSettings *settings = g_settings_new ("com.mattjakeman.ExtensionManager");
+
     GSimpleAction *quit_action = g_simple_action_new ("quit", NULL);
     g_signal_connect_swapped (quit_action, "activate", G_CALLBACK (g_application_quit), self);
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (quit_action));
@@ -129,6 +158,16 @@ exm_application_init (ExmApplication *self)
     GSimpleAction *about_action = g_simple_action_new ("about", NULL);
     g_signal_connect (about_action, "activate", G_CALLBACK (exm_application_show_about), self);
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (about_action));
+
+    GAction *style_variant_action = g_settings_create_action (settings, "style-variant");
+    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (style_variant_action));
+
+    AdwStyleManager *style_manager = adw_style_manager_get_default ();
+    g_settings_bind_with_mapping (settings, "style-variant",
+                                  style_manager, "color-scheme",
+                                  G_SETTINGS_BIND_GET,
+                                  map_setting_to_adw_style,
+                                  NULL, NULL, NULL);
 
     const char *accels[] = {"<primary>q", NULL};
     gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.quit", accels);
