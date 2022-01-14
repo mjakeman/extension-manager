@@ -46,6 +46,7 @@ struct _ExmWindow
     GtkListBox          *system_list_box;
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
+    GtkStack            *search_stack;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -330,6 +331,9 @@ refresh_search (ExmWindow *self)
     gtk_list_box_bind_model (self->search_results, self->search_results_model,
                              (GtkListBoxCreateWidgetFunc) search_widget_factory,
                              g_object_ref (self), g_object_unref);
+
+    // Show Loading Indicator
+    gtk_stack_set_visible_child_name (self->search_stack, "page_results");
 }
 
 static void
@@ -347,7 +351,9 @@ on_search_result (GObject      *source,
 static void
 search (ExmWindow *self, const gchar *query)
 {
-    // TODO: Loading Indicator
+    // Show Loading Indicator
+    gtk_stack_set_visible_child_name (self->search_stack, "page_spinner");
+
     exm_search_provider_query_async (self->search, query, NULL,
                                      (GAsyncReadyCallback) on_search_result,
                                      self);
@@ -419,6 +425,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, system_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_results);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_stack);
 
     gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
 }
