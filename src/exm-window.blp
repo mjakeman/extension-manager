@@ -109,6 +109,24 @@ template ExmWindow : Gtk.ApplicationWindow {
 
 menu primary_menu {
   section {
+    submenu {
+      label: _("Theme");
+      item {
+        label: _("Follow System");
+        action: "app.style-variant";
+        target: "use-default";
+      }
+      item {
+        label: _("Light");
+        action: "app.style-variant";
+        target: "force-light";
+      }
+      item {
+        label: _("Dark");
+        action: "app.style-variant";
+        target: "force-dark";
+      }
+    }
     item {
       label: _("Keyboard Shortcuts");
       action: "win.show-help-overlay";
