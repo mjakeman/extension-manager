@@ -93,9 +93,23 @@ template ExmWindow : Gtk.ApplicationWindow {
 									realize => on_search_entry_realize();
 								}
 
-								Gtk.ListBox search_results {
-									styles ["boxed-list"]
-									valign: start;
+								Gtk.Stack search_stack {
+									Gtk.StackPage {
+										name: "page_spinner";
+										child: Gtk.Spinner {
+											valign: start;
+											halign: center;
+											spinning: true;
+										};
+									}
+
+									Gtk.StackPage {
+										name: "page_results";
+										child: Gtk.ListBox search_results {
+											styles ["boxed-list"]
+											valign: start;
+										};
+									}
 								}
 							}
 						};
