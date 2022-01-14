@@ -47,6 +47,7 @@ struct _ExmWindow
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
     GtkStack            *search_stack;
+    GtkSwitch           *global_toggle;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -444,6 +445,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_results);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, global_toggle);
 
     gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
 }
@@ -477,6 +479,12 @@ exm_window_init (ExmWindow *self)
                               "items-changed",
                               G_CALLBACK (refresh_search),
                               self);
+
+    g_object_bind_property (self->manager,
+                            "extensions-enabled",
+                            self->global_toggle,
+                            "state",
+                            G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
 
     g_signal_connect (self->search_entry,
                       "search-changed",
