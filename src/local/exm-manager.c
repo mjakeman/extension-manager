@@ -10,6 +10,9 @@ struct _ExmManager
     ShellExtensions *proxy;
     GListModel *user_ext_model;
     GListModel *system_ext_model;
+
+    const gchar *shell_version;
+    gboolean extensions_enabled;
 };
 
 G_DEFINE_FINAL_TYPE (ExmManager, exm_manager, G_TYPE_OBJECT)
@@ -18,6 +21,8 @@ enum {
     PROP_0,
     PROP_USER_EXTENSIONS,
     PROP_SYSTEM_EXTENSIONS,
+    PROP_EXTENSIONS_ENABLED,
+    PROP_SHELL_VERSION,
     N_PROPS
 };
 
@@ -53,6 +58,12 @@ exm_manager_get_property (GObject    *object,
     case PROP_SYSTEM_EXTENSIONS:
         g_value_set_object (value, self->system_ext_model);
         break;
+    case PROP_SHELL_VERSION:
+        g_value_set_string (value, self->shell_version);
+        break;
+    case PROP_EXTENSIONS_ENABLED:
+        g_value_set_boolean (value, self->extensions_enabled);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -67,10 +78,16 @@ exm_manager_set_property (GObject      *object,
     ExmManager *self = EXM_MANAGER (object);
 
     switch (prop_id)
-      {
-      default:
+    {
+    case PROP_SHELL_VERSION:
+        self->shell_version = g_value_dup_string (value);
+        break;
+    case PROP_EXTENSIONS_ENABLED:
+        self->extensions_enabled = g_value_get_boolean (value);
+        break;
+    default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    }
 }
 
 static void
@@ -308,6 +325,20 @@ exm_manager_class_init (ExmManagerClass *klass)
                                G_TYPE_LIST_MODEL,
                                G_PARAM_READABLE);
 
+    properties [PROP_SHELL_VERSION]
+        = g_param_spec_string ("shell-version",
+                               "Shell Version",
+                               "Shell Version",
+                               NULL,
+                               G_PARAM_READWRITE);
+
+    properties [PROP_EXTENSIONS_ENABLED]
+        = g_param_spec_boolean ("extensions-enabled",
+                                "Extensions Enabled",
+                                "Extensions Enabled",
+                                FALSE,
+                                G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
@@ -467,6 +498,14 @@ exm_manager_init (ExmManager *self)
         g_critical ("Could not create proxy: %s\n", error->message);
         return;
     }
+
+    g_object_bind_property (self->proxy, "shell-version",
+                            self, "shell-version",
+                            G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->proxy, "user-extensions-enabled",
+                            self, "extensions-enabled",
+                            G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
 
     update_extension_list (self);
 
