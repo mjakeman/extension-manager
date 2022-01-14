@@ -427,14 +427,28 @@ update_extension_list (ExmManager *self)
 }
 
 static void
-on_signal (GDBusProxy *proxy,
-           gchar      *sender_name,
-           gchar      *signal_name,
-           GVariant   *parameters,
-           ExmManager *self)
+on_state_changed (ShellExtensions *object,
+                  const gchar     *arg_uuid,
+                  GVariant        *arg_state,
+                  ExmManager      *self)
 {
-    g_print ("Signal received: %s\n", signal_name);
+    g_print ("State Changed for extension '%s'\n", arg_uuid);
     update_extension_list (self);
+
+    // TODO: Granular updates -> we can only update one extension in
+    // the list model rather than regenerating the whole thing
+}
+
+static void
+on_status_changed (ShellExtensions *object,
+                   const gchar     *arg_uuid,
+                   gint             arg_state,
+                   const gchar     *arg_error,
+                   ExmManager      *self)
+{
+    g_print ("Status Changed (Unhandled) for extension '%s'\n", arg_uuid);
+
+    // TODO: What's this for?
 }
 
 static void
@@ -456,5 +470,6 @@ exm_manager_init (ExmManager *self)
 
     update_extension_list (self);
 
-    g_signal_connect (self->proxy, "g-signal", G_CALLBACK (on_signal), self);
+    g_signal_connect (self->proxy, "extension-state-changed", G_CALLBACK (on_state_changed), self);
+    g_signal_connect (self->proxy, "extension-status-changed", G_CALLBACK (on_status_changed), self);
 }
