@@ -1,6 +1,7 @@
 #include "exm-manager.h"
 
 #include "exm-extension.h"
+#include "shell-dbus-interface.h"
 
 struct _ExmManager
 {

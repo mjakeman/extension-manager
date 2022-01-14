@@ -1,37 +1,5 @@
 <!-- GDBus 2.70.2 -->
 <node>
-  <interface name="org.freedesktop.DBus.Properties">
-    <method name="Get">
-      <arg type="s" name="interface_name" direction="in"/>
-      <arg type="s" name="property_name" direction="in"/>
-      <arg type="v" name="value" direction="out"/>
-    </method>
-    <method name="GetAll">
-      <arg type="s" name="interface_name" direction="in"/>
-      <arg type="a{sv}" name="properties" direction="out"/>
-    </method>
-    <method name="Set">
-      <arg type="s" name="interface_name" direction="in"/>
-      <arg type="s" name="property_name" direction="in"/>
-      <arg type="v" name="value" direction="in"/>
-    </method>
-    <signal name="PropertiesChanged">
-      <arg type="s" name="interface_name"/>
-      <arg type="a{sv}" name="changed_properties"/>
-      <arg type="as" name="invalidated_properties"/>
-    </signal>
-  </interface>
-  <interface name="org.freedesktop.DBus.Introspectable">
-    <method name="Introspect">
-      <arg type="s" name="xml_data" direction="out"/>
-    </method>
-  </interface>
-  <interface name="org.freedesktop.DBus.Peer">
-    <method name="Ping"/>
-    <method name="GetMachineId">
-      <arg type="s" name="machine_uuid" direction="out"/>
-    </method>
-  </interface>
   <interface name="org.gnome.Shell.Extensions">
     <method name="ListExtensions">
       <arg type="a{sa{sv}}" name="extensions" direction="out">
