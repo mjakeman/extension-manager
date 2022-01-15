@@ -415,6 +415,24 @@ on_search_entry_realize (GtkSearchEntry *search_entry)
 }
 
 static void
+bind_list_box (GtkListBox *list_box,
+               GListModel *model)
+{
+    GtkExpression *expression;
+    GtkStringSorter *sorter;
+    GtkSortListModel *sorted_model;
+
+    // Sort alphabetically
+    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
+    sorter = gtk_string_sorter_new (expression);
+    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (sorter));
+
+    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
+                             (GtkListBoxCreateWidgetFunc) widget_factory,
+                             NULL, NULL);
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -433,24 +451,32 @@ exm_window_class_init (ExmWindowClass *klass)
 static void
 exm_window_init (ExmWindow *self)
 {
+    GListModel *user_ext_model;
+    GListModel *system_ext_model;
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->manager = exm_manager_new ();
     self->resolver = exm_image_resolver_new ();
     self->search = exm_search_provider_new ();
 
-    g_signal_connect_swapped (self->manager,
-                              "notify::user-extensions",
-                              G_CALLBACK (update_user_extensions_list),
+    g_object_get (self->manager,
+                  "user-extensions", &user_ext_model,
+                  "system-extensions", &system_ext_model,
+                  NULL);
+
+    bind_list_box (self->user_list_box, user_ext_model);
+    bind_list_box (self->system_list_box, system_ext_model);
+
+    g_signal_connect_swapped (user_ext_model,
+                              "items-changed",
+                              G_CALLBACK (refresh_search),
                               self);
 
-    g_signal_connect_swapped (self->manager,
-                              "notify::system-extensions",
-                              G_CALLBACK (update_system_extensions_list),
+    g_signal_connect_swapped (system_ext_model,
+                              "items-changed",
+                              G_CALLBACK (refresh_search),
                               self);
-
-    update_user_extensions_list (self);
-    update_system_extensions_list (self);
 
     g_signal_connect (self->search_entry,
                       "search-changed",
