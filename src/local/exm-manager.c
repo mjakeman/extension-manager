@@ -343,6 +343,82 @@ exm_manager_class_init (ExmManagerClass *klass)
 }
 
 static void
+parse_single_extension (const gchar   *extension_uuid,
+                        GVariantIter  *variant_iter,
+                        ExmExtension **extension,
+                        gboolean      *is_user,
+                        gboolean      *is_uninstall_operation)
+{
+    gchar *prop_name;
+    GVariant *prop_value;
+
+    // Well-Defined Properties
+    gchar *uuid = NULL;
+    gchar *display_name = NULL;
+    gchar *description = NULL;
+    gboolean enabled = FALSE;
+    gboolean has_prefs = FALSE;
+    gboolean has_update = FALSE;
+
+    *is_user = FALSE;
+    *is_uninstall_operation = FALSE;
+    *extension = NULL;
+
+    while (g_variant_iter_loop (variant_iter, "{sv}", &prop_name, &prop_value))
+    {
+        // g_print (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
+
+        // Compare with DBus property names
+        if (strcmp (prop_name, "uuid") == 0)
+        {
+            g_variant_get (prop_value, "s", &uuid);
+
+            // Assert that this is the same as the extension uuid
+            g_assert (strcmp(extension_uuid, uuid) == 0);
+        }
+        else if (strcmp (prop_name, "type") == 0)
+        {
+            double type;
+            g_variant_get (prop_value, "d", &type);
+            *is_user = (type == 2);
+        }
+        else if (strcmp (prop_name, "state") == 0)
+        {
+            double state;
+            g_variant_get (prop_value, "d", &state);
+            enabled = (state == 1);
+
+            if (state == 99)
+            {
+                *is_uninstall_operation = TRUE;
+            }
+        }
+        else if (strcmp (prop_name, "name") == 0)
+        {
+            g_variant_get (prop_value, "s", &display_name);
+        }
+        else if (strcmp (prop_name, "description") == 0)
+        {
+            g_variant_get (prop_value, "s", &description);
+        }
+        else if (strcmp (prop_name, "hasPrefs") == 0)
+        {
+            g_variant_get (prop_value, "b", &has_prefs);
+        }
+        else if (strcmp (prop_name, "hasUpdate") == 0)
+        {
+            g_variant_get (prop_value, "b", &has_update);
+        }
+    }
+
+    *extension = exm_extension_new (uuid, display_name, description, enabled, *is_user, has_prefs, has_update);
+
+    g_free (uuid);
+    g_free (display_name);
+    g_free (description);
+}
+
+static void
 parse_extension_list (GVariant   *exlist,
                       GListModel **user_ext_model,
                       GListModel **system_ext_model)
@@ -357,75 +433,26 @@ parse_extension_list (GVariant   *exlist,
      * see also: https://stackoverflow.com/questions/54131543/how-can-i-get-the-g-dbus-connection-signal-subscribe-function-to-tell-me-about-p
      */
     GVariantIter *iter, *iter2;
-    gchar *exname, *prop_name;
-    GVariant *prop_value;
+    gchar *exname;
 
     user_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
     system_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
 
     g_variant_get (exlist, "a{sa{sv}}", &iter);
-    while (g_variant_iter_loop(iter, "{sa{sv}}", &exname, &iter2)) {
-        // g_print ("Extension Discovered: %s\n", exname);
-
+    while (g_variant_iter_loop (iter, "{sa{sv}}", &exname, &iter2)) {
+        gboolean is_user;
+        gboolean is_uninstall_operation;
         ExmExtension *extension;
 
-        // Well-Defined Properties
-        gchar *uuid = NULL;
-        gchar *display_name = NULL;
-        gchar *description = NULL;
-        gboolean enabled = FALSE;
-        gboolean is_user = FALSE;
-        gboolean has_prefs = FALSE;
-        gboolean has_update = FALSE;
+        parse_single_extension (exname, iter2, &extension, &is_user, &is_uninstall_operation);
 
-        while (g_variant_iter_loop(iter2, "{sv}", &prop_name, &prop_value))
+        if (is_uninstall_operation)
         {
-            // g_print (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
-
-            // Compare with DBus property names
-            if (strcmp (prop_name, "uuid") == 0)
-            {
-                g_variant_get (prop_value, "s", &uuid);
-
-                // Assert that this is the same as the extension name
-                g_assert (strcmp(exname, uuid) == 0);
-            }
-            else if (strcmp (prop_name, "name") == 0)
-            {
-                g_variant_get (prop_value, "s", &display_name);
-            }
-            else if (strcmp (prop_name, "description") == 0)
-            {
-                g_variant_get (prop_value, "s", &description);
-            }
-            else if (strcmp (prop_name, "hasPrefs") == 0)
-            {
-                g_variant_get (prop_value, "b", &has_prefs);
-            }
-            else if (strcmp (prop_name, "hasUpdate") == 0)
-            {
-                g_variant_get (prop_value, "b", &has_update);
-            }
-            else if (strcmp (prop_name, "state") == 0)
-            {
-                double state;
-                g_variant_get (prop_value, "d", &state);
-                enabled = (state == 1);
-            }
-            else if (strcmp (prop_name, "type") == 0)
-            {
-                double type;
-                g_variant_get (prop_value, "d", &type);
-                is_user = (type == 2);
-            }
+            g_error ("Invalid extension: '%s' is being uninstalled.", exname);
+            continue;
         }
 
-        extension = exm_extension_new (uuid, display_name, description, enabled, is_user, has_prefs, has_update);
         g_list_store_append ((is_user ? user_ext_store : system_ext_store), extension);
-
-        g_free (uuid);
-        g_free (display_name);
-        g_free (description);
     }
     g_variant_iter_free (iter);
 
@@ -457,17 +484,77 @@ update_extension_list (ExmManager *self)
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_SYSTEM_EXTENSIONS]);
 }
 
+static gboolean
+is_extension_equal (ExmExtension *a, ExmExtension *b)
+{
+    const gchar *uuid_a, *uuid_b;
+    g_object_get (a, "uuid", &uuid_a, NULL);
+    g_object_get (b, "uuid", &uuid_b, NULL);
+
+    return strcmp (uuid_a, uuid_b) == 0;
+}
+
+static gboolean
+replace_extension_in_list_store (GListStore   *store,
+                                 ExmExtension *to_replace)
+{
+    guint position;
+    ExmExtension *to_delete;
+
+    if (g_list_store_find_with_equal_func (store, to_replace, (GEqualFunc)is_extension_equal, &position))
+    {
+        to_delete = g_list_model_get_item (G_LIST_MODEL (store), position);
+        g_list_store_remove (store, position);
+        g_list_store_insert (store, position, to_replace);
+        g_object_unref (to_delete);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 static void
 on_state_changed (ShellExtensions *object,
                   const gchar     *arg_uuid,
                   GVariant        *arg_state,
                   ExmManager      *self)
 {
-    g_print ("State Changed for extension '%s'\n", arg_uuid);
-    update_extension_list (self);
+    ExmExtension *extension;
+    gboolean is_user;
+    gboolean is_uninstall_operation;
+    GListStore *list_store;
 
-    // TODO: Granular updates -> we can only update one extension in
-    // the list model rather than regenerating the whole thing
+    g_print ("State Changed for extension '%s'\n", arg_uuid);
+
+    // Parse the new extension state and update only that element in
+    // the list model. This will automatically update any bound
+    // listboxes or listviews.
+
+    g_print ("%s\n", g_variant_print (arg_state, TRUE));
+
+    GVariantIter *iter;
+    g_variant_get (arg_state, "a{sv}", &iter);
+    parse_single_extension (arg_uuid, iter, &extension, &is_user, &is_uninstall_operation);
+    g_variant_iter_free (iter);
+
+    list_store = G_LIST_STORE (is_user ? self->user_ext_model : self->system_ext_model);
+
+    if (is_uninstall_operation)
+    {
+        guint position;
+        if (g_list_store_find_with_equal_func (list_store, extension, (GEqualFunc)is_extension_equal, &position))
+            g_list_store_remove (list_store, position);
+
+        return;
+    }
+
+    // Try replace in list store
+    if (replace_extension_in_list_store (list_store, extension))
+        return;
+
+    // Append to list store
+    g_list_store_append (list_store, extension);
 }
 
 static void
