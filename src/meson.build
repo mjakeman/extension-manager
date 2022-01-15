@@ -1,18 +1,7 @@
 exm_sources = [
   'main.c',
   'exm-window.c',
-  'exm-application.c',
-
-  # Extension Management
-  'local/exm-manager.c',
-  'local/exm-extension.c',
-
-  # Web Interface
-  'web/exm-search-provider.c',
-  'web/exm-image-resolver.c',
-  'web/exm-request-handler.c',
-  'web/model/exm-search-result.c',
-  'web/model/exm-comment.c'
+  'exm-application.c'
 ]
 
 exm_deps = [
@@ -22,6 +11,11 @@ exm_deps = [
   dependency('libsoup-3.0')
 ]
 
+gnome = import('gnome')
+
+subdir('local')
+subdir('web')
+
 blueprints = custom_target('blueprints',
   input: files(
     'gtk/help-overlay.blp',
@@ -30,8 +24,6 @@ blueprints = custom_target('blueprints',
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
 )
-
-gnome = import('gnome')
 
 exm_sources += gnome.compile_resources('exm-resources',
   'exm.gresource.xml',

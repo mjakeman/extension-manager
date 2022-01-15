@@ -1,0 +1,81 @@
+<!-- GDBus 2.70.2 -->
+<node>
+  <interface name="org.gnome.Shell.Extensions">
+    <method name="ListExtensions">
+      <arg type="a{sa{sv}}" name="extensions" direction="out">
+      </arg>
+    </method>
+    <method name="GetExtensionInfo">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+      <arg type="a{sv}" name="info" direction="out">
+      </arg>
+    </method>
+    <method name="GetExtensionErrors">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+      <arg type="as" name="errors" direction="out">
+      </arg>
+    </method>
+    <method name="InstallRemoteExtension">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+      <arg type="s" name="result" direction="out">
+      </arg>
+    </method>
+    <method name="UninstallExtension">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+      <arg type="b" name="success" direction="out">
+      </arg>
+    </method>
+    <method name="ReloadExtension">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+    </method>
+    <method name="EnableExtension">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+      <arg type="b" name="success" direction="out">
+      </arg>
+    </method>
+    <method name="DisableExtension">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+      <arg type="b" name="success" direction="out">
+      </arg>
+    </method>
+    <method name="LaunchExtensionPrefs">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+    </method>
+    <method name="OpenExtensionPrefs">
+      <arg type="s" name="uuid" direction="in">
+      </arg>
+      <arg type="s" name="parent_window" direction="in">
+      </arg>
+      <arg type="a{sv}" name="options" direction="in">
+      </arg>
+    </method>
+    <method name="CheckForUpdates">
+    </method>
+    <signal name="ExtensionStateChanged">
+      <arg type="s" name="uuid">
+      </arg>
+      <arg type="a{sv}" name="state">
+      </arg>
+    </signal>
+    <signal name="ExtensionStatusChanged">
+      <arg type="s" name="uuid">
+      </arg>
+      <arg type="i" name="state">
+      </arg>
+      <arg type="s" name="error">
+      </arg>
+    </signal>
+    <property type="s" name="ShellVersion" access="read">
+    </property>
+    <property type="b" name="UserExtensionsEnabled" access="readwrite">
+    </property>
+  </interface>
+</node>

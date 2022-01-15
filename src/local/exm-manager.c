@@ -1,14 +1,18 @@
 #include "exm-manager.h"
 
 #include "exm-extension.h"
+#include "shell-dbus-interface.h"
 
 struct _ExmManager
 {
     GObject parent_instance;
 
-    GDBusProxy* proxy;
+    ShellExtensions *proxy;
     GListModel *user_ext_model;
     GListModel *system_ext_model;
+
+    const gchar *shell_version;
+    gboolean extensions_enabled;
 };
 
 G_DEFINE_FINAL_TYPE (ExmManager, exm_manager, G_TYPE_OBJECT)
@@ -17,6 +21,8 @@ enum {
     PROP_0,
     PROP_USER_EXTENSIONS,
     PROP_SYSTEM_EXTENSIONS,
+    PROP_EXTENSIONS_ENABLED,
+    PROP_SHELL_VERSION,
     N_PROPS
 };
 
@@ -52,6 +58,12 @@ exm_manager_get_property (GObject    *object,
     case PROP_SYSTEM_EXTENSIONS:
         g_value_set_object (value, self->system_ext_model);
         break;
+    case PROP_SHELL_VERSION:
+        g_value_set_string (value, self->shell_version);
+        break;
+    case PROP_EXTENSIONS_ENABLED:
+        g_value_set_boolean (value, self->extensions_enabled);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -66,25 +78,35 @@ exm_manager_set_property (GObject      *object,
     ExmManager *self = EXM_MANAGER (object);
 
     switch (prop_id)
-      {
-      default:
+    {
+    case PROP_SHELL_VERSION:
+        self->shell_version = g_value_dup_string (value);
+        break;
+    case PROP_EXTENSIONS_ENABLED:
+        self->extensions_enabled = g_value_get_boolean (value);
+        break;
+    default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    }
 }
 
 static void
-enable_extension_done (GDBusProxy   *proxy,
-                       GAsyncResult *res,
-                       ExmExtension *extension)
+enable_extension_done (ShellExtensions *proxy,
+                       GAsyncResult    *res,
+                       ExmExtension    *extension)
 {
     GError *error = NULL;
-    g_dbus_proxy_call_finish (proxy, res, &error);
+    gboolean success;
+    shell_extensions_call_enable_extension_finish (proxy, &success, res, &error);
 
-    if (error)
+    if (!success)
     {
         gchar *uuid;
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_critical ("Could not enable extension '%s': %s\n", uuid, error->message);
+        if (error)
+            g_critical ("Could not enable extension '%s': %s\n", uuid, error->message);
+        else
+            g_critical ("Could not enable extension '%s': unknown failure", uuid);
     }
 }
 
@@ -95,27 +117,30 @@ exm_manager_enable_extension (ExmManager   *self,
     gchar *uuid;
     g_object_get (extension, "uuid", &uuid, NULL);
 
-    g_dbus_proxy_call (self->proxy,
-                       "EnableExtension",
-                       g_variant_new ("(s)", uuid, NULL),
-                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
-                       (GAsyncReadyCallback) enable_extension_done,
-                       extension);
+    shell_extensions_call_enable_extension (self->proxy,
+                                            uuid,
+                                            NULL,
+                                            (GAsyncReadyCallback) enable_extension_done,
+                                            extension);
 }
 
 static void
-disable_extension_done (GDBusProxy   *proxy,
-                        GAsyncResult *res,
-                        ExmExtension *extension)
+disable_extension_done (ShellExtensions *proxy,
+                        GAsyncResult    *res,
+                        ExmExtension    *extension)
 {
     GError *error = NULL;
-    g_dbus_proxy_call_finish (proxy, res, &error);
+    gboolean success;
+    shell_extensions_call_disable_extension_finish (proxy, &success, res, &error);
 
-    if (error)
+    if (!success)
     {
         gchar *uuid;
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_critical ("Could not disable extension '%s': %s\n", uuid, error->message);
+        if (error)
+            g_critical ("Could not disable extension '%s': %s\n", uuid, error->message);
+        else
+            g_critical ("Could not disable extension '%s': unknown failure", uuid);
     }
 }
 
@@ -126,27 +151,30 @@ exm_manager_disable_extension (ExmManager   *self,
     gchar *uuid;
     g_object_get (extension, "uuid", &uuid, NULL);
 
-    g_dbus_proxy_call (self->proxy,
-                       "DisableExtension",
-                       g_variant_new ("(s)", uuid, NULL),
-                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
-                       (GAsyncReadyCallback) disable_extension_done,
-                       extension);
+    shell_extensions_call_disable_extension (self->proxy,
+                                             uuid,
+                                             NULL,
+                                             (GAsyncReadyCallback) disable_extension_done,
+                                             extension);
 }
 
 static void
-remove_extension_done (GDBusProxy   *proxy,
-                       GAsyncResult *res,
-                       ExmExtension *extension)
+remove_extension_done (ShellExtensions *proxy,
+                       GAsyncResult    *res,
+                       ExmExtension    *extension)
 {
     GError *error = NULL;
-    g_dbus_proxy_call_finish (proxy, res, &error);
+    gboolean success;
+    shell_extensions_call_uninstall_extension_finish (proxy, &success, res, &error);
 
-    if (error)
+    if (!success)
     {
         gchar *uuid;
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_critical ("Could not remove extension '%s': %s\n", uuid, error->message);
+        if (error)
+            g_critical ("Could not remove extension '%s': %s\n", uuid, error->message);
+        else
+            g_critical ("Could not remove extension '%s': unknown failure", uuid);
     }
 }
 
@@ -157,21 +185,20 @@ exm_manager_remove_extension (ExmManager   *self,
     gchar *uuid;
     g_object_get (extension, "uuid", &uuid, NULL);
 
-    g_dbus_proxy_call (self->proxy,
-                       "UninstallExtension",
-                       g_variant_new ("(s)", uuid, NULL),
-                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
-                       (GAsyncReadyCallback) remove_extension_done,
-                       extension);
+    shell_extensions_call_uninstall_extension (self->proxy,
+                                               uuid,
+                                               NULL,
+                                               (GAsyncReadyCallback) remove_extension_done,
+                                               extension);
 }
 
 static void
-open_prefs_done (GDBusProxy   *proxy,
-                 GAsyncResult *res,
-                 ExmExtension *extension)
+open_prefs_done (ShellExtensions *proxy,
+                 GAsyncResult    *res,
+                 ExmExtension    *extension)
 {
     GError *error = NULL;
-    g_dbus_proxy_call_finish (proxy, res, &error);
+    shell_extensions_call_launch_extension_prefs_finish (proxy, res, &error);
 
     if (error)
     {
@@ -188,12 +215,11 @@ exm_manager_open_prefs (ExmManager   *self,
     gchar *uuid;
     g_object_get (extension, "uuid", &uuid, NULL);
 
-    g_dbus_proxy_call (self->proxy,
-                       "LaunchExtensionPrefs",
-                       g_variant_new ("(s)", uuid, NULL),
-                       G_DBUS_CALL_FLAGS_NONE, -1, NULL,
-                       (GAsyncReadyCallback) open_prefs_done,
-                       extension);
+    shell_extensions_call_launch_extension_prefs (self->proxy,
+                                                  uuid,
+                                                  NULL,
+                                                  (GAsyncReadyCallback) open_prefs_done,
+                                                  extension);
 }
 
 static gboolean
@@ -299,6 +325,20 @@ exm_manager_class_init (ExmManagerClass *klass)
                                G_TYPE_LIST_MODEL,
                                G_PARAM_READABLE);
 
+    properties [PROP_SHELL_VERSION]
+        = g_param_spec_string ("shell-version",
+                               "Shell Version",
+                               "Shell Version",
+                               NULL,
+                               G_PARAM_READWRITE);
+
+    properties [PROP_EXTENSIONS_ENABLED]
+        = g_param_spec_boolean ("extensions-enabled",
+                                "Extensions Enabled",
+                                "Extensions Enabled",
+                                FALSE,
+                                G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
@@ -323,7 +363,7 @@ parse_extension_list (GVariant   *exlist,
     user_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
     system_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
 
-    g_variant_get (exlist, "(a{sa{sv}})", &iter);
+    g_variant_get (exlist, "a{sa{sv}}", &iter);
     while (g_variant_iter_loop(iter, "{sa{sv}}", &exname, &iter2)) {
         // g_print ("Extension Discovered: %s\n", exname);
 
@@ -398,7 +438,8 @@ update_extension_list (ExmManager *self)
 {
     GError *error = NULL;
 
-    GVariant* exlist = g_dbus_proxy_call_sync (self->proxy, "ListExtensions", NULL, G_DBUS_CALL_FLAGS_NONE, -1, NULL, &error);
+    GVariant* exlist;
+    shell_extensions_call_list_extensions_sync (self->proxy, &exlist, NULL, &error);
 
     if (error != NULL)
     {
@@ -417,14 +458,28 @@ update_extension_list (ExmManager *self)
 }
 
 static void
-on_signal (GDBusProxy *proxy,
-           gchar      *sender_name,
-           gchar      *signal_name,
-           GVariant   *parameters,
-           ExmManager *self)
+on_state_changed (ShellExtensions *object,
+                  const gchar     *arg_uuid,
+                  GVariant        *arg_state,
+                  ExmManager      *self)
 {
-    g_print ("Signal received: %s\n", signal_name);
+    g_print ("State Changed for extension '%s'\n", arg_uuid);
     update_extension_list (self);
+
+    // TODO: Granular updates -> we can only update one extension in
+    // the list model rather than regenerating the whole thing
+}
+
+static void
+on_status_changed (ShellExtensions *object,
+                   const gchar     *arg_uuid,
+                   gint             arg_state,
+                   const gchar     *arg_error,
+                   ExmManager      *self)
+{
+    g_print ("Status Changed (Unhandled) for extension '%s'\n", arg_uuid);
+
+    // TODO: What's this for?
 }
 
 static void
@@ -432,9 +487,11 @@ exm_manager_init (ExmManager *self)
 {
     GError *error = NULL;
 
-    self->proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION, G_DBUS_PROXY_FLAGS_NONE, NULL,
-                                                 "org.gnome.Shell.Extensions", "/org/gnome/Shell/Extensions",
-                                                 "org.gnome.Shell.Extensions", NULL, &error);
+    self->proxy = shell_extensions_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
+                                                           G_DBUS_PROXY_FLAGS_NONE,
+                                                           "org.gnome.Shell.Extensions",
+                                                           "/org/gnome/Shell/Extensions",
+                                                           NULL, &error);
 
     if (error != NULL)
     {
@@ -442,7 +499,16 @@ exm_manager_init (ExmManager *self)
         return;
     }
 
+    g_object_bind_property (self->proxy, "shell-version",
+                            self, "shell-version",
+                            G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->proxy, "user-extensions-enabled",
+                            self, "extensions-enabled",
+                            G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
+
     update_extension_list (self);
 
-    g_signal_connect (self->proxy, "g-signal", G_CALLBACK (on_signal), self);
+    g_signal_connect (self->proxy, "extension-state-changed", G_CALLBACK (on_state_changed), self);
+    g_signal_connect (self->proxy, "extension-status-changed", G_CALLBACK (on_status_changed), self);
 }
