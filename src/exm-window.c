@@ -482,6 +482,18 @@ exm_window_init (ExmWindow *self)
 
     g_object_bind_property (self->manager,
                             "extensions-enabled",
+                            self->user_list_box,
+                            "sensitive",
+                            G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->manager,
+                            "extensions-enabled",
+                            self->system_list_box,
+                            "sensitive",
+                            G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->manager,
+                            "extensions-enabled",
                             self->global_toggle,
                             "state",
                             G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
