@@ -71,9 +71,11 @@ exm_extension_get_property (GObject    *object,
         break;
     case PROP_DISPLAY_NAME:
         g_value_set_string (value, self->display_name);
+        self->display_name = g_markup_escape_text (self->display_name, -1);
         break;
     case PROP_DESCRIPTION:
         g_value_set_string (value, self->description);
+        self->description = g_markup_escape_text (self->description, -1);
         break;
     case PROP_ENABLED:
         g_value_set_boolean (value, self->enabled);

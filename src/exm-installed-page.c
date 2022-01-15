@@ -1,5 +1,7 @@
 #include "exm-installed-page.h"
 
+#include "exm-extension-row.h"
+
 #include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
@@ -108,63 +110,11 @@ on_remove (GtkButton *button,
 static GtkWidget *
 widget_factory (ExmExtension* extension)
 {
-    GtkWidget *row;
-    GtkWidget *label;
-    GtkWidget *toggle;
-    GtkWidget *prefs;
-    GtkWidget *remove;
+    ExmExtensionRow *row;
 
-    gchar *name, *uuid, *description;
-    gboolean enabled, has_prefs, is_user;
-    g_object_get (extension,
-                  "display-name", &name,
-                  "uuid", &uuid,
-                  "description", &description,
-                  "enabled", &enabled,
-                  "has-prefs", &has_prefs,
-                  "is-user", &is_user,
-                  NULL);
+    row = exm_extension_row_new (extension);
 
-    name = g_markup_escape_text (name, -1);
-
-    row = adw_expander_row_new ();
-
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), name);
-    adw_expander_row_set_subtitle (ADW_EXPANDER_ROW (row), uuid);
-
-    toggle = gtk_switch_new ();
-    gtk_switch_set_state (GTK_SWITCH (toggle), enabled);
-    gtk_widget_set_valign (toggle, GTK_ALIGN_CENTER);
-    gtk_widget_set_halign (toggle, GTK_ALIGN_CENTER);
-    adw_expander_row_add_action (ADW_EXPANDER_ROW (row), toggle);
-    g_signal_connect (toggle, "state-set", G_CALLBACK (on_state_toggled), uuid);
-
-    if (has_prefs)
-    {
-        prefs = gtk_button_new_from_icon_name ("settings-symbolic");
-        gtk_widget_set_valign (prefs, GTK_ALIGN_CENTER);
-        gtk_widget_set_halign (prefs, GTK_ALIGN_CENTER);
-        g_signal_connect (prefs, "clicked", G_CALLBACK (on_open_prefs), uuid);
-        adw_expander_row_add_action (ADW_EXPANDER_ROW (row), prefs);
-    }
-
-    label = gtk_label_new (description);
-    gtk_label_set_xalign (GTK_LABEL (label), 0);
-    gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
-    gtk_widget_add_css_class (label, "content");
-    adw_expander_row_add_row (ADW_EXPANDER_ROW (row), label);
-
-    if (is_user)
-    {
-        remove = gtk_button_new_with_label (_("Remove"));
-        gtk_widget_add_css_class (remove, "destructive-action");
-        gtk_widget_set_valign (remove, GTK_ALIGN_CENTER);
-        gtk_widget_set_halign (remove, GTK_ALIGN_END);
-        g_signal_connect (remove, "clicked", G_CALLBACK (on_remove), uuid);
-        adw_expander_row_add_row (ADW_EXPANDER_ROW (row), remove);
-    }
-
-    return row;
+    return GTK_WIDGET (row);
 }
 
 static void

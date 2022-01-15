@@ -2,8 +2,13 @@ exm_sources = [
   'main.c',
   'exm-window.c',
   'exm-application.c',
+
+  # Installed Page
+  'exm-installed-page.c',
+  'exm-extension-row.c',
+
+  # Browse Page
   'exm-browse-page.c',
-  'exm-installed-page.c'
 ]
 
 exm_deps = [
@@ -23,7 +28,8 @@ blueprints = custom_target('blueprints',
     'gtk/help-overlay.blp',
     'exm-window.blp',
     'exm-installed-page.blp',
-    'exm-browse-page.blp'
+    'exm-browse-page.blp',
+    'exm-extension-row.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
