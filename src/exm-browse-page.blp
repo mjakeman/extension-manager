@@ -1,0 +1,47 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmBrowsePage : Gtk.Widget {
+	Gtk.ScrolledWindow {
+		Adw.StatusPage {
+			title: _("Search for extensions");
+			description: _("Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions.");
+			valign: start;
+
+			child: Adw.Clamp {
+				styles ["clamp"]
+
+				Gtk.Box {
+					orientation: vertical;
+
+					Gtk.SearchEntry search_entry {
+						placeholder-text: _("e.g. \"Blur my Shell\"");
+
+						// Hook for triggering initial search
+						// TODO: Re-enable this once blueprint-compiler!4 is merged
+						// realize => on_search_entry_realize();
+					}
+
+					Gtk.Stack search_stack {
+						Gtk.StackPage {
+							name: "page_spinner";
+							child: Gtk.Spinner {
+								valign: start;
+								halign: center;
+								spinning: true;
+							};
+						}
+
+						Gtk.StackPage {
+							name: "page_results";
+							child: Gtk.ListBox search_results {
+								styles ["boxed-list"]
+								valign: start;
+							};
+						}
+					}
+				}
+			};
+		}
+	}
+}

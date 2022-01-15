@@ -1,0 +1,39 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmInstalledPage : Gtk.Widget {
+	Gtk.ScrolledWindow {
+		Adw.Clamp {
+			styles ["clamp"]
+
+			Gtk.Box {
+				orientation: vertical;
+				spacing: 10;
+
+				Gtk.Label {
+					styles ["heading"]
+					xalign: 0;
+					margin-top: 20;
+					label: _("User-Installed Extensions");
+				}
+
+				Gtk.ListBox user_list_box {
+					styles ["boxed-list"]
+					valign: start;
+				}
+
+				Gtk.Label {
+					styles ["heading"]
+					xalign: 0;
+					margin-top: 20;
+					label: _("System Extensions");
+				}
+
+				Gtk.ListBox system_list_box {
+					styles ["boxed-list"]
+					valign: start;
+				}
+			}
+		}
+	}
+}

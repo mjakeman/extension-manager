@@ -31,45 +31,12 @@ template ExmWindow : Gtk.ApplicationWindow {
   		vexpand: true;
   		hexpand: true;
 
-			Adw.ViewStackPage {
+			 Adw.ViewStackPage {
 				name: "installed";
 				title: _("Installed");
 				icon-name: "puzzle-piece-symbolic";
 
-				child: Gtk.ScrolledWindow {
-					Adw.Clamp {
-						styles ["clamp"]
-
-						Gtk.Box {
-							orientation: vertical;
-							spacing: 10;
-
-							Gtk.Label {
-								styles ["heading"]
-								xalign: 0;
-								margin-top: 20;
-								label: _("User-Installed Extensions");
-							}
-
-							Gtk.ListBox user_list_box {
-								styles ["boxed-list"]
-								valign: start;
-							}
-
-							Gtk.Label {
-								styles ["heading"]
-								xalign: 0;
-								margin-top: 20;
-								label: _("System Extensions");
-							}
-
-							Gtk.ListBox system_list_box {
-								styles ["boxed-list"]
-								valign: start;
-							}
-						}
-					}
-				};
+				child: .ExmInstalledPage installed_page {};
 			}
 
 			Adw.ViewStackPage {
@@ -77,47 +44,7 @@ template ExmWindow : Gtk.ApplicationWindow {
 				title: _("Browse");
 				icon-name: "globe-symbolic";
 
-				child: Gtk.ScrolledWindow {
-					Adw.StatusPage {
-						title: _("Search for extensions");
-						description: _("Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions.");
-						valign: start;
-
-						child: Adw.Clamp {
-							styles ["clamp"]
-
-							Gtk.Box {
-								orientation: vertical;
-
-								Gtk.SearchEntry search_entry {
-									placeholder-text: _("e.g. \"Blur my Shell\"");
-
-									// Hook for triggering initial search
-									realize => on_search_entry_realize();
-								}
-
-								Gtk.Stack search_stack {
-									Gtk.StackPage {
-										name: "page_spinner";
-										child: Gtk.Spinner {
-											valign: start;
-											halign: center;
-											spinning: true;
-										};
-									}
-
-									Gtk.StackPage {
-										name: "page_results";
-										child: Gtk.ListBox search_results {
-											styles ["boxed-list"]
-											valign: start;
-										};
-									}
-								}
-							}
-						};
-					}
-				};
+				child: .ExmBrowsePage browse_page {};
 			}
 		}
 

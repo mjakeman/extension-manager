@@ -222,9 +222,9 @@ exm_manager_open_prefs (ExmManager   *self,
                                                   extension);
 }
 
-static gboolean
-list_model_contains (GListModel  *model,
-                     const gchar *uuid)
+static gpointer
+list_model_get_by_uuid (GListModel  *model,
+                        const gchar *uuid)
 {
     int n_items = g_list_model_get_n_items (model);
     for (int i = 0; i < n_items; i++)
@@ -235,10 +235,32 @@ list_model_contains (GListModel  *model,
         g_object_get (ext, "uuid", &cmp_uuid, NULL);
 
         if (strcmp (uuid, cmp_uuid) == 0)
-            return TRUE;
+            return ext;
     }
 
-    return FALSE;
+    return NULL;
+}
+
+static gboolean
+list_model_contains (GListModel  *model,
+                     const gchar *uuid)
+{
+    return list_model_get_by_uuid (model, uuid) != NULL;
+}
+
+ExmExtension *
+exm_manager_get_by_uuid (ExmManager  *self,
+                         const gchar *uuid)
+{
+    ExmExtension *result = NULL;
+
+    if ((result = list_model_get_by_uuid (self->user_ext_model, uuid)) != NULL)
+        return result;
+
+    if ((result = list_model_get_by_uuid (self->system_ext_model, uuid)) != NULL)
+        return result;
+
+    return NULL;
 }
 
 gboolean
