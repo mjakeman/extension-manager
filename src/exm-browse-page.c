@@ -180,7 +180,9 @@ search_widget_factory (ExmSearchResult *result,
 
     description_label = gtk_label_new (description);
     gtk_label_set_xalign (GTK_LABEL (description_label), 0);
-    gtk_label_set_wrap (GTK_LABEL (description_label), GTK_WRAP_WORD);
+    gtk_label_set_wrap (GTK_LABEL (description_label), GTK_WRAP_WORD_CHAR);
+    // This seems to fix a strange wrapping error?
+    gtk_label_set_wrap_mode (GTK_LABEL (description_label), PANGO_WRAP_WORD_CHAR);
     gtk_widget_add_css_class (description_label, "description");
     gtk_box_append (GTK_BOX (box), description_label);
 
