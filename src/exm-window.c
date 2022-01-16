@@ -119,6 +119,8 @@ extension_state_set (GtkWidget  *widget,
     gchar *uuid;
     gboolean state;
 
+    g_print ("Setting!");
+
     self = EXM_WINDOW (widget);
     g_variant_get (param, "(sb)", &uuid, &state);
 
