@@ -222,9 +222,9 @@ exm_manager_open_prefs (ExmManager   *self,
                                                   extension);
 }
 
-static gboolean
-list_model_contains (GListModel  *model,
-                     const gchar *uuid)
+static gpointer
+list_model_get_by_uuid (GListModel  *model,
+                        const gchar *uuid)
 {
     int n_items = g_list_model_get_n_items (model);
     for (int i = 0; i < n_items; i++)
@@ -235,10 +235,32 @@ list_model_contains (GListModel  *model,
         g_object_get (ext, "uuid", &cmp_uuid, NULL);
 
         if (strcmp (uuid, cmp_uuid) == 0)
-            return TRUE;
+            return ext;
     }
 
-    return FALSE;
+    return NULL;
+}
+
+static gboolean
+list_model_contains (GListModel  *model,
+                     const gchar *uuid)
+{
+    return list_model_get_by_uuid (model, uuid) != NULL;
+}
+
+ExmExtension *
+exm_manager_get_by_uuid (ExmManager  *self,
+                         const gchar *uuid)
+{
+    ExmExtension *result = NULL;
+
+    if ((result = list_model_get_by_uuid (self->user_ext_model, uuid)) != NULL)
+        return result;
+
+    if ((result = list_model_get_by_uuid (self->system_ext_model, uuid)) != NULL)
+        return result;
+
+    return NULL;
 }
 
 gboolean
@@ -343,9 +365,9 @@ exm_manager_class_init (ExmManagerClass *klass)
 }
 
 static void
-parse_single_extension (const gchar   *extension_uuid,
+parse_single_extension (ExmExtension **extension,
+                        const gchar   *extension_uuid,
                         GVariantIter  *variant_iter,
-                        ExmExtension **extension,
                         gboolean      *is_user,
                         gboolean      *is_uninstall_operation)
 {
@@ -359,10 +381,21 @@ parse_single_extension (const gchar   *extension_uuid,
     gboolean enabled = FALSE;
     gboolean has_prefs = FALSE;
     gboolean has_update = FALSE;
+    gboolean can_change = TRUE;
 
     *is_user = FALSE;
     *is_uninstall_operation = FALSE;
-    *extension = NULL;
+
+    if (extension && *extension)
+    {
+        const gchar *uuid_cmp;
+        g_object_get (*extension, "uuid", &uuid_cmp, NULL);
+        g_assert (strcmp (extension_uuid, uuid_cmp) == 0);
+    }
+    else
+    {
+        *extension = exm_extension_new (extension_uuid);
+    }
 
     while (g_variant_iter_loop (variant_iter, "{sv}", &prop_name, &prop_value))
     {
@@ -409,9 +442,21 @@ parse_single_extension (const gchar   *extension_uuid,
         {
             g_variant_get (prop_value, "b", &has_update);
         }
+        else if (strcmp (prop_name, "canChange") == 0)
+        {
+            g_variant_get (prop_value, "b", &can_change);
+        }
     }
 
-    *extension = exm_extension_new (uuid, display_name, description, enabled, *is_user, has_prefs, has_update);
+    g_object_set (*extension,
+                  "display-name", display_name,
+                  "description", description,
+                  "enabled", enabled,
+                  "is-user", *is_user,
+                  "has-prefs", has_prefs,
+                  "has-update", has_update,
+                  "can-change", can_change,
+                  NULL);
 
     g_free (uuid);
     g_free (display_name);
@@ -442,9 +487,9 @@ parse_extension_list (GVariant   *exlist,
     while (g_variant_iter_loop (iter, "{sa{sv}}", &exname, &iter2)) {
         gboolean is_user;
         gboolean is_uninstall_operation;
-        ExmExtension *extension;
+        ExmExtension *extension = NULL;
 
-        parse_single_extension (exname, iter2, &extension, &is_user, &is_uninstall_operation);
+        parse_single_extension (&extension, exname, iter2, &is_user, &is_uninstall_operation);
 
         if (is_uninstall_operation)
         {
@@ -522,6 +567,7 @@ on_state_changed (ShellExtensions *object,
 {
     ExmExtension *extension;
     gboolean is_user;
+    gboolean is_new;
     gboolean is_uninstall_operation;
     GListStore *list_store;
 
@@ -533,12 +579,22 @@ on_state_changed (ShellExtensions *object,
 
     g_print ("%s\n", g_variant_print (arg_state, TRUE));
 
+    // This is NULL if it does not exist
+    extension = exm_manager_get_by_uuid (self, arg_uuid);
+    is_new = (extension == NULL);
+
     GVariantIter *iter;
     g_variant_get (arg_state, "a{sv}", &iter);
-    parse_single_extension (arg_uuid, iter, &extension, &is_user, &is_uninstall_operation);
+    parse_single_extension (&extension, arg_uuid, iter, &is_user, &is_uninstall_operation);
     g_variant_iter_free (iter);
 
     list_store = G_LIST_STORE (is_user ? self->user_ext_model : self->system_ext_model);
+
+    if (is_new)
+    {
+        g_list_store_append (list_store, extension);
+        return;
+    }
 
     if (is_uninstall_operation)
     {
@@ -548,13 +604,6 @@ on_state_changed (ShellExtensions *object,
 
         return;
     }
-
-    // Try replace in list store
-    if (replace_extension_in_list_store (list_store, extension))
-        return;
-
-    // Append to list store
-    g_list_store_append (list_store, extension);
 }
 
 static void

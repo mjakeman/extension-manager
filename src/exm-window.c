@@ -19,13 +19,11 @@
 #include "exm-config.h"
 #include "exm-window.h"
 
+#include "exm-browse-page.h"
+#include "exm-installed-page.h"
+
 #include "local/exm-manager.h"
 #include "local/exm-extension.h"
-
-#include "web/exm-search-provider.h"
-#include "web/exm-image-resolver.h"
-
-#include "web/model/exm-search-result.h"
 
 #include <adwaita.h>
 #include <glib/gi18n.h>
@@ -35,47 +33,103 @@ struct _ExmWindow
     GtkApplicationWindow  parent_instance;
 
     ExmManager *manager;
-    ExmSearchProvider *search;
-    ExmImageResolver *resolver;
-
-    GListModel *search_results_model;
 
     /* Template widgets */
     AdwHeaderBar        *header_bar;
-    GtkListBox          *user_list_box;
-    GtkListBox          *system_list_box;
-    GtkSearchEntry      *search_entry;
-    GtkListBox          *search_results;
-    GtkStack            *search_stack;
     GtkSwitch           *global_toggle;
+    ExmBrowsePage       *browse_page;
+    ExmInstalledPage    *installed_page;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
 
-static gboolean
-extension_state_set (GtkSwitch    *toggle,
-                     gboolean      state,
-                     ExmExtension *extension)
+enum {
+    PROP_0,
+    PROP_MANAGER,
+    N_PROPS
+};
+
+static GParamSpec *properties [N_PROPS];
+
+static void
+exm_window_finalize (GObject *object)
 {
-    GtkRoot *root = gtk_widget_get_root (GTK_WIDGET (toggle));
-    ExmWindow *self = EXM_WINDOW (root);
+    ExmWindow *self = (ExmWindow *)object;
+
+    G_OBJECT_CLASS (exm_window_parent_class)->finalize (object);
+}
+
+static void
+exm_window_get_property (GObject    *object,
+                         guint       prop_id,
+                         GValue     *value,
+                         GParamSpec *pspec)
+{
+    ExmWindow *self = EXM_WINDOW (object);
+
+    switch (prop_id)
+    {
+    case PROP_MANAGER:
+        g_value_set_object (value, self->manager);
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
+exm_window_set_property (GObject      *object,
+                         guint         prop_id,
+                         const GValue *value,
+                         GParamSpec   *pspec)
+{
+    ExmWindow *self = EXM_WINDOW (object);
+
+    switch (prop_id)
+    {
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
+extension_open_prefs (GtkWidget  *widget,
+                      const char *action_name,
+                      GVariant   *param)
+{
+    ExmWindow *self;
+    ExmExtension *extension;
+    gchar *uuid;
+
+    self = EXM_WINDOW (widget);
+    g_variant_get (param, "s", &uuid);
+
+    extension = exm_manager_get_by_uuid (self->manager, uuid);
+
+    exm_manager_open_prefs (self->manager, extension);
+}
+
+static void
+extension_state_set (GtkWidget  *widget,
+                     const char *action_name,
+                     GVariant   *param)
+{
+    ExmWindow *self;
+    ExmExtension *extension;
+    gchar *uuid;
+    gboolean state;
+
+    g_print ("Setting!");
+
+    self = EXM_WINDOW (widget);
+    g_variant_get (param, "(sb)", &uuid, &state);
+
+    extension = exm_manager_get_by_uuid (self->manager, uuid);
 
     if (state)
         exm_manager_enable_extension (self->manager, extension);
     else
         exm_manager_disable_extension (self->manager, extension);
-
-    return FALSE;
-}
-
-static void
-extension_open_prefs (GtkButton    *button,
-                      ExmExtension *extension)
-{
-    GtkRoot *root = gtk_widget_get_root (GTK_WIDGET (button));
-    ExmWindow *self = EXM_WINDOW (root);
-
-    exm_manager_open_prefs (self->manager, extension);
 }
 
 typedef struct
@@ -102,11 +156,18 @@ extension_remove_dialog_response (GtkDialog        *dialog,
 }
 
 static void
-extension_remove (GtkButton    *button,
-                  ExmExtension *extension)
+extension_remove (GtkWidget  *widget,
+                  const char *action_name,
+                  GVariant   *param)
 {
-    GtkRoot *root = gtk_widget_get_root (GTK_WIDGET (button));
-    ExmWindow *self = EXM_WINDOW (root);
+    ExmWindow *self;
+    ExmExtension *extension;
+    gchar *uuid;
+
+    self = EXM_WINDOW (widget);
+    g_variant_get (param, "s", &uuid);
+
+    extension = exm_manager_get_by_uuid (self->manager, uuid);
 
     GtkWidget *dlg;
 
@@ -124,72 +185,9 @@ extension_remove (GtkButton    *button,
     gtk_widget_show (dlg);
 }
 
-static GtkWidget *
-widget_factory (ExmExtension* extension)
-{
-    GtkWidget *row;
-    GtkWidget *label;
-    GtkWidget *toggle;
-    GtkWidget *prefs;
-    GtkWidget *remove;
-
-    gchar *name, *uuid, *description;
-    gboolean enabled, has_prefs, is_user;
-    g_object_get (extension,
-                  "display-name", &name,
-                  "uuid", &uuid,
-                  "description", &description,
-                  "enabled", &enabled,
-                  "has-prefs", &has_prefs,
-                  "is-user", &is_user,
-                  NULL);
-
-    name = g_markup_escape_text (name, -1);
-
-    row = adw_expander_row_new ();
-
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), name);
-    adw_expander_row_set_subtitle (ADW_EXPANDER_ROW (row), uuid);
-
-    toggle = gtk_switch_new ();
-    gtk_switch_set_state (GTK_SWITCH (toggle), enabled);
-    gtk_widget_set_valign (toggle, GTK_ALIGN_CENTER);
-    gtk_widget_set_halign (toggle, GTK_ALIGN_CENTER);
-    adw_expander_row_add_action (ADW_EXPANDER_ROW (row), toggle);
-    g_signal_connect (toggle, "state-set", G_CALLBACK (extension_state_set), extension);
-
-    if (has_prefs)
-    {
-        prefs = gtk_button_new_from_icon_name ("settings-symbolic");
-        gtk_widget_set_valign (prefs, GTK_ALIGN_CENTER);
-        gtk_widget_set_halign (prefs, GTK_ALIGN_CENTER);
-        g_signal_connect (prefs, "clicked", G_CALLBACK (extension_open_prefs), extension);
-        adw_expander_row_add_action (ADW_EXPANDER_ROW (row), prefs);
-    }
-
-    label = gtk_label_new (description);
-    gtk_label_set_xalign (GTK_LABEL (label), 0);
-    gtk_label_set_wrap (GTK_LABEL (label), GTK_WRAP_WORD);
-    gtk_widget_add_css_class (label, "content");
-    adw_expander_row_add_row (ADW_EXPANDER_ROW (row), label);
-
-    if (is_user)
-    {
-        remove = gtk_button_new_with_label (_("Remove"));
-        gtk_widget_add_css_class (remove, "destructive-action");
-        gtk_widget_set_valign (remove, GTK_ALIGN_CENTER);
-        gtk_widget_set_halign (remove, GTK_ALIGN_END);
-        g_signal_connect (remove, "clicked", G_CALLBACK (extension_remove), extension);
-        adw_expander_row_add_row (ADW_EXPANDER_ROW (row), remove);
-    }
-
-    return row;
-}
-
 static void
-on_install_done (GObject      *source,
-                 GAsyncResult *res,
-                 ExmWindow    *self)
+on_install_done (GObject       *source,
+                 GAsyncResult  *res)
 {
     GError *error = NULL;
     if (!exm_manager_install_finish (EXM_MANAGER (source), res, &error) && error)
@@ -200,11 +198,15 @@ on_install_done (GObject      *source,
 }
 
 static void
-install_remote (GtkButton   *button,
-                const gchar *uuid)
+extension_install (GtkWidget  *widget,
+                   const char *action_name,
+                   GVariant   *param)
 {
-    GtkRoot *root = gtk_widget_get_root (GTK_WIDGET (button));
-    ExmWindow *self = EXM_WINDOW (root);
+    ExmWindow *self;
+    gchar *uuid;
+
+    self = EXM_WINDOW (widget);
+    g_variant_get (param, "s", &uuid);
 
     exm_manager_install_async (self->manager, uuid, NULL,
                                (GAsyncReadyCallback) on_install_done,
@@ -212,294 +214,53 @@ install_remote (GtkButton   *button,
 }
 
 static void
-on_image_loaded (GObject      *source,
-                 GAsyncResult *res,
-                 GtkImage     *target)
-{
-    GError *error = NULL;
-    GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
-                                                             res, &error);
-    if (error)
-    {
-        // TODO: Properly log this
-        g_critical ("%s\n", error->message);
-        return;
-    }
-
-    gtk_image_set_from_paintable (target, GDK_PAINTABLE (texture));
-}
-
-static GtkWidget *
-create_thumbnail (ExmImageResolver *resolver,
-                  const gchar      *icon_uri)
-{
-    GtkWidget *icon;
-
-    icon = gtk_image_new ();
-    gtk_widget_set_valign (icon, GTK_ALIGN_CENTER);
-    gtk_widget_set_halign (icon, GTK_ALIGN_CENTER);
-
-    // Set to default icon
-    gtk_image_set_from_resource (GTK_IMAGE (icon), "/com/mattjakeman/ExtensionManager/icons/plugin.png");
-
-    // If not the default icon, lookup and lazily replace
-    // TODO: There are some outstanding threading issues so avoid downloading for now
-    /*if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
-    {
-        exm_image_resolver_resolve_async (resolver, icon_uri, NULL,
-                                          (GAsyncReadyCallback) on_image_loaded,
-                                          icon);
-    }*/
-
-    return icon;
-}
-
-static GtkWidget *
-search_widget_factory (ExmSearchResult *result,
-                       ExmWindow       *self)
-{
-    GtkWidget *row;
-    GtkWidget *box;
-    GtkWidget *description_label;
-    GtkWidget *button_box;
-    GtkWidget *install_btn;
-    GtkWidget *link_btn;
-    GtkWidget *icon;
-    GtkWidget *screenshot;
-
-    gchar *uri;
-
-    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
-    g_object_get (result,
-                  "uuid", &uuid,
-                  "name", &name,
-                  "creator", &creator,
-                  "icon", &icon_uri,
-                  "screenshot", &screenshot_uri,
-                  "link", &link,
-                  "description", &description,
-                  NULL);
-
-    name = g_markup_escape_text (name, -1);
-    uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
-
-    row = adw_expander_row_new ();
-
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), name);
-    adw_expander_row_set_subtitle (ADW_EXPANDER_ROW (row), creator);
-
-    icon = create_thumbnail (self->resolver, icon_uri);
-    adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), icon);
-
-    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    gtk_widget_add_css_class (box, "content");
-    adw_expander_row_add_row (ADW_EXPANDER_ROW (row), box);
-
-    description_label = gtk_label_new (description);
-    gtk_label_set_xalign (GTK_LABEL (description_label), 0);
-    gtk_label_set_wrap (GTK_LABEL (description_label), GTK_WRAP_WORD);
-    gtk_widget_add_css_class (description_label, "description");
-    gtk_box_append (GTK_BOX (box), description_label);
-
-    // TODO: This should be on-demand otherwise we're downloading far too often
-    /*screenshot = gtk_image_new ();
-    exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
-    gtk_box_append (GTK_BOX (box), screenshot);*/
-
-    button_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-    gtk_widget_set_halign (button_box, GTK_ALIGN_END);
-    gtk_box_append (GTK_BOX (box), button_box);
-
-    link_btn = gtk_link_button_new_with_label (uri, _("Go to Page"));
-    gtk_box_append (GTK_BOX (button_box), link_btn);
-
-    install_btn = gtk_button_new_with_label (_("Install"));
-    g_signal_connect (install_btn, "clicked", G_CALLBACK (install_remote), uuid);
-    gtk_box_append (GTK_BOX (button_box), install_btn);
-
-    if (exm_manager_is_installed_uuid (self->manager, uuid))
-    {
-        gtk_button_set_label (GTK_BUTTON (install_btn), _("Installed"));
-        gtk_widget_set_sensitive (install_btn, FALSE);
-    }
-
-    return row;
-}
-
-static void
-refresh_search (ExmWindow *self)
-{
-    gtk_list_box_bind_model (self->search_results, self->search_results_model,
-                             (GtkListBoxCreateWidgetFunc) search_widget_factory,
-                             g_object_ref (self), g_object_unref);
-
-    // Show Loading Indicator
-    gtk_stack_set_visible_child_name (self->search_stack, "page_results");
-}
-
-static void
-on_search_result (GObject      *source,
-                  GAsyncResult *res,
-                  ExmWindow    *self)
-{
-    GError *error = NULL;
-
-    self->search_results_model = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &error);
-
-    refresh_search (self);
-}
-
-static void
-search (ExmWindow *self, const gchar *query)
-{
-    // Show Loading Indicator
-    gtk_stack_set_visible_child_name (self->search_stack, "page_spinner");
-
-    exm_search_provider_query_async (self->search, query, NULL,
-                                     (GAsyncReadyCallback) on_search_result,
-                                     self);
-}
-
-static void
-on_search_changed (GtkSearchEntry *search_entry,
-                   ExmWindow      *self)
-{
-    const char *query = gtk_editable_get_text (GTK_EDITABLE (search_entry));
-    search (self, query);
-}
-
-static void
-update_extensions_list (ExmWindow   *self,
-                        GtkListBox  *list_box,
-                        const gchar *property_name)
-{
-    GListModel *model;
-    GtkExpression *expression;
-    GtkStringSorter *sorter;
-    GtkSortListModel *sorted_model;
-
-    g_object_get (self->manager, property_name, &model, NULL);
-
-    // Sort alphabetically
-    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
-    sorter = gtk_string_sorter_new (expression);
-    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (sorter));
-
-    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             NULL, NULL);
-
-    refresh_search (self);
-}
-
-static void
-update_user_extensions_list (ExmWindow *self)
-{
-    update_extensions_list (self, self->user_list_box, "user-extensions");
-}
-
-static void
-update_system_extensions_list (ExmWindow *self)
-{
-    update_extensions_list (self, self->system_list_box, "system-extensions");
-}
-
-static void
-on_search_entry_realize (GtkSearchEntry *search_entry)
-{
-    ExmWindow *self;
-
-    self = EXM_WINDOW (gtk_widget_get_root (GTK_WIDGET (search_entry)));
-
-    // Fire off a default search
-    search (self, "");
-}
-
-static void
-bind_list_box (GtkListBox *list_box,
-               GListModel *model)
-{
-    GtkExpression *expression;
-    GtkStringSorter *sorter;
-    GtkSortListModel *sorted_model;
-
-    // Sort alphabetically
-    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
-    sorter = gtk_string_sorter_new (expression);
-    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (sorter));
-
-    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             NULL, NULL);
-}
-
-static void
 exm_window_class_init (ExmWindowClass *klass)
 {
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->finalize = exm_window_finalize;
+    object_class->get_property = exm_window_get_property;
+    object_class->set_property = exm_window_set_property;
+
+    properties [PROP_MANAGER]
+        = g_param_spec_object ("manager",
+                               "Manager",
+                               "Manager",
+                               EXM_TYPE_MANAGER,
+                               G_PARAM_READABLE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
+
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, user_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, system_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_entry);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_results);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, global_toggle);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
 
-    gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
+    // TODO: Refactor ExmWindow into a separate ExmController and supply the
+    // necessary actions/methods/etc in there. A reference to this new object can
+    // then be passed to each page.
+    gtk_widget_class_install_action (widget_class, "ext.install", "s", extension_install);
+    gtk_widget_class_install_action (widget_class, "ext.remove", "s", extension_remove);
+    gtk_widget_class_install_action (widget_class, "ext.state-set", "(sb)", extension_state_set);
+    gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
 }
 
 static void
 exm_window_init (ExmWindow *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
-
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->manager = exm_manager_new ();
-    self->resolver = exm_image_resolver_new ();
-    self->search = exm_search_provider_new ();
 
-    g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
-                  NULL);
-
-    bind_list_box (self->user_list_box, user_ext_model);
-    bind_list_box (self->system_list_box, system_ext_model);
-
-    g_signal_connect_swapped (user_ext_model,
-                              "items-changed",
-                              G_CALLBACK (refresh_search),
-                              self);
-
-    g_signal_connect_swapped (system_ext_model,
-                              "items-changed",
-                              G_CALLBACK (refresh_search),
-                              self);
-
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->user_list_box,
-                            "sensitive",
-                            G_BINDING_SYNC_CREATE);
-
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->system_list_box,
-                            "sensitive",
-                            G_BINDING_SYNC_CREATE);
+    g_object_set (self->installed_page, "manager", self->manager, NULL);
+    g_object_set (self->browse_page, "manager", self->manager, NULL);
 
     g_object_bind_property (self->manager,
                             "extensions-enabled",
                             self->global_toggle,
                             "state",
                             G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
-
-    g_signal_connect (self->search_entry,
-                      "search-changed",
-                      G_CALLBACK (on_search_changed),
-                      self);
 }

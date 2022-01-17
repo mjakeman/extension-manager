@@ -1,0 +1,40 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmSearchRow : Adw.ExpanderRow {
+
+	[prefix]
+	Gtk.Image icon {
+		valign: center;
+		halign: center;
+
+		resource: "/com/mattjakeman/ExtensionManager/icons/plugin.png";
+	}
+
+	Gtk.Box {
+		styles ["content"]
+
+		orientation: vertical;
+
+		Gtk.Label description_label {
+			styles ["description"]
+
+			xalign: 0;
+			wrap: true;
+			wrap-mode: word_char;
+		}
+
+		Gtk.Box {
+			orientation: horizontal;
+			halign: end;
+
+			Gtk.LinkButton link_btn {
+				label: _("Go to Page");
+			}
+
+			Gtk.Button install_btn {
+				label: _("Install");
+			}
+		}
+	}
+}

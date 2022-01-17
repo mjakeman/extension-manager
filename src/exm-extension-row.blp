@@ -1,0 +1,40 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmExtensionRow : Adw.ExpanderRow {
+
+	[action]
+	Gtk.Switch ext_toggle {
+		valign: center;
+		halign: center;
+
+		action-name: 'row.state-set';
+	}
+
+	[action]
+	Gtk.Button prefs_btn {
+		icon-name: "settings-symbolic";
+		valign: center;
+		halign: center;
+
+		action-name: 'row.open-prefs';
+	}
+
+	Gtk.Label description_label {
+		styles ["content"]
+
+		xalign: 0;
+		wrap-mode: word;
+		wrap: true;
+	}
+
+	Gtk.Button remove_btn {
+		styles ["destructive-action"]
+
+		label: _("Remove");
+		valign: center;
+		halign: end;
+
+		action-name: 'row.remove';
+	}
+}

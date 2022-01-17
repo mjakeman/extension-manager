@@ -8,12 +8,6 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmExtension, exm_extension, EXM, EXTENSION, GObject)
 
-ExmExtension *exm_extension_new (gchar    *uuid,
-                                 gchar    *display_name,
-                                 gchar    *description,
-                                 gboolean  enabled,
-                                 gboolean  is_user,
-                                 gboolean  has_prefs,
-                                 gboolean  has_update);
+ExmExtension *exm_extension_new (const gchar *uuid);
 
 G_END_DECLS
