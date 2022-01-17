@@ -9,6 +9,7 @@ exm_sources = [
 
   # Browse Page
   'exm-browse-page.c',
+  'exm-search-row.c'
 ]
 
 exm_deps = [
@@ -29,7 +30,8 @@ blueprints = custom_target('blueprints',
     'exm-window.blp',
     'exm-installed-page.blp',
     'exm-browse-page.blp',
-    'exm-extension-row.blp'
+    'exm-extension-row.blp',
+    'exm-search-row.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],

@@ -73,6 +73,7 @@ exm_extension_row_set_property (GObject      *object,
         self->extension = g_value_get_object (value);
         if (self->extension)
         {
+            // TODO: Bind here, rather than in constructed()
             g_object_get (self->extension,
                           "uuid", &self->uuid,
                           NULL);

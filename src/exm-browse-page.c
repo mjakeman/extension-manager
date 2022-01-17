@@ -1,5 +1,7 @@
 #include "exm-browse-page.h"
 
+#include "exm-search-row.h"
+
 #include "local/exm-manager.h"
 
 #include "web/exm-search-provider.h"
@@ -85,130 +87,21 @@ exm_browse_page_set_property (GObject      *object,
     }
 }
 
-static void
-on_image_loaded (GObject      *source,
-                 GAsyncResult *res,
-                 GtkImage     *target)
-{
-    GError *error = NULL;
-    GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
-                                                             res, &error);
-    if (error)
-    {
-        // TODO: Properly log this
-        g_critical ("%s\n", error->message);
-        return;
-    }
-
-    gtk_image_set_from_paintable (target, GDK_PAINTABLE (texture));
-}
-
-static GtkWidget *
-create_thumbnail (ExmImageResolver *resolver,
-                  const gchar      *icon_uri)
-{
-    GtkWidget *icon;
-
-    icon = gtk_image_new ();
-    gtk_widget_set_valign (icon, GTK_ALIGN_CENTER);
-    gtk_widget_set_halign (icon, GTK_ALIGN_CENTER);
-
-    // Set to default icon
-    gtk_image_set_from_resource (GTK_IMAGE (icon), "/com/mattjakeman/ExtensionManager/icons/plugin.png");
-
-    // If not the default icon, lookup and lazily replace
-    // TODO: There are some outstanding threading issues so avoid downloading for now
-    /*if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
-    {
-        exm_image_resolver_resolve_async (resolver, icon_uri, NULL,
-                                          (GAsyncReadyCallback) on_image_loaded,
-                                          icon);
-    }*/
-
-    return icon;
-}
-
-static void
-install_remote (GtkButton   *button,
-                const gchar *uuid)
-{
-    gtk_widget_activate_action (GTK_WIDGET (button),
-                                "ext.install",
-                                "s", uuid);
-}
-
 static GtkWidget *
 search_widget_factory (ExmSearchResult *result,
                        ExmBrowsePage   *self)
 {
-    GtkWidget *row;
-    GtkWidget *box;
-    GtkWidget *description_label;
-    GtkWidget *button_box;
-    GtkWidget *install_btn;
-    GtkWidget *link_btn;
-    GtkWidget *icon;
-    GtkWidget *screenshot;
+    ExmSearchRow *row;
+    gchar *uuid;
+    gboolean is_installed;
 
-    gchar *uri;
+    g_object_get (result, "uuid", &uuid, NULL);
 
-    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
-    g_object_get (result,
-                  "uuid", &uuid,
-                  "name", &name,
-                  "creator", &creator,
-                  "icon", &icon_uri,
-                  "screenshot", &screenshot_uri,
-                  "link", &link,
-                  "description", &description,
-                  NULL);
+    is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
 
-    name = g_markup_escape_text (name, -1);
-    uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
+    row = exm_search_row_new (result, is_installed);
 
-    row = adw_expander_row_new ();
-
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), name);
-    adw_expander_row_set_subtitle (ADW_EXPANDER_ROW (row), creator);
-
-    icon = create_thumbnail (self->resolver, icon_uri);
-    adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), icon);
-
-    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    gtk_widget_add_css_class (box, "content");
-    adw_expander_row_add_row (ADW_EXPANDER_ROW (row), box);
-
-    description_label = gtk_label_new (description);
-    gtk_label_set_xalign (GTK_LABEL (description_label), 0);
-    gtk_label_set_wrap (GTK_LABEL (description_label), GTK_WRAP_WORD_CHAR);
-    // This seems to fix a strange wrapping error?
-    gtk_label_set_wrap_mode (GTK_LABEL (description_label), PANGO_WRAP_WORD_CHAR);
-    gtk_widget_add_css_class (description_label, "description");
-    gtk_box_append (GTK_BOX (box), description_label);
-
-    // TODO: This should be on-demand otherwise we're downloading far too often
-    /*screenshot = gtk_image_new ();
-    exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
-    gtk_box_append (GTK_BOX (box), screenshot);*/
-
-    button_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-    gtk_widget_set_halign (button_box, GTK_ALIGN_END);
-    gtk_box_append (GTK_BOX (box), button_box);
-
-    link_btn = gtk_link_button_new_with_label (uri, _("Go to Page"));
-    gtk_box_append (GTK_BOX (button_box), link_btn);
-
-    install_btn = gtk_button_new_with_label (_("Install"));
-    g_signal_connect (install_btn, "clicked", G_CALLBACK (install_remote), uuid);
-    gtk_box_append (GTK_BOX (button_box), install_btn);
-
-    if (exm_manager_is_installed_uuid (self->manager, uuid))
-    {
-        gtk_button_set_label (GTK_BUTTON (install_btn), _("Installed"));
-        gtk_widget_set_sensitive (install_btn, FALSE);
-    }
-
-    return row;
+    return GTK_WIDGET (row);
 }
 
 static void
