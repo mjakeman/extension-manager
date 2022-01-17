@@ -9,8 +9,6 @@
 
 #include "web/model/exm-search-result.h"
 
-#include <glib/gi18n.h>
-
 struct _ExmBrowsePage
 {
     GtkWidget parent_instance;

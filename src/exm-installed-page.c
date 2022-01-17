@@ -4,8 +4,6 @@
 
 #include "local/exm-manager.h"
 
-#include <glib/gi18n.h>
-
 struct _ExmInstalledPage
 {
     GtkWidget parent_instance;

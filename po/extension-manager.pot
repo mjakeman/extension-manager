@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 22:44+1300\n"
+"POT-Creation-Date: 2022-01-17 17:16+1300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,6 +41,16 @@ msgstr ""
 msgid "Manage the extensions you already have installed"
 msgstr ""
 
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr ""
+
 #: src/exm-application.c:111
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
@@ -51,57 +61,73 @@ msgstr ""
 msgid "Project Homepage"
 msgstr ""
 
-#: src/exm-window.blp:33 src/exm-window.c:332
-msgid "Installed"
-msgstr ""
-
-#: src/exm-window.blp:48
-msgid "User-Installed Extensions"
-msgstr ""
-
-#: src/exm-window.blp:60
-msgid "System Extensions"
-msgstr ""
-
-#: src/exm-window.blp:74
-msgid "Browse"
-msgstr ""
-
-#: src/exm-window.blp:79
+#: src/exm-browse-page.blp:7
 msgid "Search for extensions"
 msgstr ""
 
-#: src/exm-window.blp:80
+#: src/exm-browse-page.blp:8
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
 
-#: src/exm-window.blp:89
+#: src/exm-browse-page.blp:18
 msgid "e.g. \"Blur my Shell\""
 msgstr ""
 
-#: src/exm-window.blp:113
-msgid "Keyboard Shortcuts"
-msgstr ""
-
-#: src/exm-window.blp:117
-msgid "About Extension Manager"
-msgstr ""
-
-#: src/exm-window.c:127
-msgid "Are you sure you want to uninstall?"
-msgstr ""
-
-#: src/exm-window.c:188
+#: src/exm-extension-row.blp:34
 msgid "Remove"
 msgstr ""
 
-#: src/exm-window.c:323
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr ""
+
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr ""
+
+#: src/exm-search-row.blp:32
 msgid "Go to Page"
 msgstr ""
 
-#: src/exm-window.c:326
+#: src/exm-search-row.blp:36
 msgid "Install"
+msgstr ""
+
+#: src/exm-search-row.c:188 src/exm-window.blp:36
+msgid "Installed"
+msgstr ""
+
+#: src/exm-window.blp:44
+msgid "Browse"
+msgstr ""
+
+#: src/exm-window.blp:61
+msgid "Theme"
+msgstr ""
+
+#: src/exm-window.blp:63
+msgid "Follow System"
+msgstr ""
+
+#: src/exm-window.blp:68
+msgid "Light"
+msgstr ""
+
+#: src/exm-window.blp:73
+msgid "Dark"
+msgstr ""
+
+#: src/exm-window.blp:79
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/exm-window.blp:83
+msgid "About Extension Manager"
+msgstr ""
+
+#: src/exm-window.c:178
+msgid "Are you sure you want to uninstall?"
 msgstr ""
 
 #: src/gtk/help-overlay.blp:11

@@ -2,7 +2,12 @@ data/com.mattjakeman.ExtensionManager.desktop.in
 data/com.mattjakeman.ExtensionManager.appdata.xml.in
 data/com.mattjakeman.ExtensionManager.gschema.xml
 src/exm-application.c
+src/exm-browse-page.blp
+src/exm-extension-row.blp
+src/exm-installed-page.blp
+src/exm-search-row.blp
+src/exm-search-row.c
 src/exm-window.blp
-src/main.c
 src/exm-window.c
+src/main.c
 src/gtk/help-overlay.blp
