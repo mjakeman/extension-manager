@@ -76,17 +76,38 @@ parse_search_results (GBytes  *bytes,
     return NULL;
 }
 
+const gchar *
+get_sort_string (ExmSearchSort sort_type)
+{
+    switch (sort_type)
+    {
+    case EXM_SEARCH_SORT_DOWNLOADS:
+        return "downloads";
+    case EXM_SEARCH_SORT_RECENT:
+        return "recent";
+    case EXM_SEARCH_SORT_NAME:
+        return "name";
+    case EXM_SEARCH_SORT_POPULARITY:
+    default:
+        return "popularity";
+    }
+}
+
 void
 exm_search_provider_query_async (ExmSearchProvider   *self,
                                  const gchar         *query,
+                                 ExmSearchSort        sort_type,
                                  GCancellable        *cancellable,
                                  GAsyncReadyCallback  callback,
                                  gpointer             user_data)
 {
-    // Query https://extensions.gnome.org/extension-query/?search={%s}
+    // Query https://extensions.gnome.org/extension-query/?search={%s}&sort={%s}
 
-    gchar *url;
-    url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s", query);
+    const gchar *url;
+    const gchar *sort;
+
+    sort = get_sort_string (sort_type);
+    url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s", query, sort);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,

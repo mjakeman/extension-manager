@@ -23,6 +23,7 @@ struct _ExmBrowsePage
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
     GtkStack            *search_stack;
+    GtkDropDown         *search_dropdown;
 };
 
 G_DEFINE_FINAL_TYPE (ExmBrowsePage, exm_browse_page, GTK_TYPE_WIDGET)
@@ -130,22 +131,23 @@ on_search_result (GObject       *source,
 
 static void
 search (ExmBrowsePage *self,
-        const gchar   *query)
+        const gchar   *query,
+        ExmSearchSort  sort)
 {
     // Show Loading Indicator
     gtk_stack_set_visible_child_name (self->search_stack, "page_spinner");
 
-    exm_search_provider_query_async (self->search, query, NULL,
+    exm_search_provider_query_async (self->search, query, sort, NULL,
                                      (GAsyncReadyCallback) on_search_result,
                                      self);
 }
 
 static void
-on_search_changed (GtkSearchEntry *search_entry,
-                   ExmBrowsePage  *self)
+on_search_changed (ExmBrowsePage  *self)
 {
-    const char *query = gtk_editable_get_text (GTK_EDITABLE (search_entry));
-    search (self, query);
+    const char *query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
+    ExmSearchSort sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
+    search (self, query, sort);
 }
 
 static void
@@ -153,7 +155,7 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
                          ExmBrowsePage  *self)
 {
     // Fire off a default search
-    search (self, "");
+    search (self, "", EXM_SEARCH_SORT_POPULARITY);
 }
 
 static void
@@ -204,6 +206,7 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
 
     gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
 
@@ -217,10 +220,15 @@ exm_browse_page_init (ExmBrowsePage *self)
 
     self->search = exm_search_provider_new ();
 
-    g_signal_connect (self->search_entry,
-                      "search-changed",
-                      G_CALLBACK (on_search_changed),
-                      self);
+    g_signal_connect_swapped (self->search_entry,
+                              "search-changed",
+                              G_CALLBACK (on_search_changed),
+                              self);
+
+    g_signal_connect_swapped (self->search_dropdown,
+                              "notify::selected",
+                              G_CALLBACK (on_search_changed),
+                              self);
 
     g_signal_connect (self->search_entry,
                       "realize",

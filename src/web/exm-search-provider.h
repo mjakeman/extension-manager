@@ -11,11 +11,20 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM, SEARCH_PROVIDER, ExmRequestHandler)
 
+typedef enum
+{
+    EXM_SEARCH_SORT_POPULARITY = 0,
+    EXM_SEARCH_SORT_DOWNLOADS = 1,
+    EXM_SEARCH_SORT_RECENT = 2,
+    EXM_SEARCH_SORT_NAME = 3
+} ExmSearchSort;
+
 ExmSearchProvider *exm_search_provider_new (void);
 
 void
 exm_search_provider_query_async (ExmSearchProvider   *self,
                                  const gchar         *query,
+                                 ExmSearchSort        sort_type,
                                  GCancellable        *cancellable,
                                  GAsyncReadyCallback  callback,
                                  gpointer             user_data);
