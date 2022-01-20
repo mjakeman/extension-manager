@@ -87,13 +87,6 @@ exm_browse_page_set_property (GObject      *object,
     }
 }
 
-static gboolean
-is_extension_compatible (ExmSearchResult *result,
-                         gchar           *shell_version)
-{
-
-}
-
 static GtkWidget *
 search_widget_factory (ExmSearchResult *result,
                        ExmBrowsePage   *self)
@@ -101,10 +94,15 @@ search_widget_factory (ExmSearchResult *result,
     ExmSearchRow *row;
     gchar *uuid;
     gboolean is_installed;
+    gboolean is_supported;
 
     g_object_get (result, "uuid", &uuid, NULL);
 
     is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
+    is_supported = exm_search_result_supports_shell_version (result, self->shell_version);
+
+    // if (!is_supported)
+    //    return NULL;
 
     row = exm_search_row_new (result, is_installed);
 

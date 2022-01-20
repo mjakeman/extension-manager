@@ -52,6 +52,8 @@ exm_search_result_finalize (GObject *object)
 {
     ExmSearchResult *self = (ExmSearchResult *)object;
 
+    g_clear_pointer (&self->shell_version_map, exm_shell_version_map_unref);
+
     G_OBJECT_CLASS (exm_search_result_parent_class)->finalize (object);
 }
 
@@ -105,6 +107,8 @@ exm_search_result_set_property (GObject      *object,
 {
     ExmSearchResult *self = EXM_SEARCH_RESULT (object);
 
+    const ExmShellVersionMap *map;
+
     switch (prop_id)
     {
     case PROP_UUID:
@@ -132,11 +136,24 @@ exm_search_result_set_property (GObject      *object,
         self->pk = g_value_get_int (value);
         break;
     case PROP_SHELL_VERSION_MAP:
-        self->shell_version_map = g_value_get_boxed (value);
+        if (self->shell_version_map)
+            exm_shell_version_map_unref (self->shell_version_map);
+
+        self->shell_version_map = exm_shell_version_map_ref (g_value_get_boxed (value));
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
+}
+
+gboolean
+exm_search_result_supports_shell_version (ExmSearchResult *self,
+                                          const gchar     *shell_version)
+{
+    g_return_val_if_fail (shell_version, FALSE);
+
+    return exm_shell_version_map_supports (self->shell_version_map,
+                                           shell_version);
 }
 
 static void

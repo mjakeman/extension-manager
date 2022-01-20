@@ -10,4 +10,7 @@ G_DECLARE_FINAL_TYPE (ExmSearchResult, exm_search_result, EXM, SEARCH_RESULT, GO
 
 ExmSearchResult *exm_search_result_new (void);
 
+gboolean exm_search_result_supports_shell_version (ExmSearchResult *self,
+                                                   const gchar     *shell_version);
+
 G_END_DECLS
