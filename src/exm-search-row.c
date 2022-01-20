@@ -4,18 +4,19 @@
 
 struct _ExmSearchRow
 {
-    AdwActionRow parent_instance;
+    GtkListBoxRow parent_instance;
 
     ExmSearchResult *search_result;
     gboolean is_installed;
     gchar *uuid;
 
     GtkLabel *description_label;
-    GtkLinkButton *link_btn;
     GtkButton *install_btn;
+    GtkLabel *title;
+    GtkLabel *subtitle;
 };
 
-G_DEFINE_FINAL_TYPE (ExmSearchRow, exm_search_row, ADW_TYPE_ACTION_ROW)
+G_DEFINE_FINAL_TYPE (ExmSearchRow, exm_search_row, GTK_TYPE_LIST_BOX_ROW)
 
 enum {
     PROP_0,
@@ -182,9 +183,9 @@ exm_search_row_constructed (GObject *object)
     // exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
     // gtk_box_append (GTK_BOX (box), screenshot);
 
-    g_object_set (self, "title", name, "subtitle", creator, NULL);
+    gtk_label_set_label (self->title, name);
+    gtk_label_set_label (self->subtitle, creator);
     gtk_label_set_label (self->description_label, description);
-    gtk_link_button_set_uri (self->link_btn, uri);
 
     if (self->is_installed)
     {
@@ -226,8 +227,9 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-search-row.ui");
 
     gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, description_label);
-    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, link_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, install_btn);
+    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, title);
+    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, subtitle);
 }
 
 static void
