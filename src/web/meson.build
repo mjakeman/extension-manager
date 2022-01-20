@@ -4,5 +4,6 @@ exm_sources += files([
   'exm-request-handler.c',
   'exm-data-provider.c',
   'model/exm-search-result.c',
-  'model/exm-comment.c'
+  'model/exm-comment.c',
+  'model/exm-shell-version-map.c'
 ])

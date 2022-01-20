@@ -18,6 +18,7 @@ struct _ExmBrowsePage
     ExmManager *manager;
 
     GListModel *search_results_model;
+    gchar *shell_version;
 
     // Template Widgets
     GtkSearchEntry      *search_entry;
@@ -84,6 +85,13 @@ exm_browse_page_set_property (GObject      *object,
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
+}
+
+static gboolean
+is_extension_compatible (ExmSearchResult *result,
+                         gchar           *shell_version)
+{
+
 }
 
 static GtkWidget *
@@ -185,6 +193,11 @@ on_bind_manager (ExmBrowsePage *self)
                               "items-changed",
                               G_CALLBACK (refresh_search),
                               self);
+
+    g_object_get (self->manager,
+                  "shell-version",
+                  &self->shell_version,
+                  NULL);
 
     refresh_search (self);
 }

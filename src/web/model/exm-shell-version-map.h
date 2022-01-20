@@ -4,10 +4,19 @@
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_SHELL_VERSION_MAP (exm_shell_version_map_get_type())
+#define EXM_TYPE_SHELL_VERSION_MAP (exm_shell_version_map_get_type ())
 
-G_DECLARE_FINAL_TYPE (ExmShellVersionMap, exm_shell_version_map, EXM, SHELL_VERSION_MAP, GObject)
+typedef struct _ExmShellVersionMap ExmShellVersionMap;
 
-ExmShellVersionMap *exm_shell_version_map_new (void);
+GType                   exm_shell_version_map_get_type (void) G_GNUC_CONST;
+ExmShellVersionMap     *exm_shell_version_map_new      (void);
+ExmShellVersionMap     *exm_shell_version_map_copy     (ExmShellVersionMap *self);
+void                    exm_shell_version_map_free     (ExmShellVersionMap *self);
+void                    exm_shell_version_map_add      (ExmShellVersionMap *self,
+                                                        const gchar        *shell_version,
+                                                        int                 ext_package,
+                                                        double              ext_version);
+
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (ExmShellVersionMap, exm_shell_version_map_free)
 
 G_END_DECLS

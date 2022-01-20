@@ -1,74 +1,82 @@
 #include "exm-shell-version-map.h"
 
+typedef struct
+{
+    int package;
+    double version;
+} VersionTuple;
+
+G_DEFINE_BOXED_TYPE (ExmShellVersionMap, exm_shell_version_map, exm_shell_version_map_copy, exm_shell_version_map_free)
+
 struct _ExmShellVersionMap
 {
-    GObject parent_instance;
+    GHashTable *table;
 };
 
-G_DEFINE_FINAL_TYPE (ExmShellVersionMap, exm_shell_version_map, G_TYPE_OBJECT)
-
-enum {
-    PROP_0,
-    N_PROPS
-};
-
-static GParamSpec *properties [N_PROPS];
-
+/**
+ * exm_shell_version_map_new:
+ *
+ * Creates a new #ExmShellVersionMap.
+ *
+ * Returns: (transfer full): A newly created #ExmShellVersionMap
+ */
 ExmShellVersionMap *
 exm_shell_version_map_new (void)
 {
-    return g_object_new (EXM_TYPE_SHELL_VERSION_MAP, NULL);
+    ExmShellVersionMap *self;
+
+    self = g_slice_new0 (ExmShellVersionMap);
+
+    self->table = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+
+    return self;
 }
 
-static void
-exm_shell_version_map_finalize (GObject *object)
+/**
+ * exm_shell_version_map_copy:
+ * @self: a #ExmShellVersionMap
+ *
+ * Makes a deep copy of a #ExmShellVersionMap.
+ *
+ * Returns: (transfer full): A newly created #ExmShellVersionMap with the same
+ *   contents as @self
+ */
+ExmShellVersionMap *
+exm_shell_version_map_copy (ExmShellVersionMap *self)
 {
-    ExmShellVersionMap *self = (ExmShellVersionMap *)object;
+    ExmShellVersionMap *copy;
 
-    G_OBJECT_CLASS (exm_shell_version_map_parent_class)->finalize (object);
+    g_return_val_if_fail (self, NULL);
+
+    copy = exm_shell_version_map_new ();
+
+    return copy;
 }
 
-static void
-exm_shell_version_map_get_property (GObject    *object,
-                                    guint       prop_id,
-                                    GValue     *value,
-                                    GParamSpec *pspec)
+/**
+ * exm_shell_version_map_free:
+ * @self: a #ExmShellVersionMap
+ *
+ * Frees a #ExmShellVersionMap allocated using exm_shell_version_map_new()
+ * or exm_shell_version_map_copy().
+ */
+void
+exm_shell_version_map_free (ExmShellVersionMap *self)
 {
-    ExmShellVersionMap *self = EXM_SHELL_VERSION_MAP (object);
+    g_return_if_fail (self);
 
-    switch (prop_id)
-      {
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    g_slice_free (ExmShellVersionMap, self);
 }
 
-static void
-exm_shell_version_map_set_property (GObject      *object,
-                                    guint         prop_id,
-                                    const GValue *value,
-                                    GParamSpec   *pspec)
+void
+exm_shell_version_map_add (ExmShellVersionMap *self,
+                           const gchar        *shell_version,
+                           int                 ext_package,
+                           double              ext_version)
 {
-    ExmShellVersionMap *self = EXM_SHELL_VERSION_MAP (object);
+    VersionTuple *tuple = g_new0 (VersionTuple, 1);
+    tuple->package = ext_package;
+    tuple->version = ext_version;
 
-    switch (prop_id)
-      {
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
-}
-
-static void
-exm_shell_version_map_class_init (ExmShellVersionMapClass *klass)
-{
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-    object_class->finalize = exm_shell_version_map_finalize;
-    object_class->get_property = exm_shell_version_map_get_property;
-    object_class->set_property = exm_shell_version_map_set_property;
-}
-
-static void
-exm_shell_version_map_init (ExmShellVersionMap *self)
-{
+    g_hash_table_insert (self->table, g_strdup (shell_version), tuple);
 }
