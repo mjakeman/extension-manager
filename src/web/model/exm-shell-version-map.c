@@ -126,7 +126,10 @@ exm_shell_version_map_supports (ExmShellVersionMap *self,
     const gchar *major;
     const gchar *minor;
 
-    g_return_val_if_fail (self->map, FALSE);
+    // Some entries on the website do not define a shell_version_map. Assume
+    // these extensions have been retired and ignore.
+    if (self->map == NULL)
+        return FALSE;
 
     strarr = g_strsplit (shell_version, ".", 2);
 

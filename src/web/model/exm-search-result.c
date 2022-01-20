@@ -137,7 +137,7 @@ exm_search_result_set_property (GObject      *object,
         break;
     case PROP_SHELL_VERSION_MAP:
         if (self->shell_version_map)
-            exm_shell_version_map_unref (self->shell_version_map);
+            g_clear_pointer (&self->shell_version_map, exm_shell_version_map_unref);
 
         self->shell_version_map = exm_shell_version_map_ref (g_value_get_boxed (value));
         break;
