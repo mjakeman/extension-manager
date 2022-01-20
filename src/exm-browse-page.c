@@ -101,10 +101,7 @@ search_widget_factory (ExmSearchResult *result,
     is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
     is_supported = exm_search_result_supports_shell_version (result, self->shell_version);
 
-    // if (!is_supported)
-    //    return NULL;
-
-    row = exm_search_row_new (result, is_installed);
+    row = exm_search_row_new (result, is_installed, is_supported);
 
     return GTK_WIDGET (row);
 }

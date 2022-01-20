@@ -8,6 +8,7 @@ struct _ExmSearchRow
 
     ExmSearchResult *search_result;
     gboolean is_installed;
+    gboolean is_supported;
     gchar *uuid;
 
     GtkLabel *description_label;
@@ -22,6 +23,7 @@ enum {
     PROP_0,
     PROP_SEARCH_RESULT,
     PROP_IS_INSTALLED,
+    PROP_IS_SUPPORTED,
     N_PROPS
 };
 
@@ -29,11 +31,13 @@ static GParamSpec *properties [N_PROPS];
 
 ExmSearchRow *
 exm_search_row_new (ExmSearchResult *search_result,
-                    gboolean         is_installed)
+                    gboolean         is_installed,
+                    gboolean         is_supported)
 {
     return g_object_new (EXM_TYPE_SEARCH_ROW,
                          "search-result", search_result,
                          "is-installed", is_installed,
+                         "is-supported", is_supported,
                          NULL);
 }
 
@@ -60,6 +64,9 @@ exm_search_row_get_property (GObject    *object,
         break;
     case PROP_IS_INSTALLED:
         g_value_set_boolean (value, self->is_installed);
+        break;
+    case PROP_IS_SUPPORTED:
+        g_value_set_boolean (value, self->is_supported);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -88,6 +95,9 @@ exm_search_row_set_property (GObject      *object,
         break;
     case PROP_IS_INSTALLED:
         self->is_installed = g_value_get_boolean (value);
+        break;
+    case PROP_IS_SUPPORTED:
+        self->is_supported = g_value_get_boolean (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -195,6 +205,17 @@ exm_search_row_constructed (GObject *object)
         gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
     }
 
+    if (!self->is_supported)
+    {
+        const gchar *tooltip;
+
+        tooltip = _("This extension is incompatible with your current GNOME Shell version.");
+
+        gtk_button_set_label (self->install_btn, _("Incompatible"));
+        gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->install_btn), tooltip);
+    }
+
     g_signal_connect (self->install_btn, "clicked", G_CALLBACK (install_remote), uuid);
 }
 
@@ -219,6 +240,13 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
         g_param_spec_boolean ("is-installed",
                               "Is Installed",
                               "Is Installed",
+                              FALSE,
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_IS_SUPPORTED] =
+        g_param_spec_boolean ("is-supported",
+                              "Is Supported",
+                              "Is Supported",
                               FALSE,
                               G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
