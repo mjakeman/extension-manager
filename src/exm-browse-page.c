@@ -108,11 +108,18 @@ refresh_search (ExmBrowsePage *self)
     if (!self->manager)
         return;
 
+    if (!self->search_results_model || g_list_model_get_n_items (self->search_results_model) == 0)
+    {
+        // No Results Found
+        gtk_stack_set_visible_child_name (self->search_stack, "page_empty");
+        return;
+    }
+
     gtk_list_box_bind_model (self->search_results, self->search_results_model,
                              (GtkListBoxCreateWidgetFunc) search_widget_factory,
                              g_object_ref (self), g_object_unref);
 
-    // Show Loading Indicator
+    // Hide Loading Indicator
     gtk_stack_set_visible_child_name (self->search_stack, "page_results");
 }
 
