@@ -1,7 +1,8 @@
 using Gtk 4.0;
 using Adw 1;
 
-template ExmSearchRow : Adw.ExpanderRow {
+template ExmSearchRow : Adw.ActionRow {
+	activatable: true;
 
 	[prefix]
 	Gtk.Image icon {

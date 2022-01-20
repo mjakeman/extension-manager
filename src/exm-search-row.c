@@ -4,7 +4,7 @@
 
 struct _ExmSearchRow
 {
-    AdwExpanderRow parent_instance;
+    AdwActionRow parent_instance;
 
     ExmSearchResult *search_result;
     gboolean is_installed;
@@ -15,7 +15,7 @@ struct _ExmSearchRow
     GtkButton *install_btn;
 };
 
-G_DEFINE_FINAL_TYPE (ExmSearchRow, exm_search_row, ADW_TYPE_EXPANDER_ROW)
+G_DEFINE_FINAL_TYPE (ExmSearchRow, exm_search_row, ADW_TYPE_ACTION_ROW)
 
 enum {
     PROP_0,
@@ -170,6 +170,9 @@ exm_search_row_constructed (GObject *object)
 
     name = g_markup_escape_text (name, -1);
     uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
+
+    gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
+    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
 
     // icon = create_thumbnail (self->resolver, icon_uri);
     // adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), icon);

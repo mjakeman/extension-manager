@@ -18,12 +18,12 @@
 
 #pragma once
 
-#include <gtk/gtk.h>
+#include <adwaita.h>
 
 G_BEGIN_DECLS
 
 #define EXM_TYPE_WINDOW (exm_window_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmWindow, exm_window, EXM, WINDOW, GtkApplicationWindow)
+G_DECLARE_FINAL_TYPE (ExmWindow, exm_window, EXM, WINDOW, AdwApplicationWindow)
 
 G_END_DECLS

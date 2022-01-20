@@ -14,5 +14,6 @@
     <file alias="globe-symbolic.svg" preprocess="xml-stripblanks">icons/globe-symbolic.svg</file>
     <file alias="puzzle-piece-symbolic.svg" preprocess="xml-stripblanks">icons/puzzle-piece-symbolic.svg</file>
     <file alias="settings-symbolic.svg" preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
+    <file alias="go-previous-symbolic.svg" preprocess="xml-stripblanks">icons/go-previous-symbolic.svg</file>
   </gresource>
 </gresources>

@@ -1,56 +1,81 @@
 using Gtk 4.0;
 using Adw 1;
 
-template ExmWindow : Gtk.ApplicationWindow {
+template ExmWindow : Adw.ApplicationWindow {
   default-width: 800;
   default-height: 600;
 
-	[titlebar]
-  Adw.HeaderBar header_bar {
-  	centering-policy: strict;
+  Adw.Leaflet leaflet {
+  	can-navigate-back: true;
+  	can-unfold: false;
 
-  	[title]
-  	Adw.ViewSwitcherTitle title {
-  		stack: view_stack;
+  	Gtk.Box main_view {
+  		orientation: vertical;
+
+  		Adw.HeaderBar header_bar {
+				centering-policy: strict;
+
+				[title]
+				Adw.ViewSwitcherTitle title {
+					stack: view_stack;
+				}
+
+				[end]
+				Gtk.MenuButton {
+				  icon-name: "open-menu-symbolic";
+				  menu-model: primary_menu;
+				}
+
+				[end]
+				Gtk.Switch global_toggle {}
+			}
+
+			Gtk.Box {
+				orientation: vertical;
+
+				Adw.ViewStack view_stack {
+					vexpand: true;
+					hexpand: true;
+
+					 Adw.ViewStackPage {
+						name: "installed";
+						title: _("Installed");
+						icon-name: "puzzle-piece-symbolic";
+
+						child: .ExmInstalledPage installed_page {};
+					}
+
+					Adw.ViewStackPage {
+						name: "browse";
+						title: _("Browse");
+						icon-name: "globe-symbolic";
+
+						child: .ExmBrowsePage browse_page {};
+					}
+				}
+
+				Adw.ViewSwitcherBar {
+					stack: view_stack;
+					reveal: bind title.title-visible;
+				}
+			}
   	}
 
-		[end]
-    Gtk.MenuButton {
-      icon-name: "open-menu-symbolic";
-      menu-model: primary_menu;
-    }
+  	Gtk.Box detail_view {
+			orientation: vertical;
+			Adw.HeaderBar {
 
-    [end]
-    Gtk.Switch global_toggle {}
-  }
-
-  Gtk.Box {
-  	orientation: vertical;
-
-  	Adw.ViewStack view_stack {
-  		vexpand: true;
-  		hexpand: true;
-
-			 Adw.ViewStackPage {
-				name: "installed";
-				title: _("Installed");
-				icon-name: "puzzle-piece-symbolic";
-
-				child: .ExmInstalledPage installed_page {};
+				[start]
+				Gtk.Button {
+					valign: center;
+					icon-name: "go-previous-symbolic";
+					action-name: "win.show-main";
+				}
 			}
 
-			Adw.ViewStackPage {
-				name: "browse";
-				title: _("Browse");
-				icon-name: "globe-symbolic";
-
-				child: .ExmBrowsePage browse_page {};
+			Gtk.Label {
+				label: "Boo!";
 			}
-		}
-
-		Adw.ViewSwitcherBar {
-			stack: view_stack;
-			reveal: bind title.title-visible;
 		}
   }
 }
