@@ -209,7 +209,7 @@ exm_search_row_constructed (GObject *object)
     {
         const gchar *tooltip;
 
-        tooltip = _("This extension is incompatible with your current GNOME Shell version.");
+        tooltip = _("This extension is incompatible with your current version of GNOME.");
 
         gtk_button_set_label (self->install_btn, _("Incompatible"));
         gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
