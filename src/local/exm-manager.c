@@ -397,9 +397,11 @@ parse_single_extension (ExmExtension **extension,
         *extension = exm_extension_new (extension_uuid);
     }
 
+    g_debug ("Found extension '%s' with properties:\n", uuid);
+
     while (g_variant_iter_loop (variant_iter, "{sv}", &prop_name, &prop_value))
     {
-        // g_print (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
+        g_debug (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
 
         // Compare with DBus property names
         if (strcmp (prop_name, "uuid") == 0)
@@ -571,13 +573,11 @@ on_state_changed (ShellExtensions *object,
     gboolean is_uninstall_operation;
     GListStore *list_store;
 
-    g_print ("State Changed for extension '%s'\n", arg_uuid);
+    g_debug ("State Changed for extension '%s'\n", arg_uuid);
 
     // Parse the new extension state and update only that element in
     // the list model. This will automatically update any bound
     // listboxes or listviews.
-
-    g_print ("%s\n", g_variant_print (arg_state, TRUE));
 
     // This is NULL if it does not exist
     extension = exm_manager_get_by_uuid (self, arg_uuid);
@@ -613,7 +613,7 @@ on_status_changed (ShellExtensions *object,
                    const gchar     *arg_error,
                    ExmManager      *self)
 {
-    g_print ("Status Changed (Unhandled) for extension '%s'\n", arg_uuid);
+    g_debug ("Status Changed (Unhandled) for extension '%s'\n", arg_uuid);
 
     // TODO: What's this for?
 }

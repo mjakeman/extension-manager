@@ -38,7 +38,8 @@ parse_search_results (GBytes  *bytes,
 
     data = g_bytes_get_data (bytes, &length);
 
-    g_print ("%s\n", (gchar *)data);
+    g_debug ("Received JSON search results:\n");
+    g_debug ("%s\n", (gchar *)data);
 
     parser = json_parser_new ();
     if (json_parser_load_from_data (parser, data, length, &error))
@@ -63,7 +64,6 @@ parse_search_results (GBytes  *bytes,
         {
             GObject *result;
 
-            g_print ("Extension Found!\n");
             result = json_gobject_deserialize (EXM_TYPE_SEARCH_RESULT, l->data);
 
             g_list_store_append (store, result);
