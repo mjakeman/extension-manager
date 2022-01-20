@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 22:44+1300\n"
-"PO-Revision-Date: 2022-01-12 20:48+0100\n"
+"POT-Creation-Date: 2022-01-17 17:16+1300\n"
+"PO-Revision-Date: 2022-01-17 21:33+0100\n"
 "Last-Translator: Rafał Baran <>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
@@ -45,6 +45,17 @@ msgstr "Przeglądaj extensions.gnome.org bezpośrednio w aplikacji"
 msgid "Manage the extensions you already have installed"
 msgstr "Zarządzaj już zainstalowanymi rozszerzeniami"
 
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr "Preferencje motywu"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr ""
+"Ustawia motyw na systemowy lub wymusza użycie ciemnego lub jasnego motywu."
+
 #: src/exm-application.c:111
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
@@ -57,58 +68,74 @@ msgstr ""
 msgid "Project Homepage"
 msgstr "Strona Główna projektu"
 
-#: src/exm-window.blp:33 src/exm-window.c:332
-msgid "Installed"
-msgstr "Zainstalowane"
-
-#: src/exm-window.blp:48
-msgid "User-Installed Extensions"
-msgstr "Ręcznie zainstalowane"
-
-#: src/exm-window.blp:60
-msgid "System Extensions"
-msgstr "Systemowe rozszerzenia"
-
-#: src/exm-window.blp:74
-msgid "Browse"
-msgstr "Przeglądaj"
-
-#: src/exm-window.blp:79
+#: src/exm-browse-page.blp:7
 msgid "Search for extensions"
 msgstr "Szukaj rozszerzeń"
 
-#: src/exm-window.blp:80
+#: src/exm-browse-page.blp:8
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr "Wpisz słowo kluczowe, aby wyszukać rozszerzenia w extensions.gnome.org"
 
-#: src/exm-window.blp:89
+#: src/exm-browse-page.blp:18
 msgid "e.g. \"Blur my Shell\""
 msgstr "np. \"Blur my Shell\""
 
-#: src/exm-window.blp:113
-msgid "Keyboard Shortcuts"
-msgstr "Skróty klawiszowe"
-
-#: src/exm-window.blp:117
-msgid "About Extension Manager"
-msgstr "O programie"
-
-#: src/exm-window.c:127
-msgid "Are you sure you want to uninstall?"
-msgstr "Czy na pewno chcesz odinstalować?"
-
-#: src/exm-window.c:188
+#: src/exm-extension-row.blp:34
 msgid "Remove"
 msgstr "Usuń"
 
-#: src/exm-window.c:323
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr "Ręcznie zainstalowane"
+
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr "Systemowe rozszerzenia"
+
+#: src/exm-search-row.blp:32
 msgid "Go to Page"
 msgstr "Otwórz stronę"
 
-#: src/exm-window.c:326
+#: src/exm-search-row.blp:36
 msgid "Install"
 msgstr "Zainstaluj"
+
+#: src/exm-search-row.c:188 src/exm-window.blp:36
+msgid "Installed"
+msgstr "Zainstalowane"
+
+#: src/exm-window.blp:44
+msgid "Browse"
+msgstr "Przeglądaj"
+
+#: src/exm-window.blp:61
+msgid "Theme"
+msgstr "Motyw"
+
+#: src/exm-window.blp:63
+msgid "Follow System"
+msgstr "Motyw sytemowy"
+
+#: src/exm-window.blp:68
+msgid "Light"
+msgstr "Jasny"
+
+#: src/exm-window.blp:73
+msgid "Dark"
+msgstr "Ciemny"
+
+#: src/exm-window.blp:79
+msgid "Keyboard Shortcuts"
+msgstr "Skróty klawiszowe"
+
+#: src/exm-window.blp:83
+msgid "About Extension Manager"
+msgstr "O programie"
+
+#: src/exm-window.c:178
+msgid "Are you sure you want to uninstall?"
+msgstr "Czy na pewno chcesz odinstalować?"
 
 #: src/gtk/help-overlay.blp:11
 msgctxt "shortcut window"
