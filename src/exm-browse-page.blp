@@ -14,12 +14,25 @@ template ExmBrowsePage : Gtk.Widget {
 				Gtk.Box {
 					orientation: vertical;
 
-					Gtk.SearchEntry search_entry {
-						placeholder-text: _("e.g. \"Blur my Shell\"");
+					Gtk.Box {
+						styles ["linked"]
 
-						// Hook for triggering initial search
-						// TODO: Re-enable this once blueprint-compiler!4 is merged
-						// realize => on_search_entry_realize();
+						Gtk.SearchEntry search_entry {
+							hexpand: true;
+							placeholder-text: _("e.g. \"Blur my Shell\"");
+
+							// Hook for triggering initial search
+							// TODO: Re-enable this once blueprint-compiler!4 is merged
+							// realize => on_search_entry_realize();
+						}
+
+						// Keep the same order as the ExmSearchSort enum
+						Gtk.DropDown search_dropdown {
+							model: StringList {
+								// Translators: dropdown items for sorting search results
+								strings [_("Popularity"), _("Downloads"), _("Recent"), _("Name")]
+							};
+						}
 					}
 
 					Gtk.Stack search_stack {
