@@ -52,6 +52,15 @@ template ExmBrowsePage : Gtk.Widget {
 								valign: start;
 							};
 						}
+
+						Gtk.StackPage {
+							name: "page_empty";
+							child: Gtk.Label {
+								label: _("No Results Found");
+								valign: start;
+								halign: center;
+							};
+						}
 					}
 				}
 			};
