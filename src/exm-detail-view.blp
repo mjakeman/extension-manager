@@ -34,6 +34,8 @@ template ExmDetailView : Gtk.Box {
 				Adw.Clamp {
 					styles ["clamp"]
 
+					maximum-size: 800;
+
 					Gtk.Box {
 						orientation: vertical;
 						spacing: 25;
@@ -71,8 +73,7 @@ template ExmDetailView : Gtk.Box {
 							}
 						}
 
-						Gtk.Image {
-							icon-name: "image";
+						Gtk.Picture ext_screenshot {
 							valign: center;
 							halign: center;
 						}
