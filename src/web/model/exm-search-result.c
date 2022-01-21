@@ -13,6 +13,7 @@ struct _ExmSearchResult
     gchar *screenshot;
     gchar *link;
     gchar *description;
+    int pk;
 };
 
 static void json_serializable_iface_init (JsonSerializableIface *iface);
@@ -30,6 +31,7 @@ enum {
     PROP_SCREENSHOT,
     PROP_LINK,
     PROP_DESCRIPTION,
+    PROP_PK,
     N_PROPS
 };
 
@@ -80,6 +82,9 @@ exm_search_result_get_property (GObject    *object,
     case PROP_DESCRIPTION:
         g_value_set_string (value, self->description);
         break;
+    case PROP_PK:
+        g_value_set_int (value, self->pk);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -115,6 +120,9 @@ exm_search_result_set_property (GObject      *object,
         break;
     case PROP_DESCRIPTION:
         self->description = g_value_dup_string (value);
+        break;
+    case PROP_PK:
+        self->pk = g_value_get_int (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -178,6 +186,13 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
                              "Description",
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_PK] =
+        g_param_spec_int ("pk",
+                          "Package ID",
+                          "Package ID",
+                          0, G_MAXINT, 0,
+                          G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }

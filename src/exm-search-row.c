@@ -157,6 +157,7 @@ exm_search_row_constructed (GObject *object)
     ExmSearchRow *self = EXM_SEARCH_ROW (object);
 
     gchar *uri;
+    int pk;
 
     gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
     g_object_get (self->search_result,
@@ -167,13 +168,14 @@ exm_search_row_constructed (GObject *object)
                   "screenshot", &screenshot_uri,
                   "link", &link,
                   "description", &description,
+                  "pk", &pk,
                   NULL);
 
     name = g_markup_escape_text (name, -1);
     uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
 
     gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
-    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
+    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "(sn)", uuid, pk);
 
     // icon = create_thumbnail (self->resolver, icon_uri);
     // adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), icon);

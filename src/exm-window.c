@@ -25,6 +25,8 @@
 #include "local/exm-manager.h"
 #include "local/exm-extension.h"
 
+#include "web/exm-data-provider.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmWindow
@@ -32,6 +34,7 @@ struct _ExmWindow
     AdwApplicationWindow  parent_instance;
 
     ExmManager *manager;
+    ExmDataProvider *provider;
 
     /* Template widgets */
     AdwHeaderBar        *header_bar;
@@ -41,6 +44,7 @@ struct _ExmWindow
     AdwLeaflet          *leaflet;
     GtkWidget           *main_view;
     GtkWidget           *detail_view;
+    AdwWindowTitle      *detail_title;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -214,6 +218,35 @@ extension_install (GtkWidget  *widget,
 }
 
 static void
+on_data_loaded (GObject      *source,
+                GAsyncResult *result,
+                gpointer      user_data)
+{
+    ExmSearchResult *data;
+    GError *error = NULL;
+    ExmWindow *self;
+
+    self = EXM_WINDOW (user_data);
+
+    if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
+    {
+        gchar *name, *uuid;
+        g_object_get (data,
+                      "name", &name,
+                      "uuid", &uuid,
+                      NULL);
+
+        adw_window_title_set_title (self->detail_title, name);
+        adw_window_title_set_subtitle (self->detail_title, uuid);
+
+        return;
+    }
+
+    adw_window_title_set_title (self->detail_title, _("An Error Occurred"));
+    adw_window_title_set_subtitle (self->detail_title, NULL);
+}
+
+static void
 show_view (GtkWidget  *widget,
            const char *action_name,
            GVariant   *param)
@@ -225,9 +258,17 @@ show_view (GtkWidget  *widget,
     if (g_str_equal (action_name, "win.show-detail"))
     {
         gchar *uuid;
+        int pk;
 
-        g_variant_get (param, "s", &uuid);
+        /* Translators: Use unicode ellipsis '…' rather than three dots '...' */
+        adw_window_title_set_title (self->detail_title, _("Loading…"));
+        adw_window_title_set_subtitle (self->detail_title, NULL);
+
+        g_variant_get (param, "(sn)", &uuid, &pk);
         adw_leaflet_set_visible_child (self->leaflet, self->detail_view);
+
+        exm_data_provider_get_async (self->provider, uuid, pk, NULL, on_data_loaded, self);
+
         return;
     }
 
@@ -262,6 +303,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, leaflet);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_title);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -270,7 +312,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.remove", "s", extension_remove);
     gtk_widget_class_install_action (widget_class, "ext.state-set", "(sb)", extension_state_set);
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
-    gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-detail", "(sn)", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
 }
 
@@ -280,6 +322,7 @@ exm_window_init (ExmWindow *self)
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->manager = exm_manager_new ();
+    self->provider = exm_data_provider_new ();
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
