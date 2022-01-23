@@ -8,6 +8,14 @@ G_BEGIN_DECLS
 
 typedef struct _ExmShellVersionMap ExmShellVersionMap;
 
+typedef struct
+{
+    gchar *shell_major_version;
+    gchar *shell_minor_version;
+    int extension_package;
+    double extension_version;
+} MapEntry;
+
 struct _ExmShellVersionMap
 {
     /*< private >*/

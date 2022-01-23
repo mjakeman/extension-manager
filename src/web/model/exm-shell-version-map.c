@@ -1,13 +1,5 @@
 #include "exm-shell-version-map.h"
 
-typedef struct
-{
-    gchar *shell_major_version;
-    gchar *shell_minor_version;
-    int extension_package;
-    double extension_version;
-} MapEntry;
-
 G_DEFINE_BOXED_TYPE (ExmShellVersionMap, exm_shell_version_map, exm_shell_version_map_ref, exm_shell_version_map_unref)
 
 /**

@@ -4,6 +4,7 @@
 
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
+#include "web/model/exm-shell-version-map.h"
 #include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
@@ -28,6 +29,7 @@ struct _ExmDetailView
     GtkLabel *ext_title;
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
+    GtkFlowBox *supported_versions;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -180,6 +182,9 @@ on_data_loaded (GObject      *source,
     GError *error = NULL;
     ExmDetailView *self;
     InstallButtonState install_state;
+    GtkWidget *child;
+    GList *version_iter;
+    ExmShellVersionMap *version_map;
 
     self = EXM_DETAIL_VIEW (user_data);
 
@@ -195,6 +200,7 @@ on_data_loaded (GObject      *source,
                       "screenshot", &screenshot_uri,
                       "link", &link,
                       "description", &description,
+                      "shell_version_map", &version_map,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
@@ -237,6 +243,32 @@ on_data_loaded (GObject      *source,
         gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
         install_btn_set_state (self->ext_install, install_state);
+
+        // Clear Flowbox
+        while ((child = gtk_widget_get_first_child (GTK_WIDGET (self->supported_versions))))
+            gtk_flow_box_remove (self->supported_versions, child);
+
+        for (version_iter = version_map->map;
+             version_iter != NULL;
+             version_iter = version_iter->next)
+        {
+            gchar *version;
+            MapEntry *entry;
+            GtkWidget *label;
+
+            entry = version_iter->data;
+
+            if (entry->shell_minor_version)
+                version = g_strdup_printf ("%s.%s", entry->shell_major_version, entry->shell_minor_version);
+            else
+                version = g_strdup (entry->shell_major_version);
+
+            label = gtk_label_new (version);
+            gtk_widget_add_css_class (label, "version-label");
+            gtk_flow_box_prepend (self->supported_versions, label);
+
+            g_free (version);
+        }
 
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
 
@@ -335,6 +367,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_description);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
 }
 
 static void
