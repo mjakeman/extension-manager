@@ -142,7 +142,7 @@ exm_search_row_constructed (GObject *object)
     uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
 
     gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
-    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "(sn)", uuid, pk);
+    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
 
     gtk_label_set_label (self->title, name);
     gtk_label_set_label (self->subtitle, creator);
