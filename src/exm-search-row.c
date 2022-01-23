@@ -104,49 +104,6 @@ exm_search_row_set_property (GObject      *object,
     }
 }
 
-/*static void
-on_image_loaded (GObject      *source,
-                 GAsyncResult *res,
-                 GtkImage     *target)
-{
-    GError *error = NULL;
-    GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
-                                                             res, &error);
-    if (error)
-    {
-        // TODO: Properly log this
-        g_critical ("%s\n", error->message);
-        return;
-    }
-
-    gtk_image_set_from_paintable (target, GDK_PAINTABLE (texture));
-}
-
-static GtkWidget *
-create_thumbnail (ExmImageResolver *resolver,
-                  const gchar      *icon_uri)
-{
-    GtkWidget *icon;
-
-    icon = gtk_image_new ();
-    gtk_widget_set_valign (icon, GTK_ALIGN_CENTER);
-    gtk_widget_set_halign (icon, GTK_ALIGN_CENTER);
-
-    // Set to default icon
-    gtk_image_set_from_resource (GTK_IMAGE (icon), "/com/mattjakeman/ExtensionManager/icons/plugin.png");
-
-    // If not the default icon, lookup and lazily replace
-    // TODO: There are some outstanding threading issues so avoid downloading for now
-    if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
-    {
-        exm_image_resolver_resolve_async (resolver, icon_uri, NULL,
-                                          (GAsyncReadyCallback) on_image_loaded,
-                                          icon);
-    }
-
-    return icon;
-}*/
-
 static void
 install_remote (GtkButton   *button,
                 const gchar *uuid)
@@ -187,14 +144,6 @@ exm_search_row_constructed (GObject *object)
     gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "(sn)", uuid, pk);
 
-    // icon = create_thumbnail (self->resolver, icon_uri);
-    // adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), icon);
-
-    // TODO: This should be on-demand otherwise we're downloading far too often
-    // screenshot = gtk_image_new ();
-    // exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
-    // gtk_box_append (GTK_BOX (box), screenshot);
-
     gtk_label_set_label (self->title, name);
     gtk_label_set_label (self->subtitle, creator);
     gtk_label_set_label (self->description_label, description);
@@ -207,13 +156,9 @@ exm_search_row_constructed (GObject *object)
 
     if (!self->is_supported)
     {
-        const gchar *tooltip;
-
-        tooltip = _("This extension is incompatible with your current version of GNOME.");
-
-        gtk_button_set_label (self->install_btn, _("Incompatible"));
+        gtk_button_set_label (self->install_btn, _("Unsupported"));
         gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
-        gtk_widget_set_tooltip_text (GTK_WIDGET (self->install_btn), tooltip);
+        gtk_widget_add_css_class (GTK_WIDGET (self->install_btn), "warning");
     }
 
     g_signal_connect (self->install_btn, "clicked", G_CALLBACK (install_remote), uuid);
