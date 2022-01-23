@@ -4,6 +4,7 @@
 
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
+#include "web/model/exm-shell-version-map.h"
 #include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
@@ -17,6 +18,7 @@ struct _ExmDetailView
     ExmImageResolver *resolver;
     GCancellable *resolver_cancel;
 
+    gchar *shell_version;
     gchar *uuid;
     int pk;
 
@@ -27,6 +29,7 @@ struct _ExmDetailView
     GtkLabel *ext_title;
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
+    GtkFlowBox *supported_versions;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -34,6 +37,7 @@ G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
 enum {
     PROP_0,
     PROP_MANAGER,
+    PROP_SHELL_VERSION,
     N_PROPS
 };
 
@@ -66,6 +70,9 @@ exm_detail_view_get_property (GObject    *object,
     case PROP_MANAGER:
         g_value_set_object (value, self->manager);
         break;
+    case PROP_SHELL_VERSION:
+        g_value_set_string (value, self->shell_version);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -87,6 +94,9 @@ exm_detail_view_set_property (GObject      *object,
         self->manager = g_value_get_object (value);
         on_bind_manager (self);
         break;
+    case PROP_SHELL_VERSION:
+        self->shell_version = g_value_dup_string (value);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -103,8 +113,13 @@ void
 install_btn_set_state (GtkButton          *button,
                        InstallButtonState  state)
 {
+    const gchar *tooltip;
+
+    tooltip = _("This extension is incompatible with your current version of GNOME.");
+
     gtk_widget_remove_css_class (GTK_WIDGET (button), "warning");
     gtk_widget_remove_css_class (GTK_WIDGET (button), "suggested-action");
+    gtk_widget_set_tooltip_text (GTK_WIDGET (button), NULL);
 
     switch ((int)state)
     {
@@ -121,6 +136,7 @@ install_btn_set_state (GtkButton          *button,
         gtk_button_set_label (button, _("Unsupported"));
         gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
         gtk_widget_add_css_class (GTK_WIDGET (button), "warning");
+        gtk_widget_set_tooltip_text (GTK_WIDGET (button), tooltip);
         break;
     }
 }
@@ -165,12 +181,16 @@ on_data_loaded (GObject      *source,
     ExmSearchResult *data;
     GError *error = NULL;
     ExmDetailView *self;
+    InstallButtonState install_state;
+    GtkWidget *child;
+    GList *version_iter;
+    ExmShellVersionMap *version_map;
 
     self = EXM_DETAIL_VIEW (user_data);
 
     if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
     {
-        gboolean is_installed;
+        gboolean is_installed, is_supported;
         gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
         g_object_get (data,
                       "uuid", &uuid,
@@ -180,12 +200,14 @@ on_data_loaded (GObject      *source,
                       "screenshot", &screenshot_uri,
                       "link", &link,
                       "description", &description,
+                      "shell_version_map", &version_map,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
         adw_window_title_set_subtitle (self->title, uuid);
 
         is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
+        is_supported = exm_search_result_supports_shell_version (data, self->shell_version);
 
         gtk_label_set_label (self->ext_title, name);
         gtk_label_set_label (self->ext_author, creator);
@@ -212,9 +234,41 @@ on_data_loaded (GObject      *source,
             gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot), FALSE);
         }
 
+        install_state = is_supported
+            ? (is_installed
+               ? STATE_INSTALLED
+               : STATE_DEFAULT)
+            : STATE_UNSUPPORTED;
+
         gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
-        install_btn_set_state (self->ext_install, is_installed ? STATE_INSTALLED : STATE_DEFAULT);
+        install_btn_set_state (self->ext_install, install_state);
+
+        // Clear Flowbox
+        while ((child = gtk_widget_get_first_child (GTK_WIDGET (self->supported_versions))))
+            gtk_flow_box_remove (self->supported_versions, child);
+
+        for (version_iter = version_map->map;
+             version_iter != NULL;
+             version_iter = version_iter->next)
+        {
+            gchar *version;
+            MapEntry *entry;
+            GtkWidget *label;
+
+            entry = version_iter->data;
+
+            if (entry->shell_minor_version)
+                version = g_strdup_printf ("%s.%s", entry->shell_major_version, entry->shell_minor_version);
+            else
+                version = g_strdup (entry->shell_major_version);
+
+            label = gtk_label_new (version);
+            gtk_widget_add_css_class (label, "version-label");
+            gtk_flow_box_prepend (self->supported_versions, label);
+
+            g_free (version);
+        }
 
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
 
@@ -293,6 +347,13 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
                                EXM_TYPE_MANAGER,
                                G_PARAM_READWRITE);
 
+    properties [PROP_SHELL_VERSION]
+        = g_param_spec_string ("shell-version",
+                               "Shell Version",
+                               "Shell Version",
+                               NULL,
+                               G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -306,6 +367,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_description);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
 }
 
 static void

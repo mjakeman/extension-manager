@@ -8,6 +8,7 @@ struct _ExmSearchRow
 
     ExmSearchResult *search_result;
     gboolean is_installed;
+    gboolean is_supported;
     gchar *uuid;
 
     GtkLabel *description_label;
@@ -22,6 +23,7 @@ enum {
     PROP_0,
     PROP_SEARCH_RESULT,
     PROP_IS_INSTALLED,
+    PROP_IS_SUPPORTED,
     N_PROPS
 };
 
@@ -29,11 +31,13 @@ static GParamSpec *properties [N_PROPS];
 
 ExmSearchRow *
 exm_search_row_new (ExmSearchResult *search_result,
-                    gboolean         is_installed)
+                    gboolean         is_installed,
+                    gboolean         is_supported)
 {
     return g_object_new (EXM_TYPE_SEARCH_ROW,
                          "search-result", search_result,
                          "is-installed", is_installed,
+                         "is-supported", is_supported,
                          NULL);
 }
 
@@ -60,6 +64,9 @@ exm_search_row_get_property (GObject    *object,
         break;
     case PROP_IS_INSTALLED:
         g_value_set_boolean (value, self->is_installed);
+        break;
+    case PROP_IS_SUPPORTED:
+        g_value_set_boolean (value, self->is_supported);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -89,53 +96,13 @@ exm_search_row_set_property (GObject      *object,
     case PROP_IS_INSTALLED:
         self->is_installed = g_value_get_boolean (value);
         break;
+    case PROP_IS_SUPPORTED:
+        self->is_supported = g_value_get_boolean (value);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
 }
-
-/*static void
-on_image_loaded (GObject      *source,
-                 GAsyncResult *res,
-                 GtkImage     *target)
-{
-    GError *error = NULL;
-    GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
-                                                             res, &error);
-    if (error)
-    {
-        // TODO: Properly log this
-        g_critical ("%s\n", error->message);
-        return;
-    }
-
-    gtk_image_set_from_paintable (target, GDK_PAINTABLE (texture));
-}
-
-static GtkWidget *
-create_thumbnail (ExmImageResolver *resolver,
-                  const gchar      *icon_uri)
-{
-    GtkWidget *icon;
-
-    icon = gtk_image_new ();
-    gtk_widget_set_valign (icon, GTK_ALIGN_CENTER);
-    gtk_widget_set_halign (icon, GTK_ALIGN_CENTER);
-
-    // Set to default icon
-    gtk_image_set_from_resource (GTK_IMAGE (icon), "/com/mattjakeman/ExtensionManager/icons/plugin.png");
-
-    // If not the default icon, lookup and lazily replace
-    // TODO: There are some outstanding threading issues so avoid downloading for now
-    if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
-    {
-        exm_image_resolver_resolve_async (resolver, icon_uri, NULL,
-                                          (GAsyncReadyCallback) on_image_loaded,
-                                          icon);
-    }
-
-    return icon;
-}*/
 
 static void
 install_remote (GtkButton   *button,
@@ -177,14 +144,6 @@ exm_search_row_constructed (GObject *object)
     gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "(sn)", uuid, pk);
 
-    // icon = create_thumbnail (self->resolver, icon_uri);
-    // adw_expander_row_add_prefix (ADW_EXPANDER_ROW (row), icon);
-
-    // TODO: This should be on-demand otherwise we're downloading far too often
-    // screenshot = gtk_image_new ();
-    // exm_image_resolver_resolve_async (self->resolver, screenshot_uri, NULL, (GAsyncReadyCallback)on_image_loaded, screenshot);
-    // gtk_box_append (GTK_BOX (box), screenshot);
-
     gtk_label_set_label (self->title, name);
     gtk_label_set_label (self->subtitle, creator);
     gtk_label_set_label (self->description_label, description);
@@ -193,6 +152,13 @@ exm_search_row_constructed (GObject *object)
     {
         gtk_button_set_label (self->install_btn, _("Installed"));
         gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
+    }
+
+    if (!self->is_supported)
+    {
+        gtk_button_set_label (self->install_btn, _("Unsupported"));
+        gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
+        gtk_widget_add_css_class (GTK_WIDGET (self->install_btn), "warning");
     }
 
     g_signal_connect (self->install_btn, "clicked", G_CALLBACK (install_remote), uuid);
@@ -219,6 +185,13 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
         g_param_spec_boolean ("is-installed",
                               "Is Installed",
                               "Is Installed",
+                              FALSE,
+                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_IS_SUPPORTED] =
+        g_param_spec_boolean ("is-supported",
+                              "Is Supported",
+                              "Is Supported",
                               FALSE,
                               G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 

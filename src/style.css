@@ -9,3 +9,11 @@
 .search-row {
   padding: 10px 5px;
 }
+
+.version-label {
+    background-color: #62a0ea;
+    color: white;
+    border-radius: 4px;
+    padding: 4px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}

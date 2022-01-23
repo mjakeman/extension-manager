@@ -1,5 +1,7 @@
 #include "exm-search-result.h"
 
+#include "exm-shell-version-map.h"
+
 #include <json-glib/json-glib.h>
 
 struct _ExmSearchResult
@@ -14,6 +16,7 @@ struct _ExmSearchResult
     gchar *link;
     gchar *description;
     int pk;
+    ExmShellVersionMap *shell_version_map;
 };
 
 static void json_serializable_iface_init (JsonSerializableIface *iface);
@@ -32,6 +35,7 @@ enum {
     PROP_LINK,
     PROP_DESCRIPTION,
     PROP_PK,
+    PROP_SHELL_VERSION_MAP,
     N_PROPS
 };
 
@@ -47,6 +51,8 @@ static void
 exm_search_result_finalize (GObject *object)
 {
     ExmSearchResult *self = (ExmSearchResult *)object;
+
+    g_clear_pointer (&self->shell_version_map, exm_shell_version_map_unref);
 
     G_OBJECT_CLASS (exm_search_result_parent_class)->finalize (object);
 }
@@ -85,6 +91,9 @@ exm_search_result_get_property (GObject    *object,
     case PROP_PK:
         g_value_set_int (value, self->pk);
         break;
+    case PROP_SHELL_VERSION_MAP:
+        g_value_set_boxed (value, self->shell_version_map);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -97,6 +106,8 @@ exm_search_result_set_property (GObject      *object,
                                 GParamSpec   *pspec)
 {
     ExmSearchResult *self = EXM_SEARCH_RESULT (object);
+
+    const ExmShellVersionMap *map;
 
     switch (prop_id)
     {
@@ -124,9 +135,59 @@ exm_search_result_set_property (GObject      *object,
     case PROP_PK:
         self->pk = g_value_get_int (value);
         break;
+    case PROP_SHELL_VERSION_MAP:
+        if (self->shell_version_map)
+            g_clear_pointer (&self->shell_version_map, exm_shell_version_map_unref);
+
+        self->shell_version_map = exm_shell_version_map_ref (g_value_get_boxed (value));
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
+}
+
+gboolean
+exm_search_result_supports_shell_version (ExmSearchResult *self,
+                                          const gchar     *shell_version)
+{
+    g_return_val_if_fail (shell_version, FALSE);
+
+    return exm_shell_version_map_supports (self->shell_version_map,
+                                           shell_version);
+}
+
+static void
+deserialize_version (JsonObject         *object,
+                     const gchar        *shell_version,
+                     JsonNode           *member_node,
+                     ExmShellVersionMap *version_map)
+{
+    int package;
+    double version;
+    JsonObject *version_obj;
+
+    version_obj = json_node_get_object (member_node);
+
+    package = json_object_get_int_member (version_obj, "pk");
+    version = json_object_get_double_member (version_obj, "version");
+
+    exm_shell_version_map_add (version_map, shell_version, package, version);
+}
+
+static gpointer
+deserialize_shell_version_map (JsonNode* node)
+{
+    ExmShellVersionMap *version_map;
+    JsonObject *object;
+
+    version_map = exm_shell_version_map_new ();
+
+    g_assert (JSON_NODE_HOLDS_OBJECT (node));
+    object = json_node_get_object (node);
+
+    json_object_foreach_member (object, (JsonObjectForeach) deserialize_version, version_map);
+
+    return version_map;
 }
 
 static void
@@ -194,7 +255,18 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
                           0, G_MAXINT, 0,
                           G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
+    properties [PROP_SHELL_VERSION_MAP] =
+        g_param_spec_boxed ("shell_version_map",
+                             "Shell Version Map",
+                             "Shell Version Map",
+                             EXM_TYPE_SHELL_VERSION_MAP,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
+
+    json_boxed_register_deserialize_func (EXM_TYPE_SHELL_VERSION_MAP,
+                                          JSON_NODE_OBJECT,
+                                          deserialize_shell_version_map);
 }
 
 static void
@@ -205,5 +277,4 @@ exm_search_result_init (ExmSearchResult *self)
 static void
 json_serializable_iface_init (JsonSerializableIface *iface)
 {
-
 }

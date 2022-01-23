@@ -1,74 +1,145 @@
 #include "exm-shell-version-map.h"
 
-struct _ExmShellVersionMap
-{
-    GObject parent_instance;
-};
+G_DEFINE_BOXED_TYPE (ExmShellVersionMap, exm_shell_version_map, exm_shell_version_map_ref, exm_shell_version_map_unref)
 
-G_DEFINE_FINAL_TYPE (ExmShellVersionMap, exm_shell_version_map, G_TYPE_OBJECT)
-
-enum {
-    PROP_0,
-    N_PROPS
-};
-
-static GParamSpec *properties [N_PROPS];
-
+/**
+ * exm_shell_version_map_new:
+ *
+ * Creates a new #ExmShellVersionMap.
+ *
+ * Returns: (transfer full): A newly created #ExmShellVersionMap
+ */
 ExmShellVersionMap *
 exm_shell_version_map_new (void)
 {
-    return g_object_new (EXM_TYPE_SHELL_VERSION_MAP, NULL);
+    ExmShellVersionMap *self;
+
+    self = g_slice_new0 (ExmShellVersionMap);
+    self->ref_count = 1;
+
+    return self;
 }
 
 static void
-exm_shell_version_map_finalize (GObject *object)
+free_entry (MapEntry *entry)
 {
-    ExmShellVersionMap *self = (ExmShellVersionMap *)object;
+    g_free (entry->shell_major_version);
 
-    G_OBJECT_CLASS (exm_shell_version_map_parent_class)->finalize (object);
+    if (entry->shell_minor_version)
+        g_free (entry->shell_minor_version);
+
+    g_slice_free (MapEntry, entry);
 }
 
 static void
-exm_shell_version_map_get_property (GObject    *object,
-                                    guint       prop_id,
-                                    GValue     *value,
-                                    GParamSpec *pspec)
+exm_shell_version_map_free (ExmShellVersionMap *self)
 {
-    ExmShellVersionMap *self = EXM_SHELL_VERSION_MAP (object);
+    g_assert (self);
+    g_assert_cmpint (self->ref_count, ==, 0);
 
-    switch (prop_id)
-      {
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    g_list_free_full (g_steal_pointer (&self->map), (GDestroyNotify) free_entry);
+
+    g_slice_free (ExmShellVersionMap, self);
 }
 
-static void
-exm_shell_version_map_set_property (GObject      *object,
-                                    guint         prop_id,
-                                    const GValue *value,
-                                    GParamSpec   *pspec)
+/**
+ * exm_shell_version_map_ref:
+ * @self: A #ExmShellVersionMap
+ *
+ * Increments the reference count of @self by one.
+ *
+ * Returns: (transfer full): @self
+ */
+ExmShellVersionMap *
+exm_shell_version_map_ref (ExmShellVersionMap *self)
 {
-    ExmShellVersionMap *self = EXM_SHELL_VERSION_MAP (object);
+    g_return_val_if_fail (self, NULL);
+    g_return_val_if_fail (self->ref_count, NULL);
 
-    switch (prop_id)
-      {
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
+    g_atomic_int_inc (&self->ref_count);
+
+    return self;
 }
 
-static void
-exm_shell_version_map_class_init (ExmShellVersionMapClass *klass)
+/**
+ * exm_shell_version_map_unref:
+ * @self: A #ExmShellVersionMap
+ *
+ * Decrements the reference count of @self by one, freeing the structure when
+ * the reference count reaches zero.
+ */
+void
+exm_shell_version_map_unref (ExmShellVersionMap *self)
 {
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+    g_return_if_fail (self);
+    g_return_if_fail (self->ref_count);
 
-    object_class->finalize = exm_shell_version_map_finalize;
-    object_class->get_property = exm_shell_version_map_get_property;
-    object_class->set_property = exm_shell_version_map_set_property;
+    if (g_atomic_int_dec_and_test (&self->ref_count))
+        exm_shell_version_map_free (self);
 }
 
-static void
-exm_shell_version_map_init (ExmShellVersionMap *self)
+void
+exm_shell_version_map_add (ExmShellVersionMap *self,
+                           const gchar        *shell_version,
+                           int                 ext_package,
+                           double              ext_version)
 {
+    gchar **strarr;
+    const gchar *major;
+    const gchar *minor;
+
+    strarr = g_strsplit (shell_version, ".", 2);
+
+    major = strarr[0];
+    minor = strarr[1];
+
+    g_debug ("Parsed Version: %s as %s.%s\n", shell_version, major, minor);
+
+    MapEntry *entry = g_slice_new0 (MapEntry);
+    entry->shell_major_version = g_strdup (major);
+    entry->shell_minor_version = g_strdup (minor);
+    entry->extension_version = ext_version;
+    entry->extension_package = ext_package;
+
+    self->map = g_list_append (self->map, entry);
+}
+
+gboolean
+exm_shell_version_map_supports (ExmShellVersionMap *self,
+                                const gchar        *shell_version)
+{
+    // The shell_version string can be either in the form 3.32, 3.36,
+    // 3.38, etc or it can be 40, 41, etc. As a rule, we return true
+    // if the provided `shell_version` is equal or more specific to
+    // the version string stored in the version map.
+
+    gchar **strarr;
+    GList *element;
+    const gchar *major;
+    const gchar *minor;
+
+    // Some entries on the website do not define a shell_version_map. Assume
+    // these extensions have been retired and ignore.
+    if (self->map == NULL)
+        return FALSE;
+
+    strarr = g_strsplit (shell_version, ".", 2);
+
+    major = strarr[0];
+    minor = strarr[1];
+
+    for (element = self->map;
+         element != NULL;
+         element = element->next)
+    {
+        MapEntry *entry = element->data;
+        if (!g_str_equal (major, entry->shell_major_version))
+            continue;
+
+        if (!entry->shell_minor_version ||
+            g_str_equal (entry->shell_minor_version, minor))
+            return TRUE;
+    }
+
+    return FALSE;
 }

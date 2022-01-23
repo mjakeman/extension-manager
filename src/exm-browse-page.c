@@ -18,6 +18,7 @@ struct _ExmBrowsePage
     ExmManager *manager;
 
     GListModel *search_results_model;
+    gchar *shell_version;
 
     // Template Widgets
     GtkSearchEntry      *search_entry;
@@ -93,12 +94,14 @@ search_widget_factory (ExmSearchResult *result,
     ExmSearchRow *row;
     gchar *uuid;
     gboolean is_installed;
+    gboolean is_supported;
 
     g_object_get (result, "uuid", &uuid, NULL);
 
     is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
+    is_supported = exm_search_result_supports_shell_version (result, self->shell_version);
 
-    row = exm_search_row_new (result, is_installed);
+    row = exm_search_row_new (result, is_installed, is_supported);
 
     return GTK_WIDGET (row);
 }
@@ -185,6 +188,11 @@ on_bind_manager (ExmBrowsePage *self)
                               "items-changed",
                               G_CALLBACK (refresh_search),
                               self);
+
+    g_object_get (self->manager,
+                  "shell-version",
+                  &self->shell_version,
+                  NULL);
 
     refresh_search (self);
 }

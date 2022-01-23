@@ -291,6 +291,12 @@ exm_window_init (ExmWindow *self)
     g_object_set (self->detail_view, "manager", self->manager, NULL);
 
     g_object_bind_property (self->manager,
+                            "shell-version",
+                            self->detail_view,
+                            "shell-version",
+                            G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->manager,
                             "extensions-enabled",
                             self->global_toggle,
                             "state",

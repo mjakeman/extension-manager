@@ -104,7 +104,10 @@ template ExmDetailView : Gtk.Box {
 								xalign: 0;
 							}
 
-							// TODO: Column View (table?) showing version map
+							Gtk.FlowBox supported_versions {
+								max-children-per-line: 100;
+								selection-mode: none;
+							}
 						}
 					}
 				}
