@@ -4,10 +4,16 @@
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
   <name>Extension Manager</name>
-  <summary>An extension manager for browsing and installing GNOME Shell Extensions.</summary>
+  <summary>A utility for browsing and installing GNOME Shell Extensions.</summary>
   <content_rating type="oars-1.1" />
+  <developer_name translatable="no">Matthew Jakeman</developer_name>
 	<description>
-	  <p>An extension manager for browsing and installing GNOME Shell Extensions.</p>
+	  <p>A utility for browsing and installing GNOME Shell Extensions.</p>
+    <p>Features:</p>
+    <ul>
+      <li>Browse extensions.gnome.org right inside the app</li>
+      <li>Manage the extensions you already have installed</li>
+    </ul>
 	</description>
   <screenshots>
     <screenshot type="default">
@@ -26,8 +32,27 @@
   <launchable type="desktop-id">com.mattjakeman.ExtensionManager.desktop</launchable>
   <url type="homepage">https://github.com/mjakeman/extension-manager</url>
   <url type="bugtracker">https://github.com/mjakeman/extension-manager/issues</url>
-
+  <keywords>
+    <keyword>Extensions</keyword>
+    <keyword>Shell</keyword>
+  </keywords>
+  <translation type="gettext">extension-manager</translation>
   <releases>
+    <release version="0.2.0" date="2022-01-24">
+      <description>
+        <p>The first feature update to extension-manager. Highlights include:</p>
+        <ul>
+          <li>Dark theme and support for overriding the system colour scheme</li>
+          <li>Shows screenshots in extension listings</li>
+          <li>Shell version compatibility check</li>
+          <li>Localised into seven languages</li>
+          <li>Sort search results</li>
+          <li>Global extension on/off toggle</li>
+          <li>Displays user and system extensions separately</li>
+          <li>Performance and stability</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.0" date="2022-01-08"/>
   </releases>
 </component>
