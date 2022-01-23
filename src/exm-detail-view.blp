@@ -109,6 +109,27 @@ template ExmDetailView : Gtk.Box {
 								selection-mode: none;
 							}
 						}
+
+						Gtk.Box {
+							orientation: vertical;
+
+							Gtk.Label {
+								styles ["title-4"]
+
+								label: _("Links");
+								xalign: 0;
+							}
+
+							Gtk.Box {
+								styles ["linked"]
+
+								orientation: horizontal;
+
+								Gtk.LinkButton link_website {
+									label: _("View on Extensions");
+								}
+							}
+						}
 					}
 				}
 			};

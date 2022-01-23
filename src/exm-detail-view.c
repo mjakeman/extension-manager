@@ -30,6 +30,7 @@ struct _ExmDetailView
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
     GtkFlowBox *supported_versions;
+    GtkLinkButton *link_website;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -185,6 +186,7 @@ on_data_loaded (GObject      *source,
     GtkWidget *child;
     GList *version_iter;
     ExmShellVersionMap *version_map;
+    gchar *uri;
 
     self = EXM_DETAIL_VIEW (user_data);
 
@@ -243,6 +245,9 @@ on_data_loaded (GObject      *source,
         gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
         install_btn_set_state (self->ext_install, install_state);
+
+        uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
+        gtk_link_button_set_uri (self->link_website, uri);
 
         // Clear Flowbox
         while ((child = gtk_widget_get_first_child (GTK_WIDGET (self->supported_versions))))
@@ -368,6 +373,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_website);
 }
 
 static void
