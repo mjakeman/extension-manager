@@ -28,13 +28,25 @@ template ExmExtensionRow : Adw.ExpanderRow {
 		wrap: true;
 	}
 
-	Gtk.Button remove_btn {
-		styles ["destructive-action"]
-
-		label: _("Remove");
-		valign: center;
+	Gtk.Box {
 		halign: end;
 
-		action-name: 'row.remove';
+		Gtk.Button details_btn {
+			styles ["flat"]
+
+			label: _("See Details");
+			valign: center;
+
+			action-name: 'win.show-detail';
+		}
+
+		Gtk.Button remove_btn {
+			styles ["destructive-action"]
+
+			label: _("Remove");
+			valign: center;
+
+			action-name: 'row.remove';
+		}
 	}
 }

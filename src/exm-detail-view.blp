@@ -91,6 +91,7 @@ template ExmDetailView : Gtk.Box {
 								xalign: 0;
 								wrap: true;
 								wrap-mode: word_char;
+								selectable: true;
 							}
 						}
 
@@ -107,6 +108,27 @@ template ExmDetailView : Gtk.Box {
 							Gtk.FlowBox supported_versions {
 								max-children-per-line: 100;
 								selection-mode: none;
+							}
+						}
+
+						Gtk.Box {
+							orientation: vertical;
+
+							Gtk.Label {
+								styles ["title-4"]
+
+								label: _("Links");
+								xalign: 0;
+							}
+
+							Gtk.Box {
+								styles ["linked"]
+
+								orientation: horizontal;
+
+								Gtk.LinkButton link_website {
+									label: _("View on Extensions");
+								}
 							}
 						}
 					}

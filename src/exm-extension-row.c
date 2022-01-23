@@ -11,7 +11,8 @@ struct _ExmExtensionRow
 
     GtkButton *remove_btn;
     GtkButton *prefs_btn;
-    GtkButton *description_label;
+    GtkLabel *description_label;
+    GtkButton *details_btn;
     GtkSwitch *ext_toggle;
 };
 
@@ -127,6 +128,8 @@ exm_extension_row_constructed (GObject *object)
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
 
+    gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
+
     // One way binding from extension ("source of truth") to switch
     g_signal_connect (self->extension, "notify::enabled", G_CALLBACK (update_enable_state), self);
 
@@ -168,6 +171,7 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, details_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, ext_toggle);
 }
 

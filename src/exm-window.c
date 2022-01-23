@@ -228,7 +228,7 @@ show_view (GtkWidget  *widget,
         gchar *uuid;
         int pk;
 
-        g_variant_get (param, "(sn)", &uuid, &pk);
+        g_variant_get (param, "s", &uuid, &pk);
         adw_leaflet_set_visible_child (self->leaflet, self->detail_view);
 
         exm_detail_view_load_for_uuid (self->detail_view, uuid, pk);
@@ -275,7 +275,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.remove", "s", extension_remove);
     gtk_widget_class_install_action (widget_class, "ext.state-set", "(sb)", extension_state_set);
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
-    gtk_widget_class_install_action (widget_class, "win.show-detail", "(sn)", show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
 }
 
