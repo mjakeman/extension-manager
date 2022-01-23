@@ -6,6 +6,8 @@
     <file>exm-browse-page.ui</file>
     <file>exm-extension-row.ui</file>
     <file>exm-search-row.ui</file>
+    <file>exm-detail-view.ui</file>
+    <file>exm-screenshot.ui</file>
     <file>gtk/help-overlay.ui</file>
     <file>style.css</file>
     <file>icons/plugin.png</file>
@@ -14,5 +16,7 @@
     <file alias="globe-symbolic.svg" preprocess="xml-stripblanks">icons/globe-symbolic.svg</file>
     <file alias="puzzle-piece-symbolic.svg" preprocess="xml-stripblanks">icons/puzzle-piece-symbolic.svg</file>
     <file alias="settings-symbolic.svg" preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
+    <file alias="go-previous-symbolic.svg" preprocess="xml-stripblanks">icons/go-previous-symbolic.svg</file>
+    <file alias="go-next-symbolic.svg" preprocess="xml-stripblanks">icons/go-next-symbolic.svg</file>
   </gresource>
 </gresources>

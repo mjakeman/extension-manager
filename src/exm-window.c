@@ -21,16 +21,16 @@
 
 #include "exm-browse-page.h"
 #include "exm-installed-page.h"
+#include "exm-detail-view.h"
 
 #include "local/exm-manager.h"
 #include "local/exm-extension.h"
 
-#include <adwaita.h>
 #include <glib/gi18n.h>
 
 struct _ExmWindow
 {
-    GtkApplicationWindow  parent_instance;
+    AdwApplicationWindow  parent_instance;
 
     ExmManager *manager;
 
@@ -39,9 +39,12 @@ struct _ExmWindow
     GtkSwitch           *global_toggle;
     ExmBrowsePage       *browse_page;
     ExmInstalledPage    *installed_page;
+    AdwLeaflet          *leaflet;
+    GtkWidget           *main_view;
+    ExmDetailView       *detail_view;
 };
 
-G_DEFINE_TYPE (ExmWindow, exm_window, GTK_TYPE_APPLICATION_WINDOW)
+G_DEFINE_TYPE (ExmWindow, exm_window, ADW_TYPE_APPLICATION_WINDOW)
 
 enum {
     PROP_0,
@@ -212,6 +215,31 @@ extension_install (GtkWidget  *widget,
 }
 
 static void
+show_view (GtkWidget  *widget,
+           const char *action_name,
+           GVariant   *param)
+{
+    ExmWindow *self;
+
+    self = EXM_WINDOW (widget);
+
+    if (g_str_equal (action_name, "win.show-detail"))
+    {
+        gchar *uuid;
+        int pk;
+
+        g_variant_get (param, "(sn)", &uuid, &pk);
+        adw_leaflet_set_visible_child (self->leaflet, self->detail_view);
+
+        exm_detail_view_load_for_uuid (self->detail_view, uuid, pk);
+
+        return;
+    }
+
+    adw_leaflet_set_visible_child (self->leaflet, self->main_view);
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -236,6 +264,9 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, global_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, leaflet);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -244,6 +275,8 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.remove", "s", extension_remove);
     gtk_widget_class_install_action (widget_class, "ext.state-set", "(sb)", extension_state_set);
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
+    gtk_widget_class_install_action (widget_class, "win.show-detail", "(sn)", show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
 }
 
 static void
@@ -255,6 +288,7 @@ exm_window_init (ExmWindow *self)
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
+    g_object_set (self->detail_view, "manager", self->manager, NULL);
 
     g_object_bind_property (self->manager,
                             "extensions-enabled",

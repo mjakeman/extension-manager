@@ -50,6 +50,16 @@ template ExmBrowsePage : Gtk.Widget {
 							child: Gtk.ListBox search_results {
 								styles ["boxed-list"]
 								valign: start;
+								selection-mode: none;
+							};
+						}
+
+						Gtk.StackPage {
+							name: "page_empty";
+							child: Gtk.Label {
+								label: _("No Results Found");
+								valign: start;
+								halign: center;
 							};
 						}
 

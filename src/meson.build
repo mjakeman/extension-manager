@@ -2,6 +2,8 @@ exm_sources = [
   'main.c',
   'exm-window.c',
   'exm-application.c',
+  'exm-detail-view.c',
+  'exm-screenshot.c',
 
   # Installed Page
   'exm-installed-page.c',
@@ -31,7 +33,9 @@ blueprints = custom_target('blueprints',
     'exm-installed-page.blp',
     'exm-browse-page.blp',
     'exm-extension-row.blp',
-    'exm-search-row.blp'
+    'exm-search-row.blp',
+    'exm-detail-view.blp',
+    'exm-screenshot.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],

@@ -1,0 +1,26 @@
+using Gtk 4.0;
+
+template ExmScreenshot : Gtk.Widget {
+	Gtk.Stack stack {
+		transition-type: crossfade;
+
+		Gtk.StackPage {
+			name: "page_spinner";
+
+			child: Gtk.Spinner {
+				spinning: true;
+				valign: center;
+				halign: center;
+			};
+		}
+
+		Gtk.StackPage {
+			name: "page_picture";
+
+			child: Gtk.Picture picture {
+				valign: center;
+				halign: center;
+			};
+		}
+	}
+}

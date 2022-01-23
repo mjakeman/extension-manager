@@ -1,0 +1,114 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmDetailView : Gtk.Box {
+	orientation: vertical;
+	Adw.HeaderBar {
+
+		title-widget: Adw.WindowTitle title {};
+
+		[start]
+		Gtk.Button {
+			valign: center;
+			icon-name: "go-previous-symbolic";
+			action-name: "win.show-main";
+		}
+	}
+
+	Gtk.Stack stack {
+		vexpand: true;
+
+		Gtk.StackPage {
+			name: "page_spinner";
+
+			child: Gtk.Spinner {
+				spinning: true;
+				halign: center;
+				valign: center;
+			};
+		}
+
+		Gtk.StackPage {
+			name: "page_detail";
+			child: Gtk.ScrolledWindow {
+				Adw.Clamp {
+					styles ["clamp"]
+
+					maximum-size: 800;
+
+					Gtk.Box {
+						orientation: vertical;
+						spacing: 25;
+
+						Gtk.Box header {
+							orientation: horizontal;
+							spacing: 25;
+
+							Gtk.Image icon {
+								valign: center;
+								halign: center;
+
+								resource: "/com/mattjakeman/ExtensionManager/icons/plugin.png";
+							}
+
+							Gtk.Box {
+								orientation: vertical;
+								hexpand: true;
+
+								Gtk.Label ext_title {
+									styles ["title-1"]
+									xalign: 0;
+									ellipsize: end;
+								}
+
+								Gtk.Label ext_author {
+									styles ["dim-label"]
+									label: "Author";
+									xalign: 0;
+									ellipsize: end;
+								}
+							}
+
+							Gtk.Button ext_install {
+								valign: center;
+								halign: center;
+							}
+						}
+
+						.ExmScreenshot ext_screenshot {}
+
+						Gtk.Box {
+							orientation: vertical;
+
+							Gtk.Label {
+								styles ["title-4"]
+
+								label: _("Description");
+								xalign: 0;
+							}
+
+							Gtk.Label ext_description {
+								xalign: 0;
+								wrap: true;
+								wrap-mode: word_char;
+							}
+						}
+
+						Gtk.Box {
+							orientation: vertical;
+
+							Gtk.Label {
+								styles ["title-4"]
+
+								label: _("Supported Versions");
+								xalign: 0;
+							}
+
+							// TODO: Column View (table?) showing version map
+						}
+					}
+				}
+			};
+		}
+	}
+}
