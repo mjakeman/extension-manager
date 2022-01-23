@@ -24,6 +24,7 @@ struct _ExmDetailView
     GtkLabel *ext_description;
     GtkLabel *ext_title;
     GtkLabel *ext_author;
+    GtkStack *ext_screenshot_stack;
     GtkPicture *ext_screenshot;
 };
 
@@ -124,9 +125,9 @@ install_btn_set_state (GtkButton          *button,
 }
 
 static void
-on_image_loaded (GObject      *source,
-                 GAsyncResult *res,
-                 GtkPicture   *target)
+on_image_loaded (GObject       *source,
+                 GAsyncResult  *res,
+                 ExmDetailView *self)
 {
     GError *error = NULL;
     GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
@@ -138,20 +139,21 @@ on_image_loaded (GObject      *source,
         return;
     }
 
-    gtk_picture_set_paintable (target, GDK_PAINTABLE (texture));
+    gtk_picture_set_paintable (self->ext_screenshot, GDK_PAINTABLE (texture));
+    gtk_stack_set_visible_child_name (self->ext_screenshot_stack, "page_picture");
     g_object_unref (texture);
-    g_object_unref (target);
+    g_object_unref (self);
 }
 
 static void
-queue_resolve_screenshot (ExmImageResolver *resolver,
-                          GtkImage         *widget,
+queue_resolve_screenshot (ExmDetailView    *self,
+                          ExmImageResolver *resolver,
                           const gchar      *screenshot_uri,
                           GCancellable     *cancellable)
 {
     exm_image_resolver_resolve_async (resolver, screenshot_uri, cancellable,
                                       (GAsyncReadyCallback) on_image_loaded,
-                                      g_object_ref (widget));
+                                      g_object_ref (self));
 }
 
 static void
@@ -194,9 +196,20 @@ on_data_loaded (GObject      *source,
             g_clear_object (&self->resolver_cancel);
         }
 
-        self->resolver_cancel = g_cancellable_new ();
-        gtk_picture_set_paintable (self->ext_screenshot, NULL);
-        queue_resolve_screenshot (self->resolver, self->ext_screenshot, screenshot_uri, self->resolver_cancel);
+        if (screenshot_uri != NULL)
+        {
+            self->resolver_cancel = g_cancellable_new ();
+
+            gtk_picture_set_paintable (self->ext_screenshot, NULL);
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_stack), TRUE);
+            gtk_stack_set_visible_child_name (self->ext_screenshot_stack, "page_spinner");
+
+            queue_resolve_screenshot (self, self->resolver, screenshot_uri, self->resolver_cancel);
+        }
+        else
+        {
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_stack), FALSE);
+        }
 
         gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
@@ -291,6 +304,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_author);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_description);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
 }
 

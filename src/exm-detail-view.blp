@@ -58,12 +58,14 @@ template ExmDetailView : Gtk.Box {
 								Gtk.Label ext_title {
 									styles ["title-1"]
 									xalign: 0;
+									ellipsize: end;
 								}
 
 								Gtk.Label ext_author {
 									styles ["dim-label"]
 									label: "Author";
 									xalign: 0;
+									ellipsize: end;
 								}
 							}
 
@@ -73,9 +75,28 @@ template ExmDetailView : Gtk.Box {
 							}
 						}
 
-						Gtk.Picture ext_screenshot {
-							valign: center;
-							halign: center;
+						Gtk.Stack ext_screenshot_stack {
+							transition-type: crossfade;
+							height-request: 300;
+
+							Gtk.StackPage {
+								name: "page_spinner";
+
+								child: Gtk.Spinner {
+									spinning: true;
+									valign: center;
+									halign: center;
+								};
+							}
+
+							Gtk.StackPage {
+								name: "page_picture";
+
+								child: Gtk.Picture ext_screenshot {
+									valign: center;
+									halign: center;
+								};
+							}
 						}
 
 						Gtk.Box {
