@@ -7,6 +7,7 @@
     <file>exm-extension-row.ui</file>
     <file>exm-search-row.ui</file>
     <file>exm-detail-view.ui</file>
+    <file>exm-screenshot.ui</file>
     <file>gtk/help-overlay.ui</file>
     <file>style.css</file>
     <file>icons/plugin.png</file>

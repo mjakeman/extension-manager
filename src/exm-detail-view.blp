@@ -75,29 +75,7 @@ template ExmDetailView : Gtk.Box {
 							}
 						}
 
-						Gtk.Stack ext_screenshot_stack {
-							transition-type: crossfade;
-							height-request: 300;
-
-							Gtk.StackPage {
-								name: "page_spinner";
-
-								child: Gtk.Spinner {
-									spinning: true;
-									valign: center;
-									halign: center;
-								};
-							}
-
-							Gtk.StackPage {
-								name: "page_picture";
-
-								child: Gtk.Picture ext_screenshot {
-									valign: center;
-									halign: center;
-								};
-							}
-						}
+						.ExmScreenshot ext_screenshot {}
 
 						Gtk.Box {
 							orientation: vertical;

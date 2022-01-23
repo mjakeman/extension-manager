@@ -1,5 +1,7 @@
 #include "exm-detail-view.h"
 
+#include "exm-screenshot.h"
+
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
 #include "local/exm-manager.h"
@@ -24,8 +26,7 @@ struct _ExmDetailView
     GtkLabel *ext_description;
     GtkLabel *ext_title;
     GtkLabel *ext_author;
-    GtkStack *ext_screenshot_stack;
-    GtkPicture *ext_screenshot;
+    ExmScreenshot *ext_screenshot;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -100,7 +101,7 @@ typedef enum
 
 void
 install_btn_set_state (GtkButton          *button,
-                       InstallButtonState *state)
+                       InstallButtonState  state)
 {
     gtk_widget_remove_css_class (GTK_WIDGET (button), "warning");
     gtk_widget_remove_css_class (GTK_WIDGET (button), "suggested-action");
@@ -139,8 +140,8 @@ on_image_loaded (GObject       *source,
         return;
     }
 
-    gtk_picture_set_paintable (self->ext_screenshot, GDK_PAINTABLE (texture));
-    gtk_stack_set_visible_child_name (self->ext_screenshot_stack, "page_picture");
+    exm_screenshot_set_paintable (self->ext_screenshot, GDK_PAINTABLE (texture));
+    exm_screenshot_display (self->ext_screenshot);
     g_object_unref (texture);
     g_object_unref (self);
 }
@@ -200,15 +201,15 @@ on_data_loaded (GObject      *source,
         {
             self->resolver_cancel = g_cancellable_new ();
 
-            gtk_picture_set_paintable (self->ext_screenshot, NULL);
-            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_stack), TRUE);
-            gtk_stack_set_visible_child_name (self->ext_screenshot_stack, "page_spinner");
+            exm_screenshot_set_paintable (self->ext_screenshot, NULL);
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot), TRUE);
+            exm_screenshot_reset (self->ext_screenshot);
 
             queue_resolve_screenshot (self, self->resolver, screenshot_uri, self->resolver_cancel);
         }
         else
         {
-            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_stack), FALSE);
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot), FALSE);
         }
 
         gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
@@ -304,7 +305,6 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_author);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_description);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
-    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
 }
 
