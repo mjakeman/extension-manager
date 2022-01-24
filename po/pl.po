@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-17 17:16+1300\n"
-"PO-Revision-Date: 2022-01-17 21:33+0100\n"
+"POT-Creation-Date: 2022-01-24 01:44+1300\n"
+"PO-Revision-Date: 2022-01-23 18:50+0100\n"
 "Last-Translator: Rafał Baran <>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
@@ -77,11 +77,77 @@ msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr "Wpisz słowo kluczowe, aby wyszukać rozszerzenia w extensions.gnome.org"
 
-#: src/exm-browse-page.blp:18
+#: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
 msgstr "np. \"Blur my Shell\""
 
-#: src/exm-extension-row.blp:34
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "Popularność"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "Liczba pobrań"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "Ostatnie"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "Nazwa"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "Nie Znaleziono Wyników"
+
+#: src/exm-detail-view.blp:86
+msgid "Description"
+msgstr "Opis"
+
+#: src/exm-detail-view.blp:104
+msgid "Supported Versions"
+msgstr "Wspierane Wersje"
+
+#: src/exm-detail-view.blp:120
+msgid "Links"
+msgstr "Linki"
+
+#: src/exm-detail-view.blp:130
+msgid "View on Extensions"
+msgstr "Zobacz na Extensions"
+
+#: src/exm-detail-view.c:119
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "To rozszerzenie nie jest kompatybilne z twoją wersją GNOME."
+
+#: src/exm-detail-view.c:128 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "Zainstaluj"
+
+#: src/exm-detail-view.c:133 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "Zainstalowane"
+
+#: src/exm-detail-view.c:137 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "Niewspierane"
+
+#: src/exm-detail-view.c:283
+msgid "An Error Occurred"
+msgstr "Wystąpił Błąd"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:298
+msgid "Loading…"
+msgstr "Ładowanie…"
+
+#: src/exm-extension-row.blp:37
+msgid "See Details"
+msgstr "Zobacz Szczegóły"
+
+#: src/exm-extension-row.blp:46
 msgid "Remove"
 msgstr "Usuń"
 
@@ -93,47 +159,35 @@ msgstr "Ręcznie zainstalowane"
 msgid "System Extensions"
 msgstr "Systemowe rozszerzenia"
 
-#: src/exm-search-row.blp:32
-msgid "Go to Page"
-msgstr "Otwórz stronę"
-
-#: src/exm-search-row.blp:36
-msgid "Install"
-msgstr "Zainstaluj"
-
-#: src/exm-search-row.c:188 src/exm-window.blp:36
-msgid "Installed"
-msgstr "Zainstalowane"
-
-#: src/exm-window.blp:44
+#: src/exm-window.blp:50
 msgid "Browse"
 msgstr "Przeglądaj"
 
-#: src/exm-window.blp:61
+#: src/exm-window.blp:71
 msgid "Theme"
 msgstr "Motyw"
 
-#: src/exm-window.blp:63
+#: src/exm-window.blp:73
 msgid "Follow System"
 msgstr "Motyw sytemowy"
 
-#: src/exm-window.blp:68
+#: src/exm-window.blp:78
 msgid "Light"
 msgstr "Jasny"
 
-#: src/exm-window.blp:73
+#: src/exm-window.blp:83
 msgid "Dark"
 msgstr "Ciemny"
 
-#: src/exm-window.blp:79
+#: src/exm-window.blp:89
 msgid "Keyboard Shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: src/exm-window.blp:83
+#: src/exm-window.blp:93
 msgid "About Extension Manager"
 msgstr "O programie"
 
-#: src/exm-window.c:178
+#: src/exm-window.c:179
 msgid "Are you sure you want to uninstall?"
 msgstr "Czy na pewno chcesz odinstalować?"
 
@@ -151,3 +205,6 @@ msgstr "Pokaż skróty"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Wyjdź"
+
+#~ msgid "Go to Page"
+#~ msgstr "Otwórz stronę"
