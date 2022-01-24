@@ -1,0 +1,47 @@
+# NEWS
+
+## 0.2.0
+First feature update to extension-manager
+
+### General
+ - Support for i18n and translations
+ 
+### GUI
+ - Dark Theme
+ - Allow overriding system theme
+ - Add new details view for online extensions
+ - Display screenshots in extension listings
+ - Show supported shell versions
+ 
+### Local Management
+ - Display system and user extensions separately
+ - Sort alphabetically
+ - Global extension toggle
+ - Link to new details page
+
+### Browsing
+ - Avoid searching on start-up
+ - Add progress indicator
+ - Sort search results
+ - Handle no results found
+
+### Internal Changes
+ - Restructure of directory layout
+ - Use gdbus-codegen for dbus interface
+ - Selectively update rows rather than recreating model
+ - Rewrite GUI using Blueprint and MVC pattern
+ - Use debug output and reduce logging
+ - Performance and stability
+ - Enforce shell version compatibility
+
+### Translations:
+ - German
+ - Spanish
+ - Italian
+ - Japanese
+ - Dutch
+ - Polish
+ - Brazilian Portuguese
+
+## 0.1.0
+Initial release of extension-manager
