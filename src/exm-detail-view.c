@@ -311,6 +311,9 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
 void
 exm_detail_view_update (ExmDetailView *self)
 {
+    if (!self->uuid)
+        return;
+
     // Check if the newly installed extension is the
     // one being displayed in this detail view
     if (exm_manager_is_installed_uuid (self->manager, self->uuid))

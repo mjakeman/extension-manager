@@ -1,5 +1,11 @@
 # NEWS
 
+## 0.2.1
+Hotfix update
+
+ - Fixes crash when uninstalling extension
+ - Makes details-view more robust
+
 ## 0.2.0
 First feature update to extension-manager
 

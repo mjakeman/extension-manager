@@ -38,6 +38,11 @@
   </keywords>
   <translation type="gettext">extension-manager</translation>
   <releases>
+    <release version="0.2.1" date="2022-01-24">
+      <description>
+        <p>Fixes a crash that sometimes occurs while uninstalling an extension</p>
+      </description>
+    </release>
     <release version="0.2.0" date="2022-01-24">
       <description>
         <p>The first feature update to extension-manager. Highlights include:</p>
