@@ -29,6 +29,15 @@ template ExmDetailView : Gtk.Box {
 		}
 
 		Gtk.StackPage {
+			name: "page_error";
+
+			child: Adw.StatusPage {
+				title: _("An Error Occurred");
+				icon-name: "dialog-question-symbolic";
+			};
+		}
+
+		Gtk.StackPage {
 			name: "page_detail";
 			child: Gtk.ScrolledWindow {
 				Adw.Clamp {

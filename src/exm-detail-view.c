@@ -282,6 +282,7 @@ on_data_loaded (GObject      *source,
 
     adw_window_title_set_title (self->title, _("An Error Occurred"));
     adw_window_title_set_subtitle (self->title, NULL);
+    gtk_stack_set_visible_child_name (self->stack, "page_error");
 }
 
 void

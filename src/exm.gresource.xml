@@ -18,5 +18,6 @@
     <file alias="settings-symbolic.svg" preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
     <file alias="go-previous-symbolic.svg" preprocess="xml-stripblanks">icons/go-previous-symbolic.svg</file>
     <file alias="go-next-symbolic.svg" preprocess="xml-stripblanks">icons/go-next-symbolic.svg</file>
+    <file alias="dialog-question-symbolic.svg" preprocess="xml-stripblanks">icons/dialog-question-symbolic.svg</file>
   </gresource>
 </gresources>
