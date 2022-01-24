@@ -3,7 +3,8 @@ A native tool for browsing, installing, and managing GNOME Shell Extensions.
 
 Written with GTK 4 and libadwaita.
 
-![Screenshot of the main GUI](data/screenshot-combined.png)
+![Screenshot of the main GUI (light mode)](data/screenshot-combined.png#gh-light-mode-only)
+![Screenshot of the main GUI (dark mode)](data/screenshot-combined-dark.png#gh-dark-mode-only)
 
 ## Features
 The tool supports:
