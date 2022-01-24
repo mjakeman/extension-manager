@@ -31,6 +31,7 @@ struct _ExmDetailView
     ExmScreenshot *ext_screenshot;
     GtkFlowBox *supported_versions;
     GtkLinkButton *link_website;
+    GtkScrolledWindow *scroll_area;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -275,6 +276,9 @@ on_data_loaded (GObject      *source,
             g_free (version);
         }
 
+        // Reset scroll position
+        gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
+
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
 
         return;
@@ -375,6 +379,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_website);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
 }
 
 static void
