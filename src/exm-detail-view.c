@@ -236,11 +236,11 @@ on_data_loaded (GObject      *source,
             gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot), FALSE);
         }
 
-        install_state = is_supported
-            ? (is_installed
-               ? STATE_INSTALLED
-               : STATE_DEFAULT)
-            : STATE_UNSUPPORTED;
+        install_state = is_installed
+            ? STATE_INSTALLED
+            : (is_supported
+               ? STATE_DEFAULT
+               : STATE_UNSUPPORTED);
 
         gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
