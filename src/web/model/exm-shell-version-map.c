@@ -110,8 +110,8 @@ exm_shell_version_map_supports (ExmShellVersionMap *self,
 {
     // The shell_version string can be either in the form 3.32, 3.36,
     // 3.38, etc or it can be 40, 41, etc. As a rule, we return true
-    // if the provided `shell_version` is equal or more specific to
-    // the version string stored in the version map.
+    // if the minor version of `shell_version` is equal or more specific
+    // to the minor version string stored in the version map.
 
     gchar **strarr;
     GList *element;
@@ -133,11 +133,12 @@ exm_shell_version_map_supports (ExmShellVersionMap *self,
          element = element->next)
     {
         MapEntry *entry = element->data;
+
         if (!g_str_equal (major, entry->shell_major_version))
             continue;
 
         if (!entry->shell_minor_version ||
-            g_str_equal (entry->shell_minor_version, minor))
+            g_str_has_prefix (minor, entry->shell_minor_version))
             return TRUE;
     }
 
