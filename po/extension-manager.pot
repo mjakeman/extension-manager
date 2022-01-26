@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 17:48+1300\n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,38 +51,42 @@ msgid "A utility for managing GNOME Shell Extensions"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:45
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:46
-msgid "Shows screenshots in extension listings"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:47
-msgid "Shell version compatibility check"
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
-msgid "Localised into seven languages"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:49
-msgid "Sort search results"
+msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
-msgid "Global extension on/off toggle"
+msgid "Dark theme and support for overriding the system colour scheme"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
-msgid "Displays user and system extensions separately"
+msgid "Shows screenshots in extension listings"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Shell version compatibility check"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
+msgid "Localised into seven languages"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
+msgid "Sort search results"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
+msgid "Global extension on/off toggle"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
+msgid "Displays user and system extensions separately"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
 msgid "Performance and stability"
 msgstr ""
 
@@ -96,13 +100,18 @@ msgid ""
 "mode."
 msgstr ""
 
-#: src/exm-application.c:111
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr ""
+
+#: src/exm-application.c:113
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
 msgstr ""
 
-#: src/exm-application.c:117
+#: src/exm-application.c:119
 msgid "Project Homepage"
 msgstr ""
 
