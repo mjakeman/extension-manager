@@ -1,0 +1,250 @@
+# Hungarian translation for extension-manager package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# ViBE <vibe@protonmail.hu>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-24 17:48+1300\n"
+"PO-Revision-Date: 2022-01-25 20:01+0100\n"
+"Last-Translator: ViBE <vibe@protonmail.hu>\n"
+"Language-Team: Hungarian <vibe@protonmail.hu>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 3.36.0\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Kiterjesztés-kezelő"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "Egy GNOME Shell kiterjesztéseket kezelő alkalmazás."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
+msgid "Matthew Jakeman"
+msgstr "Matthew Jakeman"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+msgid "Features:"
+msgstr "Funkciók:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "extensions.gnome.org kiterjesztések böngészése"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "Telepített kiterjesztések kezelése"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Alkalmazás GNOME Shell kiterjesztések kezeléséhez"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr "Első funkciófrissítés a kiterjesztés-kezelőhöz. Kiemeltek:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:45
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr "Sötét téma és témakezelés"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:46
+msgid "Shows screenshots in extension listings"
+msgstr "Előnézeti kép a kiterejesztésről"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:47
+msgid "Shell version compatibility check"
+msgstr "Kompatibilitás ellenőrzése"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+msgid "Localised into seven languages"
+msgstr "Jelenleg hét nyelv támogatott"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:49
+msgid "Sort search results"
+msgstr "Találatok rendezése"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+msgid "Global extension on/off toggle"
+msgstr "Kiterjesztések engedélyezése"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+msgid "Displays user and system extensions separately"
+msgstr "Rendszer és felhasználó által telepített kiterjesztések"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Performance and stability"
+msgstr "Teljesítmény és stabilitás"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr "Alkalmazás témájának beállítása"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr "Rendszer témájának követése vagy adott téma beállítása."
+
+#: src/exm-application.c:111
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"Egy egyszerű alkalmazás GNOME Shell kiterjesztések böngészéséhez és "
+"telepítéséhez."
+
+#: src/exm-application.c:117
+msgid "Project Homepage"
+msgstr "Honlap"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "Kiterjesztések keresése"
+
+#: src/exm-browse-page.blp:8
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"Írj be kulcsszavakat az 'extensions.gnome.org' gyűjteményében való GNOME "
+"Shell kiterjesztések kereséséhez!"
+
+#: src/exm-browse-page.blp:22
+msgid "e.g. \"Blur my Shell\""
+msgstr "például „Blur my Shell”"
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "Népszerűség"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "Letöltések"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "Legutóbbi"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "Név"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "Nincs találat"
+
+#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
+msgid "An Error Occurred"
+msgstr "Hiba történt"
+
+#: src/exm-detail-view.blp:95
+msgid "Description"
+msgstr "Leírás"
+
+#: src/exm-detail-view.blp:113
+msgid "Supported Versions"
+msgstr "Támogatott GNOME verzió"
+
+#: src/exm-detail-view.blp:129
+msgid "Links"
+msgstr "Hivatkozások"
+
+#: src/exm-detail-view.blp:139
+msgid "View on Extensions"
+msgstr "Megtekintés böngészőben"
+
+#: src/exm-detail-view.c:120
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "Ez a kiterejesztés nem kompatibilis a telepített GNOME verzióval."
+
+#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "Telepítés"
+
+#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "Telepített"
+
+#: src/exm-detail-view.c:138 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "Nem támogatott"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:303
+msgid "Loading…"
+msgstr "Betöltés…"
+
+#: src/exm-extension-row.blp:37
+msgid "See Details"
+msgstr "Részletek megtekintése"
+
+#: src/exm-extension-row.blp:46
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr "Felhasználó által telepített"
+
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr "Előtelepített"
+
+#: src/exm-window.blp:50
+msgid "Browse"
+msgstr "Böngészés"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "Téma"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "Rendszer"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "Világos"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "Sötét"
+
+#: src/exm-window.blp:89
+msgid "Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: src/exm-window.blp:93
+msgid "About Extension Manager"
+msgstr "Névjegy"
+
+#: src/exm-window.c:179
+msgid "Are you sure you want to uninstall?"
+msgstr "Biztos vagy benne, hogy eltávolítod?"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Általános"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Gyorsbillentyűk megjelenítése"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Kilépés"
