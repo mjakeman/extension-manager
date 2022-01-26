@@ -27,7 +27,7 @@ msgstr "Uzantı Yöneticisi"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "GNOME Kabuğu uzantılarını  ve yüklemeniz için yardımcı bir program."
+msgstr "GNOME Kabuğu uzantılarını gezmeniz ve yüklemeniz için yardımcı bir program."
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
 msgid "Matthew Jakeman"
