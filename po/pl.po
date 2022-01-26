@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 17:48+1300\n"
-"PO-Revision-Date: 2022-01-25 00:14+0100\n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-01-26 12:47+0100\n"
 "Last-Translator: Rafał Baran <>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
@@ -54,41 +54,45 @@ msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "Naprawia błąd występujący czasem podczas odinstalowywania rozszerzenia"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
 "Pierwsza aktualizacja funkcyjna do Menedżera Rozszerzeń. Najważniejsze "
 "zmiany:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:45
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr ""
 "Ciemny motyw i możliwość nadpisania systemowego schematu kolorystycznego"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:46
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
 msgid "Shows screenshots in extension listings"
 msgstr "Zrzuty ekranu na liście rozszerzeń"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:47
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
 msgid "Shell version compatibility check"
 msgstr "Sprawdzanie kompatybilności z wersją powłoki"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
 msgid "Localised into seven languages"
 msgstr "Przetłumaczono na siedem języków"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:49
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
 msgid "Sort search results"
 msgstr "Sortowanie wyników wyszukiwania"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
 msgid "Global extension on/off toggle"
 msgstr "Globalny włącznik/wyłącznik rozszerzeń"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
 msgid "Displays user and system extensions separately"
 msgstr "Osobne wyświetlanie rozszerzeń systemowych i użytkownika"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
 msgid "Performance and stability"
 msgstr "Wydajność i stabilność"
 
@@ -103,7 +107,12 @@ msgid ""
 msgstr ""
 "Ustawia motyw na systemowy lub wymusza użycie ciemnego lub jasnego motywu."
 
-#: src/exm-application.c:111
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "Rafał Baran"
+
+#: src/exm-application.c:113
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
@@ -111,7 +120,7 @@ msgstr ""
 "Bardzo proste narzędzie do przeglądania, instalowania i zarządzania "
 "rozszerzeniami powłoki GNOME."
 
-#: src/exm-application.c:117
+#: src/exm-application.c:119
 msgid "Project Homepage"
 msgstr "Strona Główna projektu"
 
