@@ -184,7 +184,7 @@ msgstr "Yükle"
 
 #: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
 msgid "Installed"
-msgstr "Yüklenenler"
+msgstr "Yüklendi"
 
 #: src/exm-detail-view.c:138 src/exm-search-row.c:159
 msgid "Unsupported"
@@ -213,7 +213,7 @@ msgstr "Sistem Uzantıları"
 
 #: src/exm-window.blp:50
 msgid "Browse"
-msgstr "Keşfedin"
+msgstr "Keşfet"
 
 #: src/exm-window.blp:71
 msgid "Theme"
