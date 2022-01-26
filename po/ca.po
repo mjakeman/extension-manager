@@ -1,0 +1,246 @@
+# Catalan translations for extension-manager package.
+# Copyright (C) 2022 THE extension-manager'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# Automatically generated as es, copied and adapted as ca, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-23 15:42+0100\n"
+"PO-Revision-Date: 2022-01-24 23:17+0100\n"
+"Last-Translator: Ícar N. S. <icar.nin@protonmail.com>\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Gestor d'extensions"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "Una utilitat per navegar i instal·lar les extensions del GNOME Shell."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+msgid "Features:"
+msgstr "Característiques:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Explora extensions.gnome.org dins de l'aplicació"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Una utilitat per gestionar les extensions del GNOME Shell"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr ""
+"La primera actualització de la funció al gestor d'extensions. Els ressaltats"
+" inclouen:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:45
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr "Tema fosc i suport per substituir l'esquema de color del sistema"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:46
+msgid "Shows screenshots in extension listings"
+msgstr "Mostra les captures de pantalla als llistats d'extensions"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:47
+msgid "Shell version compatibility check"
+msgstr "Comprovació de compatibilitat de la versió del Shell"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+msgid "Localised into seven languages"
+msgstr "Traduït en més de set idiomes"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:49
+msgid "Sort search results"
+msgstr "Ordena els resultats de la cerca"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+msgid "Global extension on/off toggle"
+msgstr "Activa/desactiva les extensions globalment"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+msgid "Displays user and system extensions separately"
+msgstr "Mostra les extensions d'usuari i sistema per separat"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Performance and stability"
+msgstr "Rendiment i estabilitat"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr "Preferències de l'esquema de colors"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr ""
+"Si s'ha de seguir l'esquema de color del sistema o forçar el mode clar o "
+"fosc."
+
+#: src/exm-application.c:111
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"Una eina molt senzilla per navegar, descarregar i gestionar les extensions "
+"del Shell del GNOME."
+
+#: src/exm-application.c:117
+msgid "Project Homepage"
+msgstr "Pàgina principal del projecte"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "Cerca extensions"
+
+#: src/exm-browse-page.blp:8
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"Introduïu una paraula clau per cercar a «extensions.gnome.org» "
+"extensions del GNOME Shell."
+
+#: src/exm-browse-page.blp:22
+msgid "e.g. \"Blur my Shell\""
+msgstr "p. ex. «Blur my Shell»"
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "Popularitat"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "Baixades"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "Recent"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "Nom"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "No s'ha trobat cap resultat"
+
+#: src/exm-detail-view.blp:86
+msgid "Description"
+msgstr "Descripció"
+
+#: src/exm-detail-view.blp:104
+msgid "Supported Versions"
+msgstr "Versions compatibles"
+
+#: src/exm-detail-view.blp:120
+msgid "Links"
+msgstr "Enllaços"
+
+#: src/exm-detail-view.blp:130
+msgid "View on Extensions"
+msgstr "Visualitza a les extensions"
+
+#: src/exm-detail-view.c:119
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr ""
+"Aquesta extensió és incompatible amb la vostra versió actual del GNOME."
+
+#: src/exm-detail-view.c:128 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "Instal·la"
+
+#: src/exm-detail-view.c:133 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "Instal·lat"
+
+#: src/exm-detail-view.c:137 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "No compatible"
+
+#: src/exm-detail-view.c:283
+msgid "An Error Occurred"
+msgstr "S'ha produït un error"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:298
+msgid "Loading…"
+msgstr "Carregant…"
+
+#: src/exm-extension-row.blp:37
+msgid "See Details"
+msgstr "Vegeu els detalls"
+
+#: src/exm-extension-row.blp:46
+msgid "Remove"
+msgstr "Elimina"
+
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr "Extensions instal·lades per l'usuari"
+
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr "Extensions del sistema"
+
+#: src/exm-window.blp:50
+msgid "Browse"
+msgstr "Navega"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "Tema"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "Segueix el sistema"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "Clar"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "Fosc"
+
+#: src/exm-window.blp:89
+msgid "Keyboard Shortcuts"
+msgstr "Dreceres de teclat"
+
+#: src/exm-window.blp:93
+msgid "About Extension Manager"
+msgstr "Quant al gestor d'extensions"
+
+#: src/exm-window.c:179
+msgid "Are you sure you want to uninstall?"
+msgstr "Confirmes que vols desinstal·lar-la?"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostra les dreceres"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Surt"
