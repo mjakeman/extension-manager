@@ -108,6 +108,8 @@ exm_application_show_about (GSimpleAction *action,
     gtk_show_about_dialog (window,
                            "program-name", _("Extension Manager"),
                            "authors", authors,
+                           // TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+                           "translator-credits", _("translator-credits"),
                            "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
                            "version", "0.2.1",
                            "copyright", "Copyright © Matthew Jakeman 2021",
