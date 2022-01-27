@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-23 15:42+0100\n"
-"PO-Revision-Date: 2022-01-24 23:17+0100\n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-01-27 13:24+0100\n"
 "Last-Translator: Ícar N. S. <icar.nin@protonmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -29,6 +29,10 @@ msgstr "Gestor d'extensions"
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "Una utilitat per navegar i instal·lar les extensions del GNOME Shell."
 
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
+msgid "Matthew Jakeman"
+msgstr "Matthew Jakeman"
+
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
 msgid "Features:"
 msgstr "Característiques:"
@@ -38,45 +42,55 @@ msgstr "Característiques:"
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Explora extensions.gnome.org dins de l'aplicació"
 
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "Gestiones les extensions que ja tens instal·lades"
+
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Una utilitat per gestionar les extensions del GNOME Shell"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr ""
+"Corregeix una fallada que de vegades ocorre quan es desinstal·la una extensió"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
-"La primera actualització de la funció al gestor d'extensions. Els ressaltats"
-" inclouen:"
+"La primera actualització de la funció al gestor d'extensions. Els ressaltats "
+"inclouen:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:45
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr "Tema fosc i suport per substituir l'esquema de color del sistema"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:46
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
 msgid "Shows screenshots in extension listings"
 msgstr "Mostra les captures de pantalla als llistats d'extensions"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:47
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
 msgid "Shell version compatibility check"
 msgstr "Comprovació de compatibilitat de la versió del Shell"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
 msgid "Localised into seven languages"
 msgstr "Traduït en més de set idiomes"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:49
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
 msgid "Sort search results"
 msgstr "Ordena els resultats de la cerca"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
 msgid "Global extension on/off toggle"
 msgstr "Activa/desactiva les extensions globalment"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
 msgid "Displays user and system extensions separately"
 msgstr "Mostra les extensions d'usuari i sistema per separat"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
 msgid "Performance and stability"
 msgstr "Rendiment i estabilitat"
 
@@ -92,7 +106,12 @@ msgstr ""
 "Si s'ha de seguir l'esquema de color del sistema o forçar el mode clar o "
 "fosc."
 
-#: src/exm-application.c:111
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "Ícar N. S. <personal@icarns.xyz>"
+
+#: src/exm-application.c:113
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
@@ -100,7 +119,7 @@ msgstr ""
 "Una eina molt senzilla per navegar, descarregar i gestionar les extensions "
 "del Shell del GNOME."
 
-#: src/exm-application.c:117
+#: src/exm-application.c:119
 msgid "Project Homepage"
 msgstr "Pàgina principal del projecte"
 
@@ -112,8 +131,8 @@ msgstr "Cerca extensions"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Introduïu una paraula clau per cercar a «extensions.gnome.org» "
-"extensions del GNOME Shell."
+"Introduïu una paraula clau per cercar a «extensions.gnome.org» extensions "
+"del GNOME Shell."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
@@ -140,45 +159,45 @@ msgstr "Nom"
 msgid "No Results Found"
 msgstr "No s'ha trobat cap resultat"
 
-#: src/exm-detail-view.blp:86
+#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
+msgid "An Error Occurred"
+msgstr "S'ha produït un error"
+
+#: src/exm-detail-view.blp:95
 msgid "Description"
 msgstr "Descripció"
 
-#: src/exm-detail-view.blp:104
+#: src/exm-detail-view.blp:113
 msgid "Supported Versions"
 msgstr "Versions compatibles"
 
-#: src/exm-detail-view.blp:120
+#: src/exm-detail-view.blp:129
 msgid "Links"
 msgstr "Enllaços"
 
-#: src/exm-detail-view.blp:130
+#: src/exm-detail-view.blp:139
 msgid "View on Extensions"
 msgstr "Visualitza a les extensions"
 
-#: src/exm-detail-view.c:119
+#: src/exm-detail-view.c:120
 msgid "This extension is incompatible with your current version of GNOME."
 msgstr ""
 "Aquesta extensió és incompatible amb la vostra versió actual del GNOME."
 
-#: src/exm-detail-view.c:128 src/exm-search-row.blp:75
+#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
 msgid "Install"
 msgstr "Instal·la"
 
-#: src/exm-detail-view.c:133 src/exm-search-row.c:153 src/exm-window.blp:42
+#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
 msgid "Installed"
 msgstr "Instal·lat"
 
-#: src/exm-detail-view.c:137 src/exm-search-row.c:159
+#: src/exm-detail-view.c:138 src/exm-search-row.c:159
 msgid "Unsupported"
 msgstr "No compatible"
 
-#: src/exm-detail-view.c:283
-msgid "An Error Occurred"
-msgstr "S'ha produït un error"
-
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:298
+#: src/exm-detail-view.c:303
 msgid "Loading…"
 msgstr "Carregant…"
 
