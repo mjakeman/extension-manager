@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-25 21:24+0300\n"
-"PO-Revision-Date: 2022-01-25 22:06+0300\n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-01-26 14:59+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,14 +19,15 @@ msgstr ""
 "Language: tr\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in:3
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6 src/exm-application.c:109
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
 msgid "Extension Manager"
 msgstr "Uzantı Yöneticisi"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "GNOME Kabuğu Uzantılarını gezmeniz ve yüklemeniz için yardımcı bir program."
+msgstr "GNOME Kabuğu uzantılarını keşfetmeniz ve yüklemeniz için yardımcı bir program."
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
 msgid "Matthew Jakeman"
@@ -39,7 +40,7 @@ msgstr "Özellikler:"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Uygulama içinde doğrudan extensions.gnome.org'u  gezin"
+msgstr "Doğrudan uygulamanın içinden extensions.gnome.org'u gezin"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
@@ -48,41 +49,45 @@ msgstr "Zaten yüklemiş olduğunuz uzantıları yönetin"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "GNOME Kabuğu Uzantılarını yönetmeniz için yardımcı bir program"
+msgstr "GNOME Kabuğu uzantılarını yönetmeniz için yardımcı bir program"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "Bir uzantıyı kaldırırken bazen ortaya çıkan çökme durumu düzeltildi"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr "extension-manager'ın ilk özellik güncellemesi. Öne çıkanlar arasında:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:45
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr "Karanlık tema ve sistem renk şemasını geçersiz kılma desteği"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:46
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
 msgid "Shows screenshots in extension listings"
 msgstr "Uzantı listelerinde ekran görüntülerini gösterir"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:47
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
 msgid "Shell version compatibility check"
 msgstr "Kabuk sürüm uyumluluğu kontrolü"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
 msgid "Localised into seven languages"
 msgstr "Yedi dilde yerelleştirildi"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:49
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
 msgid "Sort search results"
 msgstr "Arama sonuçlarını sıralama"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
 msgid "Global extension on/off toggle"
-msgstr "Global uzantı açma/kapama ayarı"
+msgstr "Evrensel uzantı açma/kapama ayarı"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
 msgid "Displays user and system extensions separately"
 msgstr "Kullanıcı ve sistem uzantılarını ayrı ayrı görüntüler"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
 msgid "Performance and stability"
 msgstr "Performans ve kararlılık"
 
@@ -92,28 +97,37 @@ msgstr "Renk Şeması Tercihi"
 
 #: data/com.mattjakeman.ExtensionManager.gschema.xml:12
 msgid ""
-"Whether to follow the system colour scheme or force either light or dark mode."
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
 msgstr "Sistem renk şemasını takip etme veya açık ya da koyu modu zorlama."
 
-#: src/exm-application.c:111
-msgid ""
-"A very simple tool for browsing, downloading, and managing GNOME shell extensions."
-msgstr ""
-"GNOME Kabuğu Uzantılarını aramanız, indirmeniz ve yönetmeniz için basit bir araç."
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "Onur Ankut <ripsivis@gmail.com>"
 
-#: src/exm-application.c:117
+#: src/exm-application.c:113
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"GNOME Kabuğu Uzantılarını aramanız, indirmeniz ve yönetmeniz için basit bir "
+"araç."
+
+#: src/exm-application.c:119
 msgid "Project Homepage"
 msgstr "Proje Ana Sayfası"
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
-msgstr "Uzantıları arayın"
+msgstr "Uzantı arayın"
 
 #: src/exm-browse-page.blp:8
-msgid "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"GNOME Kabuğu Uzantılarını aramak için 'extensions.gnome.org' anahtar bir kelime "
-"girin."
+"'extensions.gnome.org'da GNOME Kabuğu uzantılarını aramak için anahtar bir "
+"kelime girin."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
@@ -122,19 +136,19 @@ msgstr "örn. \"Blur my Shell\""
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:33
 msgid "Popularity"
-msgstr "Popülarite"
+msgstr "Çok oylananlar"
 
 #: src/exm-browse-page.blp:33
 msgid "Downloads"
-msgstr "İndirme"
+msgstr "Çok indirilenler"
 
 #: src/exm-browse-page.blp:33
 msgid "Recent"
-msgstr "Yeni"
+msgstr "Yeni çıkanlar"
 
 #: src/exm-browse-page.blp:33
 msgid "Name"
-msgstr "İsim"
+msgstr "İsme göre"
 
 #: src/exm-browse-page.blp:60
 msgid "No Results Found"
@@ -158,7 +172,7 @@ msgstr "Bağlantılar"
 
 #: src/exm-detail-view.blp:139
 msgid "View on Extensions"
-msgstr "Uzantılar'da Görüntüle"
+msgstr "Tarayıcıda Görüntüle"
 
 #: src/exm-detail-view.c:120
 msgid "This extension is incompatible with your current version of GNOME."
@@ -170,7 +184,7 @@ msgstr "Yükle"
 
 #: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
 msgid "Installed"
-msgstr "Yüklenenler"
+msgstr "Yüklendi"
 
 #: src/exm-detail-view.c:138 src/exm-search-row.c:159
 msgid "Unsupported"
@@ -191,7 +205,7 @@ msgstr "Kaldır"
 
 #: src/exm-installed-page.blp:17
 msgid "User-Installed Extensions"
-msgstr "Kullanıcının Yüklediği Uzantılar"
+msgstr "Yüklediğiniz Uzantılar"
 
 #: src/exm-installed-page.blp:29
 msgid "System Extensions"
@@ -199,7 +213,7 @@ msgstr "Sistem Uzantıları"
 
 #: src/exm-window.blp:50
 msgid "Browse"
-msgstr "Keşfedin"
+msgstr "Keşfet"
 
 #: src/exm-window.blp:71
 msgid "Theme"
@@ -242,4 +256,4 @@ msgstr "Kısayolları Görüntüle"
 #: src/gtk/help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Çık"
+msgstr "Çıkış"
