@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 01:44+1300\n"
-"PO-Revision-Date: 2022-01-23 18:50+0100\n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-01-26 12:47+0100\n"
 "Last-Translator: Rafał Baran <>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
@@ -24,26 +24,77 @@ msgstr ""
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
 #: src/exm-application.c:109
 msgid "Extension Manager"
-msgstr "Menedżer rozszerzeń"
+msgstr "Menedżer Rozszerzeń"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:10
-msgid ""
-"An extension manager for browsing and installing GNOME Shell Extensions."
-msgstr ""
-"Menedżer rozszerzeń do przeglądania i instalowania rozszerzeń powłoki GNOME."
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "Narzędzie do przeglądania i instalowania rozszerzeń powłoki GNOME."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
+msgid "Matthew Jakeman"
+msgstr "Matthew Jakeman"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+msgid "Features:"
+msgstr "Funkcje:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:18
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Przeglądaj extensions.gnome.org bezpośrednio w aplikacji"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:22
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
 msgid "Manage the extensions you already have installed"
 msgstr "Zarządzaj już zainstalowanymi rozszerzeniami"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "Naprawia błąd występujący czasem podczas odinstalowywania rozszerzenia"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr ""
+"Pierwsza aktualizacja funkcyjna do Menedżera Rozszerzeń. Najważniejsze "
+"zmiany:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr ""
+"Ciemny motyw i możliwość nadpisania systemowego schematu kolorystycznego"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+msgid "Shows screenshots in extension listings"
+msgstr "Zrzuty ekranu na liście rozszerzeń"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Shell version compatibility check"
+msgstr "Sprawdzanie kompatybilności z wersją powłoki"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
+msgid "Localised into seven languages"
+msgstr "Przetłumaczono na siedem języków"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
+msgid "Sort search results"
+msgstr "Sortowanie wyników wyszukiwania"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
+msgid "Global extension on/off toggle"
+msgstr "Globalny włącznik/wyłącznik rozszerzeń"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
+msgid "Displays user and system extensions separately"
+msgstr "Osobne wyświetlanie rozszerzeń systemowych i użytkownika"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
+msgid "Performance and stability"
+msgstr "Wydajność i stabilność"
 
 #: data/com.mattjakeman.ExtensionManager.gschema.xml:11
 msgid "Colour Scheme Preference"
@@ -56,7 +107,12 @@ msgid ""
 msgstr ""
 "Ustawia motyw na systemowy lub wymusza użycie ciemnego lub jasnego motywu."
 
-#: src/exm-application.c:111
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "Rafał Baran"
+
+#: src/exm-application.c:113
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
@@ -64,7 +120,7 @@ msgstr ""
 "Bardzo proste narzędzie do przeglądania, instalowania i zarządzania "
 "rozszerzeniami powłoki GNOME."
 
-#: src/exm-application.c:117
+#: src/exm-application.c:119
 msgid "Project Homepage"
 msgstr "Strona Główna projektu"
 
@@ -102,44 +158,44 @@ msgstr "Nazwa"
 msgid "No Results Found"
 msgstr "Nie Znaleziono Wyników"
 
-#: src/exm-detail-view.blp:86
-msgid "Description"
-msgstr "Opis"
-
-#: src/exm-detail-view.blp:104
-msgid "Supported Versions"
-msgstr "Wspierane Wersje"
-
-#: src/exm-detail-view.blp:120
-msgid "Links"
-msgstr "Linki"
-
-#: src/exm-detail-view.blp:130
-msgid "View on Extensions"
-msgstr "Zobacz na Extensions"
-
-#: src/exm-detail-view.c:119
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr "To rozszerzenie nie jest kompatybilne z twoją wersją GNOME."
-
-#: src/exm-detail-view.c:128 src/exm-search-row.blp:75
-msgid "Install"
-msgstr "Zainstaluj"
-
-#: src/exm-detail-view.c:133 src/exm-search-row.c:153 src/exm-window.blp:42
-msgid "Installed"
-msgstr "Zainstalowane"
-
-#: src/exm-detail-view.c:137 src/exm-search-row.c:159
-msgid "Unsupported"
-msgstr "Niewspierane"
-
-#: src/exm-detail-view.c:283
+#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
 msgid "An Error Occurred"
 msgstr "Wystąpił Błąd"
 
+#: src/exm-detail-view.blp:95
+msgid "Description"
+msgstr "Opis"
+
+#: src/exm-detail-view.blp:113
+msgid "Supported Versions"
+msgstr "Wspierane Wersje"
+
+#: src/exm-detail-view.blp:129
+msgid "Links"
+msgstr "Linki"
+
+#: src/exm-detail-view.blp:139
+msgid "View on Extensions"
+msgstr "Zobacz na Extensions"
+
+#: src/exm-detail-view.c:120
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "To rozszerzenie nie jest kompatybilne z twoją wersją GNOME."
+
+#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "Zainstaluj"
+
+#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "Zainstalowane"
+
+#: src/exm-detail-view.c:138 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "Niewspierane"
+
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:298
+#: src/exm-detail-view.c:303
 msgid "Loading…"
 msgstr "Ładowanie…"
 
@@ -205,6 +261,12 @@ msgstr "Pokaż skróty"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Wyjdź"
+
+#~ msgid ""
+#~ "An extension manager for browsing and installing GNOME Shell Extensions."
+#~ msgstr ""
+#~ "Menedżer rozszerzeń do przeglądania i instalowania rozszerzeń powłoki "
+#~ "GNOME."
 
 #~ msgid "Go to Page"
 #~ msgstr "Otwórz stronę"
