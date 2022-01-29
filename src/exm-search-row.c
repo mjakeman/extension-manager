@@ -138,7 +138,6 @@ exm_search_row_constructed (GObject *object)
                   "pk", &pk,
                   NULL);
 
-    name = g_markup_escape_text (name, -1);
     uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
 
     gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
