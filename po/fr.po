@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-01-29 00:51+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Extension Manager"
+
+# fdsf
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "Outils pour parcourir et installer les extensions GNOME Shell."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
+msgid "Matthew Jakeman"
+msgstr "Matthew Jakeman"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+msgid "Features:"
+msgstr "Caractéristiques :"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Utilisez directement extensions.gnome.org dans l'application"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "Gérer les extensions que vous avez déjà installées"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Outils pour gérer les extensions GNOME Shell"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr ""
+"Correction d'un crash qui se produit parfois lors de la désinstallation "
+"d'une extension"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr ""
+"Première mise à jour des fonctionnalités d'extension-manager. Points forts:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr "Thème Foncé et prise en charge du Mode Automatique"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+msgid "Shows screenshots in extension listings"
+msgstr "Affichage de captures d'écran dans les fiches extensions"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Shell version compatibility check"
+msgstr "Vérification de la compatibilité avec votre versions du shell"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
+msgid "Localised into seven languages"
+msgstr "Traduits en sept langues"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
+msgid "Sort search results"
+msgstr "Trier les résultats de recherche"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
+msgid "Global extension on/off toggle"
+msgstr "Activation/désactivation d'Extension Manager"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
+msgid "Displays user and system extensions separately"
+msgstr "Séparation des extensions installée manuellement et intégrée"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
+msgid "Performance and stability"
+msgstr "Performance et stabilité"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr "Préférence de la couleur du Thème"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr "Mode automatique ou forcer le Thème clair/foncé."
+
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "PaxtonGround"
+
+#: src/exm-application.c:113
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"Un outil pour parcourir, installer et gérer simplement les extensions GNOME "
+"Shell."
+
+#: src/exm-application.c:119
+msgid "Project Homepage"
+msgstr "Page d'accueil du projet"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "Recherche d'extensions"
+
+#: src/exm-browse-page.blp:8
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"Saisissez un mot clé pour rechercher les extensions de GNOME Shell sur le "
+"site 'extensions.gnome.org.'"
+
+#: src/exm-browse-page.blp:22
+msgid "e.g. \"Blur my Shell\""
+msgstr "Par exemple, \"Blur my Shell\""
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "Popularité"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "Téléchargements"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "Récent"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "Nom"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "Aucun résultat trouvé"
+
+#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
+msgid "An Error Occurred"
+msgstr "Une erreur s'est produite"
+
+#: src/exm-detail-view.blp:95
+msgid "Description"
+msgstr "Description"
+
+#: src/exm-detail-view.blp:113
+msgid "Supported Versions"
+msgstr "Versions supportées"
+
+#: src/exm-detail-view.blp:129
+msgid "Links"
+msgstr "Liens"
+
+#: src/exm-detail-view.blp:139
+msgid "View on Extensions"
+msgstr "Vue sur les extensions"
+
+#: src/exm-detail-view.c:120
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr ""
+"Cette extension est incompatible avec votre version actuelle de GNOME."
+
+#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "Ajouter"
+
+#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "Installé"
+
+#: src/exm-detail-view.c:138 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "Non supporté"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:303
+msgid "Loading…"
+msgstr "Chargement…"
+
+#: src/exm-extension-row.blp:37
+msgid "See Details"
+msgstr "Voir les détails"
+
+#: src/exm-extension-row.blp:46
+msgid "Remove"
+msgstr "Enlever…"
+
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr "Installée manuellement"
+
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr "Intégrée"
+
+#: src/exm-window.blp:50
+msgid "Browse"
+msgstr "Parcourir"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "Thème"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "Automatique"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "Clair"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "Foncé"
+
+#: src/exm-window.blp:89
+msgid "Keyboard Shortcuts"
+msgstr "Raccourcis clavier"
+
+#: src/exm-window.blp:93
+msgid "About Extension Manager"
+msgstr "À propos d'Extension Manager"
+
+#: src/exm-window.c:179
+msgid "Are you sure you want to uninstall?"
+msgstr "Êtes-vous sûr de vouloir désinstaller ?"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Général"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Afficher les raccourcis"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitter"
