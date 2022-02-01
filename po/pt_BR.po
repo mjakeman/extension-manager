@@ -27,7 +27,7 @@ msgstr "Gerenciador de Extensões"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "Um utilitário para buscar e instalar as extensões do Gnome Shell."
+msgstr "Um utilitário para buscar e instalar as extensões do GNOME Shell."
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
 msgid "Matthew Jakeman"
