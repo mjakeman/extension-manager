@@ -105,7 +105,9 @@ msgstr "Seguir as cores do sistema ou forçar o modo claro ou escuro."
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:112
 msgid "translator-credits"
-msgstr "Tiago Lucas Flach https://github.com/tiagoFlach"
+msgstr ""
+"Douglas Silva <douglasilvadev@gmail.com>"
+"Tiago Lucas Flach https://github.com/tiagoFlach"
 
 #: src/exm-application.c:113
 msgid ""
