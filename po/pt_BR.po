@@ -177,7 +177,7 @@ msgstr "Ver em Extensões"
 
 #: src/exm-detail-view.c:120
 msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Esta extensão é incompatível com a atual versão do Gnome."
+msgstr "Esta extensão é incompatível com a atual versão do GNOME."
 
 #: src/exm-detail-view.c:129 src/exm-search-row.blp:75
 msgid "Install"
