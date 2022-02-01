@@ -49,7 +49,7 @@ msgstr "Gerencie as extensões que já estão instaladas"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Um utilitário para gerenciar as extensões do Gnome Shell"
+msgstr "Um utilitário para gerenciar as extensões do GNOME Shell"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
