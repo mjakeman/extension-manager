@@ -113,7 +113,7 @@ msgid ""
 "extensions."
 msgstr ""
 "Uma ferramenta muito simples para buscar, baixar e gerenciar as extensões do "
-"Gnome Shell."
+"GNOME Shell."
 
 #: src/exm-application.c:119
 msgid "Project Homepage"
