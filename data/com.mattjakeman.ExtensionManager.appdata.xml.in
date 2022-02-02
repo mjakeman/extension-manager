@@ -38,6 +38,12 @@
   </keywords>
   <translation type="gettext">extension-manager</translation>
   <releases>
+    <release version="0.2.2" date="2022-02-02">
+      <description>
+        <p>Translation updates</p>
+        <p>Fix special characters in search results</p>
+      </description>
+    </release>
     <release version="0.2.1" date="2022-01-24">
       <description>
         <p>Fixes a crash that sometimes occurs while uninstalling an extension</p>
