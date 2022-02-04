@@ -8,7 +8,6 @@
     <file>exm-search-row.ui</file>
     <file>exm-detail-view.ui</file>
     <file>exm-screenshot.ui</file>
-    <file>res/help-overlay.ui</file>
     <file>res/plugin.png</file>
     <file>style.css</file>
   </gresource>

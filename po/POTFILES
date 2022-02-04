@@ -16,7 +16,6 @@ src/exm-search-row.blp
 src/exm-search-row.c
 src/exm-window.blp
 src/exm-window.c
-src/gtk/help-overlay.blp
 src/local/exm-extension.c
 src/local/exm-manager.c
 src/local/shell-dbus-interface.c
