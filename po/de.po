@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 17:48+1300\n"
-"PO-Revision-Date: 2022-01-24 20:44+0100\n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-02-03 21:39+0100\n"
 "Last-Translator: Lauri Jouaux <lauri.jouaux@outlook.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -26,17 +26,13 @@ msgstr "Erweiterungs Manager"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
-#, fuzzy
-#| msgid ""
-#| "An extension manager for browsing and installing GNOME Shell Extensions."
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr ""
-"Ein Erweiterungs-Manager zum suchen und installieren von GNOME Shell "
-"Erweiterungen."
+"Ein Programm zum Suchen und Installieren von GNOME Shell Erweiterungen."
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
 msgid "Matthew Jakeman"
-msgstr ""
+msgstr "Matthew Jakeman"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
 msgid "Features:"
@@ -57,39 +53,45 @@ msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Ein Programm zum Verwalten von GNOME Shell Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr ""
+"Behebt einen Absturz, welcher manchmal beim deinstallieren einer "
+"Erweiterung auftritt"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr "Das erste Funktionsupdate für Erweiterungs Manager. Höhepunkte sind:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:45
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr ""
 "Dunkles Theme und unterstützung für das Überschreiben des System Farbschemas"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:46
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
 msgid "Shows screenshots in extension listings"
 msgstr "Zeige Bildschirmfotos in Erweitungs-Eintrag"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:47
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
 msgid "Shell version compatibility check"
 msgstr "Shell-Versions Kompatibilitätsprüfung"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
 msgid "Localised into seven languages"
 msgstr "Übersetzt in sieben Sprachen"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:49
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
 msgid "Sort search results"
 msgstr "Suchergebnisse sortieren"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
 msgid "Global extension on/off toggle"
 msgstr "Globaler Erweiterungs an/aus Schalter"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
 msgid "Displays user and system extensions separately"
 msgstr "Zeige Nutzer- und System-Erweiterungen getrennt an"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
 msgid "Performance and stability"
 msgstr "Leistung und Stabilität"
 
@@ -102,10 +104,15 @@ msgid ""
 "Whether to follow the system colour scheme or force either light or dark "
 "mode."
 msgstr ""
-"Ob das System-Farbschema oder der helle oder dunkle Modus bevorzugt "
-"werden soll."
+"Ob das System-Farbschema oder der helle oder dunkle Modus bevorzugt werden "
+"soll."
 
-#: src/exm-application.c:111
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "Lauri Jouaux <lauri.jouaux@outlook.com>"
+
+#: src/exm-application.c:113
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
@@ -113,7 +120,7 @@ msgstr ""
 "Ein sehr einfach zu bedienendes Tool zum Durchsuchen, Herunterladen und "
 "Verwalten von GNOME Shell Erweiterungen."
 
-#: src/exm-application.c:117
+#: src/exm-application.c:119
 msgid "Project Homepage"
 msgstr "Projekt Webseite"
 
@@ -125,8 +132,8 @@ msgstr "Suchen Sie nach Erweiterungen"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Geben Sie einen Suchbegriff ein, um auf 'extensions.gnome.org' nach GNOME Shell "
-"Erweiterungen zu suchen."
+"Geben Sie einen Suchbegriff ein, um auf 'extensions.gnome.org' nach GNOME "
+"Shell Erweiterungen zu suchen."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
@@ -143,7 +150,7 @@ msgstr "Downloads"
 
 #: src/exm-browse-page.blp:33
 msgid "Recent"
-msgstr "Kürzlich"
+msgstr "Neuste"
 
 #: src/exm-browse-page.blp:33
 msgid "Name"
