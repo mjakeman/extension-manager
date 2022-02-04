@@ -1,0 +1,1 @@
+option('development', type: 'boolean', value: false, description: 'Produce a development build')

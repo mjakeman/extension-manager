@@ -28,7 +28,7 @@ subdir('web')
 
 blueprints = custom_target('blueprints',
   input: files(
-    'gtk/help-overlay.blp',
+    'res/help-overlay.blp',
     'exm-window.blp',
     'exm-installed-page.blp',
     'exm-browse-page.blp',

@@ -1,13 +1,14 @@
-application_id = 'com.mattjakeman.ExtensionManager'
+icondir = join_paths(get_option('datadir'), 'icons/hicolor')
 
-scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(
-  join_paths(scalable_dir, ('@0@.svg').format(application_id)),
-  install_dir: join_paths(get_option('datadir'), 'icons', scalable_dir)
+  '@0@.svg'.format(app_id),
+  install_dir: join_paths(icondir, 'scalable/apps'),
 )
 
-symbolic_dir = join_paths('hicolor', 'symbolic', 'apps')
 install_data(
-  join_paths(symbolic_dir, ('@0@-symbolic.svg').format(application_id)),
-  install_dir: join_paths(get_option('datadir'), 'icons', symbolic_dir)
+  'com.mattjakeman.ExtensionManager-symbolic.svg',
+  install_dir: join_paths(icondir, 'symbolic/apps'),
+  rename: '@0@-symbolic.svg'.format(app_id),
 )
+
+subdir('hicolor')

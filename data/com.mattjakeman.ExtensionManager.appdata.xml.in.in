@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-	<id>com.mattjakeman.ExtensionManager.desktop</id>
+	<id>@app_id@.desktop</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
-  <name>Extension Manager</name>
+  <name>@app_title@</name>
   <summary>A utility for browsing and installing GNOME Shell Extensions.</summary>
   <content_rating type="oars-1.1" />
   <developer_name translatable="no">Matthew Jakeman</developer_name>
@@ -29,7 +29,7 @@
       <image width="1844" height="1444">https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-installed.png?token=GHSAT0AAAAAABQAZ3HODHOYG7PH5I2RBLQSYPCKI3A</image>
     </screenshot>
   </screenshots>
-  <launchable type="desktop-id">com.mattjakeman.ExtensionManager.desktop</launchable>
+  <launchable type="desktop-id">@app_id@.desktop</launchable>
   <url type="homepage">https://github.com/mjakeman/extension-manager</url>
   <url type="bugtracker">https://github.com/mjakeman/extension-manager/issues</url>
   <keywords>

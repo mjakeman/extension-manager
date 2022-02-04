@@ -38,7 +38,7 @@ main (int   argc,
 	 * application windows, integration with the window manager/compositor, and
 	 * desktop features such as file opening and single-instance applications.
 	 */
-	app = exm_application_new ("com.mattjakeman.ExtensionManager", G_APPLICATION_FLAGS_NONE);
+	app = exm_application_new (APP_ID, G_APPLICATION_FLAGS_NONE);
 
 	/*
 	 * Run the application. This function will block until the application

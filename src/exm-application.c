@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "exm-config.h"
+
 #include "exm-application.h"
 #include "exm-window.h"
 
@@ -100,13 +102,16 @@ exm_application_show_about (GSimpleAction *action,
     ExmApplication *self = EXM_APPLICATION (user_data);
     GtkWindow *window = NULL;
     const gchar *authors[] = {"Matthew Jakeman", NULL};
+    const gchar *program_name = IS_DEVEL
+        ? _("Extension Manager (Development)")
+        : _("Extension Manager");
 
     g_return_if_fail (EXM_IS_APPLICATION (self));
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
     gtk_show_about_dialog (window,
-                           "program-name", _("Extension Manager"),
+                           "program-name", program_name,
                            "authors", authors,
                            // TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
                            "translator-credits", _("translator-credits"),
@@ -114,7 +119,7 @@ exm_application_show_about (GSimpleAction *action,
                            "version", "0.2.3",
                            "copyright", "Copyright © Matthew Jakeman 2021",
                            "license-type", GTK_LICENSE_GPL_3_0,
-                           "logo-icon-name", "com.mattjakeman.ExtensionManager",
+                           "logo-icon-name", APP_ID,
                            "website", "https://github.com/mjakeman/extension-manager",
                            "website-label", _("Project Homepage"),
                            NULL);
@@ -151,7 +156,7 @@ map_setting_to_adw_style (GValue   *value,
 static void
 exm_application_init (ExmApplication *self)
 {
-    GSettings *settings = g_settings_new ("com.mattjakeman.ExtensionManager");
+    GSettings *settings = g_settings_new (APP_ID);
 
     GSimpleAction *quit_action = g_simple_action_new ("quit", NULL);
     g_signal_connect_swapped (quit_action, "activate", G_CALLBACK (g_application_quit), self);

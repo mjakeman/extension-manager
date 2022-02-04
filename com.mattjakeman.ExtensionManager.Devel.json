@@ -1,5 +1,5 @@
 {
-    "app-id" : "com.mattjakeman.ExtensionManager",
+    "app-id" : "com.mattjakeman.ExtensionManager.Devel",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
@@ -40,6 +40,7 @@
             "name" : "extension-manager",
             "builddir" : true,
             "buildsystem" : "meson",
+            "config-opts" : [ "-Ddevelopment=true" ],
             "sources" : [
                 {
                     "type" : "dir",

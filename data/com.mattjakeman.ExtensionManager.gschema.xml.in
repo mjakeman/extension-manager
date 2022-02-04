@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="extension-manager">
-  <schema id="com.mattjakeman.ExtensionManager" path="/com/mattjakeman/ExtensionManager/">
+  <schema id="@app_id@" path="/com/mattjakeman/ExtensionManager/">
     <key name="style-variant" type="s">
       <choices>
         <choice value="use-default"/>
