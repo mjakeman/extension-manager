@@ -130,11 +130,8 @@ template ExmDetailView : Gtk.Box {
 								xalign: 0;
 							}
 
-							Gtk.Box {
-								orientation: horizontal;
-								homogeneous: true;
-
-								// Comment cards go here
+							Gtk.FlowBox comment_box {
+								max-children-per-line: 2;
 							}
 						}
 

@@ -6,9 +6,13 @@
 #include "web/exm-image-resolver.h"
 #include "web/exm-comment-provider.h"
 #include "web/model/exm-shell-version-map.h"
+#include "web/model/exm-comment.h"
 #include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
+
+#include <text-engine/format/import.h>
+#include <text-engine/ui/display.h>
 
 struct _ExmDetailView
 {
@@ -33,6 +37,7 @@ struct _ExmDetailView
     GtkFlowBox *supported_versions;
     GtkLinkButton *link_website;
     GtkScrolledWindow *scroll_area;
+    GtkFlowBox *comment_box;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -175,6 +180,30 @@ queue_resolve_screenshot (ExmDetailView    *self,
                                       g_object_ref (self));
 }
 
+static GtkWidget *
+comment_factory (ExmComment    *comment,
+                 ExmDetailView *self)
+{
+    GtkWidget *box;
+    TextDisplay *comment_label;
+    TextFrame *frame;
+
+    gchar *text;
+    g_object_get (comment,
+                  "comment", &text,
+                  NULL);
+
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    gtk_widget_add_css_class (box, "content");
+
+    frame = format_parse_html (text);
+
+    comment_label = text_display_new (frame);
+    gtk_box_append (GTK_BOX (box), comment_label);
+
+    return box;
+}
+
 static void
 on_get_comments (GObject       *source,
                  GAsyncResult  *res,
@@ -184,7 +213,9 @@ on_get_comments (GObject       *source,
 
     GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
 
-    g_print ("Got comments!");
+    gtk_flow_box_bind_model (self->comment_box, model,
+                             (GtkListBoxCreateWidgetFunc) comment_factory,
+                             g_object_ref (self), g_object_unref);
 }
 
 static void
@@ -407,6 +438,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_website);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);
 }
 
 static void
