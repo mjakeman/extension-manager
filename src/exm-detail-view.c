@@ -4,6 +4,7 @@
 
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
+#include "web/exm-comment-provider.h"
 #include "web/model/exm-shell-version-map.h"
 #include "local/exm-manager.h"
 
@@ -16,11 +17,11 @@ struct _ExmDetailView
     ExmManager *manager;
     ExmDataProvider *provider;
     ExmImageResolver *resolver;
+    ExmCommentProvider *comment_provider;
     GCancellable *resolver_cancel;
 
     gchar *shell_version;
     gchar *uuid;
-    int pk;
 
     AdwWindowTitle *title;
     GtkStack *stack;
@@ -166,13 +167,34 @@ on_image_loaded (GObject       *source,
 
 static void
 queue_resolve_screenshot (ExmDetailView    *self,
-                          ExmImageResolver *resolver,
                           const gchar      *screenshot_uri,
                           GCancellable     *cancellable)
 {
-    exm_image_resolver_resolve_async (resolver, screenshot_uri, cancellable,
+    exm_image_resolver_resolve_async (self->resolver, screenshot_uri, cancellable,
                                       (GAsyncReadyCallback) on_image_loaded,
                                       g_object_ref (self));
+}
+
+static void
+on_get_comments (GObject       *source,
+                 GAsyncResult  *res,
+                 ExmDetailView *self)
+{
+    GError *error = NULL;
+
+    GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
+
+    g_print ("Got comments!");
+}
+
+static void
+queue_resolve_comments (ExmDetailView *self,
+                        gint           pk,
+                        GCancellable  *cancellable)
+{
+    exm_comment_provider_get_comments_async (self->comment_provider, pk, cancellable,
+                                             (GAsyncReadyCallback) on_get_comments,
+                                             self);
 }
 
 static void
@@ -193,6 +215,7 @@ on_data_loaded (GObject      *source,
 
     if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
     {
+        gint pk;
         gboolean is_installed, is_supported;
         gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
         g_object_get (data,
@@ -204,6 +227,7 @@ on_data_loaded (GObject      *source,
                       "link", &link,
                       "description", &description,
                       "shell_version_map", &version_map,
+                      "pk", &pk,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
@@ -230,7 +254,7 @@ on_data_loaded (GObject      *source,
             gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot), TRUE);
             exm_screenshot_reset (self->ext_screenshot);
 
-            queue_resolve_screenshot (self, self->resolver, screenshot_uri, self->resolver_cancel);
+            queue_resolve_screenshot (self, screenshot_uri, self->resolver_cancel);
         }
         else
         {
@@ -276,6 +300,8 @@ on_data_loaded (GObject      *source,
             g_free (version);
         }
 
+        queue_resolve_comments (self, pk, self->resolver_cancel);
+
         // Reset scroll position
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
 
@@ -291,13 +317,11 @@ on_data_loaded (GObject      *source,
 
 void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
-                               const gchar   *uuid,
-                               int            pk)
+                               const gchar   *uuid)
 {
     // g_assert (gtk_widget_is_constructed)
 
     self->uuid = uuid;
-    self->pk = pk;
 
     /* Translators: Use unicode ellipsis '…' rather than three dots '...' */
     adw_window_title_set_title (self->title, _("Loading…"));
@@ -305,7 +329,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
 
-    exm_data_provider_get_async (self->provider, uuid, pk, NULL, on_data_loaded, self);
+    exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
 }
 
 void
@@ -392,4 +416,5 @@ exm_detail_view_init (ExmDetailView *self)
 
     self->provider = exm_data_provider_new ();
     self->resolver = exm_image_resolver_new ();
+    self->comment_provider = exm_comment_provider_new ();
 }

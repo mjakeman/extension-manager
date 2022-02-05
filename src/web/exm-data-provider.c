@@ -60,16 +60,15 @@ parse_extension (GBytes  *bytes,
 void
 exm_data_provider_get_async (ExmDataProvider     *self,
                              const gchar         *uuid,
-                             int                  pk,
                              GCancellable        *cancellable,
                              GAsyncReadyCallback  callback,
                              gpointer             user_data)
 {
-    // Query https://extensions.gnome.org/extension-info/?uuid={%s}&pk={%d}
+    // Query https://extensions.gnome.org/extension-info/?uuid={%s}
 
     const gchar *url;
 
-    url = g_strdup_printf ("https://extensions.gnome.org/extension-info/?uuid=%s&pk=%d", uuid, pk);
+    url = g_strdup_printf ("https://extensions.gnome.org/extension-info/?uuid=%s", uuid);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,

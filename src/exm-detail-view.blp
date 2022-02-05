@@ -126,6 +126,24 @@ template ExmDetailView : Gtk.Box {
 							Gtk.Label {
 								styles ["title-4"]
 
+								label: _("User Reviews");
+								xalign: 0;
+							}
+
+							Gtk.Box {
+								orientation: horizontal;
+								homogeneous: true;
+
+								// Comment cards go here
+							}
+						}
+
+						Gtk.Box {
+							orientation: vertical;
+
+							Gtk.Label {
+								styles ["title-4"]
+
 								label: _("Links");
 								xalign: 0;
 							}
