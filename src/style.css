@@ -26,3 +26,7 @@
   border-top: 1px solid @borders;
   padding: 8px 12px;
 }
+
+.review-card {
+  padding: 16px;
+}

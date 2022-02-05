@@ -1,10 +1,16 @@
 #include "exm-comment-tile.h"
 
+#include <text-engine/format/import.h>
+#include <text-engine/ui/display.h>
+
 struct _ExmCommentTile
 {
     GtkWidget parent_instance;
 
     ExmComment *comment;
+
+    GtkLabel *author;
+    TextDisplay *display;
 };
 
 G_DEFINE_FINAL_TYPE (ExmCommentTile, exm_comment_tile, GTK_TYPE_WIDGET)
@@ -70,6 +76,28 @@ exm_comment_tile_set_property (GObject      *object,
 }
 
 static void
+exm_comment_tile_constructed (GObject *object)
+{
+    ExmCommentTile *self = EXM_COMMENT_TILE (object);
+
+    g_return_if_fail (EXM_IS_COMMENT (self->comment));
+
+    TextFrame *frame;
+
+    gchar *text, *author;
+    g_object_get (self->comment,
+                  "comment", &text,
+                  "author", &author,
+                  NULL);
+
+    frame = format_parse_html (text);
+
+    g_object_set (self->display, "frame", frame, NULL);
+    // gtk_label_set_text (self->author, author);
+    gtk_label_set_text (self->author, "Author Name");
+}
+
+static void
 exm_comment_tile_class_init (ExmCommentTileClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -77,6 +105,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
     object_class->finalize = exm_comment_tile_finalize;
     object_class->get_property = exm_comment_tile_get_property;
     object_class->set_property = exm_comment_tile_set_property;
+    object_class->constructed = exm_comment_tile_constructed;
 
     properties [PROP_COMMENT] =
         g_param_spec_object ("comment",
@@ -91,10 +120,14 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-comment-tile.ui");
 
-    // gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, description_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, display);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author);
+
+    gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 
 static void
 exm_comment_tile_init (ExmCommentTile *self)
 {
+    gtk_widget_init_template (GTK_WIDGET (self));
 }

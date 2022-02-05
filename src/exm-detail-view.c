@@ -1,6 +1,7 @@
 #include "exm-detail-view.h"
 
 #include "exm-screenshot.h"
+#include "exm-comment-tile.h"
 
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
@@ -10,9 +11,6 @@
 #include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
-
-#include <text-engine/format/import.h>
-#include <text-engine/ui/display.h>
 
 struct _ExmDetailView
 {
@@ -184,24 +182,7 @@ static GtkWidget *
 comment_factory (ExmComment    *comment,
                  ExmDetailView *self)
 {
-    GtkWidget *box;
-    TextDisplay *comment_label;
-    TextFrame *frame;
-
-    gchar *text;
-    g_object_get (comment,
-                  "comment", &text,
-                  NULL);
-
-    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    gtk_widget_add_css_class (box, "content");
-
-    frame = format_parse_html (text);
-
-    comment_label = text_display_new (frame);
-    gtk_box_append (GTK_BOX (box), comment_label);
-
-    return box;
+    return GTK_WIDGET (exm_comment_tile_new (comment));
 }
 
 static void

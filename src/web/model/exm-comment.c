@@ -5,6 +5,7 @@ struct _ExmComment
     GObject parent_instance;
 
     gchar *comment;
+    gchar *author;
 };
 
 G_DEFINE_FINAL_TYPE (ExmComment, exm_comment, G_TYPE_OBJECT)
@@ -12,6 +13,7 @@ G_DEFINE_FINAL_TYPE (ExmComment, exm_comment, G_TYPE_OBJECT)
 enum {
     PROP_0,
     PROP_COMMENT,
+    PROP_AUTHOR,
     N_PROPS
 };
 
@@ -44,6 +46,9 @@ exm_comment_get_property (GObject    *object,
     case PROP_COMMENT:
         g_value_set_string (value, self->comment);
         break;
+    case PROP_AUTHOR:
+        g_value_set_string (value, self->author);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -61,6 +66,9 @@ exm_comment_set_property (GObject      *object,
     {
     case PROP_COMMENT:
         self->comment = g_value_dup_string (value);
+        break;
+    case PROP_AUTHOR:
+        self->author = g_value_dup_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -80,6 +88,13 @@ exm_comment_class_init (ExmCommentClass *klass)
         g_param_spec_string ("comment",
                              "Comment",
                              "Comment",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_AUTHOR] =
+        g_param_spec_string ("author",
+                             "Author",
+                             "Author",
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
