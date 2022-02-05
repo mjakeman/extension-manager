@@ -38,6 +38,18 @@
             ]
         },
         {
+            "name": "text-engine",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/mjakeman/text-engine.git",
+                    "commit": "4fc6e4eba6341c47ab547e3095e26fc7329a0d38"
+                }
+            ]
+        },
+        {
             "name" : "extension-manager",
             "builddir" : true,
             "buildsystem" : "meson",
