@@ -93,8 +93,7 @@ exm_comment_tile_constructed (GObject *object)
     frame = format_parse_html (text);
 
     g_object_set (self->display, "frame", frame, NULL);
-    // gtk_label_set_text (self->author, author);
-    gtk_label_set_text (self->author, "Author Name");
+    gtk_label_set_text (self->author, author);
 }
 
 static void
