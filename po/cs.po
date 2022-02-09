@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 23:46+1300\n"
-"PO-Revision-Date: 2022-02-09 19:13+0100\n"
+"PO-Revision-Date: 2022-02-09 20:48+0100\n"
 "Last-Translator: Vojtěch Perník <translations@pervoj.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs_CZ\n"
@@ -51,7 +51,7 @@ msgstr "Spravujte rozšíření, která již máte nainstalovaná"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Jednoduchý správce rozšířeni GNOME Shellu"
+msgstr "Jednoduchý správce rozšíření GNOME Shellu"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
 msgid "Shows screenshots in extension listings"
-msgstr "Zobrazování screenshotů v seznamu rozšíření"
+msgstr "Zobrazování snímků obrazovky v seznamu rozšíření"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
 msgid "Shell version compatibility check"
