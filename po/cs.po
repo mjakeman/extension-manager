@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# Vojtěch Perník <translations@pervoj.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-02-09 19:13+0100\n"
+"Last-Translator: Vojtěch Perník <translations@pervoj.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Generator: Poedit 3.0\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Správce rozšíření"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr ""
+"Jednoduchá aplikace, jež vám usnadní procházení a instalaci rozšíření GNOME "
+"Shellu."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
+msgid "Matthew Jakeman"
+msgstr "Matthew Jakeman"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+msgid "Features:"
+msgstr "Funkce:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Procházejte web extensions.gnome.org přímo v aplikaci"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "Spravujte rozšíření, která již máte nainstalovaná"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Jednoduchý správce rozšířeni GNOME Shellu"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "Opravuje občasné padání aplikace při odinstalaci rozšíření"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr "První aktualizace s novými funkcemi. Mezi hlavní novinky patří:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr ""
+"Tmavý režim a podpora pro jeho upřednostnění před barevným schématem systému"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+msgid "Shows screenshots in extension listings"
+msgstr "Zobrazování screenshotů v seznamu rozšíření"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Shell version compatibility check"
+msgstr "Kontrola kompatibility s aktuální verzí Shellu"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
+msgid "Localised into seven languages"
+msgstr "Přeloženo do sedmi jazyků"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
+msgid "Sort search results"
+msgstr "Filtrování výsledků vyhledávání"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
+msgid "Global extension on/off toggle"
+msgstr "Globální přepínač pro všechna rozšíření najednou"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
+msgid "Displays user and system extensions separately"
+msgstr "Zobrazení uživatelských a systémových rozšíření zvlášť"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
+msgid "Performance and stability"
+msgstr "Zlepšení výkonu a stability"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr "Preferované schéma barev"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr ""
+"Určuje, jestli má aplikace použít systémové schéma barev, nebo vynutit "
+"světlý či tmavý režim."
+
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "Vojtěch Perník <translations@pervoj.cz>"
+
+#: src/exm-application.c:113
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"Velmi jednoduchý nástroj na procházení, stahování a správu rozšíření GNOME "
+"Shellu."
+
+#: src/exm-application.c:119
+msgid "Project Homepage"
+msgstr "Domovská stránka projektu"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "Hledat rozšíření"
+
+#: src/exm-browse-page.blp:8
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"Zadejte klíčové slovo k vyhledávání rozšíření GNOME Shellu na „extensions."
+"gnome.org“."
+
+#: src/exm-browse-page.blp:22
+msgid "e.g. \"Blur my Shell\""
+msgstr "např. „Blur my Shell“"
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "Popularita"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "Počet stažení"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "Poslední vydané"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "Jméno"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "Nebyly nalezeny žádné výsledky"
+
+#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
+msgid "An Error Occurred"
+msgstr "Nastala chyba"
+
+#: src/exm-detail-view.blp:95
+msgid "Description"
+msgstr "Popis"
+
+#: src/exm-detail-view.blp:113
+msgid "Supported Versions"
+msgstr "Podporované verze"
+
+#: src/exm-detail-view.blp:129
+msgid "Links"
+msgstr "Odkazy"
+
+#: src/exm-detail-view.blp:139
+msgid "View on Extensions"
+msgstr "Zobrazit na webu"
+
+#: src/exm-detail-view.c:120
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "Toto rozšíření není kompatibilní s vaší současnou verzí GNOME."
+
+#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "Nainstalovat"
+
+#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "Nainstalováno"
+
+#: src/exm-detail-view.c:138 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "Nepodporované"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:303
+msgid "Loading…"
+msgstr "Načítání…"
+
+#: src/exm-extension-row.blp:37
+msgid "See Details"
+msgstr "Zobrazit podrobnosti"
+
+#: src/exm-extension-row.blp:46
+msgid "Remove"
+msgstr "Odinstalovat"
+
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr "Uživatelská rozšíření"
+
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr "Systémová rozšíření"
+
+#: src/exm-window.blp:50
+msgid "Browse"
+msgstr "Procházet"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "Téma"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "Podle systému"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "Světlé"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "Tmavé"
+
+#: src/exm-window.blp:89
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: src/exm-window.blp:93
+msgid "About Extension Manager"
+msgstr "O Správci rozšíření"
+
+#: src/exm-window.c:179
+msgid "Are you sure you want to uninstall?"
+msgstr "Jste si jisti, že chcete rozšíření odinstalovat?"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Obecné"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Zobrazit klávesové zkratky"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončit"
