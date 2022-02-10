@@ -31,8 +31,9 @@ may also be independently-maintained packages available for your distribution.
 <img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
 </a>
 
-You can also install it through the AUR if you use Arch Linux:
-[extension-manager](https://aur.archlinux.org/packages/extension-manager), [extension-manager-git](https://aur.archlinux.org/packages/extension-manager-git)
+You may also be able to obtain Extension Manager from your distribution's package manager. Note these packages are maintained independently and thus may differ from the official version on Flathub. Please report any issues experienced to the package maintainer.
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/extension-manager.svg)](https://repology.org/project/extension-manager/versions)
 
 ## Translations
 Extension Manager has been translated into several different languages. Ideally, the
