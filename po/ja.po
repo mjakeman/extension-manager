@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 22:44+1300\n"
-"PO-Revision-Date: 2022-01-13 01:37+0900\n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-02-15 16:08+0900\n"
 "Last-Translator: 小山田 純 <oyamadajun@outlook.jp>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -25,90 +25,230 @@ msgid "Extension Manager"
 msgstr "Extension Manager"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:10
-msgid ""
-"An extension manager for browsing and installing GNOME Shell Extensions."
-msgstr ""
-"GNOME Shell 拡張機能 を探し、インストールできる、拡張機能マネジャーです。"
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "「GNOME Shell 拡張機能」を簡単に探せて追加できるユーティリティ"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
+msgid "Matthew Jakeman"
+msgstr "Matthew Jakeman"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+msgid "Features:"
+msgstr "機能:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "GNOME Shell 拡張機能 を管理するユーティリティ"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:18
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "アプリ内で extensions.gnome.org を探索"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:22
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
 msgid "Manage the extensions you already have installed"
-msgstr "今までにインストールした拡張機能も管理"
+msgstr "今までに追加した拡張機能も管理"
 
-#: src/exm-application.c:111
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "GNOME Shell 拡張機能 を管理するユーティリティ"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "拡張機能の削除中に、クラッシュする問題を修正しました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr ""
+"Extension Manager の初めてのアップデートです。主な内容は次のとおりです :"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr ""
+"ダークテーマを追加し、システムのライト・ダークテーマに合わせることができるよ"
+"うになりました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+msgid "Shows screenshots in extension listings"
+msgstr "拡張機能のスクリーンショットを、見られるようになりました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Shell version compatibility check"
+msgstr ""
+"拡張機能が対応しているGNOMEShellのバージョンが、わかるようになりました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
+msgid "Localised into seven languages"
+msgstr "7言語に翻訳されました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
+msgid "Sort search results"
+msgstr "検索結果の並べ替えが、できるようになりました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
+msgid "Global extension on/off toggle"
+msgstr "すべての拡張機能をOFFにできる、トグルスイッチが追加されました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
+msgid "Displays user and system extensions separately"
+msgstr "拡張機能の開発者の名前を、表示するようになりました。"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
+msgid "Performance and stability"
+msgstr "パフォーマンスと安定性を向上させました。"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr "ライト・ダークテーマの設定"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr ""
+"システムのライト・ダークテーマに自動で合わせるか、強制的にライト・ダークテー"
+"マにするかを指定します。"
+
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "小山田 純 <oyamadajun@outlook.jp>"
+
+#: src/exm-application.c:113
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
 msgstr ""
-"GNOME Shell 拡張機能 を探したり、インストールしたり、管理ができたりする、シ"
-"ンプルなツールです。"
+"GNOME Shell 拡張機能 を探したり、追加したり、\n"
+"管理ができたりする、シンプルなツールです。"
 
-#: src/exm-application.c:117
+#: src/exm-application.c:119
 msgid "Project Homepage"
-msgstr "プロジェクトのGitHub"
+msgstr "GitHub"
 
-#: src/exm-window.blp:33 src/exm-window.c:332
-msgid "Installed"
-msgstr "インストール済み"
-
-#: src/exm-window.blp:48
-msgid "User-Installed Extensions"
-msgstr "手動でインストール"
-
-#: src/exm-window.blp:60
-msgid "System Extensions"
-msgstr "プリインストール"
-
-#: src/exm-window.blp:74
-msgid "Browse"
-msgstr "探す"
-
-#: src/exm-window.blp:79
+#: src/exm-browse-page.blp:7
 msgid "Search for extensions"
 msgstr "拡張機能を検索"
 
-#: src/exm-window.blp:80
+#: src/exm-browse-page.blp:8
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"キーワードを入力すると、'extensions.gnome.org' にある GNOME Shell 拡張機能を"
-"検索できます。"
+"キーワードを入力すると extensions.gnome.org にある\n"
+"GNOME Shell 拡張機能を検索できます。"
 
-#: src/exm-window.blp:89
+#: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
 msgstr "例 \"Blur my Shell\""
 
-#: src/exm-window.blp:113
-msgid "Keyboard Shortcuts"
-msgstr "キーボードショートカット"
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "人気順"
 
-#: src/exm-window.blp:117
-msgid "About Extension Manager"
-msgstr "Extension Manager について"
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "ダウンロード数順"
 
-#: src/exm-window.c:127
-msgid "Are you sure you want to uninstall?"
-msgstr "この拡張機能をアンインストールしますか？"
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "更新順"
 
-#: src/exm-window.c:188
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "名前順"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "結果はありません"
+
+#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
+msgid "An Error Occurred"
+msgstr "エラーが発生しました"
+
+#: src/exm-detail-view.blp:95
+msgid "Description"
+msgstr "説明"
+
+#: src/exm-detail-view.blp:113
+msgid "Supported Versions"
+msgstr "対応しているバージョン"
+
+#: src/exm-detail-view.blp:129
+msgid "Links"
+msgstr "リンク"
+
+#: src/exm-detail-view.blp:139
+msgid "View on Extensions"
+msgstr "プリインストール"
+
+#: src/exm-detail-view.c:120
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr ""
+"この拡張機能は、このコンピュータのGNOMEのバージョンには、対応していません。"
+
+#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "追加"
+
+#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "追加済"
+
+#: src/exm-detail-view.c:138 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "未対応"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:303
+msgid "Loading…"
+msgstr "読み込み中…"
+
+#: src/exm-extension-row.blp:37
+msgid "See Details"
+msgstr "詳細"
+
+#: src/exm-extension-row.blp:46
 msgid "Remove"
 msgstr "削除"
 
-#: src/exm-window.c:323
-msgid "Go to Page"
-msgstr "ブラウザで開く"
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr "手動で追加"
 
-#: src/exm-window.c:326
-msgid "Install"
-msgstr "インストール"
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr "プリインストール"
+
+#: src/exm-window.blp:50
+msgid "Browse"
+msgstr "探す"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "テーマ"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "システムのテーマ"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "ライトテーマ"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "ダークテーマ"
+
+#: src/exm-window.blp:89
+msgid "Keyboard Shortcuts"
+msgstr "キーボードショートカット"
+
+#: src/exm-window.blp:93
+msgid "About Extension Manager"
+msgstr "Extension Manager について"
+
+#: src/exm-window.c:179
+msgid "Are you sure you want to uninstall?"
+msgstr "この拡張機能を削除しますか？"
 
 #: src/gtk/help-overlay.blp:11
 msgctxt "shortcut window"
