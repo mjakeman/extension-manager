@@ -109,7 +109,7 @@ msgstr ""
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:112
 msgid "translator-credits"
-msgstr "kreditering av oversettere"
+msgstr "John Erling Blad"
 
 #: src/exm-application.c:113
 msgid ""
