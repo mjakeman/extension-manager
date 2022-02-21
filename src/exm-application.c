@@ -111,7 +111,7 @@ exm_application_show_about (GSimpleAction *action,
                            // TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
                            "translator-credits", _("translator-credits"),
                            "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
-                           "version", "0.2.2",
+                           "version", "0.2.3",
                            "copyright", "Copyright © Matthew Jakeman 2021",
                            "license-type", GTK_LICENSE_GPL_3_0,
                            "logo-icon-name", "com.mattjakeman.ExtensionManager",

@@ -38,6 +38,11 @@
   </keywords>
   <translation type="gettext">extension-manager</translation>
   <releases>
+    <release version="0.2.3" date="2022-02-21">
+      <description>
+        <p>Translation updates</p>
+      </description>
+    </release>
     <release version="0.2.2" date="2022-02-02">
       <description>
         <p>Translation updates</p>
