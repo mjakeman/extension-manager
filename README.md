@@ -1,4 +1,9 @@
 # Extension Manager
+[![Build Status](https://img.shields.io/github/workflow/status/mjakeman/extension-manager/CI)](https://github.com/mjakeman/extension-manager/actions/workflows/main.yml)
+[![Release Version](https://img.shields.io/github/v/release/mjakeman/extension-manager)](github.com/mjakeman/extension-manager/releases/latest)
+[![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=downloads&query=downloads_total&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fcom.mattjakeman.ExtensionManager)](https://flathub.org/apps/details/com.mattjakeman.ExtensionManager)
+[![License (GPL-3.0)](https://img.shields.io/github/license/mjakeman/extension-manager)](http://www.gnu.org/licenses/gpl-3.0)
+
 A native tool for browsing, installing, and managing GNOME Shell Extensions.
 
 Written with GTK 4 and libadwaita.
