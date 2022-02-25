@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+# Norwegian Nynorsk translation for extension-manager package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # John Erling Blad <jeblad@gmail.com>, 2022.
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-26 23:46+1300\n"
-"PO-Revision-Date: 2022-02-02 16:48+0100\n"
+"PO-Revision-Date: 2022-02-23 16:48+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
-"Last-Translator: \n"
+"Last-Translator: John Erling Blad <jeblad@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nb\n"
+"Language: nn\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in:3
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
