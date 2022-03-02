@@ -126,23 +126,6 @@ template ExmDetailView : Gtk.Box {
 							Gtk.Label {
 								styles ["title-4"]
 
-								label: _("User Reviews");
-								xalign: 0;
-							}
-
-							Gtk.FlowBox comment_box {
-								max-children-per-line: 2;
-								homogeneous: true;
-								selection-mode: none;
-							}
-						}
-
-						Gtk.Box {
-							orientation: vertical;
-
-							Gtk.Label {
-								styles ["title-4"]
-
 								label: _("Links");
 								xalign: 0;
 							}
@@ -155,6 +138,27 @@ template ExmDetailView : Gtk.Box {
 								Gtk.LinkButton link_website {
 									label: _("View on Extensions");
 								}
+							}
+						}
+
+						Gtk.Box {
+							orientation: vertical;
+
+							Gtk.Label {
+								styles ["title-4"]
+
+								label: _("User Reviews");
+								xalign: 0;
+							}
+
+							Gtk.FlowBox comment_box {
+								max-children-per-line: 2;
+								homogeneous: true;
+								selection-mode: none;
+							}
+							Gtk.Button show_more_btn {
+								label: _("Show More Reviews");
+								halign: center;
 							}
 						}
 					}
