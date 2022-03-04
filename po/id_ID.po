@@ -195,7 +195,7 @@ msgstr "Tidak didukung"
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
 #: src/exm-detail-view.c:303
 msgid "Loading…"
-msgstr "Memuat..."
+msgstr "Memuat…"
 
 #: src/exm-extension-row.blp:37
 msgid "See Details"
