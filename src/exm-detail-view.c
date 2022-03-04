@@ -2,6 +2,7 @@
 
 #include "exm-screenshot.h"
 #include "exm-comment-tile.h"
+#include "exm-comment-dialog.h"
 
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
@@ -182,10 +183,15 @@ queue_resolve_screenshot (ExmDetailView    *self,
 }
 
 static GtkWidget *
-comment_factory (ExmComment    *comment,
-                 ExmDetailView *self)
+comment_factory (ExmComment *comment)
 {
-    return GTK_WIDGET (exm_comment_tile_new (comment));
+    GtkWidget *tile;
+
+    tile = gtk_flow_box_child_new ();
+    gtk_widget_add_css_class (tile, "card");
+    gtk_flow_box_child_set_child (GTK_FLOW_BOX_CHILD (tile), GTK_WIDGET (exm_comment_tile_new (comment)));
+
+    return tile;
 }
 
 static void
@@ -210,6 +216,22 @@ queue_resolve_comments (ExmDetailView *self,
     exm_comment_provider_get_comments_async (self->comment_provider, pk, cancellable,
                                              (GAsyncReadyCallback) on_get_comments,
                                              self);
+}
+
+static void
+show_more_comments (GtkButton *button,
+                    int        pk)
+{
+    GtkRoot *toplevel;
+    ExmCommentDialog *dlg;
+
+    dlg = exm_comment_dialog_new (pk);
+    toplevel = gtk_widget_get_root (GTK_WIDGET (button));
+
+    gtk_window_set_transient_for (GTK_WINDOW (dlg), GTK_WINDOW (toplevel));
+    gtk_window_set_modal (GTK_WINDOW (dlg), TRUE);
+
+    gtk_window_present (GTK_WINDOW (dlg));
 }
 
 static void
@@ -316,6 +338,7 @@ on_data_loaded (GObject      *source,
         }
 
         queue_resolve_comments (self, pk, self->resolver_cancel);
+        g_signal_connect (self->show_more_btn, "clicked", G_CALLBACK (show_more_comments), pk);
 
         // Reset scroll position
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
