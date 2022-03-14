@@ -325,6 +325,29 @@ exm_manager_install_finish (ExmManager    *self,
 }
 
 static void
+check_for_updates_done (ShellExtensions *proxy,
+                        GAsyncResult    *res,
+                        gpointer         user_data)
+{
+    GError *error = NULL;
+    shell_extensions_call_check_for_updates_finish (proxy, res, &error);
+
+    if (error)
+    {
+        g_critical ("Could not check for updates: %s", error->message);
+    }
+}
+
+void
+exm_manager_check_for_updates (ExmManager *self)
+{
+    shell_extensions_call_check_for_updates (self->proxy,
+                                             NULL,
+                                             (GAsyncReadyCallback) check_for_updates_done,
+                                             NULL);
+}
+
+static void
 exm_manager_class_init (ExmManagerClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
