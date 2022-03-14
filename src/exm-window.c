@@ -290,6 +290,8 @@ exm_window_init (ExmWindow *self)
 
     self->manager = exm_manager_new ();
 
+    exm_manager_check_for_updates (self->manager);
+
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
     g_object_set (self->detail_view, "manager", self->manager, NULL);
