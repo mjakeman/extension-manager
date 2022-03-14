@@ -28,16 +28,20 @@ template ExmExtensionRow : Adw.ExpanderRow {
 		valign: center;
 		halign: center;
 
+		visible: false;
+
 		tooltip-text: _("An error occurred while loading this extension");
 	}
 
 	[action]
 	Gtk.Image update_icon {
-		styles ["accent"]
+		styles ["warning"]
 
 		icon-name: "software-update-available-symbolic";
 		valign: center;
 		halign: center;
+
+		visible: false;
 
 		tooltip-text: _("A newer version of this extension is available");
 	}

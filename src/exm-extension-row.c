@@ -14,6 +14,9 @@ struct _ExmExtensionRow
     GtkLabel *description_label;
     GtkButton *details_btn;
     GtkSwitch *ext_toggle;
+
+    GtkImage *update_icon;
+    GtkImage *error_icon;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -113,13 +116,14 @@ exm_extension_row_constructed (GObject *object)
     ExmExtensionRow *self = EXM_EXTENSION_ROW (object);
 
     gchar *name, *uuid, *description;
-    gboolean enabled, has_prefs, is_user;
+    gboolean enabled, has_prefs, has_update, is_user;
     g_object_get (self->extension,
                   "display-name", &name,
                   "uuid", &uuid,
                   "description", &description,
                   "enabled", &enabled,
                   "has-prefs", &has_prefs,
+                  "has-update", &has_update,
                   "is-user", &is_user,
                   NULL);
 
@@ -127,6 +131,7 @@ exm_extension_row_constructed (GObject *object)
     g_object_set (self->description_label, "label", description, NULL);
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
+    g_object_set (self->update_icon, "visible", has_update, NULL);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
@@ -173,6 +178,8 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, details_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, ext_toggle);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, update_icon);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_icon);
 }
 
 static void
