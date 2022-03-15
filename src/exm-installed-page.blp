@@ -46,8 +46,8 @@ template ExmInstalledPage : Gtk.Widget {
 			}
 		}
 
-		Gtk.ActionBar {
-			revealed: true;
+		Gtk.ActionBar updates_action_bar {
+			revealed: false;
 
 			[start]
 			Gtk.Box {
@@ -77,9 +77,8 @@ template ExmInstalledPage : Gtk.Widget {
 						label: _("Updates are available");
 					}
 
-					Gtk.Label {
+					Gtk.Label num_updates_label {
 						xalign: 0;
-						label: _("Extensions will be updated on next login.");
 					}
 				}
 			}

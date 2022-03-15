@@ -4,6 +4,8 @@
 
 #include "local/exm-manager.h"
 
+#include <glib/gi18n.h>
+
 struct _ExmInstalledPage
 {
     GtkWidget parent_instance;
@@ -11,8 +13,10 @@ struct _ExmInstalledPage
     ExmManager *manager;
 
     // Template Widgets
-    GtkListBox          *user_list_box;
-    GtkListBox          *system_list_box;
+    GtkListBox *user_list_box;
+    GtkListBox *system_list_box;
+    GtkLabel *num_updates_label;
+    GtkActionBar *updates_action_bar;
 };
 
 G_DEFINE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, GTK_TYPE_WIDGET)
@@ -134,6 +138,24 @@ bind_list_box (GtkListBox *list_box,
 }
 
 static void
+on_updates_available (ExmManager       *manager,
+                      int               n_updates,
+                      ExmInstalledPage *self)
+{
+    char *label;
+
+    // Translators: '%d' = number of extensions that will be updated
+    label = g_strdup_printf(ngettext("One extension will be updated on next login.",
+                                     "%d extensions will be updated on next login.",
+                                     n_updates), n_updates);
+
+    gtk_label_set_label (self->num_updates_label, label);
+    g_free (label);
+
+    gtk_action_bar_set_revealed (self->updates_action_bar, TRUE);
+}
+
+static void
 on_bind_manager (ExmInstalledPage *self)
 {
     GListModel *user_ext_model;
@@ -158,6 +180,16 @@ on_bind_manager (ExmInstalledPage *self)
                             self->system_list_box,
                             "sensitive",
                             G_BINDING_SYNC_CREATE);
+
+    g_signal_connect (self->manager,
+                      "updates-available",
+                      G_CALLBACK (on_updates_available),
+                      self);
+
+    // Check if updates are available
+    // NOTE: We need to do this *after* connecting the signal
+    // handler above, otherwise we will not be notified.
+    exm_manager_check_for_updates (self->manager);
 }
 
 static void
@@ -183,6 +215,8 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-installed-page.ui");
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, num_updates_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_action_bar);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
