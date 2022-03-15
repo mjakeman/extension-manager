@@ -2,7 +2,42 @@ using Gtk 4.0;
 using Adw 1;
 
 template ExmInstalledPage : Gtk.Widget {
-	Gtk.ScrolledWindow {
+	Gtk.Paned {
+		position: 520;
+		Gtk.ScrolledWindow {
+			Adw.Clamp {
+				styles ["clamp"]
+
+				Gtk.Box {
+					orientation: vertical;
+					spacing: 10;
+
+					Gtk.Label {
+						styles ["heading"]
+						xalign: 0;
+						margin-top: 20;
+						label: _("User-Installed Extensions");
+					}
+
+					Gtk.ListBox user_list_box {
+						styles ["boxed-list"]
+						valign: start;
+					}
+
+					Gtk.Label {
+						styles ["heading"]
+						xalign: 0;
+						margin-top: 20;
+						label: _("System Extensions");
+					}
+
+					Gtk.ListBox system_list_box {
+						styles ["boxed-list"]
+						valign: start;
+					}
+				}
+			}
+		}
 		Adw.Clamp {
 			styles ["clamp"]
 
@@ -12,26 +47,41 @@ template ExmInstalledPage : Gtk.Widget {
 
 				Gtk.Label {
 					styles ["heading"]
-					xalign: 0;
 					margin-top: 20;
-					label: _("User-Installed Extensions");
+					label: "Lists";
 				}
 
-				Gtk.ListBox user_list_box {
+				Gtk.ListBox {
 					styles ["boxed-list"]
-					valign: start;
+					selection-mode: none;
+
+					Adw.ActionRow {
+						title: "Blur my Shell";
+						subtitle: "blur-my-shell@aunetx";
+
+						[suffix]
+						Gtk.Button {
+							valign: center;
+							halign: center;
+							icon-name: "user-trash-symbolic";
+						}
+					}
+
+					Adw.ActionRow {
+						title: "System76 Scheduler";
+						subtitle: "s76-scheduler@mattjakeman.com";
+
+						[suffix]
+						Gtk.Button {
+							valign: center;
+							halign: center;
+							icon-name: "user-trash-symbolic";
+						}
+					}
 				}
 
-				Gtk.Label {
-					styles ["heading"]
-					xalign: 0;
-					margin-top: 20;
-					label: _("System Extensions");
-				}
-
-				Gtk.ListBox system_list_box {
-					styles ["boxed-list"]
-					valign: start;
+				Gtk.Button {
+					label: "Export";
 				}
 			}
 		}

@@ -7,6 +7,7 @@ template ExmExtensionRow : Adw.ExpanderRow {
 	Gtk.Switch ext_toggle {
 		valign: center;
 		halign: center;
+		opacity: 0;
 
 		action-name: 'row.state-set';
 	}
@@ -16,6 +17,7 @@ template ExmExtensionRow : Adw.ExpanderRow {
 		icon-name: "settings-symbolic";
 		valign: center;
 		halign: center;
+		opacity: 0;
 
 		action-name: 'row.open-prefs';
 	}
