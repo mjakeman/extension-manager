@@ -39,7 +39,7 @@ template ExmWindow : Adw.ApplicationWindow {
 
 					 Adw.ViewStackPage {
 						name: "installed";
-						title: _("Installed");
+						title: C_("Navigation", "Installed");
 						icon-name: "puzzle-piece-symbolic";
 
 						child: .ExmInstalledPage installed_page {};
@@ -47,7 +47,7 @@ template ExmWindow : Adw.ApplicationWindow {
 
 					Adw.ViewStackPage {
 						name: "browse";
-						title: _("Browse");
+						title: C_("Navigation", "Browse");
 						icon-name: "globe-symbolic";
 
 						child: .ExmBrowsePage browse_page {};
