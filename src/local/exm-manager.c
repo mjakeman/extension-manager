@@ -334,78 +334,6 @@ exm_manager_install_finish (ExmManager    *self,
     return g_task_propagate_boolean (G_TASK (result), error);
 }
 
-static void
-check_for_updates_done (ShellExtensions *proxy,
-                        GAsyncResult    *res,
-                        gpointer         user_data)
-{
-    GError *error = NULL;
-    shell_extensions_call_check_for_updates_finish (proxy, res, &error);
-
-    if (error)
-    {
-        g_critical ("Could not check for updates: %s", error->message);
-    }
-}
-
-void
-exm_manager_check_for_updates (ExmManager *self)
-{
-    shell_extensions_call_check_for_updates (self->proxy,
-                                             NULL,
-                                             (GAsyncReadyCallback) check_for_updates_done,
-                                             NULL);
-}
-
-static void
-exm_manager_class_init (ExmManagerClass *klass)
-{
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-    object_class->finalize = exm_manager_finalize;
-    object_class->get_property = exm_manager_get_property;
-    object_class->set_property = exm_manager_set_property;
-
-    properties [PROP_USER_EXTENSIONS]
-        = g_param_spec_object ("user-extensions",
-                               "User Extensions List Model",
-                               "User Extensions List Model",
-                               G_TYPE_LIST_MODEL,
-                               G_PARAM_READABLE);
-
-    properties [PROP_SYSTEM_EXTENSIONS]
-        = g_param_spec_object ("system-extensions",
-                               "System Extensions List Model",
-                               "System Extensions List Model",
-                               G_TYPE_LIST_MODEL,
-                               G_PARAM_READABLE);
-
-    properties [PROP_SHELL_VERSION]
-        = g_param_spec_string ("shell-version",
-                               "Shell Version",
-                               "Shell Version",
-                               NULL,
-                               G_PARAM_READWRITE);
-
-    properties [PROP_EXTENSIONS_ENABLED]
-        = g_param_spec_boolean ("extensions-enabled",
-                                "Extensions Enabled",
-                                "Extensions Enabled",
-                                FALSE,
-                                G_PARAM_READWRITE);
-
-    g_object_class_install_properties (object_class, N_PROPS, properties);
-
-    signals [SIGNAL_UPDATES_AVAILABLE]
-        = g_signal_new ("updates-available",
-                        G_TYPE_FROM_CLASS (object_class),
-                        G_SIGNAL_RUN_LAST|G_SIGNAL_NO_RECURSE|G_SIGNAL_NO_HOOKS,
-                        0, NULL, NULL, NULL,
-                        G_TYPE_NONE, 1,
-                        G_TYPE_INT,
-                        NULL);
-}
-
 static int
 list_model_get_number_of_updates (GListModel *model)
 {
@@ -455,6 +383,81 @@ queue_notify_extension_updates (ExmManager *self)
         return;
 
     self->update_callback_id = g_timeout_add (0, G_SOURCE_FUNC (notify_extension_updates), self);
+}
+
+static void
+check_for_updates_done (ShellExtensions *proxy,
+                        GAsyncResult    *res,
+                        ExmManager      *self)
+{
+    GError *error = NULL;
+    shell_extensions_call_check_for_updates_finish (proxy, res, &error);
+
+    if (error)
+    {
+        g_critical ("Could not check for updates: %s", error->message);
+    }
+
+    // Notify the user if updates are detected
+    queue_notify_extension_updates (self);
+}
+
+void
+exm_manager_check_for_updates (ExmManager *self)
+{
+    shell_extensions_call_check_for_updates (self->proxy,
+                                             NULL,
+                                             (GAsyncReadyCallback) check_for_updates_done,
+                                             self);
+}
+
+static void
+exm_manager_class_init (ExmManagerClass *klass)
+{
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->finalize = exm_manager_finalize;
+    object_class->get_property = exm_manager_get_property;
+    object_class->set_property = exm_manager_set_property;
+
+    properties [PROP_USER_EXTENSIONS]
+        = g_param_spec_object ("user-extensions",
+                               "User Extensions List Model",
+                               "User Extensions List Model",
+                               G_TYPE_LIST_MODEL,
+                               G_PARAM_READABLE);
+
+    properties [PROP_SYSTEM_EXTENSIONS]
+        = g_param_spec_object ("system-extensions",
+                               "System Extensions List Model",
+                               "System Extensions List Model",
+                               G_TYPE_LIST_MODEL,
+                               G_PARAM_READABLE);
+
+    properties [PROP_SHELL_VERSION]
+        = g_param_spec_string ("shell-version",
+                               "Shell Version",
+                               "Shell Version",
+                               NULL,
+                               G_PARAM_READWRITE);
+
+    properties [PROP_EXTENSIONS_ENABLED]
+        = g_param_spec_boolean ("extensions-enabled",
+                                "Extensions Enabled",
+                                "Extensions Enabled",
+                                FALSE,
+                                G_PARAM_READWRITE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
+
+    signals [SIGNAL_UPDATES_AVAILABLE]
+        = g_signal_new ("updates-available",
+                        G_TYPE_FROM_CLASS (object_class),
+                        G_SIGNAL_RUN_LAST|G_SIGNAL_NO_RECURSE|G_SIGNAL_NO_HOOKS,
+                        0, NULL, NULL, NULL,
+                        G_TYPE_NONE, 1,
+                        G_TYPE_INT,
+                        NULL);
 }
 
 static void
