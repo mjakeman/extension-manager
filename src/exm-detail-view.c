@@ -131,7 +131,7 @@ install_btn_set_state (GtkButton          *button,
         gtk_widget_add_css_class (GTK_WIDGET (button), "suggested-action");
         break;
     case STATE_INSTALLED:
-        gtk_button_set_label (button, _("Installed"));
+        gtk_button_set_label (button, C_("State", "Installed"));
         gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
         break;
     case STATE_UNSUPPORTED:

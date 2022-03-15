@@ -149,7 +149,7 @@ exm_search_row_constructed (GObject *object)
 
     if (self->is_installed)
     {
-        gtk_button_set_label (self->install_btn, _("Installed"));
+        gtk_button_set_label (self->install_btn, C_("State", "Installed"));
         gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
     }
 
