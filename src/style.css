@@ -11,9 +11,18 @@
 }
 
 .version-label {
-    background-color: #62a0ea;
-    color: white;
-    border-radius: 4px;
-    padding: 4px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background-color: #62a0ea;
+  color: white;
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.update {
+  color: #ff7800;
+}
+
+.update-bar {
+  border-top: 1px solid @borders;
+  padding: 8px 12px;
 }

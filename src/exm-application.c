@@ -154,6 +154,33 @@ map_setting_to_adw_style (GValue   *value,
 }
 
 static void
+request_logout (ExmApplication *self)
+{
+    // Request the GNOME Session Manager to log out
+    GDBusConnection *conn;
+
+    conn = g_application_get_dbus_connection (G_APPLICATION (self));
+    if (conn)
+    {
+        GError *error = NULL;
+        g_dbus_connection_call_sync (conn,
+                                     "org.gnome.SessionManager",
+                                     "/org/gnome/SessionManager",
+                                     "org.gnome.SessionManager",
+                                     "Logout",
+                                     g_variant_new ("(u)", 0),
+                                     NULL,
+                                     G_DBUS_CALL_FLAGS_NONE,
+                                     -1,
+                                     NULL,
+                                     &error);
+
+        if (error)
+            g_warning ("Could not log out: %s", error->message);
+    }
+}
+
+static void
 exm_application_init (ExmApplication *self)
 {
     GSettings *settings = g_settings_new (APP_ID);
@@ -165,6 +192,10 @@ exm_application_init (ExmApplication *self)
     GSimpleAction *about_action = g_simple_action_new ("about", NULL);
     g_signal_connect (about_action, "activate", G_CALLBACK (exm_application_show_about), self);
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (about_action));
+
+    GSimpleAction *logout_action = g_simple_action_new ("logout", NULL);
+    g_signal_connect_swapped (logout_action, "activate", G_CALLBACK (request_logout), self);
+    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (logout_action));
 
     GAction *style_variant_action = g_settings_create_action (settings, "style-variant");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (style_variant_action));

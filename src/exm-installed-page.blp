@@ -2,36 +2,96 @@ using Gtk 4.0;
 using Adw 1;
 
 template ExmInstalledPage : Gtk.Widget {
-	Gtk.ScrolledWindow {
-		Adw.Clamp {
-			styles ["clamp"]
+	Gtk.Box {
+		orientation: vertical;
+
+		Gtk.ScrolledWindow {
+			vexpand: true;
 
 			Gtk.Box {
 				orientation: vertical;
-				spacing: 10;
 
-				Gtk.Label {
-					styles ["heading"]
-					xalign: 0;
-					margin-top: 20;
-					label: _("User-Installed Extensions");
+				Adw.Clamp {
+					styles ["clamp"]
+
+					Gtk.Box {
+						orientation: vertical;
+						spacing: 10;
+
+						Gtk.Label {
+							styles ["heading"]
+							xalign: 0;
+							margin-top: 20;
+							label: _("User-Installed Extensions");
+						}
+
+						Gtk.ListBox user_list_box {
+							styles ["boxed-list"]
+							valign: start;
+						}
+
+						Gtk.Label {
+							styles ["heading"]
+							xalign: 0;
+							margin-top: 20;
+							label: _("System Extensions");
+						}
+
+						Gtk.ListBox system_list_box {
+							styles ["boxed-list"]
+							valign: start;
+						}
+					}
+				}
+			}
+		}
+
+		Gtk.Revealer updates_action_bar {
+			reveal-child: false;
+			transition-type: slide_up;
+
+			Gtk.Box {
+				styles ["actionbar", "update-bar"]
+				spacing: 12;
+
+				Gtk.Image update_icon {
+					styles ["update"]
+
+					icon-name: "software-update-available-symbolic";
+					pixel-size: 24;
+
+					valign: center;
+					halign: center;
 				}
 
-				Gtk.ListBox user_list_box {
-					styles ["boxed-list"]
-					valign: start;
+				Gtk.Box {
+					orientation: vertical;
+					valign: center;
+					hexpand: true;
+
+					Gtk.Label {
+						styles ["heading"]
+
+						xalign: 0;
+						label: _("Updates are available");
+						ellipsize: end;
+					}
+
+					Gtk.Label num_updates_label {
+						xalign: 0;
+						ellipsize: end;
+					}
 				}
 
-				Gtk.Label {
-					styles ["heading"]
-					xalign: 0;
-					margin-top: 20;
-					label: _("System Extensions");
-				}
+				[end]
+				Gtk.Button {
+					styles ["suggested-action"]
 
-				Gtk.ListBox system_list_box {
-					styles ["boxed-list"]
-					valign: start;
+					valign: center;
+					halign: center;
+
+					label: _("Log Out");
+					action-name: "app.logout";
 				}
 			}
 		}

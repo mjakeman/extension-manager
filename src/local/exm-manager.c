@@ -13,6 +13,8 @@ struct _ExmManager
 
     const gchar *shell_version;
     gboolean extensions_enabled;
+
+    guint update_callback_id;
 };
 
 G_DEFINE_FINAL_TYPE (ExmManager, exm_manager, G_TYPE_OBJECT)
@@ -27,6 +29,14 @@ enum {
 };
 
 static GParamSpec *properties [N_PROPS];
+
+enum {
+    SIGNAL_0,
+    SIGNAL_UPDATES_AVAILABLE,
+    N_SIGNALS
+};
+
+static guint signals [N_SIGNALS];
 
 ExmManager *
 exm_manager_new (void)
@@ -324,6 +334,83 @@ exm_manager_install_finish (ExmManager    *self,
     return g_task_propagate_boolean (G_TASK (result), error);
 }
 
+static int
+list_model_get_number_of_updates (GListModel *model)
+{
+    int num_updates = 0;
+
+    int n_items = g_list_model_get_n_items (model);
+    for (int i = 0; i < n_items; i++)
+    {
+        ExmExtension *ext = g_list_model_get_item (model, i);
+
+        gboolean has_update;
+        g_object_get (ext, "has-update", &has_update, NULL);
+
+        if (has_update)
+            num_updates++;
+    }
+
+    return num_updates;
+}
+
+static guint
+notify_extension_updates (ExmManager *self)
+{
+    // Checks for updates in the background and if found then
+    // emits the 'updates-available' signal with the number of updates
+    int n_updates = 0;
+
+    n_updates += list_model_get_number_of_updates (self->user_ext_model);
+    n_updates += list_model_get_number_of_updates (self->system_ext_model);
+
+    g_info ("There are %d new updates available.", n_updates);
+
+    if (n_updates > 0)
+        g_signal_emit (G_OBJECT (self), signals [SIGNAL_UPDATES_AVAILABLE], 0, n_updates);
+
+    self->update_callback_id = 0;
+
+    return G_SOURCE_REMOVE;
+}
+
+static void
+queue_notify_extension_updates (ExmManager *self)
+{
+    // See: notify_extension_updates
+
+    if (self->update_callback_id != 0)
+        return;
+
+    self->update_callback_id = g_timeout_add (0, G_SOURCE_FUNC (notify_extension_updates), self);
+}
+
+static void
+check_for_updates_done (ShellExtensions *proxy,
+                        GAsyncResult    *res,
+                        ExmManager      *self)
+{
+    GError *error = NULL;
+    shell_extensions_call_check_for_updates_finish (proxy, res, &error);
+
+    if (error)
+    {
+        g_critical ("Could not check for updates: %s", error->message);
+    }
+
+    // Notify the user if updates are detected
+    queue_notify_extension_updates (self);
+}
+
+void
+exm_manager_check_for_updates (ExmManager *self)
+{
+    shell_extensions_call_check_for_updates (self->proxy,
+                                             NULL,
+                                             (GAsyncReadyCallback) check_for_updates_done,
+                                             self);
+}
+
 static void
 exm_manager_class_init (ExmManagerClass *klass)
 {
@@ -362,6 +449,15 @@ exm_manager_class_init (ExmManagerClass *klass)
                                 G_PARAM_READWRITE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
+
+    signals [SIGNAL_UPDATES_AVAILABLE]
+        = g_signal_new ("updates-available",
+                        G_TYPE_FROM_CLASS (object_class),
+                        G_SIGNAL_RUN_LAST|G_SIGNAL_NO_RECURSE|G_SIGNAL_NO_HOOKS,
+                        0, NULL, NULL, NULL,
+                        G_TYPE_NONE, 1,
+                        G_TYPE_INT,
+                        NULL);
 }
 
 static void
@@ -529,6 +625,8 @@ update_extension_list (ExmManager *self)
 
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_USER_EXTENSIONS]);
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_SYSTEM_EXTENSIONS]);
+
+    queue_notify_extension_updates (self);
 }
 
 static gboolean
@@ -539,26 +637,6 @@ is_extension_equal (ExmExtension *a, ExmExtension *b)
     g_object_get (b, "uuid", &uuid_b, NULL);
 
     return strcmp (uuid_a, uuid_b) == 0;
-}
-
-static gboolean
-replace_extension_in_list_store (GListStore   *store,
-                                 ExmExtension *to_replace)
-{
-    guint position;
-    ExmExtension *to_delete;
-
-    if (g_list_store_find_with_equal_func (store, to_replace, (GEqualFunc)is_extension_equal, &position))
-    {
-        to_delete = g_list_model_get_item (G_LIST_MODEL (store), position);
-        g_list_store_remove (store, position);
-        g_list_store_insert (store, position, to_replace);
-        g_object_unref (to_delete);
-
-        return TRUE;
-    }
-
-    return FALSE;
 }
 
 static void
@@ -604,18 +682,16 @@ on_state_changed (ShellExtensions *object,
 
         return;
     }
-}
 
-static void
-on_status_changed (ShellExtensions *object,
-                   const gchar     *arg_uuid,
-                   gint             arg_state,
-                   const gchar     *arg_error,
-                   ExmManager      *self)
-{
-    g_debug ("Status Changed (Unhandled) for extension '%s'\n", arg_uuid);
+    // If the extension that has changed has an update, then
+    // one or more extensions have updates available. Lazily
+    // check the exact number and emit the 'updates-available'
+    // signal.
+    gboolean has_update;
+    g_object_get (extension, "has-update", &has_update, NULL);
 
-    // TODO: What's this for?
+    if (has_update)
+        queue_notify_extension_updates (self);
 }
 
 static void
@@ -635,6 +711,8 @@ exm_manager_init (ExmManager *self)
         return;
     }
 
+    self->update_callback_id = 0;
+
     g_object_bind_property (self->proxy, "shell-version",
                             self, "shell-version",
                             G_BINDING_SYNC_CREATE);
@@ -645,6 +723,8 @@ exm_manager_init (ExmManager *self)
 
     update_extension_list (self);
 
-    g_signal_connect (self->proxy, "extension-state-changed", G_CALLBACK (on_state_changed), self);
-    g_signal_connect (self->proxy, "extension-status-changed", G_CALLBACK (on_status_changed), self);
+    g_signal_connect (self->proxy,
+                      "extension-state-changed",
+                      G_CALLBACK (on_state_changed),
+                      self);
 }
