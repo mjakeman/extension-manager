@@ -16,7 +16,7 @@ struct _ExmInstalledPage
     GtkListBox *user_list_box;
     GtkListBox *system_list_box;
     GtkLabel *num_updates_label;
-    GtkActionBar *updates_action_bar;
+    GtkRevealer *updates_action_bar;
 };
 
 G_DEFINE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, GTK_TYPE_WIDGET)
@@ -137,6 +137,14 @@ bind_list_box (GtkListBox *list_box,
                              NULL, NULL);
 }
 
+static guint
+show_updates_bar (ExmInstalledPage *self)
+{
+    gtk_revealer_set_reveal_child (self->updates_action_bar, TRUE);
+
+    return G_SOURCE_REMOVE;
+}
+
 static void
 on_updates_available (ExmManager       *manager,
                       int               n_updates,
@@ -152,7 +160,8 @@ on_updates_available (ExmManager       *manager,
     gtk_label_set_label (self->num_updates_label, label);
     g_free (label);
 
-    gtk_action_bar_set_revealed (self->updates_action_bar, TRUE);
+    // Short delay to draw user attention
+    g_timeout_add (500, G_SOURCE_FUNC (show_updates_bar), self);
 }
 
 static void

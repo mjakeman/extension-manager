@@ -46,21 +46,19 @@ template ExmInstalledPage : Gtk.Widget {
 			}
 		}
 
-		Gtk.ActionBar updates_action_bar {
-			revealed: false;
+		Gtk.Revealer updates_action_bar {
+			reveal-child: false;
+			transition-type: slide_up;
 
-			[start]
 			Gtk.Box {
+				styles ["actionbar", "update-bar"]
+				spacing: 12;
+
 				Gtk.Image update_icon {
 					styles ["update"]
 
 					icon-name: "software-update-available-symbolic";
 					pixel-size: 24;
-
-					margin-start: 12;
-					margin-end: 12;
-					margin-top: 12;
-					margin-bottom: 12;
 
 					valign: center;
 					halign: center;
@@ -69,25 +67,31 @@ template ExmInstalledPage : Gtk.Widget {
 				Gtk.Box {
 					orientation: vertical;
 					valign: center;
+					hexpand: true;
 
 					Gtk.Label {
 						styles ["heading"]
 
 						xalign: 0;
 						label: _("Updates are available");
+						ellipsize: end;
 					}
 
 					Gtk.Label num_updates_label {
 						xalign: 0;
+						ellipsize: end;
 					}
 				}
-			}
 
-			[end]
-			Gtk.Button {
-				styles ["suggested-action"]
+				[end]
+				Gtk.Button {
+					styles ["suggested-action"]
 
-				label: _("Log Out");
+					valign: center;
+					halign: center;
+
+					label: _("Log Out");
+				}
 			}
 		}
 	}
