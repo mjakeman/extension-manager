@@ -344,7 +344,7 @@ list_model_get_number_of_updates (GListModel *model)
     {
         ExmExtension *ext = g_list_model_get_item (model, i);
 
-        gchar *has_update;
+        gboolean has_update;
         g_object_get (ext, "has-update", &has_update, NULL);
 
         if (has_update)
