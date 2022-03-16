@@ -1,5 +1,8 @@
 #include "exm-extension.h"
 
+#include "../exm-types.h"
+#include "../exm-enums.h"
+
 struct _ExmExtension
 {
     GObject parent_instance;
@@ -19,7 +22,7 @@ enum {
     PROP_0,
     PROP_UUID,
     PROP_DISPLAY_NAME,
-    PROP_ENABLED,
+    PROP_STATE,
     PROP_IS_USER,
     PROP_DESCRIPTION,
     PROP_HAS_PREFS,
@@ -67,7 +70,7 @@ exm_extension_get_property (GObject    *object,
         g_value_set_string (value, self->description);
         self->description = g_markup_escape_text (self->description, -1);
         break;
-    case PROP_ENABLED:
+    case PROP_STATE:
         g_value_set_boolean (value, self->enabled);
         break;
     case PROP_IS_USER:
@@ -106,7 +109,7 @@ exm_extension_set_property (GObject      *object,
     case PROP_DESCRIPTION:
         self->description = g_value_dup_string (value);
         break;
-    case PROP_ENABLED:
+    case PROP_STATE:
         self->enabled = g_value_get_boolean (value);
         break;
     case PROP_IS_USER:
@@ -156,12 +159,13 @@ exm_extension_class_init (ExmExtensionClass *klass)
                              NULL,
                              G_PARAM_READWRITE);
 
-    properties [PROP_ENABLED] =
-        g_param_spec_boolean ("enabled",
-                              "Enabled",
-                              "Enabled",
-                              FALSE,
-                              G_PARAM_READWRITE);
+    properties [PROP_STATE] =
+        g_param_spec_enum ("state",
+                           "State",
+                           "State",
+                           EXM_TYPE_EXTENSION_STATE,
+                           EXM_EXTENSION_STATE_ENABLED,
+                           G_PARAM_READWRITE);
 
     properties [PROP_IS_USER] =
         g_param_spec_boolean ("is-user",

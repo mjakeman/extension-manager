@@ -40,6 +40,10 @@ blueprints = custom_target('blueprints',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
 )
 
+exm_sources += gnome.mkenums_simple('exm-enums',
+  sources: 'exm-types.h'
+)
+
 exm_sources += gnome.compile_resources('exm-resources',
   'exm.gresource.xml',
   dependencies: blueprints,
