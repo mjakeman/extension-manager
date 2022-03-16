@@ -9,7 +9,7 @@ struct _ExmExtension
     gchar *uuid;
     gchar *display_name;
     gchar *description;
-    gboolean enabled;
+    ExmExtensionState state;
     gboolean is_user;
     gboolean has_prefs;
     gboolean has_update;
@@ -71,7 +71,7 @@ exm_extension_get_property (GObject    *object,
         self->description = g_markup_escape_text (self->description, -1);
         break;
     case PROP_STATE:
-        g_value_set_boolean (value, self->enabled);
+        g_value_set_enum (value, self->state);
         break;
     case PROP_IS_USER:
         g_value_set_boolean (value, self->is_user);
@@ -110,7 +110,7 @@ exm_extension_set_property (GObject      *object,
         self->description = g_value_dup_string (value);
         break;
     case PROP_STATE:
-        self->enabled = g_value_get_boolean (value);
+        self->state = g_value_get_enum (value);
         break;
     case PROP_IS_USER:
         self->is_user = g_value_get_boolean (value);

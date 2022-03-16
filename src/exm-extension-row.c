@@ -1,5 +1,8 @@
 #include "exm-extension-row.h"
 
+#include "exm-enums.h"
+#include "exm-types.h"
+
 struct _ExmExtensionRow
 {
     AdwExpanderRow parent_instance;
@@ -89,20 +92,24 @@ exm_extension_row_set_property (GObject      *object,
 }
 
 void
-update_enable_state (GObject         *self,
-                     GParamSpec      *pspec,
-                     ExmExtensionRow *row)
+update_state (GObject         *self,
+              GParamSpec      *pspec,
+              ExmExtensionRow *row)
 {
     // We update the state of the action without activating it. If we activate
     // it, then it will go back to gnome-shell and explicitly enable/disable
     // the extension. We do not want this behaviour as it messes with the global
     // extension toggle.
 
-    gboolean new_state;
-    g_object_get (self, "enabled", &new_state, NULL);
+    const gchar *uuid;
+    ExmExtensionState new_state;
+    g_object_get (self, "state", &new_state, "uuid", &uuid, NULL);
+
+    g_info ("%s: %s\n", uuid, g_enum_to_string (EXM_TYPE_EXTENSION_STATE, new_state));
+    gboolean is_enabled = (new_state == EXM_EXTENSION_STATE_ENABLED);
 
     GAction *action = g_action_map_lookup_action (G_ACTION_MAP (row->action_group), "state-set");
-    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (new_state));
+    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (is_enabled));
 }
 
 static void
@@ -116,12 +123,13 @@ exm_extension_row_constructed (GObject *object)
     ExmExtensionRow *self = EXM_EXTENSION_ROW (object);
 
     gchar *name, *uuid, *description;
-    gboolean enabled, has_prefs, has_update, is_user;
+    gboolean has_prefs, has_update, is_user;
+    ExmExtensionState state;
     g_object_get (self->extension,
                   "display-name", &name,
                   "uuid", &uuid,
                   "description", &description,
-                  "enabled", &enabled,
+                  "state", &state,
                   "has-prefs", &has_prefs,
                   "has-update", &has_update,
                   "is-user", &is_user,
@@ -136,12 +144,13 @@ exm_extension_row_constructed (GObject *object)
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
     // One way binding from extension ("source of truth") to switch
-    g_signal_connect (self->extension, "notify::enabled", G_CALLBACK (update_enable_state), self);
+    g_signal_connect (self->extension, "notify::state", G_CALLBACK (update_state), self);
 
     GAction *action;
 
+    gboolean is_enabled = (state == EXM_EXTENSION_STATE_ENABLED);
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "state-set");
-    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (enabled));
+    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (is_enabled));
 
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), has_prefs);
