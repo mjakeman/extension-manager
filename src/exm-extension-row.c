@@ -92,7 +92,7 @@ exm_extension_row_set_property (GObject      *object,
 }
 
 void
-update_state (GObject         *self,
+update_state (ExmExtension    *extension,
               GParamSpec      *pspec,
               ExmExtensionRow *row)
 {
@@ -103,13 +103,51 @@ update_state (GObject         *self,
 
     const gchar *uuid;
     ExmExtensionState new_state;
-    g_object_get (self, "state", &new_state, "uuid", &uuid, NULL);
+    GAction *action;
+
+    g_object_get (extension,
+                  "state", &new_state,
+                  "uuid", &uuid,
+                  NULL);
 
     g_info ("%s: %s\n", uuid, g_enum_to_string (EXM_TYPE_EXTENSION_STATE, new_state));
+
+    action = g_action_map_lookup_action (G_ACTION_MAP (row->action_group), "state-set");
+
+    // Reset state
+    g_simple_action_set_enabled (G_SIMPLE_ACTION (action), TRUE);
+    gtk_widget_set_visible (GTK_WIDGET (row->error_icon), FALSE);
+
+    switch (new_state)
+    {
+    case EXM_EXTENSION_STATE_ENABLED:
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (TRUE));
+        break;
+
+    case EXM_EXTENSION_STATE_DISABLED:
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (FALSE));
+        break;
+
+    case EXM_EXTENSION_STATE_ERROR:
+    case EXM_EXTENSION_STATE_OUT_OF_DATE:
+        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), FALSE);
+        gtk_widget_set_visible (GTK_WIDGET (row->error_icon), TRUE);
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (FALSE));
+        break;
+
+    default:
+        break;
+    }
     gboolean is_enabled = (new_state == EXM_EXTENSION_STATE_ENABLED);
 
-    GAction *action = g_action_map_lookup_action (G_ACTION_MAP (row->action_group), "state-set");
+    // Update state of toggle
     g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (is_enabled));
+
+    // Handle error
+
 }
 
 static void
@@ -148,15 +186,16 @@ exm_extension_row_constructed (GObject *object)
 
     GAction *action;
 
-    gboolean is_enabled = (state == EXM_EXTENSION_STATE_ENABLED);
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "state-set");
-    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (is_enabled));
+    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (TRUE));
 
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), has_prefs);
 
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "remove");
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), is_user);
+
+    update_state (self->extension, NULL, self);
 }
 
 static void
