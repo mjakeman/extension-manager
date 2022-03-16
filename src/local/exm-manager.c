@@ -3,6 +3,9 @@
 #include "exm-extension.h"
 #include "shell-dbus-interface.h"
 
+#include "../exm-types.h"
+#include "../exm-enums.h"
+
 struct _ExmManager
 {
     GObject parent_instance;
@@ -474,13 +477,11 @@ parse_single_extension (ExmExtension **extension,
     gchar *uuid = NULL;
     gchar *display_name = NULL;
     gchar *description = NULL;
-    gboolean enabled = FALSE;
     gboolean has_prefs = FALSE;
     gboolean has_update = FALSE;
     gboolean can_change = TRUE;
-
-    *is_user = FALSE;
-    *is_uninstall_operation = FALSE;
+    ExmExtensionState state;
+    ExmExtensionType type;
 
     if (extension && *extension)
     {
@@ -509,20 +510,15 @@ parse_single_extension (ExmExtension **extension,
         }
         else if (strcmp (prop_name, "type") == 0)
         {
-            double type;
-            g_variant_get (prop_value, "d", &type);
-            *is_user = (type == 2);
+            gdouble val;
+            g_variant_get (prop_value, "d", &val);
+            type = (ExmExtensionType)val;
         }
         else if (strcmp (prop_name, "state") == 0)
         {
-            double state;
-            g_variant_get (prop_value, "d", &state);
-            enabled = (state == 1);
-
-            if (state == 99)
-            {
-                *is_uninstall_operation = TRUE;
-            }
+            gdouble val;
+            g_variant_get (prop_value, "d", &val);
+            state = (ExmExtensionState)val;
         }
         else if (strcmp (prop_name, "name") == 0)
         {
@@ -546,10 +542,13 @@ parse_single_extension (ExmExtension **extension,
         }
     }
 
+    *is_user = (type == EXM_EXTENSION_TYPE_PER_USER);
+    *is_uninstall_operation = (state == EXM_EXTENSION_STATE_UNINSTALLED);
+
     g_object_set (*extension,
                   "display-name", display_name,
                   "description", description,
-                  "enabled", enabled,
+                  "state", state,
                   "is-user", *is_user,
                   "has-prefs", has_prefs,
                   "has-update", has_update,
