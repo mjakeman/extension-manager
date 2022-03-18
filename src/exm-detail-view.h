@@ -12,7 +12,7 @@ ExmDetailView *exm_detail_view_new (void);
 
 void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
-                               const gchar   *uuid);
+                               gchar         *uuid);
 
 void
 exm_detail_view_update (ExmDetailView *self);

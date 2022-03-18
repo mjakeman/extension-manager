@@ -41,6 +41,7 @@ struct _ExmDetailView
 
     AdwActionRow *link_extensions;
     gchar *uri_extensions;
+    int pk;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -231,12 +232,12 @@ queue_resolve_comments (ExmDetailView *self,
 
 static void
 show_more_comments (GtkButton *button,
-                    int        pk)
+                    ExmDetailView *self)
 {
     GtkRoot *toplevel;
     ExmCommentDialog *dlg;
 
-    dlg = exm_comment_dialog_new (pk);
+    dlg = exm_comment_dialog_new (self->pk);
     toplevel = gtk_widget_get_root (GTK_WIDGET (button));
 
     gtk_window_set_transient_for (GTK_WINDOW (dlg), GTK_WINDOW (toplevel));
@@ -348,8 +349,13 @@ on_data_loaded (GObject      *source,
             g_free (version);
         }
 
+        self->pk = pk;
+        g_signal_connect (self->show_more_btn,
+                          "clicked",
+                          G_CALLBACK (show_more_comments),
+                          self);
+
         queue_resolve_comments (self, pk, self->resolver_cancel);
-        g_signal_connect (self->show_more_btn, "clicked", G_CALLBACK (show_more_comments), pk);
 
         // Reset scroll position
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
@@ -366,7 +372,7 @@ on_data_loaded (GObject      *source,
 
 void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
-                               const gchar   *uuid)
+                               gchar         *uuid)
 {
     // g_assert (gtk_widget_is_constructed)
 
