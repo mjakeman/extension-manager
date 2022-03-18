@@ -150,7 +150,7 @@ exm_comment_dialog_constructed (GObject *object)
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
     exm_comment_provider_get_comments_async (self->comment_provider,
-                                             19,
+                                             self->web_id,
                                              NULL,
                                              (GAsyncReadyCallback) on_get_comments,
                                              self);
