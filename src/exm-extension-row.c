@@ -20,6 +20,7 @@ struct _ExmExtensionRow
 
     GtkImage *update_icon;
     GtkImage *error_icon;
+    GtkImage *out_of_date_icon;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -117,6 +118,7 @@ update_state (ExmExtension    *extension,
     // Reset state
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), TRUE);
     gtk_widget_set_visible (GTK_WIDGET (row->error_icon), FALSE);
+    gtk_widget_set_visible (GTK_WIDGET (row->out_of_date_icon), FALSE);
 
     switch (new_state)
     {
@@ -131,9 +133,15 @@ update_state (ExmExtension    *extension,
         break;
 
     case EXM_EXTENSION_STATE_ERROR:
-    case EXM_EXTENSION_STATE_OUT_OF_DATE:
         g_simple_action_set_enabled (G_SIMPLE_ACTION (action), FALSE);
         gtk_widget_set_visible (GTK_WIDGET (row->error_icon), TRUE);
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (FALSE));
+        break;
+
+    case EXM_EXTENSION_STATE_OUT_OF_DATE:
+        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), FALSE);
+        gtk_widget_set_visible (GTK_WIDGET (row->out_of_date_icon), TRUE);
         g_simple_action_set_state (G_SIMPLE_ACTION (action),
                                    g_variant_new_boolean (FALSE));
         break;
@@ -228,6 +236,7 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, ext_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, update_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_icon);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, out_of_date_icon);
 }
 
 static void
