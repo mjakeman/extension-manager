@@ -90,7 +90,7 @@ template ExmDetailView : Gtk.Box {
 							orientation: vertical;
 
 							Gtk.Label {
-								styles ["title-4"]
+								styles ["title-4", "detail-heading"]
 
 								label: _("Description");
 								xalign: 0;
@@ -108,7 +108,7 @@ template ExmDetailView : Gtk.Box {
 							orientation: vertical;
 
 							Gtk.Label {
-								styles ["title-4"]
+								styles ["title-4", "detail-heading"]
 
 								label: _("Supported Versions");
 								xalign: 0;
@@ -124,7 +124,7 @@ template ExmDetailView : Gtk.Box {
 							orientation: vertical;
 
 							Gtk.Label {
-								styles ["title-4"]
+								styles ["title-4", "detail-heading"]
 
 								label: _("Links");
 								xalign: 0;
@@ -145,7 +145,7 @@ template ExmDetailView : Gtk.Box {
 							orientation: vertical;
 
 							Gtk.Label {
-								styles ["title-4"]
+								styles ["title-4", "detail-heading"]
 
 								label: _("User Reviews");
 								xalign: 0;
@@ -155,6 +155,8 @@ template ExmDetailView : Gtk.Box {
 								max-children-per-line: 2;
 								homogeneous: true;
 								selection-mode: none;
+								row-spacing: 6;
+								column-spacing: 6;
 							}
 							Gtk.Button show_more_btn {
 								label: _("Show More Reviews");
