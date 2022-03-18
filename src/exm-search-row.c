@@ -161,6 +161,8 @@ exm_search_row_constructed (GObject *object)
     }
 
     g_signal_connect (self->install_btn, "clicked", G_CALLBACK (install_remote), uuid);
+
+    G_OBJECT_CLASS (exm_search_row_parent_class)->constructed (object);
 }
 
 static void

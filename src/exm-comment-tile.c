@@ -94,6 +94,8 @@ exm_comment_tile_constructed (GObject *object)
 
     g_object_set (self->display, "frame", frame, NULL);
     gtk_label_set_text (self->author, author);
+
+    G_OBJECT_CLASS (exm_comment_tile_parent_class)->constructed (object);
 }
 
 static void

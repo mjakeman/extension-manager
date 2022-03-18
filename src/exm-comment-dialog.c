@@ -103,7 +103,7 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-comment-dialog.ui");
-    // gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
+
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, stack);
 }
@@ -155,6 +155,8 @@ exm_comment_dialog_constructed (GObject *object)
                                              NULL,
                                              (GAsyncReadyCallback) on_get_comments,
                                              self);
+
+    G_OBJECT_CLASS (exm_comment_dialog_parent_class)->constructed (object);
 }
 
 static void

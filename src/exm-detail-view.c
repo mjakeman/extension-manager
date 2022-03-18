@@ -239,7 +239,7 @@ show_more_comments (GtkButton *button,
     ExmCommentDialog *dlg;
 
     dlg = exm_comment_dialog_new (self->pk);
-    toplevel = gtk_widget_get_root (GTK_WIDGET (button));
+    toplevel = gtk_widget_get_root (GTK_WIDGET (self));
 
     gtk_window_set_transient_for (GTK_WINDOW (dlg), GTK_WINDOW (toplevel));
     gtk_window_set_modal (GTK_WINDOW (dlg), TRUE);
