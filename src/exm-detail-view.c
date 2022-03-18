@@ -35,6 +35,7 @@ struct _ExmDetailView
     ExmScreenshot *ext_screenshot;
     GtkFlowBox *supported_versions;
     GtkScrolledWindow *scroll_area;
+    GtkStack *comment_stack;
     GtkFlowBox *comment_box;
     GtkButton *show_more_btn;
 
@@ -203,6 +204,15 @@ on_get_comments (GObject       *source,
 
     GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
 
+    if (error != NULL)
+    {
+        gtk_stack_set_visible_child_name (self->comment_stack, "page_error");
+        g_critical ("An issue occurred while loading comments: %s", error->message);
+        return;
+    }
+
+    gtk_stack_set_visible_child_name (self->comment_stack, "page_comments");
+
     gtk_flow_box_bind_model (self->comment_box, model,
                              (GtkListBoxCreateWidgetFunc) comment_factory,
                              g_object_ref (self), g_object_unref);
@@ -213,6 +223,7 @@ queue_resolve_comments (ExmDetailView *self,
                         gint           pk,
                         GCancellable  *cancellable)
 {
+    gtk_stack_set_visible_child_name (self->comment_stack, "page_spinner");
     exm_comment_provider_get_comments_async (self->comment_provider, pk, cancellable,
                                              (GAsyncReadyCallback) on_get_comments,
                                              self);
@@ -466,6 +477,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, show_more_btn);
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
