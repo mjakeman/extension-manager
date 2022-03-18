@@ -14,9 +14,12 @@ struct _ExmExtensionRow
 
     GtkButton *remove_btn;
     GtkButton *prefs_btn;
-    GtkLabel *description_label;
     GtkButton *details_btn;
     GtkSwitch *ext_toggle;
+
+    GtkLabel *description_label;
+    GtkLabel *version_label;
+    GtkLabel *error_label;
 
     GtkImage *update_icon;
     GtkImage *error_icon;
@@ -183,6 +186,7 @@ exm_extension_row_constructed (GObject *object)
 
     g_object_set (self, "title", name, "subtitle", uuid, NULL);
     g_object_set (self->description_label, "label", description, NULL);
+    g_object_set (self->description_label, "label", description, NULL);
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
     g_object_set (self->update_icon, "visible", has_update, NULL);
@@ -230,6 +234,9 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-extension-row.ui");
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_label);
+
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, details_btn);
