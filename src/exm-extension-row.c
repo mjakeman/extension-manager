@@ -1,5 +1,8 @@
 #include "exm-extension-row.h"
 
+#include "exm-enums.h"
+#include "exm-types.h"
+
 struct _ExmExtensionRow
 {
     AdwExpanderRow parent_instance;
@@ -11,12 +14,17 @@ struct _ExmExtensionRow
 
     GtkButton *remove_btn;
     GtkButton *prefs_btn;
-    GtkLabel *description_label;
     GtkButton *details_btn;
     GtkSwitch *ext_toggle;
 
+    GtkLabel *description_label;
+    GtkLabel *version_label;
+    GtkLabel *error_label;
+    GtkLabel *error_label_tag;
+
     GtkImage *update_icon;
     GtkImage *error_icon;
+    GtkImage *out_of_date_icon;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -89,20 +97,74 @@ exm_extension_row_set_property (GObject      *object,
 }
 
 void
-update_enable_state (GObject         *self,
-                     GParamSpec      *pspec,
-                     ExmExtensionRow *row)
+update_state (ExmExtension    *extension,
+              GParamSpec      *pspec,
+              ExmExtensionRow *row)
 {
     // We update the state of the action without activating it. If we activate
     // it, then it will go back to gnome-shell and explicitly enable/disable
     // the extension. We do not want this behaviour as it messes with the global
     // extension toggle.
 
-    gboolean new_state;
-    g_object_get (self, "enabled", &new_state, NULL);
+    const gchar *uuid;
+    ExmExtensionState new_state;
+    GAction *action;
 
-    GAction *action = g_action_map_lookup_action (G_ACTION_MAP (row->action_group), "state-set");
-    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (new_state));
+    g_object_get (extension,
+                  "state", &new_state,
+                  "uuid", &uuid,
+                  NULL);
+
+    g_info ("%s: %s\n", uuid, g_enum_to_string (EXM_TYPE_EXTENSION_STATE, new_state));
+
+    action = g_action_map_lookup_action (G_ACTION_MAP (row->action_group), "state-set");
+
+    // Reset state
+    g_simple_action_set_enabled (G_SIMPLE_ACTION (action), TRUE);
+    gtk_widget_set_visible (GTK_WIDGET (row->error_icon), FALSE);
+    gtk_widget_set_visible (GTK_WIDGET (row->out_of_date_icon), FALSE);
+
+    switch (new_state)
+    {
+    case EXM_EXTENSION_STATE_ENABLED:
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (TRUE));
+        break;
+
+    case EXM_EXTENSION_STATE_DISABLED:
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (FALSE));
+        break;
+
+    case EXM_EXTENSION_STATE_ERROR:
+        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), FALSE);
+        gtk_widget_set_visible (GTK_WIDGET (row->error_icon), TRUE);
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (FALSE));
+        break;
+
+    case EXM_EXTENSION_STATE_OUT_OF_DATE:
+        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), FALSE);
+        gtk_widget_set_visible (GTK_WIDGET (row->out_of_date_icon), TRUE);
+        g_simple_action_set_state (G_SIMPLE_ACTION (action),
+                                   g_variant_new_boolean (FALSE));
+        break;
+
+    default:
+        break;
+    }
+    gboolean is_enabled = (new_state == EXM_EXTENSION_STATE_ENABLED);
+
+    // Update state of toggle
+    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (is_enabled));
+}
+
+static void
+set_error_label_visible (ExmExtensionRow *self,
+                         gboolean         visible)
+{
+    gtk_widget_set_visible (GTK_WIDGET (self->error_label), visible);
+    gtk_widget_set_visible (GTK_WIDGET (self->error_label_tag), visible);
 }
 
 static void
@@ -115,39 +177,55 @@ exm_extension_row_constructed (GObject *object)
 
     ExmExtensionRow *self = EXM_EXTENSION_ROW (object);
 
-    gchar *name, *uuid, *description;
-    gboolean enabled, has_prefs, has_update, is_user;
+    gchar *name, *uuid, *description, *version, *error_msg;
+    gboolean has_prefs, has_update, is_user;
+    ExmExtensionState state;
     g_object_get (self->extension,
                   "display-name", &name,
                   "uuid", &uuid,
                   "description", &description,
-                  "enabled", &enabled,
+                  "state", &state,
                   "has-prefs", &has_prefs,
                   "has-update", &has_update,
                   "is-user", &is_user,
+                  "version", &version,
+                  "error-msg", &error_msg,
                   NULL);
 
     g_object_set (self, "title", name, "subtitle", uuid, NULL);
-    g_object_set (self->description_label, "label", description, NULL);
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
     g_object_set (self->update_icon, "visible", has_update, NULL);
+    g_object_set (self->version_label, "label", version, NULL);
+
+    // Trim description label's leading and trailing whitespace
+    char *description_trimmed = g_strchomp (g_strstrip (description));
+    g_object_set (self->description_label, "label", description_trimmed, NULL);
+    g_free (description_trimmed);
+
+    // Only show if error_msg exists and is not empty
+    g_object_set (self->error_label, "label", error_msg, NULL);
+    gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
+    set_error_label_visible (self, has_error);
+
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
     // One way binding from extension ("source of truth") to switch
-    g_signal_connect (self->extension, "notify::enabled", G_CALLBACK (update_enable_state), self);
+    g_signal_connect (self->extension, "notify::state", G_CALLBACK (update_state), self);
 
     GAction *action;
 
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "state-set");
-    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (enabled));
+    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (TRUE));
 
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), has_prefs);
 
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "remove");
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), is_user);
+
+    update_state (self->extension, NULL, self);
 }
 
 static void
@@ -174,12 +252,17 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-extension-row.ui");
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label_tag);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_label);
+
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, details_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, ext_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, update_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_icon);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, out_of_date_icon);
 }
 
 static void

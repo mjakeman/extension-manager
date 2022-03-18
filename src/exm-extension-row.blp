@@ -34,6 +34,19 @@ template ExmExtensionRow : Adw.ExpanderRow {
 	}
 
 	[action]
+	Gtk.Image out_of_date_icon {
+		styles ["error"]
+
+		icon-name: "clock-alt-symbolic";
+		valign: center;
+		halign: center;
+
+		visible: false;
+
+		tooltip-text: _("This extension is incompatible with your current version of GNOME.");
+	}
+
+	[action]
 	Gtk.Image update_icon {
 		styles ["update"]
 
@@ -46,33 +59,119 @@ template ExmExtensionRow : Adw.ExpanderRow {
 		tooltip-text: _("A newer version of this extension is available");
 	}
 
-	Gtk.Label description_label {
-		styles ["content"]
+	Gtk.ListBoxRow {
+		activatable: false;
 
-		xalign: 0;
-		wrap-mode: word;
-		wrap: true;
+		Gtk.Grid {
+			styles ["content"]
+
+			row-spacing: 15;
+			column-spacing: 15;
+
+			Gtk.Label {
+				styles ["dim-label"]
+
+				label: _("Description");
+
+				xalign: 0;
+				yalign: 0;
+
+				layout {
+					row: 0;
+					column: 0;
+				}
+			}
+
+			Gtk.Label description_label {
+				xalign: 0;
+				wrap-mode: word;
+				wrap: true;
+				selectable: true;
+
+				layout {
+					row: 0;
+					column: 1;
+				}
+			}
+
+			Gtk.Label {
+				styles ["dim-label"]
+
+				label: _("Version");
+
+				xalign: 0;
+				yalign: 0;
+
+				layout {
+					row: 1;
+					column: 0;
+				}
+			}
+
+			Gtk.Label version_label {
+				xalign: 0;
+				wrap-mode: word;
+				wrap: true;
+				selectable: true;
+
+				layout {
+					row: 1;
+					column: 1;
+				}
+			}
+
+			Gtk.Label error_label_tag {
+				styles ["dim-label"]
+
+				label: _("Error");
+
+				xalign: 0;
+				yalign: 0;
+
+				layout {
+					row: 2;
+					column: 0;
+				}
+			}
+
+			Gtk.Label error_label {
+				xalign: 0;
+				wrap-mode: word;
+				wrap: true;
+				selectable: true;
+
+				layout {
+					row: 2;
+					column: 1;
+				}
+			}
+		}
 	}
 
-	Gtk.Box {
-		halign: end;
+	Gtk.ListBoxRow {
+		activatable: false;
 
-		Gtk.Button details_btn {
-			styles ["flat"]
+		Gtk.Box {
+			halign: end;
+			spacing: 4;
 
-			label: _("See Details");
-			valign: center;
+			Gtk.Button details_btn {
+				styles ["flat"]
 
-			action-name: 'win.show-detail';
-		}
+				label: _("See Details");
+				valign: center;
 
-		Gtk.Button remove_btn {
-			styles ["destructive-action"]
+				action-name: 'win.show-detail';
+			}
 
-			label: _("Remove");
-			valign: center;
+			Gtk.Button remove_btn {
+				styles ["destructive-action"]
 
-			action-name: 'row.remove';
+				label: _("Remove");
+				valign: center;
+
+				action-name: 'row.remove';
+			}
 		}
 	}
 }

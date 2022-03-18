@@ -1,16 +1,21 @@
 #include "exm-extension.h"
 
+#include "../exm-types.h"
+#include "../exm-enums.h"
+
 struct _ExmExtension
 {
     GObject parent_instance;
     gchar *uuid;
     gchar *display_name;
     gchar *description;
-    gboolean enabled;
+    ExmExtensionState state;
     gboolean is_user;
     gboolean has_prefs;
     gboolean has_update;
     gboolean can_change;
+    gchar *version;
+    gchar *error_msg;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtension, exm_extension, G_TYPE_OBJECT)
@@ -19,12 +24,14 @@ enum {
     PROP_0,
     PROP_UUID,
     PROP_DISPLAY_NAME,
-    PROP_ENABLED,
+    PROP_STATE,
     PROP_IS_USER,
     PROP_DESCRIPTION,
     PROP_HAS_PREFS,
     PROP_HAS_UPDATE,
     PROP_CAN_CHANGE,
+    PROP_VERSION,
+    PROP_ERROR_MSG,
     N_PROPS
 };
 
@@ -67,8 +74,8 @@ exm_extension_get_property (GObject    *object,
         g_value_set_string (value, self->description);
         self->description = g_markup_escape_text (self->description, -1);
         break;
-    case PROP_ENABLED:
-        g_value_set_boolean (value, self->enabled);
+    case PROP_STATE:
+        g_value_set_enum (value, self->state);
         break;
     case PROP_IS_USER:
         g_value_set_boolean (value, self->is_user);
@@ -81,6 +88,12 @@ exm_extension_get_property (GObject    *object,
         break;
     case PROP_CAN_CHANGE:
         g_value_set_boolean (value, self->can_change);
+        break;
+    case PROP_VERSION:
+        g_value_set_string (value, self->version);
+        break;
+    case PROP_ERROR_MSG:
+        g_value_set_string (value, self->error_msg);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -106,8 +119,8 @@ exm_extension_set_property (GObject      *object,
     case PROP_DESCRIPTION:
         self->description = g_value_dup_string (value);
         break;
-    case PROP_ENABLED:
-        self->enabled = g_value_get_boolean (value);
+    case PROP_STATE:
+        self->state = g_value_get_enum (value);
         break;
     case PROP_IS_USER:
         self->is_user = g_value_get_boolean (value);
@@ -120,6 +133,12 @@ exm_extension_set_property (GObject      *object,
         break;
     case PROP_CAN_CHANGE:
         self->can_change = g_value_get_boolean (value);
+        break;
+    case PROP_VERSION:
+        self->version = g_value_dup_string (value);
+        break;
+    case PROP_ERROR_MSG:
+        self->error_msg = g_value_dup_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -156,12 +175,13 @@ exm_extension_class_init (ExmExtensionClass *klass)
                              NULL,
                              G_PARAM_READWRITE);
 
-    properties [PROP_ENABLED] =
-        g_param_spec_boolean ("enabled",
-                              "Enabled",
-                              "Enabled",
-                              FALSE,
-                              G_PARAM_READWRITE);
+    properties [PROP_STATE] =
+        g_param_spec_enum ("state",
+                           "State",
+                           "State",
+                           EXM_TYPE_EXTENSION_STATE,
+                           EXM_EXTENSION_STATE_ENABLED,
+                           G_PARAM_READWRITE);
 
     properties [PROP_IS_USER] =
         g_param_spec_boolean ("is-user",
@@ -190,6 +210,20 @@ exm_extension_class_init (ExmExtensionClass *klass)
                               "Can Change",
                               FALSE,
                               G_PARAM_READWRITE);
+
+    properties [PROP_VERSION] =
+        g_param_spec_string ("version",
+                             "Version",
+                             "Version",
+                             NULL,
+                             G_PARAM_READWRITE);
+
+    properties [PROP_ERROR_MSG] =
+        g_param_spec_string ("error-msg",
+                             "Error Message",
+                             "Error Message",
+                             NULL,
+                             G_PARAM_READWRITE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
