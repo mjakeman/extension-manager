@@ -482,6 +482,8 @@ parse_single_extension (ExmExtension **extension,
     gboolean can_change = TRUE;
     ExmExtensionState state;
     ExmExtensionType type;
+    gchar *version = NULL;
+    gchar *error_msg = NULL;
 
     if (extension && *extension)
     {
@@ -540,6 +542,16 @@ parse_single_extension (ExmExtension **extension,
         {
             g_variant_get (prop_value, "b", &can_change);
         }
+        else if (strcmp (prop_name, "version") == 0)
+        {
+            gdouble val;
+            g_variant_get (prop_value, "d", &val);
+            version = g_strdup_printf ("%d", (gint)val);
+        }
+        else if (strcmp (prop_name, "error") == 0)
+        {
+            g_variant_get (prop_value, "s", &error_msg);
+        }
     }
 
     *is_user = (type == EXM_EXTENSION_TYPE_PER_USER);
@@ -553,6 +565,8 @@ parse_single_extension (ExmExtension **extension,
                   "has-prefs", has_prefs,
                   "has-update", has_update,
                   "can-change", can_change,
+                  "version", version,
+                  "error-msg", error_msg,
                   NULL);
 
     g_free (uuid);
