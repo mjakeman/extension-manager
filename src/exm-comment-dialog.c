@@ -12,6 +12,7 @@ struct _ExmCommentDialog
     ExmCommentProvider *comment_provider;
 
     GtkListBox *list_box;
+    GtkStack *stack;
 
     int web_id;
 };
@@ -104,6 +105,7 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-comment-dialog.ui");
     // gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, stack);
 }
 
 static GtkWidget *
@@ -127,7 +129,15 @@ on_get_comments (GObject          *source,
 
     GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
 
-    // TODO: Can we make this less verbose? Maybe use UI/BLP files?
+    if (error != NULL)
+    {
+        gtk_stack_set_visible_child_name (self->stack, "page_error");
+        g_critical ("An issue occurred while loading comments: %s", error->message);
+        return;
+    }
+
+    gtk_stack_set_visible_child_name (self->stack, "page_comments");
+
     gtk_list_box_bind_model (self->list_box, model,
                              (GtkListBoxCreateWidgetFunc) comment_factory,
                              g_object_ref (self), g_object_unref);
@@ -138,6 +148,7 @@ exm_comment_dialog_constructed (GObject *object)
 {
     ExmCommentDialog *self = EXM_COMMENT_DIALOG (object);
 
+    gtk_stack_set_visible_child_name (self->stack, "page_spinner");
     exm_comment_provider_get_comments_async (self->comment_provider,
                                              19,
                                              NULL,

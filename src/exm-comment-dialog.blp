@@ -16,10 +16,37 @@ template ExmCommentDialog : Gtk.Window {
     Adw.Clamp {
       styles ["clamp"]
 
-      Gtk.ListBox list_box {
-        styles ["boxed-list"]
-        valign: start;
-        selection-mode: none;
+      Gtk.Stack stack {
+		    vexpand: true;
+
+		    Gtk.StackPage {
+			    name: "page_spinner";
+
+			    child: Gtk.Spinner {
+				    spinning: true;
+				    halign: center;
+				    valign: center;
+			    };
+		    }
+
+		    Gtk.StackPage {
+			    name: "page_error";
+
+			    child: Adw.StatusPage {
+				    title: _("An Error Occurred");
+				    icon-name: "dialog-question-symbolic";
+			    };
+		    }
+
+		    Gtk.StackPage {
+			    name: "page_comments";
+
+          child: Gtk.ListBox list_box {
+            styles ["boxed-list"]
+            valign: start;
+            selection-mode: none;
+          };
+        }
       }
     }
   }
