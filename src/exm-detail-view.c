@@ -42,6 +42,7 @@ struct _ExmDetailView
     AdwActionRow *link_extensions;
     gchar *uri_extensions;
     int pk;
+    guint signal_id;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -350,10 +351,14 @@ on_data_loaded (GObject      *source,
         }
 
         self->pk = pk;
-        g_signal_connect (self->show_more_btn,
-                          "clicked",
-                          G_CALLBACK (show_more_comments),
-                          self);
+
+        if (self->signal_id > 0)
+            g_signal_handler_disconnect (self->show_more_btn, self->signal_id);
+
+        self->signal_id = g_signal_connect (self->show_more_btn,
+                                            "clicked",
+                                            G_CALLBACK (show_more_comments),
+                                            self);
 
         queue_resolve_comments (self, pk, self->resolver_cancel);
 
