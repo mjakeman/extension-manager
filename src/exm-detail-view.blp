@@ -104,6 +104,23 @@ template ExmDetailView : Gtk.Box {
 							}
 						}
 
+						Gtk.ListBox {
+							styles ["boxed-list"]
+
+							selection-mode: none;
+
+							Adw.ActionRow link_extensions {
+								title: _("View on Extensions");
+								activatable: true;
+								action-name: "detail.open-extensions";
+
+								Gtk.Image {
+									styles ["dim-label"]
+									icon-name: "external-link-symbolic";
+								}
+							}
+						}
+
 						Gtk.Box {
 							orientation: vertical;
 
@@ -117,27 +134,6 @@ template ExmDetailView : Gtk.Box {
 							Gtk.FlowBox supported_versions {
 								max-children-per-line: 100;
 								selection-mode: none;
-							}
-						}
-
-						Gtk.Box {
-							orientation: vertical;
-
-							Gtk.Label {
-								styles ["title-4", "detail-heading"]
-
-								label: _("Links");
-								xalign: 0;
-							}
-
-							Gtk.Box {
-								styles ["linked"]
-
-								orientation: horizontal;
-
-								Gtk.LinkButton link_website {
-									label: _("View on Extensions");
-								}
 							}
 						}
 

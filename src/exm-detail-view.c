@@ -33,9 +33,12 @@ struct _ExmDetailView
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
     GtkFlowBox *supported_versions;
-    GtkLinkButton *link_website;
     GtkScrolledWindow *scroll_area;
     GtkFlowBox *comment_box;
+    GtkButton *show_more_btn;
+
+    AdwActionRow *link_extensions;
+    gchar *uri_extensions;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -283,8 +286,8 @@ on_data_loaded (GObject      *source,
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
         install_btn_set_state (self->ext_install, install_state);
 
-        uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
-        gtk_link_button_set_uri (self->link_website, uri);
+        self->uri_extensions = g_strdup_printf ("https://extensions.gnome.org/%s", link);
+        adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
         // Clear Flowbox
         while ((child = gtk_widget_get_first_child (GTK_WIDGET (self->supported_versions))))
@@ -359,6 +362,26 @@ exm_detail_view_update (ExmDetailView *self)
 }
 
 static void
+open_link (ExmDetailView *self,
+           const char    *action_name,
+           GVariant      *param)
+{
+    GtkWidget *toplevel;
+    gchar *uri = NULL;
+
+    toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
+
+    if (strcmp (action_name, "detail.open-extensions") == 0)
+        uri = self->uri_extensions;
+    else if (strcmp (action_name, "detail.open-homepage") == 0)
+        g_warning ("open_link(): cannot open homepage as not yet implemented.");
+    else
+        g_critical ("open_link() invalid action: %s", action_name);
+
+    gtk_show_uri (GTK_WINDOW (toplevel), uri, GDK_CURRENT_TIME);
+}
+
+static void
 on_bind_manager (ExmDetailView *self)
 {
     GListModel *user_ext_model;
@@ -417,9 +440,13 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
-    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_website);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, show_more_btn);
+
+    gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
+    gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, open_link);
 }
 
 static void
