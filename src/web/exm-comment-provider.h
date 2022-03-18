@@ -14,6 +14,7 @@ ExmCommentProvider *exm_comment_provider_new (void);
 void
 exm_comment_provider_get_comments_async (ExmCommentProvider  *self,
                                          int                  extension_id,
+                                         gboolean             retrieve_all,
                                          GCancellable        *cancellable,
                                          GAsyncReadyCallback  callback,
                                          gpointer             user_data);

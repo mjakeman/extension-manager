@@ -81,14 +81,19 @@ parse_comments (GBytes  *bytes,
 void
 exm_comment_provider_get_comments_async (ExmCommentProvider  *self,
                                          int                  extension_id,
+                                         gboolean             retrieve_all,
                                          GCancellable        *cancellable,
                                          GAsyncReadyCallback  callback,
                                          gpointer             user_data)
 {
     // Query https://extensions.gnome.org/comments/all/?pk={%d}&all=false
 
+    const gchar *all_str = retrieve_all
+        ? "true"
+        : "false";
+
     gchar *url;
-    url = g_strdup_printf ("https://extensions.gnome.org/comments/all/?pk=%d&all=false", extension_id);
+    url = g_strdup_printf ("https://extensions.gnome.org/comments/all/?pk=%d&all=%s", extension_id, all_str);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,

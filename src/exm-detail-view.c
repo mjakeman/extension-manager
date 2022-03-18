@@ -224,7 +224,7 @@ queue_resolve_comments (ExmDetailView *self,
                         GCancellable  *cancellable)
 {
     gtk_stack_set_visible_child_name (self->comment_stack, "page_spinner");
-    exm_comment_provider_get_comments_async (self->comment_provider, pk, cancellable,
+    exm_comment_provider_get_comments_async (self->comment_provider, pk, false, cancellable,
                                              (GAsyncReadyCallback) on_get_comments,
                                              self);
 }
