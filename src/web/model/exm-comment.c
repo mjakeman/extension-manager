@@ -8,6 +8,7 @@ struct _ExmComment
 
     gchar *comment;
     gchar *author;
+    int rating;
 };
 
 static JsonSerializableIface *serializable_iface = NULL;
@@ -22,6 +23,7 @@ enum {
     PROP_0,
     PROP_COMMENT,
     PROP_AUTHOR,
+    PROP_RATING,
     N_PROPS
 };
 
@@ -57,6 +59,9 @@ exm_comment_get_property (GObject    *object,
     case PROP_AUTHOR:
         g_value_set_string (value, self->author);
         break;
+    case PROP_RATING:
+        g_value_set_int (value, self->rating);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -77,6 +82,9 @@ exm_comment_set_property (GObject      *object,
         break;
     case PROP_AUTHOR:
         self->author = g_value_dup_string (value);
+        break;
+    case PROP_RATING:
+        self->rating = g_value_get_int (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -106,12 +114,21 @@ exm_comment_class_init (ExmCommentClass *klass)
                              NULL,
                              G_PARAM_READWRITE);
 
+    properties [PROP_RATING] =
+        g_param_spec_int ("rating",
+                          "Rating",
+                          "Rating",
+                          -1, 5, -1, /* min -1, max 5, default -1 */
+                          G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
 static void
 exm_comment_init (ExmComment *self)
 {
+    // Initialise to -1 for no rating
+    self->rating = -1;
 }
 
 static gboolean
