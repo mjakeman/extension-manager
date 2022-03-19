@@ -1,10 +1,14 @@
 #include "exm-detail-view.h"
 
 #include "exm-screenshot.h"
+#include "exm-comment-tile.h"
+#include "exm-comment-dialog.h"
 
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
+#include "web/exm-comment-provider.h"
 #include "web/model/exm-shell-version-map.h"
+#include "web/model/exm-comment.h"
 #include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
@@ -16,11 +20,11 @@ struct _ExmDetailView
     ExmManager *manager;
     ExmDataProvider *provider;
     ExmImageResolver *resolver;
+    ExmCommentProvider *comment_provider;
     GCancellable *resolver_cancel;
 
     gchar *shell_version;
     gchar *uuid;
-    int pk;
 
     AdwWindowTitle *title;
     GtkStack *stack;
@@ -30,8 +34,15 @@ struct _ExmDetailView
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
     GtkFlowBox *supported_versions;
-    GtkLinkButton *link_website;
     GtkScrolledWindow *scroll_area;
+    GtkStack *comment_stack;
+    GtkFlowBox *comment_box;
+    GtkButton *show_more_btn;
+
+    AdwActionRow *link_extensions;
+    gchar *uri_extensions;
+    int pk;
+    guint signal_id;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
@@ -166,13 +177,74 @@ on_image_loaded (GObject       *source,
 
 static void
 queue_resolve_screenshot (ExmDetailView    *self,
-                          ExmImageResolver *resolver,
                           const gchar      *screenshot_uri,
                           GCancellable     *cancellable)
 {
-    exm_image_resolver_resolve_async (resolver, screenshot_uri, cancellable,
+    exm_image_resolver_resolve_async (self->resolver, screenshot_uri, cancellable,
                                       (GAsyncReadyCallback) on_image_loaded,
                                       g_object_ref (self));
+}
+
+static GtkWidget *
+comment_factory (ExmComment *comment)
+{
+    GtkWidget *tile;
+
+    tile = gtk_flow_box_child_new ();
+    gtk_widget_add_css_class (tile, "card");
+    gtk_flow_box_child_set_child (GTK_FLOW_BOX_CHILD (tile), GTK_WIDGET (exm_comment_tile_new (comment)));
+
+    return tile;
+}
+
+static void
+on_get_comments (GObject       *source,
+                 GAsyncResult  *res,
+                 ExmDetailView *self)
+{
+    GError *error = NULL;
+
+    GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
+
+    if (error != NULL)
+    {
+        gtk_stack_set_visible_child_name (self->comment_stack, "page_error");
+        g_critical ("An issue occurred while loading comments: %s", error->message);
+        return;
+    }
+
+    gtk_stack_set_visible_child_name (self->comment_stack, "page_comments");
+
+    gtk_flow_box_bind_model (self->comment_box, model,
+                             (GtkListBoxCreateWidgetFunc) comment_factory,
+                             g_object_ref (self), g_object_unref);
+}
+
+static void
+queue_resolve_comments (ExmDetailView *self,
+                        gint           pk,
+                        GCancellable  *cancellable)
+{
+    gtk_stack_set_visible_child_name (self->comment_stack, "page_spinner");
+    exm_comment_provider_get_comments_async (self->comment_provider, pk, false, cancellable,
+                                             (GAsyncReadyCallback) on_get_comments,
+                                             self);
+}
+
+static void
+show_more_comments (GtkButton *button,
+                    ExmDetailView *self)
+{
+    GtkRoot *toplevel;
+    ExmCommentDialog *dlg;
+
+    dlg = exm_comment_dialog_new (self->pk);
+    toplevel = gtk_widget_get_root (GTK_WIDGET (self));
+
+    gtk_window_set_transient_for (GTK_WINDOW (dlg), GTK_WINDOW (toplevel));
+    gtk_window_set_modal (GTK_WINDOW (dlg), TRUE);
+
+    gtk_window_present (GTK_WINDOW (dlg));
 }
 
 static void
@@ -193,6 +265,7 @@ on_data_loaded (GObject      *source,
 
     if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
     {
+        gint pk;
         gboolean is_installed, is_supported;
         gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
         g_object_get (data,
@@ -204,6 +277,7 @@ on_data_loaded (GObject      *source,
                       "link", &link,
                       "description", &description,
                       "shell_version_map", &version_map,
+                      "pk", &pk,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
@@ -230,7 +304,7 @@ on_data_loaded (GObject      *source,
             gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot), TRUE);
             exm_screenshot_reset (self->ext_screenshot);
 
-            queue_resolve_screenshot (self, self->resolver, screenshot_uri, self->resolver_cancel);
+            queue_resolve_screenshot (self, screenshot_uri, self->resolver_cancel);
         }
         else
         {
@@ -247,8 +321,8 @@ on_data_loaded (GObject      *source,
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
         install_btn_set_state (self->ext_install, install_state);
 
-        uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
-        gtk_link_button_set_uri (self->link_website, uri);
+        self->uri_extensions = g_strdup_printf ("https://extensions.gnome.org/%s", link);
+        adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
         // Clear Flowbox
         while ((child = gtk_widget_get_first_child (GTK_WIDGET (self->supported_versions))))
@@ -276,6 +350,18 @@ on_data_loaded (GObject      *source,
             g_free (version);
         }
 
+        self->pk = pk;
+
+        if (self->signal_id > 0)
+            g_signal_handler_disconnect (self->show_more_btn, self->signal_id);
+
+        self->signal_id = g_signal_connect (self->show_more_btn,
+                                            "clicked",
+                                            G_CALLBACK (show_more_comments),
+                                            self);
+
+        queue_resolve_comments (self, pk, self->resolver_cancel);
+
         // Reset scroll position
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
 
@@ -291,13 +377,11 @@ on_data_loaded (GObject      *source,
 
 void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
-                               const gchar   *uuid,
-                               int            pk)
+                               gchar         *uuid)
 {
     // g_assert (gtk_widget_is_constructed)
 
     self->uuid = uuid;
-    self->pk = pk;
 
     /* Translators: Use unicode ellipsis '…' rather than three dots '...' */
     adw_window_title_set_title (self->title, _("Loading…"));
@@ -305,7 +389,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
 
-    exm_data_provider_get_async (self->provider, uuid, pk, NULL, on_data_loaded, self);
+    exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
 }
 
 void
@@ -320,6 +404,26 @@ exm_detail_view_update (ExmDetailView *self)
     {
         install_btn_set_state (self->ext_install, STATE_INSTALLED);
     }
+}
+
+static void
+open_link (ExmDetailView *self,
+           const char    *action_name,
+           GVariant      *param)
+{
+    GtkWidget *toplevel;
+    gchar *uri = NULL;
+
+    toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
+
+    if (strcmp (action_name, "detail.open-extensions") == 0)
+        uri = self->uri_extensions;
+    else if (strcmp (action_name, "detail.open-homepage") == 0)
+        g_warning ("open_link(): cannot open homepage as not yet implemented.");
+    else
+        g_critical ("open_link() invalid action: %s", action_name);
+
+    gtk_show_uri (GTK_WINDOW (toplevel), uri, GDK_CURRENT_TIME);
 }
 
 static void
@@ -381,8 +485,14 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
-    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_website);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, show_more_btn);
+
+    gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
+    gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, open_link);
 }
 
 static void
@@ -392,4 +502,5 @@ exm_detail_view_init (ExmDetailView *self)
 
     self->provider = exm_data_provider_new ();
     self->resolver = exm_image_resolver_new ();
+    self->comment_provider = exm_comment_provider_new ();
 }

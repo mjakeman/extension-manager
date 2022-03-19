@@ -2,8 +2,13 @@ exm_sources = [
   'main.c',
   'exm-window.c',
   'exm-application.c',
+
+  # Detail View
   'exm-detail-view.c',
   'exm-screenshot.c',
+  'exm-comment-tile.c',
+  'exm-comment-dialog.c',
+  'exm-rating.c',
 
   # Installed Page
   'exm-installed-page.c',
@@ -18,7 +23,8 @@ exm_deps = [
   dependency('gtk4'),
   dependency('libadwaita-1'),
   dependency('json-glib-1.0'),
-  dependency('libsoup-3.0')
+  dependency('libsoup-3.0'),
+  dependency('text-engine-0.1')
 ]
 
 gnome = import('gnome')
@@ -34,7 +40,10 @@ blueprints = custom_target('blueprints',
     'exm-extension-row.blp',
     'exm-search-row.blp',
     'exm-detail-view.blp',
-    'exm-screenshot.blp'
+    'exm-screenshot.blp',
+    'exm-comment-tile.blp',
+    'exm-comment-dialog.blp',
+    'exm-rating.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],

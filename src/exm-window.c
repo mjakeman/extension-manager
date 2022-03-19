@@ -226,12 +226,11 @@ show_view (GtkWidget  *widget,
     if (g_str_equal (action_name, "win.show-detail"))
     {
         gchar *uuid;
-        int pk;
 
-        g_variant_get (param, "s", &uuid, &pk);
-        adw_leaflet_set_visible_child (self->leaflet, self->detail_view);
+        g_variant_get (param, "s", &uuid);
+        adw_leaflet_set_visible_child (self->leaflet, GTK_WIDGET (self->detail_view));
 
-        exm_detail_view_load_for_uuid (self->detail_view, uuid, pk);
+        exm_detail_view_load_for_uuid (self->detail_view, uuid);
 
         return;
     }

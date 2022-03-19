@@ -17,7 +17,6 @@ ExmDataProvider *exm_data_provider_new (void);
 void
 exm_data_provider_get_async (ExmDataProvider     *self,
                              const gchar         *uuid,
-                             int                  pk,
                              GCancellable        *cancellable,
                              GAsyncReadyCallback  callback,
                              gpointer             user_data);

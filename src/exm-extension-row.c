@@ -226,6 +226,8 @@ exm_extension_row_constructed (GObject *object)
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), is_user);
 
     update_state (self->extension, NULL, self);
+
+    G_OBJECT_CLASS (exm_extension_row_parent_class)->constructed (object);
 }
 
 static void

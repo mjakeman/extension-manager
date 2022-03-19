@@ -33,7 +33,20 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "branch": "main"
+                    "commit": "6576e0283757a58f92227811874406e025dbd98a"
+                }
+            ]
+        },
+        {
+            "name": "text-engine",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/mjakeman/text-engine.git",
+                    "commit": "379437b2b589a9414985dec9136b7b48bae76f9e",
+                    "tag": "v0.1.0"
                 }
             ]
         },

@@ -3,6 +3,7 @@ exm_sources += files([
   'exm-image-resolver.c',
   'exm-request-handler.c',
   'exm-data-provider.c',
+  'exm-comment-provider.c',
   'model/exm-search-result.c',
   'model/exm-comment.c',
   'model/exm-shell-version-map.c'

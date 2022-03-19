@@ -1,0 +1,52 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmCommentDialog : Gtk.Window {
+  default-width: 600;
+  default-height: 500;
+  title: "Comments";
+
+  [titlebar]
+  Gtk.HeaderBar {
+  	styles ["flat"]
+  }
+
+  Gtk.ScrolledWindow {
+    Adw.Clamp {
+      styles ["clamp"]
+
+      Gtk.Stack stack {
+		    vexpand: true;
+
+		    Gtk.StackPage {
+			    name: "page_spinner";
+
+			    child: Gtk.Spinner {
+				    spinning: true;
+				    halign: center;
+				    valign: center;
+			    };
+		    }
+
+		    Gtk.StackPage {
+			    name: "page_error";
+
+			    child: Adw.StatusPage {
+				    title: _("An Error Occurred");
+				    icon-name: "dialog-question-symbolic";
+			    };
+		    }
+
+		    Gtk.StackPage {
+			    name: "page_comments";
+
+          child: Gtk.ListBox list_box {
+            styles ["boxed-list"]
+            valign: start;
+            selection-mode: none;
+          };
+        }
+      }
+    }
+  }
+}

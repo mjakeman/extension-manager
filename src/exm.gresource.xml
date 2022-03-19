@@ -8,6 +8,9 @@
     <file>exm-search-row.ui</file>
     <file>exm-detail-view.ui</file>
     <file>exm-screenshot.ui</file>
+    <file>exm-comment-tile.ui</file>
+    <file>exm-comment-dialog.ui</file>
+    <file>exm-rating.ui</file>
     <file>res/plugin.png</file>
     <file>style.css</file>
   </gresource>
