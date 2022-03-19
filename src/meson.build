@@ -8,6 +8,7 @@ exm_sources = [
   'exm-screenshot.c',
   'exm-comment-tile.c',
   'exm-comment-dialog.c',
+  'exm-rating.c',
 
   # Installed Page
   'exm-installed-page.c',
@@ -41,7 +42,8 @@ blueprints = custom_target('blueprints',
     'exm-detail-view.blp',
     'exm-screenshot.blp',
     'exm-comment-tile.blp',
-    'exm-comment-dialog.blp'
+    'exm-comment-dialog.blp',
+    'exm-rating.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],

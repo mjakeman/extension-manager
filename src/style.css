@@ -35,3 +35,7 @@
 .detail-heading {
   margin-bottom: 6px;
 }
+
+rating {
+  color: @yellow_4;
+}

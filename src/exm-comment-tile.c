@@ -3,6 +3,8 @@
 #include <text-engine/format/import.h>
 #include <text-engine/ui/display.h>
 
+#include "exm-rating.h"
+
 struct _ExmCommentTile
 {
     GtkWidget parent_instance;
@@ -10,6 +12,7 @@ struct _ExmCommentTile
     ExmComment *comment;
 
     GtkLabel *author;
+    ExmRating *rating;
     TextDisplay *display;
 };
 
@@ -85,10 +88,22 @@ exm_comment_tile_constructed (GObject *object)
     TextFrame *frame;
 
     gchar *text, *author;
+    int score;
     g_object_get (self->comment,
                   "comment", &text,
                   "author", &author,
+                  "rating", &score,
                   NULL);
+
+    if (score >= 0 && score <= 5)
+    {
+        g_object_set (self->rating, "rating", score, NULL);
+        gtk_widget_set_visible (GTK_WIDGET (self->rating), TRUE);
+    }
+    else
+    {
+        gtk_widget_set_visible (GTK_WIDGET (self->rating), FALSE);
+    }
 
     frame = format_parse_html (text);
 
@@ -123,6 +138,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, display);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, rating);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
@@ -130,5 +146,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
 static void
 exm_comment_tile_init (ExmCommentTile *self)
 {
+    g_type_ensure (EXM_TYPE_RATING);
+
     gtk_widget_init_template (GTK_WIDGET (self));
 }
