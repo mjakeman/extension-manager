@@ -17,7 +17,7 @@ else
 endif
 
 config_h = configuration_data()
-config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
+config_h.set_quoted('APP_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'extension-manager')
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 config_h.set_quoted('APP_ID', app_id)

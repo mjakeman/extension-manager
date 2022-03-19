@@ -22,6 +22,7 @@
 #include "exm-browse-page.h"
 #include "exm-installed-page.h"
 #include "exm-detail-view.h"
+#include "exm-release-notes-dialog.h"
 
 #include "local/exm-manager.h"
 #include "local/exm-extension.h"
@@ -239,6 +240,21 @@ show_view (GtkWidget  *widget,
 }
 
 static void
+show_release_notes (GtkWidget  *widget,
+                    const char *action_name,
+                    GVariant   *param)
+{
+    ExmWindow *self;
+
+    self = EXM_WINDOW (widget);
+
+    ExmReleaseNotesDialog *notes = exm_release_notes_dialog_new ();
+    gtk_window_set_modal (GTK_WINDOW (notes), TRUE);
+    gtk_window_set_transient_for (GTK_WINDOW (notes), GTK_WINDOW (self));
+    gtk_window_present (GTK_WINDOW (notes));
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -276,6 +292,56 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-release-notes", NULL, show_release_notes);
+}
+
+static void
+version_check_response (GtkDialog *dialog,
+                        gint       response_id,
+                        ExmWindow *self)
+{
+    gtk_window_destroy (GTK_WINDOW (dialog));
+
+    if (response_id == GTK_RESPONSE_YES)
+    {
+        gtk_widget_activate_action (GTK_WIDGET (self), "win.show-release-notes", NULL);
+    }
+}
+
+static void
+do_version_check (ExmWindow *self)
+{
+    GSettings *settings;
+    gchar *version_string;
+
+    settings = g_settings_new (APP_ID);
+    version_string = g_settings_get_string (settings, "last-used-version");
+
+    if (strcmp (version_string, APP_VERSION) != 0)
+    {
+        GtkWidget *dialog;
+
+        dialog = gtk_message_dialog_new (GTK_WINDOW (self),
+                                         GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                         GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE,
+                                         _("What's New"));
+
+        gtk_dialog_add_button (GTK_DIALOG (dialog), _("View Release Notes"), GTK_RESPONSE_YES);
+        gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
+
+        gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
+                                                    _("This is your first time using <b>Extension Manager %s</b>.\nWould you like to see the release notes?"),
+                                                    APP_VERSION);
+
+        g_signal_connect (dialog,
+                          "response",
+                          G_CALLBACK (version_check_response),
+                          self);
+
+        gtk_widget_show (dialog);
+    }
+
+    g_settings_set_string (settings, "last-used-version", APP_VERSION);
 }
 
 static void
@@ -304,4 +370,7 @@ exm_window_init (ExmWindow *self)
                             self->global_toggle,
                             "state",
                             G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
+
+    // Window must be mapped to show version check dialog
+    g_signal_connect (self, "map", G_CALLBACK (do_version_check), NULL);
 }

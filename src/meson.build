@@ -2,6 +2,7 @@ exm_sources = [
   'main.c',
   'exm-window.c',
   'exm-application.c',
+  'exm-release-notes-dialog.c',
 
   # Detail View
   'exm-detail-view.c',
@@ -43,7 +44,8 @@ blueprints = custom_target('blueprints',
     'exm-screenshot.blp',
     'exm-comment-tile.blp',
     'exm-comment-dialog.blp',
-    'exm-rating.blp'
+    'exm-rating.blp',
+    'exm-release-notes-dialog.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],

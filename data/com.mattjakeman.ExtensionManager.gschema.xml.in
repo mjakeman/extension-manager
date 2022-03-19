@@ -11,5 +11,10 @@
       <summary>Colour Scheme Preference</summary>
       <description>Whether to follow the system colour scheme or force either light or dark mode.</description>
     </key>
+    <key name="last-used-version" type="s">
+      <default>'@app_version@'</default>
+      <summary>Last-Used Version</summary>
+      <description>The last-used version of the app. If the saved version does not match, the "What's New" dialog is shown.</description>
+    </key>
   </schema>
 </schemalist>
