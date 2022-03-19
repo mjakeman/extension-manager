@@ -1,5 +1,10 @@
 #include "exm-search-row.h"
 
+#include "exm-install-button.h"
+
+#include "exm-types.h"
+#include "exm-enums.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmSearchRow
@@ -12,7 +17,7 @@ struct _ExmSearchRow
     gchar *uuid;
 
     GtkLabel *description_label;
-    GtkButton *install_btn;
+    ExmInstallButton *install_btn;
     GtkLabel *title;
     GtkLabel *subtitle;
 };
@@ -123,6 +128,8 @@ exm_search_row_constructed (GObject *object)
 
     ExmSearchRow *self = EXM_SEARCH_ROW (object);
 
+    ExmInstallButtonState install_state;
+
     gchar *uri;
     int pk;
 
@@ -147,20 +154,14 @@ exm_search_row_constructed (GObject *object)
     gtk_label_set_label (self->subtitle, creator);
     gtk_label_set_label (self->description_label, description);
 
-    if (self->is_installed)
-    {
-        gtk_button_set_label (self->install_btn, C_("State", "Installed"));
-        gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
-    }
-
-    if (!self->is_supported)
-    {
-        gtk_button_set_label (self->install_btn, _("Unsupported"));
-        gtk_widget_set_sensitive (GTK_WIDGET (self->install_btn), FALSE);
-        gtk_widget_add_css_class (GTK_WIDGET (self->install_btn), "warning");
-    }
+    install_state = self->is_installed
+        ? EXM_INSTALL_BUTTON_STATE_INSTALLED
+        : (self->is_supported
+           ? EXM_INSTALL_BUTTON_STATE_DEFAULT
+           : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
     g_signal_connect (self->install_btn, "clicked", G_CALLBACK (install_remote), uuid);
+    g_object_set (self->install_btn, "state", install_state, NULL);
 
     G_OBJECT_CLASS (exm_search_row_parent_class)->constructed (object);
 }

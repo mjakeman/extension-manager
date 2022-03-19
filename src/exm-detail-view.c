@@ -11,6 +11,9 @@
 #include "web/model/exm-comment.h"
 #include "local/exm-manager.h"
 
+#include "exm-types.h"
+#include "exm-enums.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmDetailView
@@ -115,45 +118,6 @@ exm_detail_view_set_property (GObject      *object,
     }
 }
 
-typedef enum
-{
-    STATE_DEFAULT,
-    STATE_INSTALLED,
-    STATE_UNSUPPORTED
-} InstallButtonState;
-
-void
-install_btn_set_state (GtkButton          *button,
-                       InstallButtonState  state)
-{
-    const gchar *tooltip;
-
-    tooltip = _("This extension is incompatible with your current version of GNOME.");
-
-    gtk_widget_remove_css_class (GTK_WIDGET (button), "warning");
-    gtk_widget_remove_css_class (GTK_WIDGET (button), "suggested-action");
-    gtk_widget_set_tooltip_text (GTK_WIDGET (button), NULL);
-
-    switch ((int)state)
-    {
-    case STATE_DEFAULT:
-        gtk_button_set_label (button, _("Install"));
-        gtk_widget_set_sensitive (GTK_WIDGET (button), TRUE);
-        gtk_widget_add_css_class (GTK_WIDGET (button), "suggested-action");
-        break;
-    case STATE_INSTALLED:
-        gtk_button_set_label (button, C_("State", "Installed"));
-        gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
-        break;
-    case STATE_UNSUPPORTED:
-        gtk_button_set_label (button, _("Unsupported"));
-        gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
-        gtk_widget_add_css_class (GTK_WIDGET (button), "warning");
-        gtk_widget_set_tooltip_text (GTK_WIDGET (button), tooltip);
-        break;
-    }
-}
-
 static void
 on_image_loaded (GObject       *source,
                  GAsyncResult  *res,
@@ -255,7 +219,7 @@ on_data_loaded (GObject      *source,
     ExmSearchResult *data;
     GError *error = NULL;
     ExmDetailView *self;
-    InstallButtonState install_state;
+    ExmInstallButtonState install_state;
     GtkWidget *child;
     GList *version_iter;
     ExmShellVersionMap *version_map;
@@ -312,14 +276,14 @@ on_data_loaded (GObject      *source,
         }
 
         install_state = is_installed
-            ? STATE_INSTALLED
+            ? EXM_INSTALL_BUTTON_STATE_INSTALLED
             : (is_supported
-               ? STATE_DEFAULT
-               : STATE_UNSUPPORTED);
+               ? EXM_INSTALL_BUTTON_STATE_DEFAULT
+               : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
         gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
         gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
-        install_btn_set_state (self->ext_install, install_state);
+        g_object_set (self->ext_install, "state", install_state, NULL);
 
         self->uri_extensions = g_strdup_printf ("https://extensions.gnome.org/%s", link);
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
@@ -402,7 +366,7 @@ exm_detail_view_update (ExmDetailView *self)
     // one being displayed in this detail view
     if (exm_manager_is_installed_uuid (self->manager, self->uuid))
     {
-        install_btn_set_state (self->ext_install, STATE_INSTALLED);
+        g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_INSTALLED, NULL);
     }
 }
 

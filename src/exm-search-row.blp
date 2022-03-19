@@ -68,11 +68,9 @@ template ExmSearchRow : Gtk.ListBoxRow {
 			}
 		}
 
-		Gtk.Button install_btn {
+		.ExmInstallButton install_btn {
 			valign: center;
 			halign: end;
-
-			label: _("Install");
 		}
 
 		Gtk.Image {
@@ -84,64 +82,4 @@ template ExmSearchRow : Gtk.ListBoxRow {
 			icon-name: "go-next-symbolic";
 		}
 	}
-
-	/*Gtk.Box header {
-		styles ["header"]
-		hexpand: true;
-		spacing: 10;
-
-		[start]
-		Gtk.Image icon {
-			valign: start;
-			halign: center;
-
-			resource: "/com/mattjakeman/ExtensionManager/res/plugin.png";
-		}
-
-		Gtk.Box {
-			hexpand: true;
-			orientation: vertical;
-			valign: center;
-
-			Gtk.Label title {
-				styles ["title"]
-				xalign: 0;
-			}
-
-			Gtk.Label subtitle {
-				styles ["subtitle"]
-				xalign: 0;
-			}
-
-			Gtk.Label description_label {
-				styles ["description", "dim-label"]
-
-				margin-top: 5;
-				single-line-mode: true;
-				xalign: 0;
-				wrap: true;
-				wrap-mode: word_char;
-				ellipsize: end;
-				lines: 2;
-			}
-		}
-
-		[end]
-		Gtk.Button install_btn {
-			valign: center;
-			halign: end;
-
-			label: _("Install");
-		}
-
-		[end]
-		Gtk.Image {
-			styles ["expander-row-arrow"]
-
-			valign: center;
-			halign: end;
-
-			icon-name: "go-next-symbolic";
-		}
-	}*/
 }
