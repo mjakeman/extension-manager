@@ -230,10 +230,27 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 
+static GtkWidget *
+create_placeholder (const gchar *text)
+{
+    GtkWidget *label;
+
+    label = gtk_label_new (text);
+    gtk_widget_add_css_class (label, "placeholder");
+
+    return label;
+}
+
 static void
 exm_installed_page_init (ExmInstalledPage *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
+
+    gtk_list_box_set_placeholder (self->user_list_box,
+                                  create_placeholder (_("There are no user extensions installed.")));
+
+    gtk_list_box_set_placeholder (self->system_list_box,
+                                  create_placeholder (_("There are no system extensions installed.")));
 
     g_signal_connect (self,
                       "notify::manager",
