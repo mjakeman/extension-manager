@@ -3,6 +3,8 @@
 #include "exm-extension-row.h"
 
 #include "local/exm-manager.h"
+#include "exm-enums.h"
+#include "exm-types.h"
 
 #include <glib/gi18n.h>
 
@@ -119,18 +121,51 @@ widget_factory (ExmExtension* extension)
     return GTK_WIDGET (row);
 }
 
+static int
+compare_enabled (ExmExtension *this, ExmExtension *other)
+{
+    g_return_if_fail (EXM_IS_EXTENSION (this));
+    g_return_if_fail (EXM_IS_EXTENSION (other));
+
+    ExmExtensionState this_state;
+    ExmExtensionState other_state;
+
+    g_object_get (this, "state", &this_state, NULL);
+    g_object_get (other, "state", &other_state, NULL);
+
+    gboolean this_enabled = (this_state == EXM_EXTENSION_STATE_ENABLED);
+    gboolean other_enabled = (other_state == EXM_EXTENSION_STATE_ENABLED);
+
+    if ((this_enabled && other_enabled) || (!this_enabled && !other_enabled))
+        return 0;
+    else if (this_enabled && !other_enabled)
+        return -1;
+    else if (!this_enabled && other_enabled)
+        return 1;
+}
+
 static void
 bind_list_box (GtkListBox *list_box,
                GListModel *model)
 {
     GtkExpression *expression;
-    GtkStringSorter *sorter;
+    GtkCustomSorter *enabled_sorter;
+    GtkStringSorter *alphabetical_sorter;
+    GtkMultiSorter *multi_sorter;
     GtkSortListModel *sorted_model;
+
+    // Sort by enabled
+    enabled_sorter = gtk_custom_sorter_new (compare_enabled, NULL, NULL);
 
     // Sort alphabetically
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
-    sorter = gtk_string_sorter_new (expression);
-    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (sorter));
+    alphabetical_sorter = gtk_string_sorter_new (expression);
+
+    multi_sorter = gtk_multi_sorter_new ();
+    gtk_multi_sorter_append (multi_sorter, enabled_sorter);
+    gtk_multi_sorter_append (multi_sorter, alphabetical_sorter);
+
+    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (multi_sorter));
 
     gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
                              (GtkListBoxCreateWidgetFunc) widget_factory,
@@ -230,27 +265,10 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 
-static GtkWidget *
-create_placeholder (const gchar *text)
-{
-    GtkWidget *label;
-
-    label = gtk_label_new (text);
-    gtk_widget_add_css_class (label, "placeholder");
-
-    return label;
-}
-
 static void
 exm_installed_page_init (ExmInstalledPage *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
-
-    gtk_list_box_set_placeholder (self->user_list_box,
-                                  create_placeholder (_("There are no user extensions installed.")));
-
-    gtk_list_box_set_placeholder (self->system_list_box,
-                                  create_placeholder (_("There are no system extensions installed.")));
 
     g_signal_connect (self,
                       "notify::manager",
