@@ -50,6 +50,7 @@ endif
 
 schemaconf = configuration_data()
 schemaconf.set('app_id', app_id)
+schemaconf.set('app_version', meson.project_version())
 schema_file_in = configure_file(
           input: 'com.mattjakeman.ExtensionManager.gschema.xml.in',
          output: '@0@.gschema.xml'.format(app_id),

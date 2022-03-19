@@ -1,0 +1,23 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmReleaseNotesDialog : Gtk.Window {
+  default-width: 400;
+  default-height: 400;
+  title: _("Release Notes");
+
+  [titlebar]
+  Gtk.HeaderBar {}
+
+  Gtk.ScrolledWindow {
+    Gtk.TextView text_view {
+      wrap-mode: word;
+      editable: false;
+
+      top-margin: 16;
+      left-margin: 16;
+      right-margin: 16;
+      bottom-margin: 16;
+    }
+  }
+}
