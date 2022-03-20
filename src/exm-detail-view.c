@@ -212,6 +212,21 @@ show_more_comments (GtkButton *button,
 }
 
 static void
+install_remote (GtkButton     *button,
+                ExmDetailView *self)
+{
+    gboolean warn;
+    ExmInstallButtonState state;
+
+    g_object_get (self->ext_install, "state", &state, NULL);
+
+    warn = (state == EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
+    gtk_widget_activate_action (GTK_WIDGET (button),
+                                "ext.install",
+                                "(sb)", self->uuid, warn);
+}
+
+static void
 on_data_loaded (GObject      *source,
                 GAsyncResult *result,
                 gpointer      user_data)
@@ -281,8 +296,6 @@ on_data_loaded (GObject      *source,
                ? EXM_INSTALL_BUTTON_STATE_DEFAULT
                : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
-        gtk_actionable_set_action_target (GTK_ACTIONABLE (self->ext_install), "s", uuid);
-        gtk_actionable_set_action_name (GTK_ACTIONABLE (self->ext_install), "ext.install");
         g_object_set (self->ext_install, "state", install_state, NULL);
 
         self->uri_extensions = g_strdup_printf ("https://extensions.gnome.org/%s", link);
@@ -467,4 +480,9 @@ exm_detail_view_init (ExmDetailView *self)
     self->provider = exm_data_provider_new ();
     self->resolver = exm_image_resolver_new ();
     self->comment_provider = exm_comment_provider_new ();
+
+    g_signal_connect (self->ext_install,
+                      "clicked",
+                      G_CALLBACK (install_remote),
+                      self);
 }

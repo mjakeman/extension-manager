@@ -110,12 +110,18 @@ exm_search_row_set_property (GObject      *object,
 }
 
 static void
-install_remote (GtkButton   *button,
-                const gchar *uuid)
+install_remote (GtkButton    *button,
+                ExmSearchRow *self)
 {
+    gboolean warn;
+    ExmInstallButtonState state;
+
+    g_object_get (self->install_btn, "state", &state, NULL);
+
+    warn = (state == EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
     gtk_widget_activate_action (GTK_WIDGET (button),
                                 "ext.install",
-                                "s", uuid);
+                                "(sb)", self->uuid, warn);
 }
 
 static void
@@ -160,7 +166,7 @@ exm_search_row_constructed (GObject *object)
            ? EXM_INSTALL_BUTTON_STATE_DEFAULT
            : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
-    g_signal_connect (self->install_btn, "clicked", G_CALLBACK (install_remote), uuid);
+    g_signal_connect (self->install_btn, "clicked", G_CALLBACK (install_remote), self);
     g_object_set (self->install_btn, "state", install_state, NULL);
 
     G_OBJECT_CLASS (exm_search_row_parent_class)->constructed (object);

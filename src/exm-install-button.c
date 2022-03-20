@@ -96,35 +96,6 @@ exm_install_button_set_property (GObject      *object,
     }
 }
 
-static gboolean
-is_version_check_disabled ()
-{
-    // Unfortunately we do not have access to the
-    // `disable-extension-version-validation` gsettings
-    // key under flatpak due to the sandbox.
-    return FALSE;
-
-    /*GSettingsSchemaSource *source;
-    GSettingsSchema *schema;
-    GSettings *settings;
-    const gchar *key_name;
-
-    key_name = "disable-extension-version-validation";
-
-    source = g_settings_schema_source_get_default ();
-    schema = g_settings_schema_source_lookup (source, "org.gnome.shell", TRUE);
-
-    if (schema && g_settings_schema_has_key (schema, key_name))
-    {
-        settings = g_settings_new ("org.gnome.shell");
-        return g_settings_get_boolean (settings, "disable-extension-version-validation");
-    }
-
-    g_warning ("Could not find schema `org.gnome.shell` with key `%s`.", key_name);
-
-    return FALSE;*/
-}
-
 static void
 update_state (ExmInstallButton *button)
 {
@@ -153,11 +124,7 @@ update_state (ExmInstallButton *button)
         gtk_button_set_label (GTK_BUTTON (button), _("Unsupported"));
         gtk_widget_add_css_class (GTK_WIDGET (button), "warning");
         gtk_widget_set_tooltip_text (GTK_WIDGET (button), tooltip);
-
-        // Respect the `disable-extension-version-validation` gsetting which
-        // will attempt to load extensions regardless of version incompatibility.
-        gtk_widget_set_sensitive (GTK_WIDGET (button),
-                                  is_version_check_disabled ());
+        gtk_widget_set_sensitive (GTK_WIDGET (button), TRUE);
         break;
     }
 }
