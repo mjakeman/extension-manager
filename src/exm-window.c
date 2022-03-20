@@ -199,6 +199,31 @@ on_install_done (GObject       *source,
     }
 }
 
+typedef struct
+{
+    ExmManager *manager;
+    gchar *uuid;
+} UnsupportedDialogData;
+
+static void
+extension_unsupported_dialog_response (GtkDialog             *dialog,
+                                       int                    response_id,
+                                       UnsupportedDialogData *data)
+{
+    gtk_window_destroy (GTK_WINDOW (dialog));
+
+    if (response_id == GTK_RESPONSE_YES)
+    {
+        exm_manager_install_async (data->manager, data->uuid, NULL,
+                                   (GAsyncReadyCallback) on_install_done,
+                                   NULL);
+    }
+
+    g_clear_pointer (&data->manager, g_object_unref);
+    g_clear_pointer (&data->uuid, g_free);
+    g_free (data);
+}
+
 static void
 extension_install (GtkWidget  *widget,
                    const char *action_name,
@@ -206,9 +231,30 @@ extension_install (GtkWidget  *widget,
 {
     ExmWindow *self;
     gchar *uuid;
+    gboolean warn;
 
     self = EXM_WINDOW (widget);
-    g_variant_get (param, "s", &uuid);
+    g_variant_get (param, "(sb)", &uuid, &warn);
+
+    if (warn)
+    {
+        GtkWidget *dlg;
+
+        dlg = gtk_message_dialog_new (GTK_WINDOW (self),
+                                      GTK_DIALOG_MODAL,
+                                      GTK_MESSAGE_QUESTION,
+                                      GTK_BUTTONS_YES_NO,
+                                      _("This extension does not support your GNOME Shell version.\nWould you like to install anyway?"));
+
+        UnsupportedDialogData *data = g_new0 (UnsupportedDialogData, 1);
+        data->manager = g_object_ref (self->manager);
+        data->uuid = g_strdup (uuid);
+
+        g_signal_connect (dlg, "response", G_CALLBACK (extension_unsupported_dialog_response), data);
+        gtk_widget_show (dlg);
+
+        return;
+    }
 
     exm_manager_install_async (self->manager, uuid, NULL,
                                (GAsyncReadyCallback) on_install_done,
@@ -286,7 +332,7 @@ exm_window_class_init (ExmWindowClass *klass)
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
     // then be passed to each page.
-    gtk_widget_class_install_action (widget_class, "ext.install", "s", extension_install);
+    gtk_widget_class_install_action (widget_class, "ext.install", "(sb)", extension_install);
     gtk_widget_class_install_action (widget_class, "ext.remove", "s", extension_remove);
     gtk_widget_class_install_action (widget_class, "ext.state-set", "(sb)", extension_state_set);
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);

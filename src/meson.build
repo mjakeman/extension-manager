@@ -2,7 +2,6 @@ exm_sources = [
   'main.c',
   'exm-window.c',
   'exm-application.c',
-  'exm-release-notes-dialog.c',
 
   # Detail View
   'exm-detail-view.c',
@@ -17,7 +16,11 @@ exm_sources = [
 
   # Browse Page
   'exm-browse-page.c',
-  'exm-search-row.c'
+  'exm-search-row.c',
+
+  # Misc
+  'exm-release-notes-dialog.c',
+  'exm-install-button.c'
 ]
 
 exm_deps = [

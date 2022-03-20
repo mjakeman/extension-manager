@@ -14,15 +14,12 @@ Written with GTK 4 and libadwaita.
 ## Features
 The tool supports:
  - Browsing and searching extensions from `extensions.gnome.org`
- - Installation
+ - Installation and Removal
  - Enabling and Disabling
- - Uninstall
+ - Updating in-app 
  - Screenshots &amp; Images
- - Translations ([add your language!](https://github.com/mjakeman/extension-manager/issues/27))
- 
-Things that are not yet supported:
- - Updating extensions in-app
  - Ratings &amp; Comments
+ - Translations ([add your language!](https://github.com/mjakeman/extension-manager/issues/27))
 
 If there's something you'd like to see, contributions are welcome!
 
@@ -59,6 +56,27 @@ flatpak update
 ```
 
 Now Extension Manager should respect your system language.
+
+## Using Unsupported Extensions
+GNOME Shell will not load extensions that were not designed for your current
+version. You can override this behaviour by manually disabling GNOME Shell's
+version check. Extension Manager will respect this preference and allow you
+to use unsupported extensions fully.
+
+Note that unsupported extensions will likely not work as intended and
+may introduce instability to your system. The version check should therefore
+be disabled at your own risk.
+
+Turn off the version check and allow unsupported extensions:
+
+```
+gsettings set org.gnome.shell disable-extension-version-validation true
+```
+
+Use the default setting and return to safety:
+```
+gsettings reset org.gnome.shell disable-extension-version-validation
+```
 
 ## Building
 The easiest way to build is by cloning this repo with GNOME Builder. It
