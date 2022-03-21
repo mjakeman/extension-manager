@@ -25,6 +25,8 @@ struct _ExmExtensionRow
     GtkImage *update_icon;
     GtkImage *error_icon;
     GtkImage *out_of_date_icon;
+
+    guint signal_handler;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -36,6 +38,10 @@ enum {
 };
 
 static GParamSpec *properties [N_PROPS];
+
+static void
+bind_extension (ExmExtensionRow *self,
+                ExmExtension    *extension);
 
 ExmExtensionRow *
 exm_extension_row_new (ExmExtension *extension)
@@ -82,14 +88,7 @@ exm_extension_row_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_EXTENSION:
-        self->extension = g_value_get_object (value);
-        if (self->extension)
-        {
-            // TODO: Bind here, rather than in constructed()
-            g_object_get (self->extension,
-                          "uuid", &self->uuid,
-                          NULL);
-        }
+        bind_extension (self, g_value_get_object (value));
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -168,17 +167,26 @@ set_error_label_visible (ExmExtensionRow *self,
 }
 
 static void
-exm_extension_row_bind_extension (GObject    *object,
-                                  GParamSpec *pspec)
+bind_extension (ExmExtensionRow *self,
+                ExmExtension    *extension)
 {
     // TODO: This big block of property assignments is currently copy/pasted
     // from ExmExtension. We can replace this with GtkExpression lookups
     // once blueprint-compiler supports expressions.
     // (See https://gitlab.gnome.org/jwestman/blueprint-compiler/-/issues/5)
 
-    ExmExtensionRow *self = EXM_EXTENSION_ROW (object);
+    g_return_if_fail (EXM_IS_EXTENSION_ROW (self));
 
-    g_return_if_fail (pspec == properties [PROP_EXTENSION]);
+    // First, remove traces of the old extension
+    if (self->extension != NULL)
+    {
+        g_signal_handler_disconnect (self->extension, self->signal_handler);
+        g_clear_object (&self->extension);
+        g_clear_pointer (&self->uuid, g_free);
+    }
+
+    // Now, bind the new one
+    self->extension = extension;
 
     if (self->extension == NULL)
         return;
@@ -198,6 +206,8 @@ exm_extension_row_bind_extension (GObject    *object,
                   "error-msg", &error_msg,
                   NULL);
 
+    self->uuid = g_strdup (uuid);
+
     g_object_set (self, "title", name, "subtitle", uuid, NULL);
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
@@ -214,11 +224,13 @@ exm_extension_row_bind_extension (GObject    *object,
     gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
     set_error_label_visible (self, has_error);
 
-
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
     // One way binding from extension ("source of truth") to switch
-    g_signal_connect (self->extension, "notify::state", G_CALLBACK (update_state), self);
+    self->signal_handler = g_signal_connect (self->extension,
+                                             "notify::state",
+                                             G_CALLBACK (update_state),
+                                             self);
 
     GAction *action;
 
@@ -322,11 +334,6 @@ exm_extension_row_init (ExmExtensionRow *self)
     GSimpleAction *remove_action;
 
     gtk_widget_init_template (GTK_WIDGET (self));
-
-    g_signal_connect (self,
-                      "notify::extension",
-                      G_CALLBACK (exm_extension_row_bind_extension),
-                      NULL);
 
     // Define Actions
     self->action_group = g_simple_action_group_new ();
