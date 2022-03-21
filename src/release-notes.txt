@@ -1,11 +1,37 @@
 Extension Manager 0.3
 
-Est qui rem neque et nemo. Illo dolor aliquid amet voluptatibus qui. Suscipit officia omnis harum voluptatibus consequatur et ut. Dolores dicta eum odit dignissimos doloribus libero.
+The second feature update to extension-manager. Highlights include:
 
-Architecto aut asperiores aut et et est esse. Sed odit omnis facilis quaerat voluptatem vitae. Et rerum expedita repellendus aut. Esse cumque voluptas incidunt. Placeat quae qui molestiae quaerat dolores voluptatem dicta incidunt.
+ - New app icon
+ - View comments and reviews
+ - Support for in-app updates
+ - Sort extensions by enabled status
 
-Cupiditate molestias enim voluptatem et et placeat corrupti et. Quisquam amet dolores reprehenderit. Cum consectetur veniam voluptas.
+The full list of changes are as follows:
 
-Recusandae porro quibusdam fuga omnis minus. Sit aliquam et numquam aperiam quos quae dolorum perferendis. Ipsam laborum aperiam voluptatibus esse autem quis at. Sequi tempora nam ipsum blanditiis ex. Reprehenderit deleniti ut non placeat sed. Sequi assumenda eligendi eos.
+General
+ - Add new app icon
 
-Officiis excepturi reiciendis eos. Deleniti ut eos consequatur et sint sit maxime. Aut modi reprehenderit magnam rerum sed dolor quis. Est exercitationem sed tenetur. Et ea reprehenderit culpa cumque ipsam enim.
+Features
+ - In-app updates
+ - Display comments and reviews
+ - Display extension errors to user
+ - Handle 'out of date' extensions
+ - In-app release notes on first run
+ - Allow installing unsupported extensions
+ - Option to sort extensions by enabled status
+ - Add placeholder labels when no extensions are installed
+ - Focus search entry on first open
+
+Maintenance
+ - Add badges for build, version, license, downloads to readme file
+ - Use latest meson features
+ - Run appstream validate test without network
+
+Translations
+ - Adds context to various translation strings
+ - Adds Norwegian Nynorsk
+ - Adds Indonesian
+ - Adds Occitan
+ - Updates Spanish
+ - Updates Italian
