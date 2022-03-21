@@ -38,6 +38,22 @@
   </keywords>
   <translation type="gettext">extension-manager</translation>
   <releases>
+    <release version="0.3.0" date="2022-03-21">
+      <description>
+        <p>The second feature update to extension-manager. Highlights include:</p>
+        <ul>
+          <li>View comments and reviews</li>
+          <li>Support for in-app updates</li>
+          <li>Better handling errors and out-of-date extensions</li>
+          <li>Allow installing 'unsupported' extensions</li>
+          <li>Display release notes on first run</li>
+          <li>New app icon</li>
+          <li>Optionally sort extensions by enabled status</li>
+          <li>Translation updates</li>
+          <li>Performance and stability</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.3" date="2022-02-21">
       <description>
         <p>Translation updates</p>

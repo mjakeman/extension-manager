@@ -1,5 +1,39 @@
 # NEWS
 
+## 0.3.0
+Second feature update to extension-manager
+
+### General
+
+ - Add new app icon
+
+### Features
+
+ - In-app updates
+ - Display comments and reviews
+ - Display extension errors to user
+ - Handle 'out of date' extensions
+ - In-app release notes on first run
+ - Allow installing unsupported extensions
+ - Option to sort extensions by enabled status
+ - Add placeholder labels when no extensions are installed
+ - Focus search entry on first open
+
+### Maintenance
+
+ - Add badges for build, version, license, downloads to readme file
+ - Use latest meson features
+ - Run appstream validate test without network
+
+### Translations
+
+ - Adds context to various translation strings
+ - Adds Norwegian Nynorsk
+ - Adds Indonesian
+ - Adds Occitan
+ - Updates Spanish
+ - Updates Italian
+
 ## 0.2.3
 Minor update
 
