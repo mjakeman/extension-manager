@@ -168,7 +168,8 @@ set_error_label_visible (ExmExtensionRow *self,
 }
 
 static void
-exm_extension_row_constructed (GObject *object)
+exm_extension_row_bind_extension (GObject    *object,
+                                  GParamSpec *pspec)
 {
     // TODO: This big block of property assignments is currently copy/pasted
     // from ExmExtension. We can replace this with GtkExpression lookups
@@ -176,6 +177,11 @@ exm_extension_row_constructed (GObject *object)
     // (See https://gitlab.gnome.org/jwestman/blueprint-compiler/-/issues/5)
 
     ExmExtensionRow *self = EXM_EXTENSION_ROW (object);
+
+    g_return_if_fail (pspec == properties [PROP_EXTENSION]);
+
+    if (self->extension == NULL)
+        return;
 
     gchar *name, *uuid, *description, *version, *error_msg;
     gboolean has_prefs, has_update, is_user;
@@ -226,8 +232,6 @@ exm_extension_row_constructed (GObject *object)
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), is_user);
 
     update_state (self->extension, NULL, self);
-
-    G_OBJECT_CLASS (exm_extension_row_parent_class)->constructed (object);
 }
 
 static void
@@ -238,7 +242,6 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     object_class->finalize = exm_extension_row_finalize;
     object_class->get_property = exm_extension_row_get_property;
     object_class->set_property = exm_extension_row_set_property;
-    object_class->constructed = exm_extension_row_constructed;
 
     properties [PROP_EXTENSION] =
         g_param_spec_object ("extension",
@@ -319,6 +322,11 @@ exm_extension_row_init (ExmExtensionRow *self)
     GSimpleAction *remove_action;
 
     gtk_widget_init_template (GTK_WIDGET (self));
+
+    g_signal_connect (self,
+                      "notify::extension",
+                      G_CALLBACK (exm_extension_row_bind_extension),
+                      NULL);
 
     // Define Actions
     self->action_group = g_simple_action_group_new ();
