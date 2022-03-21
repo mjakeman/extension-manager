@@ -25,6 +25,8 @@ struct _ExmExtensionRow
     GtkImage *update_icon;
     GtkImage *error_icon;
     GtkImage *out_of_date_icon;
+
+    guint signal_handler;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -36,6 +38,13 @@ enum {
 };
 
 static GParamSpec *properties [N_PROPS];
+
+static void
+bind_extension (ExmExtensionRow *self,
+                ExmExtension    *extension);
+
+static void
+unbind_extension (ExmExtensionRow *self);
 
 ExmExtensionRow *
 exm_extension_row_new (ExmExtension *extension)
@@ -51,6 +60,16 @@ exm_extension_row_finalize (GObject *object)
     ExmExtensionRow *self = (ExmExtensionRow *)object;
 
     G_OBJECT_CLASS (exm_extension_row_parent_class)->finalize (object);
+}
+
+static void
+exm_extension_row_dispose (GObject *object)
+{
+    ExmExtensionRow *self = (ExmExtensionRow *)object;
+
+    unbind_extension (self);
+
+    G_OBJECT_CLASS (exm_extension_row_parent_class)->dispose (object);
 }
 
 static void
@@ -82,14 +101,7 @@ exm_extension_row_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_EXTENSION:
-        self->extension = g_value_get_object (value);
-        if (self->extension)
-        {
-            // TODO: Bind here, rather than in constructed()
-            g_object_get (self->extension,
-                          "uuid", &self->uuid,
-                          NULL);
-        }
+        bind_extension (self, g_value_get_object (value));
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -105,6 +117,11 @@ update_state (ExmExtension    *extension,
     // it, then it will go back to gnome-shell and explicitly enable/disable
     // the extension. We do not want this behaviour as it messes with the global
     // extension toggle.
+
+    g_return_if_fail (EXM_IS_EXTENSION (extension));
+    g_return_if_fail (EXM_IS_EXTENSION_ROW (row));
+
+    g_assert (row->extension == extension);
 
     const gchar *uuid;
     ExmExtensionState new_state;
@@ -168,14 +185,35 @@ set_error_label_visible (ExmExtensionRow *self,
 }
 
 static void
-exm_extension_row_constructed (GObject *object)
+unbind_extension (ExmExtensionRow *self)
+{
+    if (self->extension != NULL)
+    {
+        g_signal_handler_disconnect (self->extension, self->signal_handler);
+        g_clear_object (&self->extension);
+        g_clear_pointer (&self->uuid, g_free);
+    }
+}
+
+static void
+bind_extension (ExmExtensionRow *self,
+                ExmExtension    *extension)
 {
     // TODO: This big block of property assignments is currently copy/pasted
     // from ExmExtension. We can replace this with GtkExpression lookups
     // once blueprint-compiler supports expressions.
     // (See https://gitlab.gnome.org/jwestman/blueprint-compiler/-/issues/5)
 
-    ExmExtensionRow *self = EXM_EXTENSION_ROW (object);
+    g_return_if_fail (EXM_IS_EXTENSION_ROW (self));
+
+    // First, remove traces of the old extension
+    unbind_extension (self);
+
+    // Now, bind the new one
+    self->extension = g_object_ref (extension);
+
+    if (self->extension == NULL)
+        return;
 
     gchar *name, *uuid, *description, *version, *error_msg;
     gboolean has_prefs, has_update, is_user;
@@ -191,6 +229,8 @@ exm_extension_row_constructed (GObject *object)
                   "version", &version,
                   "error-msg", &error_msg,
                   NULL);
+
+    self->uuid = g_strdup (uuid);
 
     g_object_set (self, "title", name, "subtitle", uuid, NULL);
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
@@ -208,11 +248,13 @@ exm_extension_row_constructed (GObject *object)
     gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
     set_error_label_visible (self, has_error);
 
-
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
     // One way binding from extension ("source of truth") to switch
-    g_signal_connect (self->extension, "notify::state", G_CALLBACK (update_state), self);
+    self->signal_handler = g_signal_connect (self->extension,
+                                             "notify::state",
+                                             G_CALLBACK (update_state),
+                                             self);
 
     GAction *action;
 
@@ -226,8 +268,6 @@ exm_extension_row_constructed (GObject *object)
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), is_user);
 
     update_state (self->extension, NULL, self);
-
-    G_OBJECT_CLASS (exm_extension_row_parent_class)->constructed (object);
 }
 
 static void
@@ -236,9 +276,9 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
     object_class->finalize = exm_extension_row_finalize;
+    object_class->dispose = exm_extension_row_dispose;
     object_class->get_property = exm_extension_row_get_property;
     object_class->set_property = exm_extension_row_set_property;
-    object_class->constructed = exm_extension_row_constructed;
 
     properties [PROP_EXTENSION] =
         g_param_spec_object ("extension",

@@ -16,5 +16,10 @@
       <summary>Last-Used Version</summary>
       <description>The last-used version of the app. If the saved version does not match, the "What's New" dialog is shown.</description>
     </key>
+    <key name="sort-enabled-first" type="b">
+      <default>false</default>
+      <summary>Sort Enabled First</summary>
+      <description>Display enabled extensions first in the installed view.</description>
+    </key>
   </schema>
 </schemalist>

@@ -197,6 +197,9 @@ exm_application_init (ExmApplication *self)
     g_signal_connect_swapped (logout_action, "activate", G_CALLBACK (request_logout), self);
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (logout_action));
 
+    GAction *sort_enabled_first_action = g_settings_create_action (settings, "sort-enabled-first");
+    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (sort_enabled_first_action));
+
     GAction *style_variant_action = g_settings_create_action (settings, "style-variant");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (style_variant_action));
 

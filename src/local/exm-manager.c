@@ -696,6 +696,13 @@ on_state_changed (ShellExtensions *object,
         return;
     }
 
+    // Emit items-changed signal to re-sort extension list
+    {
+        guint position;
+        if (g_list_store_find_with_equal_func (list_store, extension, (GEqualFunc)is_extension_equal, &position))
+            g_list_model_items_changed (G_LIST_MODEL (list_store), position, 1, 1);
+    }
+
     // If the extension that has changed has an update, then
     // one or more extensions have updates available. Lazily
     // check the exact number and emit the 'updates-available'
