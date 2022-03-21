@@ -165,9 +165,7 @@ bind_list_box (GtkListBox *list_box,
                gboolean    sort_enabled_first)
 {
     GtkExpression *expression;
-    GtkCustomSorter *enabled_sorter;
     GtkStringSorter *alphabetical_sorter;
-    GtkMultiSorter *multi_sorter;
     GtkSortListModel *sorted_model;
 
     // Sort alphabetically
@@ -176,6 +174,9 @@ bind_list_box (GtkListBox *list_box,
 
     if (sort_enabled_first)
     {
+        GtkCustomSorter *enabled_sorter;
+        GtkMultiSorter *multi_sorter;
+
         // Sort by enabled
         enabled_sorter = gtk_custom_sorter_new ((GCompareDataFunc) compare_enabled, NULL, NULL);
 

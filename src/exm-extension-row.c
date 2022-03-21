@@ -43,6 +43,9 @@ static void
 bind_extension (ExmExtensionRow *self,
                 ExmExtension    *extension);
 
+static void
+unbind_extension (ExmExtensionRow *self);
+
 ExmExtensionRow *
 exm_extension_row_new (ExmExtension *extension)
 {
@@ -57,6 +60,16 @@ exm_extension_row_finalize (GObject *object)
     ExmExtensionRow *self = (ExmExtensionRow *)object;
 
     G_OBJECT_CLASS (exm_extension_row_parent_class)->finalize (object);
+}
+
+static void
+exm_extension_row_dispose (GObject *object)
+{
+    ExmExtensionRow *self = (ExmExtensionRow *)object;
+
+    unbind_extension (self);
+
+    G_OBJECT_CLASS (exm_extension_row_parent_class)->dispose (object);
 }
 
 static void
@@ -104,6 +117,11 @@ update_state (ExmExtension    *extension,
     // it, then it will go back to gnome-shell and explicitly enable/disable
     // the extension. We do not want this behaviour as it messes with the global
     // extension toggle.
+
+    g_return_if_fail (EXM_IS_EXTENSION (extension));
+    g_return_if_fail (EXM_IS_EXTENSION_ROW (row));
+
+    g_assert (row->extension == extension);
 
     const gchar *uuid;
     ExmExtensionState new_state;
@@ -167,6 +185,17 @@ set_error_label_visible (ExmExtensionRow *self,
 }
 
 static void
+unbind_extension (ExmExtensionRow *self)
+{
+    if (self->extension != NULL)
+    {
+        g_signal_handler_disconnect (self->extension, self->signal_handler);
+        g_clear_object (&self->extension);
+        g_clear_pointer (&self->uuid, g_free);
+    }
+}
+
+static void
 bind_extension (ExmExtensionRow *self,
                 ExmExtension    *extension)
 {
@@ -178,15 +207,10 @@ bind_extension (ExmExtensionRow *self,
     g_return_if_fail (EXM_IS_EXTENSION_ROW (self));
 
     // First, remove traces of the old extension
-    if (self->extension != NULL)
-    {
-        g_signal_handler_disconnect (self->extension, self->signal_handler);
-        g_clear_object (&self->extension);
-        g_clear_pointer (&self->uuid, g_free);
-    }
+    unbind_extension (self);
 
     // Now, bind the new one
-    self->extension = extension;
+    self->extension = g_object_ref (extension);
 
     if (self->extension == NULL)
         return;
@@ -252,6 +276,7 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
     object_class->finalize = exm_extension_row_finalize;
+    object_class->dispose = exm_extension_row_dispose;
     object_class->get_property = exm_extension_row_get_property;
     object_class->set_property = exm_extension_row_set_property;
 
