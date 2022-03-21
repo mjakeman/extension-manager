@@ -166,6 +166,7 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
 {
     // Fire off a default search
     search (self, "", EXM_SEARCH_SORT_POPULARITY);
+    gtk_widget_grab_focus (GTK_WIDGET (search_entry));
 }
 
 static void
