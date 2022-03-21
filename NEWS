@@ -21,6 +21,7 @@ Second feature update to extension-manager
 
 ### Maintenance
 
+ - Added text-engine as a dependency for displaying markup
  - Add badges for build, version, license, downloads to readme file
  - Use latest meson features
  - Run appstream validate test without network
