@@ -6,6 +6,8 @@
 #include "exm-enums.h"
 #include "exm-types.h"
 
+#include "exm-config.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmInstalledPage
@@ -19,6 +21,8 @@ struct _ExmInstalledPage
     GtkListBox *system_list_box;
     GtkLabel *num_updates_label;
     GtkRevealer *updates_action_bar;
+
+    gboolean sort_enabled_first;
 };
 
 G_DEFINE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, GTK_TYPE_WIDGET)
@@ -26,10 +30,14 @@ G_DEFINE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, GTK_TYPE_WIDGET)
 enum {
     PROP_0,
     PROP_MANAGER,
+    PROP_SORT_ENABLED_FIRST,
     N_PROPS
 };
 
 static GParamSpec *properties [N_PROPS];
+
+static void
+invalidate_model_bindings (ExmInstalledPage *self);
 
 ExmInstalledPage *
 exm_installed_page_new (void)
@@ -58,6 +66,9 @@ exm_installed_page_get_property (GObject    *object,
     case PROP_MANAGER:
         g_value_set_object (value, self->manager);
         break;
+    case PROP_SORT_ENABLED_FIRST:
+        g_value_set_boolean (value, self->sort_enabled_first);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -75,6 +86,10 @@ exm_installed_page_set_property (GObject      *object,
     {
     case PROP_MANAGER:
         self->manager = g_value_get_object (value);
+        break;
+    case PROP_SORT_ENABLED_FIRST:
+        self->sort_enabled_first = g_value_get_boolean (value);
+        invalidate_model_bindings (self);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -146,7 +161,8 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
 
 static void
 bind_list_box (GtkListBox *list_box,
-               GListModel *model)
+               GListModel *model,
+               gboolean    sort_enabled_first)
 {
     GtkExpression *expression;
     GtkCustomSorter *enabled_sorter;
@@ -154,18 +170,25 @@ bind_list_box (GtkListBox *list_box,
     GtkMultiSorter *multi_sorter;
     GtkSortListModel *sorted_model;
 
-    // Sort by enabled
-    enabled_sorter = gtk_custom_sorter_new (compare_enabled, NULL, NULL);
-
     // Sort alphabetically
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
-    multi_sorter = gtk_multi_sorter_new ();
-    gtk_multi_sorter_append (multi_sorter, enabled_sorter);
-    gtk_multi_sorter_append (multi_sorter, alphabetical_sorter);
+    if (sort_enabled_first)
+    {
+        // Sort by enabled
+        enabled_sorter = gtk_custom_sorter_new ((GCompareDataFunc) compare_enabled, NULL, NULL);
 
-    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (multi_sorter));
+        multi_sorter = gtk_multi_sorter_new ();
+        gtk_multi_sorter_append (multi_sorter, GTK_SORTER (enabled_sorter));
+        gtk_multi_sorter_append (multi_sorter, GTK_SORTER (alphabetical_sorter));
+
+        sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (multi_sorter));
+    }
+    else
+    {
+        sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (alphabetical_sorter));
+    }
 
     gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
                              (GtkListBoxCreateWidgetFunc) widget_factory,
@@ -200,18 +223,24 @@ on_updates_available (ExmManager       *manager,
 }
 
 static void
-on_bind_manager (ExmInstalledPage *self)
+invalidate_model_bindings (ExmInstalledPage *self)
 {
     GListModel *user_ext_model;
     GListModel *system_ext_model;
+
+    if (!self->manager)
+        return;
 
     g_object_get (self->manager,
                   "user-extensions", &user_ext_model,
                   "system-extensions", &system_ext_model,
                   NULL);
 
-    bind_list_box (self->user_list_box, user_ext_model);
-    bind_list_box (self->system_list_box, system_ext_model);
+    if (!user_ext_model || !system_ext_model)
+        return;
+
+    bind_list_box (self->user_list_box, user_ext_model, self->sort_enabled_first);
+    bind_list_box (self->system_list_box, system_ext_model, self->sort_enabled_first);
 
     g_object_bind_property (self->manager,
                             "extensions-enabled",
@@ -224,6 +253,13 @@ on_bind_manager (ExmInstalledPage *self)
                             self->system_list_box,
                             "sensitive",
                             G_BINDING_SYNC_CREATE);
+}
+
+static void
+on_bind_manager (ExmInstalledPage *self)
+{
+    // Bind (or rebind) models
+    invalidate_model_bindings (self);
 
     g_signal_connect (self->manager,
                       "updates-available",
@@ -252,6 +288,13 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
                                EXM_TYPE_MANAGER,
                                G_PARAM_READWRITE);
 
+    properties [PROP_SORT_ENABLED_FIRST]
+        = g_param_spec_boolean ("sort-enabled-first",
+                                "Sort Enabled First",
+                                "Sort Enabled First",
+                                FALSE,
+                                G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -268,10 +311,18 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
 static void
 exm_installed_page_init (ExmInstalledPage *self)
 {
+    GSettings *settings;
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     g_signal_connect (self,
                       "notify::manager",
                       G_CALLBACK (on_bind_manager),
                       NULL);
+
+    settings = g_settings_new (APP_ID);
+
+    g_settings_bind (settings, "sort-enabled-first",
+                     self, "sort-enabled-first",
+                     G_SETTINGS_BIND_GET);
 }
