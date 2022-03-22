@@ -68,11 +68,9 @@ exm_extension_get_property (GObject    *object,
         break;
     case PROP_DISPLAY_NAME:
         g_value_set_string (value, self->display_name);
-        self->display_name = g_markup_escape_text (self->display_name, -1);
         break;
     case PROP_DESCRIPTION:
         g_value_set_string (value, self->description);
-        self->description = g_markup_escape_text (self->description, -1);
         break;
     case PROP_STATE:
         g_value_set_enum (value, self->state);
@@ -114,9 +112,13 @@ exm_extension_set_property (GObject      *object,
         self->uuid = g_value_dup_string (value);
         break;
     case PROP_DISPLAY_NAME:
+        if (self->display_name)
+            g_free (self->display_name);
         self->display_name = g_value_dup_string (value);
         break;
     case PROP_DESCRIPTION:
+        if (self->description)
+            g_free (self->description);
         self->description = g_value_dup_string (value);
         break;
     case PROP_STATE:
