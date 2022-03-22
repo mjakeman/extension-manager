@@ -131,8 +131,9 @@ widget_factory (ExmExtension* extension)
 {
     ExmExtensionRow *row;
 
-    row = exm_extension_row_new (extension);
+    g_return_if_fail (EXM_IS_EXTENSION (extension));
 
+    row = exm_extension_row_new (extension);
     return GTK_WIDGET (row);
 }
 
@@ -167,6 +168,9 @@ bind_list_box (GtkListBox *list_box,
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;
     GtkSortListModel *sorted_model;
+
+    g_return_if_fail (GTK_IS_LIST_BOX (list_box));
+    g_return_if_fail (G_IS_LIST_MODEL (model));
 
     // Sort alphabetically
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
@@ -237,23 +241,15 @@ invalidate_model_bindings (ExmInstalledPage *self)
                   "system-extensions", &system_ext_model,
                   NULL);
 
-    if (!user_ext_model || !system_ext_model)
-        return;
+    if (user_ext_model)
+        bind_list_box (self->user_list_box,
+                       user_ext_model,
+                       self->sort_enabled_first);
 
-    bind_list_box (self->user_list_box, user_ext_model, self->sort_enabled_first);
-    bind_list_box (self->system_list_box, system_ext_model, self->sort_enabled_first);
-
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->user_list_box,
-                            "sensitive",
-                            G_BINDING_SYNC_CREATE);
-
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->system_list_box,
-                            "sensitive",
-                            G_BINDING_SYNC_CREATE);
+    if (system_ext_model)
+        bind_list_box (self->system_list_box,
+                       system_ext_model,
+                       self->sort_enabled_first);
 }
 
 static void
@@ -266,6 +262,18 @@ on_bind_manager (ExmInstalledPage *self)
                       "updates-available",
                       G_CALLBACK (on_updates_available),
                       self);
+
+    g_object_bind_property (self->manager,
+                            "extensions-enabled",
+                            self->user_list_box,
+                            "sensitive",
+                            G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->manager,
+                            "extensions-enabled",
+                            self->system_list_box,
+                            "sensitive",
+                            G_BINDING_SYNC_CREATE);
 
     // Check if updates are available
     // NOTE: We need to do this *after* connecting the signal
@@ -326,4 +334,6 @@ exm_installed_page_init (ExmInstalledPage *self)
     g_settings_bind (settings, "sort-enabled-first",
                      self, "sort-enabled-first",
                      G_SETTINGS_BIND_GET);
+
+    g_object_unref (settings);
 }
