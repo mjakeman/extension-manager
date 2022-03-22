@@ -16,7 +16,6 @@ Second feature update to extension-manager
  - In-app release notes on first run
  - Allow installing unsupported extensions
  - Option to sort extensions by enabled status
- - Add placeholder labels when no extensions are installed
  - Focus search entry on first open
 
 ### Maintenance
