@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"PO-Revision-Date: 2022-03-23 19:09+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
+#: src/exm-application.c:109
+msgid "Extension Manager"
+msgstr "Udvidelsesadministrering"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "Et værktøj til at gennemse og installere GNOME Skaludvidelser."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
+msgid "Matthew Jakeman"
+msgstr "Matthew Jakeman"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+msgid "Features:"
+msgstr "Funktioner:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Gennemse extensions.gnome.org inde i app'en"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "Administrer de udvidelser du allerede har installeret"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Et værktøj til at administrere GNOME Skaludvidelser"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr ""
+"Fikser et crash der nogle gange opstår når man afinstallerer en udvidelse"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr ""
+"Den første funktionsodpatering til Udvidelsesadministrering. Højdepunkter "
+"inkluderer:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr "Mørkt tema og understøttelse af at omgå systemets farveskema"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+msgid "Shows screenshots in extension listings"
+msgstr "Vis skærmbilleder i udvidelses kataloget"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+msgid "Shell version compatibility check"
+msgstr "Skalversion kompatibilitetstjek"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
+msgid "Localised into seven languages"
+msgstr "Oversat til syv sprog"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
+msgid "Sort search results"
+msgstr "Sortér søgeresultater"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
+msgid "Global extension on/off toggle"
+msgstr "Global tænd/sluk af udvidelser"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
+msgid "Displays user and system extensions separately"
+msgstr "Vis bruger- og systemudvidelser seperat"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
+msgid "Performance and stability"
+msgstr "Ydelse og stabilitet"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
+msgid "Colour Scheme Preference"
+msgstr "Farveskema Præferance"
+
+#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
+msgid ""
+"Whether to follow the system colour scheme or force either light or dark "
+"mode."
+msgstr ""
+"Hvorvidt systemets farveskema skal følges eller om enten lyst eller mørkt "
+"tema skal gennemtvinges."
+
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:112
+msgid "translator-credits"
+msgstr "ExponentActivity"
+
+#: src/exm-application.c:113
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr ""
+"Et meget simpelt værktøj til at gennemse, hente og administrerer GNOME "
+"skaludvidelser."
+
+#: src/exm-application.c:119
+msgid "Project Homepage"
+msgstr "Projekt Hjemmeside"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "Søg efter udvidelser"
+
+#: src/exm-browse-page.blp:8
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"Indtast et nøgleord fo at søge på 'extensions.gnome.org ' efter GNOME "
+"Skaludvidelser."
+
+#: src/exm-browse-page.blp:22
+msgid "e.g. \"Blur my Shell\""
+msgstr "f.eks. \"Blur my Shell\""
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "Popularitet"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "Hentninger"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "Nylig"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "Navn"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "Ingen Resultater Fundet"
+
+#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
+msgid "An Error Occurred"
+msgstr "En Fejl Opstod"
+
+#: src/exm-detail-view.blp:95
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: src/exm-detail-view.blp:113
+msgid "Supported Versions"
+msgstr "Understøttede Versioner"
+
+#: src/exm-detail-view.blp:129
+msgid "Links"
+msgstr "Links"
+
+#: src/exm-detail-view.blp:139
+msgid "View on Extensions"
+msgstr "Se på Extensions"
+
+#: src/exm-detail-view.c:120
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "Denne udvidelse er inkompatibel med din nuværende version af GNOME."
+
+#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
+msgid "Install"
+msgstr "Installér"
+
+#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
+msgid "Installed"
+msgstr "Installeret"
+
+#: src/exm-detail-view.c:138 src/exm-search-row.c:159
+msgid "Unsupported"
+msgstr "Ikke Understøttet"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:303
+msgid "Loading…"
+msgstr "Indlæser…"
+
+#: src/exm-extension-row.blp:37
+msgid "See Details"
+msgstr "See Detaljer"
+
+#: src/exm-extension-row.blp:46
+msgid "Remove"
+msgstr "Fjern"
+
+#: src/exm-installed-page.blp:17
+msgid "User-Installed Extensions"
+msgstr "Brugerinstallerede Udvidelser"
+
+#: src/exm-installed-page.blp:29
+msgid "System Extensions"
+msgstr "Systeminstallerede Udvidelser"
+
+#: src/exm-window.blp:50
+msgid "Browse"
+msgstr "Gennemse"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "Tema"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "Følg System"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "Lys"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "Mørk"
+
+#: src/exm-window.blp:89
+msgid "Keyboard Shortcuts"
+msgstr "Tastatur Genveje"
+
+#: src/exm-window.blp:93
+msgid "About Extension Manager"
+msgstr "Om Udvidelsesadministrering"
+
+#: src/exm-window.c:179
+msgid "Are you sure you want to uninstall?"
+msgstr "Er du sikker på du vil afinstallere?"
+
+#: src/gtk/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Generelt"
+
+#: src/gtk/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Vis Genveje"
+
+#: src/gtk/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afslut"
