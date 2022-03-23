@@ -375,6 +375,7 @@ do_version_check (ExmWindow *self)
         gtk_dialog_add_button (GTK_DIALOG (dialog), _("View Release Notes"), GTK_RESPONSE_YES);
         gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
 
+        // Translators: '%s' = Current version of Extension Manager (e.g. '0.3.0')
         gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
                                                     _("This is your first time using <b>Extension Manager %s</b>.\nWould you like to see the release notes?"),
                                                     APP_VERSION);

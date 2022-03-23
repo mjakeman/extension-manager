@@ -210,6 +210,8 @@ exm_application_init (ExmApplication *self)
                                   map_setting_to_adw_style,
                                   NULL, NULL, NULL);
 
+    g_object_unref (settings);
+
     const char *accels[] = {"<primary>q", NULL};
     gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.quit", accels);
 }
