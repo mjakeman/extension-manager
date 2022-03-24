@@ -277,7 +277,8 @@ msgstr ""
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr ""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
 msgid "Release Notes"
