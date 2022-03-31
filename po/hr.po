@@ -144,8 +144,7 @@ msgstr "Upravitelj proširenja"
 #: src/exm-application.c:117
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  gogo https://launchpad.net/~trebelnik-stefina"
+"gogo <trebelnik2@gmail.com>"
 
 #: src/exm-application.c:118
 msgid ""
