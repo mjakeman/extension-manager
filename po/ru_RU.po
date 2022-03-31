@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-03-22 20:29+0300\n"
+"POT-Creation-Date: 2022-03-21 13:23+0100\n"
+"PO-Revision-Date: 2022-03-30 08:41+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -218,12 +218,12 @@ msgstr "Отзывы пользователей"
 
 #: src/exm-detail-view.blp:187
 msgid "Show All Reviews"
-msgstr "Show All Reviews"
+msgstr "Показать все отзывы"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
 #: src/exm-detail-view.c:364
-msgid "Loading"
-msgstr "Загрузка"
+msgid "Loading…"
+msgstr "Загрузка…"
 
 #: src/exm-extension-row.blp:33
 msgid "An error occurred while loading this extension"
@@ -287,7 +287,7 @@ msgstr "Завершить сеанс"
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "%d расширений будут обновлены при следующем входе в систему."
+msgstr[0] "%d расширение будут обновлены при следующем входе в систему."
 msgstr[1] "%d расширения будут обновлены при следующем входе в систему."
 msgstr[2] "%d расширений будут обновлены при следующем входе в систему."
 
