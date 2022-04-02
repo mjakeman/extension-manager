@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-04-02 10:56+0200\n"
-"Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
+"PO-Revision-Date: 2022-04-02 11:23+0200\n"
+"Last-Translator: Gabriel Brand\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -146,7 +146,7 @@ msgstr "Erweiterungs Manager"
 msgid "translator-credits"
 msgstr ""
 "Lauri Jouaux <lauri.jouaux@outlook.com>\n"
-"Gabriel Brand <gabr.brand@gmail.com>"
+"Gabriel Brand"
 
 #: src/exm-application.c:118
 msgid ""
@@ -228,7 +228,7 @@ msgstr "Laden…"
 
 #: src/exm-extension-row.blp:33
 msgid "An error occurred while loading this extension"
-msgstr "Ein Fehler ist beim Laden der Erweiterung aufgetreten"
+msgstr "Beim Laden dieser Erweiterung ist ein Fehler aufgetreten"
 
 #: src/exm-extension-row.blp:46 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
@@ -327,7 +327,7 @@ msgstr "Aktivierte zuerst anzeigen"
 
 #: src/exm-window.blp:103
 msgid "About Extension Manager"
-msgstr "Über Extension Manager"
+msgstr "Über Erweiterungs Manager"
 
 #: src/exm-window.c:180
 msgid "Are you sure you want to uninstall?"
