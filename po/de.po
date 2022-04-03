@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-04-02 20:24+0200\n"
+"PO-Revision-Date: 2022-04-03 11:36+0200\n"
 "Last-Translator: Gabriel Brand\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -45,7 +45,7 @@ msgstr "Verwalten Sie bereits installierte Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Ein Programm zum Verwalten von GNOME Shell Erweiterungen"
+msgstr "Ein Programm zum Verwalten von GNOME-Shell-Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
 msgid "The second feature update to extension-manager. Highlights include:"
@@ -53,7 +53,7 @@ msgstr "Das zweite Funktionsupdate für Erweiterungs Manager. Höhepunkte sind:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
 msgid "View comments and reviews"
-msgstr "Kommentare und Bewertungen anzeigen"
+msgstr "Kommentare und Rezensionen anzeigen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
 msgid "Support for in-app updates"
@@ -146,7 +146,7 @@ msgstr "Erweiterungs Manager"
 msgid "translator-credits"
 msgstr ""
 "Lauri Jouaux <lauri.jouaux@outlook.com>\n"
-"Gabriel Brand"
+"Gabriel Brand <gabr.brand@gmail.com>"
 
 #: src/exm-application.c:118
 msgid ""
@@ -154,7 +154,7 @@ msgid ""
 "extensions."
 msgstr ""
 "Ein sehr einfaches Tool zum Durchsuchen, Herunterladen und Verwalten von "
-"GNOME Shell Erweiterungen."
+"GNOME-Shell-Erweiterungen."
 
 #: src/exm-application.c:124
 msgid "Project Homepage"
@@ -168,8 +168,8 @@ msgstr "Suchen Sie nach Erweiterungen"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Geben Sie einen Suchbegriff ein, um auf \"extensions.gnome.org\" nach GNOME "
-"Shell Erweiterungen zu suchen."
+"Geben Sie einen Suchbegriff ein, um auf \"extensions.gnome.org\" nach GNOME-"
+"Shell-Erweiterungen zu suchen."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
@@ -178,7 +178,7 @@ msgstr "z.B. \"Blur my Shell\""
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:33
 msgid "Popularity"
-msgstr "Popularität"
+msgstr "Beliebtheit"
 
 #: src/exm-browse-page.blp:33
 msgid "Downloads"
@@ -186,7 +186,7 @@ msgstr "Downloads"
 
 #: src/exm-browse-page.blp:33
 msgid "Recent"
-msgstr "Neuste"
+msgstr "Aktualität"
 
 #: src/exm-browse-page.blp:33
 msgid "Name"
@@ -215,11 +215,11 @@ msgstr "Unterstützte Versionen"
 
 #: src/exm-detail-view.blp:146
 msgid "User Reviews"
-msgstr "Nutzerbewertungen"
+msgstr "Benutzerrezensionen"
 
 #: src/exm-detail-view.blp:187
 msgid "Show All Reviews"
-msgstr "Alle Bewertungen anzeigen"
+msgstr "Alle Rezensionen anzeigen"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
 #: src/exm-detail-view.c:364
