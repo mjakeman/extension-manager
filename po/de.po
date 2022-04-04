@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-04-03 22:00+0200\n"
+"PO-Revision-Date: 2022-04-04 14:25+0200\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -73,7 +73,7 @@ msgstr "Versionshinweise beim ersten Start anzeigen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
 msgid "New app icon"
-msgstr "Neues Anwendungs-Icon"
+msgstr "Neues Anwendungs-Symbol"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
 msgid "Optionally sort extensions by enabled status"
@@ -107,7 +107,7 @@ msgstr "Das erste Funktionsupdate für Erweiterungs Manager. Höhepunkte sind:"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr ""
-"Dunkles Design und Unterstützung für das Überschreiben des Systemfarbschemas"
+"Dunkles Thema und Unterstützung für das Überschreiben des Systemfarbschemas"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
 msgid "Shows screenshots in extension listings"
