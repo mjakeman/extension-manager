@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-04-03 13:21+0200\n"
+"PO-Revision-Date: 2022-04-03 22:00+0200\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -36,7 +36,7 @@ msgstr "Funktionen:"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Durchstöbern Sie extensions.gnome.org direkt in der App"
+msgstr "Durchstöbern Sie extensions.gnome.org direkt in der Anwendung"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
@@ -57,7 +57,7 @@ msgstr "Kommentare und Rezensionen anzeigen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
 msgid "Support for in-app updates"
-msgstr "Unterstützung für Updates in der App"
+msgstr "Unterstützung für Updates in der Anwendung"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
 msgid "Better handling errors and out-of-date extensions"
@@ -73,7 +73,7 @@ msgstr "Versionshinweise beim ersten Start anzeigen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
 msgid "New app icon"
-msgstr "Neues App-Icon"
+msgstr "Neues Anwendungs-Icon"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
 msgid "Optionally sort extensions by enabled status"
@@ -298,7 +298,7 @@ msgstr "Versionshinweise"
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Installiert"
+msgstr "Installierte"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
@@ -307,7 +307,7 @@ msgstr "Suchen"
 
 #: src/exm-window.blp:71
 msgid "Theme"
-msgstr "Design"
+msgstr "Thema"
 
 #: src/exm-window.blp:73
 msgid "Follow System"
@@ -343,7 +343,7 @@ msgstr ""
 
 #: src/exm-window.c:373
 msgid "What's New"
-msgstr "Was ist neu?"
+msgstr "Neuigkeiten"
 
 #: src/exm-window.c:375
 msgid "View Release Notes"
