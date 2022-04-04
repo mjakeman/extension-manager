@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-04-04 14:25+0200\n"
+"PO-Revision-Date: 2022-04-04 20:16+0200\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -65,7 +65,7 @@ msgstr "Besserer Umgang mit Fehlern und veralteten Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
 msgid "Allow installing 'unsupported' extensions"
-msgstr "Erlaubt das Installieren von \"nicht unterstützten\" Erweiterungen"
+msgstr "Installation von „nicht unterstützten“ Erweiterungen zulassen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
 msgid "Display release notes on first run"
@@ -73,7 +73,7 @@ msgstr "Versionshinweise beim ersten Start anzeigen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
 msgid "New app icon"
-msgstr "Neues Anwendungs-Symbol"
+msgstr "Neues Anwendungssymbol"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
 msgid "Optionally sort extensions by enabled status"
@@ -111,11 +111,11 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
 msgid "Shows screenshots in extension listings"
-msgstr "Zeige Bildschirmfotos in Erweitungs-Eintrag"
+msgstr "Bildschirmfotos in Erweitungseintrag anzeigen"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
 msgid "Shell version compatibility check"
-msgstr "Shell-Versions Kompatibilitätsprüfung"
+msgstr "Kompatibilitätsprüfung der Shell-Version"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
 msgid "Localised into seven languages"
@@ -131,7 +131,7 @@ msgstr "Globaler Erweiterungs An-/Aus-Schalter"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
 msgid "Displays user and system extensions separately"
-msgstr "Zeige Nutzer- und System-Erweiterungen getrennt an"
+msgstr "Nutzer- und System-Erweiterungen getrennt anzeigen"
 
 #: src/exm-application.c:106
 msgid "Extension Manager (Development)"
@@ -168,12 +168,12 @@ msgstr "Suchen Sie nach Erweiterungen"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Geben Sie einen Suchbegriff ein, um auf \"extensions.gnome.org\" nach GNOME-"
+"Geben Sie einen Suchbegriff ein, um auf „extensions.gnome.org“ nach GNOME-"
 "Shell-Erweiterungen zu suchen."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
-msgstr "z.B. \"Blur my Shell\""
+msgstr "z.B. »Blur my Shell«"
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:33
@@ -207,7 +207,7 @@ msgstr "Beschreibung"
 
 #: src/exm-detail-view.blp:113
 msgid "View on Extensions"
-msgstr "Auf \"GNOME Extensions\" anzeigen"
+msgstr "Auf „GNOME Extensions“ anzeigen"
 
 #: src/exm-detail-view.blp:130
 msgid "Supported Versions"
@@ -298,7 +298,7 @@ msgstr "Versionshinweise"
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Installierte"
+msgstr "Installiert"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
