@@ -143,15 +143,15 @@ msgstr "Gerenciador de Extensões"
 #: src/exm-application.c:117
 msgid "translator-credits"
 msgstr ""
-"Douglas Silva <douglasilvadev@gmail.com>Tiago Lucas Flach https://github."
-"com/tiagoFlach"
+"Douglas Silva <douglasilvadev@gmail.com>\n"
+"Tiago Lucas Flach https://github.com/tiagoFlach"
 
 #: src/exm-application.c:118
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
 msgstr ""
-"Uma ferramenta e para buscar, baixar e gerenciar as extensões do GNOME "
+"Uma ferramenta muito simples para buscar, baixar e gerenciar as extensões do GNOME "
 "Shell."
 
 #: src/exm-application.c:124
