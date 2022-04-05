@@ -157,7 +157,7 @@ msgstr "Mode automatique ou forcer le Thème clair/foncé."
 #: src/exm-application.c:112
 msgid "translator-credits"
 msgstr ""
-"PaxtonGround"
+"PaxtonGround\n"
 "Geoffrey Coulaud <geoffrey.coulaud@gmail.com>"
 
 #: src/exm-application.c:113
