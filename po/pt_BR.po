@@ -7,117 +7,154 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 23:46+1300\n"
-"PO-Revision-Date: 2022-01-30 15:59-0300\n"
-"Last-Translator: Tiago Lucas Flach <tiagolucas9830@gmail.com>\n"
+"POT-Creation-Date: 2022-03-21 13:23+0100\n"
+"PO-Revision-Date: 2022-04-04 16:41-0300\n"
+"Last-Translator: Douglas Silva <douglasilvadev@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in:3
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:6
-#: src/exm-application.c:109
-msgid "Extension Manager"
-msgstr "Gerenciador de Extensões"
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
+msgid "@app_title@"
+msgstr "@app_title@"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:7
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:11
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "Um utilitário para buscar e instalar as extensões do GNOME Shell."
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:9
-msgid "Matthew Jakeman"
-msgstr "Matthew Jakeman"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:12
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
 msgid "Features:"
 msgstr "Funcionalidades:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:14
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:24
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Navegue em extensions.gnome.org por dentro da aplicação"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:15
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:28
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
 msgid "Manage the extensions you already have installed"
 msgstr "Gerencie as extensões que já estão instaladas"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:20
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Um utilitário para gerenciar as extensões do GNOME Shell"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:43
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "Corrige uma falha que às vezes ocorre ao desinstalar uma extensão"
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
+msgid "The second feature update to extension-manager. Highlights include:"
+msgstr ""
+"A segunda atualização de funções do gerenciador de extensões. Em destaque:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:48
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
+msgid "View comments and reviews"
+msgstr "Ver avaliações e comentários"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
+msgid "Support for in-app updates"
+msgstr "Suporte para atualizações por dentro da aplicação"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
+msgid "Better handling errors and out-of-date extensions"
+msgstr "Melhor tratamento de erros e de extensões desatualizadas"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
+msgid "Allow installing 'unsupported' extensions"
+msgstr "Permite instalar extensões 'não suportadas'"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
+msgid "Display release notes on first run"
+msgstr "Exibe notas de lançamento na primeira execução"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
+msgid "New app icon"
+msgstr "Novo ícone da aplicação"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
+msgid "Optionally sort extensions by enabled status"
+msgstr "Opcionalmente ordena extensões pelo estado ativado"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
+msgid "Translation updates"
+msgstr "Atualizações de traduções"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
+msgid "Performance and stability"
+msgstr "Desempenho e estabilidade"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
+msgid "Fix special characters in search results"
+msgstr "Corrige caracteres especiais nos resultados da pesquisa"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "Corrige uma falha que às vezes ocorria ao desinstalar uma extensão"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
 "A primeira atualização de funções do gerenciador de extensões. Em destaque:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:50
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
 msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Tema escuro e suporte para sobrescrever o esquema de cores do sistema"
+msgstr "Tema escuro e suporte para substituir o esquema de cores do sistema"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:51
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
 msgid "Shows screenshots in extension listings"
 msgstr "Exibe capturas de tela nos detalhes das extensões"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
 msgid "Shell version compatibility check"
 msgstr "Verifica a compatibilidade de versão do Shell"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:53
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
 msgid "Localised into seven languages"
-msgstr "Traduzido para sete idiomas"
+msgstr "Traduzido em sete idiomas"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:54
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
 msgid "Sort search results"
-msgstr "Resultado de busca ordenado"
+msgstr "Resultados de busca ordenado"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:55
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
 msgid "Global extension on/off toggle"
 msgstr "Ativar/desativar extensão global"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:56
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
 msgid "Displays user and system extensions separately"
 msgstr "Exibe as extensões do usuário e do sistema separadamente"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in:57
-msgid "Performance and stability"
-msgstr "Desempenho e estabilidade"
+#: src/exm-application.c:106
+msgid "Extension Manager (Development)"
+msgstr "Gerenciador de Extensões (Desenvolvimento)"
 
-#: data/com.mattjakeman.ExtensionManager.gschema.xml:11
-msgid "Colour Scheme Preference"
-msgstr "Preferência do esquema de cores"
-
-#: data/com.mattjakeman.ExtensionManager.gschema.xml:12
-msgid ""
-"Whether to follow the system colour scheme or force either light or dark "
-"mode."
-msgstr "Seguir as cores do sistema ou forçar o modo claro ou escuro."
+#: src/exm-application.c:107
+msgid "Extension Manager"
+msgstr "Gerenciador de Extensões"
 
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
-#: src/exm-application.c:112
+#: src/exm-application.c:117
 msgid "translator-credits"
 msgstr ""
-"Douglas Silva <douglasilvadev@gmail.com>"
+"Douglas Silva <douglasilvadev@gmail.com>\n"
 "Tiago Lucas Flach https://github.com/tiagoFlach"
 
-#: src/exm-application.c:113
+#: src/exm-application.c:118
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
 msgstr ""
-"Uma ferramenta muito simples para buscar, baixar e gerenciar as extensões do "
-"GNOME Shell."
+"Uma ferramenta muito simples para buscar, baixar e gerenciar as extensões do GNOME "
+"Shell."
 
-#: src/exm-application.c:119
+#: src/exm-application.c:124
 msgid "Project Homepage"
 msgstr "Página Web"
 
@@ -129,8 +166,8 @@ msgstr "Procurar extensões"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Digite uma palavra-chave para procurar extensões do Gnome Shell em "
-"'extensions.gnome.org'."
+"Digite uma palavra-chave para procurar em 'extensions.gnome.org' extensões "
+"do GNOME Shell."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
@@ -155,66 +192,114 @@ msgstr "Nome"
 
 #: src/exm-browse-page.blp:60
 msgid "No Results Found"
-msgstr "Nenhum resultado encontrado"
+msgstr "Nenhum resultado"
 
-#: src/exm-detail-view.blp:35 src/exm-detail-view.c:287
+#: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
+#: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
 msgid "An Error Occurred"
 msgstr "Ocorreu um Erro"
 
-#: src/exm-detail-view.blp:95
+#: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
 msgid "Description"
 msgstr "Descrição"
 
 #: src/exm-detail-view.blp:113
-msgid "Supported Versions"
-msgstr "Versões Suportadas"
-
-#: src/exm-detail-view.blp:129
-msgid "Links"
-msgstr "Links"
-
-#: src/exm-detail-view.blp:139
 msgid "View on Extensions"
 msgstr "Ver em Extensões"
 
-#: src/exm-detail-view.c:120
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Esta extensão é incompatível com a atual versão do GNOME."
+#: src/exm-detail-view.blp:130
+msgid "Supported Versions"
+msgstr "Versões Suportadas"
 
-#: src/exm-detail-view.c:129 src/exm-search-row.blp:75
-msgid "Install"
-msgstr "Instalar"
+#: src/exm-detail-view.blp:146
+msgid "User Reviews"
+msgstr "Avaliações dos usuários"
 
-#: src/exm-detail-view.c:134 src/exm-search-row.c:153 src/exm-window.blp:42
-msgid "Installed"
-msgstr "Instalado"
-
-#: src/exm-detail-view.c:138 src/exm-search-row.c:159
-msgid "Unsupported"
-msgstr "Não suportada"
+#: src/exm-detail-view.blp:187
+msgid "Show All Reviews"
+msgstr "Mostrar todas as avaliações"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:303
+#: src/exm-detail-view.c:364
 msgid "Loading…"
 msgstr "Carregando…"
 
-#: src/exm-extension-row.blp:37
-msgid "See Details"
-msgstr "Mostrar Detalhes"
+#: src/exm-extension-row.blp:33
+msgid "An error occurred while loading this extension"
+msgstr "Ocorreu um erro ao carregar esta extensão"
 
-#: src/exm-extension-row.blp:46
+#: src/exm-extension-row.blp:46 src/exm-install-button.c:105
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "Esta extensão é incompatível com a atual versão do GNOME."
+
+#: src/exm-extension-row.blp:59
+msgid "A newer version of this extension is available"
+msgstr "Uma nova versão está disponível"
+
+#: src/exm-extension-row.blp:100
+msgid "Version"
+msgstr "Versão"
+
+#: src/exm-extension-row.blp:126
+msgid "Error"
+msgstr "Erro"
+
+#: src/exm-extension-row.blp:161
+msgid "See Details"
+msgstr "Ver Detalhes"
+
+#: src/exm-extension-row.blp:170
 msgid "Remove"
 msgstr "Remover"
 
-#: src/exm-installed-page.blp:17
+#: src/exm-install-button.c:115
+msgid "Install"
+msgstr "Instalar"
+
+#: src/exm-install-button.c:120
+msgctxt "State"
+msgid "Installed"
+msgstr "Instalado"
+
+#: src/exm-install-button.c:124
+msgid "Unsupported"
+msgstr "Não suportada"
+
+#: src/exm-installed-page.blp:25
 msgid "User-Installed Extensions"
 msgstr "Extensões Instaladas Manualmente"
 
-#: src/exm-installed-page.blp:29
+#: src/exm-installed-page.blp:38
 msgid "System Extensions"
 msgstr "Extensões do Sistema"
 
+#: src/exm-installed-page.blp:78
+msgid "Updates are available"
+msgstr "Atualizações estão disponíveis"
+
+#: src/exm-installed-page.blp:95
+msgid "Log Out"
+msgstr "Deslogar"
+
+#. Translators: '%d' = number of extensions that will be updated
+#: src/exm-installed-page.c:215
+#, c-format
+msgid "One extension will be updated on next login."
+msgid_plural "%d extensions will be updated on next login."
+msgstr[0] "Uma extensão será atualizada no próximo login."
+msgstr[1] "%d extensões serão atualizadas no próximo login."
+
+#: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
+msgid "Release Notes"
+msgstr "Notas de lançamento"
+
+#: src/exm-window.blp:42
+msgctxt "Navigation"
+msgid "Installed"
+msgstr "Instalado"
+
 #: src/exm-window.blp:50
+msgctxt "Navigation"
 msgid "Browse"
 msgstr "Navegar"
 
@@ -235,28 +320,38 @@ msgid "Dark"
 msgstr "Escuro"
 
 #: src/exm-window.blp:89
-msgid "Keyboard Shortcuts"
-msgstr "Atalhos do Teclado"
+msgid "Sort Enabled First"
+msgstr "Ordena as extensões habilitadas em primeiro"
 
-#: src/exm-window.blp:93
+#: src/exm-window.blp:103
 msgid "About Extension Manager"
 msgstr "Sobre o Gerenciador de Extensões"
 
-#: src/exm-window.c:179
+#: src/exm-window.c:180
 msgid "Are you sure you want to uninstall?"
 msgstr "Você tem certeza que quer desinstalar?"
 
-#: src/gtk/help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Geral"
+#: src/exm-window.c:247
+msgid ""
+"This extension does not support your GNOME Shell version.\n"
+"Would you like to install anyway?"
+msgstr ""
+"Esta extensão não suporta a versão atual do GNOME Shell.\n"
+"Deseja instalar mesmo assim ?"
 
-#: src/gtk/help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Mostrar Atalhos"
+#: src/exm-window.c:373
+msgid "What's New"
+msgstr "Novidades"
 
-#: src/gtk/help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Sair"
+#: src/exm-window.c:375
+msgid "View Release Notes"
+msgstr "Ver Notas de lançamento"
+
+#: src/exm-window.c:379
+#, c-format
+msgid ""
+"This is your first time using <b>Extension Manager %s</b>.\n"
+"Would you like to see the release notes?"
+msgstr ""
+"Esta é a primeira vez que você usa o <b>Gerenciador de Extensões %s</b>\n"
+"Gostaria de ver as notas de lançamento?"
