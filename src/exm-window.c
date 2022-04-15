@@ -402,6 +402,9 @@ exm_window_init (ExmWindow *self)
 
     self->manager = exm_manager_new ();
 
+    gtk_window_set_title (GTK_WINDOW (self),
+                          IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager"));
+
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
     g_object_set (self->detail_view, "manager", self->manager, NULL);
