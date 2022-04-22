@@ -28,8 +28,8 @@ appconf = configuration_data()
 appconf.set('app_id', app_id)
 appconf.set('app_title', app_title)
 appstream_file_in = configure_file(
-          input: 'com.mattjakeman.ExtensionManager.appdata.xml.in.in',
-         output: '@0@.appdata.xml.in'.format(app_id),
+          input: 'com.mattjakeman.ExtensionManager.metainfo.xml.in.in',
+         output: '@0@.metainfo.xml.in'.format(app_id),
   configuration: appconf,
 )
 
