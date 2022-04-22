@@ -342,19 +342,6 @@ exm_window_class_init (ExmWindowClass *klass)
 }
 
 static void
-version_check_response (GtkDialog *dialog,
-                        gint       response_id,
-                        ExmWindow *self)
-{
-    gtk_window_destroy (GTK_WINDOW (dialog));
-
-    if (response_id == GTK_RESPONSE_YES)
-    {
-        gtk_widget_activate_action (GTK_WIDGET (self), "win.show-release-notes", NULL);
-    }
-}
-
-static void
 do_version_check (ExmWindow *self)
 {
     GSettings *settings;
@@ -363,30 +350,9 @@ do_version_check (ExmWindow *self)
     settings = g_settings_new (APP_ID);
     version_string = g_settings_get_string (settings, "last-used-version");
 
-    if (strcmp (version_string, APP_VERSION) != 0)
-    {
-        GtkWidget *dialog;
-
-        dialog = gtk_message_dialog_new (GTK_WINDOW (self),
-                                         GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-                                         GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE,
-                                         _("What's New"));
-
-        gtk_dialog_add_button (GTK_DIALOG (dialog), _("View Release Notes"), GTK_RESPONSE_YES);
-        gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_YES);
-
-        // Translators: '%s' = Current version of Extension Manager (e.g. '0.3.0')
-        gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
-                                                    _("This is your first time using <b>Extension Manager %s</b>.\nWould you like to see the release notes?"),
-                                                    APP_VERSION);
-
-        g_signal_connect (dialog,
-                          "response",
-                          G_CALLBACK (version_check_response),
-                          self);
-
-        gtk_widget_show (dialog);
-    }
+    // In the future, use this to show a toast or notification when
+    // a new version has been installed. Maybe with rich text release notes?
+    // if (strcmp (version_string, APP_VERSION) != 0) { ... }
 
     g_settings_set_string (settings, "last-used-version", APP_VERSION);
 }
