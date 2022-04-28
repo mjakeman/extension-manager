@@ -1,0 +1,351 @@
+# LANGUAGE translations for extension-manager package.
+# Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-21 13:23+0100\n"
+"PO-Revision-Date: 2022-04-28 23:05+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
+msgid "@app_title@"
+msgstr "مدیر افزونه ها"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "ابزاری برای نصب کردن افزونه های گنوم."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
+msgid "Features:"
+msgstr "امکانات:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "نصب افزونه ها از extensions.gnome.org در خود برنامه"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "مدیریت افزونه های نصب شده"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "یک ابزار برای مدیریت گنوم"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
+msgid "The second feature update to extension-manager. Highlights include:"
+msgstr "دومین به روز رسانی ویژگی به مدیر افزونه ها. نکات برجسته عبارتند از:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
+msgid "View comments and reviews"
+msgstr "دیدن کامنت ها"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
+msgid "Support for in-app updates"
+msgstr "بروزرسانی افزونه ها در برنامه"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
+msgid "Better handling errors and out-of-date extensions"
+msgstr "هندل کردن بهتر خطاها و افزونه های قدیمی"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
+msgid "Allow installing 'unsupported' extensions"
+msgstr "اجازه نصب افزونه های 'پشتیبانی' نشده"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
+msgid "Display release notes on first run"
+msgstr "نشان دادن یادداشت های  انتشار در اولین اجرا"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
+msgid "New app icon"
+msgstr "آیکون جدید برنامه"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
+msgid "Optionally sort extensions by enabled status"
+msgstr "مرتب سازی افزونه ها بر اساس فعال بودن (اختیاری)"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
+msgid "Translation updates"
+msgstr "بروزرسانی های ترجمه"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
+msgid "Performance and stability"
+msgstr "عملکرد و ثبات"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
+msgid "Fix special characters in search results"
+msgstr "تصحیح کاراکترهای خاص در نتایج جست و جو"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "برطرف کردن خرابی های که بعد از حذف برخی افزونه ها رخ می دهد"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr "اولین به روز رسانی ویژگی به مدیر افزونه ها. نکات برجسته عبارتند از:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr "تم تیره و پشتیبانی از نادیده گرفتن تم سیستم"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
+msgid "Shows screenshots in extension listings"
+msgstr "نشان دادن عکس صفحه در صفحه افزونه ها"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
+msgid "Shell version compatibility check"
+msgstr "بررسی سارگار بودن ورژن شل"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
+msgid "Localised into seven languages"
+msgstr "ترحمه شده به 7 زبان"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
+msgid "Sort search results"
+msgstr "مرتب کردن نتایج جست و جو"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
+msgid "Global extension on/off toggle"
+msgstr "خاموش روشن کردن سراسری افزونه"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
+msgid "Displays user and system extensions separately"
+msgstr "نشان دادن جدای افزونه های کاربر و سیستمی"
+
+#: src/exm-application.c:106
+msgid "Extension Manager (Development)"
+msgstr "مدیر افزونه ها (در حال توسعه)"
+
+#: src/exm-application.c:107
+msgid "Extension Manager"
+msgstr "مدیر افزونه ها"
+
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:117
+msgid "translator-credits"
+msgstr "نیما قنی اصل (nma.fanniasl@gmail.com) (smartnima.com)"
+
+#: src/exm-application.c:118
+msgid ""
+"A very simple tool for browsing, downloading, and managing GNOME shell "
+"extensions."
+msgstr "یک ابزار خیلی ساده برای گشتن، بارگیری کردن و مدیریت افزونه های گنوم."
+
+#: src/exm-application.c:124
+msgid "Project Homepage"
+msgstr "صفحه اصلی پروژه"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "جست و جو برای افزونه ها"
+
+#: src/exm-browse-page.blp:8
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"یک کلمه برای جست و جو در 'extensions.gnome.org' برای افزونه های گنوم وارد "
+"کنید."
+
+#: src/exm-browse-page.blp:22
+msgid "e.g. \"Blur my Shell\""
+msgstr "مثلا: \"Blur my Shell\""
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "محبوبیت"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "دانلود ها"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "تازه"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "نام"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "هیج نتیحه ای پیدا نشد"
+
+#: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
+#: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
+msgid "An Error Occurred"
+msgstr "مشکلی رخ داد"
+
+#: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
+msgid "Description"
+msgstr "توضیحات"
+
+#: src/exm-detail-view.blp:113
+msgid "View on Extensions"
+msgstr "دیدن در افزونه ها"
+
+#: src/exm-detail-view.blp:130
+msgid "Supported Versions"
+msgstr "ورژن های پشتیبانی شده"
+
+#: src/exm-detail-view.blp:146
+msgid "User Reviews"
+msgstr "بررسی های کاربران"
+
+#: src/exm-detail-view.blp:187
+msgid "Show All Reviews"
+msgstr "نشان دادن همه بررسی ها"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:364
+msgid "Loading…"
+msgstr "در حال بارگذاری..."
+
+#: src/exm-extension-row.blp:33
+msgid "An error occurred while loading this extension"
+msgstr "مشکلی در بارگذاری افزونه رخ داد"
+
+#: src/exm-extension-row.blp:46 src/exm-install-button.c:105
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "این افزونه با نسخه فعلی GNOME شما سازگار نیست."
+
+#: src/exm-extension-row.blp:59
+msgid "A newer version of this extension is available"
+msgstr "نسخه جدیدی از این افزونه موچود است"
+
+#: src/exm-extension-row.blp:100
+msgid "Version"
+msgstr "نسخه"
+
+#: src/exm-extension-row.blp:126
+msgid "Error"
+msgstr "خطا"
+
+#: src/exm-extension-row.blp:161
+msgid "See Details"
+msgstr "دیدن جزئیات"
+
+#: src/exm-extension-row.blp:170
+msgid "Remove"
+msgstr "پاک کردن"
+
+#: src/exm-install-button.c:115
+msgid "Install"
+msgstr "نصب کردن"
+
+#: src/exm-install-button.c:120
+msgctxt "State"
+msgid "Installed"
+msgstr "نصب شده"
+
+#: src/exm-install-button.c:124
+msgid "Unsupported"
+msgstr "پشتیبانی نشده"
+
+#: src/exm-installed-page.blp:25
+msgid "User-Installed Extensions"
+msgstr "افزونه های نصب شده توسط کاربر"
+
+#: src/exm-installed-page.blp:38
+msgid "System Extensions"
+msgstr "افزونه های سیستمی"
+
+#: src/exm-installed-page.blp:78
+msgid "Updates are available"
+msgstr "بروزرسانی ها موجود هستند"
+
+#: src/exm-installed-page.blp:95
+msgid "Log Out"
+msgstr "خارج شدن"
+
+#. Translators: '%d' = number of extensions that will be updated
+#: src/exm-installed-page.c:215
+#, c-format
+msgid "One extension will be updated on next login."
+msgid_plural "%d extensions will be updated on next login."
+msgstr[0] "%d افزونه در زمان وارد شدن بعدی بروزرسانی خواد شد"
+msgstr[1] "یک افزونه در زمان وارد شدن بعدی بروزرسانی خواد شد"
+
+#: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
+msgid "Release Notes"
+msgstr "یادداشت های انتشار"
+
+#: src/exm-window.blp:42
+msgctxt "Navigation"
+msgid "Installed"
+msgstr "نصب شد"
+
+#: src/exm-window.blp:50
+msgctxt "Navigation"
+msgid "Browse"
+msgstr "گردش"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "تم"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "تم سیستم"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "روشن"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "تیره"
+
+#: src/exm-window.blp:89
+msgid "Sort Enabled First"
+msgstr "مرتب سازی بر اساس فعال بودن"
+
+#: src/exm-window.blp:103
+msgid "About Extension Manager"
+msgstr "درباره مدیر افزونه ها"
+
+#: src/exm-window.c:180
+msgid "Are you sure you want to uninstall?"
+msgstr "آیا مطمئنید که می خواهید حذف کنید؟"
+
+#: src/exm-window.c:247
+msgid ""
+"This extension does not support your GNOME Shell version.\n"
+"Would you like to install anyway?"
+msgstr ""
+"این افزونه از نسخه GNOME شما پشتیباتی نمی کند.\n"
+"بحرحال نصب شود؟"
+
+#: src/exm-window.c:373
+msgid "What's New"
+msgstr "چه چیزی تازه است"
+
+#: src/exm-window.c:375
+msgid "View Release Notes"
+msgstr "دیدن کامنت ها"
+
+#: src/exm-window.c:379
+#, c-format
+msgid ""
+"This is your first time using <b>Extension Manager %s</b>.\n"
+"Would you like to see the release notes?"
+msgstr ""
+"این اولین بار است که دارید از <b>مدیر افزونه ها %s</b> استفاده میکنید.\n"
+"آیا می خواهید یادداشت های انتشار را ببینید؟"
