@@ -140,8 +140,8 @@ msgstr "مدیر افزونه‌ها"
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:117
 msgid "translator-credits"
-msgstr "نیما قنی اصل (nma.fanniasl@gmail.com) (smartnima.com)"
-msgstr "مبین آیدین فر (mobin@mobintestserver.ir)
+msgstr "نیما قنی اصل <nma.fanniasl@gmail.com> <smartnima.com>"
+msgstr "مبین آیدین فر <mobin@mobintestserver.ir>
 
 #: src/exm-application.c:118
 msgid ""
