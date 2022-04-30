@@ -52,7 +52,7 @@ msgstr "دومین به روز رسانی ویژگی به مدیر افزونه 
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
 msgid "View comments and reviews"
-msgstr "دیدن نظرات‌ها"
+msgstr "دیدن نظرات"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
 msgid "Support for in-app updates"
