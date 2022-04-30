@@ -1,26 +1,27 @@
-# SOME DESCRIPTIVE TITLE.
+# Occitan translation for Extension-manager per GNOME Shell.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Quentin PAGÈS <EMAIL@ADDRESS>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-04-17 21:23+0200\n"
+"PO-Revision-Date: 2022-04-30 15:59+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
 msgid "@app_title@"
-msgstr ""
+msgstr "@app_title@"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
@@ -34,7 +35,7 @@ msgstr "Foncionalitats :"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr ""
+msgstr "Percórrer extensions.gnome.org d’una aplicacion estant"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
@@ -43,11 +44,12 @@ msgstr "Gerissètz las extensions qu’avètz ja installadas"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Un utilitari per gerir las extensions GNOME Shell."
+msgstr "Un utilitari per gerir las extensions GNOME Shell"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
 msgid "The second feature update to extension-manager. Highlights include:"
 msgstr ""
+"La segonda actualizacion de foncionalitats d’extension-manager. En bracas :"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
 msgid "View comments and reviews"
@@ -75,7 +77,7 @@ msgstr "Icòna d'App novèla"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
 msgid "Optionally sort extensions by enabled status"
-msgstr ""
+msgstr "Triada opcionala de las extensions segon l’estatut d’activacion"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
@@ -90,19 +92,23 @@ msgstr "Performança e estabilitat"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
 msgid "Fix special characters in search results"
-msgstr ""
+msgstr "Correccion dels caractèrs especials als resultats de recèrca"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
 msgstr ""
+"Correccions d’un plantatge qu’arribava pendent la desinstallacion d’una "
+"extension"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
+"La segonda actualizacion de foncionalitats d’extension-manager. Çò cambiat :"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr ""
+"Tèma escur e presa en carga del subrecargament de l’esquèma de color sistèma"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
 msgid "Shows screenshots in extension listings"
@@ -127,6 +133,7 @@ msgstr "Bascular las extensions globalas"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
 msgid "Displays user and system extensions separately"
 msgstr ""
+"Afichatge de las extensions de l’utilizaire e çò del sistèma a despart"
 
 #: src/exm-application.c:106
 msgid "Extension Manager (Development)"
@@ -281,8 +288,8 @@ msgstr "Se desconnectar"
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Una extension serà mesa a jorn a la connexion venenta."
+msgstr[1] "%d extensions seràn mesas a jorn a la connexion venenta."
 
 #: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
 msgid "Release Notes"
@@ -331,6 +338,8 @@ msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
 msgstr ""
+"Aquesta extension es pas presa en carga per vòstre version de GNOME Shell.\n"
+"Volètz l’installar ça que la ?"
 
 #: src/exm-window.c:373
 msgid "What's New"
@@ -346,6 +355,8 @@ msgid ""
 "This is your first time using <b>Extension Manager %s</b>.\n"
 "Would you like to see the release notes?"
 msgstr ""
+"Aquò’s lo primièr còp qu’utilizatz lo <b>Gestionari d’extensions %s</b>.\n"
+"Volriatz veire la nòta de version ?"
 
 #~ msgid "Matthew Jakeman"
 #~ msgstr "Matthew Jakeman"
