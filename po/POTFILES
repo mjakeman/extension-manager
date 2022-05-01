@@ -1,5 +1,5 @@
 data/com.mattjakeman.ExtensionManager.desktop.in.in
-data/com.mattjakeman.ExtensionManager.appdata.xml.in.in
+data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in
 src/exm-application.c
 src/exm-browse-page.blp
 src/exm-browse-page.c
