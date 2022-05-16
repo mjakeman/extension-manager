@@ -1,7 +1,7 @@
 # Extension Manager
 [![Build Status](https://img.shields.io/github/workflow/status/mjakeman/extension-manager/CI)](https://github.com/mjakeman/extension-manager/actions/workflows/main.yml)
 [![Release Version](https://img.shields.io/github/v/release/mjakeman/extension-manager)](github.com/mjakeman/extension-manager/releases/latest)
-[![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=downloads&query=downloads_total&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fcom.mattjakeman.ExtensionManager)](https://flathub.org/apps/details/com.mattjakeman.ExtensionManager)
+[![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=downloads&query=installs_total&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fcom.mattjakeman.ExtensionManager)](https://flathub.org/apps/details/com.mattjakeman.ExtensionManager)
 [![License (GPL-3.0)](https://img.shields.io/github/license/mjakeman/extension-manager)](http://www.gnu.org/licenses/gpl-3.0)
 
 A native tool for browsing, installing, and managing GNOME Shell Extensions.
@@ -11,19 +11,23 @@ Written with GTK 4 and libadwaita.
 ![Screenshot of the main GUI (light mode)](data/screenshot-combined.png#gh-light-mode-only)
 ![Screenshot of the main GUI (dark mode)](data/screenshot-combined-dark.png#gh-dark-mode-only)
 
-## Features
+## 📋 Features
 The tool supports:
  - Browsing and searching extensions from `extensions.gnome.org`
  - Installation and Removal
  - Enabling and Disabling
- - Updating in-app 
+ - Updating in-app (See [#165](https://github.com/mjakeman/extension-manager/issues/165#issuecomment-1101004729))
  - Screenshots &amp; Images
  - Ratings &amp; Comments
  - Translations ([add your language!](https://github.com/mjakeman/extension-manager/issues/27))
 
 If there's something you'd like to see, contributions are welcome!
 
-## Installing
+## ⚠️ Known Issues
+### May not check for updates
+Currently there is an issue in which automatic updates will not work **unless the official GNOME Extensions app is also installed**. You can handle all updates from within Extension Manager but [`org.gnome.Extensions`](https://flathub.org/apps/details/org.gnome.Extensions) must also be installed on your computer in order for GNOME Shell to check for updates. The status of this issue can be checked here: [Issue #165](https://github.com/mjakeman/extension-manager/issues/165#issuecomment-1101004729)
+
+## 💻 Installing
 Flatpak is the recommended way to install Extension Manager. 
 
 You can get the latest version from flathub by clicking the button below. There
@@ -38,7 +42,7 @@ You may also be able to obtain Extension Manager from your distribution's packag
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/extension-manager.svg)](https://repology.org/project/extension-manager/versions)
 
-## Translations
+## 🌐 Translations
 Extension Manager has been translated into several different languages. Ideally, the
 program will respect your system language out-of-the-box. However, you may need to take
 some additional steps in order for flatpak to recognise your chosen locale. The
@@ -57,7 +61,7 @@ flatpak update
 
 Now Extension Manager should respect your system language.
 
-## Using Unsupported Extensions
+## ⏰ Using Unsupported Extensions
 GNOME Shell will not load extensions that were not designed for your current
 version. You can override this behaviour by manually disabling GNOME Shell's
 version check. Extension Manager will respect this preference and allow you
@@ -78,7 +82,7 @@ Use the default setting and return to safety:
 gsettings reset org.gnome.shell disable-extension-version-validation
 ```
 
-## Building
+## 🔨 Building
 The easiest way to build is by cloning this repo with GNOME Builder. It
 will automatically resolve all relevant flatpak SDKs automatically.
 
