@@ -86,5 +86,11 @@ gsettings reset org.gnome.shell disable-extension-version-validation
 The easiest way to build is by cloning this repo with GNOME Builder. It
 will automatically resolve all relevant flatpak SDKs automatically.
 
-If you run into issues, make sure you have the [`gnome-nightly`](https://wiki.gnome.org/Apps/Nightly)
-flatpak repository installed.
+Extension Manager needs the GNOME 42 SDK in order to build.
+
+### Dependencies
+Extension Manager depends on the following libraries:
+ - gtk4
+ - libadwaita
+ - [blueprint](https://gitlab.gnome.org/jwestman/blueprint-compiler)
+ - [text-engine](https://github.com/mjakeman/text-engine/)
