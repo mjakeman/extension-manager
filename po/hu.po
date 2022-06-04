@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 17:48+1300\n"
-"PO-Revision-Date: 2022-04-07 10:34+0200\n"
+"PO-Revision-Date: 2022-06-04 16:11+0200\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
 "Language: hu\n"
@@ -96,8 +96,8 @@ msgstr "Különleges karakterek kezelése keresőben"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
 msgstr ""
-"Összeomlást okozó hiba javítása amely a kiterjesztések eltávolításakor "
-"jelentkezett"
+"Összeomlást okozó hiba javítása amely "
+"a kiterjesztések eltávolításakor jelentkezett"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
 msgid "The first feature update to extension-manager. Highlights include:"
@@ -149,8 +149,8 @@ msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
 msgstr ""
-"Egy egyszerű alkalmazás GNOME Shell kiterjesztések böngészéséhez és "
-"telepítéséhez."
+"Egy egyszerű alkalmazás GNOME Shell kiterjesztések "
+"böngészéséhez és telepítéséhez."
 
 #: src/exm-application.c:124
 msgid "Project Homepage"
@@ -164,8 +164,8 @@ msgstr "Kiterjesztések keresése"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Írj be kulcsszavakat az 'extensions.gnome.org' gyűjteményében való GNOME "
-"Shell kiterjesztések kereséséhez!"
+"Írj be kulcsszavakat az 'extensions.gnome.org' gyűjteményében való "
+"GNOME Shell kiterjesztések kereséséhez!"
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
@@ -210,8 +210,8 @@ msgid "Supported Versions"
 msgstr "Támogatott GNOME verzió"
 
 #: src/exm-detail-view.blp:146
-msgid "Links"
-msgstr "Hivatkozások"
+msgid "User Reviews"
+msgstr "Felhasználói értékelések"
 
 #: src/exm-detail-view.blp:187
 msgid "Show All Reviews"
@@ -320,8 +320,8 @@ msgid "Dark"
 msgstr "Sötét"
 
 #: src/exm-window.blp:89
-msgid "Keyboard Shortcuts"
-msgstr "Gyorsbillentyűk"
+msgid "Sort Enabled First"
+msgstr "Rendezés állapot szerint"
 
 #: src/exm-window.blp:103
 msgid "About Extension Manager"
@@ -336,7 +336,7 @@ msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
 msgstr ""
-"Ez a kiterjesztés nem támogatott a jelen GNOME Shell verziót.\n"
+"Ez a kiterjesztés nem támogatja a jelen GNOME Shell verziót.\n"
 "Telepíted ennek ellenére?"
 
 #: src/exm-window.c:373
