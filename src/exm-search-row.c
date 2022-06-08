@@ -151,7 +151,10 @@ exm_search_row_constructed (GObject *object)
                   "pk", &pk,
                   NULL);
 
-    uri = g_strdup_printf ("https://extensions.gnome.org/%s", link);
+    uri = g_uri_resolve_relative ("https://extensions.gnome.org/",
+                                  link,
+                                  G_URI_FLAGS_NONE,
+                                  NULL);
 
     gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);

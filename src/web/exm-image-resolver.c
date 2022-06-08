@@ -86,7 +86,11 @@ exm_image_resolver_resolve_async (ExmImageResolver    *self,
 
     // Resolve https://extensions.gnome.org{rel_path}
 
-    url = g_strdup_printf ("https://extensions.gnome.org/%s", rel_path);
+    url = g_uri_resolve_relative ("https://extensions.gnome.org/",
+                                  rel_path,
+                                  G_URI_FLAGS_NONE,
+                                  NULL);
+
     msg = soup_message_new (SOUP_METHOD_GET, url);
 
     if (!msg)
