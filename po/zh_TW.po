@@ -146,7 +146,7 @@ msgstr "擴充功能管理員"
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:117
 msgid "translator-credits"
-msgstr "Oliver Tzeng(曾嘉禾)<olivertzengolivertzeng@gmail.com>"
+msgstr "Oliver Tzeng(曾嘉禾) <olivertzengolivertzeng@gmail.com>"
 
 #: src/exm-application.c:118
 msgid ""
