@@ -1,0 +1,13 @@
+{
+  "name": "Extension Manager Utils",
+  "description": "Makes various changes to GNOME Shell that are needed by Extension Manager.\nRemoves requirement for the 'GNOME Extensions' app to be installed in order to check for extension updates.",
+  "uuid": "extension-manager-utils@mattjakeman.com",
+  "url": "https://github.com/mjakeman/extension-manager",
+  "version": 1,
+  "shell-version": [
+    "3.38",
+    "40",
+    "41",
+    "42"
+  ]
+}
