@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-04-04 16:41-0300\n"
-"Last-Translator: Douglas Silva <douglasilvadev@gmail.com>\n"
+"PO-Revision-Date: 2022-06-10 16:45-0300\n"
+"Last-Translator: Celso Tavares <celsotavares@pm.me>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
 msgid "View comments and reviews"
-msgstr "Ver avaliações e comentários"
+msgstr "Ver comentários e avaliações"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
 msgid "Support for in-app updates"
@@ -121,7 +121,7 @@ msgstr "Traduzido em sete idiomas"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
 msgid "Sort search results"
-msgstr "Resultados de busca ordenado"
+msgstr "Ordenar resultados de busca"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
 msgid "Global extension on/off toggle"
@@ -143,6 +143,7 @@ msgstr "Gerenciador de Extensões"
 #: src/exm-application.c:117
 msgid "translator-credits"
 msgstr ""
+"Celso Tavares https://github.com/celsotavaresdev\n"
 "Douglas Silva <douglasilvadev@gmail.com>\n"
 "Tiago Lucas Flach https://github.com/tiagoFlach"
 
@@ -230,7 +231,7 @@ msgstr "Ocorreu um erro ao carregar esta extensão"
 
 #: src/exm-extension-row.blp:46 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Esta extensão é incompatível com a atual versão do GNOME."
+msgstr "Esta extensão é incompatível com a sua versão do GNOME."
 
 #: src/exm-extension-row.blp:59
 msgid "A newer version of this extension is available"
@@ -291,7 +292,7 @@ msgstr[1] "%d extensões serão atualizadas no próximo login."
 
 #: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
 msgid "Release Notes"
-msgstr "Notas de lançamento"
+msgstr "Notas de Lançamento"
 
 #: src/exm-window.blp:42
 msgctxt "Navigation"
@@ -321,7 +322,7 @@ msgstr "Escuro"
 
 #: src/exm-window.blp:89
 msgid "Sort Enabled First"
-msgstr "Ordena as extensões habilitadas em primeiro"
+msgstr "Ordena primeiro as extensões habilitadas"
 
 #: src/exm-window.blp:103
 msgid "About Extension Manager"
@@ -329,15 +330,15 @@ msgstr "Sobre o Gerenciador de Extensões"
 
 #: src/exm-window.c:180
 msgid "Are you sure you want to uninstall?"
-msgstr "Você tem certeza que quer desinstalar?"
+msgstr "Você tem certeza que deseja desinstalar?"
 
 #: src/exm-window.c:247
 msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
 msgstr ""
-"Esta extensão não suporta a versão atual do GNOME Shell.\n"
-"Deseja instalar mesmo assim ?"
+"Esta extensão não suporta a sua versão do GNOME Shell.\n"
+"Deseja instalar mesmo assim?"
 
 #: src/exm-window.c:373
 msgid "What's New"
@@ -345,7 +346,7 @@ msgstr "Novidades"
 
 #: src/exm-window.c:375
 msgid "View Release Notes"
-msgstr "Ver Notas de lançamento"
+msgstr "Ver Notas de Lançamento"
 
 #: src/exm-window.c:379
 #, c-format
@@ -353,5 +354,5 @@ msgid ""
 "This is your first time using <b>Extension Manager %s</b>.\n"
 "Would you like to see the release notes?"
 msgstr ""
-"Esta é a primeira vez que você usa o <b>Gerenciador de Extensões %s</b>\n"
+"Esta é a primeira vez que você usa o <b>Gerenciador de Extensões %s</b>.\n"
 "Gostaria de ver as notas de lançamento?"
