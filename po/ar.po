@@ -139,7 +139,7 @@ msgstr "مدير الامتداد"
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:117
 msgid "translator-credits"
-msgstr "Omar TS ots@duck.com"
+msgstr "Omar TS <ots@duck.com>"
 
 #: src/exm-application.c:118
 msgid ""
