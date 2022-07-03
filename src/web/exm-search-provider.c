@@ -85,9 +85,11 @@ parse_search_results (GBytes  *bytes,
     JsonParser *parser;
     gconstpointer data;
     gsize length;
+    int num_pages;
 
     GError *error = NULL;
     *out_error = NULL;
+    num_pages = 0;
 
     data = g_bytes_get_data (bytes, &length);
 
@@ -108,6 +110,10 @@ parse_search_results (GBytes  *bytes,
 
         JsonObject *root_object = json_node_get_object (root);
         g_assert (json_object_has_member (root_object, "extensions"));
+        g_assert (json_object_has_member (root_object, "numpages"));
+
+        num_pages = json_object_get_int_member (root_object, "numpages");
+        g_print ("Num Pages: %d\n", num_pages);
 
         JsonArray *array = json_object_get_array_member (root_object, "extensions");
         GList *search_results = json_array_get_elements (array);
@@ -125,7 +131,10 @@ parse_search_results (GBytes  *bytes,
         return G_LIST_MODEL (store);
     }
 
-    *out_error = error;
+    if (out_error)
+        *out_error = error;
+    //if (out_num_pages)
+    //    *out_num_pages = num_pages;
     return NULL;
 }
 
@@ -149,6 +158,7 @@ get_sort_string (ExmSearchSort sort_type)
 void
 exm_search_provider_query_async (ExmSearchProvider   *self,
                                  const gchar         *query,
+                                 int                  page,
                                  ExmSearchSort        sort_type,
                                  GCancellable        *cancellable,
                                  GAsyncReadyCallback  callback,
@@ -162,9 +172,9 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
     sort = get_sort_string (sort_type);
 
     if (self->show_unsupported)
-        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s", query, sort);
+        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s&page=%d", query, sort, page);
     else
-        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s&shell_version=%s", query, sort, self->shell_version);
+        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s&shell_version=%s&page=%d", query, sort, self->shell_version, page);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
