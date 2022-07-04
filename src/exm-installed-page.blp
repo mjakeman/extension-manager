@@ -18,6 +18,38 @@ template ExmInstalledPage : Gtk.Widget {
 						orientation: vertical;
 						spacing: 10;
 
+            Gtk.Box {
+              orientation: horizontal;
+
+              Gtk.Box {
+                orientation: vertical;
+                hexpand: true;
+
+                Gtk.Label {
+                  styles ["heading"]
+                  label: _("Extensions");
+                  xalign: 0;
+                  wrap: true;
+                }
+
+                Gtk.Label {
+                  styles ["dim-label"]
+                  label: _("Extensions can cause performance and stability issues. Disable extensions if you encounter problems with your system.");
+                  xalign: 0;
+                  wrap: true;
+                }
+              }
+
+              Gtk.Button {
+                halign: center;
+                valign: center;
+
+                margin-start: 32;
+
+                label: _("Turn Off");
+              }
+					  }
+
 						Gtk.Label {
 							styles ["heading"]
 							xalign: 0;
