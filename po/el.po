@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-07-04 19:47+0300\n"
+"PO-Revision-Date: 2022-07-04 20:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: el\n"
@@ -314,7 +314,7 @@ msgstr "Θέμα"
 
 #: src/exm-window.blp:73
 msgid "Follow System"
-msgstr "Χρήση Συστήματος"
+msgstr "Συστήματος"
 
 #: src/exm-window.blp:78
 msgid "Light"
