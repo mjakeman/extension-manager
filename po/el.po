@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-06-24 03:09+0300\n"
+"PO-Revision-Date: 2022-07-04 20:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: el\n"
@@ -264,7 +264,7 @@ msgstr "Εγκατάστασή"
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
-msgstr "Εγκατεστημένα"
+msgstr "Εγκατεστημένη"
 
 #: src/exm-install-button.c:124
 msgid "Unsupported"
@@ -272,11 +272,11 @@ msgstr "Δεν Υποστηρίζεται"
 
 #: src/exm-installed-page.blp:25
 msgid "User-Installed Extensions"
-msgstr "Εγκατεστημένες Επέκτασης Χριστη"
+msgstr "Εγκατεστημένες Επεκτάσεις Χρήστη"
 
 #: src/exm-installed-page.blp:38
 msgid "System Extensions"
-msgstr "Επέκτασης Συστήματος"
+msgstr "Επεκτάσεις Συστήματος"
 
 #: src/exm-installed-page.blp:78
 msgid "Updates are available"
@@ -301,7 +301,7 @@ msgstr "Σημείωσης Ενημέρωσης"
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Εγκατεστημένα"
+msgstr "Εγκατεστημένη"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
@@ -314,7 +314,7 @@ msgstr "Θέμα"
 
 #: src/exm-window.blp:73
 msgid "Follow System"
-msgstr "Χρήση Συστήματος"
+msgstr "Συστήματος"
 
 #: src/exm-window.blp:78
 msgid "Light"
