@@ -7,6 +7,8 @@
 struct _ExmSearchProvider
 {
     ExmRequestHandler parent_instance;
+    const gchar *shell_version;
+    gboolean show_unsupported;
 };
 
 G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM_TYPE_REQUEST_HANDLER)
@@ -107,7 +109,11 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
     const gchar *sort;
 
     sort = get_sort_string (sort_type);
-    url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s", query, sort);
+
+    if (self->show_unsupported)
+        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s", query, sort);
+    else
+        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s&shell_version=%s", query, sort, "42");
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
@@ -145,4 +151,5 @@ exm_search_provider_class_init (ExmSearchProviderClass *klass)
 static void
 exm_search_provider_init (ExmSearchProvider *self)
 {
+    self->show_unsupported = FALSE;
 }
