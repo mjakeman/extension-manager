@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-06-24 03:09+0300\n"
+"PO-Revision-Date: 2022-07-28 00:42+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
@@ -264,7 +264,7 @@ msgstr "Εγκατάστασή"
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
-msgstr "Εγκατεστημένα"
+msgstr "Εγκατεστημένη"
 
 #: src/exm-install-button.c:124
 msgid "Unsupported"
@@ -272,11 +272,11 @@ msgstr "Δεν Υποστηρίζεται"
 
 #: src/exm-installed-page.blp:25
 msgid "User-Installed Extensions"
-msgstr "Εγκατεστημένες Επέκτασης Χριστη"
+msgstr "Εγκατεστημένες Επεκτάσεις Χρήστη"
 
 #: src/exm-installed-page.blp:38
 msgid "System Extensions"
-msgstr "Επέκτασης Συστήματος"
+msgstr "Επεκτάσεις Συστήματος"
 
 #: src/exm-installed-page.blp:78
 msgid "Updates are available"
@@ -296,12 +296,12 @@ msgstr[1] "%d επέκτασής θα αναβαθμιστούν την επόμ
 
 #: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
 msgid "Release Notes"
-msgstr "Σημείωσης Ενημέρωσης"
+msgstr "Σημειώσεις Ενημέρωσης"
 
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Εγκατεστημένα"
+msgstr "Εγκατεστημένη"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
@@ -314,7 +314,7 @@ msgstr "Θέμα"
 
 #: src/exm-window.blp:73
 msgid "Follow System"
-msgstr "Χρήση Συστήματος"
+msgstr "Συστήματος"
 
 #: src/exm-window.blp:78
 msgid "Light"
@@ -350,7 +350,7 @@ msgstr "Νέα"
 
 #: src/exm-window.c:375
 msgid "View Release Notes"
-msgstr "Δείτε της Σημείωσης Ενημέρωσης"
+msgstr "Δείτε της Σημειώσεις Ενημέρωσης"
 
 #: src/exm-window.c:379
 #, c-format
