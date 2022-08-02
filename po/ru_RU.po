@@ -287,7 +287,7 @@ msgstr "Завершить сеанс"
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "%d расширение будут обновлены при следующем входе в систему."
+msgstr[0] "%d расширение будет обновлено при следующем входе в систему."
 msgstr[1] "%d расширения будут обновлены при следующем входе в систему."
 msgstr[2] "%d расширений будут обновлены при следующем входе в систему."
 
