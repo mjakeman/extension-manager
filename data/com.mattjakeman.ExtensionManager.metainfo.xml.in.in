@@ -38,6 +38,16 @@
   </keywords>
   <translation type="gettext">extension-manager</translation>
   <releases>
+    <release version="0.3.1" date="2022-06-04">
+      <description>
+        <ul>
+          <li>Translation updates</li>
+          <li>Remove release notes dialog</li>
+          <li>Fix special characters in installed extension listings</li>
+          <li>Performance and stability</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.3.0" date="2022-03-21">
       <description>
         <p>The second feature update to extension-manager. Highlights include:</p>
@@ -56,13 +66,17 @@
     </release>
     <release version="0.2.3" date="2022-02-21">
       <description>
-        <p>Translation updates</p>
+        <ul>
+          <li>Translation updates</li>
+        </ul>
       </description>
     </release>
     <release version="0.2.2" date="2022-02-02">
       <description>
-        <p>Translation updates</p>
-        <p>Fix special characters in search results</p>
+        <ul>
+          <li>Translation updates</li>
+          <li>Fix special characters in search results</li>
+        </ul>
       </description>
     </release>
     <release version="0.2.1" date="2022-01-24">

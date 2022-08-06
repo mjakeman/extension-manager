@@ -298,7 +298,11 @@ on_data_loaded (GObject      *source,
 
         g_object_set (self->ext_install, "state", install_state, NULL);
 
-        self->uri_extensions = g_strdup_printf ("https://extensions.gnome.org/%s", link);
+        self->uri_extensions = g_uri_resolve_relative ("https://extensions.gnome.org/",
+                                                       link,
+                                                       G_URI_FLAGS_NONE,
+                                                       NULL);
+
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
         // Clear Flowbox

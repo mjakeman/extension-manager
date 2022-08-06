@@ -1,25 +1,21 @@
-# translation of extension-manager to Turkish
-#
-# Copyright (C) 2022 extension-manager'S COPYRIGHT HOLDER
+# Arabic translations for extension-manager package.
+# Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
+# Omar TS <otd@duck.com>, 2022.
 #
-# Onur Ankut <ripsivis@gmail.com>, 2022.
-# Sabri Ünal <libreajans@gmail.com>, 2022.
-#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
-"Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-06-18 02:16+0300\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Turkish <gnome-turk@gnome.org>\n"
-"Language: tr\n"
+"PO-Revision-Date: 2022-06-18 15:11+01h\n"
+"Last-Translator: Omar TS <ots@duck.com>\n"
+"Language-Team: ar_AR <LL@li.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
@@ -29,333 +25,323 @@ msgstr "@app_title@"
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr ""
-"GNOME Shell uzantılarını keşfetmeniz ve yüklemeniz için yardımcı bir "
-"program."
+msgstr "أداة مساعدة لتصفح وتثبيت امتدادات جنوم شل."
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
 msgid "Features:"
-msgstr "Özellikler:"
+msgstr "المميزات"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Doğrudan uygulamanın içinden extensions.gnome.org'a göz atın"
+msgstr "تصفح extension.gnome.org داخل التطبيق مباشرة"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
 msgid "Manage the extensions you already have installed"
-msgstr "Zaten yüklemiş olduğunuz uzantıları yönetin"
+msgstr "إدارة الامتدادات التي قمت بتثبيتها بالفعل"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "GNOME Shell uzantılarını yönetmeniz için yardımcı bir program"
+msgstr "أداة لإدارة امتدادات جنوم شل"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
 msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-"Uzantı Yöneticisi'nin ikinci özellik güncellemesi. Öne çıkanlar arasında:"
+msgstr "التحديث الثاني للميزة إلى extension-manager. ومن أبرز ما جاء فيها:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
 msgid "View comments and reviews"
-msgstr "Yorumları görüntüle"
+msgstr "عرض التعليقات والمراجعات"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
 msgid "Support for in-app updates"
-msgstr "Uygulama içi güncelleme desteği"
+msgstr "دعم التحديثات داخل التطبيق"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
 msgid "Better handling errors and out-of-date extensions"
-msgstr "Hataların ve tarihi geçmiş uzantıların daha iyi yönetimi"
+msgstr "معالجة أفضل للأخطاء والامتدادات القديمة"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
 msgid "Allow installing 'unsupported' extensions"
-msgstr "'desteklenmeyen' uzantıların yüklenmesine izin ver"
+msgstr "السماح بتثبيت امتدادات "غير مدعومة""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
 msgid "Display release notes on first run"
-msgstr "İlk çalıştırmada sürüm notlarını görüntüle"
+msgstr "عرض ملاحظات الإصدار عند التشغيل الأول"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
 msgid "New app icon"
-msgstr "Yeni uygulama simgesi"
+msgstr "رمز التطبيق الجديد"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
 msgid "Optionally sort extensions by enabled status"
-msgstr "İsteğe bağlı olarak uzantıları etkin duruma göre sırala"
+msgstr "اختياريا فرز الملحقات حسب حالة التمكين"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
 msgid "Translation updates"
-msgstr "Çeviri güncellemeleri"
+msgstr "تحديثات الترجمة"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
 msgid "Performance and stability"
-msgstr "Performans ve kararlılık"
+msgstr "الأداء والاستقرار"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
 msgid "Fix special characters in search results"
-msgstr "Arama sonuçlarında özel karakterleri düzelt"
+msgstr "إصلاح الأحرف الخاصة في نتائج البحث"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "Bir uzantıyı kaldırırken bazen ortaya çıkan çökme durumu düzeltildi"
+msgstr "يعمل على إصلاح العطل الذي يحدث أحيانًا أثناء إلغاء تثبيت أحد الامتدادات"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
 msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-"Uzantı Yöneticisi'nin ilk özellik güncellemesi. Öne çıkanlar arasında:"
+msgstr "أول تحديث للميزة لمدير الامتداد. ومن أبرز ما جاء فيها:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
 msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Koyu tema ve sistem renk şemasını geçersiz kılma desteği"
+msgstr "مظهر داكن ودعم لتجاوز نظام ألوان النظام"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
 msgid "Shows screenshots in extension listings"
-msgstr "Uzantı listelerinde ekran görüntülerini gösterir"
+msgstr "يظهر لقطات في قوائم الامتداد"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
 msgid "Shell version compatibility check"
-msgstr "Kabuk sürüm uyumluluğu kontrolü"
+msgstr "التحقق من توافق إصدار شل"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
 msgid "Localised into seven languages"
-msgstr "Yedi dilde yerelleştirildi"
+msgstr "مترجمة إلى سبع لغات"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
 msgid "Sort search results"
-msgstr "Arama sonuçlarını sıralama"
+msgstr "فرز نتائج البحث"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
 msgid "Global extension on/off toggle"
-msgstr "Evrensel uzantı açma/kapama ayarı"
+msgstr  "تبديل تشغيل / إيقاف الامتداد العام"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
 msgid "Displays user and system extensions separately"
-msgstr "Kullanıcı ve sistem uzantılarını ayrı ayrı görüntüler"
+msgstr "يعرض امتدادات المستخدم والنظام بشكل منفصل"
 
 #: src/exm-application.c:106
 msgid "Extension Manager (Development)"
-msgstr "Uzantı Yöneticisi (Geliştirme)"
+msgstr "مدير الامتداد (تطوير)"
 
 #: src/exm-application.c:107
 msgid "Extension Manager"
-msgstr "Uzantı Yöneticisi"
+msgstr "مدير الامتداد"
 
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:117
 msgid "translator-credits"
-msgstr ""
-"Onur Ankut <ripsivis@gmail.com>\n"
-"Sabri Ünal <libreajans@gmail.com>"
+msgstr "Omar TS <ots@duck.com>"
 
 #: src/exm-application.c:118
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
-msgstr ""
-"GNOME Shell uzantılarını aramanız, indirmeniz ve yönetmeniz için basit bir "
-"araç."
+msgstr "أداة بسيطة للغاية لتصفح وتنزيل وإدارة امتدادات جنوم شل "
+"."
 
 #: src/exm-application.c:124
 msgid "Project Homepage"
-msgstr "Proje Ana Sayfası"
+msgstr "صفحة المشروع الرئيسية"
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
-msgstr "Uzantı arayın"
+msgstr "بحث عن الامتدادات"
 
 #: src/exm-browse-page.blp:8
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
-msgstr ""
-"'extensions.gnome.org'da GNOME Kabuğu uzantılarını aramak için anahtar bir "
-"kelime girin."
+msgstr "أدخل كلمة أساسية للبحث في \"extensions.gnome.org\" عن امتدادات جنوم شل."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
-msgstr "örn. \"Blur my Shell\""
+msgstr "على سبيل المثال \"Blur my Shell\""
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:33
 msgid "Popularity"
-msgstr "Çok oylananlar"
+msgstr "الرائجة"
 
 #: src/exm-browse-page.blp:33
 msgid "Downloads"
-msgstr "Çok indirilenler"
+msgstr "تنزيلات"
 
 #: src/exm-browse-page.blp:33
 msgid "Recent"
-msgstr "Yeni çıkanlar"
+msgstr "الأخيرة"
 
 #: src/exm-browse-page.blp:33
 msgid "Name"
-msgstr "İsme göre"
+msgstr "الاسم"
 
 #: src/exm-browse-page.blp:60
 msgid "No Results Found"
-msgstr "Sonuç Bulunamadı"
+msgstr "لا توجد نتائج"
 
 #: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
 #: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
 msgid "An Error Occurred"
-msgstr "Hata Oluştu"
+msgstr "حصل خطأ"
 
 #: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
 msgid "Description"
-msgstr "Açıklama"
+msgstr "وصف"
 
 #: src/exm-detail-view.blp:113
 msgid "View on Extensions"
-msgstr "Tarayıcıda Görüntüle"
+msgstr "عرض على الامتدادات"
 
 #: src/exm-detail-view.blp:130
 msgid "Supported Versions"
-msgstr "Desteklenen Sürümler"
+msgstr "الإصدارات المدعومة"
 
 #: src/exm-detail-view.blp:146
 msgid "User Reviews"
-msgstr "Kullanıcı Yorumları"
+msgstr "مراجعات المستخدم"
 
 #: src/exm-detail-view.blp:187
 msgid "Show All Reviews"
-msgstr "Tüm Yorumları Göster"
+msgstr "اعرض جميع المراجعات"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
 #: src/exm-detail-view.c:364
 msgid "Loading…"
-msgstr "Yükleniyor…"
+msgstr "جار التحميل…"
 
 #: src/exm-extension-row.blp:33
 msgid "An error occurred while loading this extension"
-msgstr "Uzantı yüklenirken hata oluştu"
+msgstr "حدث خطأ أثناء تحميل هذا الامتداد"
 
 #: src/exm-extension-row.blp:46 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz."
+msgstr "هذا الامتداد غير متوافق مع إصدارك الحالي من جنوم."
 
 #: src/exm-extension-row.blp:59
 msgid "A newer version of this extension is available"
-msgstr "Uzantının yeni bir sürümü mevcut"
+msgstr "يتوفر إصدار أحدث من هذا الامتداد"
 
 #: src/exm-extension-row.blp:100
 msgid "Version"
-msgstr "Sürüm"
+msgstr "الإصدار"
 
 #: src/exm-extension-row.blp:126
 msgid "Error"
-msgstr "Hata"
+msgstr "خطأ"
 
 #: src/exm-extension-row.blp:161
 msgid "See Details"
-msgstr "Ayrıntıları Görüntüle"
+msgstr "عرض التفاصيل"
 
 #: src/exm-extension-row.blp:170
 msgid "Remove"
-msgstr "Kaldır"
+msgstr "حذف"
 
 #: src/exm-install-button.c:115
 msgid "Install"
-msgstr "Yükle"
+msgstr "تثبيت"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
-msgstr "Yüklendi"
+msgstr "مثبت"
 
 #: src/exm-install-button.c:124
 msgid "Unsupported"
-msgstr "Uyumsuz"
+msgstr "غير مدعوم"
 
 #: src/exm-installed-page.blp:25
 msgid "User-Installed Extensions"
-msgstr "Yüklediğiniz Uzantılar"
+msgstr "امتدادت المستخدم المثبتة"
 
 #: src/exm-installed-page.blp:38
 msgid "System Extensions"
-msgstr "Sistem Uzantıları"
+msgstr "امتدادات النظام"
 
 #: src/exm-installed-page.blp:78
 msgid "Updates are available"
-msgstr "Güncellemeler var"
+msgstr "تحديثات متوفرة"
 
 #: src/exm-installed-page.blp:95
 msgid "Log Out"
-msgstr "Oturumu Kapat"
+msgstr "خروج"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:215
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "%d uzantı sonraki girişte güncellenecek."
+msgstr[0] "سيتم تحديث امتداد واحد عند تسجيل الدخول التالي."
+msgstr[1] "سيتم تحديث٪ d امتدادات عند تسجيل الدخول التالي."
 
 #: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
 msgid "Release Notes"
-msgstr "Sürüm Notları"
+msgstr "ملاحظات الإصدار"
 
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Yüklendi"
+msgstr "مثبت"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
 msgid "Browse"
-msgstr "Göz At"
+msgstr "تصفح"
 
 #: src/exm-window.blp:71
 msgid "Theme"
-msgstr "Tema"
+msgstr "المظهر"
 
 #: src/exm-window.blp:73
 msgid "Follow System"
-msgstr "Sistem Teması"
+msgstr "اتبع النظام"
 
 #: src/exm-window.blp:78
 msgid "Light"
-msgstr "Açık"
+msgstr "خفيف"
 
 #: src/exm-window.blp:83
 msgid "Dark"
-msgstr "Koyu"
+msgstr "مظلم"
 
 #: src/exm-window.blp:89
 msgid "Sort Enabled First"
-msgstr "Etkinleri Önce Sırala"
+msgstr "فرز المفعل أولا"
 
 #: src/exm-window.blp:103
 msgid "About Extension Manager"
-msgstr "Uzantı Yöneticisi Hakkında"
+msgstr "حول مدير الامتداد"
 
 #: src/exm-window.c:180
 msgid "Are you sure you want to uninstall?"
-msgstr "Kaldırmak istediğinizden emin misiniz?"
+msgstr "هل أنت متأكد أنك تريد إلغاء التثبيت؟"
 
 #: src/exm-window.c:247
 msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
-msgstr ""
-"Bu uzantı, GNOME Shell sürümünüzü desteklemiyor.\n"
-"Yine de yüklensin mi?"
+msgstr "هذا الامتداد لا يدعم إصدار GNOME Shell الخاص بك. \ n "
+"هل ترغب في التثبيت على أي حال؟"
 
 #: src/exm-window.c:373
 msgid "What's New"
-msgstr "Neler Yeni"
+msgstr "ما الجديد"
 
 #: src/exm-window.c:375
 msgid "View Release Notes"
-msgstr "Sürüm Notlarını Görüntüle"
+msgstr "انظر ملاحظات الإصدار"
 
 #: src/exm-window.c:379
 #, c-format
 msgid ""
 "This is your first time using <b>Extension Manager %s</b>.\n"
 "Would you like to see the release notes?"
-msgstr ""
-"<b>Uzantı Yöneticisi %s</b> sürümünü ilk kez kullanıyorsunuz.\n"
-"Sürüm notlarını görmek ister misiniz?"
+msgstr "هذه هي المرة الأولى التي تستخدم فيها <b> Extension Manager٪ s </b>. \ n "
+"هل ترغب في رؤية ملاحظات الإصدار؟"
