@@ -12,6 +12,7 @@
     <file>exm-comment-dialog.ui</file>
     <file>exm-rating.ui</file>
     <file>exm-release-notes-dialog.ui</file>
+    <file>exm-upgrade-assistant.ui</file>
     <file>res/plugin.png</file>
     <file>release-notes.txt</file>
     <file>style.css</file>

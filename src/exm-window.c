@@ -23,6 +23,7 @@
 #include "exm-installed-page.h"
 #include "exm-detail-view.h"
 #include "exm-release-notes-dialog.h"
+#include "exm-upgrade-assistant.h"
 
 #include "local/exm-manager.h"
 #include "local/exm-extension.h"
@@ -301,6 +302,21 @@ show_release_notes (GtkWidget  *widget,
 }
 
 static void
+show_upgrade_assistant (GtkWidget  *widget,
+                        const char *action_name,
+                        GVariant   *param)
+{
+    ExmWindow *self;
+
+    self = EXM_WINDOW (widget);
+
+    ExmUpgradeAssistant *assistant = exm_upgrade_assistant_new ();
+    gtk_window_set_modal (GTK_WINDOW (assistant), TRUE);
+    gtk_window_set_transient_for (GTK_WINDOW (assistant), GTK_WINDOW (self));
+    gtk_window_present (GTK_WINDOW (assistant));
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -339,6 +355,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-release-notes", NULL, show_release_notes);
+    gtk_widget_class_install_action (widget_class, "win.show-upgrade-assistant", NULL, show_upgrade_assistant);
 }
 
 static void
