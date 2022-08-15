@@ -9,10 +9,55 @@ template ExmUpgradeAssistant : Adw.Window {
   Gtk.Box {
     orientation: vertical;
 
-    Adw.HeaderBar {}
+    Adw.HeaderBar {
+      styles ["flat"]
+    }
 
-    Gtk.ListView list_view {
+    Gtk.Stack {
+      Gtk.StackPage version_select {
+        child: Adw.Clamp {
+          styles ["clamp"]
+          Gtk.Box {
+            orientation: vertical;
+            spacing: 15;
+            vexpand: true;
 
+            Gtk.Box {
+              vexpand: true;
+              orientation: vertical;
+
+              Gtk.Label {
+                label: _("You are currently running GNOME %s. Select a version of GNOME below and check whether your extensions will continue to be available.");
+                xalign: 0.5;
+                wrap: true;
+              }
+
+              Gtk.DropDown {
+                model: string_model;
+                halign: center;
+              }
+            }
+
+            Gtk.Button {
+              styles ["pill"]
+
+              label: _("Check Compatibility");
+              halign: center;
+              valign: end;
+            }
+
+            Gtk.StringList string_model {
+              strings ["GNOME 43", "GNOME 42", "GNOME 41", "GNOME 40"]
+            }
+          }
+        };
+      }
+
+      Gtk.StackPage results {
+        child: Gtk.ListView list_view {
+
+        };
+      }
     }
   }
 }
