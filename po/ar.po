@@ -63,7 +63,7 @@ msgstr "معالجة أفضل للأخطاء والامتدادات القديم
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
 msgid "Allow installing 'unsupported' extensions"
-msgstr "السماح بتثبيت امتدادات "غير مدعومة""
+msgstr "السماح بتثبيت امتدادات \"غير مدعومة\""
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
 msgid "Display release notes on first run"
@@ -327,7 +327,7 @@ msgstr "هل أنت متأكد أنك تريد إلغاء التثبيت؟"
 msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
-msgstr "هذا الامتداد لا يدعم إصدار GNOME Shell الخاص بك. \ n "
+msgstr "هذا الامتداد لا يدعم إصدار GNOME Shell الخاص بك."
 "هل ترغب في التثبيت على أي حال؟"
 
 #: src/exm-window.c:373
@@ -343,5 +343,6 @@ msgstr "انظر ملاحظات الإصدار"
 msgid ""
 "This is your first time using <b>Extension Manager %s</b>.\n"
 "Would you like to see the release notes?"
-msgstr "هذه هي المرة الأولى التي تستخدم فيها <b> Extension Manager٪ s </b>. \ n "
+msgstr ""
+"هذه هي المرة الأولى التي تستخدم فيها <b> Extension Manager٪ s </b>.\n"
 "هل ترغب في رؤية ملاحظات الإصدار؟"
