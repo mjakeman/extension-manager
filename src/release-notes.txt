@@ -1,3 +1,22 @@
+Extension Manager 0.3.2
+
+Minor update to extension-manager:
+
+ - Fix double slashes in extension urls
+ - Make window title translatable
+ - Miscellaneous translation fixes
+
+Translations
+ - Adds Arabic
+ - Adds Greek
+ - Adds Portuguese
+ - Adds Taiwanese Chinese
+ - Updates Brazilian Portuguese
+ - Updates Hungarian
+ - Updates Russian
+ - Updates Turkish
+
+
 Extension Manager 0.3.1
 
 Minor update to extension-manager:
