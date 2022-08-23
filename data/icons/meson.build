@@ -11,4 +11,3 @@ install_data(
   rename: '@0@-symbolic.svg'.format(app_id),
 )
 
-subdir('hicolor')
