@@ -27,7 +27,6 @@
     <file preprocess="xml-stripblanks" alias="globe-symbolic.svg">../data/icons/hicolor/scalable/actions/globe-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="go-next-symbolic.svg">../data/icons/hicolor/scalable/actions/go-next-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="go-previous-symbolic.svg">../data/icons/hicolor/scalable/actions/go-previous-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" alias="external-link-symbolic.svg">../data/icons/hicolor/scalable/actions/external-link-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="puzzle-piece-symbolic.svg">../data/icons/hicolor/scalable/actions/puzzle-piece-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="settings-symbolic.svg">../data/icons/hicolor/scalable/actions/settings-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="software-update-available-symbolic.svg">../data/icons/hicolor/scalable/actions/software-update-available-symbolic.svg</file>
