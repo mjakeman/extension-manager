@@ -81,24 +81,24 @@ exm_rating_set_property (GObject      *object,
 
 void update_rating (ExmRating *self)
 {
-    gtk_image_set_from_icon_name (self->star_one, EMPTY_ICON_NAME);
-    gtk_image_set_from_icon_name (self->star_two, EMPTY_ICON_NAME);
-    gtk_image_set_from_icon_name (self->star_three, EMPTY_ICON_NAME);
-    gtk_image_set_from_icon_name (self->star_four, EMPTY_ICON_NAME);
-    gtk_image_set_from_icon_name (self->star_five, EMPTY_ICON_NAME);
+    gtk_image_set_from_gressource (self->star_one, EMPTY_ICON_NAME);
+    gtk_image_set_from_gressource (self->star_two, EMPTY_ICON_NAME);
+    gtk_image_set_from_gressource (self->star_three, EMPTY_ICON_NAME);
+    gtk_image_set_from_gressource (self->star_four, EMPTY_ICON_NAME);
+    gtk_image_set_from_gressource (self->star_five, EMPTY_ICON_NAME);
 
     switch (self->rating)
     {
     case 5:
-        gtk_image_set_from_icon_name (self->star_five, FILLED_ICON_NAME);
+        gtk_image_set_from_gressource (self->star_five, FILLED_ICON_NAME);
     case 4:
-        gtk_image_set_from_icon_name (self->star_four, FILLED_ICON_NAME);
+        gtk_image_set_from_gressource (self->star_four, FILLED_ICON_NAME);
     case 3:
-        gtk_image_set_from_icon_name (self->star_three, FILLED_ICON_NAME);
+        gtk_image_set_from_gressource (self->star_three, FILLED_ICON_NAME);
     case 2:
-        gtk_image_set_from_icon_name (self->star_two, FILLED_ICON_NAME);
+        gtk_image_set_from_gressource (self->star_two, FILLED_ICON_NAME);
     case 1:
-        gtk_image_set_from_icon_name (self->star_one, FILLED_ICON_NAME);
+        gtk_image_set_from_gressource (self->star_one, FILLED_ICON_NAME);
     case 0:
     default:
         break;
