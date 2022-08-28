@@ -202,6 +202,9 @@ exm_application_init (ExmApplication *self)
     GAction *sort_enabled_first_action = g_settings_create_action (settings, "sort-enabled-first");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (sort_enabled_first_action));
 
+    GAction *show_unsupported_action = g_settings_create_action (settings, "show-unsupported");
+    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (show_unsupported_action));
+
     GAction *style_variant_action = g_settings_create_action (settings, "style-variant");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (style_variant_action));
 
