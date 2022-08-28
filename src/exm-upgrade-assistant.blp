@@ -35,19 +35,19 @@ template ExmUpgradeAssistant : Adw.Window {
               Gtk.DropDown {
                 model: string_model;
                 halign: center;
+
+                Gtk.StringList string_model {
+                  strings ["GNOME 43", "GNOME 42", "GNOME 41", "GNOME 40"]
+                }
               }
             }
 
-            Gtk.Button {
+            Gtk.Button run_button {
               styles ["pill"]
 
               label: _("Check Compatibility");
               halign: center;
               valign: end;
-            }
-
-            Gtk.StringList string_model {
-              strings ["GNOME 43", "GNOME 42", "GNOME 41", "GNOME 40"]
             }
           }
         };

@@ -21,6 +21,8 @@
  #pragma once
  
  #include <adwaita.h>
+
+#include "local/exm-manager.h"
  
  G_BEGIN_DECLS
  
@@ -28,7 +30,7 @@
  
  G_DECLARE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, EXM, UPGRADE_ASSISTANT, AdwWindow)
  
- ExmUpgradeAssistant *exm_upgrade_assistant_new (void);
+ ExmUpgradeAssistant *exm_upgrade_assistant_new (ExmManager *manager);
 
  G_END_DECLS
  
