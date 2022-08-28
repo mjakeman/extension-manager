@@ -32,13 +32,9 @@ template ExmUpgradeAssistant : Adw.Window {
                 wrap: true;
               }
 
-              Gtk.DropDown {
-                model: string_model;
+              Gtk.DropDown drop_down {
                 halign: center;
-
-                Gtk.StringList string_model {
-                  strings ["GNOME 43", "GNOME 42", "GNOME 41", "GNOME 40"]
-                }
+                margin-top: 24;
               }
             }
 

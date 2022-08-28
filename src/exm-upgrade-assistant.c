@@ -31,6 +31,7 @@ struct _ExmUpgradeAssistant
 
     gchar *current_shell_version;
     gchar *target_shell_version;
+    GHashTable *version_map;
 
     GtkListView *list_view;
     GtkDropDown *drop_down;
@@ -144,6 +145,25 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     int num_items;
     int i;
 
+    int selected;
+    const char *key;
+    GListModel *model;
+    int target_version;
+
+    selected = gtk_drop_down_get_selected (self->drop_down);
+    model = gtk_drop_down_get_model (self->drop_down);
+    key = gtk_string_list_get_string (GTK_STRING_LIST (model), selected);
+
+    if (!key)
+        return;
+
+    target_version = (int) g_hash_table_lookup (self->version_map, key);
+
+    if (self->target_shell_version)
+        g_free (self->target_shell_version);
+
+    self->target_shell_version = g_strdup_printf ("%d", target_version);
+
     if (!self->manager)
         return;
 
@@ -165,6 +185,56 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         exm_data_provider_get_async (self->data_provider, uuid, NULL, on_data_loaded, self);
     }
 
+}
+
+static void
+populate_drop_down (ExmUpgradeAssistant *self)
+{
+    GDateTime *date_time;
+    GtkStringList *string_list;
+    GHashTable *hash_table;
+    int year, month;
+    int current_gnome_version;
+    int index;
+
+    date_time = g_date_time_new_now_utc ();
+    year = g_date_time_get_year (date_time);
+    month = g_date_time_get_month (date_time);
+
+    // Two GNOME versions are released per year, once in march
+    // and once in september. Guess/approximate the newest release
+    // of GNOME and make that the default.
+
+    // GNOME 40 came out in March 2021
+    current_gnome_version = 40 + (year - 2021) * 2;
+
+    // If we are between september and march, then it is
+    // an odd numbered release, otherwise use an even numbered
+    // release.
+    if (month >= G_DATE_SEPTEMBER || month < G_DATE_MARCH)
+        current_gnome_version += 1;
+
+    g_print ("Current GNOME Version: %d\n", current_gnome_version);
+
+    // Make sure we at least have GNOME 40-43 regardless
+    // of the date calculation. Update this periodically
+    current_gnome_version = MAX(43, current_gnome_version);
+
+    // Populate dropdown and version map
+    string_list = gtk_string_list_new (NULL);
+    hash_table = g_hash_table_new (g_str_hash, g_str_equal);
+
+    for (index = 40; index <= current_gnome_version; index++) {
+        gchar *key;
+
+        key = g_strdup_printf ("GNOME %d", index);
+        g_hash_table_insert (hash_table, key, index);
+        gtk_string_list_append (string_list, key);
+    }
+
+    self->version_map = hash_table;
+    gtk_drop_down_set_model (self->drop_down, G_LIST_MODEL (string_list));
+    gtk_drop_down_set_selected (self->drop_down, g_list_model_get_n_items (G_LIST_MODEL (string_list)) - 1);
 }
 
 static void
@@ -204,8 +274,8 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
                               self);
 
     self->data_provider = exm_data_provider_new ();
+    self->target_shell_version = NULL;
+    self->current_shell_version = NULL;
 
-    self->target_shell_version = "42";
-    self->current_shell_version = "41";
+    populate_drop_down (self);
 }
-
