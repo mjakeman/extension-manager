@@ -9,6 +9,8 @@
 
 #include "web/model/exm-search-result.h"
 
+#include "exm-config.h"
+
 struct _ExmBrowsePage
 {
     GtkWidget parent_instance;
@@ -174,6 +176,7 @@ on_bind_manager (ExmBrowsePage *self)
 {
     GListModel *user_ext_model;
     GListModel *system_ext_model;
+    gchar *shell_version;
 
     g_object_get (self->manager,
                   "user-extensions", &user_ext_model,
@@ -192,8 +195,11 @@ on_bind_manager (ExmBrowsePage *self)
 
     g_object_get (self->manager,
                   "shell-version",
-                  &self->shell_version,
+                  &shell_version,
                   NULL);
+
+    self->shell_version = shell_version;
+    g_object_set (self->search, "shell-version", shell_version, NULL);
 
     refresh_search (self);
 }
@@ -232,9 +238,24 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
 static void
 exm_browse_page_init (ExmBrowsePage *self)
 {
+    GSettings *settings;
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->search = exm_search_provider_new ();
+
+    settings = g_settings_new (APP_ID);
+
+    g_settings_bind (settings, "show-unsupported",
+                     self->search, "show-unsupported",
+                     G_SETTINGS_BIND_GET);
+
+    // Rerun search when show unsupported is toggled
+    g_signal_connect_swapped (self->search,
+                              "notify::show-unsupported",
+                              G_CALLBACK (on_search_changed),
+                              self);
+
+    g_object_unref (settings);
 
     g_signal_connect_swapped (self->search_entry,
                               "search-changed",
