@@ -305,11 +305,11 @@ msgstr "اتبع النظام"
 
 #: src/exm-window.blp:78
 msgid "Light"
-msgstr "خفيف"
+msgstr "فاتح"
 
 #: src/exm-window.blp:83
 msgid "Dark"
-msgstr "مظلم"
+msgstr "داكن"
 
 #: src/exm-window.blp:89
 msgid "Sort Enabled First"
