@@ -40,6 +40,10 @@ rating {
   color: @yellow_4;
 }
 
+.upgrade-assistant-result {
+  padding: 12px;
+}
+
 /* Progress Bar Colours */
 progressbar.error progress {
     background-color: @red_1;

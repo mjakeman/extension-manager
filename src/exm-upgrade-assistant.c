@@ -37,12 +37,14 @@ struct _ExmUpgradeAssistant
     gchar *target_shell_version;
     GHashTable *version_map;
 
-    // Async Tracking
+    // Results Data
     gchar *current_shell_version;
     int total_extensions;
     int number_checked;
     int number_supported;
     gboolean waiting_on_tasks;
+    GListStore *user_results_store;
+    GListStore *system_results_store;
 
     // Template Widgets
     GtkStack *stack;
@@ -56,7 +58,8 @@ struct _ExmUpgradeAssistant
     GtkLabel *counter;
 
     // Results Page
-    GtkListView *list_view;
+    GtkListBox *user_list_box;
+    GtkListBox *system_list_box;
     GtkProgressBar *progress_bar;
     GtkLabel *summary;
 };
@@ -180,19 +183,7 @@ display_extension_result (ExmUpgradeAssistant *self,
                           ExmSearchResult     *extension,
                           gboolean             is_user)
 {
-    gint pk;
     gboolean is_supported;
-    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
-    g_object_get (extension,
-                  "uuid", &uuid,
-                  "name", &name,
-                  "creator", &creator,
-                  "icon", &icon_uri,
-                  "screenshot", &screenshot_uri,
-                  "link", &link,
-                  "description", &description,
-                  "pk", &pk,
-                  NULL);
 
     is_supported = exm_search_result_supports_shell_version (extension, self->target_shell_version);
 
@@ -200,7 +191,7 @@ display_extension_result (ExmUpgradeAssistant *self,
         self->number_supported++;
     }
 
-    g_print ("Extension '%s' is supported on GNOME %s: %d\n", name, self->target_shell_version, is_supported);
+    g_list_store_append (is_user ? self->user_results_store : self->system_results_store, extension);
 
     if (self->waiting_on_tasks && self->number_checked == self->total_extensions) {
         display_results (self);
@@ -282,12 +273,19 @@ do_compatibility_check (ExmUpgradeAssistant *self)
                   "system-extensions", &system_ext_model,
                   NULL);
 
+    // Display spinner
     gtk_stack_set_visible_child_name (self->stack, "waiting");
+
+    // Reset variables
     self->total_extensions = 0;
     self->number_checked = 0;
     self->number_supported = 0;
     self->waiting_on_tasks = FALSE;
     update_checked_count (self);
+
+    // Empty results list stores before processing items
+    g_list_store_remove_all (self->user_results_store);
+    g_list_store_remove_all (self->system_results_store);
 
     num_items = g_list_model_get_n_items (user_ext_model);
     for (i = 0; i < num_items; i++) {
@@ -297,7 +295,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         extension = EXM_EXTENSION (g_list_model_get_item (user_ext_model, i));
 
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_print ("Processing: %s\n", uuid);
+        g_debug ("Processing: %s\n", uuid);
 
         self->total_extensions++;
         exm_data_provider_get_async (self->data_provider, uuid, NULL, on_user_ext_processed, self);
@@ -311,7 +309,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         extension = EXM_EXTENSION (g_list_model_get_item (system_ext_model, i));
 
         g_object_get (extension, "uuid", &uuid, NULL);
-        g_print ("Processing: %s\n", uuid);
+        g_debug ("Processing: %s\n", uuid);
 
         self->total_extensions++;
         exm_data_provider_get_async (self->data_provider, uuid, NULL, on_system_ext_processed, self);
@@ -320,6 +318,80 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     // Set this flag after all tasks have been dispatched
     // so we do not accidentally finish too early.
     self->waiting_on_tasks = TRUE;
+}
+
+static GtkWidget *
+widget_factory (ExmSearchResult     *extension,
+                ExmUpgradeAssistant *self)
+{
+    gboolean is_supported;
+    gchar *name, *creator, *icon_uri;
+    GtkWidget *hbox, *vbox, *label, *status;
+
+    g_object_get (extension,
+                  "name", &name,
+                  "creator", &creator,
+                  "icon", &icon_uri,
+                  NULL);
+
+    g_return_val_if_fail (EXM_IS_SEARCH_RESULT (extension), NULL);
+
+    is_supported = exm_search_result_supports_shell_version (extension, self->target_shell_version);
+
+    // TODO: Append icon?
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
+    gtk_widget_add_css_class (hbox, "upgrade-assistant-result");
+
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
+    gtk_widget_set_hexpand (vbox, TRUE);
+    gtk_box_append (GTK_BOX (hbox), vbox);
+
+    label = gtk_label_new (name);
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
+    gtk_widget_add_css_class (label, "heading");
+    gtk_box_append (GTK_BOX (vbox), label);
+
+    label = gtk_label_new (creator);
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
+    gtk_widget_add_css_class (label, "dim-label");
+    gtk_box_append (GTK_BOX (vbox), label);
+
+    if (is_supported) {
+        status = gtk_label_new (_("Supported"));
+        gtk_widget_add_css_class (status, "success");
+    } else {
+        status = gtk_label_new (_("Unsupported"));
+        gtk_widget_add_css_class (status, "error");
+    }
+
+    gtk_widget_set_valign (status, GTK_ALIGN_CENTER);
+    gtk_widget_set_halign (status, GTK_ALIGN_CENTER);
+    gtk_box_append (GTK_BOX (hbox), status);
+
+    return GTK_WIDGET (hbox);
+}
+
+static void
+bind_list_box (ExmUpgradeAssistant *self,
+               GtkListBox *list_box,
+               GListModel *model)
+{
+    GtkExpression *expression;
+    GtkStringSorter *alphabetical_sorter;
+    GtkSortListModel *sorted_model;
+
+    g_return_if_fail (GTK_IS_LIST_BOX (list_box));
+    g_return_if_fail (G_IS_LIST_MODEL (model));
+
+    // Sort alphabetically
+    expression = gtk_property_expression_new (EXM_TYPE_SEARCH_RESULT, NULL, "name");
+    alphabetical_sorter = gtk_string_sorter_new (expression);
+
+    sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (alphabetical_sorter));
+
+    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
+                             (GtkListBoxCreateWidgetFunc) widget_factory,
+                             self, NULL);
 }
 
 static void
@@ -411,7 +483,8 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-upgrade-assistant.ui");
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, list_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, user_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, system_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, run_button);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, drop_down);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, description);
@@ -438,6 +511,11 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 
     self->data_provider = exm_data_provider_new ();
     self->target_shell_version = NULL;
+
+    self->user_results_store = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
+    self->system_results_store = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
+    bind_list_box (self, self->user_list_box, G_LIST_MODEL (self->user_results_store));
+    bind_list_box (self, self->system_list_box, G_LIST_MODEL (self->system_results_store));
 
     populate_drop_down (self);
 }
