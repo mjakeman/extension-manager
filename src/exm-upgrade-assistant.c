@@ -22,6 +22,8 @@
 
 #include "web/exm-data-provider.h"
 
+#include <glib/gi18n.h>
+
 struct _ExmUpgradeAssistant
 {
     AdwWindow parent_instance;
@@ -36,6 +38,7 @@ struct _ExmUpgradeAssistant
     GtkListView *list_view;
     GtkDropDown *drop_down;
     GtkButton *run_button;
+    GtkLabel *description;
 };
 
 G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_WINDOW)
@@ -238,6 +241,24 @@ populate_drop_down (ExmUpgradeAssistant *self)
 }
 
 static void
+on_bind_manager (ExmUpgradeAssistant *self)
+{
+    gchar *description_text;
+
+    g_object_get (self->manager,
+                  "shell-version",
+                  &self->current_shell_version,
+                  NULL);
+
+    description_text = _("You are currently running <b>GNOME %s</b>. Select a version of GNOME below and check whether your extensions will continue to be available.");
+    description_text = g_strdup_printf (description_text, self->current_shell_version);
+
+    gtk_label_set_markup (self->description, description_text);
+
+    g_free (description_text);
+}
+
+static void
 exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -261,6 +282,7 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, list_view);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, run_button);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, drop_down);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, description);
 }
 
 static void
@@ -273,9 +295,13 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
                               G_CALLBACK (do_compatibility_check),
                               self);
 
+    g_signal_connect (self,
+                      "notify::manager",
+                      G_CALLBACK (on_bind_manager),
+                      NULL);
+
     self->data_provider = exm_data_provider_new ();
     self->target_shell_version = NULL;
-    self->current_shell_version = NULL;
 
     populate_drop_down (self);
 }
