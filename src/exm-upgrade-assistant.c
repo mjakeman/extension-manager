@@ -62,6 +62,7 @@ struct _ExmUpgradeAssistant
     GtkListBox *system_list_box;
     GtkProgressBar *progress_bar;
     GtkLabel *summary;
+    GtkButton *copy_details;
 };
 
 G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_WINDOW)
@@ -176,6 +177,107 @@ display_results (ExmUpgradeAssistant *self)
     g_free (text);
 
     gtk_stack_set_visible_child_name (self->stack, "results");
+}
+
+static void
+print_list_model (GListModel  *model,
+                  GString     *string_builder,
+                  gchar       *target_shell_version)
+{
+    int num_extensions;
+    gchar *text;
+    int i;
+
+    num_extensions = g_list_model_get_n_items (model);
+    for (i = 0; i < num_extensions; i++) {
+        ExmSearchResult *extension;
+        gchar *name, *creator, *uuid, *url;
+        gboolean is_supported;
+
+        extension = g_list_model_get_item (model, i);
+
+        g_object_get (extension,
+                      "name", &name,
+                      "creator", &creator,
+                      "uuid", &uuid,
+                      "link", &url,
+                      NULL);
+
+        is_supported = exm_search_result_supports_shell_version (extension, target_shell_version);
+
+        text = g_strdup_printf ("'%s' by %s\n", name, creator);
+        g_string_append (string_builder, text);
+        g_free (text);
+
+        text = g_strdup_printf ("Website: https://extensions.gnome.org%s\n", url);
+        g_string_append (string_builder, text);
+        g_free (text);
+
+        text = g_strdup_printf ("Unique ID: %s\n", uuid);
+        g_string_append (string_builder, text);
+        g_free (text);
+
+        text = g_strdup_printf ("Supported: %s\n\n", is_supported ? "Yes" : "No");
+        g_string_append (string_builder, text);
+        g_free (text);
+    }
+}
+
+static void
+copy_to_clipboard (ExmUpgradeAssistant *self)
+{
+    GString *string_builder;
+    gchar *text;
+    float fraction;
+
+    GdkDisplay *display;
+    GdkClipboard *clipboard;
+
+    fraction = (float)self->number_supported / (float)self->total_extensions;
+
+    string_builder = g_string_new ("Extension Manager - Upgrade Assistant Report\n\n");
+
+    text = g_strdup_printf ("Currently on: GNOME %s\n", self->current_shell_version);
+    g_string_append (string_builder, text);
+    g_free (text);
+
+    text = g_strdup_printf ("Upgrading to: GNOME %s\n\n", self->target_shell_version);
+    g_string_append (string_builder, text);
+    g_free (text);
+
+    text = g_strdup_printf ("On upgrading to GNOME %s, %d out of %d currently\ninstalled extensions will be compatible (%d%%).\n\n",
+                            self->target_shell_version,
+                            self->number_supported,
+                            self->total_extensions,
+                            (int)(fraction * 100));
+    g_string_append (string_builder, text);
+    g_free (text);
+
+    text = g_strdup_printf ("User-Installed Extensions:\n\n");
+    g_string_append (string_builder, text);
+    g_free (text);
+
+    print_list_model (G_LIST_MODEL (self->user_results_store), string_builder, self->target_shell_version);
+
+    text = g_strdup_printf ("\nSystem Extensions:\n\n");
+    g_string_append (string_builder, text);
+    g_free (text);
+
+    print_list_model (G_LIST_MODEL (self->system_results_store), string_builder, self->target_shell_version);
+
+
+    // Add to clipboard
+    display = gdk_display_get_default ();
+    clipboard = gdk_display_get_clipboard (display);
+
+    text = g_string_free (string_builder, FALSE);
+    gdk_clipboard_set_text (clipboard, text);
+    g_free (text);
+
+
+    // Success indicator
+    gtk_button_set_label (self->copy_details, _("Copied"));
+    gtk_widget_set_sensitive (GTK_WIDGET (self->copy_details), FALSE);
 }
 
 static void
@@ -492,6 +594,7 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, counter);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, progress_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, copy_details);
 }
 
 static void
@@ -502,6 +605,11 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     g_signal_connect_swapped (self->run_button,
                               "clicked",
                               G_CALLBACK (do_compatibility_check),
+                              self);
+
+    g_signal_connect_swapped (self->copy_details,
+                              "clicked",
+                              G_CALLBACK (copy_to_clipboard),
                               self);
 
     g_signal_connect (self,
