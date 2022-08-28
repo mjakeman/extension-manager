@@ -13,8 +13,9 @@ template ExmUpgradeAssistant : Adw.Window {
       styles ["flat"]
     }
 
-    Gtk.Stack {
+    Gtk.Stack stack {
       Gtk.StackPage version_select {
+      	name: "version-select";
         child: Adw.Clamp {
           styles ["clamp"]
           Gtk.Box {
@@ -48,7 +49,26 @@ template ExmUpgradeAssistant : Adw.Window {
         };
       }
 
+      Gtk.StackPage waiting {
+      	name: "waiting";
+        child: Gtk.Box {
+        	orientation: vertical;
+        	valign: center;
+        	halign: center;
+        	spacing: 10;
+
+        	Gtk.Spinner {
+        		spinning: true;
+        	}
+
+        	Gtk.Label counter {
+        		xalign: 0.5;
+        	}
+        };
+      }
+
       Gtk.StackPage results {
+      	name: "results";
         child: Gtk.ListView list_view {
 
         };

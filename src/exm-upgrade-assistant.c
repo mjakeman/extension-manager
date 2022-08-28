@@ -18,6 +18,7 @@
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
+
 #include "exm-upgrade-assistant.h"
 
 #include "web/exm-data-provider.h"
@@ -28,17 +29,27 @@ struct _ExmUpgradeAssistant
 {
     AdwWindow parent_instance;
 
+    // Auxiliary Classes
     ExmManager *manager;
     ExmDataProvider *data_provider;
 
-    gchar *current_shell_version;
+    // Version Data
     gchar *target_shell_version;
     GHashTable *version_map;
 
+    // Async Tracking
+    gchar *current_shell_version;
+    int total_extensions;
+    int number_checked;
+    gboolean waiting_on_tasks;
+
+    // Template Widgets
     GtkListView *list_view;
     GtkDropDown *drop_down;
     GtkButton *run_button;
     GtkLabel *description;
+    GtkStack *stack;
+    GtkLabel *counter;
 };
 
 G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_WINDOW)
@@ -104,39 +115,83 @@ exm_upgrade_assistant_set_property (GObject      *object,
 }
 
 static void
-on_data_loaded (GObject      *source,
-                GAsyncResult *result,
-                gpointer      user_data)
+update_checked_count (ExmUpgradeAssistant *self)
+{
+    char *text;
+
+    text = g_strdup_printf ("Checked %d/%d extensions",
+                            self->number_checked,
+                            self->total_extensions);
+
+    gtk_label_set_text (self->counter, text);
+    g_free (text);
+}
+
+static void
+display_extension_result (ExmUpgradeAssistant *self,
+                          ExmSearchResult     *extension,
+                          gboolean             is_user)
+{
+    gint pk;
+    gboolean is_supported;
+    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
+    g_object_get (extension,
+                  "uuid", &uuid,
+                  "name", &name,
+                  "creator", &creator,
+                  "icon", &icon_uri,
+                  "screenshot", &screenshot_uri,
+                  "link", &link,
+                  "description", &description,
+                  "pk", &pk,
+                  NULL);
+
+    is_supported = exm_search_result_supports_shell_version (extension, self->target_shell_version);
+
+    g_print ("Extension '%s' is supported on GNOME %s: %d\n", name, self->target_shell_version, is_supported);
+
+    if (self->waiting_on_tasks && self->number_checked == self->total_extensions) {
+        gtk_stack_set_visible_child_name (self->stack, "results");
+    }
+}
+
+static void
+on_user_ext_processed (GObject      *source,
+                       GAsyncResult *result,
+                       gpointer      user_data)
 {
     ExmSearchResult *data;
     GError *error = NULL;
     ExmUpgradeAssistant *self;
-    GtkWidget *child;
-    GList *version_iter;
-    gchar *uri;
 
     self = EXM_UPGRADE_ASSISTANT (user_data);
 
+    self->number_checked++;
+    update_checked_count (self);
+
     if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
     {
-        gint pk;
-        gboolean is_supported;
-        gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
-        g_object_get (data,
-                      "uuid", &uuid,
-                      "name", &name,
-                      "creator", &creator,
-                      "icon", &icon_uri,
-                      "screenshot", &screenshot_uri,
-                      "link", &link,
-                      "description", &description,
-                      "pk", &pk,
-                      NULL);
+        display_extension_result (self, data, TRUE);
+    }
+}
 
-        is_supported = exm_search_result_supports_shell_version (data, self->target_shell_version);
+static void
+on_system_ext_processed (GObject      *source,
+                         GAsyncResult *result,
+                         gpointer      user_data)
+{
+    ExmSearchResult *data;
+    GError *error = NULL;
+    ExmUpgradeAssistant *self;
 
-        g_print ("Extension '%s' is supported on GNOME %s: %d\n", name, self->target_shell_version, is_supported);
+    self = EXM_UPGRADE_ASSISTANT (user_data);
 
+    self->number_checked++;
+    update_checked_count (self);
+
+    if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
+    {
+        display_extension_result (self, data, FALSE);
     }
 }
 
@@ -175,6 +230,12 @@ do_compatibility_check (ExmUpgradeAssistant *self)
                   "system-extensions", &system_ext_model,
                   NULL);
 
+    gtk_stack_set_visible_child_name (self->stack, "waiting");
+    self->total_extensions = 0;
+    self->number_checked = 0;
+    self->waiting_on_tasks = FALSE;
+    update_checked_count (self);
+
     num_items = g_list_model_get_n_items (user_ext_model);
     for (i = 0; i < num_items; i++) {
         char *uuid;
@@ -185,9 +246,27 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         g_object_get (extension, "uuid", &uuid, NULL);
         g_print ("Processing: %s\n", uuid);
 
-        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_data_loaded, self);
+        self->total_extensions++;
+        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_user_ext_processed, self);
     }
 
+    num_items = g_list_model_get_n_items (system_ext_model);
+    for (i = 0; i < num_items; i++) {
+        char *uuid;
+        ExmExtension *extension;
+
+        extension = EXM_EXTENSION (g_list_model_get_item (system_ext_model, i));
+
+        g_object_get (extension, "uuid", &uuid, NULL);
+        g_print ("Processing: %s\n", uuid);
+
+        self->total_extensions++;
+        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_system_ext_processed, self);
+    }
+
+    // Set this flag after all tasks have been dispatched
+    // so we do not accidentally finish too early.
+    self->waiting_on_tasks = TRUE;
 }
 
 static void
@@ -283,6 +362,8 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, run_button);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, drop_down);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, description);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, counter);
 }
 
 static void
