@@ -110,18 +110,20 @@ exm_application_show_about (GSimpleAction *action,
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-    gtk_show_about_dialog (window,
-                           "program-name", program_name,
-                           "authors", authors,
-                           // TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
-                           "translator-credits", _("translator-credits"),
-                           "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
+    adw_show_about_window (window,
+                           "application-name", program_name,
+                           "application-icon", APP_ID,
+                           "developer-name", "Matthew Jakeman",
                            "version", APP_VERSION,
-                           "copyright", "Copyright © Matthew Jakeman 2021",
-                           "license-type", GTK_LICENSE_GPL_3_0,
-                           "logo-icon-name", APP_ID,
+                           "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
                            "website", "https://github.com/mjakeman/extension-manager",
-                           "website-label", _("Project Homepage"),
+                           "support-url", "https://github.com/mjakeman/extension-manager/discussions",
+                           "issue-url", "https://github.com/mjakeman/extension-manager/issues",
+                           // "debug-info", "<system stats>",
+                           "developers", authors,
+                           "translator-credits", _("translator-credits"),
+                           "copyright", "© 2022 Matthew Jakeman",
+                           "license-type", GTK_LICENSE_GPL_3_0,
                            NULL);
 }
 
