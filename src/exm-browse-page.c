@@ -176,6 +176,7 @@ on_bind_manager (ExmBrowsePage *self)
 {
     GListModel *user_ext_model;
     GListModel *system_ext_model;
+    gchar *shell_version;
 
     g_object_get (self->manager,
                   "user-extensions", &user_ext_model,
@@ -194,8 +195,11 @@ on_bind_manager (ExmBrowsePage *self)
 
     g_object_get (self->manager,
                   "shell-version",
-                  &self->shell_version,
+                  &shell_version,
                   NULL);
+
+    self->shell_version = shell_version;
+    g_object_set (self->search, "shell-version", shell_version, NULL);
 
     refresh_search (self);
 }

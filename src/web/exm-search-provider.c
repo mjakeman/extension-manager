@@ -16,6 +16,7 @@ G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM_TYPE_REQUEST_HA
 enum {
     PROP_0,
     PROP_SHOW_UNSUPPORTED,
+    PROP_SHELL_VERSION,
     N_PROPS
 };
 
@@ -48,6 +49,9 @@ exm_search_provider_get_property (GObject    *object,
     case PROP_SHOW_UNSUPPORTED:
         g_value_set_boolean (value, self->show_unsupported);
         break;
+    case PROP_SHELL_VERSION:
+        g_value_set_string (value, self->shell_version);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -65,6 +69,9 @@ exm_search_provider_set_property (GObject      *object,
     {
     case PROP_SHOW_UNSUPPORTED:
         self->show_unsupported = g_value_get_boolean (value);
+        break;
+    case PROP_SHELL_VERSION:
+        self->shell_version = g_value_get_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -199,11 +206,19 @@ exm_search_provider_class_init (ExmSearchProviderClass *klass)
                                 "Show Unsupported",
                                 FALSE, G_PARAM_READWRITE);
 
+    properties [PROP_SHELL_VERSION]
+        = g_param_spec_string ("shell-version",
+                               "Shell Version",
+                               "Shell Version",
+                               NULL,
+                               G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
 static void
 exm_search_provider_init (ExmSearchProvider *self)
 {
+    // TODO: Get current GNOME Shell Version
     self->shell_version = "42";
 }
