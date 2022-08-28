@@ -41,15 +41,24 @@ struct _ExmUpgradeAssistant
     gchar *current_shell_version;
     int total_extensions;
     int number_checked;
+    int number_supported;
     gboolean waiting_on_tasks;
 
     // Template Widgets
-    GtkListView *list_view;
+    GtkStack *stack;
+
+    // Version Select Page
     GtkDropDown *drop_down;
     GtkButton *run_button;
     GtkLabel *description;
-    GtkStack *stack;
+
+    // Waiting Page
     GtkLabel *counter;
+
+    // Results Page
+    GtkListView *list_view;
+    GtkProgressBar *progress_bar;
+    GtkLabel *summary;
 };
 
 G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_WINDOW)
@@ -128,6 +137,38 @@ update_checked_count (ExmUpgradeAssistant *self)
 }
 
 static void
+display_results (ExmUpgradeAssistant *self)
+{
+    char *text;
+    float fraction;
+
+    // Set progress bar value
+    fraction = (float)self->number_supported / (float)self->total_extensions;
+    gtk_progress_bar_set_fraction (self->progress_bar, fraction);
+
+    // Set percentage text
+    text = g_strdup_printf ("%d%% Compatible", (int)(fraction * 100));
+    gtk_progress_bar_set_text (self->progress_bar, text);
+    free (text);
+
+    // Colour according to percentage
+    if (fraction == 1.0f) {
+        // make green
+    } else if (fraction <= 0.7f && fraction > 0.3f) {
+        // make orange
+    } else if (fraction <= 0.3f) {
+        // make red
+    }
+
+    text = _("<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently installed on the system.");
+    text = g_strdup_printf (text, self->target_shell_version, self->number_supported, self->total_extensions);
+    gtk_label_set_markup (self->summary, text);
+    g_free (text);
+
+    gtk_stack_set_visible_child_name (self->stack, "results");
+}
+
+static void
 display_extension_result (ExmUpgradeAssistant *self,
                           ExmSearchResult     *extension,
                           gboolean             is_user)
@@ -148,10 +189,14 @@ display_extension_result (ExmUpgradeAssistant *self,
 
     is_supported = exm_search_result_supports_shell_version (extension, self->target_shell_version);
 
+    if (is_supported) {
+        self->number_supported++;
+    }
+
     g_print ("Extension '%s' is supported on GNOME %s: %d\n", name, self->target_shell_version, is_supported);
 
     if (self->waiting_on_tasks && self->number_checked == self->total_extensions) {
-        gtk_stack_set_visible_child_name (self->stack, "results");
+        display_results (self);
     }
 }
 
@@ -233,6 +278,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     gtk_stack_set_visible_child_name (self->stack, "waiting");
     self->total_extensions = 0;
     self->number_checked = 0;
+    self->number_supported = 0;
     self->waiting_on_tasks = FALSE;
     update_checked_count (self);
 
@@ -364,6 +410,8 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, description);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, counter);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, progress_bar);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary);
 }
 
 static void

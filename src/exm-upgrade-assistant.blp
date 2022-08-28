@@ -69,8 +69,28 @@ template ExmUpgradeAssistant : Adw.Window {
 
       Gtk.StackPage results {
       	name: "results";
-        child: Gtk.ListView list_view {
+        child: Adw.Clamp {
+          styles ["clamp"]
 
+		      child: Gtk.Box {
+		      	orientation: vertical;
+		      	vexpand: true;
+		      	spacing: 24;
+
+		      	Gtk.Label summary {
+							wrap: true;
+		      	}
+
+		      	Gtk.ProgressBar progress_bar {
+							show-text: true;
+							margin-start: 24;
+							margin-end: 24;
+		      	}
+
+		      	Gtk.ListView list_view {
+
+				    }
+		      };
         };
       }
     }
