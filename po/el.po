@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-07-28 00:42+0300\n"
+"PO-Revision-Date: 2022-09-01 00:09+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: el\n"
@@ -87,7 +87,7 @@ msgstr "Προαιρετική ταξινόμηση επεκτάσεων κατ�
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
 msgid "Translation updates"
-msgstr "Ενημέρωσης μεταφράσεων"
+msgstr "Ενημερώσεις μεταφράσεων"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
@@ -140,7 +140,7 @@ msgstr "Απεικονίζει επέκτασης χρήστη και συστή
 
 #: src/exm-application.c:106
 msgid "Extension Manager (Development)"
-msgstr "Διαχειριστής Επεκτάσεων (Αναπτύξει)"
+msgstr "Διαχειριστής Επεκτάσεων (Ανάπτυξη)"
 
 #: src/exm-application.c:107
 msgid "Extension Manager"
@@ -222,7 +222,7 @@ msgstr "Κριτικές Χρηστών"
 
 #: src/exm-detail-view.blp:187
 msgid "Show All Reviews"
-msgstr "Προβολή Όλων των Κρητικών"
+msgstr "Προβολή Όλων των Κριτικών"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
 #: src/exm-detail-view.c:364
@@ -301,12 +301,12 @@ msgstr "Σημειώσεις Ενημέρωσης"
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Εγκατεστημένη"
+msgstr "Ληφθέντες"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
 msgid "Browse"
-msgstr "Περιηγηθείτε"
+msgstr "Περιήγηση"
 
 #: src/exm-window.blp:71
 msgid "Theme"
