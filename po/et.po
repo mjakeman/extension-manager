@@ -140,7 +140,7 @@ msgstr "Laiendushaldur"
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:117
 msgid "translator-credits"
-msgstr "Henri <contact@hen.ee>, 2022"
+msgstr "Henri <contact@hen.ee>"
 
 #: src/exm-application.c:118
 msgid ""
