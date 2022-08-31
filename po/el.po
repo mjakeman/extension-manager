@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-09-01 00:09+0300\n"
+"PO-Revision-Date: 2022-09-01 00:18+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: el\n"
@@ -301,7 +301,7 @@ msgstr "Σημειώσεις Ενημέρωσης"
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Ληφθέντες"
+msgstr "Εγκατεστημένες"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
