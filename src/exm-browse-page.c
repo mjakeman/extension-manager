@@ -247,37 +247,6 @@ on_bind_manager (ExmBrowsePage *self)
 }
 
 static void
-exm_browse_page_class_init (ExmBrowsePageClass *klass)
-{
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-    object_class->finalize = exm_browse_page_finalize;
-    object_class->get_property = exm_browse_page_get_property;
-    object_class->set_property = exm_browse_page_set_property;
-
-    properties [PROP_MANAGER]
-        = g_param_spec_object ("manager",
-                               "Manager",
-                               "Manager",
-                               EXM_TYPE_MANAGER,
-                               G_PARAM_READWRITE);
-
-    g_object_class_install_properties (object_class, N_PROPS, properties);
-
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-browse-page.ui");
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
-
-    gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
-
-    gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
-}
-
-static void
 load_suggestions (ExmBrowsePage *self)
 {
     char *contents;
@@ -309,6 +278,37 @@ load_suggestions (ExmBrowsePage *self)
         // Hardcoded fallback suggestion
         gtk_string_list_append (self->suggestions, "Blur my Shell");
     }
+}
+
+static void
+exm_browse_page_class_init (ExmBrowsePageClass *klass)
+{
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->finalize = exm_browse_page_finalize;
+    object_class->get_property = exm_browse_page_get_property;
+    object_class->set_property = exm_browse_page_set_property;
+
+    properties [PROP_MANAGER]
+        = g_param_spec_object ("manager",
+                               "Manager",
+                               "Manager",
+                               EXM_TYPE_MANAGER,
+                               G_PARAM_READWRITE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
+
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+
+    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-browse-page.ui");
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
+
+    gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
+
+    gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 
 static void

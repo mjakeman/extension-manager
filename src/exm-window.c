@@ -22,7 +22,6 @@
 #include "exm-browse-page.h"
 #include "exm-installed-page.h"
 #include "exm-detail-view.h"
-#include "exm-release-notes-dialog.h"
 
 #include "local/exm-manager.h"
 #include "local/exm-extension.h"
@@ -302,21 +301,6 @@ show_view (GtkWidget  *widget,
 }
 
 static void
-show_release_notes (GtkWidget  *widget,
-                    const char *action_name,
-                    GVariant   *param)
-{
-    ExmWindow *self;
-
-    self = EXM_WINDOW (widget);
-
-    ExmReleaseNotesDialog *notes = exm_release_notes_dialog_new ();
-    gtk_window_set_modal (GTK_WINDOW (notes), TRUE);
-    gtk_window_set_transient_for (GTK_WINDOW (notes), GTK_WINDOW (self));
-    gtk_window_present (GTK_WINDOW (notes));
-}
-
-static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -356,7 +340,6 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
-    gtk_widget_class_install_action (widget_class, "win.show-release-notes", NULL, show_release_notes);
 }
 
 static void
