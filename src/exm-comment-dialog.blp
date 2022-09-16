@@ -13,8 +13,6 @@ template ExmCommentDialog : Gtk.Window {
 
   Gtk.ScrolledWindow {
     Adw.Clamp {
-      styles ["clamp"]
-
       Gtk.Stack stack {
 		    vexpand: true;
 
@@ -32,6 +30,7 @@ template ExmCommentDialog : Gtk.Window {
 			    name: "page_error";
 
 			    child: Adw.StatusPage {
+			      styles ["content"]
 				    title: _("An Error Occurred");
 				    icon-name: "dialog-question-symbolic";
 			    };
@@ -41,7 +40,7 @@ template ExmCommentDialog : Gtk.Window {
 			    name: "page_comments";
 
           child: Gtk.ListBox list_box {
-            styles ["boxed-list"]
+            styles ["content", "boxed-list"]
             valign: start;
             selection-mode: none;
           };
