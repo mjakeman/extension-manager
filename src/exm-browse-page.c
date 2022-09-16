@@ -1,3 +1,23 @@
+/* exm-browse-page.c
+ *
+ * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include "exm-browse-page.h"
 
 #include "exm-search-row.h"
@@ -10,6 +30,9 @@
 #include "web/model/exm-search-result.h"
 
 #include "exm-config.h"
+#include "exm-utils.h"
+
+#include <glib/gi18n.h>
 
 struct _ExmBrowsePage
 {
@@ -19,6 +42,7 @@ struct _ExmBrowsePage
     ExmImageResolver *resolver;
     ExmManager *manager;
 
+    GtkStringList *suggestions;
     GListModel *search_results_model;
     gchar *shell_version;
 
@@ -166,6 +190,24 @@ static void
 on_search_entry_realize (GtkSearchEntry *search_entry,
                          ExmBrowsePage  *self)
 {
+    const char *suggestion;
+    char *fmt;
+    int random_index;
+    int num_suggestions;
+
+    // Get random suggestion
+    num_suggestions = g_list_model_get_n_items (self->suggestions);
+    random_index = g_random_int_range (0, num_suggestions);
+    suggestion = gtk_string_list_get_string (self->suggestions, random_index);
+
+    // Translators:
+    //  - '%s' is an extension e.g. Blur my Shell
+    //  - Please use unicode quotation marks e.g. “” (not "")
+    fmt = g_strdup_printf (_("e.g. “%s”"), suggestion);
+
+    // Set placeholder value
+    g_object_set (search_entry, "placeholder-text", fmt, NULL);
+
     // Fire off a default search
     search (self, "", EXM_SEARCH_SORT_POPULARITY);
     gtk_widget_grab_focus (GTK_WIDGET (search_entry));
@@ -236,6 +278,40 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
 }
 
 static void
+load_suggestions (ExmBrowsePage *self)
+{
+    char *contents;
+    char *contents_nul_term;
+    char **suggest_array;
+    gsize length;
+
+    contents = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/suggestions.txt", &length);
+    self->suggestions = gtk_string_list_new (NULL);
+
+    if (contents)
+    {
+        int iter;
+
+        contents_nul_term = g_strndup (contents, length);
+
+        // Load dynamically from resource
+        suggest_array = g_strsplit_set (contents_nul_term, "\n", -1);
+
+        for (iter = 0; suggest_array[iter] != NULL; iter++)
+            gtk_string_list_append (self->suggestions, suggest_array[iter]);
+
+        g_strfreev (suggest_array);
+        g_free (contents_nul_term);
+        g_free (contents);
+    }
+    else
+    {
+        // Hardcoded fallback suggestion
+        gtk_string_list_append (self->suggestions, "Blur my Shell");
+    }
+}
+
+static void
 exm_browse_page_init (ExmBrowsePage *self)
 {
     GSettings *settings;
@@ -276,4 +352,6 @@ exm_browse_page_init (ExmBrowsePage *self)
                       "notify::manager",
                       G_CALLBACK (on_bind_manager),
                       NULL);
+
+    load_suggestions (self);
 }
