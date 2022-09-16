@@ -26,6 +26,7 @@ exm_sources = [
 exm_deps = [
   dependency('gtk4'),
   dependency('libadwaita-1'),
+  dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),
   dependency('text-engine-0.1')
