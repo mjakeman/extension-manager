@@ -20,7 +20,8 @@ exm_sources = [
 
   # Misc
   'exm-release-notes-dialog.c',
-  'exm-install-button.c'
+  'exm-install-button.c',
+  'exm-utils.c'
 ]
 
 exm_deps = [

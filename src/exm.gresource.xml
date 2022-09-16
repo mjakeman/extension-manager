@@ -12,8 +12,8 @@
     <file>exm-comment-dialog.ui</file>
     <file>exm-rating.ui</file>
     <file>exm-release-notes-dialog.ui</file>
-    <file>res/plugin.png</file>
-    <file>release-notes.txt</file>
+    <file alias="suggestions.txt">res/suggestions.txt</file>
+    <file alias="release-notes.txt">res/release-notes.txt</file>
     <file>style.css</file>
   </gresource>
 </gresources>

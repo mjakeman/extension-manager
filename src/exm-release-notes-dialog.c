@@ -20,6 +20,8 @@
 
 #include "exm-release-notes-dialog.h"
 
+#include "exm-utils.h"
+
 struct _ExmReleaseNotesDialog
 {
     GtkWindow parent_instance;
@@ -75,21 +77,11 @@ exm_release_notes_dialog_init (ExmReleaseNotesDialog *self)
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
-    file = g_file_new_for_uri ("resource:///com/mattjakeman/ExtensionManager/release-notes.txt");
+    contents = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/release-notes.txt", &length);
 
-    if (!file)
-    {
-        g_critical ("Could not read release-notes.txt: invalid file");
-        return;
-    }
-
-    if (g_file_load_contents (file, NULL, &contents, &length, NULL, &error))
+    if (contents)
     {
         buffer = gtk_text_view_get_buffer (self->text_view);
         gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), contents, length);
-    }
-    else
-    {
-        g_critical ("Could not read release-notes.txt: %s", error->message);
     }
 }
