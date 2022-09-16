@@ -41,11 +41,10 @@ template ExmDetailView : Gtk.Box {
 			name: "page_detail";
 			child: Gtk.ScrolledWindow scroll_area {
 				Adw.Clamp {
-					styles ["clamp"]
-
 					maximum-size: 800;
 
 					Gtk.Box {
+		        styles ["detail"]
 						orientation: vertical;
 						spacing: 25;
 

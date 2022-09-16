@@ -1,9 +1,13 @@
-.content {
+.row-content {
   padding: 10px;
 }
 
-.clamp {
-  padding: 20px;
+.content {
+  margin: 24px 12px;
+}
+
+.detail {
+  margin: 24px;
 }
 
 .search-row {
