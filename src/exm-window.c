@@ -36,12 +36,13 @@ struct _ExmWindow
     ExmManager *manager;
 
     /* Template widgets */
-    AdwHeaderBar        *header_bar;
-    ExmBrowsePage       *browse_page;
-    ExmInstalledPage    *installed_page;
-    AdwLeaflet          *leaflet;
-    GtkWidget           *main_view;
-    ExmDetailView       *detail_view;
+    AdwHeaderBar         *header_bar;
+    ExmBrowsePage        *browse_page;
+    ExmInstalledPage     *installed_page;
+    AdwLeaflet           *leaflet;
+    GtkWidget            *main_view;
+    ExmDetailView        *detail_view;
+    AdwViewSwitcherTitle *title;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -326,6 +327,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, leaflet);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -358,6 +360,8 @@ do_version_check (ExmWindow *self)
 static void
 exm_window_init (ExmWindow *self)
 {
+    gchar *title;
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     if (IS_DEVEL) {
@@ -366,8 +370,10 @@ exm_window_init (ExmWindow *self)
 
     self->manager = exm_manager_new ();
 
-    gtk_window_set_title (GTK_WINDOW (self),
-                          IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager"));
+    title = IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager");
+
+    gtk_window_set_title (GTK_WINDOW (self), title);
+    adw_view_switcher_title_set_title (self->title, title);
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
