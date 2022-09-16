@@ -325,6 +325,39 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 
+static GtkWidget *
+create_user_placeholder ()
+{
+    GtkWidget *row, *button;
+
+    row = adw_action_row_new ();
+    button = gtk_button_new_with_label (_("Browse"));
+
+    gtk_widget_set_valign (button, GTK_ALIGN_CENTER);
+    gtk_widget_set_halign (button, GTK_ALIGN_CENTER);
+
+    adw_action_row_set_icon_name (ADW_ACTION_ROW (row), "globe-symbolic");
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
+                                   _("There are no user extensions installed."));
+    adw_action_row_add_suffix (ADW_ACTION_ROW (row), button);
+
+    return row;
+}
+
+static GtkWidget *
+create_system_placeholder ()
+{
+    GtkWidget *row;
+
+    row = adw_action_row_new ();
+    adw_action_row_set_icon_name (ADW_ACTION_ROW (row), "settings-symbolic");
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
+                                   _("There are no system extensions installed."));
+
+    return row;
+
+}
+
 static void
 exm_installed_page_init (ExmInstalledPage *self)
 {
@@ -344,4 +377,12 @@ exm_installed_page_init (ExmInstalledPage *self)
                      G_SETTINGS_BIND_GET);
 
     g_object_unref (settings);
+
+    gtk_list_box_set_placeholder (self->user_list_box,
+                                  create_user_placeholder ());
+
+    gtk_list_box_set_placeholder (self->system_list_box,
+                                  create_system_placeholder ());
+
+
 }
