@@ -336,6 +336,9 @@ create_user_placeholder ()
     gtk_widget_set_valign (button, GTK_ALIGN_CENTER);
     gtk_widget_set_halign (button, GTK_ALIGN_CENTER);
 
+    gtk_actionable_set_action_name (GTK_ACTIONABLE (button), "win.show-page");
+    gtk_actionable_set_action_target (GTK_ACTIONABLE (button), "s", "browse");
+
     adw_action_row_set_icon_name (ADW_ACTION_ROW (row), "globe-symbolic");
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
                                    _("There are no user extensions installed."));

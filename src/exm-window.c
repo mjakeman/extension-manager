@@ -43,6 +43,7 @@ struct _ExmWindow
     GtkWidget            *main_view;
     ExmDetailView        *detail_view;
     AdwViewSwitcherTitle *title;
+    AdwViewStack         *view_stack;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -262,6 +263,21 @@ extension_install (GtkWidget  *widget,
 }
 
 static void
+show_page (GtkWidget  *widget,
+           const char *action_name,
+           GVariant   *param)
+{
+    ExmWindow *self;
+    char *target;
+
+    g_variant_get (param, "s", &target);
+
+    self = EXM_WINDOW (widget);
+
+    adw_view_stack_set_visible_child_name (self->view_stack, target);
+}
+
+static void
 show_view (GtkWidget  *widget,
            const char *action_name,
            GVariant   *param)
@@ -328,6 +344,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, view_stack);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -338,6 +355,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
     gtk_widget_class_install_action (widget_class, "win.show-release-notes", NULL, show_release_notes);
 }
 
