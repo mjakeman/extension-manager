@@ -37,7 +37,6 @@ struct _ExmWindow
 
     /* Template widgets */
     AdwHeaderBar        *header_bar;
-    GtkSwitch           *global_toggle;
     ExmBrowsePage       *browse_page;
     ExmInstalledPage    *installed_page;
     AdwLeaflet          *leaflet;
@@ -322,7 +321,6 @@ exm_window_class_init (ExmWindowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, global_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, leaflet);
@@ -380,12 +378,6 @@ exm_window_init (ExmWindow *self)
                             self->detail_view,
                             "shell-version",
                             G_BINDING_SYNC_CREATE);
-
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->global_toggle,
-                            "state",
-                            G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
 
     // Window must be mapped to show version check dialog
     g_signal_connect (self, "map", G_CALLBACK (do_version_check), NULL);
