@@ -52,13 +52,6 @@ template ExmDetailView : Gtk.Box {
 							orientation: horizontal;
 							spacing: 25;
 
-							Gtk.Image icon {
-								valign: center;
-								halign: center;
-
-								resource: "/com/mattjakeman/ExtensionManager/res/plugin.png";
-							}
-
 							Gtk.Box {
 								orientation: vertical;
 								hexpand: true;
@@ -96,6 +89,7 @@ template ExmDetailView : Gtk.Box {
 							}
 
 							Gtk.Label ext_description {
+							  styles ["multiline"]
 								xalign: 0;
 								wrap: true;
 								wrap-mode: word_char;

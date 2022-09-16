@@ -21,6 +21,7 @@ struct _ExmInstalledPage
     GtkListBox *system_list_box;
     GtkLabel *num_updates_label;
     GtkRevealer *updates_action_bar;
+    GtkSwitch *global_toggle;
 
     gboolean sort_enabled_first;
 };
@@ -265,6 +266,12 @@ on_bind_manager (ExmInstalledPage *self)
 
     g_object_bind_property (self->manager,
                             "extensions-enabled",
+                            self->global_toggle,
+                            "state",
+                            G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->manager,
+                            "extensions-enabled",
                             self->user_list_box,
                             "sensitive",
                             G_BINDING_SYNC_CREATE);
@@ -313,6 +320,7 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, num_updates_label);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_action_bar);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
