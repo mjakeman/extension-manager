@@ -45,10 +45,20 @@ template ExmBrowsePage : Gtk.Widget {
 
 						Gtk.StackPage {
 							name: "page_results";
-							child: Gtk.ListBox search_results {
-								styles ["boxed-list"]
-								valign: start;
-								selection-mode: none;
+							child: Gtk.Box {
+							  orientation: vertical;
+
+							  Gtk.ListBox search_results {
+								  styles ["boxed-list"]
+								  valign: start;
+								  selection-mode: none;
+							  }
+
+							  Gtk.Button more_results_btn {
+					        label: _("Load More Results");
+					        halign: center;
+					        margin-top: 24;
+					      }
 							};
 						}
 
@@ -60,11 +70,6 @@ template ExmBrowsePage : Gtk.Widget {
 								halign: center;
 							};
 						}
-					}
-
-					Gtk.Button more_results_btn {
-					  label: _("Load More Results");
-					  halign: center;
 					}
 				}
 			};

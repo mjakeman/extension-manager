@@ -33,6 +33,7 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
 GListModel *
 exm_search_provider_query_finish (ExmSearchProvider  *self,
                                   GAsyncResult       *result,
+                                  int                *num_pages,
                                   GError            **error);
 
 G_END_DECLS

@@ -137,6 +137,19 @@ search_widget_factory (ExmSearchResult *result,
 }
 
 static void
+update_load_more_btn (ExmBrowsePage *self)
+{
+    // Hide button if we are the last page
+    if (self->current_page == self->max_pages)
+        gtk_widget_hide (self->more_results_btn);
+    else
+        gtk_widget_show (self->more_results_btn);
+
+    // Make it clickable
+    gtk_widget_set_sensitive (self->more_results_btn, TRUE);
+}
+
+static void
 refresh_search (ExmBrowsePage *self)
 {
     if (!self->manager)
@@ -158,6 +171,28 @@ refresh_search (ExmBrowsePage *self)
 }
 
 static void
+on_first_page_result (GObject       *source,
+                      GAsyncResult  *res,
+                      ExmBrowsePage *self)
+{
+    GError *error = NULL;
+    GListModel *to_append;
+    int n_items;
+    int i;
+
+    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
+    n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
+
+    // Populate list model
+    self->search_results_model = to_append;
+
+    // Refresh search
+    refresh_search (self);
+
+    update_load_more_btn (self);
+}
+
+static void
 on_next_page_result (GObject       *source,
                      GAsyncResult  *res,
                      ExmBrowsePage *self)
@@ -167,9 +202,10 @@ on_next_page_result (GObject       *source,
     int n_items;
     int i;
 
-    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &error);
+    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
     n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
 
+    // Append to list model
     for (i = 0; i < n_items; i++) {
         GObject *item;
 
@@ -177,33 +213,26 @@ on_next_page_result (GObject       *source,
         g_list_store_append (G_LIST_STORE (self->search_results_model), item);
     }
 
+    // Remove unnecessary model
     g_list_store_remove_all (G_LIST_STORE (to_append));
     g_object_unref (to_append);
+
+    update_load_more_btn (self);
 }
 
 static void
 on_load_more_results (GtkButton     *btn,
                       ExmBrowsePage *self)
 {
-    // Show Loading Indicator?
+    const char *query;
+    ExmSearchSort sort;
+    gtk_widget_set_sensitive (self->more_results_btn, FALSE);
 
-    const char *query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
-    ExmSearchSort sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
+    query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
+    sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
     exm_search_provider_query_async (self->search, query, ++self->current_page, sort, NULL,
                                      (GAsyncReadyCallback) on_next_page_result,
                                      self);
-}
-
-static void
-on_search_result (GObject       *source,
-                  GAsyncResult  *res,
-                  ExmBrowsePage *self)
-{
-    GError *error = NULL;
-
-    self->search_results_model = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &error);
-
-    refresh_search (self);
 }
 
 static void
@@ -215,8 +244,10 @@ search (ExmBrowsePage *self,
     gtk_stack_set_visible_child_name (self->search_stack, "page_spinner");
     self->current_page = 1;
 
+    g_object_unref (self->search_results_model);
+
     exm_search_provider_query_async (self->search, query, 1, sort, NULL,
-                                     (GAsyncReadyCallback) on_search_result,
+                                     (GAsyncReadyCallback) on_first_page_result,
                                      self);
 }
 

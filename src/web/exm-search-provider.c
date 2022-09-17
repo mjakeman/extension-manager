@@ -22,6 +22,12 @@ enum {
 
 static GParamSpec *properties [N_PROPS];
 
+typedef struct
+{
+    GListModel *list_model;
+    int num_pages;
+} SearchRequestData;
+
 ExmSearchProvider *
 exm_search_provider_new (void)
 {
@@ -78,7 +84,7 @@ exm_search_provider_set_property (GObject      *object,
     }
 }
 
-static GListModel *
+static SearchRequestData *
 parse_search_results (GBytes  *bytes,
                       GError **out_error)
 {
@@ -86,6 +92,7 @@ parse_search_results (GBytes  *bytes,
     gconstpointer data;
     gsize length;
     int num_pages;
+    SearchRequestData *result;
 
     GError *error = NULL;
     *out_error = NULL;
@@ -128,7 +135,10 @@ parse_search_results (GBytes  *bytes,
             g_list_store_append (store, result);
         }
 
-        return G_LIST_MODEL (store);
+        result = g_slice_new0 (SearchRequestData);
+        result->list_model = G_LIST_MODEL (store);
+        result->num_pages = num_pages;
+        return result;
     }
 
     if (out_error)
@@ -186,15 +196,27 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
 GListModel *
 exm_search_provider_query_finish (ExmSearchProvider  *self,
                                   GAsyncResult       *result,
+                                  int                *num_pages,
                                   GError            **error)
 {
     gpointer ret;
+    SearchRequestData *data;
+    GListModel *list_model;
 
     ret = exm_request_handler_request_finish (EXM_REQUEST_HANDLER (self),
                                               result,
                                               error);
 
-    return G_LIST_MODEL (ret);
+    data = (SearchRequestData *) ret;
+
+    if (num_pages)
+        *num_pages = data->num_pages;
+
+    list_model = data->list_model;
+
+    g_slice_free (SearchRequestData, data);
+
+    return list_model;
 }
 
 static void
