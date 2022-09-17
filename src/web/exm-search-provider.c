@@ -207,6 +207,9 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
                                               result,
                                               error);
 
+    if (ret == NULL)
+        return NULL;
+
     data = (SearchRequestData *) ret;
 
     if (num_pages)

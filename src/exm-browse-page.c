@@ -181,10 +181,14 @@ on_first_page_result (GObject       *source,
     int i;
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
-    n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
 
-    // Populate list model
-    self->search_results_model = to_append;
+    if (G_IS_LIST_MODEL (to_append))
+    {
+        n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
+
+        // Populate list model
+        self->search_results_model = to_append;
+    }
 
     // Refresh search
     refresh_search (self);
@@ -203,19 +207,23 @@ on_next_page_result (GObject       *source,
     int i;
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
-    n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
 
-    // Append to list model
-    for (i = 0; i < n_items; i++) {
-        GObject *item;
+    if (G_IS_LIST_MODEL (to_append))
+    {
+        n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
 
-        item = g_list_model_get_object (to_append, i);
-        g_list_store_append (G_LIST_STORE (self->search_results_model), item);
+        // Append to list model
+        for (i = 0; i < n_items; i++) {
+            GObject *item;
+
+            item = g_list_model_get_object (to_append, i);
+            g_list_store_append (G_LIST_STORE (self->search_results_model), item);
+        }
+
+        // Remove unnecessary model
+        g_list_store_remove_all (G_LIST_STORE (to_append));
+        g_clear_object (&to_append);
     }
-
-    // Remove unnecessary model
-    g_list_store_remove_all (G_LIST_STORE (to_append));
-    g_object_unref (to_append);
 
     update_load_more_btn (self);
 }
@@ -244,7 +252,8 @@ search (ExmBrowsePage *self,
     gtk_stack_set_visible_child_name (self->search_stack, "page_spinner");
     self->current_page = 1;
 
-    g_object_unref (self->search_results_model);
+    if (self->search_results_model)
+        g_object_unref (self->search_results_model);
 
     exm_search_provider_query_async (self->search, query, 1, sort, NULL,
                                      (GAsyncReadyCallback) on_first_page_result,
