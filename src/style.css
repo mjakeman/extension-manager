@@ -51,3 +51,35 @@
 rating {
   color: @yellow_4;
 }
+
+.upgrade-assistant-result {
+  padding: 12px;
+}
+
+/* Progress Bar Colours */
+progressbar.error progress {
+    background-color: @red_1;
+}
+
+progressbar.error text {
+    color: @red_1;
+    opacity: 0.8;
+}
+
+progressbar.warning progress {
+    background-color: @yellow_1;
+}
+
+progressbar.warning text {
+    color: @yellow_1;
+    opacity: 0.8;
+}
+
+progressbar.success progress {
+    background-color: @green_1;
+}
+
+progressbar.success text {
+    color: @green_1;
+    opacity: 0.8;
+}

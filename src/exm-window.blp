@@ -93,7 +93,11 @@ menu primary_menu {
   }
   section {
     item {
-      label: _("About Extension Manager");
+    	label: _("Upgrade Assistant");
+      action: "win.show-upgrade-assistant";
+    }
+    item {
+    	label: _("About Extension Manager");
       action: "app.about";
     }
   }

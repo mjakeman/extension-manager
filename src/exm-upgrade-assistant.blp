@@ -1,0 +1,136 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmUpgradeAssistant : Adw.Window {
+  default-width: 400;
+  default-height: 550;
+  title: _("Upgrade Assistant");
+
+  Gtk.Box {
+    orientation: vertical;
+
+    Adw.HeaderBar {
+      styles ["flat"]
+    }
+
+    Gtk.Stack stack {
+      Gtk.StackPage version_select {
+      	name: "version-select";
+        child: Adw.Clamp {
+          Gtk.Box {
+          	styles ["content"]
+            orientation: vertical;
+            spacing: 15;
+            vexpand: true;
+
+            Gtk.Image {
+            	icon-name: "software-update-available-symbolic";
+            	icon-size: large;
+            }
+
+            Gtk.Box {
+              vexpand: true;
+              orientation: vertical;
+
+              Gtk.Label description {
+                xalign: 0.5;
+                wrap: true;
+              }
+
+              Gtk.DropDown drop_down {
+                halign: center;
+                margin-top: 24;
+              }
+            }
+
+            Gtk.Button run_button {
+              styles ["pill"]
+
+              label: _("Check Compatibility");
+              halign: center;
+              valign: end;
+            }
+          }
+        };
+      }
+
+      Gtk.StackPage waiting {
+      	name: "waiting";
+        child: Gtk.Box {
+        	orientation: vertical;
+        	valign: center;
+        	halign: center;
+        	spacing: 10;
+
+        	Gtk.Spinner {
+        		spinning: true;
+        	}
+
+        	Gtk.Label counter {
+        		xalign: 0.5;
+        	}
+        };
+      }
+
+      Gtk.StackPage results {
+      	name: "results";
+        child: Gtk.ScrolledWindow {
+		      child: Adw.Clamp {
+				    child: Gtk.Box {
+				    	styles ["content"]
+				    	orientation: vertical;
+				    	vexpand: true;
+				    	spacing: 24;
+
+				    	Gtk.Label summary {
+								wrap: true;
+				    	}
+
+				    	Gtk.ProgressBar progress_bar {
+								show-text: true;
+								margin-start: 24;
+								margin-end: 24;
+				    	}
+
+				    	Gtk.Box {
+				    		orientation: vertical;
+				    		spacing: 10;
+
+				    		Gtk.Label {
+									styles ["heading"]
+									xalign: 0;
+									margin-top: 20;
+									label: _("User-Installed Extensions");
+								}
+
+								Gtk.ListBox user_list_box {
+									styles ["boxed-list"]
+									valign: start;
+									selection-mode: none;
+								}
+
+								Gtk.Label {
+									styles ["heading"]
+									xalign: 0;
+									margin-top: 20;
+									label: _("System Extensions");
+								}
+
+								Gtk.ListBox system_list_box {
+									styles ["boxed-list"]
+									valign: start;
+									selection-mode: none;
+								}
+			    		}
+
+			    		Gtk.Button copy_details {
+								label: _("Copy to Clipboard");
+								halign: center;
+			    		}
+				    };
+		      };
+        };
+      }
+    }
+  }
+}
