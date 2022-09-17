@@ -1,4 +1,4 @@
-/* exm-browse-page.h
+/* exm-utils.c
  *
  * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -18,18 +18,40 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#pragma once
+#include "exm-utils.h"
 
-#include <gtk/gtk.h>
-#include <adwaita.h>
+char *
+exm_utils_read_resource (const char *resource, gsize *length)
+{
+  GError *error = NULL;
 
-G_BEGIN_DECLS
+  GFile *file;
+  char *path;
+  char *contents;
 
-#define EXM_TYPE_BROWSE_PAGE (exm_browse_page_get_type())
+  g_return_val_if_fail (length != NULL, NULL);
+  g_return_val_if_fail (resource != NULL, NULL);
 
-G_DECLARE_FINAL_TYPE (ExmBrowsePage, exm_browse_page, EXM, BROWSE_PAGE, GtkWidget)
+  path = g_strdup_printf ("resource://%s", resource);
+  file = g_file_new_for_uri (path);
+  g_free (path);
 
-ExmBrowsePage *exm_browse_page_new (void);
-void exm_browse_page_refresh (ExmBrowsePage *self);
+  if (!file)
+  {
+      g_critical ("Could not read %s: invalid file\n", resource);
+      return NULL;
+  }
 
-G_END_DECLS
+  if (g_file_load_contents (file, NULL, &contents, length, NULL, &error))
+  {
+      g_clear_object (&file);
+      return contents;
+  }
+  else
+  {
+      g_critical ("Could not read %s: %s\n", resource, error->message);
+  }
+
+  g_clear_object (&file);
+  return NULL;
+}

@@ -1,7 +1,7 @@
 {
     "app-id" : "com.mattjakeman.ExtensionManager.Devel",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "42",
+    "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
     "command" : "extension-manager",
     "finish-args" : [
@@ -33,7 +33,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "commit": "6576e0283757a58f92227811874406e025dbd98a"
+                    "commit": "87cedc2c7e48b01dc1b07aef937e2fe02111b18c",
+                    "tag": "v0.2.0"
                 }
             ]
         },

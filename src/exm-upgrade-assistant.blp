@@ -17,8 +17,8 @@ template ExmUpgradeAssistant : Adw.Window {
       Gtk.StackPage version_select {
       	name: "version-select";
         child: Adw.Clamp {
-          styles ["clamp"]
           Gtk.Box {
+          	styles ["content"]
             orientation: vertical;
             spacing: 15;
             vexpand: true;
@@ -76,9 +76,8 @@ template ExmUpgradeAssistant : Adw.Window {
       	name: "results";
         child: Gtk.ScrolledWindow {
 		      child: Adw.Clamp {
-		        styles ["clamp"]
-
 				    child: Gtk.Box {
+				    	styles ["content"]
 				    	orientation: vertical;
 				    	vexpand: true;
 				    	spacing: 24;

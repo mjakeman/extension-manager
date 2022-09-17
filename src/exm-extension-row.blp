@@ -63,7 +63,7 @@ template ExmExtensionRow : Adw.ExpanderRow {
 		activatable: false;
 
 		Gtk.Grid {
-			styles ["content"]
+			styles ["row-content"]
 
 			row-spacing: 15;
 			column-spacing: 15;
@@ -83,6 +83,7 @@ template ExmExtensionRow : Adw.ExpanderRow {
 			}
 
 			Gtk.Label description_label {
+			  styles ["multiline"]
 				xalign: 0;
 				wrap-mode: word;
 				wrap: true;

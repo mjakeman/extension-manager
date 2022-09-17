@@ -1,4 +1,4 @@
-/* exm-release-notes-dialog.h
+/* exm-utils.h
  *
  * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -20,14 +20,7 @@
 
 #pragma once
 
-#include <gtk/gtk.h>
+#include <gio/gio.h>
 
-G_BEGIN_DECLS
-
-#define EXM_TYPE_RELEASE_NOTES_DIALOG (exm_release_notes_dialog_get_type())
-
-G_DECLARE_FINAL_TYPE (ExmReleaseNotesDialog, exm_release_notes_dialog, EXM, RELEASE_NOTES_DIALOG, GtkWindow)
-
-ExmReleaseNotesDialog *exm_release_notes_dialog_new (void);
-
-G_END_DECLS
+char *
+exm_utils_read_resource (const char *resource, gsize *length);

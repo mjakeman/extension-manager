@@ -21,6 +21,8 @@
 #include "exm-application.h"
 #include "exm-window.h"
 
+#include "exm-utils.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmApplication
@@ -106,22 +108,30 @@ exm_application_show_about (GSimpleAction *action,
         ? _("Extension Manager (Development)")
         : _("Extension Manager");
 
+    gchar *release_notes;
+    gsize length;
+
     g_return_if_fail (EXM_IS_APPLICATION (self));
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-    gtk_show_about_dialog (window,
-                           "program-name", program_name,
-                           "authors", authors,
-                           // TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
-                           "translator-credits", _("translator-credits"),
-                           "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
+    release_notes = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/release-notes.txt", &length);
+
+    adw_show_about_window (window,
+                           "application-name", program_name,
+                           "application-icon", APP_ID,
+                           "developer-name", "Matthew Jakeman",
                            "version", APP_VERSION,
-                           "copyright", "Copyright © Matthew Jakeman 2021",
-                           "license-type", GTK_LICENSE_GPL_3_0,
-                           "logo-icon-name", APP_ID,
+                           "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
                            "website", "https://github.com/mjakeman/extension-manager",
-                           "website-label", _("Project Homepage"),
+                           "support-url", "https://github.com/mjakeman/extension-manager/discussions",
+                           "issue-url", "https://github.com/mjakeman/extension-manager/issues",
+                           // "debug-info", "<system stats>",
+                           "release-notes", release_notes,
+                           "developers", authors,
+                           "translator-credits", _("translator-credits"),
+                           "copyright", "© 2022 Matthew Jakeman",
+                           "license-type", GTK_LICENSE_GPL_3_0,
                            NULL);
 }
 
@@ -199,6 +209,9 @@ exm_application_init (ExmApplication *self)
 
     GAction *sort_enabled_first_action = g_settings_create_action (settings, "sort-enabled-first");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (sort_enabled_first_action));
+
+    GAction *show_unsupported_action = g_settings_create_action (settings, "show-unsupported");
+    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (show_unsupported_action));
 
     GAction *style_variant_action = g_settings_create_action (settings, "style-variant");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (style_variant_action));

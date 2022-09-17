@@ -1,0 +1,5 @@
+<ul>
+<li>Translation updates</li>
+<li>Various bug fixes</li>
+<li>Performance and stability</li>
+</ul>

@@ -1,9 +1,21 @@
-.content {
+.row-content {
   padding: 10px;
 }
 
-.clamp {
-  padding: 20px;
+.global-toggle-row {
+  padding: 4px;
+}
+
+.content {
+  margin: 24px 12px;
+}
+
+.detail {
+  margin: 24px;
+}
+
+.multiline {
+  line-height: 140%;
 }
 
 .search-row {

@@ -41,24 +41,16 @@ template ExmDetailView : Gtk.Box {
 			name: "page_detail";
 			child: Gtk.ScrolledWindow scroll_area {
 				Adw.Clamp {
-					styles ["clamp"]
-
 					maximum-size: 800;
 
 					Gtk.Box {
+		        styles ["detail"]
 						orientation: vertical;
 						spacing: 25;
 
 						Gtk.Box header {
 							orientation: horizontal;
 							spacing: 25;
-
-							Gtk.Image icon {
-								valign: center;
-								halign: center;
-
-								resource: "/com/mattjakeman/ExtensionManager/res/plugin.png";
-							}
 
 							Gtk.Box {
 								orientation: vertical;
@@ -97,6 +89,7 @@ template ExmDetailView : Gtk.Box {
 							}
 
 							Gtk.Label ext_description {
+							  styles ["multiline"]
 								xalign: 0;
 								wrap: true;
 								wrap-mode: word_char;

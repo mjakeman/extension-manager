@@ -25,9 +25,6 @@ template ExmWindow : Adw.ApplicationWindow {
 				  icon-name: "open-menu-symbolic";
 				  menu-model: primary_menu;
 				}
-
-				[end]
-				Gtk.Switch global_toggle {}
 			}
 
 			Gtk.Box {
@@ -89,20 +86,18 @@ menu primary_menu {
       label: _("Sort Enabled First");
       action: "app.sort-enabled-first";
     }
+    item {
+      label: _("Show Unsupported");
+      action: "app.show-unsupported";
+    }
   }
   section {
     item {
-      label: _("Upgrade Assistant");
+    	label: _("Upgrade Assistant");
       action: "win.show-upgrade-assistant";
     }
-  }
-  section {
     item {
-      label: _("Release Notes");
-      action: "win.show-release-notes";
-    }
-    item {
-      label: _("About Extension Manager");
+    	label: _("About Extension Manager");
       action: "app.about";
     }
   }

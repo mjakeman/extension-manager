@@ -19,14 +19,15 @@ exm_sources = [
   'exm-search-row.c',
 
   # Misc
-  'exm-release-notes-dialog.c',
+  'exm-upgrade-assistant.c',
   'exm-install-button.c',
-  'exm-upgrade-assistant.c'
+  'exm-utils.c'
 ]
 
 exm_deps = [
   dependency('gtk4'),
   dependency('libadwaita-1'),
+  dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),
   dependency('text-engine-0.1')
@@ -49,7 +50,6 @@ blueprints = custom_target('blueprints',
     'exm-comment-tile.blp',
     'exm-comment-dialog.blp',
     'exm-rating.blp',
-    'exm-release-notes-dialog.blp',
     'exm-upgrade-assistant.blp'
   ),
   output: '.',
