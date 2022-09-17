@@ -24,6 +24,7 @@ ExmSearchProvider *exm_search_provider_new (void);
 void
 exm_search_provider_query_async (ExmSearchProvider   *self,
                                  const gchar         *query,
+                                 int                  page,
                                  ExmSearchSort        sort_type,
                                  GCancellable        *cancellable,
                                  GAsyncReadyCallback  callback,
@@ -32,6 +33,7 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
 GListModel *
 exm_search_provider_query_finish (ExmSearchProvider  *self,
                                   GAsyncResult       *result,
+                                  int                *num_pages,
                                   GError            **error);
 
 G_END_DECLS

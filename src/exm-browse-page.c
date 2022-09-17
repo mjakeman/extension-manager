@@ -46,11 +46,15 @@ struct _ExmBrowsePage
     GListModel *search_results_model;
     gchar *shell_version;
 
+    int current_page;
+    int max_pages;
+
     // Template Widgets
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
     GtkStack            *search_stack;
     GtkDropDown         *search_dropdown;
+    GtkButton           *more_results_btn;
 };
 
 G_DEFINE_FINAL_TYPE (ExmBrowsePage, exm_browse_page, GTK_TYPE_WIDGET)
@@ -133,6 +137,19 @@ search_widget_factory (ExmSearchResult *result,
 }
 
 static void
+update_load_more_btn (ExmBrowsePage *self)
+{
+    // Hide button if we are the last page
+    if (self->current_page == self->max_pages)
+        gtk_widget_hide (self->more_results_btn);
+    else
+        gtk_widget_show (self->more_results_btn);
+
+    // Make it clickable
+    gtk_widget_set_sensitive (self->more_results_btn, TRUE);
+}
+
+static void
 refresh_search (ExmBrowsePage *self)
 {
     if (!self->manager)
@@ -154,15 +171,68 @@ refresh_search (ExmBrowsePage *self)
 }
 
 static void
-on_search_result (GObject       *source,
-                  GAsyncResult  *res,
-                  ExmBrowsePage *self)
+on_first_page_result (GObject       *source,
+                      GAsyncResult  *res,
+                      ExmBrowsePage *self)
 {
     GError *error = NULL;
+    GListModel *to_append;
+    int n_items;
+    int i;
 
-    self->search_results_model = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &error);
+    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
+    n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
 
+    // Populate list model
+    self->search_results_model = to_append;
+
+    // Refresh search
     refresh_search (self);
+
+    update_load_more_btn (self);
+}
+
+static void
+on_next_page_result (GObject       *source,
+                     GAsyncResult  *res,
+                     ExmBrowsePage *self)
+{
+    GError *error = NULL;
+    GListModel *to_append;
+    int n_items;
+    int i;
+
+    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
+    n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
+
+    // Append to list model
+    for (i = 0; i < n_items; i++) {
+        GObject *item;
+
+        item = g_list_model_get_object (to_append, i);
+        g_list_store_append (G_LIST_STORE (self->search_results_model), item);
+    }
+
+    // Remove unnecessary model
+    g_list_store_remove_all (G_LIST_STORE (to_append));
+    g_object_unref (to_append);
+
+    update_load_more_btn (self);
+}
+
+static void
+on_load_more_results (GtkButton     *btn,
+                      ExmBrowsePage *self)
+{
+    const char *query;
+    ExmSearchSort sort;
+    gtk_widget_set_sensitive (self->more_results_btn, FALSE);
+
+    query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
+    sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
+    exm_search_provider_query_async (self->search, query, ++self->current_page, sort, NULL,
+                                     (GAsyncReadyCallback) on_next_page_result,
+                                     self);
 }
 
 static void
@@ -172,9 +242,12 @@ search (ExmBrowsePage *self,
 {
     // Show Loading Indicator
     gtk_stack_set_visible_child_name (self->search_stack, "page_spinner");
+    self->current_page = 1;
 
-    exm_search_provider_query_async (self->search, query, sort, NULL,
-                                     (GAsyncReadyCallback) on_search_result,
+    g_object_unref (self->search_results_model);
+
+    exm_search_provider_query_async (self->search, query, 1, sort, NULL,
+                                     (GAsyncReadyCallback) on_first_page_result,
                                      self);
 }
 
@@ -247,37 +320,6 @@ on_bind_manager (ExmBrowsePage *self)
 }
 
 static void
-exm_browse_page_class_init (ExmBrowsePageClass *klass)
-{
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-    object_class->finalize = exm_browse_page_finalize;
-    object_class->get_property = exm_browse_page_get_property;
-    object_class->set_property = exm_browse_page_set_property;
-
-    properties [PROP_MANAGER]
-        = g_param_spec_object ("manager",
-                               "Manager",
-                               "Manager",
-                               EXM_TYPE_MANAGER,
-                               G_PARAM_READWRITE);
-
-    g_object_class_install_properties (object_class, N_PROPS, properties);
-
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-browse-page.ui");
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
-    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
-
-    gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
-
-    gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
-}
-
-static void
 load_suggestions (ExmBrowsePage *self)
 {
     char *contents;
@@ -309,6 +351,38 @@ load_suggestions (ExmBrowsePage *self)
         // Hardcoded fallback suggestion
         gtk_string_list_append (self->suggestions, "Blur my Shell");
     }
+}
+
+static void
+exm_browse_page_class_init (ExmBrowsePageClass *klass)
+{
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->finalize = exm_browse_page_finalize;
+    object_class->get_property = exm_browse_page_get_property;
+    object_class->set_property = exm_browse_page_set_property;
+
+    properties [PROP_MANAGER]
+        = g_param_spec_object ("manager",
+                               "Manager",
+                               "Manager",
+                               EXM_TYPE_MANAGER,
+                               G_PARAM_READWRITE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
+
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+
+    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-browse-page.ui");
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_btn);
+
+    gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
+
+    gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 
 static void
@@ -346,6 +420,11 @@ exm_browse_page_init (ExmBrowsePage *self)
     g_signal_connect (self->search_entry,
                       "realize",
                       G_CALLBACK (on_search_entry_realize),
+                      self);
+
+    g_signal_connect (self->more_results_btn,
+                      "clicked",
+                      G_CALLBACK (on_load_more_results),
                       self);
 
     g_signal_connect (self,

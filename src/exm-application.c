@@ -21,6 +21,8 @@
 #include "exm-application.h"
 #include "exm-window.h"
 
+#include "exm-utils.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmApplication
@@ -106,9 +108,14 @@ exm_application_show_about (GSimpleAction *action,
         ? _("Extension Manager (Development)")
         : _("Extension Manager");
 
+    gchar *release_notes;
+    gsize length;
+
     g_return_if_fail (EXM_IS_APPLICATION (self));
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
+
+    release_notes = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/release-notes.txt", &length);
 
     adw_show_about_window (window,
                            "application-name", program_name,
@@ -120,6 +127,7 @@ exm_application_show_about (GSimpleAction *action,
                            "support-url", "https://github.com/mjakeman/extension-manager/discussions",
                            "issue-url", "https://github.com/mjakeman/extension-manager/issues",
                            // "debug-info", "<system stats>",
+                           "release-notes", release_notes,
                            "developers", authors,
                            "translator-credits", _("translator-credits"),
                            "copyright", "© 2022 Matthew Jakeman",
