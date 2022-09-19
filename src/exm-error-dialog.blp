@@ -1,0 +1,66 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ExmErrorDialog : Adw.Window {
+  default-width: 400;
+  default-height: 400;
+  title: _("Error Report");
+
+  Gtk.Box {
+    orientation: vertical;
+
+    Adw.HeaderBar {
+      styles ["flat"]
+    }
+
+    Adw.Clamp {
+      child: Gtk.Box {
+        styles ["content"]
+        orientation: vertical;
+        spacing: 16;
+
+        Gtk.Image {
+          icon-name: "error-symbolic";
+          icon-size: large;
+        }
+
+        Gtk.Label {
+          label: _("An unexpected error occurred. Please open a new issue and attach the following information:");
+          wrap: true;
+        }
+
+        Gtk.ScrolledWindow {
+          child: Gtk.TextView text_view {
+            wrap-mode: char;
+            vexpand: true;
+
+            top-margin: 16;
+            left-margin: 16;
+            right-margin: 16;
+            bottom-margin: 16;
+          };
+        }
+
+        Gtk.Box {
+          orientation: horizontal;
+          homogeneous: true;
+          halign: center;
+          spacing: 16;
+
+          Gtk.Button copy_button {
+            label: _("Copy to Clipboard");
+
+            clicked => on_copy_button_clicked();
+          }
+
+          Gtk.Button new_issue_button {
+            styles ["suggested-action"]
+            label: _("New Issue");
+
+            clicked => on_new_issue_button_clicked() swapped;
+          }
+        }
+      };
+    }
+  }
+}

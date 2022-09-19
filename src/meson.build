@@ -19,6 +19,7 @@ exm_sources = [
   'exm-search-row.c',
 
   # Misc
+  'exm-error-dialog.c',
   'exm-upgrade-assistant.c',
   'exm-install-button.c',
   'exm-backtrace.c',
@@ -55,7 +56,8 @@ blueprints = custom_target('blueprints',
     'exm-comment-tile.blp',
     'exm-comment-dialog.blp',
     'exm-rating.blp',
-    'exm-upgrade-assistant.blp'
+    'exm-upgrade-assistant.blp',
+    'exm-error-dialog.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
