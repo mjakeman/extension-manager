@@ -256,7 +256,7 @@ exm_manager_remove_extension (ExmManager   *self,
                                                uuid,
                                                NULL,
                                                (GAsyncReadyCallback) remove_extension_done,
-                                               extension);
+                                               create_callback_data (self, extension));
 }
 
 static void
