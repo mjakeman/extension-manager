@@ -18,7 +18,7 @@
     <file>style.css</file>
   </gresource>
 
-  <gresource prefix="/com/mattjakeman/ExtensionManager/icons/scalable/actions/">
+  <gresource prefix="/com/mattjakeman/ExtensionManager/icons/scalable/actions">
     <file preprocess="xml-stripblanks" alias="star-filled-rounded-symbolic.svg">../data/icons/hicolor/scalable/actions/star-filled-rounded-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="star-outline-rounded-symbolic.svg">../data/icons/hicolor/scalable/actions/star-outline-rounded-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="clock-alt-symbolic.svg">../data/icons/hicolor/scalable/actions/clock-alt-symbolic.svg</file>

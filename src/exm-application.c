@@ -54,6 +54,9 @@ static void
 exm_application_activate (GApplication *app)
 {
     GtkWindow *window;
+    GdkDisplay *display;
+    GtkCssProvider *provider;
+    GtkIconTheme *icon_theme;
 
     /* It's good practice to check your parameters at the beginning of the
     * function. It helps catch errors early and in development instead of
@@ -61,11 +64,14 @@ exm_application_activate (GApplication *app)
     */
     g_assert (GTK_IS_APPLICATION (app));
 
-    GdkDisplay *display = gdk_display_get_default ();
-    GtkCssProvider *provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_resource (provider, "/com/mattjakeman/ExtensionManager/style.css");
     gtk_style_context_add_provider_for_display (display, GTK_STYLE_PROVIDER (provider),
                                                 GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    icon_theme = gtk_icon_theme_get_for_display (display);
+    gtk_icon_theme_add_resource_path (icon_theme, "/com/mattjakeman/ExtensionManager/icons");
 
     /* Get the current window or create one if necessary. */
     window = gtk_application_get_active_window (GTK_APPLICATION (app));
