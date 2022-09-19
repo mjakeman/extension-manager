@@ -44,6 +44,7 @@ struct _ExmWindow
     ExmDetailView        *detail_view;
     AdwViewSwitcherTitle *title;
     AdwViewStack         *view_stack;
+    AdwToastOverlay      *toast_overlay;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -317,6 +318,146 @@ show_upgrade_assistant (GtkWidget  *widget,
 }
 
 static void
+copy_to_clipboard (GtkWidget *button,
+                   char      *text)
+{
+    GdkDisplay *display;
+    GdkClipboard *clipboard;
+
+    // Add to clipboard
+    display = gdk_display_get_default ();
+    clipboard = gdk_display_get_clipboard (display);
+
+    gdk_clipboard_set_text (clipboard, text);
+    g_free (text);
+
+    // Success indicator
+    gtk_button_set_label (button, _("Copied"));
+    gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
+}
+
+static void
+open_issue (GtkWidget *button,
+            GtkWindow *window)
+{
+    gtk_show_uri (window, "https://github.com/mjakeman/extension-manager/issues", GDK_CURRENT_TIME);
+}
+
+static void
+show_error_dialog (GtkWidget  *widget,
+                   const char *action_name,
+                   GVariant   *param)
+{
+    GtkWidget *error_dialog;
+    GtkWidget *clamp, *vbox, *window_box;
+    GtkWidget *icon, *scroll_area, *text_view, *label;
+    GtkWidget *toolbar, *copy_button, *new_issue_button;
+    GtkWidget *header, *title;
+    GtkTextBuffer *buffer;
+    char *error_text;
+
+    error_text = g_strdup (g_variant_get_string (param, NULL));
+
+    error_dialog = adw_window_new ();
+    gtk_window_set_modal (GTK_WINDOW (error_dialog), TRUE);
+    gtk_window_set_transient_for (GTK_WINDOW (error_dialog), GTK_WINDOW (widget));
+    gtk_window_set_default_size (GTK_WINDOW (error_dialog), 400, 400);
+
+    window_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+
+    header = adw_header_bar_new ();
+    title = adw_window_title_new (_("Error Summary"), NULL);
+    adw_header_bar_set_title_widget (ADW_HEADER_BAR (header), title);
+    gtk_widget_add_css_class (header, "flat");
+    gtk_box_append (GTK_BOX (window_box), header);
+
+    clamp = adw_clamp_new ();
+    gtk_box_append (GTK_BOX (window_box), clamp);
+
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 16);
+    gtk_widget_add_css_class (vbox, "content");
+    adw_clamp_set_child (ADW_CLAMP (clamp), vbox);
+
+    icon = gtk_image_new_from_icon_name ("error-symbolic");
+    gtk_image_set_icon_size (GTK_IMAGE (icon), GTK_ICON_SIZE_LARGE);
+    gtk_box_append (GTK_BOX (vbox), icon);
+
+    label = gtk_label_new (_("An unexpected error occurred. Please open a new issue and attach the following information:"));
+    gtk_label_set_wrap (GTK_LABEL (label), TRUE);
+    gtk_box_append (GTK_BOX (vbox), label);
+
+    scroll_area = gtk_scrolled_window_new ();
+
+    text_view = gtk_text_view_new ();
+    gtk_text_view_set_editable (GTK_TEXT_VIEW (text_view), FALSE);
+    gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (text_view), GTK_WRAP_CHAR);
+
+    gtk_text_view_set_top_margin (GTK_TEXT_VIEW (text_view), 16);
+    gtk_text_view_set_left_margin (GTK_TEXT_VIEW (text_view), 16);
+    gtk_text_view_set_bottom_margin (GTK_TEXT_VIEW (text_view), 16);
+    gtk_text_view_set_right_margin (GTK_TEXT_VIEW (text_view), 16);
+
+    gtk_widget_set_vexpand (text_view, TRUE);
+    gtk_scrolled_window_set_child (GTK_SCROLLED_WINDOW (scroll_area), text_view);
+    gtk_box_append (GTK_BOX (vbox), scroll_area);
+
+    buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text_view));
+    gtk_text_buffer_set_text (buffer, error_text, -1);
+
+    toolbar = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 16);
+    gtk_box_set_homogeneous (GTK_BOX (toolbar), TRUE);
+    gtk_widget_set_halign (toolbar, GTK_ALIGN_CENTER);
+
+    copy_button = gtk_button_new_with_label ("Copy to Clipboard");
+    g_signal_connect (copy_button, "clicked", G_CALLBACK (copy_to_clipboard), g_strdup (error_text));
+
+    new_issue_button = gtk_button_new_with_label ("New Issue");
+    g_signal_connect (new_issue_button, "clicked", G_CALLBACK (open_issue), widget);
+    gtk_widget_add_css_class (new_issue_button, "suggested-action");
+
+    gtk_box_append (GTK_BOX (toolbar), copy_button);
+    gtk_box_append (GTK_BOX (toolbar), new_issue_button);
+    gtk_box_append (GTK_BOX (vbox), toolbar);
+
+    adw_window_set_content (ADW_WINDOW (error_dialog), window_box);
+    gtk_window_present (GTK_WINDOW (error_dialog));
+
+    g_free (error_text);
+}
+
+static void
+show_error (GtkWidget  *widget,
+            const char *action_name,
+            GVariant   *param)
+{
+    ExmWindow *self;
+    char *error_text;
+    AdwToast *toast;
+
+    self = EXM_WINDOW (widget);
+
+    g_variant_get (param, "s", &error_text);
+
+    toast = adw_toast_new (_("An error occurred."));
+    adw_toast_set_button_label (toast, _("Details"));
+    adw_toast_set_timeout (toast, 5);
+
+    adw_toast_set_action_name (toast, "win.show-error-dialog");
+    adw_toast_set_action_target (toast, "s", error_text);
+
+    adw_toast_overlay_add_toast (self->toast_overlay, toast);
+}
+
+
+static void
+on_error (ExmManager *manager,
+          char       *error_text,
+          ExmWindow  *self)
+{
+    gtk_widget_activate_action (self, "win.show-error", "s", error_text);
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -345,6 +486,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, view_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, toast_overlay);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -357,6 +499,8 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-upgrade-assistant", NULL, show_upgrade_assistant);
     gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
+    gtk_widget_class_install_action (widget_class, "win.show-error", "s", show_error);
+    gtk_widget_class_install_action (widget_class, "win.show-error-dialog", "s", show_error_dialog);
 }
 
 static void
@@ -387,6 +531,7 @@ exm_window_init (ExmWindow *self)
     }
 
     self->manager = exm_manager_new ();
+    g_signal_connect (self->manager, "error-occurred", on_error, self);
 
     title = IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager");
 
