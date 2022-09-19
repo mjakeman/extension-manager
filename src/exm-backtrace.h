@@ -21,5 +21,5 @@
 void
 exm_backtrace_init (char *filename);
 
-void
+char *
 exm_backtrace_print ();

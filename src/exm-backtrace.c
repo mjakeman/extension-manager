@@ -36,14 +36,19 @@ exm_backtrace_error_cb (void       *data,
 }
 
 static int
-exm_backtrace_full_cb (void       *data,
+exm_backtrace_full_cb (GString    *string_builder,
                        uintptr_t   pc,
                        const char *filename,
                        int         lineno,
                        const char *function)
 {
     if (filename || lineno || function)
-        g_print ("%s:%d '%s'\n", filename, lineno, function);
+    {
+        char *entry;
+        entry = g_strdup_printf ("%s:%d '%s'\n", filename, lineno, function);
+        g_string_append (string_builder, entry);
+        g_free (entry);
+    }
 
     return 0;
 }
@@ -60,17 +65,23 @@ exm_backtrace_init (char *filename)
 #endif
 }
 
-void
+char *
 exm_backtrace_print ()
 {
+    GString *string_builder;
+
     if (!state)
     {
         g_critical ("Cannot print backtrace.\n");
-        return;
+        return NULL;
     }
+
+    string_builder = g_string_new ("");
 
     backtrace_full (state, 0,
                     exm_backtrace_full_cb,
                     exm_backtrace_error_cb,
-                    NULL);
+                    string_builder);
+
+    return g_string_free (string_builder, FALSE);
 }
