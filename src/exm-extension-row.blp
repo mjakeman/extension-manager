@@ -13,11 +13,15 @@ template ExmExtensionRow : Adw.ExpanderRow {
 
 	[action]
 	Gtk.Button prefs_btn {
+	  styles ["flat"]
+
 		icon-name: "settings-symbolic";
 		valign: center;
 		halign: center;
 
 		action-name: 'row.open-prefs';
+
+		tooltip-text: _("Open extension preferences");
 	}
 
 	[action]
@@ -43,7 +47,7 @@ template ExmExtensionRow : Adw.ExpanderRow {
 
 		visible: false;
 
-		tooltip-text: _("This extension is incompatible with your current version of GNOME.");
+		tooltip-text: _("This extension is incompatible with your current version of GNOME");
 	}
 
 	[action]
