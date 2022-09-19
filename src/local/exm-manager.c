@@ -267,12 +267,13 @@ open_prefs_done (ShellExtensions *proxy,
     GError *error = NULL;
     shell_extensions_call_launch_extension_prefs_finish (proxy, res, &error);
 
-    if (error)
+    // TODO: Don't enable until we can export the window handle over dbus
+    /*if (error)
     {
         gchar *uuid;
         g_object_get (data->extension, "uuid", &uuid, NULL);
         notify_error (data->manager, "Could not open extension '%s' preferences: %s\n", uuid, error->message);
-    }
+    }*/
 
     free_callback_data (data);
 }
