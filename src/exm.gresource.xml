@@ -12,6 +12,7 @@
     <file>exm-comment-dialog.ui</file>
     <file>exm-rating.ui</file>
     <file>exm-upgrade-assistant.ui</file>
+    <file>exm-error-dialog.ui</file>
     <file alias="suggestions.txt">res/suggestions.txt</file>
     <file alias="release-notes.txt">res/release-notes.txt</file>
     <file>style.css</file>

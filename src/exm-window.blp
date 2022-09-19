@@ -5,60 +5,62 @@ template ExmWindow : Adw.ApplicationWindow {
   default-width: 800;
   default-height: 600;
 
-  Adw.Leaflet leaflet {
-  	can-navigate-back: true;
-  	can-unfold: false;
+  Adw.ToastOverlay toast_overlay {
+    child: Adw.Leaflet leaflet {
+    	can-navigate-back: true;
+    	can-unfold: false;
 
-  	Gtk.Box main_view {
-  		orientation: vertical;
+    	Gtk.Box main_view {
+    		orientation: vertical;
 
-  		Adw.HeaderBar header_bar {
-				centering-policy: strict;
+    		Adw.HeaderBar header_bar {
+				  centering-policy: strict;
 
-				[title]
-				Adw.ViewSwitcherTitle title {
-					stack: view_stack;
-				}
+				  [title]
+				  Adw.ViewSwitcherTitle title {
+					  stack: view_stack;
+				  }
 
-				[end]
-				Gtk.MenuButton {
-				  icon-name: "open-menu-symbolic";
-				  menu-model: primary_menu;
-				}
-			}
+				  [end]
+				  Gtk.MenuButton {
+				    icon-name: "open-menu-symbolic";
+				    menu-model: primary_menu;
+				  }
+			  }
 
-			Gtk.Box {
-				orientation: vertical;
+			  Gtk.Box {
+				  orientation: vertical;
 
-				Adw.ViewStack view_stack {
-					vexpand: true;
-					hexpand: true;
+				  Adw.ViewStack view_stack {
+					  vexpand: true;
+					  hexpand: true;
 
-					 Adw.ViewStackPage {
-						name: "installed";
-						title: C_("Navigation", "Installed");
-						icon-name: "puzzle-piece-symbolic";
+					   Adw.ViewStackPage {
+						  name: "installed";
+						  title: C_("Navigation", "Installed");
+						  icon-name: "puzzle-piece-symbolic";
 
-						child: .ExmInstalledPage installed_page {};
-					}
+						  child: .ExmInstalledPage installed_page {};
+					  }
 
-					Adw.ViewStackPage {
-						name: "browse";
-						title: C_("Navigation", "Browse");
-						icon-name: "globe-symbolic";
+					  Adw.ViewStackPage {
+						  name: "browse";
+						  title: C_("Navigation", "Browse");
+						  icon-name: "globe-symbolic";
 
-						child: .ExmBrowsePage browse_page {};
-					}
-				}
+						  child: .ExmBrowsePage browse_page {};
+					  }
+				  }
 
-				Adw.ViewSwitcherBar {
-					stack: view_stack;
-					reveal: bind title.title-visible;
-				}
-			}
-  	}
+				  Adw.ViewSwitcherBar {
+					  stack: view_stack;
+					  reveal: bind title.title-visible;
+				  }
+			  }
+    	}
 
-  	.ExmDetailView detail_view {}
+    	.ExmDetailView detail_view {}
+    };
   }
 }
 

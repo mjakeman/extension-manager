@@ -39,6 +39,18 @@
             ]
         },
         {
+            "name": "libbacktrace",
+            "builddir": true,
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/ianlancetaylor/libbacktrace.git",
+                    "branch": "master"
+                }
+            ]
+        },
+        {
             "name": "text-engine",
             "builddir": true,
             "buildsystem": "meson",
@@ -55,6 +67,9 @@
             "name" : "extension-manager",
             "builddir" : true,
             "buildsystem" : "meson",
+            "build-options" : {
+            	"no-debuginfo" : true
+            },
             "config-opts" : [ "-Ddevelopment=true" ],
             "sources" : [
                 {

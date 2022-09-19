@@ -19,10 +19,15 @@ exm_sources = [
   'exm-search-row.c',
 
   # Misc
+  'exm-error-dialog.c',
   'exm-upgrade-assistant.c',
   'exm-install-button.c',
+  'exm-backtrace.c',
   'exm-utils.c'
 ]
+
+cc = meson.get_compiler('c')
+libbacktrace_dep = cc.find_library('backtrace', required: true)
 
 exm_deps = [
   dependency('gtk4'),
@@ -30,7 +35,8 @@ exm_deps = [
   dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),
-  dependency('text-engine-0.1')
+  dependency('text-engine-0.1'),
+  libbacktrace_dep
 ]
 
 gnome = import('gnome')
@@ -50,7 +56,8 @@ blueprints = custom_target('blueprints',
     'exm-comment-tile.blp',
     'exm-comment-dialog.blp',
     'exm-rating.blp',
-    'exm-upgrade-assistant.blp'
+    'exm-upgrade-assistant.blp',
+    'exm-error-dialog.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
