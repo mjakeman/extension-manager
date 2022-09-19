@@ -17,9 +17,28 @@
  */
 
 #include <glib/gi18n.h>
+#include <signal.h>
 
 #include "exm-config.h"
 #include "exm-application.h"
+
+#include "exm-backtrace.h"
+
+#define APP_URL "https://github.com/mjakeman/extension-manager"
+
+void
+handler (int sig)
+{
+    g_print ("A fatal error has occurred.\n");
+    g_print ("Please report this to '%s' and attach the following crash report:\n\n", APP_URL);
+
+    g_print ("START BACKTRACE\n\n");
+    exm_backtrace_print ();
+    g_print ("\nEND BACKTRACE\n\n");
+
+    signal (sig, SIG_DFL);
+    kill (getpid (), sig);
+}
 
 int
 main (int   argc,
@@ -32,6 +51,10 @@ main (int   argc,
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
+
+    /* Setup backtrace service */
+    exm_backtrace_init (argv[0]);
+    signal (SIGSEGV, handler);
 
 	/*
 	 * Create a new GtkApplication. The application manages our main loop,

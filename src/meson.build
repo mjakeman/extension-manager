@@ -21,8 +21,12 @@ exm_sources = [
   # Misc
   'exm-upgrade-assistant.c',
   'exm-install-button.c',
+  'exm-backtrace.c',
   'exm-utils.c'
 ]
+
+cc = meson.get_compiler('c')
+libbacktrace_dep = cc.find_library('backtrace', required: true)
 
 exm_deps = [
   dependency('gtk4'),
@@ -30,7 +34,8 @@ exm_deps = [
   dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),
-  dependency('text-engine-0.1')
+  dependency('text-engine-0.1'),
+  libbacktrace_dep
 ]
 
 gnome = import('gnome')
