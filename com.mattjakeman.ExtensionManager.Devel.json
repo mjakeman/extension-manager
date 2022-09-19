@@ -67,6 +67,9 @@
             "name" : "extension-manager",
             "builddir" : true,
             "buildsystem" : "meson",
+            "build-options" : {
+            	"no-debuginfo" : true
+            },
             "config-opts" : [ "-Ddevelopment=true" ],
             "sources" : [
                 {
