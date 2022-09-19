@@ -1,0 +1,346 @@
+# Tamil translations for extension-manager package.
+# Copyright (C) 2022 THE extension-manager'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# K.B.Dharun Krishna <kbdharunkrishna@gmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-21 13:23+0100\n"
+"PO-Revision-Date: 2022-09-18 21:14+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
+msgid "@app_title@"
+msgstr "@app_title@"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "க்னோம் ஷெல் நீட்டிப்புகளை உலாவுவதற்கும் நிறுவுவதற்கும் ஒரு பயன்பாடு."
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
+msgid "Features:"
+msgstr "அம்சங்கள்:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "பயன்பாட்டில் உள்ள extensions.gnome.org ஐ உலாவுங்கள்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "நீங்கள் ஏற்கனவே நிறுவிய நீட்டிப்புகளை நிர்வகிக்கவும்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "க்னோம் ஷெல் நீட்டிப்புகளை நிர்வகிப்பதற்கான ஒரு பயன்பாடு"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
+msgid "The second feature update to extension-manager. Highlights include:"
+msgstr "நீட்டிப்பு மேலாளருக்கான இரண்டாவது அம்ச புதுப்பிப்பு. சிறப்பம்சங்கள் அடங்கும்:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
+msgid "View comments and reviews"
+msgstr "கருத்துகள் மற்றும் மதிப்புரைகளைக் காண்க"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
+msgid "Support for in-app updates"
+msgstr "பயன்பாட்டில் உள்ள புதுப்பிப்புகளுக்கான ஆதரவு"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
+msgid "Better handling errors and out-of-date extensions"
+msgstr "சிறந்த கையாளுதல் பிழைகள் மற்றும் காலாவதியான நீட்டிப்புகள்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
+msgid "Allow installing 'unsupported' extensions"
+msgstr "'ஆதரவற்ற' நீட்டிப்புகளை நிறுவ அனுமதிக்கவும்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
+msgid "Display release notes on first run"
+msgstr "முதல் ஓட்டத்தில் வெளியீட்டு குறிப்புகளைக் காண்பி"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
+msgid "New app icon"
+msgstr "புதிய ஆப்ஸ் ஐகான்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
+msgid "Optionally sort extensions by enabled status"
+msgstr "இயக்கப்பட்ட நிலையின்படி நீட்டிப்புகளை விருப்பமாக வரிசைப்படுத்தவும்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
+msgid "Translation updates"
+msgstr "மொழிபெயர்ப்பு புதுப்பிப்புகள்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
+msgid "Performance and stability"
+msgstr "செயல்திறன் மற்றும் நிலைத்தன்மை"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
+msgid "Fix special characters in search results"
+msgstr "தேடல் முடிவுகளில் சிறப்பு எழுத்துக்களை சரிசெய்யவும்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "நீட்டிப்பை நிறுவல் நீக்கும் போது சில நேரங்களில் ஏற்படும் செயலிழப்பை சரிசெய்கிறது"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr "நீட்டிப்பு மேலாளருக்கான முதல் அம்ச புதுப்பிப்பு. சிறப்பம்சங்கள் அடங்கும்:"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr "டார்க் தீம் மற்றும் கணினி வண்ணத் திட்டத்தை மேலெழுதுவதற்கான ஆதரவு"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
+msgid "Shows screenshots in extension listings"
+msgstr "நீட்டிப்பு பட்டியல்களில் ஸ்கிரீன்ஷாட்களைக் காட்டுகிறது"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
+msgid "Shell version compatibility check"
+msgstr "ஷெல் பதிப்பு இணக்கத்தன்மை சோதனை"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
+msgid "Localised into seven languages"
+msgstr "ஏழு மொழிகளில் மொழிபெயர்க்கப்பட்டது"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
+msgid "Sort search results"
+msgstr "தேடல் முடிவுகளை வரிசைப்படுத்தவும்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
+msgid "Global extension on/off toggle"
+msgstr "உலகளாவிய நீட்டிப்பு ஆன்/ஆஃப் நிலைமாற்றம்"
+
+#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
+msgid "Displays user and system extensions separately"
+msgstr "பயனர் மற்றும் கணினி நீட்டிப்புகளைத் தனித்தனியாகக் காட்டுகிறது"
+
+#: src/exm-application.c:106
+msgid "Extension Manager (Development)"
+msgstr "நீட்டிப்பு மேலாளர் (மேம்பாடு)"
+
+#: src/exm-application.c:107
+msgid "Extension Manager"
+msgstr "நீட்டிப்பு மேலாளர்"
+
+#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
+#: src/exm-application.c:117
+msgid "translator-credits"
+msgstr "க.பா.தருண் கிருஷ்ணா <kbdharunkrishna@gmail.com>"
+
+#: src/exm-application.c:118
+msgid "A very simple tool for browsing, downloading, and managing GNOME shell extensions."
+msgstr "க்னோம் ஷெல் நீட்டிப்புகளை உலாவுதல், பதிவிறக்குதல் மற்றும் நிர்வகிப்பதற்கான மிக எளிய கருவி."
+
+#: src/exm-application.c:124
+msgid "Project Homepage"
+msgstr "திட்ட முகப்புப்பக்கம்"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "நீட்டிப்புகளைத் தேடுங்கள்"
+
+#: src/exm-browse-page.blp:8
+msgid "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr "க்னோம் ஷெல் நீட்டிப்புகளுக்கு 'extensions.gnome.org' ஐ தேட ஒரு முக்கிய சொல்லை உள்ளிடவும்."
+
+#: src/exm-browse-page.blp:22
+msgid "e.g. \"Blur my Shell\""
+msgstr "எ.கா. \"Blur my Shell\""
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:33
+msgid "Popularity"
+msgstr "பிரபலம்"
+
+#: src/exm-browse-page.blp:33
+msgid "Downloads"
+msgstr "பதிவிறக்கங்கள்"
+
+#: src/exm-browse-page.blp:33
+msgid "Recent"
+msgstr "சமீபத்திய"
+
+#: src/exm-browse-page.blp:33
+msgid "Name"
+msgstr "பெயர்"
+
+#: src/exm-browse-page.blp:60
+msgid "No Results Found"
+msgstr "முடிவுகள் எதுவும் இல்லை"
+
+#: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
+#: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
+msgid "An Error Occurred"
+msgstr "ஒரு பிழை ஏற்பட்டது"
+
+#: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
+msgid "Description"
+msgstr "விளக்கம்"
+
+#: src/exm-detail-view.blp:113
+msgid "View on Extensions"
+msgstr "நீட்டிப்புகளில் காண்க"
+
+#: src/exm-detail-view.blp:130
+msgid "Supported Versions"
+msgstr "ஆதரிக்கப்படும் பதிப்புகள்"
+
+#: src/exm-detail-view.blp:146
+msgid "User Reviews"
+msgstr "பயனர் மதிப்புரைகள்"
+
+#: src/exm-detail-view.blp:187
+msgid "Show All Reviews"
+msgstr "அனைத்து மதிப்புரைகளையும் காட்டு"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:364
+msgid "Loading…"
+msgstr "ஏற்றுகிறது…"
+
+#: src/exm-extension-row.blp:33
+msgid "An error occurred while loading this extension"
+msgstr "இந்த நீட்டிப்பை ஏற்றும்போது பிழை ஏற்பட்டது"
+
+#: src/exm-extension-row.blp:46 src/exm-install-button.c:105
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "இந்த நீட்டிப்பு உங்கள் தற்போதைய க்னோம் பதிப்போடு பொருந்தாது."
+
+#: src/exm-extension-row.blp:59
+msgid "A newer version of this extension is available"
+msgstr "இந்த நீட்டிப்பின் புதிய பதிப்பு கிடைக்கிறது"
+
+#: src/exm-extension-row.blp:100
+msgid "Version"
+msgstr "பதிப்பு"
+
+#: src/exm-extension-row.blp:126
+msgid "Error"
+msgstr "பிழை"
+
+#: src/exm-extension-row.blp:161
+msgid "See Details"
+msgstr "விவரங்களைப் பார்க்கவும்"
+
+#: src/exm-extension-row.blp:170
+msgid "Remove"
+msgstr "Remove"
+
+#: src/exm-install-button.c:115
+msgid "Install"
+msgstr "நிறுவு"
+
+#: src/exm-install-button.c:120
+msgctxt "State"
+msgid "Installed"
+msgstr "நிறுவப்பட்டுள்ளது"
+
+#: src/exm-install-button.c:124
+msgid "Unsupported"
+msgstr "ஆதரவற்றது"
+
+#: src/exm-installed-page.blp:25
+msgid "User-Installed Extensions"
+msgstr "பயனர் நிறுவிய நீட்டிப்புகள்"
+
+#: src/exm-installed-page.blp:38
+msgid "System Extensions"
+msgstr "கணினி நீட்டிப்புகள்"
+
+#: src/exm-installed-page.blp:78
+msgid "Updates are available"
+msgstr "புதுப்பிப்புகள் கிடைக்கின்றன"
+
+#: src/exm-installed-page.blp:95
+msgid "Log Out"
+msgstr "வெளியேறு"
+
+#. Translators: '%d' = number of extensions that will be updated
+#: src/exm-installed-page.c:215
+#, c-format
+msgid "One extension will be updated on next login."
+msgid_plural "%d extensions will be updated on next login."
+msgstr[0] "அடுத்த உள்நுழைவில் ஒரு நீட்டிப்பு புதுப்பிக்கப்படும்."
+msgstr[1] "அடுத்த உள்நுழைவில் %d நீட்டிப்புகள் புதுப்பிக்கப்படும்."
+
+#: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
+msgid "Release Notes"
+msgstr "வெளியீட்டு குறிப்புகள்"
+
+#: src/exm-window.blp:42
+msgctxt "Navigation"
+msgid "Installed"
+msgstr "நிறுவப்பட்டுள்ளது"
+
+#: src/exm-window.blp:50
+msgctxt "Navigation"
+msgid "Browse"
+msgstr "உலாவுக"
+
+#: src/exm-window.blp:71
+msgid "Theme"
+msgstr "தீம்"
+
+#: src/exm-window.blp:73
+msgid "Follow System"
+msgstr "சிஸ்டத்தைப் பின்பற்றவும்"
+
+#: src/exm-window.blp:78
+msgid "Light"
+msgstr "ஒளி"
+
+#: src/exm-window.blp:83
+msgid "Dark"
+msgstr "இருட்டு"
+
+#: src/exm-window.blp:89
+msgid "Sort Enabled First"
+msgstr "முதலில் வரிசைப்படுத்து இயக்கப்பட்டது"
+
+#: src/exm-window.blp:103
+msgid "About Extension Manager"
+msgstr "நீட்டிப்பு மேலாளர் பற்றி"
+
+#: src/exm-window.c:180
+msgid "Are you sure you want to uninstall?"
+msgstr "நீங்கள் நிச்சயமாக நிறுவல் நீக்க விரும்புகிறீர்களா?"
+
+#: src/exm-window.c:247
+msgid ""
+"This extension does not support your GNOME Shell version.\n"
+"Would you like to install anyway?"
+msgstr ""
+"இந்த நீட்டிப்பு உங்கள் க்னோம் ஷெல் பதிப்பை ஆதரிக்காது.\n"
+"எப்படியும் நிறுவ விரும்புகிறீர்களா?"
+
+#: src/exm-window.c:373
+msgid "What's New"
+msgstr "புதியது என்ன"
+
+#: src/exm-window.c:375
+msgid "View Release Notes"
+msgstr "வெளியீட்டு குறிப்புகளைப் பார்க்கவும்"
+
+#: src/exm-window.c:379
+#, c-format
+msgid ""
+"This is your first time using <b>Extension Manager %s</b>.\n"
+"Would you like to see the release notes?"
+msgstr ""
+"நீங்கள் <b>நீட்டிப்பு மேலாளர் %s</b> ஐப் பயன்படுத்துவது இதுவே முதல் முறை.\n"
+"வெளியீட்டு குறிப்புகளைப் பார்க்க விரும்புகிறீர்களா?"
