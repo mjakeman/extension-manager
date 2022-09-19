@@ -17,4 +17,19 @@
     <file alias="release-notes.txt">res/release-notes.txt</file>
     <file>style.css</file>
   </gresource>
+
+  <gresource prefix="/com/mattjakeman/ExtensionManager/icons/scalable/actions/">
+    <file preprocess="xml-stripblanks" alias="star-filled-rounded-symbolic.svg">../data/icons/hicolor/scalable/actions/star-filled-rounded-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="star-outline-rounded-symbolic.svg">../data/icons/hicolor/scalable/actions/star-outline-rounded-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="clock-alt-symbolic.svg">../data/icons/hicolor/scalable/actions/clock-alt-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="dialog-question-symbolic.svg">../data/icons/hicolor/scalable/actions/dialog-question-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="error-symbolic.svg">../data/icons/hicolor/scalable/actions/error-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="external-link-symbolic.svg">../data/icons/hicolor/scalable/actions/external-link-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="globe-symbolic.svg">../data/icons/hicolor/scalable/actions/globe-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="go-next-symbolic.svg">../data/icons/hicolor/scalable/actions/go-next-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="go-previous-symbolic.svg">../data/icons/hicolor/scalable/actions/go-previous-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="puzzle-piece-symbolic.svg">../data/icons/hicolor/scalable/actions/puzzle-piece-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="settings-symbolic.svg">../data/icons/hicolor/scalable/actions/settings-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="software-update-available-symbolic.svg">../data/icons/hicolor/scalable/actions/software-update-available-symbolic.svg</file>
+  </gresource>
 </gresources>
