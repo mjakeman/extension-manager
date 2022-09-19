@@ -42,13 +42,10 @@ exm_backtrace_full_cb (GString    *string_builder,
                        int         lineno,
                        const char *function)
 {
-    if (filename || lineno || function)
-    {
-        char *entry;
-        entry = g_strdup_printf ("%s:%d '%s'\n", filename, lineno, function);
-        g_string_append (string_builder, entry);
-        g_free (entry);
-    }
+    char *entry;
+    entry = g_strdup_printf ("%s:%d '%s'\n", filename, lineno, function);
+    g_string_append (string_builder, entry);
+    g_free (entry);
 
     return 0;
 }
