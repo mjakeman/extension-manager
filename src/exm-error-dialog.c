@@ -22,12 +22,15 @@
 
 #include <glib/gi18n.h>
 
+#define ISSUE_URL "https://github.com/mjakeman/extension-manager/issues"
+
 struct _ExmErrorDialog
 {
     AdwWindow parent_instance;
 
     char *error_string;
     GtkTextView *text_view;
+	GtkButton *new_issue_button;
 };
 
 G_DEFINE_FINAL_TYPE (ExmErrorDialog, exm_error_dialog, ADW_TYPE_WINDOW)
@@ -121,7 +124,7 @@ on_copy_button_clicked (GtkWidget      *button,
 static void
 on_new_issue_button_clicked (ExmErrorDialog *window)
 {
-    gtk_show_uri (GTK_WINDOW (window), "https://github.com/mjakeman/extension-manager/issues", GDK_CURRENT_TIME);
+    gtk_show_uri (GTK_WINDOW (window), ISSUE_URL, GDK_CURRENT_TIME);
 }
 
 static void
@@ -147,6 +150,7 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-error-dialog.ui");
 
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, text_view);
+	gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, new_issue_button);
 
     gtk_widget_class_bind_template_callback (widget_class, on_copy_button_clicked);
     gtk_widget_class_bind_template_callback (widget_class, on_new_issue_button_clicked);
@@ -156,5 +160,6 @@ static void
 exm_error_dialog_init (ExmErrorDialog *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
-}
 
+	gtk_widget_set_tooltip_text (GTK_WIDGET (self->new_issue_button), ISSUE_URL);
+}

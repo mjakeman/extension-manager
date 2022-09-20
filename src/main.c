@@ -58,14 +58,21 @@ handler (int sig)
 static void
 run_crash_reporter (const char *error_text)
 {
+	GtkIconTheme *icon_theme;
+	GdkDisplay *display;
+	GtkCssProvider *provider;
+
     adw_init ();
 
     // Setup CSS
-    GdkDisplay *display = gdk_display_get_default ();
-    GtkCssProvider *provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_resource (provider, "/com/mattjakeman/ExtensionManager/style.css");
     gtk_style_context_add_provider_for_display (display, GTK_STYLE_PROVIDER (provider),
                                                 GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    icon_theme = gtk_icon_theme_get_for_display (display);
+    gtk_icon_theme_add_resource_path (icon_theme, "/com/mattjakeman/ExtensionManager/icons");
 
     // Show error dialog with provided string
 	ExmErrorDialog *err_dialog;
@@ -165,7 +172,7 @@ main (int   argc,
             g_string_append_c (string_builder, ch);
 
         // Wait for child to finish
-        waitpid(pid, 0, 0);
+        waitpid (pid, 0, 0);
         close (pipe_fd[0]);
 
         error_text = g_string_free (string_builder, FALSE);
