@@ -6,7 +6,7 @@ G_BEGIN_DECLS
 
 #define EXM_TYPE_DETAIL_VIEW (exm_detail_view_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmDetailView, exm_detail_view, EXM, DETAIL_VIEW, GtkBox)
+G_DECLARE_FINAL_TYPE (ExmDetailView, exm_detail_view, EXM, DETAIL_VIEW, AdwBin)
 
 ExmDetailView *exm_detail_view_new (void);
 

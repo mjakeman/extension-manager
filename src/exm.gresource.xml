@@ -31,5 +31,7 @@
     <file preprocess="xml-stripblanks" alias="puzzle-piece-symbolic.svg">../data/icons/hicolor/scalable/actions/puzzle-piece-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="settings-symbolic.svg">../data/icons/hicolor/scalable/actions/settings-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="software-update-available-symbolic.svg">../data/icons/hicolor/scalable/actions/software-update-available-symbolic.svg</file>
+	<file preprocess="xml-stripblanks" alias="pip-out-symbolic.svg">../data/icons/hicolor/scalable/actions/pip-out-symbolic.svg</file>
+	<file preprocess="xml-stripblanks" alias="pip-in-symbolic.svg">../data/icons/hicolor/scalable/actions/pip-in-symbolic.svg</file>
   </gresource>
 </gresources>
