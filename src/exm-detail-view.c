@@ -18,7 +18,7 @@
 
 struct _ExmDetailView
 {
-    AdwBin parent_instance;
+    GtkBox parent_instance;
 
     ExmManager *manager;
     ExmDataProvider *provider;
@@ -37,7 +37,8 @@ struct _ExmDetailView
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
 	GtkOverlay *ext_screenshot_container;
-	GtkButton *ext_screenshot_button;
+	GtkButton *ext_screenshot_popout_button;
+	GtkButton *ext_screenshot_popin_button;
     GtkFlowBox *supported_versions;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
@@ -52,7 +53,7 @@ struct _ExmDetailView
     guint signal_id;
 };
 
-G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, ADW_TYPE_BIN)
+G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
 
 enum {
     PROP_0,
@@ -143,6 +144,8 @@ on_image_loaded (GObject       *source,
 	exm_screenshot_display (self->overlay_screenshot);
     g_object_unref (texture);
     g_object_unref (self);
+
+	gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), TRUE);
 }
 
 static void
@@ -291,6 +294,7 @@ on_data_loaded (GObject      *source,
 			exm_screenshot_reset (self->overlay_screenshot);
 
 			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
+			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
 
             queue_resolve_screenshot (self, screenshot_uri, self->resolver_cancel);
         }
@@ -475,7 +479,8 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_button);
+	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
+	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popin_button);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
@@ -503,8 +508,13 @@ exm_detail_view_init (ExmDetailView *self)
                       G_CALLBACK (install_remote),
                       self);
 
-	g_signal_connect_swapped (self->ext_screenshot_button,
+	g_signal_connect_swapped (self->ext_screenshot_popout_button,
 							  "clicked",
 							  G_CALLBACK (gtk_widget_show),
+							  self->image_overlay);
+
+	g_signal_connect_swapped (self->ext_screenshot_popin_button,
+							  "clicked",
+							  G_CALLBACK (gtk_widget_hide),
 							  self->image_overlay);
 }
