@@ -1,10 +1,12 @@
 #include "exm-screenshot.h"
 
+#include "exm-zoom-picture.h"
+
 struct _ExmScreenshot
 {
     GtkWidget parent_instance;
 
-    GtkPicture *picture;
+    ExmZoomPicture *picture;
     GtkStack *stack;
 };
 
@@ -65,7 +67,7 @@ void
 exm_screenshot_set_paintable (ExmScreenshot *self,
                               GdkPaintable  *paintable)
 {
-    gtk_picture_set_paintable (self->picture, paintable);
+    exm_zoom_picture_set_paintable (self->picture, paintable);
 }
 
 void
@@ -142,6 +144,8 @@ exm_screenshot_class_init (ExmScreenshotClass *klass)
     widget_class->get_request_mode = exm_screenshot_get_request_mode;
     widget_class->measure = exm_screenshot_measure;
     widget_class->size_allocate = exm_screenshot_size_allocate;
+
+	g_type_ensure (EXM_TYPE_ZOOM_PICTURE);
 
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshot, picture);
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshot, stack);
