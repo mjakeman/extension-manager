@@ -37,4 +37,10 @@ exm_zoom_picture_set_paintable (ExmZoomPicture *self,
 GdkPaintable *
 exm_zoom_picture_get_paintable (ExmZoomPicture *self);
 
+void
+exm_zoom_picture_zoom_in (ExmZoomPicture *self);
+
+void
+exm_zoom_picture_zoom_out (ExmZoomPicture *self);
+
 G_END_DECLS

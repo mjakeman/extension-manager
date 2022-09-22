@@ -26,6 +26,10 @@ struct _ExmZoomPicture
 	GtkWidget parent_instance;
 
 	GdkPaintable *paintable;
+	GSimpleAction *zoom_in;
+	GSimpleAction *zoom_out;
+	GtkGesture *zoom;
+	GtkGesture *drag;
 
 	// State tracking
 	float zoom_level;
@@ -47,6 +51,10 @@ struct _ExmZoomPicture
 };
 
 G_DEFINE_FINAL_TYPE (ExmZoomPicture, exm_zoom_picture, GTK_TYPE_WIDGET)
+
+#define ZOOM_STEP 0.5
+#define ZOOM_MIN 0.5
+#define ZOOM_MAX 3.0
 
 enum {
 	PROP_0,
@@ -122,7 +130,29 @@ void
 exm_zoom_picture_set_zoom_level (ExmZoomPicture *self,
 								 float           zoom_level)
 {
-	self->zoom_level = CLAMP (zoom_level, 0.5, 3.0);
+	self->zoom_level = CLAMP (zoom_level, ZOOM_MIN, ZOOM_MAX);
+
+	// Set action states
+	if (self->zoom_level < ZOOM_MAX)
+		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (TRUE));
+	if (self->zoom_level == ZOOM_MAX)
+		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (FALSE));
+	if (self->zoom_level > ZOOM_MIN)
+		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (TRUE));
+	if (self->zoom_level == ZOOM_MIN)
+		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (FALSE));
+}
+
+void
+exm_zoom_picture_zoom_in (ExmZoomPicture *self)
+{
+	exm_zoom_picture_set_zoom_level (self, self->zoom_level += ZOOM_STEP);
+}
+
+void
+exm_zoom_picture_zoom_out (ExmZoomPicture *self)
+{
+	exm_zoom_picture_set_zoom_level (self, self->zoom_level -= ZOOM_STEP);
 }
 
 void
@@ -162,18 +192,16 @@ compute_scaled_dimensions (ExmZoomPicture *self)
 	x = ((width - scaled_width) / 2);
 	y = ((height - scaled_height) / 2);
 
+	// Constrain to image borders
+	self->image_x = CLAMP (self->image_x, x, -x);
+	self->image_y = CLAMP (self->image_y, y, -y);
+
 	// Apply offset and constrain to image borders
 	if (scaled_width > width)
-	{
 		x += self->image_x;
-		x = CLAMP (x, -(scaled_width - width), 0);
-	}
 
 	if (scaled_height > height)
-	{
 		y += self->image_y;
-		y = CLAMP (y, -(scaled_height - height), 0);
-	}
 
 	// Update for drawing
 	self->scaled_width = scaled_width;
@@ -215,6 +243,7 @@ on_gesture_begin (GtkGesture       *gesture,
 				  GdkEventSequence *sequence,
 				  ExmZoomPicture   *self)
 {
+	gtk_gesture_set_sequence_state (gesture, sequence, GTK_EVENT_SEQUENCE_CLAIMED);
 	self->gesture_start_zoom = self->zoom_level;
 	self->gesture_image_start_x = self->image_x;
 	self->gesture_image_start_y = self->image_y;
@@ -248,16 +277,50 @@ on_scale_changed (GtkGestureZoom *gesture,
 	gtk_widget_queue_draw (GTK_WIDGET (self));
 }
 
+void
+on_drag_update (GtkGestureDrag *gesture,
+                gdouble         offset_x,
+                gdouble         offset_y,
+                ExmZoomPicture *self)
+{
+	self->image_x = self->gesture_image_start_x + offset_x;
+	self->image_y = self->gesture_image_start_y + offset_y;
+
+	gtk_widget_queue_draw (GTK_WIDGET (self));
+}
+
 static void
 exm_zoom_picture_init (ExmZoomPicture *self)
 {
 	GtkGesture *gesture;
+	GSimpleActionGroup *group;
 
+	self->zoom_in = g_simple_action_new_stateful ("zoom-in", NULL, g_variant_new_boolean (TRUE));
+	g_signal_connect_swapped (self->zoom_in, "activate", G_CALLBACK (exm_zoom_picture_zoom_in), self);
+
+	self->zoom_out = g_simple_action_new_stateful ("zoom-out", NULL, g_variant_new_boolean (TRUE));
+	g_signal_connect_swapped (self->zoom_out, "activate", G_CALLBACK (exm_zoom_picture_zoom_out), self);
+
+	group = g_simple_action_group_new ();
+	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_in));
+	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_out));
+	gtk_widget_insert_action_group (GTK_WIDGET (self), "picture", G_ACTION_GROUP (group));
+
+	// This sets the correct state for the above actions
 	exm_zoom_picture_set_zoom_level (self, 1.0f);
 	gtk_widget_set_overflow (GTK_WIDGET (self), GTK_OVERFLOW_HIDDEN);
 
-	gesture = gtk_gesture_zoom_new();
+	gesture = gtk_gesture_zoom_new ();
+	gtk_event_controller_set_propagation_phase (GTK_EVENT_CONTROLLER (gesture), GTK_PHASE_CAPTURE);
 	g_signal_connect (gesture, "begin", G_CALLBACK (on_gesture_begin), self);
 	g_signal_connect (gesture, "scale-changed", G_CALLBACK (on_scale_changed), self);
 	gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (gesture));
+	self->zoom = gesture;
+
+	gesture = gtk_gesture_drag_new ();
+	gtk_event_controller_set_propagation_phase (GTK_EVENT_CONTROLLER (gesture), GTK_PHASE_CAPTURE);
+	g_signal_connect (gesture, "begin", G_CALLBACK (on_gesture_begin), self);
+	g_signal_connect (gesture, "drag-update", G_CALLBACK (on_drag_update), self);
+	gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (gesture));
+	self->drag = gesture;
 }

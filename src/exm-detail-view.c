@@ -1,6 +1,27 @@
+/* exm-detail-view.c
+ *
+ * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include "exm-detail-view.h"
 
 #include "exm-screenshot.h"
+#include "exm-zoom-picture.h"
 #include "exm-comment-tile.h"
 #include "exm-comment-dialog.h"
 
@@ -45,7 +66,7 @@ struct _ExmDetailView
     GtkFlowBox *comment_box;
     GtkButton *show_more_btn;
 	AdwBin *image_overlay;
-	ExmScreenshot *overlay_screenshot;
+	ExmZoomPicture *overlay_screenshot;
 
     AdwActionRow *link_extensions;
     gchar *uri_extensions;
@@ -139,9 +160,8 @@ on_image_loaded (GObject       *source,
     }
 
     exm_screenshot_set_paintable (self->ext_screenshot, GDK_PAINTABLE (texture));
-	exm_screenshot_set_paintable (self->overlay_screenshot, GDK_PAINTABLE (texture));
+	exm_zoom_picture_set_paintable(self->overlay_screenshot, GDK_PAINTABLE (texture));
     exm_screenshot_display (self->ext_screenshot);
-	exm_screenshot_display (self->overlay_screenshot);
     g_object_unref (texture);
     g_object_unref (self);
 
@@ -289,9 +309,8 @@ on_data_loaded (GObject      *source,
             self->resolver_cancel = g_cancellable_new ();
 
             exm_screenshot_set_paintable (self->ext_screenshot, NULL);
-			exm_screenshot_set_paintable (self->overlay_screenshot, NULL);
+			exm_zoom_picture_set_paintable (self->overlay_screenshot, NULL);
             exm_screenshot_reset (self->ext_screenshot);
-			exm_screenshot_reset (self->overlay_screenshot);
 
 			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
 			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
@@ -382,6 +401,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     adw_window_title_set_subtitle (self->title, NULL);
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
+	gtk_widget_hide (GTK_WIDGET (self->image_overlay));
 
     exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
 }

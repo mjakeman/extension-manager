@@ -21,9 +21,10 @@ template ExmDetailView : Gtk.Box {
 			visible: false;
 
 			[overlay]
-			Gtk.Button ext_screenshot_popin_button {
-				styles ["osd", "circular"]
-				icon-name: "pip-in-symbolic";
+			Gtk.Box {
+				orientation: horizontal;
+				spacing: 16;
+
 				halign: end;
 				valign: end;
 
@@ -32,7 +33,34 @@ template ExmDetailView : Gtk.Box {
 				margin-start: 24;
 				margin-end: 24;
 
-				tooltip-text: _("Return to view");
+				Gtk.Box {
+					styles ["linked"]
+
+					Gtk.Button {
+						styles ["osd", "circular"]
+						icon-name: "zoom-in-symbolic";
+
+						tooltip-text: _("Zoom In");
+
+						// clicked => zoom_in_clicked ();
+					}
+
+					Gtk.Button {
+						styles ["osd", "circular"]
+						icon-name: "zoom-out-symbolic";
+
+						tooltip-text: _("Zoom Out");
+
+						// clicked => zoom_out_clicked ();
+					}
+				}
+
+				Gtk.Button ext_screenshot_popin_button {
+					styles ["osd", "circular"]
+					icon-name: "pip-in-symbolic";
+
+					tooltip-text: _("Return to view");
+				}
 			}
 
 			Adw.Bin {
@@ -41,7 +69,7 @@ template ExmDetailView : Gtk.Box {
 				hexpand: true;
 				vexpand: true;
 
-				.ExmScreenshot overlay_screenshot {}
+				.ExmZoomPicture overlay_screenshot {}
 			}
 		}
 

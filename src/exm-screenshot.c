@@ -6,7 +6,7 @@ struct _ExmScreenshot
 {
     GtkWidget parent_instance;
 
-    ExmZoomPicture *picture;
+    GtkPicture *picture;
     GtkStack *stack;
 };
 
@@ -67,7 +67,7 @@ void
 exm_screenshot_set_paintable (ExmScreenshot *self,
                               GdkPaintable  *paintable)
 {
-    exm_zoom_picture_set_paintable (self->picture, paintable);
+    gtk_picture_set_paintable (self->picture, paintable);
 }
 
 void
