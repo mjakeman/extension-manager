@@ -160,8 +160,9 @@ on_image_loaded (GObject       *source,
     }
 
     exm_screenshot_set_paintable (self->ext_screenshot, GDK_PAINTABLE (texture));
-	exm_zoom_picture_set_paintable(self->overlay_screenshot, GDK_PAINTABLE (texture));
+	exm_zoom_picture_set_paintable (self->overlay_screenshot, GDK_PAINTABLE (texture));
     exm_screenshot_display (self->ext_screenshot);
+	exm_zoom_picture_set_zoom_level (self->overlay_screenshot, 1.0f);
     g_object_unref (texture);
     g_object_unref (self);
 

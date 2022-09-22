@@ -43,4 +43,8 @@ exm_zoom_picture_zoom_in (ExmZoomPicture *self);
 void
 exm_zoom_picture_zoom_out (ExmZoomPicture *self);
 
+void
+exm_zoom_picture_set_zoom_level (ExmZoomPicture *self,
+                                 float           zoom_level);
+
 G_END_DECLS
