@@ -253,7 +253,7 @@ search (ExmBrowsePage *self,
     self->current_page = 1;
 
     if (self->search_results_model)
-        g_object_unref (self->search_results_model);
+        g_clear_object (&self->search_results_model);
 
     exm_search_provider_query_async (self->search, query, 1, sort, NULL,
                                      (GAsyncReadyCallback) on_first_page_result,
