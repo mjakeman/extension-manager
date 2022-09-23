@@ -18,6 +18,10 @@
   line-height: 140%;
 }
 
+.tint {
+	background-color: rgba(0,0,0,0.8);
+}
+
 .search-row {
   padding: 10px 5px;
 }

@@ -6,6 +6,7 @@ exm_sources = [
   # Detail View
   'exm-detail-view.c',
   'exm-screenshot.c',
+  'exm-zoom-picture.c',
   'exm-comment-tile.c',
   'exm-comment-dialog.c',
   'exm-rating.c',
