@@ -47,6 +47,9 @@ struct _ExmDetailView
     ExmCommentProvider *comment_provider;
     GCancellable *resolver_cancel;
 
+  	GSimpleAction *zoom_in;
+    GSimpleAction *zoom_out;
+
     gchar *shell_version;
     gchar *uuid;
 
@@ -442,6 +445,30 @@ open_link (ExmDetailView *self,
 }
 
 static void
+notify_zoom (ExmZoomPicture *picture,
+             GParamSpec     *pspec,
+             ExmDetailView  *self)
+{
+    float zoom_level;
+    float max_zoom;
+    float min_zoom;
+
+    zoom_level = exm_zoom_picture_get_zoom_level (picture);
+    max_zoom = exm_zoom_picture_get_zoom_level_max (picture);
+    min_zoom = exm_zoom_picture_get_zoom_level_min (picture);
+
+	// Set action states
+	if (zoom_level < max_zoom)
+		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (TRUE));
+	if (zoom_level == max_zoom)
+		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (FALSE));
+	if (zoom_level > min_zoom)
+		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (TRUE));
+	if (zoom_level == min_zoom)
+		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (FALSE));
+}
+
+static void
 on_bind_manager (ExmDetailView *self)
 {
     GListModel *user_ext_model;
@@ -518,11 +545,30 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 static void
 exm_detail_view_init (ExmDetailView *self)
 {
+    GSimpleActionGroup *group;
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->provider = exm_data_provider_new ();
     self->resolver = exm_image_resolver_new ();
     self->comment_provider = exm_comment_provider_new ();
+
+	self->zoom_in = g_simple_action_new_stateful ("zoom-in", NULL, g_variant_new_boolean (TRUE));
+	g_signal_connect_swapped (self->zoom_in, "activate", G_CALLBACK (exm_zoom_picture_zoom_in), self->overlay_screenshot);
+
+	self->zoom_out = g_simple_action_new_stateful ("zoom-out", NULL, g_variant_new_boolean (TRUE));
+	g_signal_connect_swapped (self->zoom_out, "activate", G_CALLBACK (exm_zoom_picture_zoom_out), self->overlay_screenshot);
+
+	group = g_simple_action_group_new ();
+	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_in));
+	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_out));
+	gtk_widget_insert_action_group (GTK_WIDGET (self), "detail", G_ACTION_GROUP (group));
+
+    // Update action state on zoom change
+    g_signal_connect (self->overlay_screenshot,
+                      "notify::zoom-level",
+                      G_CALLBACK (notify_zoom),
+                      self);
 
     g_signal_connect (self->ext_install,
                       "clicked",

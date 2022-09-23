@@ -26,8 +26,6 @@ struct _ExmZoomPicture
 	GtkWidget parent_instance;
 
 	GdkPaintable *paintable;
-	GSimpleAction *zoom_in;
-	GSimpleAction *zoom_out;
 	GtkGesture *zoom;
 	GtkGesture *drag;
 
@@ -54,10 +52,11 @@ G_DEFINE_FINAL_TYPE (ExmZoomPicture, exm_zoom_picture, GTK_TYPE_WIDGET)
 
 #define ZOOM_STEP 0.5
 #define ZOOM_MIN 0.5
-#define ZOOM_MAX 3.0
+#define ZOOM_MAX 5.0
 
 enum {
 	PROP_0,
+    PROP_ZOOM,
 	N_PROPS
 };
 
@@ -86,10 +85,13 @@ exm_zoom_picture_get_property (GObject    *object,
 	ExmZoomPicture *self = EXM_ZOOM_PICTURE (object);
 
 	switch (prop_id)
-	  {
-	  default:
+	{
+    case PROP_ZOOM:
+        g_value_set_float (value, self->zoom_level);
+        break;
+	default:
 	    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-	  }
+	}
 }
 
 static void
@@ -101,10 +103,13 @@ exm_zoom_picture_set_property (GObject      *object,
 	ExmZoomPicture *self = EXM_ZOOM_PICTURE (object);
 
 	switch (prop_id)
-	  {
-	  default:
-	    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-	  }
+    {
+    case PROP_ZOOM:
+        exm_zoom_picture_set_zoom_level (self, g_value_get_float (value));
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
 }
 
 void
@@ -132,15 +137,32 @@ exm_zoom_picture_set_zoom_level (ExmZoomPicture *self,
 {
 	self->zoom_level = CLAMP (zoom_level, ZOOM_MIN, ZOOM_MAX);
 
-	// Set action states
-	if (self->zoom_level < ZOOM_MAX)
-		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (TRUE));
-	if (self->zoom_level == ZOOM_MAX)
-		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (FALSE));
-	if (self->zoom_level > ZOOM_MIN)
-		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (TRUE));
-	if (self->zoom_level == ZOOM_MIN)
-		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (FALSE));
+    gtk_widget_queue_draw (GTK_WIDGET (self));
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_ZOOM]);
+}
+
+float
+exm_zoom_picture_get_zoom_level (ExmZoomPicture *self)
+{
+	return self->zoom_level;
+}
+
+float
+exm_zoom_picture_get_zoom_level_max (ExmZoomPicture *self)
+{
+	return ZOOM_MAX;
+}
+
+float
+exm_zoom_picture_get_zoom_level_min (ExmZoomPicture *self)
+{
+	return ZOOM_MIN;
+}
+
+float
+exm_zoom_picture_get_zoom_level_step (ExmZoomPicture *self)
+{
+	return ZOOM_STEP;
 }
 
 void
@@ -233,6 +255,15 @@ exm_zoom_picture_class_init (ExmZoomPictureClass *klass)
 	object_class->get_property = exm_zoom_picture_get_property;
 	object_class->set_property = exm_zoom_picture_set_property;
 
+    properties [PROP_ZOOM]
+        = g_param_spec_float ("zoom-level",
+                              "Zoom Level",
+                              "Zoom Level",
+                              0.0f, G_MAXFLOAT, 0.0f,
+                              G_PARAM_CONSTRUCT|G_PARAM_READWRITE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
+
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	widget_class->snapshot = exm_zoom_picture_snapshot;
@@ -293,20 +324,7 @@ static void
 exm_zoom_picture_init (ExmZoomPicture *self)
 {
 	GtkGesture *gesture;
-	GSimpleActionGroup *group;
 
-	self->zoom_in = g_simple_action_new_stateful ("zoom-in", NULL, g_variant_new_boolean (TRUE));
-	g_signal_connect_swapped (self->zoom_in, "activate", G_CALLBACK (exm_zoom_picture_zoom_in), self);
-
-	self->zoom_out = g_simple_action_new_stateful ("zoom-out", NULL, g_variant_new_boolean (TRUE));
-	g_signal_connect_swapped (self->zoom_out, "activate", G_CALLBACK (exm_zoom_picture_zoom_out), self);
-
-	group = g_simple_action_group_new ();
-	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_in));
-	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_out));
-	gtk_widget_insert_action_group (GTK_WIDGET (self), "picture", G_ACTION_GROUP (group));
-
-	// This sets the correct state for the above actions
 	exm_zoom_picture_set_zoom_level (self, 1.0f);
 	gtk_widget_set_overflow (GTK_WIDGET (self), GTK_OVERFLOW_HIDDEN);
 
