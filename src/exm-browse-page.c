@@ -76,7 +76,11 @@ exm_browse_page_new (void)
 static void
 exm_browse_page_finalize (GObject *object)
 {
+    GtkWidget *child;
     ExmBrowsePage *self = (ExmBrowsePage *)object;
+
+    child = gtk_widget_get_first_child (GTK_WIDGET (self));
+    gtk_widget_unparent (child);
 
     G_OBJECT_CLASS (exm_browse_page_parent_class)->finalize (object);
 }
