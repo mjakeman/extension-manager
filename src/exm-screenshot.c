@@ -28,7 +28,11 @@ exm_screenshot_new (void)
 static void
 exm_screenshot_finalize (GObject *object)
 {
+    GtkWidget *child;
     ExmScreenshot *self = (ExmScreenshot *)object;
+
+    child = gtk_widget_get_first_child (GTK_WIDGET (self));
+    gtk_widget_unparent (child);
 
     G_OBJECT_CLASS (exm_screenshot_parent_class)->finalize (object);
 }

@@ -119,11 +119,16 @@ create_callback_data (ExmManager *manager,
 
     data->manager = g_object_ref (manager);
     data->extension = g_object_ref (extension);
+
+	return data;
 }
 
 static void
 free_callback_data (ExmCallbackData *data)
 {
+	if (!data)
+		return;
+
     g_clear_object (&data->manager);
     g_clear_object (&data->extension);
 

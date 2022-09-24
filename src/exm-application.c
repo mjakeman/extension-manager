@@ -50,6 +50,21 @@ exm_application_finalize (GObject *object)
     G_OBJECT_CLASS (exm_application_parent_class)->finalize (object);
 }
 
+static ExmWindow *
+get_current_window (GApplication *app)
+{
+    GtkWindow *window;
+
+    /* Get the current window or create one if necessary. */
+    window = gtk_application_get_active_window (GTK_APPLICATION (app));
+    if (window == NULL)
+    window = g_object_new (EXM_TYPE_WINDOW,
+                           "application", app,
+                           NULL);
+
+    return EXM_WINDOW (window);
+}
+
 static void
 exm_application_activate (GApplication *app)
 {
@@ -73,33 +88,69 @@ exm_application_activate (GApplication *app)
     icon_theme = gtk_icon_theme_get_for_display (display);
     gtk_icon_theme_add_resource_path (icon_theme, "/com/mattjakeman/ExtensionManager/icons");
 
-    /* Get the current window or create one if necessary. */
-    window = gtk_application_get_active_window (GTK_APPLICATION (app));
-    if (window == NULL)
-    window = g_object_new (EXM_TYPE_WINDOW,
-                           "application", app,
-                           NULL);
+    window = GTK_WINDOW (get_current_window (app));
 
     /* Ask the window manager/compositor to present the window. */
     gtk_window_present (window);
+}
+
+static void
+exm_application_open (GApplication  *app,
+                      GFile        **files,
+                      gint           n_files,
+                      const gchar   *hint)
+{
+    ExmWindow *window;
+    const char *scheme;
+    const char *uuid;
+    GUri *uri;
+    GError *error = NULL;
+
+    // Activate the application first
+    exm_application_activate (app);
+
+    // Now open the provided extension
+    window = get_current_window (app);
+
+    if (n_files <= 0)
+        return;
+
+    uri = g_uri_parse (g_file_get_uri (files[0]), G_URI_FLAGS_NONE, &error);
+    if (error)
+    {
+        g_critical ("Error parsing URI: %s\n", error->message);
+        return;
+    }
+
+    scheme = g_uri_get_scheme (uri);
+    if (!g_str_equal (scheme, "gnome-extensions"))
+    {
+        g_critical ("Invalid URI scheme: '%s'\n", scheme);
+        return;
+    }
+
+    uuid = g_uri_get_host (uri);
+    g_print ("Opening extension with UUID: '%s'\n", uuid);
+    gtk_widget_activate_action (GTK_WIDGET (window), "win.show-detail", "s", uuid);
 }
 
 
 static void
 exm_application_class_init (ExmApplicationClass *klass)
 {
-  GObjectClass *object_class = G_OBJECT_CLASS (klass);
-  GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+    GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
 
-  object_class->finalize = exm_application_finalize;
+    object_class->finalize = exm_application_finalize;
 
-  /*
-   * We connect to the activate callback to create a window when the application
-   * has been launched. Additionally, this callback notifies us when the user
-   * tries to launch a "second instance" of the application. When they try
-   * to do that, we'll just present any existing window.
-   */
-  app_class->activate = exm_application_activate;
+    /*
+    * We connect to the activate callback to create a window when the application
+    * has been launched. Additionally, this callback notifies us when the user
+    * tries to launch a "second instance" of the application. When they try
+    * to do that, we'll just present any existing window.
+    */
+    app_class->activate = exm_application_activate;
+    app_class->open = exm_application_open;
 }
 
 static void

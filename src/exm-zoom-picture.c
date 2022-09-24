@@ -221,9 +221,13 @@ compute_scaled_dimensions (ExmZoomPicture *self)
 	// Apply offset and constrain to image borders
 	if (scaled_width > width)
 		x += self->image_x;
+	else
+		self->image_x = 0.0f;
 
 	if (scaled_height > height)
 		y += self->image_y;
+	else
+		self->image_y = 0.0f;
 
 	// Update for drawing
 	self->scaled_width = scaled_width;
