@@ -459,13 +459,13 @@ notify_zoom (ExmZoomPicture *picture,
 
 	// Set action states
 	if (zoom_level < max_zoom)
-		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (TRUE));
+		g_simple_action_set_enabled (self->zoom_in, TRUE);
 	if (zoom_level == max_zoom)
-		g_simple_action_set_state (self->zoom_in, g_variant_new_boolean (FALSE));
+		g_simple_action_set_enabled (self->zoom_in, FALSE);
 	if (zoom_level > min_zoom)
-		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (TRUE));
+		g_simple_action_set_enabled (self->zoom_out, TRUE);
 	if (zoom_level == min_zoom)
-		g_simple_action_set_state (self->zoom_out, g_variant_new_boolean (FALSE));
+		g_simple_action_set_enabled (self->zoom_out, FALSE);
 }
 
 static void
@@ -553,10 +553,10 @@ exm_detail_view_init (ExmDetailView *self)
     self->resolver = exm_image_resolver_new ();
     self->comment_provider = exm_comment_provider_new ();
 
-	self->zoom_in = g_simple_action_new_stateful ("zoom-in", NULL, g_variant_new_boolean (TRUE));
+	self->zoom_in = g_simple_action_new ("zoom-in", NULL);
 	g_signal_connect_swapped (self->zoom_in, "activate", G_CALLBACK (exm_zoom_picture_zoom_in), self->overlay_screenshot);
 
-	self->zoom_out = g_simple_action_new_stateful ("zoom-out", NULL, g_variant_new_boolean (TRUE));
+	self->zoom_out = g_simple_action_new ("zoom-out", NULL);
 	g_signal_connect_swapped (self->zoom_out, "activate", G_CALLBACK (exm_zoom_picture_zoom_out), self->overlay_screenshot);
 
 	group = g_simple_action_group_new ();

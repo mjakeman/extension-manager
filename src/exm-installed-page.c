@@ -49,7 +49,11 @@ exm_installed_page_new (void)
 static void
 exm_installed_page_finalize (GObject *object)
 {
+    GtkWidget *child;
     ExmInstalledPage *self = (ExmInstalledPage *)object;
+
+    child = gtk_widget_get_first_child (GTK_WIDGET (self));
+    gtk_widget_unparent (child);
 
     G_OBJECT_CLASS (exm_installed_page_parent_class)->finalize (object);
 }

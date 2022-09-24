@@ -76,7 +76,11 @@ exm_browse_page_new (void)
 static void
 exm_browse_page_finalize (GObject *object)
 {
+    GtkWidget *child;
     ExmBrowsePage *self = (ExmBrowsePage *)object;
+
+    child = gtk_widget_get_first_child (GTK_WIDGET (self));
+    gtk_widget_unparent (child);
 
     G_OBJECT_CLASS (exm_browse_page_parent_class)->finalize (object);
 }
@@ -253,7 +257,7 @@ search (ExmBrowsePage *self,
     self->current_page = 1;
 
     if (self->search_results_model)
-        g_object_unref (self->search_results_model);
+        g_clear_object (&self->search_results_model);
 
     exm_search_provider_query_async (self->search, query, 1, sort, NULL,
                                      (GAsyncReadyCallback) on_first_page_result,

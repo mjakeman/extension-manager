@@ -117,28 +117,52 @@ exm_application_show_about (GSimpleAction *action,
     gchar *release_notes;
     gsize length;
 
+    GtkWidget *about_window;
+
     g_return_if_fail (EXM_IS_APPLICATION (self));
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
     release_notes = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/release-notes.txt", &length);
 
-    adw_show_about_window (window,
-                           "application-name", program_name,
-                           "application-icon", APP_ID,
-                           "developer-name", "Matthew Jakeman",
-                           "version", APP_VERSION,
-                           "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
-                           "website", "https://github.com/mjakeman/extension-manager",
-                           "support-url", "https://github.com/mjakeman/extension-manager/discussions",
-                           "issue-url", "https://github.com/mjakeman/extension-manager/issues",
-                           // "debug-info", "<system stats>",
-                           "release-notes", release_notes,
-                           "developers", authors,
-                           "translator-credits", _("translator-credits"),
-                           "copyright", "© 2022 Matthew Jakeman",
-                           "license-type", GTK_LICENSE_GPL_3_0,
-                           NULL);
+    about_window = adw_about_window_new ();
+    gtk_window_set_modal (GTK_WINDOW (about_window), TRUE);
+    gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
+
+    adw_about_window_set_application_name (ADW_ABOUT_WINDOW (about_window), program_name);
+    adw_about_window_set_application_icon (ADW_ABOUT_WINDOW (about_window), APP_ID);
+    adw_about_window_set_developer_name (ADW_ABOUT_WINDOW (about_window), "Matthew Jakeman");
+    adw_about_window_set_version (ADW_ABOUT_WINDOW (about_window), APP_VERSION);
+    adw_about_window_set_comments (ADW_ABOUT_WINDOW (about_window), _("Browse, install, and manage GNOME Shell Extensions."));
+    adw_about_window_set_website (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager");
+    adw_about_window_set_support_url (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager/discussions");
+    adw_about_window_set_issue_url (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager/issues");
+    adw_about_window_set_release_notes (ADW_ABOUT_WINDOW (about_window), release_notes);
+    adw_about_window_set_developers (ADW_ABOUT_WINDOW (about_window), authors);
+    adw_about_window_set_translator_credits (ADW_ABOUT_WINDOW (about_window), _("translator-credits"));
+    adw_about_window_set_copyright (ADW_ABOUT_WINDOW (about_window), "© 2022 Matthew Jakeman");
+    adw_about_window_set_license_type (ADW_ABOUT_WINDOW (about_window), GTK_LICENSE_GPL_3_0);
+
+    // Dependency Attribution
+    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                        "text-engine",
+                                        "Copyright (C) 2022 Matthew Jakeman",
+                                        GTK_LICENSE_MPL_2_0,
+                                        NULL);
+
+    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                        "libbacktrace",
+                                        "Copyright (C) 2012-2016 Free Software Foundation, Inc.",
+                                        GTK_LICENSE_BSD_3,
+                                        NULL);
+
+    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                        "blueprint",
+                                        "Copyright (C) 2021 James Westman",
+                                        GTK_LICENSE_LGPL_3_0,
+                                        NULL);
+
+    gtk_window_present (GTK_WINDOW (about_window));
 }
 
 

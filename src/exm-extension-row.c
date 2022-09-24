@@ -357,6 +357,7 @@ exm_extension_row_init (ExmExtensionRow *self)
     GSimpleAction *state_action;
     GSimpleAction *open_prefs_action;
     GSimpleAction *remove_action;
+    GtkWidget *action_row;
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
@@ -377,4 +378,16 @@ exm_extension_row_init (ExmExtensionRow *self)
     g_action_map_add_action (G_ACTION_MAP (self->action_group), G_ACTION (remove_action));
 
     gtk_widget_insert_action_group (GTK_WIDGET (self), "row", G_ACTION_GROUP (self->action_group));
+
+    // Hack until libadwaita 1.3
+    // See: https://gitlab.gnome.org/GNOME/libadwaita/-/merge_requests/673
+    action_row = gtk_widget_get_first_child (self);
+    action_row = gtk_widget_get_first_child (action_row);
+    action_row = gtk_widget_get_first_child (action_row);
+
+    if (ADW_IS_ACTION_ROW (action_row))
+    {
+        adw_action_row_set_title_lines (ADW_ACTION_ROW (action_row), 1);
+        adw_action_row_set_subtitle_lines (ADW_ACTION_ROW (action_row), 1);
+    }
 }
