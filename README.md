@@ -16,7 +16,7 @@ The tool supports:
  - Browsing and searching extensions from `extensions.gnome.org`
  - Installation and Removal
  - Enabling and Disabling
- - Updating in-app (See [#165](https://github.com/mjakeman/extension-manager/issues/165#issuecomment-1101004729))
+ - Updating in-app (See 'Known Issues')
  - Screenshots &amp; Images
  - Ratings &amp; Comments
  - Translations ([add your language!](https://github.com/mjakeman/extension-manager/issues/27))
