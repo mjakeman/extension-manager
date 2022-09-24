@@ -22,7 +22,8 @@
 #include "exm-browse-page.h"
 #include "exm-installed-page.h"
 #include "exm-detail-view.h"
-#include "exm-release-notes-dialog.h"
+#include "exm-upgrade-assistant.h"
+#include "exm-error-dialog.h"
 
 #include "local/exm-manager.h"
 #include "local/exm-extension.h"
@@ -36,13 +37,15 @@ struct _ExmWindow
     ExmManager *manager;
 
     /* Template widgets */
-    AdwHeaderBar        *header_bar;
-    GtkSwitch           *global_toggle;
-    ExmBrowsePage       *browse_page;
-    ExmInstalledPage    *installed_page;
-    AdwLeaflet          *leaflet;
-    GtkWidget           *main_view;
-    ExmDetailView       *detail_view;
+    AdwHeaderBar         *header_bar;
+    ExmBrowsePage        *browse_page;
+    ExmInstalledPage     *installed_page;
+    AdwLeaflet           *leaflet;
+    GtkWidget            *main_view;
+    ExmDetailView        *detail_view;
+    AdwViewSwitcherTitle *title;
+    AdwViewStack         *view_stack;
+    AdwToastOverlay      *toast_overlay;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -262,6 +265,21 @@ extension_install (GtkWidget  *widget,
 }
 
 static void
+show_page (GtkWidget  *widget,
+           const char *action_name,
+           GVariant   *param)
+{
+    ExmWindow *self;
+    char *target;
+
+    g_variant_get (param, "s", &target);
+
+    self = EXM_WINDOW (widget);
+
+    adw_view_stack_set_visible_child_name (self->view_stack, target);
+}
+
+static void
 show_view (GtkWidget  *widget,
            const char *action_name,
            GVariant   *param)
@@ -286,18 +304,67 @@ show_view (GtkWidget  *widget,
 }
 
 static void
-show_release_notes (GtkWidget  *widget,
-                    const char *action_name,
-                    GVariant   *param)
+show_upgrade_assistant (GtkWidget  *widget,
+                        const char *action_name,
+                        GVariant   *param)
 {
     ExmWindow *self;
 
     self = EXM_WINDOW (widget);
 
-    ExmReleaseNotesDialog *notes = exm_release_notes_dialog_new ();
-    gtk_window_set_modal (GTK_WINDOW (notes), TRUE);
-    gtk_window_set_transient_for (GTK_WINDOW (notes), GTK_WINDOW (self));
-    gtk_window_present (GTK_WINDOW (notes));
+    ExmUpgradeAssistant *assistant = exm_upgrade_assistant_new (self->manager);
+    gtk_window_set_modal (GTK_WINDOW (assistant), TRUE);
+    gtk_window_set_transient_for (GTK_WINDOW (assistant), GTK_WINDOW (self));
+    gtk_window_present (GTK_WINDOW (assistant));
+}
+
+static void
+show_error_dialog (GtkWidget  *widget,
+                   const char *action_name,
+                   GVariant   *param)
+{
+    ExmErrorDialog *err_dialog;
+    const char *err_text;
+
+    err_text = g_variant_get_string (param, NULL);
+    err_dialog = exm_error_dialog_new (err_text);
+
+    gtk_window_set_modal (GTK_WINDOW (err_dialog), TRUE);
+    gtk_window_set_transient_for (GTK_WINDOW (err_dialog), GTK_WINDOW (widget));
+
+    gtk_window_present (GTK_WINDOW (err_dialog));
+}
+
+static void
+show_error (GtkWidget  *widget,
+            const char *action_name,
+            GVariant   *param)
+{
+    ExmWindow *self;
+    char *error_text;
+    AdwToast *toast;
+
+    self = EXM_WINDOW (widget);
+
+    g_variant_get (param, "s", &error_text);
+
+    toast = adw_toast_new (_("An error occurred."));
+    adw_toast_set_button_label (toast, _("Details"));
+    adw_toast_set_timeout (toast, 5);
+
+    adw_toast_set_action_name (toast, "win.show-error-dialog");
+    adw_toast_set_action_target (toast, "s", error_text);
+
+    adw_toast_overlay_add_toast (self->toast_overlay, toast);
+}
+
+
+static void
+on_error (ExmManager *manager,
+          char       *error_text,
+          ExmWindow  *self)
+{
+    gtk_widget_activate_action (self, "win.show-error", "s", error_text);
 }
 
 static void
@@ -322,12 +389,14 @@ exm_window_class_init (ExmWindowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, global_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, leaflet);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, view_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, toast_overlay);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -338,7 +407,10 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
-    gtk_widget_class_install_action (widget_class, "win.show-release-notes", NULL, show_release_notes);
+    gtk_widget_class_install_action (widget_class, "win.show-upgrade-assistant", NULL, show_upgrade_assistant);
+    gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
+    gtk_widget_class_install_action (widget_class, "win.show-error", "s", show_error);
+    gtk_widget_class_install_action (widget_class, "win.show-error-dialog", "s", show_error_dialog);
 }
 
 static void
@@ -360,6 +432,8 @@ do_version_check (ExmWindow *self)
 static void
 exm_window_init (ExmWindow *self)
 {
+    gchar *title;
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     if (IS_DEVEL) {
@@ -367,9 +441,12 @@ exm_window_init (ExmWindow *self)
     }
 
     self->manager = exm_manager_new ();
+    g_signal_connect (self->manager, "error-occurred", on_error, self);
 
-    gtk_window_set_title (GTK_WINDOW (self),
-                          IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager"));
+    title = IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager");
+
+    gtk_window_set_title (GTK_WINDOW (self), title);
+    adw_view_switcher_title_set_title (self->title, title);
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
@@ -380,12 +457,6 @@ exm_window_init (ExmWindow *self)
                             self->detail_view,
                             "shell-version",
                             G_BINDING_SYNC_CREATE);
-
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->global_toggle,
-                            "state",
-                            G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
 
     // Window must be mapped to show version check dialog
     g_signal_connect (self, "map", G_CALLBACK (do_version_check), NULL);

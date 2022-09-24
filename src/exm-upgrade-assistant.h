@@ -1,4 +1,5 @@
-/* exm-browse-page.h
+/*
+ * exm-upgrade-assistant.h
  *
  * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -17,19 +18,19 @@
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
+ #pragma once
+ 
+ #include <adwaita.h>
 
-#pragma once
+#include "local/exm-manager.h"
+ 
+ G_BEGIN_DECLS
+ 
+ #define EXM_TYPE_UPGRADE_ASSISTANT (exm_upgrade_assistant_get_type())
+ 
+ G_DECLARE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, EXM, UPGRADE_ASSISTANT, AdwWindow)
+ 
+ ExmUpgradeAssistant *exm_upgrade_assistant_new (ExmManager *manager);
 
-#include <gtk/gtk.h>
-#include <adwaita.h>
-
-G_BEGIN_DECLS
-
-#define EXM_TYPE_BROWSE_PAGE (exm_browse_page_get_type())
-
-G_DECLARE_FINAL_TYPE (ExmBrowsePage, exm_browse_page, EXM, BROWSE_PAGE, GtkWidget)
-
-ExmBrowsePage *exm_browse_page_new (void);
-void exm_browse_page_refresh (ExmBrowsePage *self);
-
-G_END_DECLS
+ G_END_DECLS
+ 

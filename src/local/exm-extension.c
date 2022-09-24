@@ -114,12 +114,12 @@ exm_extension_set_property (GObject      *object,
     case PROP_DISPLAY_NAME:
         if (self->display_name)
             g_free (self->display_name);
-        self->display_name = g_markup_escape_text (g_value_dup_string (value), -1);
+        self->display_name = g_value_dup_string (value);
         break;
     case PROP_DESCRIPTION:
         if (self->description)
             g_free (self->description);
-        self->description = g_markup_escape_text (g_value_dup_string (value), -1);
+        self->description = g_value_dup_string (value);
         break;
     case PROP_STATE:
         self->state = g_value_get_enum (value);

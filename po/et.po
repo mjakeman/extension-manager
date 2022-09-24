@@ -1,390 +1,351 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Estonian translations for extension-manager package.
+# Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Henri <contact@hen.ee>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-03-30 08:41+0300\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2022-08-21 23:51+0300\n"
+"Last-Translator: Henri <contact@hen.ee>\n"
 "Language-Team: \n"
-"Language: ru_RU\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
 msgid "@app_title@"
-msgstr "@app_title@"
+msgstr "Laiendushaldur"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "Утилита для просмотра и установки расширений оболочки GNOME."
+msgstr "GNOME töölaua laienduste sirvimiseks ning paigaldamiseks tööriist."
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
 msgid "Features:"
-msgstr "Функции:"
+msgstr "Funktsioonid:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Просматривайте extensions.gnome.org прямо в приложении"
+msgstr "Sirvi extensions.gnome.org kohe rakenduse seest"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
 msgid "Manage the extensions you already have installed"
-msgstr "Управлять расширениями, которые вы уже установили"
+msgstr "Halda laiendusi, mis sul on paigaldatud"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Утилита для управления расширениями оболочки GNOME"
+msgstr "GNOME töölaua laienduste haldamiseks tööriist"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
 msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-"Второе функциональное обновление extension-manager. Основные моменты "
-"включают:"
+msgstr "Teine suur uuendus extension-manager'ile. Peamised uuendused:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
 msgid "View comments and reviews"
-msgstr "Просмотреть комментарии и отзывы"
+msgstr "Vaata kommentaare ning arvustusi"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
 msgid "Support for in-app updates"
-msgstr "Поддержка обновлений в приложении"
+msgstr "Rakenduse sisese uuenduse tugi"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
 msgid "Better handling errors and out-of-date extensions"
-msgstr "Улучшенная обработка ошибок и устаревших расширений"
+msgstr "Vea ning vananenud laienduste parandused"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
 msgid "Allow installing 'unsupported' extensions"
-msgstr "Разрешена установка \"неподдерживаемых\" расширений"
+msgstr "Lubatud „toetamata“ laienduste paigaldamine"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
 msgid "Display release notes on first run"
-msgstr "Отображение информации о выпуске при первом запуске"
+msgstr "Näita uuenduste logi esimesel käivitamisel"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
 msgid "New app icon"
-msgstr "Новая иконка приложения"
+msgstr "Uus rakenduse ikoon"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
 msgid "Optionally sort extensions by enabled status"
-msgstr "Опциональная сортировка расширений по статусу включения"
+msgstr "Valikuliselt sorteeri laiendused lubatud staatusega"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
 msgid "Translation updates"
-msgstr "Обновления перевода"
+msgstr "Tõlkeuuendused"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
 msgid "Performance and stability"
-msgstr "Производительность и стабильность"
+msgstr "Stabiilsuse ning jõudluse laiendused"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
 msgid "Fix special characters in search results"
-msgstr "Исправление специальных символов в результатах поиска"
+msgstr "Erilise tähe parandused otsinguvastustes"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "Устранение сбоя, который иногда возникает при удалении расширения"
+msgstr "Laienduse eemaldamisel krahh parandatud"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
 msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-"Первое функциональное обновление extension-manager. Основные моменты "
-"включают:"
+msgstr "Esimene suur uuendus extension-manager'ile. Peamised uuendused:"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
 msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Темная тема и поддержка переопределения системной цветовой схемы"
+msgstr "Tume teema ning valik ignoreerida süsteemi vaikeseadet"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
 msgid "Shows screenshots in extension listings"
-msgstr "Показывает скриншоты в списках расширений"
+msgstr "Kuvatõmmise näitamine laienduste sirvijas"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
 msgid "Shell version compatibility check"
-msgstr "Проверка совместимости версий оболочки"
+msgstr "Töölaua versiooni ühilduvuskontroll"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
 msgid "Localised into seven languages"
-msgstr "Локализована на семи языках"
+msgstr "Tõlgitud 7 keelde"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
 msgid "Sort search results"
-msgstr "Сортировать результаты поиска"
+msgstr "Otsinguvastuste sorteerimine"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
 msgid "Global extension on/off toggle"
-msgstr "Переключатель включения/выключения всех расширений"
+msgstr "Globaalne laienduste sisse/välja lüliti"
 
 #: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
 msgid "Displays user and system extensions separately"
-msgstr "Отображение пользовательских и системных расширений по отдельности"
+msgstr "Kasutaja ja süsteemi laienduste eraldi näitamine"
 
 #: src/exm-application.c:106
 msgid "Extension Manager (Development)"
-msgstr "Менеджер расширений (Разрабатываемая версия)"
+msgstr "Laiendushaldur (Arendajale)"
 
 #: src/exm-application.c:107
 msgid "Extension Manager"
-msgstr "Менеджер расширений"
+msgstr "Laiendushaldur"
 
 #. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
 #: src/exm-application.c:117
 msgid "translator-credits"
-msgstr "Danik2343 <krutalevex@mail.ru>"
+msgstr "Henri <contact@hen.ee>"
 
 #: src/exm-application.c:118
 msgid ""
 "A very simple tool for browsing, downloading, and managing GNOME shell "
 "extensions."
 msgstr ""
-"Очень простой инструмент для просмотра, загрузки и управления расширениями "
-"оболочки GNOME."
+"Lihtne tööriist GNOME töölaua laienduste sirvimiseks, paigaldamiseks ning "
+"haldamiseks."
 
 #: src/exm-application.c:124
 msgid "Project Homepage"
-msgstr "Домашняя страница проекта"
+msgstr "Projekti koduleht"
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
-msgstr "Поиск расширений"
+msgstr "Otsi laiendusi"
 
 #: src/exm-browse-page.blp:8
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
-msgstr ""
-"Введите ключевое слово для поиска в 'extensions.gnome.org' расширений GNOME "
-"Shell."
+msgstr "Kirjuta märksõna, et „extensions.gnome.org“i laiendusi otsida."
 
 #: src/exm-browse-page.blp:22
 msgid "e.g. \"Blur my Shell\""
-msgstr "например \"Blur my Shell\""
+msgstr "näiteks „Blur my Shell“"
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:33
 msgid "Popularity"
-msgstr "Популярность"
+msgstr "Populaarsus"
 
 #: src/exm-browse-page.blp:33
 msgid "Downloads"
-msgstr "Загрузки"
+msgstr "Allalaadimisi"
 
 #: src/exm-browse-page.blp:33
 msgid "Recent"
-msgstr "Недавние"
+msgstr "Hiljutine"
 
 #: src/exm-browse-page.blp:33
 msgid "Name"
-msgstr "Название"
+msgstr "Nimi"
 
 #: src/exm-browse-page.blp:60
 msgid "No Results Found"
-msgstr "Результаты не найдены"
+msgstr "Tulemusi ei leitud"
 
 #: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
 #: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
 msgid "An Error Occurred"
-msgstr "Произошла ошибка"
+msgstr "Tekkis viga"
 
 #: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
 msgid "Description"
-msgstr "Описание"
+msgstr "Kirjeldus"
 
 #: src/exm-detail-view.blp:113
 msgid "View on Extensions"
-msgstr "Посмотреть в Extensions"
+msgstr "Vaata veebileheküljel"
 
 #: src/exm-detail-view.blp:130
 msgid "Supported Versions"
-msgstr "Поддерживаемые версии"
+msgstr "Toetatud versioonid"
 
 #: src/exm-detail-view.blp:146
 msgid "User Reviews"
-msgstr "Отзывы пользователей"
+msgstr "Kasutaja arvustused"
 
 #: src/exm-detail-view.blp:187
 msgid "Show All Reviews"
-msgstr "Показать все отзывы"
+msgstr "Näita kõiki arvustusi"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
 #: src/exm-detail-view.c:364
 msgid "Loading…"
-msgstr "Загрузка…"
+msgstr "Laadimine…"
 
 #: src/exm-extension-row.blp:33
 msgid "An error occurred while loading this extension"
-msgstr "Произошла ошибка, при загрузке этого расширения"
+msgstr "Laienduse laadimine ebaõnnestus"
 
 #: src/exm-extension-row.blp:46 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Это расширение несовместимо с вашей текущей версией GNOME."
+msgstr "Laiendus ei ühildu sinu praeguse GNOME versiooniga."
 
 #: src/exm-extension-row.blp:59
 msgid "A newer version of this extension is available"
-msgstr "Доступная новая версия этого расширения"
+msgstr "Uus laienduse versioon on saadaval"
 
 #: src/exm-extension-row.blp:100
 msgid "Version"
-msgstr "Версия"
+msgstr "Versioon"
 
 #: src/exm-extension-row.blp:126
 msgid "Error"
-msgstr "Ошибка"
+msgstr "Viga"
 
 #: src/exm-extension-row.blp:161
 msgid "See Details"
-msgstr "Посмотреть подробности"
+msgstr "Kuva üksikasju"
 
 #: src/exm-extension-row.blp:170
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Eemalda"
 
 #: src/exm-install-button.c:115
 msgid "Install"
-msgstr "Установить"
+msgstr "Paigalda"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
-msgstr "Установлено"
+msgstr "Paigaldatud"
 
 #: src/exm-install-button.c:124
 msgid "Unsupported"
-msgstr "Не поддерживается"
+msgstr "Toetamata"
 
 #: src/exm-installed-page.blp:25
 msgid "User-Installed Extensions"
-msgstr "Расширения, установленные пользователем"
+msgstr "Kasutaja paigaldatud laiendused"
 
 #: src/exm-installed-page.blp:38
 msgid "System Extensions"
-msgstr "Системные расширения"
+msgstr "Süsteemi laiendused"
 
 #: src/exm-installed-page.blp:78
 msgid "Updates are available"
-msgstr "Доступны обновления"
+msgstr "Uuendused on saadaval"
 
 #: src/exm-installed-page.blp:95
 msgid "Log Out"
-msgstr "Завершить сеанс"
+msgstr "Logi välja"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:215
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "%d расширение будет обновлено при следующем входе в систему."
-msgstr[1] "%d расширения будут обновлены при следующем входе в систему."
-msgstr[2] "%d расширений будут обновлены при следующем входе в систему."
+msgstr[0] "Üks laiendus uuendatakse järgmisel sisselogimisel."
+msgstr[1] "%d laiendust uuendatakse järgmisel sisselogimisel."
 
 #: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
 msgid "Release Notes"
-msgstr "Новости релиза"
+msgstr "Uuenduste logi"
 
 #: src/exm-window.blp:42
 msgctxt "Navigation"
 msgid "Installed"
-msgstr "Установленные"
+msgstr "Paigaldatud"
 
 #: src/exm-window.blp:50
 msgctxt "Navigation"
 msgid "Browse"
-msgstr "Обзор"
+msgstr "Sirvi"
 
 #: src/exm-window.blp:71
 msgid "Theme"
-msgstr "Тема"
+msgstr "Teema"
 
 #: src/exm-window.blp:73
 msgid "Follow System"
-msgstr "Следование системе"
+msgstr "Süsteemi välimus"
 
 #: src/exm-window.blp:78
 msgid "Light"
-msgstr "Светлая"
+msgstr "Hele teema"
 
 #: src/exm-window.blp:83
 msgid "Dark"
-msgstr "Тёмная"
+msgstr "Tume teema"
 
 #: src/exm-window.blp:89
 msgid "Sort Enabled First"
-msgstr "Сортировка включенных"
+msgstr "Näita lubatud laiendused esimesena"
 
 #: src/exm-window.blp:103
 msgid "About Extension Manager"
-msgstr "О менеджере расширений"
+msgstr "Teave"
 
 #: src/exm-window.c:180
 msgid "Are you sure you want to uninstall?"
-msgstr "Вы уверены, что хотите удалить?"
+msgstr "Kas oled kindel, et tahad eemaldada laienduse?"
 
 #: src/exm-window.c:247
 msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
 msgstr ""
-"Это расширение не поддерживает вашу версию GNOME Shell.\n"
-"Вы хотите установить его в любом случае?"
+"See laiendus ei toeta sinu GNOME versiooni.\n"
+"Kas soovid siiski paigaldada laienduse?"
 
 #: src/exm-window.c:373
 msgid "What's New"
-msgstr "Что нового"
+msgstr "Mis on uut"
 
 #: src/exm-window.c:375
 msgid "View Release Notes"
-msgstr "Посмотреть новости релиза"
+msgstr "Vaata uuenduste logi"
 
 #: src/exm-window.c:379
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "This is your first time using <b>Extension Manager %s</b>.\n"
 "Would you like to see the release notes?"
 msgstr ""
-"Вы впервые используете <b>Менеджер расширений %s</b>.\n"
-"Вы хотите просмотреть примечания к выпуску?"
-
-#~ msgid "Matthew Jakeman"
-#~ msgstr "Matthew Jakeman"
-
-#~ msgid "Colour Scheme Preference"
-#~ msgstr "Предпочтение цветовой схемы"
-
-#~ msgid ""
-#~ "Whether to follow the system colour scheme or force either light or dark "
-#~ "mode."
-#~ msgstr ""
-#~ "Следует ли следовать системной цветовой схеме или использовать светлый "
-#~ "или темный режим."
-
-#~ msgid "Links"
-#~ msgstr "Ссылки"
-
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "Горячие клавиши"
-
-#~ msgctxt "shortcut window"
-#~ msgid "General"
-#~ msgstr "Общее"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Show Shortcuts"
-#~ msgstr "Показать горячие клавиши"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Quit"
-#~ msgstr "Выход"
+"See on sinu esimene kord kasutades <b>Laiendushaldurit %s</b>.\n"
+"Kas soovid vaadata mis on uut?"

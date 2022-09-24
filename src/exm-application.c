@@ -21,6 +21,8 @@
 #include "exm-application.h"
 #include "exm-window.h"
 
+#include "exm-utils.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmApplication
@@ -48,22 +50,10 @@ exm_application_finalize (GObject *object)
     G_OBJECT_CLASS (exm_application_parent_class)->finalize (object);
 }
 
-static void
-exm_application_activate (GApplication *app)
+static ExmWindow *
+get_current_window (GApplication *app)
 {
     GtkWindow *window;
-
-    /* It's good practice to check your parameters at the beginning of the
-    * function. It helps catch errors early and in development instead of
-    * by your users.
-    */
-    g_assert (GTK_IS_APPLICATION (app));
-
-    GdkDisplay *display = gdk_display_get_default ();
-    GtkCssProvider *provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_resource (provider, "/com/mattjakeman/ExtensionManager/style.css");
-    gtk_style_context_add_provider_for_display (display, GTK_STYLE_PROVIDER (provider),
-                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
     /* Get the current window or create one if necessary. */
     window = gtk_application_get_active_window (GTK_APPLICATION (app));
@@ -72,26 +62,95 @@ exm_application_activate (GApplication *app)
                            "application", app,
                            NULL);
 
+    return EXM_WINDOW (window);
+}
+
+static void
+exm_application_activate (GApplication *app)
+{
+    GtkWindow *window;
+    GdkDisplay *display;
+    GtkCssProvider *provider;
+    GtkIconTheme *icon_theme;
+
+    /* It's good practice to check your parameters at the beginning of the
+    * function. It helps catch errors early and in development instead of
+    * by your users.
+    */
+    g_assert (GTK_IS_APPLICATION (app));
+
+    display = gdk_display_get_default ();
+    provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_resource (provider, "/com/mattjakeman/ExtensionManager/style.css");
+    gtk_style_context_add_provider_for_display (display, GTK_STYLE_PROVIDER (provider),
+                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    icon_theme = gtk_icon_theme_get_for_display (display);
+    gtk_icon_theme_add_resource_path (icon_theme, "/com/mattjakeman/ExtensionManager/icons");
+
+    window = GTK_WINDOW (get_current_window (app));
+
     /* Ask the window manager/compositor to present the window. */
     gtk_window_present (window);
+}
+
+static void
+exm_application_open (GApplication  *app,
+                      GFile        **files,
+                      gint           n_files,
+                      const gchar   *hint)
+{
+    ExmWindow *window;
+    const char *scheme;
+    const char *uuid;
+    GUri *uri;
+    GError *error = NULL;
+
+    // Activate the application first
+    exm_application_activate (app);
+
+    // Now open the provided extension
+    window = get_current_window (app);
+
+    if (n_files <= 0)
+        return;
+
+    uri = g_uri_parse (g_file_get_uri (files[0]), G_URI_FLAGS_NONE, &error);
+    if (error)
+    {
+        g_critical ("Error parsing URI: %s\n", error->message);
+        return;
+    }
+
+    scheme = g_uri_get_scheme (uri);
+    if (!g_str_equal (scheme, "gnome-extensions"))
+    {
+        g_critical ("Invalid URI scheme: '%s'\n", scheme);
+        return;
+    }
+
+    uuid = g_uri_get_host (uri);
+    g_print ("Opening extension with UUID: '%s'\n", uuid);
+    gtk_widget_activate_action (GTK_WIDGET (window), "win.show-detail", "s", uuid);
 }
 
 
 static void
 exm_application_class_init (ExmApplicationClass *klass)
 {
-  GObjectClass *object_class = G_OBJECT_CLASS (klass);
-  GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+    GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
 
-  object_class->finalize = exm_application_finalize;
+    object_class->finalize = exm_application_finalize;
 
-  /*
-   * We connect to the activate callback to create a window when the application
-   * has been launched. Additionally, this callback notifies us when the user
-   * tries to launch a "second instance" of the application. When they try
-   * to do that, we'll just present any existing window.
-   */
-  app_class->activate = exm_application_activate;
+    /*
+    * We connect to the activate callback to create a window when the application
+    * has been launched. Additionally, this callback notifies us when the user
+    * tries to launch a "second instance" of the application. When they try
+    * to do that, we'll just present any existing window.
+    */
+    app_class->activate = exm_application_activate;
+    app_class->open = exm_application_open;
 }
 
 static void
@@ -106,23 +165,55 @@ exm_application_show_about (GSimpleAction *action,
         ? _("Extension Manager (Development)")
         : _("Extension Manager");
 
+    gchar *release_notes;
+    gsize length;
+
+    GtkWidget *about_window;
+
     g_return_if_fail (EXM_IS_APPLICATION (self));
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-    gtk_show_about_dialog (window,
-                           "program-name", program_name,
-                           "authors", authors,
-                           // TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
-                           "translator-credits", _("translator-credits"),
-                           "comments", _("A very simple tool for browsing, downloading, and managing GNOME shell extensions."),
-                           "version", APP_VERSION,
-                           "copyright", "Copyright © Matthew Jakeman 2021",
-                           "license-type", GTK_LICENSE_GPL_3_0,
-                           "logo-icon-name", APP_ID,
-                           "website", "https://github.com/mjakeman/extension-manager",
-                           "website-label", _("Project Homepage"),
-                           NULL);
+    release_notes = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/release-notes.txt", &length);
+
+    about_window = adw_about_window_new ();
+    gtk_window_set_modal (GTK_WINDOW (about_window), TRUE);
+    gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
+
+    adw_about_window_set_application_name (ADW_ABOUT_WINDOW (about_window), program_name);
+    adw_about_window_set_application_icon (ADW_ABOUT_WINDOW (about_window), APP_ID);
+    adw_about_window_set_developer_name (ADW_ABOUT_WINDOW (about_window), "Matthew Jakeman");
+    adw_about_window_set_version (ADW_ABOUT_WINDOW (about_window), APP_VERSION);
+    adw_about_window_set_comments (ADW_ABOUT_WINDOW (about_window), _("Browse, install, and manage GNOME Shell Extensions."));
+    adw_about_window_set_website (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager");
+    adw_about_window_set_support_url (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager/discussions");
+    adw_about_window_set_issue_url (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager/issues");
+    adw_about_window_set_release_notes (ADW_ABOUT_WINDOW (about_window), release_notes);
+    adw_about_window_set_developers (ADW_ABOUT_WINDOW (about_window), authors);
+    adw_about_window_set_translator_credits (ADW_ABOUT_WINDOW (about_window), _("translator-credits"));
+    adw_about_window_set_copyright (ADW_ABOUT_WINDOW (about_window), "© 2022 Matthew Jakeman");
+    adw_about_window_set_license_type (ADW_ABOUT_WINDOW (about_window), GTK_LICENSE_GPL_3_0);
+
+    // Dependency Attribution
+    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                        "text-engine",
+                                        "Copyright (C) 2022 Matthew Jakeman",
+                                        GTK_LICENSE_MPL_2_0,
+                                        NULL);
+
+    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                        "libbacktrace",
+                                        "Copyright (C) 2012-2016 Free Software Foundation, Inc.",
+                                        GTK_LICENSE_BSD_3,
+                                        NULL);
+
+    adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
+                                        "blueprint",
+                                        "Copyright (C) 2021 James Westman",
+                                        GTK_LICENSE_LGPL_3_0,
+                                        NULL);
+
+    gtk_window_present (GTK_WINDOW (about_window));
 }
 
 
@@ -199,6 +290,9 @@ exm_application_init (ExmApplication *self)
 
     GAction *sort_enabled_first_action = g_settings_create_action (settings, "sort-enabled-first");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (sort_enabled_first_action));
+
+    GAction *show_unsupported_action = g_settings_create_action (settings, "show-unsupported");
+    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (show_unsupported_action));
 
     GAction *style_variant_action = g_settings_create_action (settings, "style-variant");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (style_variant_action));
