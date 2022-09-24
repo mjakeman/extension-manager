@@ -94,7 +94,7 @@ run_app (int   argc,
 	 * application windows, integration with the window manager/compositor, and
 	 * desktop features such as file opening and single-instance applications.
 	 */
-	app = exm_application_new (APP_ID, G_APPLICATION_FLAGS_NONE);
+	app = exm_application_new (APP_ID, G_APPLICATION_HANDLES_OPEN);
 
 	/*
 	 * Run the application. This function will block until the application
@@ -165,7 +165,7 @@ main (int   argc,
             g_string_append_c (string_builder, ch);
 
         // Wait for child to finish
-        waitpid(pid, 0, 0);
+        waitpid (pid, 0, 0);
         close (pipe_fd[0]);
 
         error_text = g_string_free (string_builder, FALSE);
