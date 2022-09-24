@@ -71,12 +71,11 @@ progressbar.error text {
 }
 
 progressbar.warning progress {
-    background-color: @yellow_1;
+    background-color: @yellow_4;
 }
 
 progressbar.warning text {
-    color: @yellow_1;
-    opacity: 0.8;
+    color: @window_fg_color;
 }
 
 progressbar.success progress {

@@ -204,7 +204,7 @@ display_results (ExmUpgradeAssistant *self)
     if (fraction == 1.0f) {
         // make green
         gtk_widget_add_css_class (GTK_WIDGET (self->progress_bar), "success");
-    } else if (fraction <= 0.7f && fraction > 0.3f) {
+    } else if (fraction <= 1.0f && fraction > 0.3f) {
         // make orange
         gtk_widget_add_css_class (GTK_WIDGET (self->progress_bar), "warning");
     } else if (fraction <= 0.3f) {
