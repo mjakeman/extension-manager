@@ -22,6 +22,7 @@
 #include "exm-upgrade-assistant.h"
 
 #include "web/exm-data-provider.h"
+#include "exm-upgrade-result.h"
 
 #include <glib/gi18n.h>
 
@@ -127,6 +128,46 @@ exm_upgrade_assistant_set_property (GObject      *object,
     }
 }
 
+typedef struct
+{
+    ExmExtension *local_data;
+    ExmUpgradeAssistant *assistant;
+    gboolean is_user;
+} ExtensionCheckData;
+
+typedef enum
+{
+    STATUS_SUPPORTED,
+    STATUS_UNSUPPORTED,
+    STATUS_UNKNOWN,
+} SupportStatus;
+
+static ExtensionCheckData *
+create_check_data (ExmExtension        *local_data,
+                   ExmUpgradeAssistant *assistant,
+                   gboolean             is_user)
+{
+    ExtensionCheckData* data;
+
+    data = g_slice_new0 (ExtensionCheckData);
+    data->local_data = g_object_ref (local_data);
+    data->assistant = g_object_ref (assistant);
+    data->is_user = is_user;
+
+    return data;
+}
+
+static void
+free_check_data (ExtensionCheckData *data)
+{
+    if (data)
+    {
+        g_clear_object (&data->local_data);
+        g_clear_object (&data->assistant);
+        g_slice_free (ExtensionCheckData, data);
+    }
+}
+
 static void
 update_checked_count (ExmUpgradeAssistant *self)
 {
@@ -179,6 +220,24 @@ display_results (ExmUpgradeAssistant *self)
     gtk_stack_set_visible_child_name (self->stack, "results");
 }
 
+static SupportStatus
+get_support_status (ExmUpgradeResult *result, const char *target_version)
+{
+    SupportStatus supported;
+    ExmSearchResult *web_data;
+
+    web_data = exm_upgrade_result_get_web_data (result);
+
+    if (web_data && exm_search_result_supports_shell_version (web_data, target_version))
+        supported = STATUS_SUPPORTED;
+    else if (web_data)
+        supported = STATUS_UNSUPPORTED;
+    else
+        supported = STATUS_UNKNOWN;
+
+    return supported;
+}
+
 static void
 print_list_model (GListModel  *model,
                   GString     *string_builder,
@@ -190,34 +249,34 @@ print_list_model (GListModel  *model,
 
     num_extensions = g_list_model_get_n_items (model);
     for (i = 0; i < num_extensions; i++) {
-        ExmSearchResult *extension;
-        gchar *name, *creator, *uuid, *url;
-        gboolean is_supported;
+        ExmUpgradeResult *result;
+        const gchar *name, *creator, *uuid, *url, *supported_text;
+        SupportStatus supported;
 
-        extension = g_list_model_get_item (model, i);
+        result = g_list_model_get_item (model, i);
 
-        g_object_get (extension,
-                      "name", &name,
-                      "creator", &creator,
-                      "uuid", &uuid,
-                      "link", &url,
-                      NULL);
+        name = exm_upgrade_result_get_name (result);
+        creator = exm_upgrade_result_get_creator (result);
+        uuid = exm_upgrade_result_get_uuid (result);
 
-        is_supported = exm_search_result_supports_shell_version (extension, target_shell_version);
+        supported = get_support_status (result, target_shell_version);
 
         text = g_strdup_printf ("'%s' by %s\n", name, creator);
         g_string_append (string_builder, text);
         g_free (text);
 
-        text = g_strdup_printf ("Website: https://extensions.gnome.org%s\n", url);
+        text = g_strdup_printf ("Extension ID: %s\n", uuid);
         g_string_append (string_builder, text);
         g_free (text);
 
-        text = g_strdup_printf ("Unique ID: %s\n", uuid);
-        g_string_append (string_builder, text);
-        g_free (text);
+        if (supported == STATUS_SUPPORTED)
+            supported_text = "Yes";
+        else if (supported == STATUS_UNSUPPORTED)
+            supported_text = "No";
+        else
+            supported_text = "Unknown";
 
-        text = g_strdup_printf ("Supported: %s\n\n", is_supported ? "Yes" : "No");
+        text = g_strdup_printf ("Supported: %s\n\n", supported_text);
         g_string_append (string_builder, text);
         g_free (text);
     }
@@ -282,18 +341,14 @@ copy_to_clipboard (ExmUpgradeAssistant *self)
 
 static void
 display_extension_result (ExmUpgradeAssistant *self,
-                          ExmSearchResult     *extension,
+                          ExmUpgradeResult    *result,
                           gboolean             is_user)
 {
-    gboolean is_supported;
-
-    is_supported = exm_search_result_supports_shell_version (extension, self->target_shell_version);
-
-    if (is_supported) {
+    if (get_support_status (result, self->target_shell_version) == STATUS_SUPPORTED) {
         self->number_supported++;
     }
 
-    g_list_store_append (is_user ? self->user_results_store : self->system_results_store, extension);
+    g_list_store_append (is_user ? self->user_results_store : self->system_results_store, result);
 
     if (self->waiting_on_tasks && self->number_checked == self->total_extensions) {
         display_results (self);
@@ -301,43 +356,34 @@ display_extension_result (ExmUpgradeAssistant *self,
 }
 
 static void
-on_user_ext_processed (GObject      *source,
-                       GAsyncResult *result,
-                       gpointer      user_data)
+on_extension_processed (GObject      *source,
+                        GAsyncResult *async_result,
+                        gpointer      user_data)
 {
-    ExmSearchResult *data;
+    ExmSearchResult *web_info;
     GError *error = NULL;
     ExmUpgradeAssistant *self;
+    ExtensionCheckData *data;
+    ExmUpgradeResult *result;
 
-    self = EXM_UPGRADE_ASSISTANT (user_data);
+    g_return_if_fail (user_data != NULL);
+
+    data = (ExtensionCheckData *) user_data;
+    self = EXM_UPGRADE_ASSISTANT (data->assistant);
 
     self->number_checked++;
     update_checked_count (self);
 
-    if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
+    result = exm_upgrade_result_new ();
+    exm_upgrade_result_set_local_data (result, data->local_data);
+
+    if ((web_info = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), async_result, &error)) != FALSE)
     {
-        display_extension_result (self, data, TRUE);
+        exm_upgrade_result_set_web_data (result, web_info);
     }
-}
 
-static void
-on_system_ext_processed (GObject      *source,
-                         GAsyncResult *result,
-                         gpointer      user_data)
-{
-    ExmSearchResult *data;
-    GError *error = NULL;
-    ExmUpgradeAssistant *self;
-
-    self = EXM_UPGRADE_ASSISTANT (user_data);
-
-    self->number_checked++;
-    update_checked_count (self);
-
-    if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
-    {
-        display_extension_result (self, data, FALSE);
-    }
+    display_extension_result (self, result, data->is_user);
+    free_check_data (data);
 }
 
 static void
@@ -393,28 +439,34 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     for (i = 0; i < num_items; i++) {
         char *uuid;
         ExmExtension *extension;
+        ExtensionCheckData *data;
 
         extension = EXM_EXTENSION (g_list_model_get_item (user_ext_model, i));
 
         g_object_get (extension, "uuid", &uuid, NULL);
         g_debug ("Processing: %s\n", uuid);
 
+        data = create_check_data (extension, self, TRUE);
+
         self->total_extensions++;
-        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_user_ext_processed, self);
+        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_extension_processed, data);
     }
 
     num_items = g_list_model_get_n_items (system_ext_model);
     for (i = 0; i < num_items; i++) {
         char *uuid;
         ExmExtension *extension;
+        ExtensionCheckData *data;
 
         extension = EXM_EXTENSION (g_list_model_get_item (system_ext_model, i));
 
         g_object_get (extension, "uuid", &uuid, NULL);
         g_debug ("Processing: %s\n", uuid);
 
+        data = create_check_data (extension, self, FALSE);
+
         self->total_extensions++;
-        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_system_ext_processed, self);
+        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_extension_processed, data);
     }
 
     // Set this flag after all tasks have been dispatched
@@ -423,22 +475,19 @@ do_compatibility_check (ExmUpgradeAssistant *self)
 }
 
 static GtkWidget *
-widget_factory (ExmSearchResult     *extension,
+widget_factory (ExmUpgradeResult    *result,
                 ExmUpgradeAssistant *self)
 {
-    gboolean is_supported;
-    gchar *name, *creator, *icon_uri;
+    SupportStatus supported;
+    const gchar *name, *creator;
     GtkWidget *hbox, *vbox, *label, *status;
 
-    g_object_get (extension,
-                  "name", &name,
-                  "creator", &creator,
-                  "icon", &icon_uri,
-                  NULL);
+    g_return_val_if_fail (EXM_IS_UPGRADE_RESULT (result), NULL);
 
-    g_return_val_if_fail (EXM_IS_SEARCH_RESULT (extension), NULL);
+    name = exm_upgrade_result_get_name (result);
+    creator = exm_upgrade_result_get_creator (result);
 
-    is_supported = exm_search_result_supports_shell_version (extension, self->target_shell_version);
+    supported = get_support_status (result, self->target_shell_version);
 
     // TODO: Append icon?
     hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
@@ -458,12 +507,18 @@ widget_factory (ExmSearchResult     *extension,
     gtk_widget_add_css_class (label, "dim-label");
     gtk_box_append (GTK_BOX (vbox), label);
 
-    if (is_supported) {
+    if (supported == STATUS_SUPPORTED) {
         status = gtk_label_new (_("Supported"));
         gtk_widget_add_css_class (status, "success");
-    } else {
+        gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("A compatible version of the extension exists."));
+    } else if (supported == STATUS_UNSUPPORTED) {
         status = gtk_label_new (_("Unsupported"));
         gtk_widget_add_css_class (status, "error");
+        gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("No compatible version of the extension exists."));
+    } else {
+        status = gtk_label_new (_("Unknown"));
+        gtk_widget_add_css_class (status, "warning");
+        gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("This extension is not hosted on extensions.gnome.org. Its compatibility cannot be determined."));
     }
 
     gtk_widget_set_valign (status, GTK_ALIGN_CENTER);
@@ -486,7 +541,7 @@ bind_list_box (ExmUpgradeAssistant *self,
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
     // Sort alphabetically
-    expression = gtk_property_expression_new (EXM_TYPE_SEARCH_RESULT, NULL, "name");
+    expression = gtk_property_expression_new (EXM_TYPE_UPGRADE_RESULT, NULL, "name");
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
     sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (alphabetical_sorter));
@@ -622,8 +677,8 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     self->data_provider = exm_data_provider_new ();
     self->target_shell_version = NULL;
 
-    self->user_results_store = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
-    self->system_results_store = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
+    self->user_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
+    self->system_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
     bind_list_box (self, self->user_list_box, G_LIST_MODEL (self->user_results_store));
     bind_list_box (self, self->system_list_box, G_LIST_MODEL (self->system_results_store));
 
