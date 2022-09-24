@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=@app_title@
-Exec=gapplication launch extension-manager %U
+Exec=extension-manager %U
 Icon=@app_id@
 Terminal=false
 Type=Application
