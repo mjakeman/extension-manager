@@ -102,7 +102,7 @@ exm_application_open (GApplication  *app,
 {
     ExmWindow *window;
     const char *scheme;
-    char *uuid;
+    const char *uuid;
     GUri *uri;
     GError *error = NULL;
 
@@ -129,10 +129,9 @@ exm_application_open (GApplication  *app,
         return;
     }
 
-    uuid = g_strdup_printf ("%s@%s", g_uri_get_user (uri), g_uri_get_host (uri));
+    uuid = g_uri_get_host (uri);
     g_print ("Opening extension with UUID: '%s'\n", uuid);
     gtk_widget_activate_action (GTK_WIDGET (window), "win.show-detail", "s", uuid);
-    g_free (uuid);
 }
 
 
