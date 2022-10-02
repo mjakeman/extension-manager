@@ -26,7 +26,7 @@ msgstr "@app_title@"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 #: src/exm-application.c:136
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "Suchen, installieren und verwalten Sie GNOME-Shell-Erweiterungen."
+msgstr "Suchen, installieren und verwalten von GNOME-Shell-Erweiterungen."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -40,12 +40,12 @@ msgstr "Funktionen:"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Durchstöbern Sie extensions.gnome.org direkt in der Anwendung"
+msgstr "Durchstöbern von extensions.gnome.org direkt in der Anwendung"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
 msgid "Manage the extensions you already have installed"
-msgstr "Verwalten Sie bereits installierte Erweiterungen"
+msgstr "Verwaltung von bereits installierten Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
@@ -169,13 +169,13 @@ msgstr ""
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
-msgstr "Suchen Sie nach Erweiterungen"
+msgstr "Nach Erweiterungen Suchen"
 
 #: src/exm-browse-page.blp:8
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Geben Sie einen Suchbegriff ein, um auf »extensions.gnome.org« nach GNOME-"
+"Gebe einen Suchbegriff ein, um auf »extensions.gnome.org« nach GNOME-"
 "Shell-Erweiterungen zu suchen."
 
 #. Translators: dropdown items for sorting search results
@@ -271,7 +271,7 @@ msgid ""
 "and attach the following information:"
 msgstr ""
 "Ein unerwarteter Fehler ist im Erweiterungs-Manager aufgetreten. Bitte "
-"öffnen Sie ein neues Ticket und hängen Sie folgende Information an:"
+"öffne ein neues Ticket und hänge folgende Information an:"
 
 #: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
 msgid "Copy to Clipboard"
@@ -426,8 +426,8 @@ msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"Sie verwenden aktuell <b>GNOME %s</b>. Wählen Sie unten eine Version von "
-"GNOME aus und überprüfen Sie, ob Ihre Erweiterungen weiterhin verfügbar sein "
+"Du verwendest aktuell <b>GNOME %s</b>. Wähle unten eine Version von "
+"GNOME aus und überprüfe, ob die Erweiterungen weiterhin verfügbar sind "
 "werden."
 
 #: src/exm-window.blp:40
@@ -470,7 +470,7 @@ msgstr "Info zu Erweiterungs-Manager"
 
 #: src/exm-window.c:183
 msgid "Are you sure you want to uninstall?"
-msgstr "Sind Sie sicher, dass Sie deinstallieren wollen?"
+msgstr "Bist du sicher, dass du die Erweiterungen deinstallieren willst?"
 
 #: src/exm-window.c:250
 msgid ""
@@ -478,7 +478,7 @@ msgid ""
 "Would you like to install anyway?"
 msgstr ""
 "Diese Erweiterung unterstützt Ihre Gnome-Shell-Version nicht.\n"
-"Möchten Sie trotzdem installieren?"
+"Möchtest du trotzdem installieren?"
 
 #: src/exm-window.c:351
 msgid "An error occurred."
@@ -512,8 +512,8 @@ msgstr "Details"
 #~ "This is your first time using <b>Extension Manager %s</b>.\n"
 #~ "Would you like to see the release notes?"
 #~ msgstr ""
-#~ "Sie verwenden <b>Erweiterungs Manager %s</b> zum ersten Mal.\n"
-#~ "Möchten Sie die Versionshinweise sehen?"
+#~ "Der <b>Erweiterungs Manager %s</b> wird zum ersten Mal verwendet.\n"
+#~ "Möchtest du die Versionshinweise sehen?"
 
 #~ msgid "Matthew Jakeman"
 #~ msgstr "Matthew Jakeman"
