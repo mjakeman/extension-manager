@@ -1,8 +1,9 @@
 [Desktop Entry]
 Name=@app_title@
-Exec=extension-manager
+Exec=extension-manager %U
 Icon=@app_id@
 Terminal=false
 Type=Application
 Categories=GTK;Utility
 StartupNotify=true
+MimeType=x-scheme-handler/gnome-extensions;

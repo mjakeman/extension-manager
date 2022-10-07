@@ -1,6 +1,7 @@
 data/com.mattjakeman.ExtensionManager.desktop.in.in
-data/com.mattjakeman.ExtensionManager.appdata.xml.in.in
+data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in
 src/exm-application.c
+src/exm-backtrace.c
 src/exm-browse-page.blp
 src/exm-browse-page.c
 src/exm-comment-dialog.blp
@@ -9,6 +10,8 @@ src/exm-comment-tile.blp
 src/exm-comment-tile.c
 src/exm-detail-view.blp
 src/exm-detail-view.c
+src/exm-error-dialog.blp
+src/exm-error-dialog.c
 src/exm-extension-row.blp
 src/exm-extension-row.c
 src/exm-install-button.c
@@ -16,14 +19,17 @@ src/exm-installed-page.blp
 src/exm-installed-page.c
 src/exm-rating.blp
 src/exm-rating.c
-src/exm-release-notes-dialog.blp
-src/exm-release-notes-dialog.c
 src/exm-screenshot.blp
 src/exm-screenshot.c
 src/exm-search-row.blp
 src/exm-search-row.c
+src/exm-upgrade-assistant.blp
+src/exm-upgrade-assistant.c
+src/exm-upgrade-result.c
+src/exm-utils.c
 src/exm-window.blp
 src/exm-window.c
+src/exm-zoom-picture.c
 src/local/exm-extension.c
 src/local/exm-manager.c
 src/local/shell-dbus-interface.c

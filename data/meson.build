@@ -28,8 +28,8 @@ appconf = configuration_data()
 appconf.set('app_id', app_id)
 appconf.set('app_title', app_title)
 appstream_file_in = configure_file(
-          input: 'com.mattjakeman.ExtensionManager.appdata.xml.in.in',
-         output: '@0@.appdata.xml.in'.format(app_id),
+          input: 'com.mattjakeman.ExtensionManager.metainfo.xml.in.in',
+         output: 'com.mattjakeman.ExtensionManager.metainfo.xml.in',
   configuration: appconf,
 )
 
@@ -38,7 +38,7 @@ appstream_file = i18n.merge_file(
   output: '@0@.appdata.xml'.format(app_id),
   po_dir: '../po',
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'appdata')
+  install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
 appstream_util = find_program('appstream-util', required: false)

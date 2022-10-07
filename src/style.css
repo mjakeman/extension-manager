@@ -1,9 +1,25 @@
-.content {
+.row-content {
   padding: 10px;
 }
 
-.clamp {
-  padding: 20px;
+.global-toggle-row {
+  padding: 4px;
+}
+
+.content {
+  margin: 24px 12px;
+}
+
+.detail {
+  margin: 24px;
+}
+
+.multiline {
+  line-height: 140%;
+}
+
+.tint {
+	background-color: rgba(0,0,0,0.8);
 }
 
 .search-row {
@@ -38,4 +54,35 @@
 
 rating {
   color: @yellow_4;
+}
+
+.upgrade-assistant-result {
+  padding: 12px;
+}
+
+/* Progress Bar Colours */
+progressbar.error progress {
+    background-color: @red_1;
+}
+
+progressbar.error text {
+    color: @red_1;
+    opacity: 0.8;
+}
+
+progressbar.warning progress {
+    background-color: @yellow_4;
+}
+
+progressbar.warning text {
+    color: @window_fg_color;
+}
+
+progressbar.success progress {
+    background-color: @green_1;
+}
+
+progressbar.success text {
+    color: @green_1;
+    opacity: 0.8;
 }
