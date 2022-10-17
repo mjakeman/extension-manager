@@ -195,7 +195,7 @@ msgstr "نام"
 
 #: src/exm-browse-page.blp:58
 msgid "Load More Results"
-msgstr "بارگزاری نتایج بیشتر"
+msgstr "بار کردن نتایج بیشتر"
 
 #: src/exm-browse-page.blp:68
 msgid "No Results Found"
