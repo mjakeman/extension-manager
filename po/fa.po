@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-24 13:01+1200\n"
-"PO-Revision-Date: 2022-10-17 07:56+0330\n"
+"PO-Revision-Date: 2022-10-17 13:19+0330\n"
 "Last-Translator: eshagh <eshagh094@gmail.com>\n"
 "Language-Team: https://matrix.to/#/#persian_translation:tchncs.de\n"
 "Language: fa\n"
@@ -195,7 +195,7 @@ msgstr "نام"
 
 #: src/exm-browse-page.blp:58
 msgid "Load More Results"
-msgstr "بار کردن نتایج بیشتر"
+msgstr "بارگزاری نتایج بیشتر"
 
 #: src/exm-browse-page.blp:68
 msgid "No Results Found"
@@ -220,11 +220,11 @@ msgstr "مشکلی رخ داد"
 
 #: src/exm-detail-view.blp:43
 msgid "Zoom In"
-msgstr "بزرگ‌نمایی به داخل"
+msgstr "بزرگ‌نمایی"
 
 #: src/exm-detail-view.blp:52
 msgid "Zoom Out"
-msgstr "بزرگ‌نمایی به خارج"
+msgstr "کوچک‌نمایی"
 
 #: src/exm-detail-view.blp:62
 msgid "Return to view"
