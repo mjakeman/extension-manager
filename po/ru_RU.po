@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-24 13:01+1200\n"
-"PO-Revision-Date: 2022-10-06 22:51+0300\n"
+"PO-Revision-Date: 2022-10-22 15:57+0300\n"
 "Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.1.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -98,7 +98,7 @@ msgstr "Улучшенная обработка ошибок и устаревш
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:67
 msgid "Allow installing 'unsupported' extensions"
-msgstr "Разрешена установка \"неподдерживаемых\" расширений"
+msgstr "Разрешить установку \"неподдерживаемых\" расширений"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
 msgid "Display release notes on first run"
@@ -182,7 +182,7 @@ msgstr ""
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
 msgid "Popularity"
-msgstr "Популярность"
+msgstr "Популярные"
 
 #: src/exm-browse-page.blp:31
 msgid "Downloads"
