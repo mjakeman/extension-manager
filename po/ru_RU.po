@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-24 13:01+1200\n"
-"PO-Revision-Date: 2022-10-14 15:49+0300\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2022-10-22 15:57+0300\n"
+"Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -27,12 +27,11 @@ msgstr "@app_title@"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 #: src/exm-application.c:136
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr ""
-"Просматривайте, устанавливайте и управляйте расширениями оболочки GNOME."
+msgstr "Просмотр, установка и управление расширениями GNOME Shell."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "Утилита для просмотра и установки расширений оболочки GNOME."
+msgstr "Утилита для просмотра и установки расширений GNOME Shell."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
 msgid "Features:"
@@ -41,16 +40,16 @@ msgstr "Функции:"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Просматривайте extensions.gnome.org прямо в приложении"
+msgstr "Просмотр сайта extensions.gnome.org прямо в приложении"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
 msgid "Manage the extensions you already have installed"
-msgstr "Управлять расширениями, которые вы уже установили"
+msgstr "Управление уже установленными расширениями"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Утилита для управления расширениями оболочки GNOME"
+msgstr "Утилита для управления расширениями GNOME Shell"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
@@ -62,7 +61,7 @@ msgstr "Обновления перевода"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
 msgid "Various bug fixes"
-msgstr "Различные исправления ошибок"
+msgstr "Некоторые исправления ошибок"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:56
@@ -77,7 +76,7 @@ msgstr "Удалить диалоговое окно примечаний к в�
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
 msgid "Fix special characters in installed extension listings"
-msgstr "Исправить специальные символы в списках установленных расширений"
+msgstr "Исправление специальных символов в списках установленных расширений"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
 msgid "The second feature update to extension-manager. Highlights include:"
@@ -87,7 +86,7 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
 msgid "View comments and reviews"
-msgstr "Просмотреть комментарии и отзывы"
+msgstr "Просмотр комментариев и отзывов"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:65
 msgid "Support for in-app updates"
@@ -99,11 +98,11 @@ msgstr "Улучшенная обработка ошибок и устаревш
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:67
 msgid "Allow installing 'unsupported' extensions"
-msgstr "Разрешена установка \"неподдерживаемых\" расширений"
+msgstr "Разрешить установку \"неподдерживаемых\" расширений"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
 msgid "Display release notes on first run"
-msgstr "Отображение информации о выпуске при первом запуске"
+msgstr "Отображение примечаний к выпуску при первом запуске"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
 msgid "New app icon"
@@ -137,7 +136,7 @@ msgstr "Показывает скриншоты в списках расшире
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
 msgid "Shell version compatibility check"
-msgstr "Проверка совместимости версий оболочки"
+msgstr "Проверка совместимости версии оболочки"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:103
 msgid "Localised into seven languages"
@@ -165,7 +164,9 @@ msgstr "Менеджер расширений"
 
 #: src/exm-application.c:142
 msgid "translator-credits"
-msgstr "Danik2343 <krutalevex@mail.ru>"
+msgstr ""
+"Danik2343 <krutalevex@mail.ru>\n"
+"Aleksandr Melman"
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
@@ -181,7 +182,7 @@ msgstr ""
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
 msgid "Popularity"
-msgstr "Популярность"
+msgstr "Популярные"
 
 #: src/exm-browse-page.blp:31
 msgid "Downloads"
@@ -209,7 +210,7 @@ msgstr "Результаты не найдены"
 #: src/exm-browse-page.c:288
 #, c-format
 msgid "e.g. “%s”"
-msgstr "например. \"%s\""
+msgstr "например, “%s”"
 
 #: src/exm-comment-dialog.blp:7
 msgid "Comments"
@@ -242,7 +243,7 @@ msgstr "Описание"
 
 #: src/exm-detail-view.blp:181
 msgid "View on Extensions"
-msgstr "Посмотреть в Extensions"
+msgstr "Посмотреть в Расширениях"
 
 #: src/exm-detail-view.blp:198
 msgid "Supported Versions"
@@ -263,19 +264,19 @@ msgstr "Загрузка…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr "Сообщить об ошибке"
+msgstr "Отчет об ошибке"
 
 #: src/exm-error-dialog.blp:27
 msgid ""
 "An unexpected error occurred in Extension Manager. Please open a new issue "
 "and attach the following information:"
 msgstr ""
-"Произошла непредвиденная ошибка в диспетчере расширений. Пожалуйста, "
-"откройте новый выпуск и приложите следующую информацию:"
+"В менеджере расширений произошла непредвиденная ошибка. Пожалуйста, "
+"откройте новую проблему и приложите следующую информацию:"
 
 #: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
 msgid "Copy to Clipboard"
-msgstr "Скопировать в буфер обмена"
+msgstr "Копировать в буфер обмена"
 
 #: src/exm-error-dialog.blp:57
 msgid "New Issue"
@@ -288,7 +289,7 @@ msgstr "Скопировано"
 
 #: src/exm-extension-row.blp:24
 msgid "Open extension preferences"
-msgstr "Открыть настройки расширения"
+msgstr "Открыть параметры расширения"
 
 #: src/exm-extension-row.blp:37
 msgid "An error occurred while loading this extension"
@@ -296,7 +297,7 @@ msgstr "Произошла ошибка, при загрузке этого ра
 
 #: src/exm-extension-row.blp:50
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr "Это расширение несовместимо с вашей текущей версией GNOME."
+msgstr "Это расширение несовместимо с вашей текущей версией GNOME"
 
 #: src/exm-extension-row.blp:63
 msgid "A newer version of this extension is available"
@@ -337,7 +338,7 @@ msgstr "Не поддерживается"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
-msgstr "Используйте расширения"
+msgstr "Использовать Расширения"
 
 #: src/exm-installed-page.blp:24
 msgid "Extensions can cause performance and stability issues."
@@ -358,7 +359,7 @@ msgstr "Доступны обновления"
 
 #: src/exm-installed-page.blp:107
 msgid "Log Out"
-msgstr "Завершить сеанс"
+msgstr "Выйти"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:220
@@ -387,7 +388,7 @@ msgstr "Помощник по обновлению"
 
 #: src/exm-upgrade-assistant.blp:49
 msgid "Check Compatibility"
-msgstr "Проверить совместимость"
+msgstr "Проверка совместимости"
 
 #: src/exm-upgrade-assistant.c:215
 #, c-format
@@ -419,8 +420,8 @@ msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
-"Это расширение не размещено на extensions.gnome.org. Его совместимость не "
-"может быть определена."
+"Это расширение не размещено на сайте extensions.gnome.org. Его "
+"совместимость не может быть определена."
 
 #: src/exm-upgrade-assistant.c:614
 #, c-format
@@ -429,7 +430,7 @@ msgid ""
 "and check whether your extensions will continue to be available."
 msgstr ""
 "В настоящее время вы используете <b>GNOME %s</b>. Выберите версию GNOME "
-"ниже и проверьте, будут ли по-прежнему доступны ваши расширения."
+"ниже и проверьте, будут ли ваши расширения по-прежнему доступны."
 
 #: src/exm-window.blp:40
 msgctxt "Navigation"
@@ -447,7 +448,7 @@ msgstr "Тема"
 
 #: src/exm-window.blp:72
 msgid "Follow System"
-msgstr "Следование системе"
+msgstr "Следовать системе"
 
 #: src/exm-window.blp:77
 msgid "Light"
@@ -455,15 +456,15 @@ msgstr "Светлая"
 
 #: src/exm-window.blp:82
 msgid "Dark"
-msgstr "Тёмная"
+msgstr "Темная"
 
 #: src/exm-window.blp:88
 msgid "Sort Enabled First"
-msgstr "Сортировка включенных"
+msgstr "Сортировать включенные первыми"
 
 #: src/exm-window.blp:92
 msgid "Show Unsupported"
-msgstr "Не поддерживаетсяПоказать неподдерживаемые"
+msgstr "Показать неподдерживаемые"
 
 #: src/exm-window.blp:102
 msgid "About Extension Manager"
@@ -488,61 +489,3 @@ msgstr "Произошла ошибка."
 #: src/exm-window.c:352
 msgid "Details"
 msgstr "Подробности"
-
-#~ msgid ""
-#~ "A very simple tool for browsing, downloading, and managing GNOME shell "
-#~ "extensions."
-#~ msgstr ""
-#~ "Очень простой инструмент для просмотра, загрузки и управления "
-#~ "расширениями оболочки GNOME."
-
-#~ msgid "Project Homepage"
-#~ msgstr "Домашняя страница проекта"
-
-#~ msgid "e.g. \"Blur my Shell\""
-#~ msgstr "например \"Blur my Shell\""
-
-#~ msgid "What's New"
-#~ msgstr "Что нового"
-
-#~ msgid "View Release Notes"
-#~ msgstr "Посмотреть новости релиза"
-
-#, c-format
-#~ msgid ""
-#~ "This is your first time using <b>Extension Manager %s</b>.\n"
-#~ "Would you like to see the release notes?"
-#~ msgstr ""
-#~ "Вы впервые используете <b>Менеджер расширений %s</b>.\n"
-#~ "Вы хотите просмотреть примечания к выпуску?"
-
-#~ msgid "Matthew Jakeman"
-#~ msgstr "Matthew Jakeman"
-
-#~ msgid "Colour Scheme Preference"
-#~ msgstr "Предпочтение цветовой схемы"
-
-#~ msgid ""
-#~ "Whether to follow the system colour scheme or force either light or dark "
-#~ "mode."
-#~ msgstr ""
-#~ "Следует ли следовать системной цветовой схеме или использовать светлый "
-#~ "или темный режим."
-
-#~ msgid "Links"
-#~ msgstr "Ссылки"
-
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "Горячие клавиши"
-
-#~ msgctxt "shortcut window"
-#~ msgid "General"
-#~ msgstr "Общее"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Show Shortcuts"
-#~ msgstr "Показать горячие клавиши"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Quit"
-#~ msgstr "Выход"

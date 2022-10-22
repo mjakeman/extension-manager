@@ -1,15 +1,15 @@
 # Chinese(China) translations for extension-manager package.
 # Copyright (C) 2022 extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# Luke LUo <njlyf2011@hotmail.com>, 2022.
+# Luke Luo <njlyf2011@hotmail.com>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-24 13:01+1200\n"
-"PO-Revision-Date: 2022-10-06 16:15+0800\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2022-10-06 22:59+0800\n"
+"Last-Translator: Luke Luo <njlyf2011@hotmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -222,7 +222,7 @@ msgstr "缩小"
 
 #: src/exm-detail-view.blp:62
 msgid "Return to view"
-msgstr ""
+msgstr "返回查看"
 
 #: src/exm-detail-view.blp:150
 msgid "Enlarge image"
@@ -234,7 +234,7 @@ msgstr "描述"
 
 #: src/exm-detail-view.blp:181
 msgid "View on Extensions"
-msgstr "查看扩展"
+msgstr "在 Extensions 网站中查看"
 
 #: src/exm-detail-view.blp:198
 msgid "Supported Versions"
@@ -286,7 +286,7 @@ msgstr "加载此扩展时发生了一个错误"
 
 #: src/exm-extension-row.blp:50
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr "此扩展不兼容您目前的 GNOME 版本。"
+msgstr "此扩展不兼容您目前的 GNOME 版本"
 
 #: src/exm-extension-row.blp:63
 msgid "A newer version of this extension is available"
@@ -310,7 +310,7 @@ msgstr "移除"
 
 #: src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
-msgstr "此扩展不兼容您目前的 GNOME 版本。"
+msgstr "此扩展不兼容您当前 GNOME 版本。"
 
 #: src/exm-install-button.c:115
 msgid "Install"
@@ -323,7 +323,7 @@ msgstr "已安装"
 
 #: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:515
 msgid "Unsupported"
-msgstr "不支持"
+msgstr "不受支持"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -335,7 +335,7 @@ msgstr "扩展可能会导致出现性能和稳定性问题。"
 
 #: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:103
 msgid "User-Installed Extensions"
-msgstr "用户扩展"
+msgstr "用户安装的扩展"
 
 #: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:116
 msgid "System Extensions"
@@ -370,7 +370,7 @@ msgstr "没有已安装的系统扩展。"
 
 #: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:98
 msgid "Upgrade Assistant"
-msgstr "更新断言"
+msgstr "更新助理"
 
 #: src/exm-upgrade-assistant.blp:49
 msgid "Check Compatibility"
@@ -381,7 +381,7 @@ msgstr "检查兼容性"
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system."
-msgstr ""
+msgstr "<b>GNOME %s</b> 支持的本机扩展数量：<b>%d，一共为 %d 个</b>。"
 
 #: src/exm-upgrade-assistant.c:511
 msgid "Supported"
@@ -442,7 +442,7 @@ msgstr "深色"
 
 #: src/exm-window.blp:88
 msgid "Sort Enabled First"
-msgstr "先启用排序"
+msgstr "先显示启用的扩展"
 
 #: src/exm-window.blp:92
 msgid "Show Unsupported"
