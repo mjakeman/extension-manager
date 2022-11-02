@@ -121,3 +121,7 @@ meson setup _build
 meson compile -C _build
 meson install -C _build
 ```
+
+## 👫 Code of Conduct
+This project follows the [GNOME Code of Conduct](https://wiki.gnome.org/Foundation/CodeOfConduct). Please
+adhere to it in all project spaces and interactions.
