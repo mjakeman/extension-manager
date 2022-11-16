@@ -30,7 +30,7 @@ parts:
     
     override-pull: |
       snapcraftctl pull
-      sed -i -e 's|@app_id@|/usr/local/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg|g' data/com.mattjakeman.ExtensionManager.desktop.in.in
+      sed -i -e 's|@app_id@|/usr/local/share/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg|g' data/com.mattjakeman.ExtensionManager.desktop.in.in
 
     plugin: meson
     build-packages:
