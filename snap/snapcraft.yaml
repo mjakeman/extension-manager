@@ -9,12 +9,13 @@ architectures:
   - amd64
 
 grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   gnome-extension-manager:
     command: usr/local/bin/extension-manager
     extensions: [gnome]
+    desktop: usr/local/share/applications/com.mattjakeman.ExtensionManager.desktop
 
 parts:
   extension-manager:
@@ -26,4 +27,5 @@ parts:
       - meson
     stage-packages:
       - libtext-engine-0.1-0
+      - libadwaita-1-0
     
