@@ -16,13 +16,14 @@ apps:
     command: usr/local/bin/extension-manager
     extensions: [gnome]
     desktop: usr/local/share/applications/com.mattjakeman.ExtensionManager.desktop
-    override-pull: |
-      snapcraftctl pull
-      sed -i -e 's|@app_id@|usr/local/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg|g' data/com.mattjakeman.ExtensionManager.desktop.in.in
 
 parts:
   extension-manager:
     source: .
+    override-pull: |
+      snapcraftctl pull
+      sed -i -e 's|@app_id@|usr/local/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg|g' data/com.mattjakeman.ExtensionManager.desktop.in.in
+
     plugin: meson
     meson-parameters: [ "-Ddevelopment=true" ]
     build-packages:
