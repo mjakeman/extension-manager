@@ -16,6 +16,13 @@ apps:
     command: usr/local/bin/extension-manager
     extensions: [gnome]
     desktop: usr/local/share/applications/com.mattjakeman.ExtensionManager.desktop
+    
+slots:
+  # for GtkApplication registration
+  gnome-extension-manager:
+    interface: dbus
+    bus: session
+    name: com.mattjakeman.ExtensionManager
 
 parts:
   extension-manager:
