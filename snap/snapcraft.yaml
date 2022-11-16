@@ -10,7 +10,7 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 
 apps:
   gnome-extension-manager:
-    command: gnome-extension-manager
+    command: usr/local/bin/extension-manager
     extensions: [gnome]
 
 parts:
@@ -18,18 +18,9 @@ parts:
     source: .
     plugin: meson
     build-packages:
-      - appstream-util
       - blueprint-compiler
-      - debhelper-compat
-      - desktop-file-utils
-      - dh-sequence-gnome
-      - libgtk-4-dev
-      - libadwaita-1-dev
-      - libjson-glib-dev
-      - libsoup-3.0-dev
-      - libsysprof-4-dev
       - libtext-engine-dev
       - meson
     stage-packages:
-      - libadwaita-1-0
+      - libtext-engine-0.1-0
     
