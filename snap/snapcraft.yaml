@@ -16,16 +16,19 @@ apps:
     command: usr/local/bin/extension-manager
     extensions: [gnome]
     desktop: usr/local/share/applications/com.mattjakeman.ExtensionManager.desktop
+    override-pull: |
+      snapcraftctl pull
+      sed -i -e 's|@app_id@|usr/local/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg|g' data/com.mattjakeman.ExtensionManager.desktop.in.in
 
 parts:
   extension-manager:
     source: .
     plugin: meson
+    meson-parameters: [ "-Ddevelopment=true" ]
     build-packages:
       - blueprint-compiler
       - libtext-engine-dev
       - meson
     stage-packages:
       - libtext-engine-0.1-0
-      - libadwaita-1-0
     
