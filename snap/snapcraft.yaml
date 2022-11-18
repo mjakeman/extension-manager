@@ -1,4 +1,4 @@
-name: gnome-extension-manager # you probably want to 'snapcraft register <name>'
+name: extension-manager # you probably want to 'snapcraft register <name>'
 base: core22 # the base snap is the execution environment for this snap
 version: '0.4.0' # just for humans, typically '1.2+git' or '1.3.2'
 summary: A utility for browsing and installing GNOME Shell Extensions. # 79 char long summary
@@ -12,14 +12,14 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
-  gnome-extension-manager:
+  extension-manager:
     command: usr/local/bin/extension-manager
     extensions: [gnome]
     desktop: usr/local/share/applications/com.mattjakeman.ExtensionManager.desktop
     
 slots:
   # for GtkApplication registration
-  gnome-extension-manager:
+  extension-manager:
     interface: dbus
     bus: session
     name: com.mattjakeman.ExtensionManager
