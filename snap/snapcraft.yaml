@@ -40,16 +40,16 @@ parts:
     stage-packages:
       - libtext-engine-0.1-0
     
-  cleanup:
-    after:  # Make this part run last; list all your other parts here
-      - extension-manager
-    plugin: nil
-    build-snaps:  # List all content-snaps and base snaps you're using here
-      - core22
-      - gtk-common-themes 
-      - gnome-42-2204
-    override-prime: |
-      set -eux
-      for snap in "core22" "gtk-common-themes" "gnome-42-2204"; do  # List all content-snaps and base snaps you're using here
-          cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
-      done
+#   cleanup:
+#     after:  # Make this part run last; list all your other parts here
+#       - extension-manager
+#     plugin: nil
+#     build-snaps:  # List all content-snaps and base snaps you're using here
+#       - core22
+#       - gtk-common-themes 
+#       - gnome-42-2204
+#     override-prime: |
+#       set -eux
+#       for snap in "core22" "gtk-common-themes" "gnome-42-2204"; do  # List all content-snaps and base snaps you're using here
+#           cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
+#       done
