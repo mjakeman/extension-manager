@@ -13,9 +13,13 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   extension-manager:
-    command: usr/local/bin/extension-manager
+    command: usr/bin/extension-manager
     extensions: [gnome]
-    desktop: usr/local/share/applications/com.mattjakeman.ExtensionManager.desktop
+    desktop: usr/share/applications/com.mattjakeman.ExtensionManager.desktop
+    plugs:
+      - network
+      - network-bind
+      - network-status
     
 slots:
   # for GtkApplication registration
@@ -30,13 +34,15 @@ parts:
     
     override-pull: |
       snapcraftctl pull
-      sed -i -e 's|@app_id@|/usr/local/share/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg|g' data/com.mattjakeman.ExtensionManager.desktop.in.in
+      sed -i -e 's|@app_id@|/usr/share/icons/hicolor/scalable/apps/com.mattjakeman.ExtensionManager.svg|g' data/com.mattjakeman.ExtensionManager.desktop.in.in
 
     plugin: meson
     build-packages:
       - blueprint-compiler
       - libtext-engine-dev
       - meson
+    meson-parameters:
+      - --prefix=/usr
     stage-packages:
       - libtext-engine-0.1-0
     
