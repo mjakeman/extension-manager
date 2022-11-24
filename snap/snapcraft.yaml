@@ -7,6 +7,11 @@ description: |
   
 architectures:
   - amd64
+  
+# Launchpad doesn't recognize these fields yet
+passthrough:
+  license: GPL-3.0
+  title: Extension Manager
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
