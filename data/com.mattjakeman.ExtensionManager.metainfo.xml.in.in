@@ -4,7 +4,7 @@
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
   <name>@app_title@</name>
-  <summary>A utility for browsing and installing GNOME Shell Extensions.</summary>
+  <summary>Browse, install, and manage GNOME Shell Extensions.</summary>
   <content_rating type="oars-1.1" />
   <developer_name translatable="no">Matthew Jakeman</developer_name>
 	<description>
@@ -38,6 +38,30 @@
   </keywords>
   <translation type="gettext">extension-manager</translation>
   <releases>
+		<release version="0.4.0" date="2022-09-26">
+			<description>
+				<ul>
+					<li>Fully adaptive mobile-friendly user interface</li>
+					<li>Paginated search results</li>
+					<li>Upgrade Assistant for checking extension compatibility</li>
+					<li>Unsupported extensions are hidden by default</li>
+					<li>Overhauled error and crash reporting</li>
+					<li>Full-screen image viewer</li>
+					<li>Handles new <code>gnome-extensions://</code> URI scheme</li>
+					<li>Randomised extension suggestions</li>
+					<li>Performance and stability</li>
+				</ul>
+			</description>
+		</release>
+    <release version="0.3.2" date="2022-08-17">
+      <description>
+        <ul>
+          <li>Translation updates</li>
+          <li>Various bug fixes</li>
+          <li>Performance and stability</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.3.1" date="2022-06-04">
       <description>
         <ul>

@@ -7,253 +7,312 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-21 13:23+0100\n"
-"PO-Revision-Date: 2022-03-24 18:34+0900\n"
-"Last-Translator: Oliver Tzeng(曾嘉禾)<olivertzengolivertzeng@gmail.com>\n"
+"POT-Creation-Date: 2022-09-24 13:01+1200\n"
+"PO-Revision-Date: 2022-10-08 00:16+0800\n"
+"Last-Translator: Sean Wang <sn1128231220jd@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 msgid "@app_title@"
 msgstr "@app_title@"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
+#: src/exm-application.c:136
+msgid "Browse, install, and manage GNOME Shell Extensions."
+msgstr "瀏覽、安裝和管理 GNOME Shell 擴充套件。"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "用來搜尋及安裝的應用程式"
+msgstr "一個用來搜尋及安裝 GNOME Shell 擴充套件的工具程式。"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
 msgid "Features:"
-msgstr "功能:"
+msgstr "功能："
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "從extensions.gnome.org 搜尋擴充功能。"
+msgstr "在應用程式內瀏覽 extensions.gnome.org"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
 msgid "Manage the extensions you already have installed"
-msgstr "管理已安裝的擴充功能。"
+msgstr "管理已安裝的擴充套件"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "用來管理擴充功能的應用程式"
+msgstr "一個用來管理 GNOME Shell 擴充套件的工具程式"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
-msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-"第二個擴充功能管理員更新，更新項目："
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
-msgid "View comments and reviews"
-msgstr "顯示擴充功能評論"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
-msgid "Support for in-app updates"
-msgstr "支援在應用程式內更新擴充功能"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
-msgid "Better handling errors and out-of-date extensions"
-msgstr "更容易掌控錯誤及過期的擴充功能"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
-msgid "Allow installing 'unsupported' extensions"
-msgstr "允許安裝不支援的擴充功能"
-
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
-msgid "Display release notes on first run"
-msgstr "在開啟應用程式時顯示更新項目"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
-msgid "New app icon"
-msgstr "新的應用程式圖示"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
-msgid "Optionally sort extensions by enabled status"
-msgstr "讓已啟用的擴充功能排序在前面"
-
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
 msgid "Translation updates"
 msgstr "翻譯更新"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
+msgid "Various bug fixes"
+msgstr "錯誤修正"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:56
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
 msgid "Performance and stability"
-msgstr "表現和穩定性"
+msgstr "效能和穩定性"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
+msgid "Remove release notes dialog"
+msgstr "移除更新日誌彈出視窗"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
+msgid "Fix special characters in installed extension listings"
+msgstr "修正已安裝擴充套件列表中的特殊字元"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
+msgid "The second feature update to extension-manager. Highlights include:"
+msgstr "第二個擴充套件管理員更新。值得注意的項目："
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
+msgid "View comments and reviews"
+msgstr "檢視留言和評論"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:65
+msgid "Support for in-app updates"
+msgstr "支援在應用程式內更新擴充套件"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:66
+msgid "Better handling errors and out-of-date extensions"
+msgstr "更好地處理錯誤和老舊的擴充套件"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:67
+msgid "Allow installing 'unsupported' extensions"
+msgstr "允許安裝不支援的擴充套件"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
+msgid "Display release notes on first run"
+msgstr "首次開啟應用程式時顯示更新日誌"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
+msgid "New app icon"
+msgstr "新的應用程式圖示"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
+msgid "Optionally sort extensions by enabled status"
+msgstr "根據擴充套件的啟用狀態進行排序"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
 msgid "Fix special characters in search results"
-msgstr "搜尋結果修正特殊文字"
+msgstr "修正搜尋結果中的特殊字元"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:93
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "修復有時在解除安裝擴充功能時當機。"
+msgstr "修正在解除安裝擴充套件時偶爾會發生的無預警關閉"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:98
 msgid "The first feature update to extension-manager. Highlights include:"
-msgstr "第一個擴充功能管理員更新，更新項目："
+msgstr "第一個擴充套件管理員更新，值得注意的項目："
 
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:100
 msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "支援深色模式和自訂顏色主題"
+msgstr "支援深色主題和強制覆寫系統配色"
 
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
 msgid "Shows screenshots in extension listings"
-msgstr "再過充功能說明中顯示截圖。"
+msgstr "在擴充套件清單中顯示螢幕擷圖"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
 msgid "Shell version compatibility check"
-msgstr "檢查Gnome Shell版本是否支援"
+msgstr "Shell 版本支援檢測"
 
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:103
 msgid "Localised into seven languages"
-msgstr "已翻譯8種語言。"
+msgstr "翻譯成 7 種語言"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
 msgid "Sort search results"
-msgstr "搜尋結果排序。"
+msgstr "排序搜尋結果"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
 msgid "Global extension on/off toggle"
-msgstr "擴充功能總開關。"
+msgstr "全域擴充套件開關"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
 msgid "Displays user and system extensions separately"
-msgstr "讓擴充功能和開發者分開。"
+msgstr "分開顯示使用者和系統擴充套件"
 
-#: src/exm-application.c:106
+#: src/exm-application.c:114 src/exm-window.c:446
 msgid "Extension Manager (Development)"
-msgstr "Extension Manager (開發板)"
+msgstr "擴充套件管理員 (開發版)"
 
-#: src/exm-application.c:107
+#: src/exm-application.c:115 src/exm-window.c:446
 msgid "Extension Manager"
-msgstr "擴充功能管理員"
+msgstr "擴充套件管理員"
 
-#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
-#: src/exm-application.c:117
+#: src/exm-application.c:142
 msgid "translator-credits"
-msgstr "Oliver Tzeng(曾嘉禾) <olivertzengolivertzeng@gmail.com>"
-
-#: src/exm-application.c:118
-msgid ""
-"A very simple tool for browsing, downloading, and managing GNOME shell "
-"extensions."
 msgstr ""
-"這個程式可以搜尋、安裝，以及管理\n"
-"擴充功能。"
-
-#: src/exm-application.c:124
-msgid "Project Homepage"
-msgstr "前往GitHub"
+"Sean Wang <sn1128231220jd@yahoo.com>\n"
+"Oliver Tzeng(曾嘉禾) <olivertzengolivertzeng@gmail.com>"
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
-msgstr "搜尋擴充功能"
+msgstr "搜尋擴充套件"
 
 #: src/exm-browse-page.blp:8
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
-msgstr ""
-"輸入關鍵字已搜尋extensions.gnome.org的擴充功能\n"
-
-
-#: src/exm-browse-page.blp:22
-msgid "e.g. \"Blur my Shell\""
-msgstr "例如 \"Blur my Shell\""
+msgstr "輸入關鍵字以在 extensions.gnome.org 搜尋 GNOME Shell 擴充套件。"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Popularity"
 msgstr "熱門"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Downloads"
 msgstr "下載次數"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Recent"
-msgstr "最新"
+msgstr "最近"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Name"
-msgstr "名字"
+msgstr "名稱"
 
-#: src/exm-browse-page.blp:60
+#: src/exm-browse-page.blp:58
+msgid "Load More Results"
+msgstr "載入更多搜尋結果"
+
+#: src/exm-browse-page.blp:68
 msgid "No Results Found"
-msgstr "找不到符合搜尋的字詞"
+msgstr "無搜尋結果"
 
-#: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
-#: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
+#. Translators:
+#. - '%s' is an extension e.g. Blur my Shell
+#. - Please use unicode quotation marks e.g. “” (not "")
+#: src/exm-browse-page.c:288
+#, c-format
+msgid "e.g. “%s”"
+msgstr "例如「%s」"
+
+#: src/exm-comment-dialog.blp:7
+msgid "Comments"
+msgstr "評論"
+
+#: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:93
+#: src/exm-detail-view.blp:236 src/exm-detail-view.c:390
 msgid "An Error Occurred"
 msgstr "發生錯誤"
 
-#: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
+#: src/exm-detail-view.blp:43
+msgid "Zoom In"
+msgstr "放大"
+
+#: src/exm-detail-view.blp:52
+msgid "Zoom Out"
+msgstr "縮小"
+
+#: src/exm-detail-view.blp:62
+msgid "Return to view"
+msgstr "返回至檢視畫面"
+
+#: src/exm-detail-view.blp:150
+msgid "Enlarge image"
+msgstr "放大圖片"
+
+#: src/exm-detail-view.blp:162 src/exm-extension-row.blp:78
 msgid "Description"
-msgstr "説明"
+msgstr "描述"
 
-#: src/exm-detail-view.blp:113
+#: src/exm-detail-view.blp:181
 msgid "View on Extensions"
-msgstr "前往extensions.gnome.org"
+msgstr "在 Extensions 上查看"
 
-#: src/exm-detail-view.blp:130
+#: src/exm-detail-view.blp:198
 msgid "Supported Versions"
 msgstr "支援版本"
 
-#: src/exm-detail-view.blp:146
+#: src/exm-detail-view.blp:214
 msgid "User Reviews"
 msgstr "評論"
 
-#: src/exm-detail-view.blp:187
+#: src/exm-detail-view.blp:255
 msgid "Show All Reviews"
-msgstr "顯示剩餘評論"
+msgstr "顯示所有評論"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:364
+#: src/exm-detail-view.c:404
 msgid "Loading…"
 msgstr "載入中…"
 
-#: src/exm-extension-row.blp:33
+#: src/exm-error-dialog.blp:7
+msgid "Error Report"
+msgstr "錯誤回報"
+
+#: src/exm-error-dialog.blp:27
+msgid ""
+"An unexpected error occurred in Extension Manager. Please open a new issue "
+"and attach the following information:"
+msgstr "發生非預期的錯誤。請開啟一個新問題並附上以下資訊："
+
+#: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
+msgid "Copy to Clipboard"
+msgstr "複製到剪貼簿"
+
+#: src/exm-error-dialog.blp:57
+msgid "New Issue"
+msgstr "新問題"
+
+#. Success indicator
+#: src/exm-error-dialog.c:117 src/exm-upgrade-assistant.c:338
+msgid "Copied"
+msgstr "已複製"
+
+#: src/exm-extension-row.blp:24
+msgid "Open extension preferences"
+msgstr "開啟擴充套件偏好設定"
+
+#: src/exm-extension-row.blp:37
 msgid "An error occurred while loading this extension"
-msgstr "在啟用擴充功能時發生促握"
+msgstr "載入此擴充套件時發生錯誤"
 
-#: src/exm-extension-row.blp:46 src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr ""
-"這個擴充功能不支援此Gnome版本。"
+#: src/exm-extension-row.blp:50
+msgid "This extension is incompatible with your current version of GNOME"
+msgstr "此擴充套件不支援您目前使用的 GNOME 版本"
 
-#: src/exm-extension-row.blp:59
+#: src/exm-extension-row.blp:63
 msgid "A newer version of this extension is available"
-msgstr "有更新可供安裝"
+msgstr "此擴充套件有可用的新版本"
 
-#: src/exm-extension-row.blp:100
+#: src/exm-extension-row.blp:105
 msgid "Version"
 msgstr "版本"
 
-#: src/exm-extension-row.blp:126
+#: src/exm-extension-row.blp:131
 msgid "Error"
 msgstr "錯誤"
 
-#: src/exm-extension-row.blp:161
+#: src/exm-extension-row.blp:166
 msgid "See Details"
-msgstr "更多"
+msgstr "檢視詳細資訊"
 
-#: src/exm-extension-row.blp:170
+#: src/exm-extension-row.blp:175
 msgid "Remove"
 msgstr "移除"
+
+#: src/exm-install-button.c:105
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "此擴充套件不支援您目前使用的 GNOME 版本。"
 
 #: src/exm-install-button.c:115
 msgid "Install"
@@ -264,96 +323,179 @@ msgctxt "State"
 msgid "Installed"
 msgstr "已安裝"
 
-#: src/exm-install-button.c:124
+#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:515
 msgid "Unsupported"
 msgstr "不支援"
 
-#: src/exm-installed-page.blp:25
+#: src/exm-installed-page.blp:23
+msgid "Use Extensions"
+msgstr "使用擴充套件"
+
+#: src/exm-installed-page.blp:24
+msgid "Extensions can cause performance and stability issues."
+msgstr "擴充套件可能造成效能和穩定性問題。"
+
+#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:103
 msgid "User-Installed Extensions"
-msgstr "手動安裝"
+msgstr "使用者安裝的擴充套件"
 
-#: src/exm-installed-page.blp:38
+#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:116
 msgid "System Extensions"
-msgstr "系統擴充功能"
+msgstr "系統擴充套件"
 
-#: src/exm-installed-page.blp:78
+#: src/exm-installed-page.blp:90
 msgid "Updates are available"
-msgstr "有更新可供安裝"
+msgstr "有可用的更新"
 
-#: src/exm-installed-page.blp:95
+#: src/exm-installed-page.blp:107
 msgid "Log Out"
 msgstr "登出"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:215
+#: src/exm-installed-page.c:220
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "重新登入後，%d個擴充功能會更新。"
+msgstr[0] "%d 個擴充套件將會在下次登入時更新。"
 
-#: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
-msgid "Release Notes"
-msgstr "更新項目"
+#: src/exm-installed-page.c:334
+msgid "Browse"
+msgstr "瀏覽"
 
-#: src/exm-window.blp:42
+#: src/exm-installed-page.c:344 src/exm-upgrade-assistant.c:687
+msgid "There are no user extensions installed."
+msgstr "未安裝使用者擴充套件。"
+
+#: src/exm-installed-page.c:358 src/exm-upgrade-assistant.c:692
+msgid "There are no system extensions installed."
+msgstr "未安裝系統擴充套件。"
+
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:98
+msgid "Upgrade Assistant"
+msgstr "更新助理"
+
+#: src/exm-upgrade-assistant.blp:49
+msgid "Check Compatibility"
+msgstr "檢測相容性"
+
+#: src/exm-upgrade-assistant.c:215
+#, c-format
+msgid ""
+"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+"installed on the system."
+msgstr ""
+"<b>GNOME %s</b> 支援 <b>%d</b> 個安狀在此系統上的擴充套件 (共 <b>%d</b> 個)"
+
+#: src/exm-upgrade-assistant.c:511
+msgid "Supported"
+msgstr "支援"
+
+#: src/exm-upgrade-assistant.c:513
+msgid "A compatible version of the extension exists."
+msgstr "此擴充套件有相容的版本。"
+
+#: src/exm-upgrade-assistant.c:517
+msgid "No compatible version of the extension exists."
+msgstr "此擴充套件無相容的版本。"
+
+#: src/exm-upgrade-assistant.c:519
+msgid "Unknown"
+msgstr "未知"
+
+#: src/exm-upgrade-assistant.c:521
+msgid ""
+"This extension is not hosted on extensions.gnome.org. Its compatibility "
+"cannot be determined."
+msgstr "此擴充套件並非來自 extensions.gnome.org。無法確認相容性。"
+
+#: src/exm-upgrade-assistant.c:614
+#, c-format
+msgid ""
+"You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
+"and check whether your extensions will continue to be available."
+msgstr ""
+"您正在執行 <b>GNOME %s</b>。於下方選擇一個 GNOME 版本即可檢測您的擴充套件是"
+"否會在該版本中繼續運作。"
+
+#: src/exm-window.blp:40
 msgctxt "Navigation"
 msgid "Installed"
 msgstr "已安裝"
 
-#: src/exm-window.blp:50
+#: src/exm-window.blp:48
 msgctxt "Navigation"
 msgid "Browse"
-msgstr "搜尋"
+msgstr "瀏覽"
 
-#: src/exm-window.blp:71
+#: src/exm-window.blp:70
 msgid "Theme"
 msgstr "主題"
 
-#: src/exm-window.blp:73
+#: src/exm-window.blp:72
 msgid "Follow System"
 msgstr "系統"
 
-#: src/exm-window.blp:78
+#: src/exm-window.blp:77
 msgid "Light"
-msgstr "亮白"
+msgstr "淺色"
 
-#: src/exm-window.blp:83
+#: src/exm-window.blp:82
 msgid "Dark"
-msgstr "暗黑"
+msgstr "深色"
 
-#: src/exm-window.blp:89
+#: src/exm-window.blp:88
 msgid "Sort Enabled First"
-msgstr "啟用的擴充功能在前"
+msgstr "啟用的擴充套件在前"
 
-#: src/exm-window.blp:103
+#: src/exm-window.blp:92
+msgid "Show Unsupported"
+msgstr "顯示不支援的擴充套件"
+
+#: src/exm-window.blp:102
 msgid "About Extension Manager"
-msgstr "關於"
+msgstr "關於擴充套件管理員"
 
-#: src/exm-window.c:180
+#: src/exm-window.c:183
 msgid "Are you sure you want to uninstall?"
-msgstr "你確定要解除安裝此擴充功能嗎？"
+msgstr "您確定要解除安裝此擴充套件？"
 
-#: src/exm-window.c:247
+#: src/exm-window.c:250
 msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
 msgstr ""
-"此擴充功能不支援此Gnome版本。\n"
+"此擴充套件不支援您的 GNOME Shell 版本。\n"
 "確定要繼續安裝？"
 
-#: src/exm-window.c:373
-msgid "What's New"
-msgstr "新功能"
+#: src/exm-window.c:351
+msgid "An error occurred."
+msgstr "發生錯誤。"
 
-#: src/exm-window.c:375
-msgid "View Release Notes"
-msgstr "顯示更新項目"
+#: src/exm-window.c:352
+msgid "Details"
+msgstr "詳細資訊"
 
-#: src/exm-window.c:379
+#~ msgid ""
+#~ "A very simple tool for browsing, downloading, and managing GNOME shell "
+#~ "extensions."
+#~ msgstr "一個可以瀏覽、下載和管理擴充套件的簡單應用程式。"
+
+#~ msgid "Project Homepage"
+#~ msgstr "專案首頁"
+
+#~ msgid "e.g. \"Blur my Shell\""
+#~ msgstr "例如 \"Blur my Shell\""
+
+#~ msgid "What's New"
+#~ msgstr "新功能"
+
+#~ msgid "View Release Notes"
+#~ msgstr "顯示更新日誌"
+
 #, c-format
-msgid ""
-"This is your first time using <b>Extension Manager %s</b>.\n"
-"Would you like to see the release notes?"
-msgstr ""
-"這是你第一次使用<b>擴充功能管理員 %s</b>。\n"
-"是否顯示更新項目？"
+#~ msgid ""
+#~ "This is your first time using <b>Extension Manager %s</b>.\n"
+#~ "Would you like to see the release notes?"
+#~ msgstr ""
+#~ "這是您第一次使用 <b>擴充套件管理員 %s</b>。\n"
+#~ "是否顯示更新日誌？"

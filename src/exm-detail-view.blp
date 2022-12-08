@@ -3,8 +3,8 @@ using Adw 1;
 
 template ExmDetailView : Gtk.Box {
 	orientation: vertical;
-	Adw.HeaderBar {
 
+	Adw.HeaderBar {
 		title-widget: Adw.WindowTitle title {};
 
 		[start]
@@ -15,186 +15,255 @@ template ExmDetailView : Gtk.Box {
 		}
 	}
 
-	Gtk.Stack stack {
-		vexpand: true;
+	Gtk.Overlay {
+		[overlay]
+		Gtk.Overlay image_overlay {
+			visible: false;
 
-		Gtk.StackPage {
-			name: "page_spinner";
+			[overlay]
+			Gtk.Box {
+				orientation: horizontal;
+				spacing: 16;
 
-			child: Gtk.Spinner {
-				spinning: true;
-				halign: center;
-				valign: center;
-			};
+				halign: end;
+				valign: end;
+
+				margin-top: 24;
+				margin-bottom: 24;
+				margin-start: 24;
+				margin-end: 24;
+
+				Gtk.Box {
+					styles ["linked"]
+
+					Gtk.Button {
+						styles ["osd", "circular"]
+						icon-name: "zoom-in-symbolic";
+
+						tooltip-text: _("Zoom In");
+
+						action-name: "detail.zoom-in";
+					}
+
+					Gtk.Button {
+						styles ["osd", "circular"]
+						icon-name: "zoom-out-symbolic";
+
+						tooltip-text: _("Zoom Out");
+
+						action-name: "detail.zoom-out";
+					}
+				}
+
+				Gtk.Button ext_screenshot_popin_button {
+					styles ["osd", "circular"]
+					icon-name: "pip-in-symbolic";
+
+					tooltip-text: _("Return to view");
+				}
+			}
+
+			Adw.Bin {
+				styles ["tint"]
+
+				hexpand: true;
+				vexpand: true;
+
+				.ExmZoomPicture overlay_screenshot {}
+			}
 		}
 
-		Gtk.StackPage {
-			name: "page_error";
+		Gtk.Stack stack {
+			vexpand: true;
 
-			child: Adw.StatusPage {
-				title: _("An Error Occurred");
-				icon-name: "dialog-question-symbolic";
-			};
-		}
+			Gtk.StackPage {
+				name: "page_spinner";
 
-		Gtk.StackPage {
-			name: "page_detail";
-			child: Gtk.ScrolledWindow scroll_area {
-				Adw.Clamp {
-					styles ["clamp"]
+				child: Gtk.Spinner {
+					spinning: true;
+					halign: center;
+					valign: center;
+				};
+			}
 
-					maximum-size: 800;
+			Gtk.StackPage {
+				name: "page_error";
 
-					Gtk.Box {
-						orientation: vertical;
-						spacing: 25;
+				child: Adw.StatusPage {
+					title: _("An Error Occurred");
+					icon-name: "dialog-question-symbolic";
+				};
+			}
 
-						Gtk.Box header {
-							orientation: horizontal;
+			Gtk.StackPage {
+				name: "page_detail";
+				child: Gtk.ScrolledWindow scroll_area {
+					Adw.Clamp {
+						maximum-size: 800;
+
+						Gtk.Box {
+					    styles ["detail"]
+							orientation: vertical;
 							spacing: 25;
 
-							Gtk.Image icon {
-								valign: center;
-								halign: center;
+							Gtk.Box header {
+								orientation: horizontal;
+								spacing: 25;
 
-								resource: "/com/mattjakeman/ExtensionManager/res/plugin.png";
+								Gtk.Box {
+									orientation: vertical;
+									hexpand: true;
+
+									Gtk.Label ext_title {
+										styles ["title-1"]
+										xalign: 0;
+										ellipsize: end;
+									}
+
+									Gtk.Label ext_author {
+										styles ["dim-label"]
+										label: "Author";
+										xalign: 0;
+										ellipsize: end;
+									}
+								}
+
+								.ExmInstallButton ext_install {
+									valign: center;
+									halign: center;
+								}
+							}
+
+							Gtk.Overlay ext_screenshot_container {
+								[overlay]
+								Gtk.Button ext_screenshot_popout_button {
+									styles ["osd", "circular"]
+									icon-name: "pip-out-symbolic";
+									halign: end;
+									valign: end;
+
+									margin-top: 8;
+									margin-bottom: 8;
+									margin-start: 8;
+									margin-end: 8;
+
+									tooltip-text: _("Enlarge image");
+								}
+
+								.ExmScreenshot ext_screenshot {}
 							}
 
 							Gtk.Box {
 								orientation: vertical;
-								hexpand: true;
 
-								Gtk.Label ext_title {
-									styles ["title-1"]
+								Gtk.Label {
+									styles ["title-4", "detail-heading"]
+
+									label: _("Description");
 									xalign: 0;
-									ellipsize: end;
 								}
 
-								Gtk.Label ext_author {
-									styles ["dim-label"]
-									label: "Author";
+								Gtk.Label ext_description {
+									styles ["multiline"]
 									xalign: 0;
-									ellipsize: end;
+									wrap: true;
+									wrap-mode: word_char;
+									selectable: true;
 								}
 							}
 
-							.ExmInstallButton ext_install {
-								valign: center;
-								halign: center;
-							}
-						}
+							Gtk.ListBox {
+								styles ["boxed-list"]
 
-						.ExmScreenshot ext_screenshot {}
-
-						Gtk.Box {
-							orientation: vertical;
-
-							Gtk.Label {
-								styles ["title-4", "detail-heading"]
-
-								label: _("Description");
-								xalign: 0;
-							}
-
-							Gtk.Label ext_description {
-								xalign: 0;
-								wrap: true;
-								wrap-mode: word_char;
-								selectable: true;
-							}
-						}
-
-						Gtk.ListBox {
-							styles ["boxed-list"]
-
-							selection-mode: none;
-
-							Adw.ActionRow link_extensions {
-								title: _("View on Extensions");
-								activatable: true;
-								action-name: "detail.open-extensions";
-
-								Gtk.Image {
-									styles ["dim-label"]
-									icon-name: "external-link-symbolic";
-								}
-							}
-						}
-
-						Gtk.Box {
-							orientation: vertical;
-
-							Gtk.Label {
-								styles ["title-4", "detail-heading"]
-
-								label: _("Supported Versions");
-								xalign: 0;
-							}
-
-							Gtk.FlowBox supported_versions {
-								max-children-per-line: 100;
 								selection-mode: none;
+
+								Adw.ActionRow link_extensions {
+									title: _("View on Extensions");
+									activatable: true;
+									action-name: "detail.open-extensions";
+
+									Gtk.Image {
+										styles ["dim-label"]
+										icon-name: "external-link-symbolic";
+									}
+								}
 							}
-						}
 
-						Gtk.Box {
-							orientation: vertical;
+							Gtk.Box {
+								orientation: vertical;
 
-							Gtk.Label {
-								styles ["title-4", "detail-heading"]
+								Gtk.Label {
+									styles ["title-4", "detail-heading"]
 
-								label: _("User Reviews");
-								xalign: 0;
-							}
-
-							// TODO: Abstract into common class
-							Gtk.Stack comment_stack {
-								vexpand: true;
-
-								Gtk.StackPage {
-									name: "page_spinner";
-
-									child: Gtk.Spinner {
-										spinning: true;
-										halign: center;
-										valign: center;
-									};
+									label: _("Supported Versions");
+									xalign: 0;
 								}
 
-								Gtk.StackPage {
-									name: "page_error";
+								Gtk.FlowBox supported_versions {
+									max-children-per-line: 100;
+									selection-mode: none;
+								}
+							}
 
-									child: Adw.StatusPage {
-										title: _("An Error Occurred");
-										icon-name: "dialog-question-symbolic";
-									};
+							Gtk.Box {
+								orientation: vertical;
+
+								Gtk.Label {
+									styles ["title-4", "detail-heading"]
+
+									label: _("User Reviews");
+									xalign: 0;
 								}
 
-								Gtk.StackPage {
-									name: "page_comments";
+								// TODO: Abstract into common class
+								Gtk.Stack comment_stack {
+									vexpand: true;
 
-									child: Gtk.Box {
-										orientation: vertical;
+									Gtk.StackPage {
+										name: "page_spinner";
 
-										Gtk.FlowBox comment_box {
-											max-children-per-line: 2;
-											homogeneous: true;
-											selection-mode: none;
-											row-spacing: 12;
-											column-spacing: 12;
-										}
-										Gtk.Button show_more_btn {
-											label: _("Show All Reviews");
+										child: Gtk.Spinner {
+											spinning: true;
 											halign: center;
-											margin-top: 10;
-										}
-									};
+											valign: center;
+										};
+									}
+
+									Gtk.StackPage {
+										name: "page_error";
+
+										child: Adw.StatusPage {
+											title: _("An Error Occurred");
+											icon-name: "dialog-question-symbolic";
+										};
+									}
+
+									Gtk.StackPage {
+										name: "page_comments";
+
+										child: Gtk.Box {
+											orientation: vertical;
+
+											Gtk.FlowBox comment_box {
+												max-children-per-line: 2;
+												homogeneous: true;
+												selection-mode: none;
+												row-spacing: 12;
+												column-spacing: 12;
+											}
+											Gtk.Button show_more_btn {
+												label: _("Show All Reviews");
+												halign: center;
+												margin-top: 10;
+											}
+										};
+									}
 								}
 							}
 						}
 					}
-				}
-			};
+				};
+			}
 		}
 	}
 }

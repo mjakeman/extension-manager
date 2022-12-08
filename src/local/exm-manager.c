@@ -36,6 +36,7 @@ static GParamSpec *properties [N_PROPS];
 enum {
     SIGNAL_0,
     SIGNAL_UPDATES_AVAILABLE,
+    SIGNAL_ERROR_OCCURRED,
     N_SIGNALS
 };
 
@@ -103,10 +104,50 @@ exm_manager_set_property (GObject      *object,
     }
 }
 
+typedef struct
+{
+    ExmExtension *extension;
+    ExmManager *manager;
+} ExmCallbackData;
+
+static ExmCallbackData *
+create_callback_data (ExmManager *manager,
+                      ExmExtension *extension)
+{
+    ExmCallbackData *data;
+    data = g_slice_new0 (ExmCallbackData);
+
+    data->manager = g_object_ref (manager);
+    data->extension = g_object_ref (extension);
+
+	return data;
+}
+
+static void
+free_callback_data (ExmCallbackData *data)
+{
+	if (!data)
+		return;
+
+    g_clear_object (&data->manager);
+    g_clear_object (&data->extension);
+
+    g_slice_free (ExmCallbackData, data);
+}
+
+#define notify_error(self_, f_, ...); \
+    {\
+        char *error_text;\
+        error_text = g_strdup_printf (f_, __VA_ARGS__);\
+        g_critical ("%s", error_text);\
+        g_signal_emit (G_OBJECT (self_), signals [SIGNAL_ERROR_OCCURRED], 0, error_text);\
+        g_free (error_text);\
+    }\
+
 static void
 enable_extension_done (ShellExtensions *proxy,
                        GAsyncResult    *res,
-                       ExmExtension    *extension)
+                       ExmCallbackData *data)
 {
     GError *error = NULL;
     gboolean success;
@@ -115,12 +156,18 @@ enable_extension_done (ShellExtensions *proxy,
     if (!success)
     {
         gchar *uuid;
-        g_object_get (extension, "uuid", &uuid, NULL);
+        g_object_get (data->extension, "uuid", &uuid, NULL);
         if (error)
-            g_critical ("Could not enable extension '%s': %s\n", uuid, error->message);
+        {
+            notify_error (data->manager, "Could not enable extension '%s': %s\n", uuid, error->message);
+        }
         else
-            g_critical ("Could not enable extension '%s': unknown failure", uuid);
+        {
+            notify_error (data->manager, "Could not enable extension '%s': unknown failure", uuid);
+        }
     }
+
+    free_callback_data (data);
 }
 
 void
@@ -134,13 +181,13 @@ exm_manager_enable_extension (ExmManager   *self,
                                             uuid,
                                             NULL,
                                             (GAsyncReadyCallback) enable_extension_done,
-                                            extension);
+                                            create_callback_data (self, extension));
 }
 
 static void
 disable_extension_done (ShellExtensions *proxy,
                         GAsyncResult    *res,
-                        ExmExtension    *extension)
+                        ExmCallbackData *data)
 {
     GError *error = NULL;
     gboolean success;
@@ -149,12 +196,18 @@ disable_extension_done (ShellExtensions *proxy,
     if (!success)
     {
         gchar *uuid;
-        g_object_get (extension, "uuid", &uuid, NULL);
+        g_object_get (data->extension, "uuid", &uuid, NULL);
         if (error)
-            g_critical ("Could not disable extension '%s': %s\n", uuid, error->message);
+        {
+            notify_error (data->manager, "Could not disable extension '%s': %s\n", uuid, error->message);
+        }
         else
-            g_critical ("Could not disable extension '%s': unknown failure", uuid);
+        {
+            notify_error (data->manager, "Could not disable extension '%s': unknown failure", uuid);
+        }
     }
+
+    free_callback_data (data);
 }
 
 void
@@ -168,13 +221,13 @@ exm_manager_disable_extension (ExmManager   *self,
                                              uuid,
                                              NULL,
                                              (GAsyncReadyCallback) disable_extension_done,
-                                             extension);
+                                             create_callback_data (self, extension));
 }
 
 static void
 remove_extension_done (ShellExtensions *proxy,
                        GAsyncResult    *res,
-                       ExmExtension    *extension)
+                       ExmCallbackData *data)
 {
     GError *error = NULL;
     gboolean success;
@@ -183,12 +236,18 @@ remove_extension_done (ShellExtensions *proxy,
     if (!success)
     {
         gchar *uuid;
-        g_object_get (extension, "uuid", &uuid, NULL);
+        g_object_get (data->extension, "uuid", &uuid, NULL);
         if (error)
-            g_critical ("Could not remove extension '%s': %s\n", uuid, error->message);
+        {
+            notify_error (data->manager, "Could not remove extension '%s': %s\n", uuid, error->message);
+        }
         else
-            g_critical ("Could not remove extension '%s': unknown failure", uuid);
+        {
+            notify_error (data->manager, "Could not remove extension '%s': unknown failure", uuid);
+        }
     }
+
+    free_callback_data (data);
 }
 
 void
@@ -202,23 +261,26 @@ exm_manager_remove_extension (ExmManager   *self,
                                                uuid,
                                                NULL,
                                                (GAsyncReadyCallback) remove_extension_done,
-                                               extension);
+                                               create_callback_data (self, extension));
 }
 
 static void
 open_prefs_done (ShellExtensions *proxy,
                  GAsyncResult    *res,
-                 ExmExtension    *extension)
+                 ExmCallbackData *data)
 {
     GError *error = NULL;
     shell_extensions_call_launch_extension_prefs_finish (proxy, res, &error);
 
-    if (error)
+    // TODO: Don't enable until we can export the window handle over dbus
+    /*if (error)
     {
         gchar *uuid;
-        g_object_get (extension, "uuid", &uuid, NULL);
-        g_critical ("Could not open extension preferences: %s\n", error->message);
-    }
+        g_object_get (data->extension, "uuid", &uuid, NULL);
+        notify_error (data->manager, "Could not open extension '%s' preferences: %s\n", uuid, error->message);
+    }*/
+
+    free_callback_data (data);
 }
 
 void
@@ -232,7 +294,7 @@ exm_manager_open_prefs (ExmManager   *self,
                                                   uuid,
                                                   NULL,
                                                   (GAsyncReadyCallback) open_prefs_done,
-                                                  extension);
+                                                  create_callback_data (self, extension));
 }
 
 static gpointer
@@ -297,7 +359,7 @@ do_install_thread (GTask        *task,
 {
     GError *error = NULL;
 
-    g_dbus_proxy_call_sync (self->proxy,
+    g_dbus_proxy_call_sync (G_DBUS_PROXY (self->proxy),
                             "InstallRemoteExtension",
                             g_variant_new ("(s)", uuid, NULL),
                             G_DBUS_CALL_FLAGS_NONE,
@@ -391,18 +453,18 @@ queue_notify_extension_updates (ExmManager *self)
 static void
 check_for_updates_done (ShellExtensions *proxy,
                         GAsyncResult    *res,
-                        ExmManager      *self)
+                        ExmManager      *manager)
 {
     GError *error = NULL;
     shell_extensions_call_check_for_updates_finish (proxy, res, &error);
 
     if (error)
     {
-        g_critical ("Could not check for updates: %s", error->message);
+        notify_error (manager, "Could not check for updates: %s\n", error->message);
     }
 
     // Notify the user if updates are detected
-    queue_notify_extension_updates (self);
+    queue_notify_extension_updates (manager);
 }
 
 void
@@ -459,8 +521,15 @@ exm_manager_class_init (ExmManagerClass *klass)
                         G_SIGNAL_RUN_LAST|G_SIGNAL_NO_RECURSE|G_SIGNAL_NO_HOOKS,
                         0, NULL, NULL, NULL,
                         G_TYPE_NONE, 1,
-                        G_TYPE_INT,
-                        NULL);
+                        G_TYPE_INT);
+
+    signals [SIGNAL_ERROR_OCCURRED]
+        = g_signal_new ("error-occurred",
+                        G_TYPE_FROM_CLASS (object_class),
+                        G_SIGNAL_RUN_LAST|G_SIGNAL_NO_RECURSE|G_SIGNAL_NO_HOOKS,
+                        0, NULL, NULL, NULL,
+                        G_TYPE_NONE, 1,
+                        G_TYPE_STRING);
 }
 
 static void
@@ -626,7 +695,7 @@ update_extension_list (ExmManager *self)
 
     if (error != NULL)
     {
-        g_critical ("Could not list extensions: %s\n", error->message);
+        notify_error (self, "Could not list extensions: %s\n", error->message);
         return;
     }
 
@@ -727,7 +796,9 @@ exm_manager_init (ExmManager *self)
 
     if (error != NULL)
     {
-        g_critical ("Could not create proxy: %s\n", error->message);
+        char *error_text;
+        error_text = g_strdup_printf ("Could not create proxy: %s\n", error->message);
+        notify_error (self, "%s", error_text);
         return;
     }
 

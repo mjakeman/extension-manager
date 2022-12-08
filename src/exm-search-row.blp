@@ -15,18 +15,6 @@ template ExmSearchRow : Gtk.ListBoxRow {
 			hexpand: true;
 			column-spacing:  10;
 
-			Gtk.Image icon {
-				valign: center;
-				halign: center;
-
-				resource: "/com/mattjakeman/ExtensionManager/res/plugin.png";
-
-				layout {
-					row: 0;
-					column: 0;
-				}
-			}
-
 			Gtk.Box {
 				hexpand: true;
 				orientation: vertical;
@@ -51,7 +39,7 @@ template ExmSearchRow : Gtk.ListBoxRow {
 			}
 
 			Gtk.Label description_label {
-				styles ["description", "dim-label"]
+				styles ["dim-label"]
 
 				margin-top: 5;
 				single-line-mode: true;

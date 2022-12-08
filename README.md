@@ -16,7 +16,7 @@ The tool supports:
  - Browsing and searching extensions from `extensions.gnome.org`
  - Installation and Removal
  - Enabling and Disabling
- - Updating in-app (See [#165](https://github.com/mjakeman/extension-manager/issues/165#issuecomment-1101004729))
+ - Updating in-app (See 'Known Issues')
  - Screenshots &amp; Images
  - Ratings &amp; Comments
  - Translations ([add your language!](https://github.com/mjakeman/extension-manager/issues/27))
@@ -24,8 +24,10 @@ The tool supports:
 If there's something you'd like to see, contributions are welcome!
 
 ## ⚠️ Known Issues
-### May not check for updates
-Currently there is an issue in which automatic updates will not work **unless the official GNOME Extensions app is also installed**. You can handle all updates from within Extension Manager but [`org.gnome.Extensions`](https://flathub.org/apps/details/org.gnome.Extensions) must also be installed on your computer in order for GNOME Shell to check for updates. The status of this issue can be checked here: [Issue #165](https://github.com/mjakeman/extension-manager/issues/165#issuecomment-1101004729)
+### Extensions are not being updated
+Updates do not work out of the box on GNOME 40 and certain older versions of GNOME
+41 and 42 **unless the official GNOME Extensions app is also installed**. See here
+for details and a simple workaround: [Wiki Page](https://github.com/mjakeman/extension-manager/wiki/Known-Issue:-Updates)
 
 ## 💻 Installing
 Flatpak is the recommended way to install Extension Manager. 

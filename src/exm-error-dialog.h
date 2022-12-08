@@ -1,4 +1,4 @@
-/* exm-release-notes-dialog.h
+/* exm-error-dialog.h
  *
  * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -20,14 +20,14 @@
 
 #pragma once
 
-#include <gtk/gtk.h>
+#include <adwaita.h>
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_RELEASE_NOTES_DIALOG (exm_release_notes_dialog_get_type())
+#define EXM_TYPE_ERROR_DIALOG (exm_error_dialog_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmReleaseNotesDialog, exm_release_notes_dialog, EXM, RELEASE_NOTES_DIALOG, GtkWindow)
+G_DECLARE_FINAL_TYPE (ExmErrorDialog, exm_error_dialog, EXM, ERROR_DIALOG, AdwWindow)
 
-ExmReleaseNotesDialog *exm_release_notes_dialog_new (void);
+ExmErrorDialog *exm_error_dialog_new (const char *text);
 
 G_END_DECLS

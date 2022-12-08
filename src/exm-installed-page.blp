@@ -12,11 +12,23 @@ template ExmInstalledPage : Gtk.Widget {
 				orientation: vertical;
 
 				Adw.Clamp {
-					styles ["clamp"]
-
 					Gtk.Box {
+					  styles ["content"]
 						orientation: vertical;
 						spacing: 10;
+
+						Adw.ActionRow {
+						  styles ["card", "global-toggle-row"]
+						  icon-name: 'puzzle-piece-symbolic';
+						  title: _("Use Extensions");
+						  subtitle: _("Extensions can cause performance and stability issues.");
+
+						  [suffix]
+						  Gtk.Switch global_toggle {
+                halign: center;
+                valign: center;
+						  }
+						}
 
 						Gtk.Label {
 							styles ["heading"]
