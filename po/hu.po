@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 17:48+1300\n"
-"PO-Revision-Date: 2022-06-04 16:11+0200\n"
+"PO-Revision-Date: 2022-11-10 12:32+0100\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
 "Language: hu\n"
@@ -19,142 +19,182 @@ msgstr ""
 "X-Generator: Gtranslator 3.36.0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 msgid "@app_title@"
 msgstr "Kiterjesztés-kezelő"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
+#: src/exm-application.c:187
+msgid "Browse, install, and manage GNOME Shell Extensions."
+msgstr "GNOME Shell kiterjesztések kezelése egy helyen."
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "Egy GNOME Shell kiterjesztéseket kezelő alkalmazás."
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
 msgid "Features:"
 msgstr "Funkciók:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "extensions.gnome.org kiterjesztések böngészése"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
 msgid "Manage the extensions you already have installed"
 msgstr "Telepített kiterjesztések kezelése"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Alkalmazás GNOME Shell kiterjesztések kezeléséhez"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
+msgid "Fully adaptive mobile-friendly user interface"
+msgstr "Felhasználóbarát, kompakt felület"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
+msgid "Paginated search results"
+msgstr "A keresési eredmény lapokra lett bontva"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
+msgid "Upgrade Assistant for checking extension compatibility"
+msgstr "Ezentúl egy frissítési segéd ellenőrzi a kompatibilitást"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:47
+msgid "Unsupported extensions are hidden by default"
+msgstr "A nem támogatott kiterjesztések alapértelmezés szerint rejtve lesznek"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:48
+msgid "Overhauled error and crash reporting"
+msgstr "Részletes hibabejelentő jött létre"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:49
+msgid "Full-screen image viewer"
+msgstr "Elérhetővé váltak az előnézeti képek"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:50
+msgid "Handles new <code>gnome-extensions://</code> URI scheme"
+msgstr "<code>gnome-extensions://</code> kezelése"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:51
+msgid "Randomised extension suggestions"
+msgstr "A kiterjesztések ajánlása immáron véletlenszerű"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:52
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:61
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
+msgid "Performance and stability"
+msgstr "Teljesítményt érintő javítások történtek"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:59
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:94
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
+msgid "Translation updates"
+msgstr "Frissített fordítások"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:60
+msgid "Various bug fixes"
+msgstr "Egyéb hibajavítások"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
+msgid "Remove release notes dialog"
+msgstr "A változásokra vonatkozó értesítés kikapcsolásra került"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
+msgid "Fix special characters in installed extension listings"
+msgstr "Különleges karakterek kezelése a telepített kiterjesztések listájában"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:77
 msgid "The second feature update to extension-manager. Highlights include:"
-msgstr "Megérkezett az alkalmazás második átfogó frissítése. Főbb újítások:"
+msgstr "Megérkezett a második átfogó frissítés. Kiemelt változások:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
 msgid "View comments and reviews"
-msgstr "Megjegyzések és értékelések megjelennek"
+msgstr "Megjelennek a megjegyzések és értékelések"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
 msgid "Support for in-app updates"
-msgstr "Kiterjesztések frissítése az alkalmazásban"
+msgstr "Kiterjesztések frissíthetőek az alkalmazásban"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
 msgid "Better handling errors and out-of-date extensions"
 msgstr "Hibák és elavult kiterjesztések jobb kezelése"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
 msgid "Allow installing 'unsupported' extensions"
 msgstr "Nem támogatott kiterjesztések telepítésének lehetősége"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
 msgid "Display release notes on first run"
 msgstr "Változások megjelenítése első indításkor"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
 msgid "New app icon"
-msgstr "Új parancsikon"
+msgstr "Új alkalmazásikon"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
 msgid "Optionally sort extensions by enabled status"
-msgstr "Kiterjesztések rendezése állapot szerint"
+msgstr "Kiterjesztések rendezése állapot szerint történik"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
-msgid "Translation updates"
-msgstr "Fordítások frissítése"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
-msgid "Performance and stability"
-msgstr "Teljesítményt érintő javítások"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
 msgid "Fix special characters in search results"
 msgstr "Különleges karakterek kezelése keresőben"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
 msgstr ""
-"Összeomlást okozó hiba javítása amely "
-"a kiterjesztések eltávolításakor jelentkezett"
+"Összeomlást okozó hiba javítva lett, amely a kiterjesztések eltávolításakor "
+"jelentkezett"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
 msgid "The first feature update to extension-manager. Highlights include:"
-msgstr "Első funkciófrissítés a kiterjesztés-kezelőhöz. Kiemeltek:"
+msgstr "Megérkezett az első átfogó frissítés. Kiemelt változások:"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr "Sötét téma és témakezelés"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
 msgid "Shows screenshots in extension listings"
 msgstr "Előnézeti kép a kiterjesztésről"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
 msgid "Shell version compatibility check"
 msgstr "Kompatibilitás ellenőrzése"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
 msgid "Localised into seven languages"
 msgstr "Jelenleg hét nyelv támogatott"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
 msgid "Sort search results"
 msgstr "Találatok rendezése"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
 msgid "Global extension on/off toggle"
-msgstr "Kiterjesztések engedélyezése"
+msgstr "Kiterjesztések engedélyezése/letiltása"
 
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
 msgid "Displays user and system extensions separately"
-msgstr "Rendszer és felhasználó által telepített kiterjesztések"
+msgstr "Rendszer és felhasználó által telepített kiterjesztések kategorizálása"
 
-#: src/exm-application.c:106
+#: src/exm-application.c:165 src/exm-window.c:446
 msgid "Extension Manager (Development)"
-msgstr "Extension Manager (fejlesztői változat)"
+msgstr "Kiterjesztés-kezelő (fejlesztői változat)"
 
-#: src/exm-application.c:107
+#: src/exm-application.c:166 src/exm-window.c:446
 msgid "Extension Manager"
 msgstr "Kiterjesztés-kezelő"
 
-#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
-#: src/exm-application.c:117
+#: src/exm-application.c:193
 msgid "translator-credits"
 msgstr "ViBE <vibe@protonmail.com>"
-
-#: src/exm-application.c:118
-msgid ""
-"A very simple tool for browsing, downloading, and managing GNOME shell "
-"extensions."
-msgstr ""
-"Egy egyszerű alkalmazás GNOME Shell kiterjesztések "
-"böngészéséhez és telepítéséhez."
-
-#: src/exm-application.c:124
-msgid "Project Homepage"
-msgstr "Honlap"
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
@@ -164,91 +204,152 @@ msgstr "Kiterjesztések keresése"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
-"Írj be kulcsszavakat az 'extensions.gnome.org' gyűjteményében való "
-"GNOME Shell kiterjesztések kereséséhez!"
-
-#: src/exm-browse-page.blp:22
-msgid "e.g. \"Blur my Shell\""
-msgstr "például „Blur my Shell”"
+"Írj be kulcsszavakat az 'extensions.gnome.org' gyűjteményében való GNOME "
+"Shell kiterjesztések kereséséhez!"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Popularity"
 msgstr "Népszerűség"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Downloads"
 msgstr "Letöltések"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Recent"
 msgstr "Legutóbbi"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Name"
 msgstr "Név"
 
-#: src/exm-browse-page.blp:60
+#: src/exm-browse-page.blp:58
+msgid "Load More Results"
+msgstr "További találatok betöltése"
+
+#: src/exm-browse-page.blp:68
 msgid "No Results Found"
 msgstr "Nincs találat"
 
-#: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
-#: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
+#. Translators:
+#. - '%s' is an extension e.g. Blur my Shell
+#. - Please use unicode quotation marks e.g. “” (not "")
+#: src/exm-browse-page.c:292
+#, c-format
+msgid "e.g. “%s”"
+msgstr "például „%s”"
+
+#: src/exm-comment-dialog.blp:7
+msgid "Comments"
+msgstr "Megjegyzések"
+
+#: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:93
+#: src/exm-detail-view.blp:236 src/exm-detail-view.c:390
 msgid "An Error Occurred"
 msgstr "Hiba történt"
 
-#: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
+#: src/exm-detail-view.blp:43
+msgid "Zoom In"
+msgstr "Nagyítás"
+
+#: src/exm-detail-view.blp:52
+msgid "Zoom Out"
+msgstr "Kicsinyítés"
+
+#: src/exm-detail-view.blp:62
+msgid "Return to view"
+msgstr "Visszatérés a részletekhez"
+
+#: src/exm-detail-view.blp:150
+msgid "Enlarge image"
+msgstr "Kép nagyítása"
+
+#: src/exm-detail-view.blp:162 src/exm-extension-row.blp:78
 msgid "Description"
 msgstr "Leírás"
 
-#: src/exm-detail-view.blp:113
+#: src/exm-detail-view.blp:181
 msgid "View on Extensions"
 msgstr "Megtekintés böngészőben"
 
-#: src/exm-detail-view.blp:130
+#: src/exm-detail-view.blp:198
 msgid "Supported Versions"
 msgstr "Támogatott GNOME verzió"
 
-#: src/exm-detail-view.blp:146
+#: src/exm-detail-view.blp:214
 msgid "User Reviews"
 msgstr "Felhasználói értékelések"
 
-#: src/exm-detail-view.blp:187
+#: src/exm-detail-view.blp:255
 msgid "Show All Reviews"
 msgstr "Összes értékelés megtekintése"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:364
+#: src/exm-detail-view.c:404
 msgid "Loading…"
 msgstr "Betöltés…"
 
-#: src/exm-extension-row.blp:33
+#: src/exm-error-dialog.blp:7
+msgid "Error Report"
+msgstr "Hiba jelentése"
+
+#: src/exm-error-dialog.blp:27
+msgid ""
+"An unexpected error occurred in Extension Manager. Please open a new issue "
+"and attach the following information:"
+msgstr ""
+"Nem várt kivétel történt a kiterjesztés-kezelőben. Kérlek, jelentsd a hibát "
+"és mellékeld az alábbiakat:"
+
+#: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
+msgid "Copy to Clipboard"
+msgstr "Másolás vágólapra"
+
+#: src/exm-error-dialog.blp:57
+msgid "New Issue"
+msgstr "Új hiba"
+
+#. Success indicator
+#: src/exm-error-dialog.c:117 src/exm-upgrade-assistant.c:338
+msgid "Copied"
+msgstr "Vágólapra másolva"
+
+#: src/exm-extension-row.blp:24
+msgid "Open extension preferences"
+msgstr "Kiterjesztés beállításainak megnyitása"
+
+#: src/exm-extension-row.blp:37
 msgid "An error occurred while loading this extension"
 msgstr "Hiba történt a kiterjesztés betöltése során"
 
-#: src/exm-extension-row.blp:46 src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Ez a kiterjesztés nem kompatibilis a telepített GNOME verzióval."
+#: src/exm-extension-row.blp:50
+msgid "This extension is incompatible with your current version of GNOME"
+msgstr "Ez a kiterjesztés nem kompatibilis a telepített GNOME verzióval"
 
-#: src/exm-extension-row.blp:59
+#: src/exm-extension-row.blp:63
 msgid "A newer version of this extension is available"
 msgstr "Frissítés érhető el a kiterejesztéshez"
 
-#: src/exm-extension-row.blp:100
+#: src/exm-extension-row.blp:105
 msgid "Version"
 msgstr "Verzió"
 
-#: src/exm-extension-row.blp:126
+#: src/exm-extension-row.blp:131
 msgid "Error"
 msgstr "Hiba"
 
-#: src/exm-extension-row.blp:161
+#: src/exm-extension-row.blp:166
 msgid "See Details"
 msgstr "Részletek megtekintése"
 
-#: src/exm-extension-row.blp:170
+#: src/exm-extension-row.blp:175
 msgid "Remove"
 msgstr "Eltávolítás"
+
+#: src/exm-install-button.c:105
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr "Ez a kiterjesztés nem kompatibilis a telepített GNOME verzióval."
 
 #: src/exm-install-button.c:115
 msgid "Install"
@@ -259,28 +360,36 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Telepített"
 
-#: src/exm-install-button.c:124
+#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:515
 msgid "Unsupported"
 msgstr "Nem támogatott"
 
-#: src/exm-installed-page.blp:25
+#: src/exm-installed-page.blp:23
+msgid "Use Extensions"
+msgstr "Kiterjesztések engedélyezése"
+
+#: src/exm-installed-page.blp:24
+msgid "Extensions can cause performance and stability issues."
+msgstr "Egyes kiterjesztések használata teljesítmény-csökkenést okozhat."
+
+#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:103
 msgid "User-Installed Extensions"
 msgstr "Felhasználó által telepített"
 
-#: src/exm-installed-page.blp:38
+#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:116
 msgid "System Extensions"
 msgstr "Előtelepített"
 
-#: src/exm-installed-page.blp:78
+#: src/exm-installed-page.blp:90
 msgid "Updates are available"
 msgstr "Frissítés érhető el"
 
-#: src/exm-installed-page.blp:95
+#: src/exm-installed-page.blp:107
 msgid "Log Out"
 msgstr "Kijelentkezés"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:215
+#: src/exm-installed-page.c:224
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
@@ -289,69 +398,123 @@ msgstr[0] ""
 msgstr[1] ""
 "%d kiterjesztés frissítése ütemezve van a következő bejelentkezéskor."
 
-#: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
-msgid "Release Notes"
-msgstr "Változások"
-
-#: src/exm-window.blp:42
-msgctxt "Navigation"
-msgid "Installed"
-msgstr "Telepítve"
-
-#: src/exm-window.blp:50
-msgctxt "Navigation"
+#: src/exm-installed-page.c:338
 msgid "Browse"
 msgstr "Böngészés"
 
-#: src/exm-window.blp:71
+#: src/exm-installed-page.c:348 src/exm-upgrade-assistant.c:687
+msgid "There are no user extensions installed."
+msgstr "Nincs felhasználó által telepített kiterjesztés."
+
+#: src/exm-installed-page.c:362 src/exm-upgrade-assistant.c:692
+msgid "There are no system extensions installed."
+msgstr "Nincs előtelepített kiterjesztés."
+
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:98
+msgid "Upgrade Assistant"
+msgstr "Frissítési segéd"
+
+#: src/exm-upgrade-assistant.blp:49
+msgid "Check Compatibility"
+msgstr "Kompatibilitás ellenőrzése"
+
+#: src/exm-upgrade-assistant.c:215
+#, c-format
+msgid ""
+"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+"installed on the system."
+msgstr ""
+"A GNOME <b>%s</b> jelenleg <b>%d</b> kiterjesztést támogat a jelenlegi "
+"rendszerre telepített <b>%d</b> kiterjesztésből."
+
+#: src/exm-upgrade-assistant.c:511
+msgid "Supported"
+msgstr "Támogatott"
+
+#: src/exm-upgrade-assistant.c:513
+msgid "A compatible version of the extension exists."
+msgstr "Elérhető kompatibilis változat."
+
+#: src/exm-upgrade-assistant.c:517
+msgid "No compatible version of the extension exists."
+msgstr "Jelenleg nem elérhető kompatibilis változat."
+
+#: src/exm-upgrade-assistant.c:519
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: src/exm-upgrade-assistant.c:521
+msgid ""
+"This extension is not hosted on extensions.gnome.org. Its compatibility "
+"cannot be determined."
+msgstr ""
+"A kiterjesztés nem az extensions.gnome.org-ról származik. A kompatibilitás "
+"megállapítása nem lehetséges."
+
+#: src/exm-upgrade-assistant.c:614
+#, c-format
+msgid ""
+"You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
+"and check whether your extensions will continue to be available."
+msgstr ""
+"A rendszeren jelenleg a GNOME <b>%s</b>verziója fut. A lenti listán "
+"kiválaszthatod és ellenőrizheted, hogy az egyes kiterjesztések mely "
+"verziókkal kompatibilisek."
+
+#: src/exm-window.blp:40
+msgctxt "Navigation"
+msgid "Installed"
+msgstr "Telepített"
+
+#: src/exm-window.blp:48
+msgctxt "Navigation"
+msgid "Browse"
+msgstr "Tallózás"
+
+#: src/exm-window.blp:70
 msgid "Theme"
 msgstr "Téma"
 
-#: src/exm-window.blp:73
+#: src/exm-window.blp:72
 msgid "Follow System"
 msgstr "Rendszer"
 
-#: src/exm-window.blp:78
+#: src/exm-window.blp:77
 msgid "Light"
 msgstr "Világos"
 
-#: src/exm-window.blp:83
+#: src/exm-window.blp:82
 msgid "Dark"
 msgstr "Sötét"
 
-#: src/exm-window.blp:89
+#: src/exm-window.blp:88
 msgid "Sort Enabled First"
 msgstr "Rendezés állapot szerint"
 
-#: src/exm-window.blp:103
+#: src/exm-window.blp:92
+msgid "Show Unsupported"
+msgstr "Nem támogatottak megjelenítése"
+
+#: src/exm-window.blp:102
 msgid "About Extension Manager"
 msgstr "Névjegy"
 
-#: src/exm-window.c:180
+#: src/exm-window.c:183
 msgid "Are you sure you want to uninstall?"
 msgstr "Biztos vagy benne, hogy eltávolítod?"
 
-#: src/exm-window.c:247
+#: src/exm-window.c:250
 msgid ""
 "This extension does not support your GNOME Shell version.\n"
 "Would you like to install anyway?"
 msgstr ""
 "Ez a kiterjesztés nem támogatja a jelen GNOME Shell verziót.\n"
-"Telepíted ennek ellenére?"
+"Folytatod a telepítést?"
 
-#: src/exm-window.c:373
-msgid "What's New"
-msgstr "Mi változott?"
+#: src/exm-window.c:351
+msgid "An error occurred."
+msgstr "Hiba történt."
 
-#: src/exm-window.c:375
-msgid "View Release Notes"
-msgstr "Változások megtekintése"
-
-#: src/exm-window.c:379
-#, c-format
-msgid ""
-"This is your first time using <b>Extension Manager %s</b>.\n"
-"Would you like to see the release notes?"
-msgstr ""
-"Első alkalalommal indítottad el a <b>kiterjesztés-kezelőt %s</b>.\n"
-"Szeretnéd megtekinteni a változásokat?"
+#: src/exm-window.c:352
+msgid "Details"
+msgstr "Részletek"
