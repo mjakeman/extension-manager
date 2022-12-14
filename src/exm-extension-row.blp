@@ -1,64 +1,13 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmExtensionRow : Adw.ExpanderRow {
+template $ExmExtensionRow : Adw.ActionRow {
 	title-lines: 1;
 	subtitle-lines: 1;
 
-	[action]
-	Gtk.Switch ext_toggle {
-		valign: center;
-		halign: center;
+	activatable-widget: expander-arrow;
 
-		action-name: 'row.state-set';
-	}
-
-	[action]
-	Gtk.Button prefs_btn {
-	  styles ["flat"]
-
-		icon-name: "settings-symbolic";
-		valign: center;
-		halign: center;
-
-		action-name: 'row.open-prefs';
-
-		tooltip-text: _("Open extension preferences");
-	}
-
-	[action]
-	Gtk.Image error_icon {
-		styles ["error"]
-
-		icon-name: "dialog-error-symbolic";
-		valign: center;
-		halign: center;
-
-		margin-start: 9;
-		margin-end: 9;
-
-		visible: false;
-
-		tooltip-text: _("An error occurred while loading this extension");
-	}
-
-	[action]
-	Gtk.Image out_of_date_icon {
-		styles ["error"]
-
-		icon-name: "clock-alt-symbolic";
-		valign: center;
-		halign: center;
-
-		margin-start: 9;
-		margin-end: 9;
-
-		visible: false;
-
-		tooltip-text: _("This extension is incompatible with your current version of GNOME");
-	}
-
-	[action]
+	[suffix]
 	Gtk.Image update_icon {
 		styles ["update"]
 
@@ -74,94 +23,20 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 		tooltip-text: _("A newer version of this extension is available");
 	}
 
-	Gtk.ListBoxRow {
-		activatable: false;
+	[suffix]
+	Gtk.Image out_of_date_icon {
+		styles ["error"]
 
-		Gtk.Grid {
-			styles ["row-content"]
+		icon-name: "clock-alt-symbolic";
+		valign: center;
+		halign: center;
 
-			row-spacing: 15;
-			column-spacing: 15;
+		margin-start: 9;
+		margin-end: 9;
 
-			Gtk.Label {
-				styles ["dim-label"]
+		visible: false;
 
-				label: _("Description");
-
-				xalign: 0;
-				yalign: 0;
-
-				layout {
-					row: 0;
-					column: 0;
-				}
-			}
-
-			Gtk.Label description_label {
-			  styles ["multiline"]
-				xalign: 0;
-				wrap-mode: word;
-				wrap: true;
-				selectable: true;
-
-				layout {
-					row: 0;
-					column: 1;
-				}
-			}
-
-			Gtk.Label {
-				styles ["dim-label"]
-
-				label: _("Version");
-
-				xalign: 0;
-				yalign: 0;
-
-				layout {
-					row: 1;
-					column: 0;
-				}
-			}
-
-			Gtk.Label version_label {
-				xalign: 0;
-				wrap-mode: word;
-				wrap: true;
-				selectable: true;
-
-				layout {
-					row: 1;
-					column: 1;
-				}
-			}
-
-			Gtk.Label error_label_tag {
-				styles ["dim-label"]
-
-				label: _("Error");
-
-				xalign: 0;
-				yalign: 0;
-
-				layout {
-					row: 2;
-					column: 0;
-				}
-			}
-
-			Gtk.Label error_label {
-				xalign: 0;
-				wrap-mode: word_char;
-				wrap: true;
-				selectable: true;
-
-				layout {
-					row: 2;
-					column: 1;
-				}
-			}
-		}
+		tooltip-text: _("This extension is incompatible with your current version of GNOME");
 	}
 
 	Gtk.ListBoxRow {
@@ -169,29 +44,42 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 		focusable: false;
 		height-request: 46;
 
-		Gtk.Box {
-			halign: end;
-			spacing: 6;
-			margin-start: 4;
-			margin-end: 4;
+		margin-start: 9;
+		margin-end: 9;
 
-			Gtk.Button details_btn {
-				styles ["flat"]
+		visible: false;
 
-				label: _("See Details");
-				valign: center;
+		tooltip-text: _("An error occurred while loading this extension");
+	}
 
-				action-name: 'win.show-detail';
-			}
+	[suffix]
+	Gtk.Button prefs_btn {
+	  styles ["flat"]
 
-			Gtk.Button remove_btn {
-				styles ["destructive-action"]
+		icon-name: "settings-symbolic";
+		valign: center;
+		halign: center;
 
-				label: _("Remove");
-				valign: center;
+		action-name: 'row.open-prefs';
 
-				action-name: 'row.remove';
-			}
-		}
+		tooltip-text: _("Open extension preferences");
+	}
+
+	[suffix]
+	Gtk.Switch ext_toggle {
+		valign: center;
+		halign: center;
+
+		action-name: 'row.state-set';
+	}
+
+	[suffix]
+	Gtk.Image expander-arrow {
+		styles ["expander-row-arrow"]
+
+		valign: center;
+		halign: end;
+
+		icon-name: "go-next-symbolic";
 	}
 }
