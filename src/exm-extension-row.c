@@ -379,3 +379,4 @@ exm_extension_row_init (ExmExtensionRow *self)
 
     gtk_widget_insert_action_group (GTK_WIDGET (self), "row", G_ACTION_GROUP (self->action_group));
 }
+

@@ -130,10 +130,51 @@ template $ExmDetailView : Adw.NavigationPage {
 										}
 									}
 
-									$ExmInstallButton ext_install {
-										valign: center;
-										halign: center;
-									}
+									Gtk.Stack ext_tools {
+                     Gtk.StackPage {
+                       child: Gtk.Box {
+
+                         orientation: horizontal;
+                         spacing: 16;
+
+                         Gtk.Box manage_tools {
+                           styles ["linked"]
+
+                           Gtk.Button prefs_btn {
+                             icon-name: "settings-symbolic";
+                             valign: center;
+                             halign: center;
+
+                             tooltip-text: _("Open extension preferences");
+                           }
+
+                           Gtk.Button delete_btn {
+                             styles ["destructive-action"]
+
+                             icon-name: "user-trash-symbolic";
+                             valign: center;
+                             halign: center;
+
+                             tooltip-text: _("Remove the extension");
+                           }
+                         }
+
+                         Gtk.Switch toggle_switch {
+                           valign: center;
+                           halign: center;
+
+                           tooltip-text: _("Enable/disable the extension");
+                         }
+                       };
+                     }
+
+                     Gtk.StackPage {
+                       child: .ExmInstallButton ext_install {
+                         valign: center;
+                         halign: center;
+                       };
+                     }
+                   }
 								}
 
 								Gtk.Overlay ext_screenshot_container {
