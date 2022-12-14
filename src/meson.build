@@ -24,7 +24,7 @@ exm_sources = [
   # Misc
   'exm-error-dialog.c',
   'exm-upgrade-assistant.c',
-  'exm-upgrade-result.c',
+  'exm-unified-data.c',
   'exm-install-button.c',
   'exm-backtrace.c',
   'exm-utils.c'

@@ -29,7 +29,7 @@ src/exm-search-row.blp
 src/exm-search-row.c
 src/exm-upgrade-assistant.blp
 src/exm-upgrade-assistant.c
-src/exm-upgrade-result.c
+src/exm-unified-data.c
 src/exm-utils.c
 src/exm-window.blp
 src/exm-window.c

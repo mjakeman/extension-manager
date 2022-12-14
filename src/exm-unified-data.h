@@ -1,4 +1,4 @@
-/* exm-upgrade-result.h
+/* exm-unified-data.h
  *
  * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -27,33 +27,33 @@
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_UPGRADE_RESULT (exm_upgrade_result_get_type())
+#define EXM_TYPE_UNIFIED_DATA (exm_unified_data_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmUpgradeResult, exm_upgrade_result, EXM, UPGRADE_RESULT, GObject)
+G_DECLARE_FINAL_TYPE (ExmUnifiedData, exm_unified_data, EXM, UNIFIED_DATA, GObject)
 
-ExmUpgradeResult *exm_upgrade_result_new (void);
+ExmUnifiedData *exm_unified_data_new (void);
 
 ExmExtension *
-exm_upgrade_result_get_local_data (ExmUpgradeResult *self);
+exm_unified_data_get_local_data (ExmUnifiedData *self);
 
 void
-exm_upgrade_result_set_local_data (ExmUpgradeResult *self,
+exm_unified_data_set_local_data (ExmUnifiedData *self,
                                    ExmExtension     *extension);
 
 ExmSearchResult *
-exm_upgrade_result_get_web_data (ExmUpgradeResult *self);
+exm_unified_data_get_web_data (ExmUnifiedData *self);
 
 void
-exm_upgrade_result_set_web_data (ExmUpgradeResult *self,
+exm_unified_data_set_web_data (ExmUnifiedData *self,
                                  ExmSearchResult  *extension);
 
 const char *
-exm_upgrade_result_get_name (ExmUpgradeResult *self);
+exm_unified_data_get_name (ExmUnifiedData *self);
 
 const char *
-exm_upgrade_result_get_creator (ExmUpgradeResult *self);
+exm_unified_data_get_creator (ExmUnifiedData *self);
 
 const char *
-exm_upgrade_result_get_uuid (ExmUpgradeResult *self);
+exm_unified_data_get_uuid (ExmUnifiedData *self);
 
 G_END_DECLS

@@ -22,7 +22,7 @@
 #include "exm-upgrade-assistant.h"
 
 #include "web/exm-data-provider.h"
-#include "exm-upgrade-result.h"
+#include "exm-unified-data.h"
 
 #include <glib/gi18n.h>
 
@@ -221,12 +221,12 @@ display_results (ExmUpgradeAssistant *self)
 }
 
 static SupportStatus
-get_support_status (ExmUpgradeResult *result, const char *target_version)
+get_support_status (ExmUnifiedData *result, const char *target_version)
 {
     SupportStatus supported;
     ExmSearchResult *web_data;
 
-    web_data = exm_upgrade_result_get_web_data (result);
+    web_data = exm_unified_data_get_web_data (result);
 
     if (web_data && exm_search_result_supports_shell_version (web_data, target_version))
         supported = STATUS_SUPPORTED;
@@ -249,15 +249,15 @@ print_list_model (GListModel  *model,
 
     num_extensions = g_list_model_get_n_items (model);
     for (i = 0; i < num_extensions; i++) {
-        ExmUpgradeResult *result;
+        ExmUnifiedData *result;
         const gchar *name, *creator, *uuid, *url, *supported_text;
         SupportStatus supported;
 
         result = g_list_model_get_item (model, i);
 
-        name = exm_upgrade_result_get_name (result);
-        creator = exm_upgrade_result_get_creator (result);
-        uuid = exm_upgrade_result_get_uuid (result);
+        name = exm_unified_data_get_name (result);
+        creator = exm_unified_data_get_creator (result);
+        uuid = exm_unified_data_get_uuid (result);
 
         supported = get_support_status (result, target_shell_version);
 
@@ -341,7 +341,7 @@ copy_to_clipboard (ExmUpgradeAssistant *self)
 
 static void
 display_extension_result (ExmUpgradeAssistant *self,
-                          ExmUpgradeResult    *result,
+                          ExmUnifiedData    *result,
                           gboolean             is_user)
 {
     if (get_support_status (result, self->target_shell_version) == STATUS_SUPPORTED) {
@@ -364,7 +364,7 @@ on_extension_processed (GObject      *source,
     GError *error = NULL;
     ExmUpgradeAssistant *self;
     ExtensionCheckData *data;
-    ExmUpgradeResult *result;
+    ExmUnifiedData *result;
 
     g_return_if_fail (user_data != NULL);
 
@@ -374,12 +374,12 @@ on_extension_processed (GObject      *source,
     self->number_checked++;
     update_checked_count (self);
 
-    result = exm_upgrade_result_new ();
-    exm_upgrade_result_set_local_data (result, data->local_data);
+    result = exm_unified_data_new ();
+    exm_unified_data_set_local_data (result, data->local_data);
 
     if ((web_info = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), async_result, &error)) != FALSE)
     {
-        exm_upgrade_result_set_web_data (result, web_info);
+        exm_unified_data_set_web_data (result, web_info);
     }
 
     display_extension_result (self, result, data->is_user);
@@ -475,17 +475,17 @@ do_compatibility_check (ExmUpgradeAssistant *self)
 }
 
 static GtkWidget *
-widget_factory (ExmUpgradeResult    *result,
+widget_factory (ExmUnifiedData    *result,
                 ExmUpgradeAssistant *self)
 {
     SupportStatus supported;
     const gchar *name, *creator;
     GtkWidget *hbox, *vbox, *label, *status;
 
-    g_return_val_if_fail (EXM_IS_UPGRADE_RESULT (result), NULL);
+    g_return_val_if_fail (EXM_IS_UNIFIED_DATA (result), NULL);
 
-    name = exm_upgrade_result_get_name (result);
-    creator = exm_upgrade_result_get_creator (result);
+    name = exm_unified_data_get_name (result);
+    creator = exm_unified_data_get_creator (result);
 
     supported = get_support_status (result, self->target_shell_version);
 
@@ -542,7 +542,7 @@ bind_list_box (ExmUpgradeAssistant *self,
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
     // Sort alphabetically
-    expression = gtk_property_expression_new (EXM_TYPE_UPGRADE_RESULT, NULL, "name");
+    expression = gtk_property_expression_new (EXM_TYPE_UNIFIED_DATA, NULL, "name");
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
     sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (alphabetical_sorter));
@@ -682,8 +682,8 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     self->data_provider = exm_data_provider_new ();
     self->target_shell_version = NULL;
 
-    self->user_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
-    self->system_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
+    self->user_results_store = g_list_store_new (EXM_TYPE_UNIFIED_DATA);
+    self->system_results_store = g_list_store_new (EXM_TYPE_UNIFIED_DATA);
     bind_list_box (self, self->user_list_box, G_LIST_MODEL (self->user_results_store));
     bind_list_box (self, self->system_list_box, G_LIST_MODEL (self->system_results_store));
 
