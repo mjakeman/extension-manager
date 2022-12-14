@@ -23,6 +23,7 @@
 #include <glib-object.h>
 
 #include "web/model/exm-search-result.h"
+#include "web/model/exm-shell-version-map.h"
 #include "local/exm-extension.h"
 
 G_BEGIN_DECLS
@@ -38,14 +39,14 @@ exm_unified_data_get_local_data (ExmUnifiedData *self);
 
 void
 exm_unified_data_set_local_data (ExmUnifiedData *self,
-                                   ExmExtension     *extension);
+                                 ExmExtension     *extension);
 
 ExmSearchResult *
 exm_unified_data_get_web_data (ExmUnifiedData *self);
 
 void
 exm_unified_data_set_web_data (ExmUnifiedData *self,
-                                 ExmSearchResult  *extension);
+                               ExmSearchResult  *extension);
 
 const char *
 exm_unified_data_get_name (ExmUnifiedData *self);
@@ -55,5 +56,30 @@ exm_unified_data_get_creator (ExmUnifiedData *self);
 
 const char *
 exm_unified_data_get_uuid (ExmUnifiedData *self);
+
+const char *
+exm_unified_data_get_description (ExmUnifiedData *self);
+
+gboolean
+exm_unified_data_get_screenshot_uri (ExmUnifiedData  *self,
+                                     char           **uri);
+
+gboolean
+exm_unified_data_get_link (ExmUnifiedData  *self,
+                           char           **link);
+
+gboolean
+exm_unified_data_get_homepage (ExmUnifiedData  *self,
+                               char           **homepage);
+
+gboolean
+exm_unified_data_get_pk (ExmUnifiedData *self,
+                         int            *pk);
+
+gboolean
+exm_unified_data_is_empty (ExmUnifiedData *self);
+
+ExmShellVersionMap *
+exm_unified_data_get_shell_version_map (ExmUnifiedData *self);
 
 G_END_DECLS

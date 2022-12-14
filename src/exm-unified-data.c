@@ -171,6 +171,126 @@ exm_unified_data_get_uuid (ExmUnifiedData *self)
     return NULL;
 }
 
+const char *
+exm_unified_data_get_description (ExmUnifiedData *self)
+{
+    const char *description;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "description", &description, NULL);
+        return description;
+    }
+
+    if (self->local_data)
+    {
+        g_object_get (self->local_data, "description", &description, NULL);
+        return description;
+    }
+
+    return NULL;
+}
+
+gboolean
+exm_unified_data_get_screenshot_uri (ExmUnifiedData  *self,
+                                     char           **uri)
+{
+    g_return_val_if_fail (uri != NULL, FALSE);
+
+    *uri = NULL;
+
+    if (self->web_data)
+    {
+        const char *tmp;
+
+        g_object_get (self->web_data, "screenshot", &tmp, NULL);
+        *uri = g_strdup (tmp);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_get_link (ExmUnifiedData  *self,
+                           char           **link)
+{
+    g_return_val_if_fail (link != NULL, FALSE);
+
+    *link = NULL;
+
+    if (self->web_data)
+    {
+        const char *tmp;
+
+        g_object_get (self->web_data, "link", &tmp, NULL);
+        *link = g_strdup (tmp);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_get_homepage (ExmUnifiedData  *self,
+                               char           **homepage)
+{
+    g_return_val_if_fail (homepage != NULL, FALSE);
+
+    *homepage = NULL;
+
+    if (self->web_data)
+    {
+        const char *tmp;
+
+        g_object_get (self->web_data, "homepage", &tmp, NULL);
+        *homepage = g_strdup (tmp);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_get_pk (ExmUnifiedData *self,
+                         int            *pk)
+{
+    g_return_val_if_fail (pk != NULL, FALSE);
+
+    *pk = 0;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "pk", pk, NULL);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_is_empty (ExmUnifiedData *self)
+{
+    return !(self->local_data || self->web_data);
+}
+
+ExmShellVersionMap *
+exm_unified_data_get_shell_version_map (ExmUnifiedData *self)
+{
+    ExmShellVersionMap *version_map;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "shell_version_map", &version_map, NULL);
+        return version_map;
+    }
+
+    return NULL;
+}
+
 static void
 exm_unified_data_class_init (ExmUnifiedDataClass *klass)
 {
