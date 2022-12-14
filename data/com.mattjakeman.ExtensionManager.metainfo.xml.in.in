@@ -4,14 +4,14 @@
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
   <name>Extension Manager</name>
-  <summary>Browse, install, and manage GNOME Shell Extensions</summary>
+  <summary>Install GNOME Extensions</summary>
   <content_rating type="oars-1.1" />
   <developer_name translatable="no">Matthew Jakeman</developer_name>
   <developer id="mattjakeman.com">
     <name translatable="no">Matthew Jakeman</name>
   </developer>
 	<description>
-	  <p>A utility for browsing and installing GNOME Shell Extensions.</p>
+	  <p>Browse and install GNOME Shell extensions to customise your desktop.</p>
     <p>Features:</p>
     <ul>
       <li>Browse extensions.gnome.org right inside the app</li>
