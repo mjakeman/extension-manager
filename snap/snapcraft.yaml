@@ -7,6 +7,7 @@ description: |
   
 architectures:
   - amd64
+  - arm64
   
 # Launchpad doesn't recognize these fields yet
 passthrough:
@@ -14,7 +15,7 @@ passthrough:
   title: Extension Manager
 
 grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   extension-manager:
