@@ -1,5 +1,5 @@
 # Extension Manager
-[![Build Status](https://img.shields.io/github/workflow/status/mjakeman/extension-manager/CI)](https://github.com/mjakeman/extension-manager/actions/workflows/main.yml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mjakeman/extension-manager/main.yml?branch=master)](https://github.com/mjakeman/extension-manager/actions/workflows/main.yml)
 [![Release Version](https://img.shields.io/github/v/release/mjakeman/extension-manager)](github.com/mjakeman/extension-manager/releases/latest)
 [![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=downloads&query=installs_total&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fcom.mattjakeman.ExtensionManager)](https://flathub.org/apps/details/com.mattjakeman.ExtensionManager)
 [![License (GPL-3.0)](https://img.shields.io/github/license/mjakeman/extension-manager)](http://www.gnu.org/licenses/gpl-3.0)
@@ -88,7 +88,7 @@ gsettings reset org.gnome.shell disable-extension-version-validation
 The easiest way to build is by cloning this repo with GNOME Builder. It
 will automatically resolve all relevant flatpak SDKs automatically.
 
-Extension Manager needs the GNOME 42 SDK in order to build.
+Extension Manager needs the GNOME 43 SDK in order to build.
 
 ### Dependencies
 Extension Manager depends on the following libraries:
