@@ -33,8 +33,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "commit": "87cedc2c7e48b01dc1b07aef937e2fe02111b18c",
-                    "tag": "v0.2.0"
+                    "commit": "9adcab2d225fd6435edc85c72a0b67e33880e00b",
+                    "tag": "v0.6.0"
                 }
             ]
         },
@@ -70,7 +70,7 @@
             "build-options" : {
             	"no-debuginfo" : true
             },
-            "config-opts" : [ "-Ddevelopment=true" ],
+            "config-opts" : [ "-Ddevelopment=true", "-Dpackage=Flatpak", "-Ddistributor=Matthew\ Jakeman", "-Dofficial=false" ],
             "sources" : [
                 {
                     "type" : "dir",

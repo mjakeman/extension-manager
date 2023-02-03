@@ -1,1 +1,20 @@
-option('development', type: 'boolean', value: false, description: 'Produce a development build')
+option('development',
+	type: 'boolean',
+	value: false,
+	description: 'Produce a development build')
+
+option('official',
+	type: 'boolean',
+	value: false,
+	description: 'Whether this is an official upstream package')
+
+# Will be shown in error messages
+option('package',
+	type: 'string',
+	value: 'Unknown Package',
+	description: 'The package format being built (e.g. "Flatpak")')
+
+option('distributor',
+	type: 'string',
+	value: 'Unknown Author',
+	description: 'The package distributor (e.g. "Your Name <optional email>")')

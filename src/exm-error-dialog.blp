@@ -2,8 +2,8 @@ using Gtk 4.0;
 using Adw 1;
 
 template ExmErrorDialog : Adw.Window {
-  default-width: 400;
-  default-height: 400;
+  default-width: 450;
+  default-height: 450;
   title: _("Error Report");
 
   Gtk.Box {
@@ -18,13 +18,21 @@ template ExmErrorDialog : Adw.Window {
       orientation: vertical;
       spacing: 16;
 
+      margin-start: 8;
+      margin-end: 8;
+
       Gtk.Image {
         icon-name: "error-symbolic";
         icon-size: large;
       }
 
       Gtk.Label {
-        label: _("An unexpected error occurred in Extension Manager. Please open a new issue and attach the following information:");
+        styles ["heading"]
+        label: _("An unexpected error occurred in Extension Manager.");
+      }
+
+      Gtk.Label instructions {
+        xalign: 0;
         wrap: true;
       }
 
