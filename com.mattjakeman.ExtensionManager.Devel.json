@@ -70,7 +70,7 @@
             "build-options" : {
             	"no-debuginfo" : true
             },
-            "config-opts" : [ "-Ddevelopment=true", "-Dpackage=Flatpak", "-Ddistributor=Matthew\ Jakeman", "-Dofficial=true" ],
+            "config-opts" : [ "-Ddevelopment=true", "-Dpackage=Flatpak", "-Ddistributor=mjakeman", "-Dofficial=true" ],
             "sources" : [
                 {
                     "type" : "dir",
