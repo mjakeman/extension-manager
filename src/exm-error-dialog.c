@@ -20,6 +20,8 @@
 
 #include "exm-error-dialog.h"
 
+#include "exm-config.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmErrorDialog
@@ -28,6 +30,8 @@ struct _ExmErrorDialog
 
     char *error_string;
     GtkTextView *text_view;
+    GtkLabel *instructions;
+    GtkButton *new_issue_button;
 };
 
 G_DEFINE_FINAL_TYPE (ExmErrorDialog, exm_error_dialog, ADW_TYPE_WINDOW)
@@ -93,7 +97,16 @@ exm_error_dialog_set_property (GObject      *object,
             g_free (self->error_string);
 
         self->error_string = g_strdup (g_value_get_string (value));
-        gtk_text_buffer_set_text (buffer, self->error_string, -1);
+
+        GString *string_builder = g_string_new ("Support Log\n");
+        g_string_append_printf (string_builder, "----\n");
+        g_string_append_printf (string_builder, "Version: %s\n", APP_VERSION);
+        g_string_append_printf (string_builder, "Development: %s\n", IS_DEVEL ? "Yes" : "No");
+        g_string_append_printf (string_builder, "Package Format: %s\n", PKG_NAME);
+        g_string_append_printf (string_builder, "Status: %s\n", IS_OFFICIAL ? "Official" : "Third Party");
+        g_string_append_printf (string_builder, "----\n");
+        g_string_append_printf (string_builder, "%s", self->error_string);
+        gtk_text_buffer_set_text (buffer, g_string_free (string_builder, FALSE), -1);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -147,6 +160,8 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-error-dialog.ui");
 
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, text_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, instructions);
+    gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, new_issue_button);
 
     gtk_widget_class_bind_template_callback (widget_class, on_copy_button_clicked);
     gtk_widget_class_bind_template_callback (widget_class, on_new_issue_button_clicked);
@@ -156,5 +171,18 @@ static void
 exm_error_dialog_init (ExmErrorDialog *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
+
+    gtk_label_set_use_markup (self->instructions, TRUE);
+
+#if IS_OFFICIAL
+    gtk_label_set_text (self->instructions, _("Please open a new issue and attach the following information:"));
+    gtk_widget_set_visible (GTK_WIDGET (self->new_issue_button), TRUE);
+#else
+    // Translators: '%s' = Name of Distributor (e.g. "Packager123")
+    char *text = g_markup_printf_escaped (_("You are using a third-party build of Extension Manager. Please <span weight=\"bold\">contact the package distributor (%s) first</span> before filing an issue. Be sure to attach the following information:"), PKG_DISTRIBUTOR);
+    gtk_label_set_markup (self->instructions, text);
+    gtk_widget_set_visible (GTK_WIDGET (self->new_issue_button), FALSE);
+    g_free (text);
+#endif
 }
 

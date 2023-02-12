@@ -21,6 +21,9 @@ config_h.set_quoted('APP_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'extension-manager')
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 config_h.set_quoted('APP_ID', app_id)
+config_h.set_quoted('PKG_NAME', get_option('package'))
+config_h.set_quoted('PKG_DISTRIBUTOR', get_option('distributor'))
+config_h.set10('IS_OFFICIAL', get_option('official'))
 config_h.set10('IS_DEVEL', get_option('development'))
 configure_file(
   output: 'exm-config.h',
