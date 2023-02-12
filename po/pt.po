@@ -237,7 +237,7 @@ msgstr "Nenhum resultado"
 #: src/exm-browse-page.c:292
 #, c-format
 msgid "e.g. “%s”"
-msgstr "por exemplo, \"%s\""
+msgstr "por exemplo, “%s”"
 
 #: src/exm-comment-dialog.blp:7
 msgid "Comments"
