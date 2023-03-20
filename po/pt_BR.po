@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
+# Brazilian Portuguese translations for Extension Manager app.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Douglas Silva <douglasilvadev@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
