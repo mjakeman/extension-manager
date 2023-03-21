@@ -1,15 +1,19 @@
-# Extension Manager
-[![Build Status](https://img.shields.io/github/actions/workflow/status/mjakeman/extension-manager/main.yml?branch=master)](https://github.com/mjakeman/extension-manager/actions/workflows/main.yml)
+<div align="center">
+  <img src="/data/icons/com.mattjakeman.ExtensionManager.svg" width="64">
+  <h1 align="center">Extension Manager</h1>
+  <p align="center">A native tool for browsing, installing, and managing GNOME Shell Extensions</p>
+  
+  [![Build Status](https://img.shields.io/github/actions/workflow/status/mjakeman/extension-manager/main.yml?branch=master)](https://github.com/mjakeman/extension-manager/actions/workflows/main.yml)
 [![Release Version](https://img.shields.io/github/v/release/mjakeman/extension-manager)](github.com/mjakeman/extension-manager/releases/latest)
 [![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=downloads&query=installs_total&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fcom.mattjakeman.ExtensionManager)](https://flathub.org/apps/details/com.mattjakeman.ExtensionManager)
 [![License (GPL-3.0)](https://img.shields.io/github/license/mjakeman/extension-manager)](http://www.gnu.org/licenses/gpl-3.0)
 
-A native tool for browsing, installing, and managing GNOME Shell Extensions.
-
-Written with GTK 4 and libadwaita.
-
+  <sup>Written with GTK 4 and libadwaita</sup>
+  
 ![Screenshot of the main GUI (light mode)](data/screenshot-combined.png#gh-light-mode-only)
 ![Screenshot of the main GUI (dark mode)](data/screenshot-combined-dark.png#gh-dark-mode-only)
+
+</div>
 
 ## 📋 Features
 The tool supports:
