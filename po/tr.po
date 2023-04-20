@@ -9,16 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-24 13:01+1200\n"
-"PO-Revision-Date: 2022-10-16 00:05+0300\n"
+"POT-Creation-Date: 2022-10-28 14:17+0200\n"
+"PO-Revision-Date: 2023-04-20 12:38+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -26,9 +26,9 @@ msgid "@app_title@"
 msgstr "@app_title@"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#: src/exm-application.c:136
+#: src/exm-application.c:187
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "GNOME Shell Uzantılarını keşfedin, kurun ve yönetin"
+msgstr "GNOME Shell Uzantılarını keşfedin, kurun ve yönetin."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -54,114 +54,147 @@ msgid "A utility for managing GNOME Shell Extensions"
 msgstr "GNOME Shell Uzantılarını yönetmeniz için yardımcı bir program"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
-msgid "Translation updates"
-msgstr "Çeviri güncellemeleri"
+msgid "Fully adaptive mobile-friendly user interface"
+msgstr "Tamamen uyarlanabilir mobil dostu kullanıcı arayüzü"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
-msgid "Various bug fixes"
-msgstr "Çeşitli hata düzeltmeleri"
+msgid "Paginated search results"
+msgstr "Sayfalanmış arama sonuçları"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:56
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
+msgid "Upgrade Assistant for checking extension compatibility"
+msgstr "Uzantı uyumluluğunu denetlemek etmek için Yükseltme Yardımcısı"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:47
+msgid "Unsupported extensions are hidden by default"
+msgstr "Desteklenmeyen uzantılar öntanımlı olarak gizlenir"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:48
+msgid "Overhauled error and crash reporting"
+msgstr "Elden geçirilmiş hata ve çökme raporlaması"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:49
+msgid "Full-screen image viewer"
+msgstr "Tam ekran görüntü gösterici"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:50
+msgid "Handles new <code>gnome-extensions://</code> URI scheme"
+msgstr "Yeni <code>gnome-extensions://</code> URI şemalarını işleme"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:51
+msgid "Randomised extension suggestions"
+msgstr "Rastgele uzantı önerimi"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:52
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:61
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
 msgid "Performance and stability"
 msgstr "Performans ve kararlılık"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:59
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:94
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
+msgid "Translation updates"
+msgstr "Çeviri güncellemeleri"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:60
+msgid "Various bug fixes"
+msgstr "Çeşitli hata düzeltmeleri"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
 msgid "Remove release notes dialog"
 msgstr "Sürüm notları iletişim kutusu kaldırıldı"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
 msgid "Fix special characters in installed extension listings"
 msgstr "Kurulu eklentiler listesinde özel karakterleri düzelt"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:77
 msgid "The second feature update to extension-manager. Highlights include:"
 msgstr ""
 "Uzantı Yöneticisi'nin ikinci özellik güncellemesi. Öne çıkanlar arasında:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
 msgid "View comments and reviews"
 msgstr "Yorumları görüntüle"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:65
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
 msgid "Support for in-app updates"
 msgstr "Uygulama içi güncelleme desteği"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:66
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
 msgid "Better handling errors and out-of-date extensions"
 msgstr "Hataların ve tarihi geçmiş uzantıların daha iyi yönetimi"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:67
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
 msgid "Allow installing 'unsupported' extensions"
 msgstr "'Desteklenmeyen' uzantıların kurulmasına izin ver"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
 msgid "Display release notes on first run"
 msgstr "İlk çalıştırmada sürüm notlarını görüntüle"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
 msgid "New app icon"
 msgstr "Yeni uygulama simgesi"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
 msgid "Optionally sort extensions by enabled status"
 msgstr "İsteğe bağlı olarak uzantıları etkin duruma göre sırala"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
 msgid "Fix special characters in search results"
 msgstr "Arama sonuçlarında özel karakterleri düzelt"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:93
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
 msgstr "Bir uzantıyı kaldırırken bazen ortaya çıkan çökme durumu düzeltildi"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:98
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr "Uzantı Yöneticisi'nin ilk özellik güncellemesi. Öne çıkanlar arasında:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:100
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr "Koyu tema ve sistem renk şemasını geçersiz kılma desteği"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
 msgid "Shows screenshots in extension listings"
 msgstr "Uzantı listelerinde ekran görüntülerini gösterir"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
 msgid "Shell version compatibility check"
 msgstr "Shell sürüm uyumluluğu denetimi"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:103
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
 msgid "Localised into seven languages"
 msgstr "Yedi dilde yerelleştirildi"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
 msgid "Sort search results"
 msgstr "Arama sonuçlarını sıralama"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
 msgid "Global extension on/off toggle"
 msgstr "Evrensel uzantı açma/kapama ayarı"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
 msgid "Displays user and system extensions separately"
 msgstr "Kullanıcı ve sistem uzantılarını ayrı ayrı görüntüler"
 
-#: src/exm-application.c:114 src/exm-window.c:446
+#: src/exm-application.c:165 src/exm-window.c:446
 msgid "Extension Manager (Development)"
 msgstr "Uzantı Yöneticisi (Geliştirme)"
 
-#: src/exm-application.c:115 src/exm-window.c:446
+#: src/exm-application.c:166 src/exm-window.c:446
 msgid "Extension Manager"
 msgstr "Uzantı Yöneticisi"
 
-#: src/exm-application.c:142
+#: src/exm-application.c:193
 msgid "translator-credits"
 msgstr ""
 "Onur Ankut <ripsivis@gmail.com>\n"
@@ -206,7 +239,7 @@ msgstr "Sonuç Bulunamadı"
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
 #. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:288
+#: src/exm-browse-page.c:292
 #, c-format
 msgid "e.g. “%s”"
 msgstr "ör: “%s”"
@@ -296,7 +329,7 @@ msgstr "Uzantı yüklenirken hata oluştu"
 
 #: src/exm-extension-row.blp:50
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz."
+msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz"
 
 #: src/exm-extension-row.blp:63
 msgid "A newer version of this extension is available"
@@ -360,21 +393,21 @@ msgid "Log Out"
 msgstr "Oturumu Kapat"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:220
+#: src/exm-installed-page.c:224
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "%d uzantı sonraki girişte güncellenecek."
 
-#: src/exm-installed-page.c:334
+#: src/exm-installed-page.c:338
 msgid "Browse"
 msgstr "Göz At"
 
-#: src/exm-installed-page.c:344 src/exm-upgrade-assistant.c:687
+#: src/exm-installed-page.c:348 src/exm-upgrade-assistant.c:687
 msgid "There are no user extensions installed."
 msgstr "Kurulu kullanıcı uzantısı yok."
 
-#: src/exm-installed-page.c:358 src/exm-upgrade-assistant.c:692
+#: src/exm-installed-page.c:362 src/exm-upgrade-assistant.c:692
 msgid "There are no system extensions installed."
 msgstr "Kurulu sistem uzantısı yok."
 
