@@ -4,6 +4,8 @@ using Adw 1;
 template ExmWindow : Adw.ApplicationWindow {
   default-width: 800;
   default-height: 600;
+  width_request: 400;
+  height_request: 540;
 
   Adw.ToastOverlay toast_overlay {
     child: Adw.Leaflet leaflet {
