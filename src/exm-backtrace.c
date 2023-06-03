@@ -18,15 +18,21 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include "exm-config.h"
+
 #include "exm-backtrace.h"
 
 #include <glib.h>
 #include <stdint.h>
 
+#if WITH_BACKTRACE
 #include <backtrace-supported.h>
 #include <backtrace.h>
+#endif
 
+#if WITH_BACKTRACE
 static struct backtrace_state *state = NULL;
+#endif
 
 static void
 exm_backtrace_error_cb (void       *data,
@@ -54,18 +60,25 @@ exm_backtrace_full_cb (GString    *string_builder,
 void
 exm_backtrace_init (char *filename)
 {
-#ifdef BACKTRACE_SUPPORTED
+#if WITH_BACKTRACE
+
+# ifdef BACKTRACE_SUPPORTED
     state = backtrace_create_state (filename, 0,
                                     exm_backtrace_error_cb,
                                     NULL);
-#else
+# else
     g_warning ("Backtraces are not supported.\n");
+# endif
+
+#else
+    g_info ("Backtraces were not enabled at build time.\n");
 #endif
 }
 
 char *
 exm_backtrace_print ()
 {
+#if WITH_BACKTRACE
     GString *string_builder;
 
     if (!state)
@@ -82,4 +95,8 @@ exm_backtrace_print ()
                     string_builder);
 
     return g_string_free (string_builder, FALSE);
+#else
+    g_critical ("Backtraces were not enabled at build time.\n");
+    return NULL;
+#endif
 }

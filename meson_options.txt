@@ -8,6 +8,11 @@ option('official',
 	value: false,
 	description: 'Whether this is an official upstream package')
 
+option('backtrace',
+    type: 'boolean',
+    value: true,
+    description: 'Whether the package is built with backtrace support')
+
 # Will be shown in error messages
 option('package',
 	type: 'string',
