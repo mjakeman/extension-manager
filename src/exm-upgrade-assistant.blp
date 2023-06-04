@@ -75,6 +75,7 @@ template ExmUpgradeAssistant : Adw.Window {
       Gtk.StackPage results {
       	name: "results";
         child: Gtk.ScrolledWindow {
+		      hscrollbar-policy: never;
 		      child: Adw.Clamp {
 				    child: Gtk.Box {
 				    	styles ["content"]
