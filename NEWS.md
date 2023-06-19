@@ -1,5 +1,68 @@
 # NEWS
 
+## 0.4.2
+
+### Features & Fixes
+ - Horizontal scroll fix in Upgrade Assistant
+ - Pixel perfect app icon
+
+### Translations
+ - Adds Ukrainian
+
+
+## 0.4.1
+Minor update
+
+### Features & Fixes
+
+ - Official snap support
+ - Improved error log generation
+
+### Translations
+
+ - Updates Arabic
+ - Updates Simplified Chinese
+ - Updates Traditional Chinese
+ - Updates French
+ - Updates Norwegian Bokmal
+ - Updates Occitan
+ - Updates Turkish
+ - Updates Estonian
+ - Updates Persian
+ - Updates Greek
+ - Updates Dutch
+ - Updates Russian
+ - Updates Portuguese
+ - Updates Brazillian Portuguese
+
+
+## 0.4.0
+Major feature update to extension-manager
+
+### Features & Fixes
+
+ - Fully adaptive mobile-friendly user interface
+ - Paginated search results
+ - Upgrade Assistant for checking extension compatibility
+ - Unsupported extensions are hidden by default
+ - Overhauled error and crash reporting
+ - Fullscreen image viewer
+ - Handles new gnome-extensions:// URI scheme
+ - Randomised extension suggestions
+ - Performance and stability
+
+### Translations
+
+ - Adds Tamil
+ - Adds Estonian
+ - Updates Arabic
+ - Updates French
+ - Updates Traditional Chinese
+ - Updates Greek
+ - Updates Persian
+ - Updates Spanish
+ - Update Italian
+
 ## 0.3.2
 Minor update
 
@@ -95,14 +158,14 @@ First feature update to extension-manager
 
 ### General
  - Support for i18n and translations
- 
+
 ### GUI
  - Dark Theme
  - Allow overriding system theme
  - Add new details view for online extensions
  - Display screenshots in extension listings
  - Show supported shell versions
- 
+
 ### Local Management
  - Display system and user extensions separately
  - Sort alphabetically

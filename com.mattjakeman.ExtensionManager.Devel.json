@@ -1,7 +1,7 @@
 {
     "app-id" : "com.mattjakeman.ExtensionManager.Devel",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "43",
+    "runtime-version" : "44",
     "sdk" : "org.gnome.Sdk",
     "command" : "extension-manager",
     "finish-args" : [

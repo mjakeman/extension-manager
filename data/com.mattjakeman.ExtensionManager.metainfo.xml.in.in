@@ -38,6 +38,24 @@
   </keywords>
   <translation type="gettext">extension-manager</translation>
   <releases>
+    <release version="0.4.2" date="2023-06-19">
+      <description>
+        <ul>
+          <li>Translation updates</li>
+          <li>Upgrade Assistant scroll fix</li>
+          <li>Pixel perfect app icon</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.4.1" date="2023-05-06">
+      <description>
+        <ul>
+          <li>Translation updates</li>
+          <li>Official snap support</li>
+          <li>Improved error log generation</li>
+        </ul>
+      </description>
+    </release>
 		<release version="0.4.0" date="2022-09-26">
 			<description>
 				<ul>
