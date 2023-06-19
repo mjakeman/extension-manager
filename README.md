@@ -33,6 +33,11 @@ Updates do not work out of the box on GNOME 40 and certain older versions of GNO
 41 and 42 **unless the official GNOME Extensions app is also installed**. See here
 for details and a simple workaround: [Wiki Page](https://github.com/mjakeman/extension-manager/wiki/Known-Issue:-Updates)
 
+## 💬 Community
+We now have a matrix room for Extension Manager.
+
+Join and say hello! https://matrix.to/#/#extension-manager:matrix.org
+
 ## 💻 Installing
 Flatpak is the recommended way to install Extension Manager. 
 
