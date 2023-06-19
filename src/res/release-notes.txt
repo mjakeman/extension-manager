@@ -1,11 +1,5 @@
 <ul>
-	<li>Fully adaptive mobile-friendly user interface</li>
-	<li>Paginated search results</li>
-	<li>Upgrade Assistant for checking extension compatibility</li>
-	<li>Unsupported extensions are hidden by default</li>
-	<li>Overhauled error and crash reporting</li>
-	<li>Full-screen image viewer</li>
-	<li>Handles new <code>gnome-extensions://</code> URI scheme</li>
-	<li>Randomised extension suggestions</li>
-	<li>Performance and stability</li>
+          <li>Translation updates</li>
+          <li>Upgrade Assistant scroll fix</li>
+          <li>Pixel perfect app icon</li>
 </ul>
