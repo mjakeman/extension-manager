@@ -96,7 +96,22 @@ Extension Manager needs the GNOME 43 SDK in order to build.
 
 ### Dependencies
 Extension Manager depends on the following libraries:
+ - gettext
  - gtk4
  - libadwaita
+ - libjson-glib
+ - libsoup
  - [blueprint](https://gitlab.gnome.org/jwestman/blueprint-compiler)
  - [text-engine](https://github.com/mjakeman/text-engine/)
+
+On Debian-based distributions, the required dependencies can be installed with the following command:
+```shell
+sudo apt install blueprint-compiler gettext libadwaita-1-dev libgtk-4-dev libjson-glib-dev libsoup-3.0-dev libtext-engine-dev meson
+```
+
+### Building From Source
+```shell
+meson setup _build
+ninja -C _build
+ninja install -C _build
+```
