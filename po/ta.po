@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-28 14:17+0200\n"
-"PO-Revision-Date: 2023-06-19 19:46+0530\n"
+"PO-Revision-Date: 2023-06-19 19:50+0530\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
 "Language: ta\n"
@@ -232,7 +232,7 @@ msgstr "முடிவுகள் எதுவும் இல்லை"
 #: src/exm-browse-page.c:292
 #, c-format
 msgid "e.g. “%s”"
-msgstr "எ.கா. \"%s\""
+msgstr "எ.கா. “%s“"
 
 #: src/exm-comment-dialog.blp:7
 msgid "Comments"
