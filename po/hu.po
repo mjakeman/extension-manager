@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 17:48+1300\n"
-"PO-Revision-Date: 2022-11-10 12:32+0100\n"
+"PO-Revision-Date: 2023-06-25 17:18+0100\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
 "Language: hu\n"
@@ -16,7 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -469,7 +468,7 @@ msgstr "Telepített"
 #: src/exm-window.blp:48
 msgctxt "Navigation"
 msgid "Browse"
-msgstr "Tallózás"
+msgstr "Böngészés"
 
 #: src/exm-window.blp:70
 msgid "Theme"
