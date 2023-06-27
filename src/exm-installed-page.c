@@ -271,7 +271,7 @@ on_bind_manager (ExmInstalledPage *self)
     g_object_bind_property (self->manager,
                             "extensions-enabled",
                             self->global_toggle,
-                            "state",
+                            "active",
                             G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
 
     g_object_bind_property (self->manager,
