@@ -29,7 +29,7 @@ exm_sources = [
 ]
 
 cc = meson.get_compiler('c')
-libbacktrace_dep = cc.find_library('backtrace', required: true)
+libbacktrace_dep = cc.find_library('backtrace', required: get_option('backtrace'))
 
 exm_deps = [
   dependency('gtk4'),
@@ -37,9 +37,12 @@ exm_deps = [
   dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),
-  dependency('text-engine-0.1'),
-  libbacktrace_dep
+  dependency('text-engine-0.1')
 ]
+
+if libbacktrace_dep.found()
+  exm_deps += libbacktrace_dep
+endif
 
 gnome = import('gnome')
 

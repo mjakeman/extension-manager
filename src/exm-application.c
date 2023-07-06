@@ -201,11 +201,13 @@ exm_application_show_about (GSimpleAction *action,
                                         GTK_LICENSE_MPL_2_0,
                                         NULL);
 
+#if WITH_BACKTRACE
     adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
                                         "libbacktrace",
                                         "Copyright (C) 2012-2016 Free Software Foundation, Inc.",
                                         GTK_LICENSE_BSD_3,
                                         NULL);
+#endif
 
     adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),
                                         "blueprint",
