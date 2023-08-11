@@ -218,34 +218,6 @@ exm_application_show_about (GSimpleAction *action,
     gtk_window_present (GTK_WINDOW (about_window));
 }
 
-
-static gboolean
-map_setting_to_adw_style (GValue   *value,
-                          GVariant *variant)
-{
-    char *str;
-
-    g_variant_get (variant, "s", &str);
-
-    if (strcmp (str, "use-default") == 0)
-    {
-        g_value_set_enum (value, ADW_COLOR_SCHEME_DEFAULT);
-        return TRUE;
-    }
-    else if (strcmp (str, "force-light") == 0)
-    {
-        g_value_set_enum (value, ADW_COLOR_SCHEME_FORCE_LIGHT);
-        return TRUE;
-    }
-    else if (strcmp (str, "force-dark") == 0)
-    {
-        g_value_set_enum (value, ADW_COLOR_SCHEME_FORCE_DARK);
-        return TRUE;
-    }
-
-    return FALSE; // error
-}
-
 static void
 request_logout (ExmApplication *self)
 {
@@ -295,16 +267,6 @@ exm_application_init (ExmApplication *self)
 
     GAction *show_unsupported_action = g_settings_create_action (settings, "show-unsupported");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (show_unsupported_action));
-
-    GAction *style_variant_action = g_settings_create_action (settings, "style-variant");
-    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (style_variant_action));
-
-    AdwStyleManager *style_manager = adw_style_manager_get_default ();
-    g_settings_bind_with_mapping (settings, "style-variant",
-                                  style_manager, "color-scheme",
-                                  G_SETTINGS_BIND_GET,
-                                  map_setting_to_adw_style,
-                                  NULL, NULL, NULL);
 
     g_object_unref (settings);
 
