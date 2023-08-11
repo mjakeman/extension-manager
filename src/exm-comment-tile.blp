@@ -1,7 +1,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template ExmCommentTile : Gtk.Widget {
+template $ExmCommentTile : Gtk.Widget {
   styles ["comment-tile"]
 
   Gtk.Box {
@@ -16,11 +16,11 @@ template ExmCommentTile : Gtk.Widget {
         hexpand: true;
       }
 
-      .ExmRating rating {
+      $ExmRating rating {
         halign: end;
       }
     }
 
-    .TextDisplay display {}
+    $TextDisplay display {}
   }
 }
