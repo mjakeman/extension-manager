@@ -405,7 +405,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     adw_window_title_set_subtitle (self->title, NULL);
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
-	gtk_widget_hide (GTK_WIDGET (self->image_overlay));
+    gtk_widget_set_visible (GTK_WIDGET (self->image_overlay), FALSE);
 
     exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
 }
@@ -543,6 +543,16 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 }
 
 static void
+widget_show(GtkWidget *widget) {
+    gtk_widget_set_visible(widget, TRUE);
+}
+
+static void
+widget_hide(GtkWidget *widget) {
+    gtk_widget_set_visible(widget, FALSE);
+}
+
+static void
 exm_detail_view_init (ExmDetailView *self)
 {
     GSimpleActionGroup *group;
@@ -577,11 +587,11 @@ exm_detail_view_init (ExmDetailView *self)
 
 	g_signal_connect_swapped (self->ext_screenshot_popout_button,
 							  "clicked",
-							  G_CALLBACK (gtk_widget_show),
+							  G_CALLBACK (widget_show),
 							  self->image_overlay);
 
 	g_signal_connect_swapped (self->ext_screenshot_popin_button,
 							  "clicked",
-							  G_CALLBACK (gtk_widget_hide),
+							  G_CALLBACK (widget_hide),
 							  self->image_overlay);
 }

@@ -187,7 +187,7 @@ extension_remove (GtkWidget  *widget,
     data->extension = g_object_ref (extension);
 
     g_signal_connect (dlg, "response", G_CALLBACK (extension_remove_dialog_response), data);
-    gtk_widget_show (dlg);
+    gtk_window_present (GTK_WINDOW (dlg));
 }
 
 static void
@@ -254,7 +254,7 @@ extension_install (GtkWidget  *widget,
         data->uuid = g_strdup (uuid);
 
         g_signal_connect (dlg, "response", G_CALLBACK (extension_unsupported_dialog_response), data);
-        gtk_widget_show (dlg);
+        gtk_window_present (GTK_WINDOW (dlg));
 
         return;
     }
