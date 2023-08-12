@@ -4,6 +4,16 @@ using Adw 1;
 template $ExmWindow : Adw.ApplicationWindow {
   default-width: 800;
   default-height: 600;
+  width-request: 360;
+  height-request: 294;
+
+  Adw.Breakpoint {
+    condition ("max-width: 400sp")
+    setters {
+      header_bar.title-widget: null;
+      switcher_bar.reveal: true;
+    }
+  }
 
   Adw.ToastOverlay toast_overlay {
     child: Adw.Leaflet leaflet {
@@ -14,12 +24,11 @@ template $ExmWindow : Adw.ApplicationWindow {
 
     		[top]
     		Adw.HeaderBar header_bar {
-				  centering-policy: strict;
 
-				  [title]
-				  Adw.ViewSwitcherTitle title {
+				  title-widget: Adw.ViewSwitcher title {
+					  policy: wide;
 					  stack: view_stack;
-				  }
+				  };
 
 				  [end]
 				  Gtk.MenuButton {
@@ -52,9 +61,8 @@ template $ExmWindow : Adw.ApplicationWindow {
 					  }
 				  }
 
-				  Adw.ViewSwitcherBar {
+				  Adw.ViewSwitcherBar switcher_bar {
 					  stack: view_stack;
-					  reveal: bind title.title-visible;
 				  }
 			  };
     	}

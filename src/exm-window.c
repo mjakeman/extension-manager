@@ -43,7 +43,7 @@ struct _ExmWindow
     AdwLeaflet           *leaflet;
     GtkWidget            *main_view;
     ExmDetailView        *detail_view;
-    AdwViewSwitcherTitle *title;
+    AdwViewSwitcher      *title;
     AdwViewStack         *view_stack;
     AdwToastOverlay      *toast_overlay;
 };
@@ -446,7 +446,6 @@ exm_window_init (ExmWindow *self)
     title = IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager");
 
     gtk_window_set_title (GTK_WINDOW (self), title);
-    adw_view_switcher_title_set_title (self->title, title);
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
