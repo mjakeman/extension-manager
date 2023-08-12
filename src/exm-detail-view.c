@@ -430,18 +430,18 @@ open_link (ExmDetailView *self,
            GVariant      *param)
 {
     GtkWidget *toplevel;
-    gchar *uri = NULL;
+    GtkUriLauncher *uri = NULL;
 
     toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
 
     if (strcmp (action_name, "detail.open-extensions") == 0)
-        uri = self->uri_extensions;
+        uri = gtk_uri_launcher_new (self->uri_extensions);
     else if (strcmp (action_name, "detail.open-homepage") == 0)
         g_warning ("open_link(): cannot open homepage as not yet implemented.");
     else
         g_critical ("open_link() invalid action: %s", action_name);
 
-    gtk_show_uri (GTK_WINDOW (toplevel), uri, GDK_CURRENT_TIME);
+    gtk_uri_launcher_launch (uri, GTK_WINDOW (toplevel), NULL, NULL, NULL);
 }
 
 static void
