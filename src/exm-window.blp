@@ -10,9 +10,9 @@ template $ExmWindow : Adw.ApplicationWindow {
     	can-navigate-back: true;
     	can-unfold: false;
 
-    	Gtk.Box main_view {
-    		orientation: vertical;
+    	Adw.ToolbarView main_view {
 
+    		[top]
     		Adw.HeaderBar header_bar {
 				  centering-policy: strict;
 
@@ -28,7 +28,7 @@ template $ExmWindow : Adw.ApplicationWindow {
 				  }
 			  }
 
-			  Gtk.Box {
+			  content: Gtk.Box {
 				  orientation: vertical;
 
 				  Adw.ViewStack view_stack {
@@ -56,7 +56,7 @@ template $ExmWindow : Adw.ApplicationWindow {
 					  stack: view_stack;
 					  reveal: bind title.title-visible;
 				  }
-			  }
+			  };
     	}
 
     	$ExmDetailView detail_view {}
