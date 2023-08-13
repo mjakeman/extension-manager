@@ -156,7 +156,7 @@ get_sort_string (ExmSearchSort sort_type)
     case EXM_SEARCH_SORT_DOWNLOADS:
         return "downloads";
     case EXM_SEARCH_SORT_RECENT:
-        return "recent";
+        return "created";
     case EXM_SEARCH_SORT_NAME:
         return "name";
     case EXM_SEARCH_SORT_POPULARITY:
