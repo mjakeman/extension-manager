@@ -6,14 +6,12 @@ template $ExmUpgradeAssistant : Adw.Window {
   default-height: 550;
   title: _("Upgrade Assistant");
 
-  Gtk.Box {
-    orientation: vertical;
+  Adw.ToolbarView {
 
-    Adw.HeaderBar {
-      styles ["flat"]
-    }
+    [top]
+    Adw.HeaderBar {}
 
-    Gtk.Stack stack {
+    content: Gtk.Stack stack {
       Gtk.StackPage version_select {
       	name: "version-select";
         child: Adw.Clamp {
@@ -132,6 +130,6 @@ template $ExmUpgradeAssistant : Adw.Window {
 		      };
         };
       }
-    }
+    };
   }
 }
