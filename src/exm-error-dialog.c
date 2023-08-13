@@ -114,7 +114,7 @@ exm_error_dialog_set_property (GObject      *object,
 }
 
 static void
-on_copy_button_clicked (GtkWidget      *button,
+on_copy_button_clicked (GtkButton      *button,
                         ExmErrorDialog *window)
 {
     GdkDisplay *display;

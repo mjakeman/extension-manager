@@ -381,7 +381,7 @@ on_error (ExmManager *manager,
           char       *error_text,
           ExmWindow  *self)
 {
-    gtk_widget_activate_action (self, "win.show-error", "s", error_text);
+    gtk_widget_activate_action (GTK_WIDGET (self), "win.show-error", "s", error_text);
 }
 
 static void
