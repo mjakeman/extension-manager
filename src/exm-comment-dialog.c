@@ -7,7 +7,7 @@
 
 struct _ExmCommentDialog
 {
-    GtkWindow parent_instance;
+    AdwWindow parent_instance;
 
     ExmCommentProvider *comment_provider;
 
@@ -17,7 +17,7 @@ struct _ExmCommentDialog
     int web_id;
 };
 
-G_DEFINE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, GTK_TYPE_WINDOW)
+G_DEFINE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, ADW_TYPE_WINDOW)
 
 enum {
     PROP_0,
