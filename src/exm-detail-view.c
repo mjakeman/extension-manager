@@ -39,7 +39,7 @@
 
 struct _ExmDetailView
 {
-    GtkBox parent_instance;
+    AdwNavigationPage parent_instance;
 
     ExmManager *manager;
     ExmDataProvider *provider;
@@ -77,7 +77,7 @@ struct _ExmDetailView
     guint signal_id;
 };
 
-G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, GTK_TYPE_BOX)
+G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, ADW_TYPE_NAVIGATION_PAGE)
 
 enum {
     PROP_0,
