@@ -32,6 +32,7 @@
   <launchable type="desktop-id">@app_id@.desktop</launchable>
   <url type="homepage">https://github.com/mjakeman/extension-manager</url>
   <url type="bugtracker">https://github.com/mjakeman/extension-manager/issues</url>
+  <url type="help">https://github.com/mjakeman/extension-manager/discussions</url>
   <keywords>
     <keyword>Extensions</keyword>
     <keyword>Shell</keyword>

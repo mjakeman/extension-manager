@@ -72,9 +72,18 @@ exm_sources += gnome.mkenums_simple('exm-enums',
   sources: 'exm-types.h'
 )
 
+gresourceconf = configuration_data()
+gresourceconf.set('appstream_file', '@0@.metainfo.xml'.format(app_id))
+
+gresource_file = configure_file(
+  input: 'exm.gresource.xml.in',
+  output: 'exm.gresource.xml',
+  configuration: gresourceconf,
+)
+
 exm_sources += gnome.compile_resources('exm-resources',
-  'exm.gresource.xml',
-  dependencies: blueprints,
+  gresource_file,
+  dependencies: [blueprints, appstream_file],
   c_name: 'exm'
 )
 
