@@ -173,7 +173,7 @@ update_checked_count (ExmUpgradeAssistant *self)
 {
     char *text;
 
-    text = g_strdup_printf ("Checked %d/%d extensions",
+    text = g_strdup_printf (_("Checked %d/%d extensions"),
                             self->number_checked,
                             self->total_extensions);
 
@@ -192,7 +192,7 @@ display_results (ExmUpgradeAssistant *self)
     gtk_progress_bar_set_fraction (self->progress_bar, fraction);
 
     // Set percentage text
-    text = g_strdup_printf ("%d%% Compatible", (int)(fraction * 100));
+    text = g_strdup_printf (_("%d%% Compatible"), (int)(fraction * 100));
     gtk_progress_bar_set_text (self->progress_bar, text);
     free (text);
 
