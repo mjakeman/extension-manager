@@ -229,6 +229,13 @@ request_logout (ExmApplication *self)
 }
 
 static void
+close_window (ExmApplication *self)
+{
+  gtk_window_close (gtk_application_get_active_window (GTK_APPLICATION (self)));
+}
+
+
+static void
 exm_application_init (ExmApplication *self)
 {
     GSettings *settings = g_settings_new (APP_ID);
@@ -245,6 +252,10 @@ exm_application_init (ExmApplication *self)
     g_signal_connect_swapped (logout_action, "activate", G_CALLBACK (request_logout), self);
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (logout_action));
 
+    GSimpleAction *close_action = g_simple_action_new ("close", NULL);
+    g_signal_connect_swapped (close_action, "activate", G_CALLBACK (close_window), self);
+    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (close_action));
+
     GAction *sort_enabled_first_action = g_settings_create_action (settings, "sort-enabled-first");
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (sort_enabled_first_action));
 
@@ -253,6 +264,9 @@ exm_application_init (ExmApplication *self)
 
     g_object_unref (settings);
 
-    const char *accels[] = {"<primary>q", NULL};
-    gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.quit", accels);
+    const char *accels_quit[] = {"<primary>q", NULL};
+    gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.quit", accels_quit);
+
+    const char *accels_close[] = {"<primary>w", NULL};
+    gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.close", accels_close);
 }
