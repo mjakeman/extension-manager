@@ -53,14 +53,16 @@ template $ExmErrorDialog : Adw.Window {
         spacing: 16;
 
         Gtk.Button copy_button {
-          label: _("Copy to Clipboard");
+          label: _("_Copy to Clipboard");
+          use-underline: true;
 
           clicked => $on_copy_button_clicked();
         }
 
         Gtk.Button new_issue_button {
           styles ["suggested-action"]
-          label: _("New Issue");
+          label: _("_New Issue");
+          use-underline: true;
 
           clicked => $on_new_issue_button_clicked() swapped;
         }

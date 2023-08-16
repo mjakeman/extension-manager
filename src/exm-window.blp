@@ -50,16 +50,18 @@ template $ExmWindow : Adw.ApplicationWindow {
 
               Adw.ViewStackPage {
                 name: "installed";
-                title: C_("Navigation", "Installed");
+                title: C_("Navigation", "_Installed");
                 icon-name: "puzzle-piece-symbolic";
+                use-underline: true;
 
                 child: $ExmInstalledPage installed_page {};
               }
 
               Adw.ViewStackPage {
                 name: "browse";
-                title: C_("Navigation", "Browse");
+                title: C_("Navigation", "_Browse");
                 icon-name: "globe-symbolic";
+                use-underline: true;
 
                 child: $ExmBrowsePage browse_page {};
               }
