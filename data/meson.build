@@ -54,7 +54,7 @@ schemaconf.set('app_version', meson.project_version())
 schema_file_in = configure_file(
           input: 'com.mattjakeman.ExtensionManager.gschema.xml.in',
          output: '@0@.gschema.xml'.format(app_id),
-  configuration: appconf,
+  configuration: schemaconf,
 )
 
 install_data(schema_file_in,
