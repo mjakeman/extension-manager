@@ -37,6 +37,14 @@
     <keyword>Shell</keyword>
   </keywords>
   <translation type="gettext">extension-manager</translation>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
   <releases>
     <release version="0.4.2" date="2023-06-19">
       <description>
