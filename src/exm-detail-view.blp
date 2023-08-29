@@ -1,7 +1,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template ExmDetailView : Gtk.Box {
+template $ExmDetailView : Gtk.Box {
 	orientation: vertical;
 
 	Adw.HeaderBar {
@@ -69,7 +69,7 @@ template ExmDetailView : Gtk.Box {
 				hexpand: true;
 				vexpand: true;
 
-				.ExmZoomPicture overlay_screenshot {}
+				$ExmZoomPicture overlay_screenshot {}
 			}
 		}
 
@@ -128,7 +128,7 @@ template ExmDetailView : Gtk.Box {
 									}
 								}
 
-								.ExmInstallButton ext_install {
+								$ExmInstallButton ext_install {
 									valign: center;
 									halign: center;
 								}
@@ -150,7 +150,7 @@ template ExmDetailView : Gtk.Box {
 									tooltip-text: _("Enlarge image");
 								}
 
-								.ExmScreenshot ext_screenshot {}
+								$ExmScreenshot ext_screenshot {}
 							}
 
 							Gtk.Box {

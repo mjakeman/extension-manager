@@ -1,7 +1,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template ExmErrorDialog : Adw.Window {
+template $ExmErrorDialog : Adw.Window {
   default-width: 450;
   default-height: 450;
   title: _("Error Report");
@@ -57,14 +57,14 @@ template ExmErrorDialog : Adw.Window {
         Gtk.Button copy_button {
           label: _("Copy to Clipboard");
 
-          clicked => on_copy_button_clicked();
+          clicked => $on_copy_button_clicked();
         }
 
         Gtk.Button new_issue_button {
           styles ["suggested-action"]
           label: _("New Issue");
 
-          clicked => on_new_issue_button_clicked() swapped;
+          clicked => $on_new_issue_button_clicked() swapped;
         }
       }
     }

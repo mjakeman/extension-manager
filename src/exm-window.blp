@@ -1,7 +1,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template ExmWindow : Adw.ApplicationWindow {
+template $ExmWindow : Adw.ApplicationWindow {
   default-width: 800;
   default-height: 600;
 
@@ -40,7 +40,7 @@ template ExmWindow : Adw.ApplicationWindow {
 						  title: C_("Navigation", "Installed");
 						  icon-name: "puzzle-piece-symbolic";
 
-						  child: .ExmInstalledPage installed_page {};
+						  child: $ExmInstalledPage installed_page {};
 					  }
 
 					  Adw.ViewStackPage {
@@ -48,7 +48,7 @@ template ExmWindow : Adw.ApplicationWindow {
 						  title: C_("Navigation", "Browse");
 						  icon-name: "globe-symbolic";
 
-						  child: .ExmBrowsePage browse_page {};
+						  child: $ExmBrowsePage browse_page {};
 					  }
 				  }
 
@@ -59,7 +59,7 @@ template ExmWindow : Adw.ApplicationWindow {
 			  }
     	}
 
-    	.ExmDetailView detail_view {}
+    	$ExmDetailView detail_view {}
     };
   }
 }

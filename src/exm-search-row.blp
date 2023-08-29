@@ -1,7 +1,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template ExmSearchRow : Gtk.ListBoxRow {
+template $ExmSearchRow : Gtk.ListBoxRow {
 	styles ["search-row"]
 
 	activatable: true;
@@ -56,7 +56,7 @@ template ExmSearchRow : Gtk.ListBoxRow {
 			}
 		}
 
-		.ExmInstallButton install_btn {
+		$ExmInstallButton install_btn {
 			valign: center;
 			halign: end;
 		}
