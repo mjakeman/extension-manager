@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="extension-manager">
   <schema id="@app_id@" path="/com/mattjakeman/ExtensionManager/">
-    <key name="style-variant" type="s">
-      <choices>
-        <choice value="use-default"/>
-        <choice value="force-light"/>
-        <choice value="force-dark"/>
-      </choices>
-      <default>'use-default'</default>
-      <summary>Colour Scheme Preference</summary>
-      <description>Whether to follow the system colour scheme or force either light or dark mode.</description>
-    </key>
     <key name="last-used-version" type="s">
       <default>'@app_version@'</default>
       <summary>Last-Used Version</summary>
