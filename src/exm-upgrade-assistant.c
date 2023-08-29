@@ -498,6 +498,7 @@ widget_factory (ExmUpgradeResult    *result,
     gtk_box_append (GTK_BOX (hbox), vbox);
 
     label = gtk_label_new (name);
+    gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
     gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
     gtk_widget_add_css_class (label, "heading");
     gtk_box_append (GTK_BOX (vbox), label);
