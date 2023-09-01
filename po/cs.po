@@ -302,7 +302,7 @@ msgstr "Zkopírovat do schránky"
 
 #: src/exm-error-dialog.blp:57
 msgid "New Issue"
-msgstr "Nový vydání"
+msgstr "Nový problém"
 
 #. Success indicator
 #: src/exm-error-dialog.c:117 src/exm-upgrade-assistant.c:338
