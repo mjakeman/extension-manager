@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-28 14:17+0200\n"
+"POT-Creation-Date: 2023-09-05 20:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,9 +23,12 @@ msgstr ""
 msgid "@app_title@"
 msgstr ""
 
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:10
+msgid "Manage GNOME Shell Extensions"
+msgstr ""
+
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#: src/exm-application.c:187
-msgid "Browse, install, and manage GNOME Shell Extensions."
+msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
@@ -50,135 +53,153 @@ msgstr ""
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
-msgid "Fully adaptive mobile-friendly user interface"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
-msgid "Paginated search results"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
-msgid "Upgrade Assistant for checking extension compatibility"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:47
-msgid "Unsupported extensions are hidden by default"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:48
-msgid "Overhauled error and crash reporting"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:49
-msgid "Full-screen image viewer"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:50
-msgid "Handles new <code>gnome-extensions://</code> URI scheme"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:51
-msgid "Randomised extension suggestions"
-msgstr ""
-
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:52
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:61
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
-msgid "Performance and stability"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:59
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:94
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:112
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:127
 msgid "Translation updates"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:60
-msgid "Various bug fixes"
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
+msgid "Upgrade Assistant scroll fix"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
-msgid "Remove release notes dialog"
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
+msgid "Pixel perfect app icon"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
+msgid "Official snap support"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:63
+msgid "Improved error log generation"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
-msgid "Fix special characters in installed extension listings"
+msgid "Fully adaptive mobile-friendly user interface"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
+msgid "Paginated search results"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
+msgid "Upgrade Assistant for checking extension compatibility"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:73
+msgid "Unsupported extensions are hidden by default"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:74
+msgid "Overhauled error and crash reporting"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:75
+msgid "Full-screen image viewer"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:76
+msgid "Handles new <code>gnome-extensions://</code> URI scheme"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:77
+msgid "Randomised extension suggestions"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:78
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:97
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:148
+msgid "Performance and stability"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
+msgid "Various bug fixes"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:95
+msgid "Remove release notes dialog"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:96
+msgid "Fix special characters in installed extension listings"
+msgstr ""
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:103
 msgid "The second feature update to extension-manager. Highlights include:"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
 msgid "View comments and reviews"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
 msgid "Support for in-app updates"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
 msgid "Better handling errors and out-of-date extensions"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
 msgid "Allow installing 'unsupported' extensions"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:109
 msgid "Display release notes on first run"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:110
 msgid "New app icon"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:111
 msgid "Optionally sort extensions by enabled status"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:128
 msgid "Fix special characters in search results"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:134
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:139
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:141
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:142
 msgid "Shows screenshots in extension listings"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:143
 msgid "Shell version compatibility check"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:144
 msgid "Localised into seven languages"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:145
 msgid "Sort search results"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:146
 msgid "Global extension on/off toggle"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:147
 msgid "Displays user and system extensions separately"
 msgstr ""
 
@@ -188,6 +209,10 @@ msgstr ""
 
 #: src/exm-application.c:166 src/exm-window.c:446
 msgid "Extension Manager"
+msgstr ""
+
+#: src/exm-application.c:187
+msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr ""
 
 #: src/exm-application.c:193
@@ -261,7 +286,7 @@ msgstr ""
 msgid "Enlarge image"
 msgstr ""
 
-#: src/exm-detail-view.blp:162 src/exm-extension-row.blp:78
+#: src/exm-detail-view.blp:162 src/exm-extension-row.blp:87
 msgid "Description"
 msgstr ""
 
@@ -290,54 +315,65 @@ msgstr ""
 msgid "Error Report"
 msgstr ""
 
-#: src/exm-error-dialog.blp:27
-msgid ""
-"An unexpected error occurred in Extension Manager. Please open a new issue "
-"and attach the following information:"
+#: src/exm-error-dialog.blp:31
+msgid "An unexpected error occurred in Extension Manager."
 msgstr ""
 
-#: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
+#: src/exm-error-dialog.blp:58 src/exm-upgrade-assistant.blp:128
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: src/exm-error-dialog.blp:57
+#: src/exm-error-dialog.blp:65
 msgid "New Issue"
 msgstr ""
 
 #. Success indicator
-#: src/exm-error-dialog.c:117 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:130 src/exm-upgrade-assistant.c:338
 msgid "Copied"
+msgstr ""
+
+#: src/exm-error-dialog.c:178
+msgid "Please open a new issue and attach the following information:"
+msgstr ""
+
+#. Translators: '%s' = Name of Distributor (e.g. "Packager123")
+#: src/exm-error-dialog.c:182
+#, c-format
+msgid ""
+"You are using a third-party build of Extension Manager. Please <span "
+"weight=\"bold\">contact the package distributor (%s) first</span> before "
+"filing an issue. Be sure to attach the following information:"
 msgstr ""
 
 #: src/exm-extension-row.blp:24
 msgid "Open extension preferences"
 msgstr ""
 
-#: src/exm-extension-row.blp:37
+#: src/exm-extension-row.blp:40
 msgid "An error occurred while loading this extension"
 msgstr ""
 
-#: src/exm-extension-row.blp:50
+#: src/exm-extension-row.blp:56
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr ""
 
-#: src/exm-extension-row.blp:63
+#: src/exm-extension-row.blp:72
 msgid "A newer version of this extension is available"
 msgstr ""
 
-#: src/exm-extension-row.blp:105
+#: src/exm-extension-row.blp:114
 msgid "Version"
 msgstr ""
 
-#: src/exm-extension-row.blp:131
+#: src/exm-extension-row.blp:140
 msgid "Error"
 msgstr ""
 
-#: src/exm-extension-row.blp:166
+#: src/exm-extension-row.blp:175
 msgid "See Details"
 msgstr ""
 
-#: src/exm-extension-row.blp:175
+#: src/exm-extension-row.blp:184
 msgid "Remove"
 msgstr ""
 
@@ -354,7 +390,7 @@ msgctxt "State"
 msgid "Installed"
 msgstr ""
 
-#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:515
+#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
 msgstr ""
 
@@ -366,11 +402,11 @@ msgstr ""
 msgid "Extensions can cause performance and stability issues."
 msgstr ""
 
-#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:104
 msgid "User-Installed Extensions"
 msgstr ""
 
-#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:117
 msgid "System Extensions"
 msgstr ""
 
@@ -394,20 +430,31 @@ msgstr[1] ""
 msgid "Browse"
 msgstr ""
 
-#: src/exm-installed-page.c:348 src/exm-upgrade-assistant.c:687
+#: src/exm-installed-page.c:348 src/exm-upgrade-assistant.c:688
 msgid "There are no user extensions installed."
 msgstr ""
 
-#: src/exm-installed-page.c:362 src/exm-upgrade-assistant.c:692
+#: src/exm-installed-page.c:362 src/exm-upgrade-assistant.c:693
 msgid "There are no system extensions installed."
 msgstr ""
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:98
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:80
 msgid "Upgrade Assistant"
 msgstr ""
 
 #: src/exm-upgrade-assistant.blp:49
 msgid "Check Compatibility"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:176
+#, c-format
+msgid "Checked %d/%d extensions"
+msgstr ""
+
+#. Set percentage text
+#: src/exm-upgrade-assistant.c:195
+#, c-format
+msgid "%d%% Compatible"
 msgstr ""
 
 #: src/exm-upgrade-assistant.c:215
@@ -417,29 +464,29 @@ msgid ""
 "installed on the system."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:511
+#: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:513
+#: src/exm-upgrade-assistant.c:514
 msgid "A compatible version of the extension exists."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:518
 msgid "No compatible version of the extension exists."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:519
+#: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:521
+#: src/exm-upgrade-assistant.c:522
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:614
+#: src/exm-upgrade-assistant.c:615
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -457,30 +504,14 @@ msgid "Browse"
 msgstr ""
 
 #: src/exm-window.blp:70
-msgid "Theme"
-msgstr ""
-
-#: src/exm-window.blp:72
-msgid "Follow System"
-msgstr ""
-
-#: src/exm-window.blp:77
-msgid "Light"
-msgstr ""
-
-#: src/exm-window.blp:82
-msgid "Dark"
-msgstr ""
-
-#: src/exm-window.blp:88
 msgid "Sort Enabled First"
 msgstr ""
 
-#: src/exm-window.blp:92
+#: src/exm-window.blp:74
 msgid "Show Unsupported"
 msgstr ""
 
-#: src/exm-window.blp:102
+#: src/exm-window.blp:84
 msgid "About Extension Manager"
 msgstr ""
 
