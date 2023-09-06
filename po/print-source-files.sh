@@ -1,4 +1,3 @@
-#!/bin/bash
 # Useful for updating the POTFILES file (run from this directory)
 
 # Print out these specific data files
