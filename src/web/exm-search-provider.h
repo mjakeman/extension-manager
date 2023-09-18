@@ -13,10 +13,11 @@ G_DECLARE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM, SEARCH_PROVID
 
 typedef enum
 {
-    EXM_SEARCH_SORT_POPULARITY = 0,
-    EXM_SEARCH_SORT_DOWNLOADS = 1,
-    EXM_SEARCH_SORT_RECENT = 2,
-    EXM_SEARCH_SORT_NAME = 3
+    EXM_SEARCH_SORT_RELEVANCE = 0,
+    EXM_SEARCH_SORT_POPULARITY = 1,
+    EXM_SEARCH_SORT_DOWNLOADS = 2,
+    EXM_SEARCH_SORT_RECENT = 3,
+    EXM_SEARCH_SORT_NAME = 4
 } ExmSearchSort;
 
 ExmSearchProvider *exm_search_provider_new (void);
