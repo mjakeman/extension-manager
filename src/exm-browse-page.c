@@ -144,13 +144,10 @@ static void
 update_load_more_btn (ExmBrowsePage *self)
 {
     // Hide button if we are the last page
-    if (self->current_page == self->max_pages)
-        gtk_widget_hide (self->more_results_btn);
-    else
-        gtk_widget_show (self->more_results_btn);
+    gtk_widget_set_visible (GTK_WIDGET (self->more_results_btn), self->current_page == self->max_pages);
 
     // Make it clickable
-    gtk_widget_set_sensitive (self->more_results_btn, TRUE);
+    gtk_widget_set_sensitive (GTK_WIDGET (self->more_results_btn), TRUE);
 }
 
 static void
@@ -238,7 +235,7 @@ on_load_more_results (GtkButton     *btn,
 {
     const char *query;
     ExmSearchSort sort;
-    gtk_widget_set_sensitive (self->more_results_btn, FALSE);
+    gtk_widget_set_sensitive (GTK_WIDGET (self->more_results_btn), FALSE);
 
     query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
     sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
@@ -282,7 +279,7 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
     int num_suggestions;
 
     // Get random suggestion
-    num_suggestions = g_list_model_get_n_items (self->suggestions);
+    num_suggestions = g_list_model_get_n_items (G_LIST_MODEL (self->suggestions));
     random_index = g_random_int_range (0, num_suggestions);
     suggestion = gtk_string_list_get_string (self->suggestions, random_index);
 

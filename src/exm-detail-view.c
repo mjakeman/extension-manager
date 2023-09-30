@@ -405,7 +405,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     adw_window_title_set_subtitle (self->title, NULL);
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
-	gtk_widget_hide (GTK_WIDGET (self->image_overlay));
+    gtk_widget_set_visible (GTK_WIDGET (self->image_overlay), FALSE);
 
     exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
 }
@@ -430,18 +430,18 @@ open_link (ExmDetailView *self,
            GVariant      *param)
 {
     GtkWidget *toplevel;
-    gchar *uri = NULL;
+    GtkUriLauncher *uri = NULL;
 
     toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
 
     if (strcmp (action_name, "detail.open-extensions") == 0)
-        uri = self->uri_extensions;
+        uri = gtk_uri_launcher_new (self->uri_extensions);
     else if (strcmp (action_name, "detail.open-homepage") == 0)
         g_warning ("open_link(): cannot open homepage as not yet implemented.");
     else
         g_critical ("open_link() invalid action: %s", action_name);
 
-    gtk_show_uri (GTK_WINDOW (toplevel), uri, GDK_CURRENT_TIME);
+    gtk_uri_launcher_launch (uri, GTK_WINDOW (toplevel), NULL, NULL, NULL);
 }
 
 static void
@@ -543,6 +543,16 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 }
 
 static void
+widget_show(GtkWidget *widget) {
+    gtk_widget_set_visible(widget, TRUE);
+}
+
+static void
+widget_hide(GtkWidget *widget) {
+    gtk_widget_set_visible(widget, FALSE);
+}
+
+static void
 exm_detail_view_init (ExmDetailView *self)
 {
     GSimpleActionGroup *group;
@@ -577,11 +587,11 @@ exm_detail_view_init (ExmDetailView *self)
 
 	g_signal_connect_swapped (self->ext_screenshot_popout_button,
 							  "clicked",
-							  G_CALLBACK (gtk_widget_show),
+							  G_CALLBACK (widget_show),
 							  self->image_overlay);
 
 	g_signal_connect_swapped (self->ext_screenshot_popin_button,
 							  "clicked",
-							  G_CALLBACK (gtk_widget_hide),
+							  G_CALLBACK (widget_hide),
 							  self->image_overlay);
 }

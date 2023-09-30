@@ -145,12 +145,12 @@ typedef struct
 
 static void
 extension_remove_dialog_response (GtkDialog        *dialog,
-                                  int               response_id,
+                                  const char       *response,
                                   RemoveDialogData *data)
 {
     gtk_window_destroy (GTK_WINDOW (dialog));
 
-    if (response_id == GTK_RESPONSE_YES)
+    if (strcmp(response, "yes") == 0)
     {
         exm_manager_remove_extension (data->manager, data->extension);
     }
@@ -176,18 +176,26 @@ extension_remove (GtkWidget  *widget,
 
     GtkWidget *dlg;
 
-    dlg = gtk_message_dialog_new (GTK_WINDOW (self),
-                                  GTK_DIALOG_MODAL,
-                                  GTK_MESSAGE_QUESTION,
-                                  GTK_BUTTONS_YES_NO,
-                                  _("Are you sure you want to uninstall?"));
+    dlg = adw_message_dialog_new (GTK_WINDOW (self),
+                                  _("Uninstall Extension?"),
+                                  _("The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?"));
+
+    adw_message_dialog_add_responses (ADW_MESSAGE_DIALOG (dlg),
+                                      "no", _("_No"),
+                                      "yes", _("_Yes"),
+                                      NULL);
+
+    adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
+
+    adw_message_dialog_set_default_response (ADW_MESSAGE_DIALOG (dlg), "no");
+    adw_message_dialog_set_close_response (ADW_MESSAGE_DIALOG (dlg), "no");
 
     RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
     data->manager = g_object_ref (self->manager);
     data->extension = g_object_ref (extension);
 
     g_signal_connect (dlg, "response", G_CALLBACK (extension_remove_dialog_response), data);
-    gtk_widget_show (dlg);
+    gtk_window_present (GTK_WINDOW (dlg));
 }
 
 static void
@@ -210,12 +218,12 @@ typedef struct
 
 static void
 extension_unsupported_dialog_response (GtkDialog             *dialog,
-                                       int                    response_id,
+                                       const char            *response,
                                        UnsupportedDialogData *data)
 {
     gtk_window_destroy (GTK_WINDOW (dialog));
 
-    if (response_id == GTK_RESPONSE_YES)
+    if (strcmp(response, "yes") == 0)
     {
         exm_manager_install_async (data->manager, data->uuid, NULL,
                                    (GAsyncReadyCallback) on_install_done,
@@ -243,18 +251,27 @@ extension_install (GtkWidget  *widget,
     {
         GtkWidget *dlg;
 
-        dlg = gtk_message_dialog_new (GTK_WINDOW (self),
-                                      GTK_DIALOG_MODAL,
-                                      GTK_MESSAGE_QUESTION,
-                                      GTK_BUTTONS_YES_NO,
-                                      _("This extension does not support your GNOME Shell version.\nWould you like to install anyway?"));
+        dlg = adw_message_dialog_new (GTK_WINDOW (self),
+                                      _("Unsupported Extension"),
+                                      _("This extension does not support your GNOME Shell version. It may cause errors if installed."));
+
+        adw_message_dialog_add_responses (ADW_MESSAGE_DIALOG (dlg),
+                                          "yes", _("_Install Anyway"),
+                                          "no", _("_Go Back"),
+                                          NULL);
+
+        adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
+        adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "no", ADW_RESPONSE_SUGGESTED);
+
+        adw_message_dialog_set_default_response (ADW_MESSAGE_DIALOG (dlg), "no");
+        adw_message_dialog_set_close_response (ADW_MESSAGE_DIALOG (dlg), "no");
 
         UnsupportedDialogData *data = g_new0 (UnsupportedDialogData, 1);
         data->manager = g_object_ref (self->manager);
         data->uuid = g_strdup (uuid);
 
         g_signal_connect (dlg, "response", G_CALLBACK (extension_unsupported_dialog_response), data);
-        gtk_widget_show (dlg);
+        gtk_window_present (GTK_WINDOW (dlg));
 
         return;
     }
@@ -364,7 +381,7 @@ on_error (ExmManager *manager,
           char       *error_text,
           ExmWindow  *self)
 {
-    gtk_widget_activate_action (self, "win.show-error", "s", error_text);
+    gtk_widget_activate_action (GTK_WIDGET (self), "win.show-error", "s", error_text);
 }
 
 static void

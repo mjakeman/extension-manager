@@ -278,7 +278,7 @@ on_gesture_begin (GtkGesture       *gesture,
 				  GdkEventSequence *sequence,
 				  ExmZoomPicture   *self)
 {
-	gtk_gesture_set_sequence_state (gesture, sequence, GTK_EVENT_SEQUENCE_CLAIMED);
+	gtk_gesture_set_state (gesture, GTK_EVENT_SEQUENCE_CLAIMED);
 	self->gesture_start_zoom = self->zoom_level;
 	self->gesture_image_start_x = self->image_x;
 	self->gesture_image_start_y = self->image_y;

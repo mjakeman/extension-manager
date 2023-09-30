@@ -656,7 +656,7 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
 static void
 exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 {
-    GtkWidget *placeholder;
+    GtkWidget *placeholder, *icon;
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
@@ -684,12 +684,14 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     bind_list_box (self, self->system_list_box, G_LIST_MODEL (self->system_results_store));
 
     placeholder = adw_action_row_new ();
-    adw_action_row_set_icon_name (ADW_ACTION_ROW (placeholder), "puzzle-piece-symbolic");
+    icon = gtk_image_new_from_icon_name ("puzzle-piece-symbolic");
+    adw_action_row_add_prefix (ADW_ACTION_ROW (placeholder), icon);
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("There are no user extensions installed."));
     gtk_list_box_set_placeholder (self->user_list_box, placeholder);
 
     placeholder = adw_action_row_new ();
-    adw_action_row_set_icon_name (ADW_ACTION_ROW (placeholder), "settings-symbolic");
+    icon = gtk_image_new_from_icon_name ("settings-symbolic");
+    adw_action_row_add_prefix (ADW_ACTION_ROW (placeholder), icon);
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("There are no system extensions installed."));
     gtk_list_box_set_placeholder (self->system_list_box, placeholder);
 

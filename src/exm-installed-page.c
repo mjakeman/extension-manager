@@ -332,10 +332,11 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
 static GtkWidget *
 create_user_placeholder ()
 {
-    GtkWidget *row, *button;
+    GtkWidget *row, *button, *icon;
 
     row = adw_action_row_new ();
     button = gtk_button_new_with_label (_("Browse"));
+    icon = gtk_image_new_from_icon_name ("globe-symbolic");
 
     gtk_widget_set_valign (button, GTK_ALIGN_CENTER);
     gtk_widget_set_halign (button, GTK_ALIGN_CENTER);
@@ -343,7 +344,7 @@ create_user_placeholder ()
     gtk_actionable_set_action_name (GTK_ACTIONABLE (button), "win.show-page");
     gtk_actionable_set_action_target (GTK_ACTIONABLE (button), "s", "browse");
 
-    adw_action_row_set_icon_name (ADW_ACTION_ROW (row), "globe-symbolic");
+    adw_action_row_add_prefix (ADW_ACTION_ROW (row), icon);
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
                                    _("There are no user extensions installed."));
     adw_action_row_add_suffix (ADW_ACTION_ROW (row), button);
@@ -354,10 +355,11 @@ create_user_placeholder ()
 static GtkWidget *
 create_system_placeholder ()
 {
-    GtkWidget *row;
+    GtkWidget *row, *icon;
 
     row = adw_action_row_new ();
-    adw_action_row_set_icon_name (ADW_ACTION_ROW (row), "settings-symbolic");
+    icon = gtk_image_new_from_icon_name ("settings-symbolic");
+    adw_action_row_add_prefix (ADW_ACTION_ROW (row), icon);
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
                                    _("There are no system extensions installed."));
 

@@ -114,7 +114,7 @@ exm_error_dialog_set_property (GObject      *object,
 }
 
 static void
-on_copy_button_clicked (GtkWidget      *button,
+on_copy_button_clicked (GtkButton      *button,
                         ExmErrorDialog *window)
 {
     GdkDisplay *display;
@@ -134,7 +134,9 @@ on_copy_button_clicked (GtkWidget      *button,
 static void
 on_new_issue_button_clicked (ExmErrorDialog *window)
 {
-    gtk_show_uri (GTK_WINDOW (window), "https://github.com/mjakeman/extension-manager/issues", GDK_CURRENT_TIME);
+    GtkUriLauncher *uri = gtk_uri_launcher_new ("https://github.com/mjakeman/extension-manager/issues");
+
+    gtk_uri_launcher_launch (uri, GTK_WINDOW (window), NULL, NULL, NULL);
 }
 
 static void
