@@ -8,3 +8,5 @@ Categories=GTK;Utility
 StartupNotify=true
 MimeType=x-scheme-handler/gnome-extensions;
 Comment=Manage GNOME Shell Extensions
+# Translators: Do not translate
+Keywords=extension;manager;
