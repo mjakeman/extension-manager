@@ -6,14 +6,12 @@ template $ExmErrorDialog : Adw.Window {
   default-height: 450;
   title: _("Error Report");
 
-  Gtk.Box {
-    orientation: vertical;
+  Adw.ToolbarView {
 
-    Adw.HeaderBar {
-      styles ["flat"]
-    }
+    [top]
+    Adw.HeaderBar {}
 
-    Gtk.Box {
+    content: Gtk.Box {
       styles ["content"]
       orientation: vertical;
       spacing: 16;
@@ -67,6 +65,6 @@ template $ExmErrorDialog : Adw.Window {
           clicked => $on_new_issue_button_clicked() swapped;
         }
       }
-    }
+    };
   }
 }

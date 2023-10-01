@@ -4,62 +4,73 @@ using Adw 1;
 template $ExmWindow : Adw.ApplicationWindow {
   default-width: 800;
   default-height: 600;
+  width-request: 360;
+  height-request: 294;
+
+  Adw.Breakpoint {
+    condition ("max-width: 400sp")
+    setters {
+      header_bar.title-widget: null;
+      switcher_bar.reveal: true;
+    }
+  }
 
   Adw.ToastOverlay toast_overlay {
-    child: Adw.Leaflet leaflet {
-    	can-navigate-back: true;
-    	can-unfold: false;
+    child: Adw.NavigationView navigation_view {
 
-    	Gtk.Box main_view {
-    		orientation: vertical;
+      Adw.NavigationPage main_view {
+        can-pop: false;
 
-    		Adw.HeaderBar header_bar {
-				  centering-policy: strict;
+        Adw.ToolbarView {
 
-				  [title]
-				  Adw.ViewSwitcherTitle title {
-					  stack: view_stack;
-				  }
+          [top]
+          Adw.HeaderBar header_bar {
+            show-back-button: false;
 
-				  [end]
-				  Gtk.MenuButton {
-				    icon-name: "open-menu-symbolic";
-				    menu-model: primary_menu;
-				  }
-			  }
+            title-widget: Adw.ViewSwitcher title {
+              policy: wide;
+              stack: view_stack;
+            };
 
-			  Gtk.Box {
-				  orientation: vertical;
+            [end]
+            Gtk.MenuButton {
+              icon-name: "open-menu-symbolic";
+              menu-model: primary_menu;
+            }
+          }
 
-				  Adw.ViewStack view_stack {
-					  vexpand: true;
-					  hexpand: true;
+          content: Gtk.Box {
+            orientation: vertical;
 
-					   Adw.ViewStackPage {
-						  name: "installed";
-						  title: C_("Navigation", "Installed");
-						  icon-name: "puzzle-piece-symbolic";
+            Adw.ViewStack view_stack {
+              vexpand: true;
+              hexpand: true;
 
-						  child: $ExmInstalledPage installed_page {};
-					  }
+              Adw.ViewStackPage {
+                name: "installed";
+                title: C_("Navigation", "Installed");
+                icon-name: "puzzle-piece-symbolic";
 
-					  Adw.ViewStackPage {
-						  name: "browse";
-						  title: C_("Navigation", "Browse");
-						  icon-name: "globe-symbolic";
+                child: $ExmInstalledPage installed_page {};
+              }
 
-						  child: $ExmBrowsePage browse_page {};
-					  }
-				  }
+              Adw.ViewStackPage {
+                name: "browse";
+                title: C_("Navigation", "Browse");
+                icon-name: "globe-symbolic";
 
-				  Adw.ViewSwitcherBar {
-					  stack: view_stack;
-					  reveal: bind title.title-visible;
-				  }
-			  }
-    	}
+                child: $ExmBrowsePage browse_page {};
+              }
+            }
 
-    	$ExmDetailView detail_view {}
+            Adw.ViewSwitcherBar switcher_bar {
+              stack: view_stack;
+            }
+          };
+        }
+      }
+
+      $ExmDetailView detail_view {}
     };
   }
 }
@@ -77,11 +88,11 @@ menu primary_menu {
   }
   section {
     item {
-    	label: _("Upgrade Assistant");
+      label: _("Upgrade Assistant");
       action: "win.show-upgrade-assistant";
     }
     item {
-    	label: _("About Extension Manager");
+      label: _("About Extension Manager");
       action: "app.about";
     }
   }

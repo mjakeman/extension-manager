@@ -40,10 +40,10 @@ struct _ExmWindow
     AdwHeaderBar         *header_bar;
     ExmBrowsePage        *browse_page;
     ExmInstalledPage     *installed_page;
-    AdwLeaflet           *leaflet;
-    GtkWidget            *main_view;
+    AdwNavigationView    *navigation_view;
+    AdwNavigationPage    *main_view;
     ExmDetailView        *detail_view;
-    AdwViewSwitcherTitle *title;
+    AdwViewSwitcher      *title;
     AdwViewStack         *view_stack;
     AdwToastOverlay      *toast_overlay;
 };
@@ -310,14 +310,14 @@ show_view (GtkWidget  *widget,
         gchar *uuid;
 
         g_variant_get (param, "s", &uuid);
-        adw_leaflet_set_visible_child (self->leaflet, GTK_WIDGET (self->detail_view));
+        adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (self->detail_view));
 
         exm_detail_view_load_for_uuid (self->detail_view, uuid);
 
         return;
     }
 
-    adw_leaflet_set_visible_child (self->leaflet, self->main_view);
+    adw_navigation_view_pop_to_page (self->navigation_view, self->main_view);
 }
 
 static void
@@ -408,7 +408,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, leaflet);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, navigation_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
@@ -463,7 +463,7 @@ exm_window_init (ExmWindow *self)
     title = IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager");
 
     gtk_window_set_title (GTK_WINDOW (self), title);
-    adw_view_switcher_title_set_title (self->title, title);
+    adw_navigation_page_set_title (self->main_view, title);
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);

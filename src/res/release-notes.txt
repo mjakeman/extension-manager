@@ -1,5 +1,0 @@
-<ul>
-          <li>Translation updates</li>
-          <li>Upgrade Assistant scroll fix</li>
-          <li>Pixel perfect app icon</li>
-</ul>

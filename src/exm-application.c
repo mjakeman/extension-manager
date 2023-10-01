@@ -161,12 +161,6 @@ exm_application_show_about (GSimpleAction *action,
     ExmApplication *self = EXM_APPLICATION (user_data);
     GtkWindow *window = NULL;
     const gchar *authors[] = {"Matthew Jakeman", NULL};
-    const gchar *program_name = IS_DEVEL
-        ? _("Extension Manager (Development)")
-        : _("Extension Manager");
-
-    gchar *release_notes;
-    gsize length;
 
     GtkWidget *about_window;
 
@@ -174,25 +168,14 @@ exm_application_show_about (GSimpleAction *action,
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-    release_notes = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/release-notes.txt", &length);
-
-    about_window = adw_about_window_new ();
+    about_window = adw_about_window_new_from_appdata ("/com/mattjakeman/ExtensionManager/com.mattjakeman.ExtensionManager.metainfo.xml", APP_VERSION);
     gtk_window_set_modal (GTK_WINDOW (about_window), TRUE);
     gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
 
-    adw_about_window_set_application_name (ADW_ABOUT_WINDOW (about_window), program_name);
-    adw_about_window_set_application_icon (ADW_ABOUT_WINDOW (about_window), APP_ID);
-    adw_about_window_set_developer_name (ADW_ABOUT_WINDOW (about_window), "Matthew Jakeman");
-    adw_about_window_set_version (ADW_ABOUT_WINDOW (about_window), APP_VERSION);
     adw_about_window_set_comments (ADW_ABOUT_WINDOW (about_window), _("Browse, install, and manage GNOME Shell Extensions."));
-    adw_about_window_set_website (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager");
-    adw_about_window_set_support_url (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager/discussions");
-    adw_about_window_set_issue_url (ADW_ABOUT_WINDOW (about_window), "https://github.com/mjakeman/extension-manager/issues");
-    adw_about_window_set_release_notes (ADW_ABOUT_WINDOW (about_window), release_notes);
     adw_about_window_set_developers (ADW_ABOUT_WINDOW (about_window), authors);
     adw_about_window_set_translator_credits (ADW_ABOUT_WINDOW (about_window), _("translator-credits"));
     adw_about_window_set_copyright (ADW_ABOUT_WINDOW (about_window), "© 2022 Matthew Jakeman");
-    adw_about_window_set_license_type (ADW_ABOUT_WINDOW (about_window), GTK_LICENSE_GPL_3_0);
 
     // Dependency Attribution
     adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about_window),

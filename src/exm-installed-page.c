@@ -21,7 +21,7 @@ struct _ExmInstalledPage
     GtkListBox *system_list_box;
     GtkLabel *num_updates_label;
     GtkRevealer *updates_action_bar;
-    GtkSwitch *global_toggle;
+    AdwSwitchRow *global_toggle;
 
     gboolean sort_enabled_first;
 };
