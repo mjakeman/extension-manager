@@ -17,11 +17,16 @@ template $ExmInstalledPage : Gtk.Widget {
 						orientation: vertical;
 						spacing: 10;
 
-						Adw.SwitchRow global_toggle {
-						  styles ["card", "global-toggle-row"]
-						  icon-name: 'puzzle-piece-symbolic';
-						  title: _("Use Extensions");
-						  subtitle: _("Extensions can cause performance and stability issues.");
+						Gtk.ListBox {
+							styles ["boxed-list"]
+							valign: start;
+							selection-mode: none;
+
+							Adw.SwitchRow global_toggle {
+								icon-name: 'puzzle-piece-symbolic';
+								title: _("Use Extensions");
+								subtitle: _("Extensions can cause performance and stability issues.");
+							}
 						}
 
 						Gtk.Label {
