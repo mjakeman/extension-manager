@@ -44,9 +44,10 @@ template $ExmUpgradeAssistant : Adw.Window {
             Gtk.Button run_button {
               styles ["pill"]
 
-              label: _("Check Compatibility");
+              label: _("_Check Compatibility");
               halign: center;
               valign: end;
+              use-underline: true;
             }
           }
         };
@@ -123,8 +124,9 @@ template $ExmUpgradeAssistant : Adw.Window {
 			    		}
 
 			    		Gtk.Button copy_details {
-								label: _("Copy to Clipboard");
+								label: _("_Copy to Clipboard");
 								halign: center;
+								use-underline: true;
 			    		}
 				    };
 		      };
