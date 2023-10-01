@@ -292,7 +292,7 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
     g_object_set (search_entry, "placeholder-text", fmt, NULL);
 
     // Fire off a default search
-    search (self, "", EXM_SEARCH_SORT_POPULARITY);
+    search (self, "", EXM_SEARCH_SORT_RELEVANCE);
     gtk_widget_grab_focus (GTK_WIDGET (search_entry));
 }
 
