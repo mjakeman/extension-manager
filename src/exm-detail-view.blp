@@ -234,6 +234,16 @@ template $ExmDetailView : Adw.NavigationPage {
 										}
 
 										Gtk.StackPage {
+											name: "page_empty";
+
+											child: Gtk.Label {
+												label: _("There are no comments.");
+												valign: start;
+												xalign: 0;
+											};
+										}
+
+										Gtk.StackPage {
 											name: "page_comments";
 
 											child: Gtk.Box {
