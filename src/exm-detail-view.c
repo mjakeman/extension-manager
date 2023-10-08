@@ -210,7 +210,14 @@ on_get_comments (GObject       *source,
         return;
     }
 
-    gtk_stack_set_visible_child_name (self->comment_stack, "page_comments");
+    if (g_list_model_get_n_items (model) == 0)
+    {
+        gtk_stack_set_visible_child_name (self->comment_stack, "page_empty");
+    }
+    else
+    {
+        gtk_stack_set_visible_child_name (self->comment_stack, "page_comments");
+    }
 
     gtk_flow_box_bind_model (self->comment_box, model,
                              (GtkListBoxCreateWidgetFunc) comment_factory,
