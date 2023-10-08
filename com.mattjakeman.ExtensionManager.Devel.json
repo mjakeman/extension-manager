@@ -11,7 +11,8 @@
         "--device=dri",
         "--socket=wayland",
         "--talk-name=org.gnome.Shell.Extensions",
-        "--talk-name=org.gnome.SessionManager"
+        "--talk-name=org.gnome.SessionManager",
+        "--env=GDK_PIXBUF_MODULE_FILE=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
     ],
     "cleanup" : [
         "/include",
@@ -25,6 +26,28 @@
         "*.a"
     ],
     "modules" : [
+        {
+            "name" : "webp-pixbuf-loader",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dgdk_pixbuf_moduledir=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/aruiz/webp-pixbuf-loader.git",
+                    "tag" : "0.2.4"
+                }
+            ]
+        },
+        {
+            "name" : "update-pixbuf-loaders",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "GDK_PIXBUF_MODULEDIR=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/ gdk-pixbuf-query-loaders > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache",
+                "gdk-pixbuf-query-loaders >> /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
+            ]
+        },
     	{
             "name": "blueprint-compiler",
             "builddir": true,
