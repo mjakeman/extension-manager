@@ -13,6 +13,8 @@
     <file>exm-rating.ui</file>
     <file>exm-upgrade-assistant.ui</file>
     <file>exm-error-dialog.ui</file>
+    <file>exm-info-bar.ui</file>
+    <file>exm-info-bar-item.ui</file>
     <file alias="suggestions.txt">res/suggestions.txt</file>
     <file preprocess="xml-stripblanks" alias="com.mattjakeman.ExtensionManager.metainfo.xml">../data/@appstream_file@</file>
     <file>style.css</file>

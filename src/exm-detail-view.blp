@@ -167,6 +167,8 @@ template $ExmDetailView : Adw.NavigationPage {
 									}
 								}
 
+								$ExmInfoBar ext_info_bar {}
+
 								Gtk.Box {
 									orientation: vertical;
 
@@ -205,22 +207,6 @@ template $ExmDetailView : Adw.NavigationPage {
 												icon-name: "external-link-symbolic";
 											}
 										}
-									}
-								}
-
-								Gtk.Box {
-									orientation: vertical;
-
-									Gtk.Label {
-										styles ["title-4", "detail-heading"]
-
-										label: _("Supported Versions");
-										xalign: 0;
-									}
-
-									Gtk.FlowBox supported_versions {
-										max-children-per-line: 100;
-										selection-mode: none;
 									}
 								}
 
