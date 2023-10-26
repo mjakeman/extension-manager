@@ -13,6 +13,7 @@ struct _ExmSearchResult
     gchar *creator;
     gchar *icon;
     gchar *screenshot;
+    gchar *url;
     gchar *link;
     gchar *description;
     int pk;
@@ -32,6 +33,7 @@ enum {
     PROP_CREATOR,
     PROP_ICON,
     PROP_SCREENSHOT,
+    PROP_URL,
     PROP_LINK,
     PROP_DESCRIPTION,
     PROP_PK,
@@ -82,6 +84,9 @@ exm_search_result_get_property (GObject    *object,
     case PROP_SCREENSHOT:
         g_value_set_string (value, self->screenshot);
         break;
+    case PROP_URL:
+        g_value_set_string (value, self->url);
+        break;
     case PROP_LINK:
         g_value_set_string (value, self->link);
         break;
@@ -125,6 +130,9 @@ exm_search_result_set_property (GObject      *object,
         break;
     case PROP_SCREENSHOT:
         self->screenshot = g_value_dup_string (value);
+        break;
+    case PROP_URL:
+        self->url = g_value_dup_string (value);
         break;
     case PROP_LINK:
         self->link = g_value_dup_string (value);
@@ -231,6 +239,13 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
         g_param_spec_string ("screenshot",
                              "Screenshot",
                              "Screenshot",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_URL] =
+        g_param_spec_string ("url",
+                             "Url",
+                             "Url",
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
