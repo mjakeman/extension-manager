@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-01 22:48+0200\n"
-"PO-Revision-Date: 2023-11-01 22:53+0200\n"
+"PO-Revision-Date: 2023-11-05 23:44+0200\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -141,7 +141,8 @@ msgstr ""
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
 msgid "The second feature update to extension-manager. Highlights include:"
 msgstr ""
-"Друге оновлення для Extension Manager, яке додає новий функціонал. Що нового:"
+"Друге оновлення для Менеджера розширень, яке додає новий функціонал. Що "
+"нового:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
 msgid "View comments and reviews"
@@ -183,7 +184,8 @@ msgstr "Виправлено збій, який іноді стається пр
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:140
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
-"Перше оновлення для Extension Manager, яке додає новий функціонал. Що нового:"
+"Перше оновлення для Менеджера розширень, яке додає новий функціонал. Що "
+"нового:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:142
 msgid "Dark theme and support for overriding the system colour scheme"
@@ -329,7 +331,7 @@ msgstr "Звітувати про помилку"
 
 #: src/exm-error-dialog.blp:29
 msgid "An unexpected error occurred in Extension Manager."
-msgstr "Неочікувана помилка сталася у Extension Manager."
+msgstr "Неочікувана помилка сталася у Менеджері розширень."
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
 msgid "_Copy to Clipboard"
@@ -357,7 +359,7 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Ви використовуєте сторонню збірку Extension Manager. Будь-ласка, <span "
+"Ви використовуєте сторонню збірку Менеджеру розширень. Будь-ласка, <span "
 "weight=\"bold\">спочатку, зверніться до пакувальника (%s) </span> перед тим "
 "як звітувати. Не забудьте додати наступну інформацію:"
 
@@ -540,7 +542,7 @@ msgstr "Показувати не підтримувані розширення"
 
 #: src/exm-window.blp:99
 msgid "About Extension Manager"
-msgstr "Про Extension Manager"
+msgstr "Про Менеджер розширень"
 
 #: src/exm-window.c:180
 msgid "Uninstall Extension?"
@@ -592,11 +594,11 @@ msgstr "Подробиці"
 
 #: src/exm-window.c:463
 msgid "Extension Manager (Development)"
-msgstr "Extension Manager (Розробка)"
+msgstr "Менеджер розширень (Розробка)"
 
 #: src/exm-window.c:463
 msgid "Extension Manager"
-msgstr "Extension Manager"
+msgstr "Менеджер розширень"
 
 #~ msgctxt "Navigation"
 #~ msgid "Browse"
