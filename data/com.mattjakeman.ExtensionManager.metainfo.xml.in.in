@@ -47,6 +47,15 @@
     <display_length compare="ge">360</display_length>
   </requires>
   <releases>
+    <release version="0.4.3" date="2023-11-08">
+      <description>
+        <ul>
+          <li>HOTFIX: Fix broken 'recent' and 'popularity' search filters</li>
+          <li>Various stability and correctness fixes</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.4.2" date="2023-06-19">
       <description>
         <ul>
