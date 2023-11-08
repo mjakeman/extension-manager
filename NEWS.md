@@ -1,5 +1,28 @@
 # NEWS
 
+## 0.4.3
+
+### Features & Fixes
+ - Fix sorting by recent
+ - Fix sorting by relevance
+ - Remove broken popularity sort
+ - Add support for WebP screenshots
+ - Display extension homepage
+ - Fix bug with global state toggle
+ - Fix margins in local extensions list
+ - Improved keyboard navigation
+ - Remove app theme selector and use system settings
+ - Uses new libadwaita widgets under the hood
+
+### Translations
+ - Updates Czech
+ - Updates French
+ - Updates German
+ - Updates Russian
+ - Updates Spanish
+ - Updates Tamil
+ - Updates Ukrainian
+
 ## 0.4.2
 
 ### Features & Fixes
