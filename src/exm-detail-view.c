@@ -71,6 +71,8 @@ struct _ExmDetailView
 	AdwBin *image_overlay;
 	ExmZoomPicture *overlay_screenshot;
 
+    AdwActionRow *link_homepage;
+    gchar *uri_homepage;
     AdwActionRow *link_extensions;
     gchar *uri_extensions;
     int pk;
@@ -286,7 +288,7 @@ on_data_loaded (GObject      *source,
     {
         gint pk;
         gboolean is_installed, is_supported;
-        gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
+        gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description, *url;
         g_object_get (data,
                       "uuid", &uuid,
                       "name", &name,
@@ -297,6 +299,7 @@ on_data_loaded (GObject      *source,
                       "description", &description,
                       "shell_version_map", &version_map,
                       "pk", &pk,
+                      "url", &url,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
@@ -341,11 +344,17 @@ on_data_loaded (GObject      *source,
 
         g_object_set (self->ext_install, "state", install_state, NULL);
 
+        self->uri_homepage = g_uri_resolve_relative (url,
+                                                     "",
+                                                     G_URI_FLAGS_NONE,
+                                                     NULL);
+
         self->uri_extensions = g_uri_resolve_relative ("https://extensions.gnome.org/",
                                                        link,
                                                        G_URI_FLAGS_NONE,
                                                        NULL);
 
+        adw_action_row_set_subtitle (self->link_homepage, self->uri_homepage);
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
         // Clear Flowbox
@@ -444,7 +453,7 @@ open_link (ExmDetailView *self,
     if (strcmp (action_name, "detail.open-extensions") == 0)
         uri = gtk_uri_launcher_new (self->uri_extensions);
     else if (strcmp (action_name, "detail.open-homepage") == 0)
-        g_warning ("open_link(): cannot open homepage as not yet implemented.");
+        uri = gtk_uri_launcher_new (self->uri_homepage);
     else
         g_critical ("open_link() invalid action: %s", action_name);
 
@@ -537,6 +546,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popin_button);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);

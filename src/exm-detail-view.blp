@@ -167,19 +167,43 @@ template $ExmDetailView : Adw.NavigationPage {
 									}
 								}
 
-								Gtk.ListBox {
-									styles ["boxed-list"]
+								Gtk.Box {
+									orientation: vertical;
 
-									selection-mode: none;
+									Gtk.Label {
+										styles ["title-4", "detail-heading"]
 
-									Adw.ActionRow link_extensions {
-										title: _("View on Extensions");
-										activatable: true;
-										action-name: "detail.open-extensions";
+										label: _("Links");
+										xalign: 0;
+									}
 
-										Gtk.Image {
-											styles ["dim-label"]
-											icon-name: "external-link-symbolic";
+									Gtk.ListBox {
+										styles ["boxed-list"]
+
+										selection-mode: none;
+
+										Adw.ActionRow link_homepage {
+											icon-name: "go-home-symbolic";
+											title: _("Homepage");
+											activatable: true;
+											action-name: "detail.open-homepage";
+
+											Gtk.Image {
+												styles ["dim-label"]
+												icon-name: "external-link-symbolic";
+											}
+										}
+
+										Adw.ActionRow link_extensions {
+											icon-name: "web-browser-symbolic";
+											title: _("View on Extensions");
+											activatable: true;
+											action-name: "detail.open-extensions";
+
+											Gtk.Image {
+												styles ["dim-label"]
+												icon-name: "external-link-symbolic";
+											}
 										}
 									}
 								}
