@@ -310,6 +310,7 @@ show_view (GtkWidget  *widget,
         gchar *uuid;
 
         g_variant_get (param, "s", &uuid);
+        adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self->detail_view), uuid);
         adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (self->detail_view));
 
         exm_detail_view_load_for_uuid (self->detail_view, uuid);

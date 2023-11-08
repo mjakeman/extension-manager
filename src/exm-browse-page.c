@@ -144,7 +144,7 @@ static void
 update_load_more_btn (ExmBrowsePage *self)
 {
     // Hide button if we are the last page
-    gtk_widget_set_visible (GTK_WIDGET (self->more_results_btn), self->current_page == self->max_pages);
+    gtk_widget_set_visible (GTK_WIDGET (self->more_results_btn), self->current_page != self->max_pages);
 
     // Make it clickable
     gtk_widget_set_sensitive (GTK_WIDGET (self->more_results_btn), TRUE);
