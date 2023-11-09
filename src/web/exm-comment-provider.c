@@ -45,8 +45,6 @@ parse_comments (GBytes  *bytes,
 
     data = g_bytes_get_data (bytes, &length);
 
-    // g_print ("%s\n", (gchar *)data);
-
     parser = json_parser_new ();
     if (json_parser_load_from_data (parser, data, length, &error))
     {
