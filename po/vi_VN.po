@@ -440,7 +440,8 @@ msgstr "Đăng xuất"
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "%d tiện ích mở rộng sẽ được cập nhật vào lần đăng nhập tiếp theo."
+msgstr[0] "Một tiện ích mở rộng sẽ được cập nhật vào lần đăng nhập tiếp theo."
+msgstr[1] "%d tiện ích mở rộng sẽ được cập nhật vào lần đăng nhập tiếp theo."
 
 #: src/exm-installed-page.c:338
 msgid "Browse"
