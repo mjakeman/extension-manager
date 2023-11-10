@@ -52,6 +52,9 @@
             "name": "blueprint-compiler",
             "builddir": true,
             "buildsystem": "meson",
+            "cleanup": [
+                "*"
+            ],
             "sources": [
                 {
                     "type": "git",
