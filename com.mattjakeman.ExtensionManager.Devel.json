@@ -1,5 +1,5 @@
 {
-    "app-id" : "com.mattjakeman.ExtensionManager.Devel",
+    "id" : "com.mattjakeman.ExtensionManager.Devel",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "45",
     "sdk" : "org.gnome.Sdk",
