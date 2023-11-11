@@ -17,6 +17,8 @@ Unpack it with archive manager.
 6. Press `Ctrl+S` to save new file, place it inside `./po` folder with filename that POEdit gave you.
 7. Open `./po/LINGUAS` file with any text editor, and add there locale code of your language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`.
 
+Also, please, keep locale codes in alphabetical order.
+
 But sometimes you might want to specify variant for your language. For example, for Russian in Russia Federation, you need to set locale to `ru_RU`, instead of just `ru`.
 
 More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
