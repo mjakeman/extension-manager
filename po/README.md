@@ -112,13 +112,14 @@ On Fedora, you can install it with:
 ```bash
 sudo dnf install meson
 ```
+For other distributions, refer to your distribution package manager.
 
 If you want to regenerate the `pot` file (i.e. when it hasn't been updated in
 a while), there are a few steps that need to be followed:
 
-### Update POTFILES with latest source files
-Replace the contents of `POTFILES` with the output of the `print-source-files.sh`
-script. Make sure to run it from this directory (`./po`).
+1. Update `POTFILES` with latest source files
+
+Replace the contents of `POTFILES` with the output of the `print-source-files.sh` script. Make sure to run it from this directory (`./po`).
 
 Like this: 
 ```bash
@@ -126,7 +127,8 @@ cd extension-manager/po
 ./print-source-files.sh
 ```
 
-### Build POT file
+2. Build `pot` file
+
 Go to the build directory (typically `_build`, but whichever you specified
 when running meson).
 
@@ -142,6 +144,8 @@ But if you didn't run `meson` on Extension Manager before, you might need to ini
 ```bash
 meson
 ```
+
+3. Re-generate `pot`
 
 Now meson is initialized and you can re-generate `pot` file.
 
