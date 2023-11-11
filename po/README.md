@@ -11,35 +11,37 @@ Or you can click green button `Code`, then click `Download ZIP`, which will down
 
 Unpack it with archive manager.
 
-3. You need pot file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](#regenerate-pot-files), before proceeding.
+3. You need `pot` file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](#regenerate-pot-files), before proceeding.
 4. Open it with POEditor.
-5. Click on button `Create a new translation`, select your desired language.
-6. Press `Ctrl+S` to save new file, place it inside `./po` folder with filename that POEdit give you.
-7. Open `./po/LINGUAS` file with any text editor, and add there locale code of you language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`.
+5. Click on button on bottom of window `Create a new translation`, select your desired language.
+6. Press `Ctrl+S` to save new file, place it inside `./po` folder with filename that POEdit gave you.
+7. Open `./po/LINGUAS` file with any text editor, and add there locale code of your language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`.
 
 But sometimes you might want to specify variant for your language. For example, for Russian in Russia Federation, you need to set locale to `ru_RU`, instead of just `ru`.
 
 More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
 8. Translate Extension Manager!
-9. [Test your translation!](#how-to-test-translation)
+9. [Test your translation](#how-to-test-translation).
 
 ## How to test translation
 
 After you finished translation, you might want to test it. The easiest way to do so, is to use GNOME Builder.
 
-1. If you doesn't have [GNOME Builder](apps.gnome.org/Builder), install it.
+1. If you don't have [GNOME Builder](apps.gnome.org/Builder), install it.
 2. Open it.
-3. Click on button below `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
-4. In upper-center, click on hammer button to build Extension Manager.
+3. Click on button on bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
+4. In upper-center, click on `hammer button` to build Extension Manager.
 5. Then click on button with `triangle pointing down` in upper-center.
 6. In opened menu pick `Install`.
 7. Then open `New Runtime Terminal` via `Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Runtime Terminal`.
-8. In opened terminal, you need to force locale that you want to show. Usually, it will match locale name of your `po` file or it might require to specify your regional code. For example, to force application in Ukrainian language, you need to type:
+8. In opened terminal, you need to force locale that you want to test. Usually, it will match locale name of your `po` file or it might require to specify your regional code. For example, to force application in Ukrainian language, you need to type:
 ```bash
 LC_ALL=uk_UA.UTF-8
 ```
 Where you need to replace `uk_UA` with your desired locale.
+
+More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
 9. Run `extension-manager` to run Extension Manager with locale that you want to test.
 
