@@ -11,7 +11,7 @@ Or you can click green button "Code", select "Download ZIP", which will download
 
 Unpack it with archive manager.
 
-3. You need pot file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](## Regenerate POT files), before proceeding.
+3. You need pot file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](##regenerate-pot-files), before proceeding.
 4. Open it with POEditor.
 5. Click on button "Create new translation", select your desired language.
 6. Press Ctrl+S to save new file, place it inside `./po` with filename that POEdit give you.
@@ -22,7 +22,7 @@ But sometimes you might want to specify variant for your language. For example, 
 More about locales you can learn here: https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html
 
 8. Translate Extension Manager!
-9. [Test your translation!](## How to test translation)
+9. [Test your translation!](##how-to-test-translation)
 
 ## How to test translation
 
@@ -30,7 +30,7 @@ After you finished translation, you might want to test it. The easiest way to do
 
 1. If you doesn't have GNOME Builder, install it: [GNOME Builder](apps.gnome.org/Builder)
 2. Open it.
-3. Click on button below "Select a Folder..." and pick folder that with Extension Manager sources [that we cloned](## How to add new translation)
+3. Click on button below "Select a Folder..." and pick folder that with Extension Manager sources [that we cloned](##how-to-add-new translation)
 4. In upper-center, click on hammer button to build Extension Manager.
 5. Then click on button with triangle pointing down.
 6. In opened menu pick "Install".
@@ -61,9 +61,9 @@ If you want update to update translation that someone else already did:
 Try to be consistent with choices that previous translator did, unless they contradict other GTK/GNOME applications translated terms.
 
 ## How to contribute your translation
-1. Make sure, that you have account on Github. And if not, create one here: https://github.com/
+1. Make sure, that you have account on Github. And if not, create one [here](https://github.com/).
 
-2. Also make sure, that you know some basics about how to make pull requests: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork; And how to create fork: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks
+2. Also make sure, that you know some basics about how to make pull requests: [How to make pull request from fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) and [How to create fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
 3. Upload changes that you make in your local copy of repository to your fork.
 
