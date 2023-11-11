@@ -28,7 +28,7 @@ More about locales you can learn [here](https://www.gnu.org/software/gettext/man
 
 After you finished translation, you might want to test it. The easiest way to do so, is to use GNOME Builder.
 
-1. If you don't have [GNOME Builder](apps.gnome.org/Builder), install it.
+1. If you don't have [GNOME Builder](https://apps.gnome.org/Builder/), install it.
 2. Open it.
 3. Click on button on bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
 4. In upper-center, click on `hammer button` to build Extension Manager.
