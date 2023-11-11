@@ -30,7 +30,7 @@ After you finished translation, you might want to test it. The easiest way to do
 
 1. If you doesn't have [GNOME Builder](apps.gnome.org/Builder), install it.
 2. Open it.
-3. Click on button below `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add new translation).
+3. Click on button below `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
 4. In upper-center, click on hammer button to build Extension Manager.
 5. Then click on button with `triangle pointing down` in upper-center.
 6. In opened menu pick `Install`.
