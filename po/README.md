@@ -106,31 +106,21 @@ And if you want to place link:
 You can check if you input everything correctly in `About` dialog of Extension Manager.
 
 ## Regenerate POT files
-Before proceeding, make sure that you have `meson` installed on your system. On some Linux distribution, there might be no pre-installed `meson`, so you need to install it manually.
-
-On Fedora, you can install it with:
-```bash
-sudo dnf install meson
-```
-For other distributions, refer to your distribution package manager.
-
 If you want to regenerate the `pot` file (i.e. when it hasn't been updated in
 a while), there are a few steps that need to be followed:
 
-1. Update `POTFILES` with latest source files
+GNOME Builder version:
 
-Replace the contents of `POTFILES` with the output of the `print-source-files.sh` script. Make sure to run it from this directory (`./po`).
+1. Open GNOME builder.
+2. Open `New Build Terminal` with `Shift+Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Build Terminal`
+3. Go to `po` directory and run `print-source-files.sh`.
 
-Like this: 
 ```bash
 cd extension-manager/po
 ./print-source-files.sh
 ```
-
-2. Build `pot` file
-
-Go to the build directory (typically `_build`, but whichever you specified
-when running meson).
+4. You will get output. Replace contents of `POTFILES` with that output.
+5. Go to the build directory (typically `_build`, but whichever you specified when running meson) and initialize it.
 
 Like this:
 
@@ -138,16 +128,38 @@ Like this:
 cd extension-manager
 mkdir ./_build
 cd ./_build
-```
-
-But if you didn't run `meson` on Extension Manager before, you might need to initialize meson in `_build` folder before proceeding.
-```bash
 meson
 ```
 
-3. Re-generate `pot`
+6. Now meson is initialized and you can re-generate `pot` file.
 
-Now meson is initialized and you can re-generate `pot` file.
+Like this:
+```bash
+meson compile extension-manager-pot
+```
+
+Without GNOME Builder:
+
+1. Make sure that you have `meson` and `gettext` utilities installed on your system. Refer to your distribution package manager.
+2. Go to `po` directory and run `print-source-files.sh`.
+
+```bash
+cd extension-manager/po
+./print-source-files.sh
+```
+3. You will get output. Replace contents of `POTFILES` with that output.
+5. Go to the build directory (typically `_build`, but whichever you specified when running meson) and initialize it.
+
+Like this:
+
+```bash
+cd extension-manager
+mkdir ./_build
+cd ./_build
+meson
+```
+
+6. Now meson is initialized and you can re-generate `pot` file.
 
 Like this:
 ```bash
