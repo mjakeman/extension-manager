@@ -118,7 +118,7 @@ GNOME Builder version:
 3. Go to `po` directory and run `print-source-files.sh`.
 
 ```bash
-cd extension-manager/po
+cd po
 ./print-source-files.sh
 ```
 4. You will get output. Replace contents of `POTFILES` with that output.
