@@ -116,15 +116,14 @@ a while), there are a few steps that need to be followed:
 GNOME Builder version:
 
 1. Open GNOME builder.
-2. Open `New Build Terminal` with `Shift+Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Build Terminal`
-3. Go to `po` directory and run `print-source-files.sh`.
+2. Open `New Runtime Terminal` with `Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Runtime Terminal`
+3. And replace contents of `POTFILES` with output of `print-source-files.sh`.
 
 ```bash
-cd po
-./print-source-files.sh
+cd extension-manager/po
+./print-source-files.sh > ./POTFILES
 ```
-4. You will get output. Replace contents of `POTFILES` with that output.
-5. Go to the build directory (typically `_build`, but whichever you specified when running meson) and initialize it.
+4. Go to the build directory (typically `_build`, but whichever you specified when running meson) and initialize it.
 
 Like this:
 
@@ -149,10 +148,9 @@ Without GNOME Builder:
 
 ```bash
 cd extension-manager/po
-./print-source-files.sh
+./print-source-files.sh > ./POTFILES
 ```
-3. You will get output. Replace contents of `POTFILES` with that output.
-5. Go to the build directory (typically `_build`, but whichever you specified when running meson) and initialize it.
+3. Go to the build directory (typically `_build`, but whichever you specified when running meson) and initialize it.
 
 Like this:
 
