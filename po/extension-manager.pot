@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-11 13:44+0200\n"
+"POT-Creation-Date: 2023-11-01 22:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,161 +59,152 @@ msgid "A utility for managing GNOME Shell Extensions"
 msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
-msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
-msgid "Various stability and correctness fixes"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:95
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:130
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:137
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:128
 msgid "Translation updates"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:63
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
 msgid "Upgrade Assistant scroll fix"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
 msgid "Pixel perfect app icon"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:63
 msgid "Official snap support"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:73
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
 msgid "Improved error log generation"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
 msgid "Fully adaptive mobile-friendly user interface"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
 msgid "Paginated search results"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:73
 msgid "Upgrade Assistant for checking extension compatibility"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:74
 msgid "Unsupported extensions are hidden by default"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:75
 msgid "Overhauled error and crash reporting"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:76
 msgid "Full-screen image viewer"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:77
 msgid "Handles new <code>gnome-extensions://</code> URI scheme"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:78
 msgid "Randomised extension suggestions"
 msgstr ""
 
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:88
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:97
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:123
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:158
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:98
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:114
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:149
 msgid "Performance and stability"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:96
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
 msgid "Various bug fixes"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:96
 msgid "Remove release notes dialog"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:97
 msgid "Fix special characters in installed extension listings"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
 msgid "The second feature update to extension-manager. Highlights include:"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
 msgid "View comments and reviews"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
 msgid "Support for in-app updates"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
 msgid "Better handling errors and out-of-date extensions"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:109
 msgid "Allow installing 'unsupported' extensions"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:110
 msgid "Display release notes on first run"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:111
 msgid "New app icon"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:112
 msgid "Optionally sort extensions by enabled status"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:138
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:129
 msgid "Fix special characters in search results"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:144
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:135
 msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:149
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:140
 msgid "The first feature update to extension-manager. Highlights include:"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:151
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:142
 msgid "Dark theme and support for overriding the system colour scheme"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:152
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:143
 msgid "Shows screenshots in extension listings"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:153
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:144
 msgid "Shell version compatibility check"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:154
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:145
 msgid "Localised into seven languages"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:155
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:146
 msgid "Sort search results"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:156
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:147
 msgid "Global extension on/off toggle"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:157
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:148
 msgid "Displays user and system extensions separately"
 msgstr ""
 
@@ -276,7 +267,7 @@ msgid "Comments"
 msgstr ""
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:255 src/exm-detail-view.c:406
+#: src/exm-detail-view.blp:231 src/exm-detail-view.c:397
 msgid "An Error Occurred"
 msgstr ""
 
@@ -301,35 +292,27 @@ msgid "Description"
 msgstr ""
 
 #: src/exm-detail-view.blp:176
-msgid "Links"
-msgstr ""
-
-#: src/exm-detail-view.blp:187
-msgid "Homepage"
-msgstr ""
-
-#: src/exm-detail-view.blp:199
 msgid "View on Extensions"
 msgstr ""
 
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:193
 msgid "Supported Versions"
 msgstr ""
 
-#: src/exm-detail-view.blp:233
+#: src/exm-detail-view.blp:209
 msgid "User Reviews"
 msgstr ""
 
-#: src/exm-detail-view.blp:264
+#: src/exm-detail-view.blp:240
 msgid "There are no comments."
 msgstr ""
 
-#: src/exm-detail-view.blp:284
+#: src/exm-detail-view.blp:260
 msgid "_Show All Reviews"
 msgstr ""
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:420
+#: src/exm-detail-view.c:411
 msgid "Loading…"
 msgstr ""
 
@@ -577,18 +560,18 @@ msgstr ""
 msgid "_Go Back"
 msgstr ""
 
-#: src/exm-window.c:369
+#: src/exm-window.c:368
 msgid "An error occurred."
 msgstr ""
 
-#: src/exm-window.c:370
+#: src/exm-window.c:369
 msgid "Details"
 msgstr ""
 
-#: src/exm-window.c:464
+#: src/exm-window.c:463
 msgid "Extension Manager (Development)"
 msgstr ""
 
-#: src/exm-window.c:464
+#: src/exm-window.c:463
 msgid "Extension Manager"
 msgstr ""
