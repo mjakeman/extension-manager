@@ -43,7 +43,7 @@ More about locales you can learn [here](https://www.gnu.org/software/gettext/man
 
 ## How to test translation
 
-After you finished translation, you might want to test it. The easiest way to do so, is to use GNOME Builder.
+After you finished translation, you might want to test it. The easiest way to do so, is to use [GNOME Builder](https://apps.gnome.org/Builder/).
 
 1. If you didn't already installed [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
 2. Open GNOME Builder.
