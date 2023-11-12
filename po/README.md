@@ -2,7 +2,7 @@
 
 ## How to add new translation
 
-1. You need software to translate Extension Manager. In this example, we will use [POEdit](https://poedit.net/).
+1. You need software to translate Extension Manager (in this case, we will use [POEdit](https://poedit.net/)) and [GNOME Builder](https://apps.gnome.org/Builder/) to build and test your translation.
 2. Clone Extension Manager repository to your device.
 
 * Using git:
@@ -18,7 +18,7 @@ git clone git@github.com:mjakeman/extension-manager.git
 4. Unpack archive with archive manager of your choice.
 5. Rename folder that will be unpacked from archive to `extension-manager`.
 
-* Using [GNOME Builder](https://apps.gnome.org/Builder/):
+* Using GNOME Builder:
 
 1. Run GNOME Builder.
 2. Click `Clone Repository` button on bottom.
@@ -45,8 +45,8 @@ More about locales you can learn [here](https://www.gnu.org/software/gettext/man
 
 After you finished translation, you might want to test it. The easiest way to do so, is to use GNOME Builder.
 
-1. If you don't have [GNOME Builder](https://apps.gnome.org/Builder/), install it.
-2. Open it.
+1. If you didn't already installed [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
+2. Open GNOME Builder.
 3. Click on button on bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
 4. In upper-center, click on button with `triangle pointing down`.
 5. In opened menu pick `Rebuild`.
