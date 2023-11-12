@@ -3,23 +3,21 @@
 ## How to add new translation
 
 1. You need software to translate Extension Manager. In this example, we will use [POEdit](https://poedit.net/).
-2. Clone Extension Manager repository to your device. You can do this using command line. If you have configured git:
+2. Clone Extension Manager repository to your device. You can do this using git:
 ```bash
 git clone git@github.com:mjakeman/extension-manager.git
 ```
-Or you can click green button `Code`, then click `Download ZIP`, which will download repository inside of zip file.
+Or you can click green button `Code`, then click `Download ZIP`, which will download repository inside of zip file and save it in your `~/` home folder.
 
-Unpack it with archive manager.
+Unpack archive with archive manager of your choice and rename folder that will be unpacked from archive to `extension-manager`.
 
 3. You need `pot` file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](#regenerate-pot-files), before proceeding.
 4. Open it with POEditor.
 5. Click on button on bottom of window `Create a new translation`, select your desired language.
 6. Press `Ctrl+S` to save new file, place it inside `./po` folder with filename that POEdit gave you.
-7. Open `./po/LINGUAS` file with any text editor, and add there locale code of your language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`.
+7. Open `./po/LINGUAS` file with any text editor, and add there locale code of your language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`. And, please, keep locale codes in alphabetical order.
 
-Also, please, keep locale codes in alphabetical order.
-
-But sometimes you might want to specify variant for your language. For example, for Russian in Russia Federation, you need to set locale to `ru_RU`, instead of just `ru`.
+But sometimes, you might want to specify variant for your language. For example, for Russian in Russia Federation, you need to set locale to `ru_RU`, instead of just `ru`.
 
 More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
@@ -36,9 +34,12 @@ After you finished translation, you might want to test it. The easiest way to do
 4. In upper-center, click on button with `triangle pointing down`.
 5. In opened menu pick `Rebuild`.
 6. Wait until you get `Build succeeded` in upper-center text box.
-7. Then click on button with `triangle pointing down` in upper-center.
+7. Click on button with `triangle pointing down` in upper-center.
 8. In opened menu pick `Install`.
-9. Then open `New Runtime Terminal` via `Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Runtime Terminal`.
+9. Open `New Runtime Terminal`.
+
+With `Ctrl+Alt+T` shortcut or click `+` button in top-left corner and pick `New Runtime Terminal`.
+
 10. In opened terminal, you need to force locale that you want to test. Usually, it will match locale name of your `po` file or it might require to specify your regional code. For example, to force application in Ukrainian language, you need to type:
 ```bash
 LC_ALL=uk_UA.UTF-8
@@ -47,23 +48,22 @@ Where you need to replace `uk_UA` with your desired locale.
 
 More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
-11. Run `extension-manager` to run Extension Manager with locale that you want to test.
+11. Run `extension-manager` to run Extension Manager, which would use locale that you want to test.
 
 Once you done some changes, you need to refresh application so it will apply changes to translation. To do so:
 
 1. Stop current running Extension Manager with `Ctrl+C` in terminal or simply close Extension Manager window.
-2. Then click on button with `triangle pointing down` in GNOME Builder.
-3. In opened menu pick `Install`.
-4. Run Extension Manager again.
-After that, you can again run `extension-manager` in terminal, where your changes to `po` file will be applied to Extension Manager.
-
-If, for some reasons, changes in translation fails to apply after that, you might need to rebuild Extension Manager.
-
-1. Close current terminal.
-2. In upper-center, click on button with `triangle pointing down`.
+2. Then click on button on `top-center` with `triangle pointing down` in GNOME Builder.
 3. In opened menu pick `Rebuild`.
+4. Wait until Extension Manager will rebuild itself.
+5. Now close this terminal with:
+```bash
+exit
+```
+Or just click `cross symbol` on tab with this terminal.
 
-After that, again pick `Install`, open `New Runtime Terminal`, change locale, run `extension-manager`, as explained in [How to test translation](#how-to-test-translation) section, starting from step 7.
+6. After that, repeat instructions from [How to test translation](#how-to-test-translation) section, starting from step 7.
+Do this every time, when you do some changes to `po` file to see them in Extension Manager.
 
 ## How to update existing translation
 If you want update to update translation that someone else already did:
@@ -101,9 +101,9 @@ If not, you could use Github interface to do so:
 ## Tips about translating
 1. Try to be consistent in your translation with other GTK/GNOME applications.
 
-Pick same terms, use same accelerations, etc.
+Pick same terms, use same accelerators, etc.
 
-2. Always check your translation before opening pull request, don't just blindly translate.
+2. Always test your translation before opening pull request.
 
 3. Open your `po` file with any text editor, not with POEdit, and in top most of file you will find some placeholder info for your translation. Please, fill it, if you can. Take as example `uk.po` file.
 
@@ -138,6 +138,7 @@ cd extension-manager/po
 Like this:
 
 ```bash
+cd
 cd extension-manager
 mkdir ./_build
 cd ./_build
@@ -150,6 +151,11 @@ Like this:
 ```bash
 meson compile extension-manager-pot
 ```
+7. Now close this terminal with:
+```bash
+exit
+```
+Or just click `cross symbol` on tab with this terminal.
 
 Without GNOME Builder:
 
