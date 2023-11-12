@@ -3,13 +3,30 @@
 ## How to add new translation
 
 1. You need software to translate Extension Manager. In this example, we will use [POEdit](https://poedit.net/).
-2. Clone Extension Manager repository to your device. You can do this using git:
+2. Clone Extension Manager repository to your device.
+
+* Using git:
 ```bash
 git clone git@github.com:mjakeman/extension-manager.git
 ```
-Or you can click green button `Code`, then click `Download ZIP`, which will download repository inside of zip file and save it in your `~/` home folder.
 
-Unpack archive with archive manager of your choice and rename folder that will be unpacked from archive to `extension-manager`.
+* Using Github:
+
+1. Click green button `Code`.
+2. In opened menu click `Download ZIP`.
+3. Save it in your `~/` home folder.
+4. Unpack archive with archive manager of your choice.
+5. Rename folder that will be unpacked from archive to `extension-manager`.
+
+* Using [GNOME Builder](https://apps.gnome.org/Builder/):
+
+1. Run GNOME Builder.
+2. Click `Clone Repository` button on bottom.
+3. In `Repository URL` paste: `https://github.com/mjakeman/extension-manager`
+4. Set `Location` to `~/`
+
+Since later we will use GNOME Builder, you can leave it opened.
+
 
 3. You need `pot` file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](#regenerate-pot-files), before proceeding.
 4. Open it with POEditor.
