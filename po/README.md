@@ -74,7 +74,7 @@ Once you done some changes, you need to refresh application so it will apply cha
 1. Stop current running Extension Manager with `Ctrl+C` in terminal or simply close Extension Manager window.
 2. Then click on button on `top-center` with `triangle pointing down` in GNOME Builder.
 3. In opened menu pick `Rebuild`.
-4. Wait until Extension Manager will rebuild itself.
+4. Wait until GNOME Builder rebuild Extension Manager.
 5. Now close this terminal with:
 ```bash
 exit
