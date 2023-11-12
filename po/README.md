@@ -25,7 +25,7 @@ git clone git@github.com:mjakeman/extension-manager.git
 3. In `Repository URL` paste: `https://github.com/mjakeman/extension-manager`
 4. Set `Location` to `~/`
 
-Since later we will use GNOME Builder, you can leave it opened.
+Since later we will use GNOME Builder again, you can leave it opened.
 
 
 3. You need `pot` file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](#regenerate-pot-files), before proceeding.
@@ -45,10 +45,12 @@ More about locales you can learn [here](https://www.gnu.org/software/gettext/man
 
 After you finished translation, you might want to test it. The easiest way to do so, is to use [GNOME Builder](https://apps.gnome.org/Builder/).
 
+If you choose to clone repository using GNOME Builder in [How to add new translation](#how-to-add-new-translation) and didn't closed GNOME Builder window, skip to step 4.
+
 1. If you didn't already installed [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
 2. Open GNOME Builder.
 3. Click on button on bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
-4. In upper-center, click on button with `triangle pointing down`.
+4. In top-center, click on button with `triangle pointing down`.
 5. In opened menu pick `Rebuild`.
 6. Wait until you get `Build succeeded` in upper-center text box.
 7. Click on button with `triangle pointing down` in upper-center.
