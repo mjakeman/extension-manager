@@ -97,6 +97,10 @@ If you want update to update translation that someone else already did:
 Try to be consistent with choices that previous translator did, unless they contradict other GTK/GNOME applications translated terms or you think that your translation will be better.
 
 ## How to contribute your translation
+If you think that you done with translation, it's time to send you translation as pull request to developers of Extension Manager!
+
+This part might be tricky to someone who not familiar with software development and Github, so if you don't understand something, you can contact [community/developers here](https://github.com/mjakeman/extension-manager#-community), where you will get help!
+
 1. Make sure, that you have account on [Github](https://github.com/). And if not, create one.
 
 2. Also make sure, that you know some basics about how to make pull requests: [How to make pull request from fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) and [How to create fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
