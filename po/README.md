@@ -1,4 +1,9 @@
 # Translating Extension Manager
+Translations contributions is always welcome!
+
+If you totally new to GTK software transitioning or software development in general, fear not! Everything here explained as detailed, as possible!
+
+If you already have experience with translating GTK applications,
 
 ## How to add new translation
 
