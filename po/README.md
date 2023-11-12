@@ -97,9 +97,10 @@ If you want update to update translation that someone else already did:
 3. [Re-generate pot file](#regenerate-pot-files).
 4. Open `po` file that you want to update with POEditor.
 5. In top menu click `Translation`, then `Update from POT file…`, and pick `pot` file that you re-generated earlier.
-6. If you wish, don't forget to add yourself to `translator-credits` and in top of `po` file via text editor.
+6. If you wish, don't forget to add yourself to `translator-credits` (*DON'T REMOVE PREVIOUS TRANSLATORS THERE*, just add your credit on newline) and in top of `po` file via text editor.
+7. [Send pull request](#how-to-contribute-your-translation).
 
-Try to be consistent with choices that previous translator did, unless they contradict other GTK/GNOME applications translated terms or you think that your translation will be better.
+Try to be consistent with choices that previous translator did, unless they contradict other GTK/GNOME applications translated terms or you think that your translation will suit better.
 
 ## How to contribute your translation
 If you think that you done with translation, it's time to send you translation as pull request to developers of Extension Manager!
