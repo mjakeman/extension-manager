@@ -103,7 +103,7 @@ If you want update to update translation that someone else already did:
 Try to be consistent with choices that previous translator did, unless they contradict other GTK/GNOME applications translated terms or you think that your translation will suit better.
 
 ## How to contribute your translation
-If you think that you done with translation, it's time to send you translation as pull request to developers of Extension Manager!
+If you think that you done with translating, it's time to send your translation as pull request to developers of Extension Manager!
 
 This part might be tricky to someone who not familiar with software development and Github, so if you don't understand something, you can contact [community/developers here](https://github.com/mjakeman/extension-manager#-community), where you will get help!
 
@@ -123,7 +123,7 @@ git push
 If not, you could use Github interface to do so:
 
 1. Open your fork on Github, navigate to `./po` folder.
-2. Click `Add file` then `Upload files` and pick your translated `po` file and `LINGUAS`.
+2. Click `Add file` then `Upload files` and pick your translated `po` file and `LINGUAS` (in case if you added new translation. For updates to existing translation you don't need to send `LINGUAS`).
 3. Make sure that everything correct, there no typos in translation, mistakes, you didn't upload wrong files by accident, etc.
 4. Open [pull request](https://github.com/mjakeman/extension-manager/compare) to Extension Manager repository against your fork.
 
