@@ -10,12 +10,12 @@ If you already have experience with translating GTK applications, remember that 
 1. You need software to translate Extension Manager (in this case, we will use [POEdit](https://poedit.net/)) and [GNOME Builder](https://apps.gnome.org/Builder/) to build and test your translation.
 2. Clone Extension Manager repository to your device.
 
-* Using git:
+* *Using git:*
 ```bash
 git clone git@github.com:mjakeman/extension-manager.git
 ```
 
-* Using Github:
+* *Using Github:*
 
 1. Click green button `Code`.
 2. In opened menu click `Download ZIP`.
@@ -23,7 +23,7 @@ git clone git@github.com:mjakeman/extension-manager.git
 4. Unpack archive with archive manager of your choice.
 5. Rename folder that will be unpacked from archive to `extension-manager`.
 
-* Using GNOME Builder:
+* *Using GNOME Builder:*
 
 1. Run GNOME Builder.
 2. Click `Clone Repository` button on bottom.
@@ -152,7 +152,7 @@ You can check if you input everything correctly in `About` dialog of Extension M
 If you want to regenerate the `pot` file (i.e. when it hasn't been updated in
 a while), there are a few steps that need to be followed:
 
-GNOME Builder version:
+* *Using GNOME Builder:*
 
 1. Open GNOME builder.
 2. Open `New Runtime Terminal` with `Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Runtime Terminal`
@@ -186,7 +186,7 @@ exit
 ```
 Or just click `cross symbol` on tab with this terminal.
 
-Without GNOME Builder:
+* *Without GNOME Builder:*
 
 1. Make sure that you have `meson` and `gettext` utilities installed on your system. Refer to your distribution package manager.
 2. Go to `po` directory and run `print-source-files.sh`.
