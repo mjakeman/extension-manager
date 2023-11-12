@@ -33,11 +33,13 @@ After you finished translation, you might want to test it. The easiest way to do
 1. If you don't have [GNOME Builder](https://apps.gnome.org/Builder/), install it.
 2. Open it.
 3. Click on button on bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
-4. In upper-center, click on `hammer button` to build Extension Manager.
-5. Then click on button with `triangle pointing down` in upper-center.
-6. In opened menu pick `Install`.
-7. Then open `New Runtime Terminal` via `Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Runtime Terminal`.
-8. In opened terminal, you need to force locale that you want to test. Usually, it will match locale name of your `po` file or it might require to specify your regional code. For example, to force application in Ukrainian language, you need to type:
+4. In upper-center, click on button with `triangle pointing down`.
+5. In opened menu pick `Rebuild`.
+6. Wait until you get `Build succeeded` in upper-center text box.
+7. Then click on button with `triangle pointing down` in upper-center.
+8. In opened menu pick `Install`.
+9. Then open `New Runtime Terminal` via `Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Runtime Terminal`.
+10. In opened terminal, you need to force locale that you want to test. Usually, it will match locale name of your `po` file or it might require to specify your regional code. For example, to force application in Ukrainian language, you need to type:
 ```bash
 LC_ALL=uk_UA.UTF-8
 ```
@@ -45,15 +47,23 @@ Where you need to replace `uk_UA` with your desired locale.
 
 More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
-9. Run `extension-manager` to run Extension Manager with locale that you want to test.
+11. Run `extension-manager` to run Extension Manager with locale that you want to test.
 
 Once you done some changes, you need to refresh application so it will apply changes to translation. To do so:
 
 1. Stop current running Extension Manager with `Ctrl+C` in terminal or simply close Extension Manager window.
 2. Then click on button with `triangle pointing down` in GNOME Builder.
 3. In opened menu pick `Install`.
-
+4. Run Extension Manager again.
 After that, you can again run `extension-manager` in terminal, where your changes to `po` file will be applied to Extension Manager.
+
+If, for some reasons, changes in translation fails to apply after that, you might need to rebuild Extension Manager.
+
+1. Close current terminal.
+2. In upper-center, click on button with `triangle pointing down`.
+3. In opened menu pick `Rebuild`.
+
+After that, again pick `Install`, open `New Runtime Terminal`, change locale, run `extension-manager`, as explained in [How to test translation](#how-to-test-translation) section, starting from step 7.
 
 ## How to update existing translation
 If you want update to update translation that someone else already did:
