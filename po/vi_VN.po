@@ -1,0 +1,599 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension-manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extension-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-01 22:48+0200\n"
+"PO-Revision-Date: 2023-11-09 22:59+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4\n"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
+msgid "@app_title@"
+msgstr "@app_title@"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+msgid "Manage GNOME Shell Extensions"
+msgstr "Quản lý Tiện ích Mở rộng Gnome Shell"
+
+#. Translators: Do not translate
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
+msgid "extension;manager;"
+msgstr "extension;manager;"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
+msgid "Browse, install, and manage GNOME Shell Extensions"
+msgstr "Duyệt, Cài đặt và Quản lý Tiện ích Mở rộng Gnome Shell"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "Một tiện ích để duyệt và cài đặt Tiện ích Mở rộng Gnome Shell."
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
+msgid "Features:"
+msgstr "Tính năng:"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Duyệt extensions.gnome.org ngay bên trong ứng dụng"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
+msgid "Manage the extensions you already have installed"
+msgstr "Quản lý các tiện ích mở rộng bạn đã cài đặt"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Một tiện ích để quản lý Tiện ích Mở rộng Gnome Shell"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:95
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:128
+msgid "Translation updates"
+msgstr "Cập nhật bản dịch"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
+msgid "Upgrade Assistant scroll fix"
+msgstr "Sửa lỗi cuộn Trợ lý Nâng cấp"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
+msgid "Pixel perfect app icon"
+msgstr "Biểu tượng ứng dụng hoàn hảo Pixel"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:63
+msgid "Official snap support"
+msgstr "Hỗ trợ chụp nhanh chính thức"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
+msgid "Improved error log generation"
+msgstr "Cải thiện việc tạo nhật ký lỗi"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
+msgid "Fully adaptive mobile-friendly user interface"
+msgstr ""
+"Giao diện người dùng thân thiện với thiết bị di động hoàn toàn thích ứng"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
+msgid "Paginated search results"
+msgstr "Kết quả tìm kiếm được phân trang"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:73
+msgid "Upgrade Assistant for checking extension compatibility"
+msgstr "Trợ lý Nâng cấp để kiểm tra khả năng tương thích của tiện ích mở rộng"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:74
+msgid "Unsupported extensions are hidden by default"
+msgstr "Các tiện ích mở rộng không được hỗ trợ sẽ bị ẩn theo mặc định"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:75
+msgid "Overhauled error and crash reporting"
+msgstr "Báo cáo lỗi và sự cố đã được đại tu"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:76
+msgid "Full-screen image viewer"
+msgstr "Trình xem ảnh toàn màn hình"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:77
+msgid "Handles new <code>gnome-extensions://</code> URI scheme"
+msgstr "Xử lý lược đồ URI <code>gnome-extensions://</code> mới"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:78
+msgid "Randomised extension suggestions"
+msgstr "Đề xuất tiện ích mở rộng ngẫu nhiên"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:88
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:98
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:114
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:149
+msgid "Performance and stability"
+msgstr "Hiệu suất và sự ổn định"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
+msgid "Various bug fixes"
+msgstr "Sửa lỗi khác nhau"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:96
+msgid "Remove release notes dialog"
+msgstr "Hộp thoại Xóa ghi chú phát hành"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:97
+msgid "Fix special characters in installed extension listings"
+msgstr "Sửa các ký tự đặc biệt trong danh sách tiện ích mở rộng đã cài đặt"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
+msgid "The second feature update to extension-manager. Highlights include:"
+msgstr ""
+"Bản cập nhật tính năng thứ hai cho trình quản lý tiện ích mở rộng. Những "
+"điểm nổi bật bao gồm:"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
+msgid "View comments and reviews"
+msgstr "Xem nhận xét và đánh giá"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
+msgid "Support for in-app updates"
+msgstr "Hỗ trợ cập nhật trong ứng dụng"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
+msgid "Better handling errors and out-of-date extensions"
+msgstr "Xử lý tốt hơn các lỗi và tiện ích mở rộng lỗi thời"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:109
+msgid "Allow installing 'unsupported' extensions"
+msgstr "Cho phép cài đặt các tiện ích mở rộng 'không được hỗ trợ'"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:110
+msgid "Display release notes on first run"
+msgstr "Hiển thị ghi chú phát hành trong lần chạy đầu tiên"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:111
+msgid "New app icon"
+msgstr "Biểu tượng ứng dụng mới"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:112
+msgid "Optionally sort extensions by enabled status"
+msgstr "Tùy chọn sắp xếp các tiện ích mở rộng theo trạng thái đã bật"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:129
+msgid "Fix special characters in search results"
+msgstr "Sửa các ký tự đặc biệt trong kết quả tìm kiếm"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:135
+msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+msgstr "Khắc phục sự cố đôi khi xảy ra khi gỡ cài đặt tiện ích mở rộng"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:140
+msgid "The first feature update to extension-manager. Highlights include:"
+msgstr ""
+"Bản cập nhật tính năng đầu tiên cho trình quản lý tiện ích mở rộng. Điểm nổi "
+"bật bao gồm:"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:142
+msgid "Dark theme and support for overriding the system colour scheme"
+msgstr "Chủ đề tối và hỗ trợ ghi đè bảng màu hệ thống"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:143
+msgid "Shows screenshots in extension listings"
+msgstr "Hiển thị ảnh chụp màn hình trong danh sách tiện ích mở rộng"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:144
+msgid "Shell version compatibility check"
+msgstr "Kiểm tra tính tương thích của phiên bản Shell"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:145
+msgid "Localised into seven languages"
+msgstr "Bản địa hóa thành bảy ngôn ngữ"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:146
+msgid "Sort search results"
+msgstr "Sắp xếp kết quả tìm kiếm"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:147
+msgid "Global extension on/off toggle"
+msgstr "Bật/tắt tiện ích mở rộng toàn cầu"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:148
+msgid "Displays user and system extensions separately"
+msgstr "Hiển thị riêng phần mở rộng của người dùng và hệ thống"
+
+#: src/exm-application.c:175
+msgid "Browse, install, and manage GNOME Shell Extensions."
+msgstr "Duyệt, Cài đặt và Quản lý Tiện ích Mở rộng Gnome Shell."
+
+#: src/exm-application.c:177
+msgid "translator-credits"
+msgstr "dịch thuật-tín dụng"
+
+#: src/exm-browse-page.blp:7
+msgid "Search for extensions"
+msgstr "Tìm kiếm tiện ích mở rộng"
+
+#: src/exm-browse-page.blp:8
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"Nhập từ khóa để tìm kiếm 'extensions.gnome.org' cho Tiện ích mở rộng Gnome "
+"Shell."
+
+#. Translators: dropdown items for sorting search results
+#: src/exm-browse-page.blp:31
+msgid "Relevance"
+msgstr "Liên quan"
+
+#: src/exm-browse-page.blp:31
+msgid "Popularity"
+msgstr "Phổ biến"
+
+#: src/exm-browse-page.blp:31
+msgid "Downloads"
+msgstr "Tải xuống"
+
+#: src/exm-browse-page.blp:31
+msgid "Recent"
+msgstr "Gần đây"
+
+#: src/exm-browse-page.blp:31
+msgid "Name"
+msgstr "Tên"
+
+#: src/exm-browse-page.blp:58
+msgid "_Load More Results"
+msgstr "_Tải thêm kết quả"
+
+#: src/exm-browse-page.blp:69
+msgid "No Results Found"
+msgstr "Không có kết quả nào được tìm thấy"
+
+#. Translators:
+#. - '%s' is an extension e.g. Blur my Shell
+#. - Please use unicode quotation marks e.g. “” (not "")
+#: src/exm-browse-page.c:289
+#, c-format
+msgid "e.g. “%s”"
+msgstr "ví dụ. \"%s\""
+
+#: src/exm-comment-dialog.blp:9
+msgid "Comments"
+msgstr "Bình luận"
+
+#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
+#: src/exm-detail-view.blp:231 src/exm-detail-view.c:397
+msgid "An Error Occurred"
+msgstr "Đã xảy ra lỗi"
+
+#: src/exm-detail-view.blp:38
+msgid "Zoom In"
+msgstr "Phóng to"
+
+#: src/exm-detail-view.blp:47
+msgid "Zoom Out"
+msgstr "Thu nhỏ"
+
+#: src/exm-detail-view.blp:57
+msgid "Return to view"
+msgstr "Quay lại xem"
+
+#: src/exm-detail-view.blp:145
+msgid "Enlarge image"
+msgstr "Phóng to hình ảnh"
+
+#: src/exm-detail-view.blp:157 src/exm-extension-row.blp:89
+msgid "Description"
+msgstr "Miêu tả"
+
+#: src/exm-detail-view.blp:176
+msgid "View on Extensions"
+msgstr "Xem trên Tiện ích mở rộng"
+
+#: src/exm-detail-view.blp:193
+msgid "Supported Versions"
+msgstr "Phiên bản được hỗ trợ"
+
+#: src/exm-detail-view.blp:209
+msgid "User Reviews"
+msgstr "Đánh giá của người dùng"
+
+#: src/exm-detail-view.blp:240
+msgid "There are no comments."
+msgstr "Không có bình luận nào."
+
+#: src/exm-detail-view.blp:260
+msgid "_Show All Reviews"
+msgstr "_Hiển thị tất cả đánh giá"
+
+#. Translators: Use unicode ellipsis '…' rather than three dots '...'
+#: src/exm-detail-view.c:411
+msgid "Loading…"
+msgstr "Đang tải…"
+
+#: src/exm-error-dialog.blp:7
+msgid "Error Report"
+msgstr "Báo cáo lỗi"
+
+#: src/exm-error-dialog.blp:29
+msgid "An unexpected error occurred in Extension Manager."
+msgstr "Đã xảy ra lỗi không mong muốn trong Trình quản lý tiện ích mở rộng."
+
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+msgid "_Copy to Clipboard"
+msgstr "_Sao chép vào clipboard"
+
+#: src/exm-error-dialog.blp:64
+msgid "_New Issue"
+msgstr "_Vấn đề mới"
+
+#. Success indicator
+#: src/exm-error-dialog.c:130 src/exm-upgrade-assistant.c:338
+msgid "Copied"
+msgstr "Đã sao chép"
+
+#: src/exm-error-dialog.c:180
+msgid "Please open a new issue and attach the following information:"
+msgstr "Vui lòng mở một vấn đề mới và đính kèm các thông tin sau:"
+
+#. Translators: '%s' = Name of Distributor (e.g. "Packager123")
+#: src/exm-error-dialog.c:184
+#, c-format
+msgid ""
+"You are using a third-party build of Extension Manager. Please <span "
+"weight=\"bold\">contact the package distributor (%s) first</span> before "
+"filing an issue. Be sure to attach the following information:"
+msgstr ""
+"Bạn đang sử dụng bản dựng Trình quản lý tiện ích mở rộng của bên thứ ba. Vui "
+"lòng <span weight=\"bold\"> liên hệ với nhà phân phối gói (%s) trước</span> "
+"khi nộp đơn phát hành. Hãy chắc chắn đính kèm các thông tin sau:"
+
+#: src/exm-extension-row.blp:26
+msgid "Open extension preferences"
+msgstr "Mở tùy chọn tiện ích mở rộng"
+
+#: src/exm-extension-row.blp:42
+msgid "An error occurred while loading this extension"
+msgstr "Đã xảy ra lỗi khi tải tiện ích mở rộng này"
+
+#: src/exm-extension-row.blp:58
+msgid "This extension is incompatible with your current version of GNOME"
+msgstr ""
+"Tiện ích mở rộng này không tương thích với phiên bản GNOME hiện tại của bạn"
+
+#: src/exm-extension-row.blp:74
+msgid "A newer version of this extension is available"
+msgstr "Đã có phiên bản mới hơn của tiện ích mở rộng này"
+
+#: src/exm-extension-row.blp:116
+msgid "Version"
+msgstr "Phiên bản"
+
+#: src/exm-extension-row.blp:142
+msgid "Error"
+msgstr "Lỗi"
+
+#: src/exm-extension-row.blp:178
+msgid "See Details"
+msgstr "Xem chi tiết"
+
+#: src/exm-extension-row.blp:187
+msgid "Remove"
+msgstr "Gỡ bỏ"
+
+#: src/exm-install-button.c:105
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr ""
+"Tiện ích mở rộng này không tương thích với phiên bản Gnome hiện tại của bạn."
+
+#: src/exm-install-button.c:115
+msgid "Install"
+msgstr "Cài đặt"
+
+#: src/exm-install-button.c:120
+msgctxt "State"
+msgid "Installed"
+msgstr "Đã cài đặt"
+
+#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:516
+msgid "Unsupported"
+msgstr "Không được hỗ trợ"
+
+#: src/exm-installed-page.blp:27
+msgid "Use Extensions"
+msgstr "Sử dụng tiện ích mở rộng"
+
+#: src/exm-installed-page.blp:28
+msgid "Extensions can cause performance and stability issues."
+msgstr "Tiện ích mở rộng có thể gây ra vấn đề về hiệu suất và độ ổn định."
+
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:103
+msgid "User-Installed Extensions"
+msgstr "Tiện ích mở rộng do người dùng cài đặt"
+
+#: src/exm-installed-page.blp:49 src/exm-upgrade-assistant.blp:116
+msgid "System Extensions"
+msgstr "Tiện ích mở rộng hệ thống"
+
+#: src/exm-installed-page.blp:89
+msgid "Updates are available"
+msgstr "Cập nhật có sẵn"
+
+#: src/exm-installed-page.blp:106
+msgid "Log Out"
+msgstr "Đăng xuất"
+
+#. Translators: '%d' = number of extensions that will be updated
+#: src/exm-installed-page.c:224
+#, c-format
+msgid "One extension will be updated on next login."
+msgid_plural "%d extensions will be updated on next login."
+msgstr[0] "Một tiện ích mở rộng sẽ được cập nhật vào lần đăng nhập tiếp theo."
+msgstr[1] "%d tiện ích mở rộng sẽ được cập nhật vào lần đăng nhập tiếp theo."
+
+#: src/exm-installed-page.c:338
+msgid "Browse"
+msgstr "Duyệt qua"
+
+#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:691
+msgid "There are no user extensions installed."
+msgstr "Không có tiện ích mở rộng người dùng nào được cài đặt."
+
+#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:697
+msgid "There are no system extensions installed."
+msgstr "Không có phần mở rộng hệ thống nào được cài đặt."
+
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:95
+msgid "Upgrade Assistant"
+msgstr "Trợ lý Nâng cấp"
+
+#: src/exm-upgrade-assistant.blp:47
+msgid "_Check Compatibility"
+msgstr "_Kiểm tra tính tương thích"
+
+#: src/exm-upgrade-assistant.c:176
+#, c-format
+msgid "Checked %d/%d extensions"
+msgstr "Đã kiểm tra %d/%d tiện ích mở rộng"
+
+#. Set percentage text
+#: src/exm-upgrade-assistant.c:195
+#, c-format
+msgid "%d%% Compatible"
+msgstr "%d%% Tương thích"
+
+#: src/exm-upgrade-assistant.c:215
+#, c-format
+msgid ""
+"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+"installed on the system."
+msgstr ""
+"<b>GNOME %s</b> hỗ trợ <b>%d trong số %d</b> tiện ích mở rộng hiện được cài "
+"đặt trên hệ thống."
+
+#: src/exm-upgrade-assistant.c:512
+msgid "Supported"
+msgstr "Được hỗ trợ"
+
+#: src/exm-upgrade-assistant.c:514
+msgid "A compatible version of the extension exists."
+msgstr "Đã tồn tại phiên bản tương thích của tiện ích mở rộng."
+
+#: src/exm-upgrade-assistant.c:518
+msgid "No compatible version of the extension exists."
+msgstr "Không có phiên bản tương thích của tiện ích mở rộng tồn tại."
+
+#: src/exm-upgrade-assistant.c:520
+msgid "Unknown"
+msgstr "Không biết"
+
+#: src/exm-upgrade-assistant.c:522
+msgid ""
+"This extension is not hosted on extensions.gnome.org. Its compatibility "
+"cannot be determined."
+msgstr ""
+"Tiện ích mở rộng này không được lưu trữ trên extensions.gnome.org. Khả năng "
+"tương thích của nó không thể được xác định."
+
+#: src/exm-upgrade-assistant.c:615
+#, c-format
+msgid ""
+"You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
+"and check whether your extensions will continue to be available."
+msgstr ""
+"Bạn hiện đang chạy <b>GNOME %s</b>. Chọn một phiên bản GNOME bên dưới và "
+"kiểm tra xem các tiện ích mở rộng của bạn có tiếp tục khả dụng hay không."
+
+#: src/exm-window.blp:40
+msgid "Main Menu"
+msgstr "Menu chính"
+
+#: src/exm-window.blp:53
+msgctxt "Navigation"
+msgid "_Installed"
+msgstr "_Đã Cài đặt"
+
+#: src/exm-window.blp:62
+msgctxt "Navigation"
+msgid "_Browse"
+msgstr "_Duyệt"
+
+#: src/exm-window.blp:85
+msgid "Sort Enabled First"
+msgstr "Sắp xếp Đã bật trước"
+
+#: src/exm-window.blp:89
+msgid "Show Unsupported"
+msgstr "Hiển thị Không hỗ trợ"
+
+#: src/exm-window.blp:99
+msgid "About Extension Manager"
+msgstr "Về Trình quản lý tiện ích mở rộng"
+
+#: src/exm-window.c:180
+msgid "Uninstall Extension?"
+msgstr "Gỡ cài đặt tiện ích mở rộng?"
+
+#: src/exm-window.c:181
+msgid ""
+"The extension's features and functionality will no longer be accessible. Are "
+"you sure you want to uninstall?"
+msgstr ""
+"Các tính năng và chức năng của tiện ích mở rộng sẽ không thể truy cập được "
+"nữa. Bạn có chắc chắn muốn gỡ cài đặt không?"
+
+#: src/exm-window.c:184
+msgid "_No"
+msgstr "_Không"
+
+#: src/exm-window.c:185
+msgid "_Yes"
+msgstr "_Có"
+
+#: src/exm-window.c:255
+msgid "Unsupported Extension"
+msgstr "Tiện ích mở rộng không được hỗ trợ"
+
+#: src/exm-window.c:256
+msgid ""
+"This extension does not support your GNOME Shell version. It may cause "
+"errors if installed."
+msgstr ""
+"Tiện ích mở rộng này không hỗ trợ phiên bản GNOME Shell của bạn. Nó có thể "
+"gây ra lỗi nếu cài đặt."
+
+#: src/exm-window.c:259
+msgid "_Install Anyway"
+msgstr "_Vẫn cài đặt"
+
+#: src/exm-window.c:260
+msgid "_Go Back"
+msgstr "_Quay lại"
+
+#: src/exm-window.c:368
+msgid "An error occurred."
+msgstr "Đã xảy ra lỗi."
+
+#: src/exm-window.c:369
+msgid "Details"
+msgstr "Chi tiết"
+
+#: src/exm-window.c:463
+msgid "Extension Manager (Development)"
+msgstr "Trình quản lý tiện ích mở rộng (Phát triển)"
+
+#: src/exm-window.c:463
+msgid "Extension Manager"
+msgstr "Trình quản lý tiện ích mở rộng"
