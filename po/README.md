@@ -90,7 +90,7 @@ Or just click `cross symbol` on tab with this terminal.
 Do this every time, when you do some changes to `po` file to see them in Extension Manager.
 
 ## How to update existing translation
-If you want update to update translation that someone else already did:
+If you want to update the translation that someone else already did:
 
 1. Try to contact original translator. You might find their contact info in top of `po` file of translation that you want to update (if you will open it via any text editor) or in `translator-credits` and ask them about changes in translation.
 2. If you can't contact them for some reasons or they don't respond, then just translate on your own.
