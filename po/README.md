@@ -30,7 +30,7 @@ git clone git@github.com:mjakeman/extension-manager.git
 3. In `Repository URL` paste: `https://github.com/mjakeman/extension-manager`
 4. Set `Location` to `~/`
 
-Since later we will use GNOME Builder again, you can leave it opened.
+You can leave GNOME Builder open as we will use it again later.
 
 
 3. You need `pot` file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](#regenerate-pot-files), before proceeding.
