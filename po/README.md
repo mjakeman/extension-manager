@@ -1,5 +1,5 @@
 # Translating Extension Manager
-Translations contributions is always welcome!
+Contributions to translations are always welcome!
 
 If you totally new to GTK software transitioning or software development in general, fear not! Everything here explained as detailed, as possible!
 
