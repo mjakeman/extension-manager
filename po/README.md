@@ -70,7 +70,7 @@ LC_ALL=uk_UA.UTF-8
 ```
 Where you need to replace `uk_UA` with your desired locale.
 
-More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
+You can learn more about locales [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
 11. Run `extension-manager` to run Extension Manager, which would use locale that you want to test.
 
