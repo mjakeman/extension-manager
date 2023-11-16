@@ -41,7 +41,7 @@ You can leave GNOME Builder open as we will use it again later.
 
 But sometimes, you might want to specify a variant for your language. For example, for Russian in Russia Federation, you need to set locale to `ru_RU`, instead of just `ru`.
 
-More about locales you can learn [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
+You can learn more about locales [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
 8. Translate Extension Manager!
 9. [Test your translation](#how-to-test-translation).
