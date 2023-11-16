@@ -120,7 +120,7 @@ parse_search_results (GBytes  *bytes,
         g_assert (json_object_has_member (root_object, "numpages"));
 
         num_pages = json_object_get_int_member (root_object, "numpages");
-        g_print ("Num Pages: %d\n", num_pages);
+        g_info ("Num Pages: %d\n", num_pages);
 
         JsonArray *array = json_object_get_array_member (root_object, "extensions");
         GList *search_results = json_array_get_elements (array);
@@ -159,8 +159,6 @@ get_sort_string (ExmSearchSort sort_type)
         return "created";
     case EXM_SEARCH_SORT_NAME:
         return "name";
-    case EXM_SEARCH_SORT_POPULARITY:
-        return "popularity";
     case EXM_SEARCH_SORT_RELEVANCE:
     default:
         return "relevance";
@@ -204,6 +202,14 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
     gpointer ret;
     SearchRequestData *data;
     GListModel *list_model;
+
+    // Check whether the task has been cancelled and if so, return null
+    // This prevents a race condition in the search logic
+    GCancellable *cancellable = g_task_get_cancellable (G_TASK (result));
+    if (g_cancellable_is_cancelled (cancellable)) {
+      return NULL;
+    }
+
 
     ret = exm_request_handler_request_finish (EXM_REQUEST_HANDLER (self),
                                               result,

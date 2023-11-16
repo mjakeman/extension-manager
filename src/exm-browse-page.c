@@ -49,6 +49,8 @@ struct _ExmBrowsePage
     int current_page;
     int max_pages;
 
+    GCancellable *cancellable;
+
     // Template Widgets
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
@@ -237,9 +239,13 @@ on_load_more_results (GtkButton     *btn,
     ExmSearchSort sort;
     gtk_widget_set_sensitive (GTK_WIDGET (self->more_results_btn), FALSE);
 
+    // If we have a current operation, cancel it
+    g_cancellable_cancel (self->cancellable);
+    self->cancellable = g_cancellable_new ();
+
     query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
     sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
-    exm_search_provider_query_async (self->search, query, ++self->current_page, sort, NULL,
+    exm_search_provider_query_async (self->search, query, ++self->current_page, sort, self->cancellable,
                                      (GAsyncReadyCallback) on_next_page_result,
                                      self);
 }
@@ -256,7 +262,11 @@ search (ExmBrowsePage *self,
     if (self->search_results_model)
         g_clear_object (&self->search_results_model);
 
-    exm_search_provider_query_async (self->search, query, 1, sort, NULL,
+    // If we have a current operation, cancel it
+    g_cancellable_cancel (self->cancellable);
+    self->cancellable = g_cancellable_new ();
+
+    exm_search_provider_query_async (self->search, query, 1, sort, self->cancellable,
                                      (GAsyncReadyCallback) on_first_page_result,
                                      self);
 }
@@ -444,3 +454,4 @@ exm_browse_page_init (ExmBrowsePage *self)
 
     load_suggestions (self);
 }
+

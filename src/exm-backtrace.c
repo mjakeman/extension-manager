@@ -39,7 +39,7 @@ exm_backtrace_error_cb (void       *data,
                         const char *msg,
                         int         errnum)
 {
-    g_print ("Error (%d): %s\n", errnum, msg);
+    g_warning ("Error (%d): %s\n", errnum, msg);
 }
 
 static int
