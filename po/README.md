@@ -54,7 +54,7 @@ If you chose to clone the repository using GNOME Builder in [How to add new tran
 
 1. If you didn't already install [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
 2. Open GNOME Builder.
-3. Click on button on bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
+3. Click on button at the bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
 4. In top-center, click on button with `triangle pointing down`.
 5. In opened menu pick `Rebuild`.
 6. Wait until you get `Build succeeded` in upper-center text box.
