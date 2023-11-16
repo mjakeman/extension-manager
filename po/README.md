@@ -136,7 +136,7 @@ Pick same terms, use same accelerators, etc.
 
 3. Open your `po` file with any text editor, not with POEdit, and in top most of file you will find some placeholder info for your translation. Please, fill it, if you can. Take as example `uk.po` file.
 
-4. `translator-credits` is optional and you not comfortable with sharing your alias or email or link, then leave it as-is. Also, if there will be credits for other translators, please, don't remove them. Just add your credit info on newline.
+4. `translator-credits` is optional and if you are not comfortable with sharing your alias, email or link, then leave it as-is. Also, if there are credits for other translators, please, don't remove them. Just add your credit info on newline.
 
 If you want to put email, do this:
 
