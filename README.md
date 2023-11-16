@@ -23,7 +23,7 @@ The tool supports:
  - Updating in-app (See 'Known Issues')
  - Screenshots &amp; Images
  - Ratings &amp; Comments
- - Translations ([add your language!](https://github.com/mjakeman/extension-manager/blob/master/po/README.md))
+ - Translations ([add your language!](#-translations))
 
 If there's something you'd like to see, contributions are welcome!
 
