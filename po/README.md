@@ -48,7 +48,7 @@ You can learn more about locales [here](https://www.gnu.org/software/gettext/man
 
 ## How to test translation
 
-After you finished translation, you might want to test it. The easiest way to do so, is to use [GNOME Builder](https://apps.gnome.org/Builder/).
+After you have finished your translation, you will want to test it. The easiest way to do so is to use [GNOME Builder](https://apps.gnome.org/Builder/).
 
 If you chose to clone the repository using GNOME Builder in [How to add new translation](#how-to-add-new-translation) and have not closed the GNOME Builder window, skip to step 4.
 
