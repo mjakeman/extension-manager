@@ -52,7 +52,7 @@ After you have finished your translation, you will want to test it. The easiest 
 
 If you chose to clone the repository using GNOME Builder in [How to add new translation](#how-to-add-new-translation) and have not closed the GNOME Builder window, skip to step 4.
 
-1. If you didn't already install [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
+1. If you haven't already install [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
 2. Open GNOME Builder.
 3. Click on button at the bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
 4. In top-center, click on button with `triangle pointing down`.
