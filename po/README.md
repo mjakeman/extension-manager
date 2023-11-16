@@ -74,7 +74,7 @@ You can learn more about locales [here](https://www.gnu.org/software/gettext/man
 
 11. Run `extension-manager` to run Extension Manager, which would use locale that you want to test.
 
-Once you done some changes, you need to refresh application so it will apply changes to translation. To do so:
+Once you have finished your changes, you need to refresh the application so it will apply changes to translation. To do so:
 
 1. Stop current running Extension Manager with `Ctrl+C` in terminal or simply close Extension Manager window.
 2. Then click on button on `top-center` with `triangle pointing down` in GNOME Builder.
