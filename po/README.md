@@ -124,7 +124,7 @@ If not, you could use Github interface to do so:
 
 1. Open your fork on Github, navigate to `./po` folder.
 2. Click `Add file` then `Upload files` and pick your translated `po` file and `LINGUAS` (in case if you added new translation. For updates to existing translation you don't need to send `LINGUAS`).
-3. Make sure that everything correct, there no typos in translation, mistakes, you didn't upload wrong files by accident, etc.
+3. Make sure that everything is correct, there are no typos in translation, mistakes, you didn't upload wrong files by accident, etc.
 4. Open [pull request](https://github.com/mjakeman/extension-manager/compare) to Extension Manager repository against your fork.
 
 ## Tips about translating
