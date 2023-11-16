@@ -56,7 +56,7 @@ You may also be able to obtain Extension Manager from your distribution's packag
 ## 🌐 Translations
 Contributions to translations are always welcome!
 
-If you are totally new to GTK software translation (or software development in general), fear not! The entire process is explained in as much detail as possible [here](https://github.com/mjakeman/extension-manager/blob/master/po/README.md)! If you have any trouble, please [get in touch](#💬-community).
+If you are totally new to GTK software translation (or software development in general), fear not! The entire process is explained in as much detail as possible [here](https://github.com/mjakeman/extension-manager/blob/master/po/README.md)! If you have any trouble, please [get in touch](#-community).
 
 ## ⏰ Using Unsupported Extensions
 GNOME Shell will not load extensions that were not designed for your current
