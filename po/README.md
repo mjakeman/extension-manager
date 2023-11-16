@@ -33,7 +33,7 @@ git clone git@github.com:mjakeman/extension-manager.git
 You can leave GNOME Builder open as we will use it again later.
 
 
-3. You need `pot` file, that lies inside `./po` folder. Make sure, that [pot file is up-to-date](#regenerate-pot-files), before proceeding.
+3. You need the `pot` file that lies inside `./po` folder. Make sure that the [pot file is up-to-date](#regenerate-pot-files) before proceeding.
 4. Open it with POEditor.
 5. Click on button on bottom of window `Create a new translation`, select your desired language.
 6. Press `Ctrl+S` to save new file, place it inside `./po` folder with filename that POEdit gave you.
