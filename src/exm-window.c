@@ -37,6 +37,7 @@ struct _ExmWindow
     ExmManager *manager;
 
     /* Template widgets */
+    AdwBreakpoint        *main_breakpoint;
     AdwHeaderBar         *header_bar;
     ExmBrowsePage        *browse_page;
     ExmInstalledPage     *installed_page;
@@ -315,6 +316,8 @@ show_view (GtkWidget  *widget,
 
         exm_detail_view_load_for_uuid (self->detail_view, uuid);
 
+        exm_detail_view_adaptive (self->detail_view, self->main_breakpoint);
+
         return;
     }
 
@@ -406,6 +409,7 @@ exm_window_class_init (ExmWindowClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_breakpoint);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
