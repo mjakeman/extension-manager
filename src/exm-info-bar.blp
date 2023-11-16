@@ -1,0 +1,21 @@
+using Gtk 4.0;
+
+template $ExmInfoBar: Gtk.Box {
+	styles [
+		"info-bar"
+	]
+
+	homogeneous: true;
+	orientation: horizontal;
+
+	$ExmInfoBarItem downloads_item {
+		icon: "folder-download-symbolic";
+		title: _("Downloads");
+	}
+
+	$ExmInfoBarItem version_item {
+		icon: "system-software-install-symbolic";
+		title: _("Version");
+		subtitle: _("Unsupported");
+	}
+}

@@ -17,6 +17,7 @@ struct _ExmSearchResult
     gchar *link;
     gchar *description;
     int pk;
+    int downloads;
     ExmShellVersionMap *shell_version_map;
 };
 
@@ -37,6 +38,7 @@ enum {
     PROP_LINK,
     PROP_DESCRIPTION,
     PROP_PK,
+    PROP_DOWNLOADS,
     PROP_SHELL_VERSION_MAP,
     N_PROPS
 };
@@ -96,6 +98,9 @@ exm_search_result_get_property (GObject    *object,
     case PROP_PK:
         g_value_set_int (value, self->pk);
         break;
+    case PROP_DOWNLOADS:
+        g_value_set_int (value, self->downloads);
+        break;
     case PROP_SHELL_VERSION_MAP:
         g_value_set_boxed (value, self->shell_version_map);
         break;
@@ -142,6 +147,9 @@ exm_search_result_set_property (GObject      *object,
         break;
     case PROP_PK:
         self->pk = g_value_get_int (value);
+        break;
+    case PROP_DOWNLOADS:
+        self->downloads = g_value_get_int (value);
         break;
     case PROP_SHELL_VERSION_MAP:
         if (self->shell_version_map)
@@ -267,6 +275,13 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
         g_param_spec_int ("pk",
                           "Package ID",
                           "Package ID",
+                          0, G_MAXINT, 0,
+                          G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_DOWNLOADS] =
+        g_param_spec_int ("downloads",
+                          "Downloads",
+                          "Downloads",
                           0, G_MAXINT, 0,
                           G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 

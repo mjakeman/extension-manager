@@ -22,6 +22,7 @@
 
 #include "exm-screenshot.h"
 #include "exm-zoom-picture.h"
+#include "exm-info-bar.h"
 #include "exm-comment-tile.h"
 #include "exm-comment-dialog.h"
 
@@ -63,7 +64,7 @@ struct _ExmDetailView
 	GtkOverlay *ext_screenshot_container;
 	GtkButton *ext_screenshot_popout_button;
 	GtkButton *ext_screenshot_popin_button;
-    GtkFlowBox *supported_versions;
+    ExmInfoBar *ext_info_bar;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
     GtkFlowBox *comment_box;
@@ -286,7 +287,7 @@ on_data_loaded (GObject      *source,
 
     if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
     {
-        gint pk;
+        gint pk, downloads;
         gboolean is_installed, is_supported;
         gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description, *url;
         g_object_get (data,
@@ -300,6 +301,7 @@ on_data_loaded (GObject      *source,
                       "shell_version_map", &version_map,
                       "pk", &pk,
                       "url", &url,
+                      "downloads", &downloads,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
@@ -311,6 +313,7 @@ on_data_loaded (GObject      *source,
         gtk_label_set_label (self->ext_title, name);
         gtk_label_set_label (self->ext_author, creator);
         gtk_label_set_label (self->ext_description, description);
+        exm_info_bar_set_downloads (self->ext_info_bar, downloads);
 
         if (self->resolver_cancel)
         {
@@ -357,9 +360,7 @@ on_data_loaded (GObject      *source,
         adw_action_row_set_subtitle (self->link_homepage, self->uri_homepage);
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
-        // Clear Flowbox
-        while ((child = gtk_widget_get_first_child (GTK_WIDGET (self->supported_versions))))
-            gtk_flow_box_remove (self->supported_versions, child);
+        exm_info_bar_set_version (self->ext_info_bar, -1);
 
         for (version_iter = version_map->map;
              version_iter != NULL;
@@ -367,18 +368,16 @@ on_data_loaded (GObject      *source,
         {
             gchar *version;
             MapEntry *entry;
-            GtkWidget *label;
 
             entry = version_iter->data;
 
             if (entry->shell_minor_version)
                 version = g_strdup_printf ("%s.%s", entry->shell_major_version, entry->shell_minor_version);
             else
-                version = g_strdup (entry->shell_major_version);
+                version = g_strdup_printf ("%s.0", entry->shell_major_version);
 
-            label = gtk_label_new (version);
-            gtk_widget_add_css_class (label, "version-label");
-            gtk_flow_box_prepend (self->supported_versions, label);
+            if (strcmp (version, self->shell_version) == 0 || strncmp(version, self->shell_version, strchr(version, '.') - version) == 0)
+                exm_info_bar_set_version (self->ext_info_bar, entry->extension_version);
 
             g_free (version);
         }
@@ -438,6 +437,17 @@ exm_detail_view_update (ExmDetailView *self)
     {
         g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_INSTALLED, NULL);
     }
+}
+
+void
+exm_detail_view_adaptive (ExmDetailView *self, AdwBreakpoint *breakpoint)
+{
+    GValue value = G_VALUE_INIT;
+
+    g_value_init (&value, GTK_TYPE_ORIENTATION);
+    g_value_set_enum (&value, GTK_ORIENTATION_VERTICAL);
+
+    adw_breakpoint_add_setter (breakpoint, G_OBJECT (self->ext_info_bar), "orientation", &value);
 }
 
 static void
@@ -545,7 +555,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popin_button);
-    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, supported_versions);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_info_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
