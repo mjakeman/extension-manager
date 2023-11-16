@@ -54,23 +54,9 @@ You may also be able to obtain Extension Manager from your distribution's packag
 [![Packaging status](https://repology.org/badge/vertical-allrepos/extension-manager.svg)](https://repology.org/project/extension-manager/versions)
 
 ## 🌐 Translations
-Extension Manager has been translated into several different languages. Ideally, the
-program will respect your system language out-of-the-box. However, you may need to take
-some additional steps in order for flatpak to recognise your chosen locale. The
-following workaround may work for you:
+Contributions to translations are always welcome!
 
-Set the languages you wish to use explicitly (e.g. `en` for English, `es` for Español):
-```
-# Optionally add --user if installed in a user prefix
-flatpak config --set languages 'en;es'
-```
-
-Then update:
-```
-flatpak update
-```
-
-Now Extension Manager should respect your system language.
+If you are totally new to GTK software translation (or software development in general), fear not! The entire process is explained in as much detail as possible [here](https://github.com/mjakeman/extension-manager/blob/master/po/README.md)! If you have any trouble, please [get in touch](#💬-community).
 
 ## ⏰ Using Unsupported Extensions
 GNOME Shell will not load extensions that were not designed for your current
