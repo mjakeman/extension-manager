@@ -50,7 +50,7 @@ You can learn more about locales [here](https://www.gnu.org/software/gettext/man
 
 After you finished translation, you might want to test it. The easiest way to do so, is to use [GNOME Builder](https://apps.gnome.org/Builder/).
 
-If you choose to clone repository using GNOME Builder in [How to add new translation](#how-to-add-new-translation) and didn't closed GNOME Builder window, skip to step 4.
+If you chose to clone the repository using GNOME Builder in [How to add new translation](#how-to-add-new-translation) and have not closed the GNOME Builder window, skip to step 4.
 
 1. If you didn't already installed [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
 2. Open GNOME Builder.
