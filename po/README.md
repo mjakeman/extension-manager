@@ -3,7 +3,7 @@ Contributions to translations are always welcome!
 
 If you totally new to GTK software transitioning or software development in general, fear not! Everything here explained as detailed, as possible!
 
-If you already have experience with translating GTK applications, remember that Extension Manager is written in C, so you need to rebuild it every time, when you do changes in `po` files.
+If you already have experience with translating GTK applications, remember that Extension Manager is written in C. You will need to rebuild it every time you make a change to the `po` files.
 
 ## How to add new translation
 
