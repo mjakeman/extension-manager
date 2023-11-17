@@ -105,7 +105,7 @@ Try to be consistent with choices that previous translator did, unless they cont
 ## How to contribute your translation
 If you think that you done with translating, it's time to send your translation as pull request to developers of Extension Manager!
 
-This part might be tricky to someone who not familiar with software development and Github, so if you don't understand something, you can contact [community/developers here](https://github.com/mjakeman/extension-manager#-community), where you will get help!
+This part might be tricky to someone who not familiar with software development and Github, so if you don't understand something, you can contact [community/developers here](/README.md#-community), where you will get help!
 
 1. Make sure, that you have account on [Github](https://github.com/). And if not, create one.
 
