@@ -40,6 +40,7 @@ You can leave GNOME Builder open as we will use it again later.
 4. Open it with POEditor.
 5. Click on button at the bottom of window `Create a new translation`, select your desired language.
 ![How to make new translation from pot.](screenshots/_3.png)
+![Pick your desired language.](screenshots/_4.png)
 6. Press `Ctrl+S` to save new file, place it inside `./po` folder with filename that POEdit gave you.
 7. Open `./po/LINGUAS` file with any text editor, and add there locale code of your language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`. And, please, keep locale codes in alphabetical order.
 
