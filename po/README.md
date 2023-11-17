@@ -29,6 +29,7 @@ git clone git@github.com:mjakeman/extension-manager.git
 2. Click `Clone Repository` button at the bottom.
 3. In `Repository URL` paste: `https://github.com/mjakeman/extension-manager`
 4. Set `Location` to `~/`
+5. Click `Clone Repository` and wait until it's done.
 
 You can leave GNOME Builder open as we will use it again later.
 
