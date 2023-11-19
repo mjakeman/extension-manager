@@ -545,7 +545,6 @@ msgid "Main Menu"
 msgstr "Menu principal"
 
 #: src/exm-window.blp:53
-#| msgctxt "Navigation"
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Installées"
