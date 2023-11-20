@@ -13,11 +13,17 @@ template $ExmCommentTile : Gtk.Widget {
       Gtk.Label author {
         styles ["dim-label"]
         xalign: 0;
-        hexpand: true;
+      }
+
+      Gtk.Label author_badge {
+      	styles ["author-badge"]
+      	label: _("Author");
+      	visible: false;
       }
 
       $ExmRating rating {
         halign: end;
+        hexpand: true;
       }
     }
 

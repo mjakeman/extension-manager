@@ -6,6 +6,7 @@ struct _ExmComment
 {
     GObject parent_instance;
 
+    gboolean is_extension_creator;
     gchar *comment;
     gchar *author;
     int rating;
@@ -21,6 +22,7 @@ G_DEFINE_FINAL_TYPE_WITH_CODE (ExmComment, exm_comment, G_TYPE_OBJECT,
 
 enum {
     PROP_0,
+    PROP_IS_EXTENSION_CREATOR,
     PROP_COMMENT,
     PROP_AUTHOR,
     PROP_RATING,
@@ -53,6 +55,9 @@ exm_comment_get_property (GObject    *object,
 
     switch (prop_id)
     {
+    case PROP_IS_EXTENSION_CREATOR:
+        g_value_set_boolean (value, self->is_extension_creator);
+        break;
     case PROP_COMMENT:
         g_value_set_string (value, self->comment);
         break;
@@ -77,6 +82,9 @@ exm_comment_set_property (GObject      *object,
 
     switch (prop_id)
     {
+    case PROP_IS_EXTENSION_CREATOR:
+        self->is_extension_creator = g_value_get_boolean (value);
+        break;
     case PROP_COMMENT:
         self->comment = g_value_dup_string (value);
         break;
@@ -99,6 +107,13 @@ exm_comment_class_init (ExmCommentClass *klass)
     object_class->finalize = exm_comment_finalize;
     object_class->get_property = exm_comment_get_property;
     object_class->set_property = exm_comment_set_property;
+
+    properties [PROP_IS_EXTENSION_CREATOR] =
+        g_param_spec_boolean ("is_extension_creator",
+                              "Is Extension Creator",
+                              "Is the creator of the extension",
+                              FALSE,
+                              G_PARAM_READWRITE);
 
     properties [PROP_COMMENT] =
         g_param_spec_string ("comment",
