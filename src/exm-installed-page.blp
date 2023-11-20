@@ -23,7 +23,11 @@ template $ExmInstalledPage : Gtk.Widget {
 							selection-mode: none;
 
 							Adw.SwitchRow global_toggle {
-								icon-name: 'puzzle-piece-symbolic';
+								[prefix]
+								Gtk.Image {
+									icon-name: 'puzzle-piece-symbolic';
+								}
+
 								title: _("Use Extensions");
 								subtitle: _("Extensions can cause performance and stability issues.");
 							}

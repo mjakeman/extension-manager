@@ -185,11 +185,16 @@ template $ExmDetailView : Adw.NavigationPage {
 										selection-mode: none;
 
 										Adw.ActionRow link_homepage {
-											icon-name: "go-home-symbolic";
+											[prefix]
+											Gtk.Image {
+												icon-name: "go-home-symbolic";
+											}
+
 											title: _("Homepage");
 											activatable: true;
 											action-name: "detail.open-homepage";
 
+											[suffix]
 											Gtk.Image {
 												styles ["dim-label"]
 												icon-name: "external-link-symbolic";
@@ -197,11 +202,16 @@ template $ExmDetailView : Adw.NavigationPage {
 										}
 
 										Adw.ActionRow link_extensions {
-											icon-name: "web-browser-symbolic";
+											[prefix]
+											Gtk.Image {
+												icon-name: "web-browser-symbolic";
+											}
+
 											title: _("View on Extensions");
 											activatable: true;
 											action-name: "detail.open-extensions";
 
+											[suffix]
 											Gtk.Image {
 												styles ["dim-label"]
 												icon-name: "external-link-symbolic";

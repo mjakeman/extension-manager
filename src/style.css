@@ -70,6 +70,14 @@ rating {
   border-bottom-right-radius: 0;
 }
 
+.author-badge {
+	background-color: @blue_3;
+	border-radius: 999px;
+	color: @white_1;
+	margin-left: 6px;
+	padding: 2px 6px;
+}
+
 /* Progress Bar Colours */
 progressbar.error progress {
     background-color: @red_1;

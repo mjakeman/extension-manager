@@ -167,10 +167,13 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 	Gtk.ListBoxRow {
 		activatable: false;
 		focusable: false;
+		height-request: 46;
 
 		Gtk.Box {
 			halign: end;
-			spacing: 4;
+			spacing: 6;
+			margin-start: 4;
+			margin-end: 4;
 
 			Gtk.Button details_btn {
 				styles ["flat"]

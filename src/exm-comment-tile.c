@@ -12,6 +12,7 @@ struct _ExmCommentTile
     ExmComment *comment;
 
     GtkLabel *author;
+    GtkLabel *author_badge;
     ExmRating *rating;
     TextDisplay *display;
 };
@@ -87,9 +88,11 @@ exm_comment_tile_constructed (GObject *object)
 
     TextFrame *frame;
 
+    gboolean is_extension_creator;
     gchar *text, *author;
     int score;
     g_object_get (self->comment,
+                  "is_extension_creator", &is_extension_creator,
                   "comment", &text,
                   "author", &author,
                   "rating", &score,
@@ -109,6 +112,7 @@ exm_comment_tile_constructed (GObject *object)
 
     g_object_set (self->display, "frame", frame, NULL);
     gtk_label_set_text (self->author, author);
+    gtk_widget_set_visible (GTK_WIDGET (self->author_badge), is_extension_creator);
 
     G_OBJECT_CLASS (exm_comment_tile_parent_class)->constructed (object);
 }
@@ -138,6 +142,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, display);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author_badge);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, rating);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
