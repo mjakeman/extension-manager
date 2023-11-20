@@ -106,11 +106,11 @@ With `Ctrl+Alt+T` shortcut or click `+` button in top-left corner and pick `New 
 LC_ALL=uk_UA.UTF-8
 ```
 
-![](screenshots/_13.png)
-
 Where you need to replace `uk_UA` with your desired locale.
 
 You can learn more about locales [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
+
+![](screenshots/_13.png)
 
 11. Run `extension-manager` to run Extension Manager, which would use locale that you want to test.
 
