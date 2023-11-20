@@ -18,7 +18,13 @@ git clone git@github.com:mjakeman/extension-manager.git
 * *Using Github:*
 
 1. Click green button `Code`.
+
+![](screenshots/_19.png)
+
 2. In opened menu click `Download ZIP`.
+
+![](screenshots/_20.png)
+
 3. Save it in your `~/` home folder.
 4. Unpack archive with archive manager of your choice.
 5. Rename folder that will be unpacked from archive to `extension-manager`.
@@ -27,29 +33,33 @@ git clone git@github.com:mjakeman/extension-manager.git
 
 1. Run GNOME Builder.
 2. Click `Clone Repository` button at the bottom.
-![Click on 'Clone Repository'.](screenshots/_1.png)
+![](screenshots/_1.png)
 3. In `Repository URL` paste: `https://github.com/mjakeman/extension-manager`
 4. Set `Location` to `~/`
 5. Click `Clone Repository` and wait until it's done.
-![Fill all fields.](screenshots/_2.png)
+![](screenshots/_2.png)
 
 You can leave GNOME Builder open as we will use it again later.
 
-
 3. You need the `pot` file that lies inside `./po` folder. Make sure that the [pot file is up-to-date](#regenerate-pot-files) before proceeding.
 4. Open it with POEditor.
-5. Click on button at the bottom of window `Create a new translation`, select your desired language.
-![How to make new translation from pot.](screenshots/_3.png)
-![Pick your desired language.](screenshots/_4.png)
-6. Press `Ctrl+S` to save new file, place it inside `./po` folder with filename that POEdit gave you.
-7. Open `./po/LINGUAS` file with any text editor, and add there locale code of your language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`. And, please, keep locale codes in alphabetical order.
+5. Click on button at the bottom of window `Create a new translation`.
+
+![](screenshots/_3.png)
+
+6.  Select your desired language.
+
+![](screenshots/_4.png)
+
+7. Press `Ctrl+S` or `File` > `Save` to save new file, place it inside `./po` folder with filename that POEdit gave you.
+8. Open `./po/LINGUAS` file with any text editor, and add there locale code of your language. For example, if you want to add Ukrainian translation, POEdit will suggest you filename `uk.po`, so in `LINGUAS` file, you need to add `uk`. And, please, keep locale codes in alphabetical order.
 
 But sometimes, you might want to specify a variant for your language. For example, for Russian in Russia Federation, you need to set locale to `ru_RU`, instead of just `ru`.
 
 You can learn more about locales [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
-8. Translate Extension Manager!
-9. [Test your translation](#how-to-test-translation).
+9. Translate Extension Manager!
+10. [Test your translation](#how-to-test-translation).
 
 ## How to test translation
 
@@ -60,36 +70,74 @@ If you chose to clone the repository using GNOME Builder in [How to add new tran
 1. If you haven't already install [GNOME Builder](https://apps.gnome.org/Builder/), install it now.
 2. Open GNOME Builder.
 3. Click on button at the bottom of window `Select a Folder...` and pick folder with Extension Manager source [that we cloned before](#how-to-add-new-translation).
+
+![](screenshots/_5.png)
+
 4. In top-center, click on button with `triangle pointing down`.
+
+![](screenshots/_6.png)
+
 5. In opened menu pick `Rebuild`.
+
+![](screenshots/_7.png)
+
 6. Wait until you get `Build succeeded` in upper-center text box.
+
+![](screenshots/_8.png)
+
 7. Click on button with `triangle pointing down` in upper-center.
+
+![](screenshots/_9.png)
+
 8. In opened menu pick `Install`.
+
+![](screenshots/_10.png)
+
 9. Open `New Runtime Terminal`.
 
 With `Ctrl+Alt+T` shortcut or click `+` button in top-left corner and pick `New Runtime Terminal`.
+
+![](screenshots/_11.png)
+
+![](screenshots/_12.png)
 
 10. In opened terminal, you need to force locale that you want to test. Usually, it will match locale name of your `po` file or it might require to specify your regional code. For example, to force application in Ukrainian language, you need to type:
 ```bash
 LC_ALL=uk_UA.UTF-8
 ```
+
+![](screenshots/_13.png)
+
 Where you need to replace `uk_UA` with your desired locale.
 
 You can learn more about locales [here](https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html).
 
 11. Run `extension-manager` to run Extension Manager, which would use locale that you want to test.
 
+![](screenshots/_14.png)
+
 Once you have finished your changes, you need to refresh the application so it will apply changes to translation. To do so:
 
 1. Stop current running Extension Manager with `Ctrl+C` in terminal or simply close Extension Manager window.
 2. Then click on button on `top-center` with `triangle pointing down` in GNOME Builder.
+
+![](screenshots/_15.png)
+
 3. In opened menu pick `Rebuild`.
+
+![](screenshots/_16.png)
+
 4. Wait until GNOME Builder rebuild Extension Manager.
+
+![](screenshots/_17.png)
+
 5. Now close this terminal with:
 ```bash
 exit
 ```
 Or just click `cross symbol` on tab with this terminal.
+
+![](screenshots/_18.png)
 
 6. After that, repeat instructions from [How to test translation](#how-to-test-translation) section, starting from step 7.
 Do this every time, when you do some changes to `po` file to see them in Extension Manager.
@@ -101,9 +149,16 @@ If you want to update the translation that someone else already did:
 2. If you can't contact them for some reasons or they don't respond, then just translate on your own.
 3. [Re-generate pot file](#regenerate-pot-files).
 4. Open `po` file that you want to update with POEditor.
-5. In top menu click `Translation`, then `Update from POT file…`, and pick `pot` file that you re-generated earlier.
-6. If you wish, don't forget to add yourself to `translator-credits` (*DON'T REMOVE PREVIOUS TRANSLATORS THERE*, just add your credit on newline) and in top of `po` file via text editor.
-7. [Send pull request](#how-to-contribute-your-translation).
+5. In top menu click `Translation`.
+
+![](screenshots/_21.png)
+
+6. In opened menu pick `Update from POT file…`, and then pick `pot` file that you re-generated earlier.
+
+![](screenshots/_22.png)
+
+7. If you wish, don't forget to add yourself to `translator-credits` (*DON'T REMOVE PREVIOUS TRANSLATORS THERE*, just add your credit on newline) and in top of `po` file via text editor.
+8. [Send pull request](#how-to-contribute-your-translation).
 
 Try to be consistent with choices that previous translator did, unless they contradict other GTK/GNOME applications translated terms or you think that your translation will suit better.
 
@@ -161,12 +216,20 @@ a while), there are a few steps that need to be followed:
 
 1. Open GNOME builder.
 2. Open `New Runtime Terminal` with `Ctrl+Alt+T` or click `plus button` in top-left corner and pick `New Runtime Terminal`
+
+![](screenshots/_23.png)
+
+![](screenshots/_24.png)
+
 3. And replace contents of `POTFILES` with output of `print-source-files.sh`.
 
 ```bash
 cd extension-manager/po
 ./print-source-files.sh > ./POTFILES
 ```
+
+![](screenshots/_25.png)
+
 4. Go to the build directory (typically `_build`, but whichever you specified when running meson) and initialize it.
 
 Like this:
@@ -179,17 +242,24 @@ cd ./_build
 meson
 ```
 
-6. Now meson is initialized and you can re-generate `pot` file.
+![](screenshots/_26.png)
+
+5. Now meson is initialized and you can re-generate `pot` file.
 
 Like this:
 ```bash
 meson compile extension-manager-pot
 ```
-7. Now close this terminal with:
+
+![](screenshots/_27.png)
+
+6. Now close this terminal with:
 ```bash
 exit
 ```
 Or just click `cross symbol` on tab with this terminal.
+
+![](screenshots/_28.png)
 
 * *Without GNOME Builder:*
 
@@ -211,7 +281,7 @@ cd ./_build
 meson
 ```
 
-6. Now meson is initialized and you can re-generate `pot` file.
+4. Now meson is initialized and you can re-generate `pot` file.
 
 Like this:
 ```bash
