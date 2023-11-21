@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 15:13+0100\n"
-"PO-Revision-Date: 2023-11-22 00:21+0200\n"
+"POT-Creation-Date: 2023-11-22 00:48+0200\n"
+"PO-Revision-Date: 2023-11-22 00:49+0200\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -252,10 +252,7 @@ msgid "Relevance"
 msgstr "За актуальністю"
 
 #: src/exm-browse-page.blp:31
-msgid "Popularity"
-msgstr "За популярністю"
-
-#: src/exm-browse-page.blp:31 src/exm-info-bar.blp:13
+msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "За кількістю завантажень"
 
@@ -278,7 +275,7 @@ msgstr "Нічого не знайдено"
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
 #. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:289
+#: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
 msgstr "наприклад: “%s”"
@@ -288,9 +285,13 @@ msgid "Comments"
 msgstr "Коментарі"
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:241 src/exm-detail-view.c:405
+#: src/exm-detail-view.blp:251 src/exm-detail-view.c:405
 msgid "An Error Occurred"
 msgstr "Сталася помилка"
+
+#: src/exm-comment-tile.blp:20
+msgid "Author"
+msgstr "Автор"
 
 #: src/exm-detail-view.blp:38
 msgid "Zoom In"
@@ -316,23 +317,23 @@ msgstr "Опис"
 msgid "Links"
 msgstr "Посилання"
 
-#: src/exm-detail-view.blp:189
+#: src/exm-detail-view.blp:193
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: src/exm-detail-view.blp:201
+#: src/exm-detail-view.blp:210
 msgid "View on Extensions"
 msgstr "Переглянути це розширення на сайті Extensions"
 
-#: src/exm-detail-view.blp:219
+#: src/exm-detail-view.blp:229
 msgid "User Reviews"
 msgstr "Відгуки користувачів"
 
-#: src/exm-detail-view.blp:250
+#: src/exm-detail-view.blp:260
 msgid "There are no comments."
 msgstr "Немає коментарів."
 
-#: src/exm-detail-view.blp:270
+#: src/exm-detail-view.blp:280
 msgid "_Show All Reviews"
 msgstr "_Показати всі відгуки"
 
@@ -403,13 +404,18 @@ msgstr "Версія"
 msgid "Error"
 msgstr "Помилка"
 
-#: src/exm-extension-row.blp:178
+#: src/exm-extension-row.blp:181
 msgid "See Details"
 msgstr "Подробиці"
 
-#: src/exm-extension-row.blp:187
+#: src/exm-extension-row.blp:190
 msgid "Remove"
 msgstr "Видалити"
+
+#: src/exm-info-bar.blp:13
+msgctxt "Number of downloads"
+msgid "Downloads"
+msgstr "Завантажень"
 
 #: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
 #: src/exm-upgrade-assistant.c:516
@@ -429,27 +435,27 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Встановлено"
 
-#: src/exm-installed-page.blp:27
+#: src/exm-installed-page.blp:31
 msgid "Use Extensions"
 msgstr "Використовувати розширення"
 
-#: src/exm-installed-page.blp:28
+#: src/exm-installed-page.blp:32
 msgid "Extensions can cause performance and stability issues."
 msgstr "Розширення можуть спричиняти проблеми з швидкодією і стабільністю."
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
 msgid "User-Installed Extensions"
 msgstr "Встановленні користувачем розширення"
 
-#: src/exm-installed-page.blp:49 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
 msgid "System Extensions"
 msgstr "Системні розширення"
 
-#: src/exm-installed-page.blp:89
+#: src/exm-installed-page.blp:93
 msgid "Updates are available"
 msgstr "Доступні оновлення"
 
-#: src/exm-installed-page.blp:106
+#: src/exm-installed-page.blp:110
 msgid "Log Out"
 msgstr "Вийти"
 
@@ -616,6 +622,9 @@ msgstr "Менеджер розширень (Розробка)"
 #: src/exm-window.c:468
 msgid "Extension Manager"
 msgstr "Менеджер розширень"
+
+#~ msgid "Popularity"
+#~ msgstr "За популярністю"
 
 #~ msgid "Supported Versions"
 #~ msgstr "Підтримувані версії"

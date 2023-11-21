@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 15:13+0100\n"
+"POT-Creation-Date: 2023-11-22 00:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -240,10 +240,7 @@ msgid "Relevance"
 msgstr ""
 
 #: src/exm-browse-page.blp:31
-msgid "Popularity"
-msgstr ""
-
-#: src/exm-browse-page.blp:31 src/exm-info-bar.blp:13
+msgctxt "Sort search results"
 msgid "Downloads"
 msgstr ""
 
@@ -266,7 +263,7 @@ msgstr ""
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
 #. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:289
+#: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
 msgstr ""
@@ -276,8 +273,12 @@ msgid "Comments"
 msgstr ""
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:241 src/exm-detail-view.c:405
+#: src/exm-detail-view.blp:251 src/exm-detail-view.c:405
 msgid "An Error Occurred"
+msgstr ""
+
+#: src/exm-comment-tile.blp:20
+msgid "Author"
 msgstr ""
 
 #: src/exm-detail-view.blp:38
@@ -304,23 +305,23 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: src/exm-detail-view.blp:189
+#: src/exm-detail-view.blp:193
 msgid "Homepage"
 msgstr ""
 
-#: src/exm-detail-view.blp:201
+#: src/exm-detail-view.blp:210
 msgid "View on Extensions"
 msgstr ""
 
-#: src/exm-detail-view.blp:219
+#: src/exm-detail-view.blp:229
 msgid "User Reviews"
 msgstr ""
 
-#: src/exm-detail-view.blp:250
+#: src/exm-detail-view.blp:260
 msgid "There are no comments."
 msgstr ""
 
-#: src/exm-detail-view.blp:270
+#: src/exm-detail-view.blp:280
 msgid "_Show All Reviews"
 msgstr ""
 
@@ -387,12 +388,17 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: src/exm-extension-row.blp:178
+#: src/exm-extension-row.blp:181
 msgid "See Details"
 msgstr ""
 
-#: src/exm-extension-row.blp:187
+#: src/exm-extension-row.blp:190
 msgid "Remove"
+msgstr ""
+
+#: src/exm-info-bar.blp:13
+msgctxt "Number of downloads"
+msgid "Downloads"
 msgstr ""
 
 #: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
@@ -413,27 +419,27 @@ msgctxt "State"
 msgid "Installed"
 msgstr ""
 
-#: src/exm-installed-page.blp:27
+#: src/exm-installed-page.blp:31
 msgid "Use Extensions"
 msgstr ""
 
-#: src/exm-installed-page.blp:28
+#: src/exm-installed-page.blp:32
 msgid "Extensions can cause performance and stability issues."
 msgstr ""
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
 msgid "User-Installed Extensions"
 msgstr ""
 
-#: src/exm-installed-page.blp:49 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
 msgid "System Extensions"
 msgstr ""
 
-#: src/exm-installed-page.blp:89
+#: src/exm-installed-page.blp:93
 msgid "Updates are available"
 msgstr ""
 
-#: src/exm-installed-page.blp:106
+#: src/exm-installed-page.blp:110
 msgid "Log Out"
 msgstr ""
 
