@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 00:48+0200\n"
-"PO-Revision-Date: 2023-11-26 11:53+0100\n"
+"PO-Revision-Date: 2023-11-27 19:05+0100\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
 "Language: oc\n"
@@ -60,11 +60,11 @@ msgstr "Un utilitari per gerir las extensions GNOME Shell"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
 msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
-msgstr ""
+msgstr "Correccion urgenta : filtres 'recent' e 'popularitat' copats"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
 msgid "Various stability and correctness fixes"
-msgstr ""
+msgstr "Correccions de mantuna instabilitat"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
@@ -83,7 +83,7 @@ msgstr "Defilament de l'assistent de mesa a nivèl corregit"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
 msgid "Pixel perfect app icon"
-msgstr ""
+msgstr "Icòna d'aplicacion Pixel perfect"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
 msgid "Official snap support"
@@ -374,6 +374,10 @@ msgid ""
 "\"bold\">contact the package distributor (%s) first</span> before filing an "
 "issue. Be sure to attach the following information:"
 msgstr ""
+"Utilizatz una compilcacion tèrça d'Extension Manager. Mercés de <span weight="
+"\"bold\">contactar lo distribuidor de paquets (%s) per començar</span> abans "
+"de senhalar una anomalia. Asseguratz-vos de juntar las informacions "
+"seguentas :"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
