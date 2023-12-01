@@ -1,5 +1,5 @@
 # Hungarian translation for extension-manager package.
-# Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # ViBE <vibe@protonmail.com>, 2023.
 #
@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 15:13+0100\n"
-"PO-Revision-Date: 2023-11-19 14:30+0100\n"
+"POT-Creation-Date: 2023-11-22 00:48+0200\n"
+"PO-Revision-Date: 2023-11-27 10:18+0100\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
 "Language: hu\n"
@@ -269,7 +269,7 @@ msgstr "Nincs találat"
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
 #. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:289
+#: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
 msgstr "például „%s”"
@@ -279,7 +279,7 @@ msgid "Comments"
 msgstr "Megjegyzések"
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:241 src/exm-detail-view.c:405
+#: src/exm-detail-view.blp:251 src/exm-detail-view.c:405
 msgid "An Error Occurred"
 msgstr "Hiba történt"
 
@@ -307,23 +307,23 @@ msgstr "Leírás"
 msgid "Links"
 msgstr "Hivatkozások"
 
-#: src/exm-detail-view.blp:189
+#: src/exm-detail-view.blp:193
 msgid "Homepage"
 msgstr "Honlap"
 
-#: src/exm-detail-view.blp:201
+#: src/exm-detail-view.blp:210
 msgid "View on Extensions"
 msgstr "Megtekintés böngészőben"
 
-#: src/exm-detail-view.blp:219
+#: src/exm-detail-view.blp:229
 msgid "User Reviews"
 msgstr "Felhasználói értékelések"
 
-#: src/exm-detail-view.blp:250
+#: src/exm-detail-view.blp:260
 msgid "There are no comments."
 msgstr "Nincsenek értékelések."
 
-#: src/exm-detail-view.blp:270
+#: src/exm-detail-view.blp:280
 msgid "_Show All Reviews"
 msgstr "_Összes értékelés megtekintése"
 
@@ -361,9 +361,9 @@ msgstr "Kérem, nyisson egy új bejelentést és adja meg az alábbi részleteke
 #: src/exm-error-dialog.c:184
 #, c-format
 msgid ""
-"You are using a third-party build of Extension Manager. Please <span weight="
-"\"bold\">contact the package distributor (%s) first</span> before filing an "
-"issue. Be sure to attach the following information:"
+"You are using a third-party build of Extension Manager. Please <span "
+"weight=\"bold\">contact the package distributor (%s) first</span> before "
+"filing an issue. Be sure to attach the following information:"
 msgstr ""
 "Ön a kiterjesztés-kezelő egy harmadik fél által karbantartott változatát "
 "használja. Kérem, <span weight=\"bold\">először a(z) (%s) karbantartóval "
@@ -394,13 +394,18 @@ msgstr "Verzió"
 msgid "Error"
 msgstr "Hiba"
 
-#: src/exm-extension-row.blp:178
+#: src/exm-extension-row.blp:181
 msgid "See Details"
 msgstr "Részletek megtekintése"
 
-#: src/exm-extension-row.blp:187
+#: src/exm-extension-row.blp:190
 msgid "Remove"
 msgstr "Eltávolítás"
+
+#: src/exm-info-bar.blp:13
+msgctxt "Number of downloads"
+msgid "Downloads"
+msgstr "Letöltve"
 
 #: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
 #: src/exm-upgrade-assistant.c:516
@@ -420,27 +425,27 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Telepített"
 
-#: src/exm-installed-page.blp:27
+#: src/exm-installed-page.blp:31
 msgid "Use Extensions"
 msgstr "Kiterjesztések engedélyezése"
 
-#: src/exm-installed-page.blp:28
+#: src/exm-installed-page.blp:32
 msgid "Extensions can cause performance and stability issues."
 msgstr "Egyes kiterjesztések használata teljesítmény-csökkenést okozhat."
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
 msgid "User-Installed Extensions"
 msgstr "Felhasználó által telepített"
 
-#: src/exm-installed-page.blp:49 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
 msgid "System Extensions"
 msgstr "Előtelepített"
 
-#: src/exm-installed-page.blp:89
+#: src/exm-installed-page.blp:93
 msgid "Updates are available"
 msgstr "Frissítés érhető el"
 
-#: src/exm-installed-page.blp:106
+#: src/exm-installed-page.blp:110
 msgid "Log Out"
 msgstr "Kijelentkezés"
 
