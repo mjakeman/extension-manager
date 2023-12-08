@@ -19,9 +19,7 @@ template $ExmBrowsePage : Gtk.Widget {
 						Gtk.SearchEntry search_entry {
 							hexpand: true;
 
-							// Hook for triggering initial search
-							// TODO: Re-enable this once blueprint-compiler!4 is merged
-							// realize => on_search_entry_realize();
+							realize => $on_search_entry_realize();
 						}
 
 						// Keep the same order as the ExmSearchSort enum
