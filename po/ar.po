@@ -31,7 +31,7 @@ msgstr "إدارة إضافات جنوم شل"
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "extension;manager;"
-msgstr "إضافة; مدير;"
+msgstr "extension;manager ;إضافة;مدير"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
