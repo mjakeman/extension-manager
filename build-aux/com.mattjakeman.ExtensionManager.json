@@ -1,5 +1,5 @@
 {
-    "id" : "com.mattjakeman.ExtensionManager.Devel",
+    "id" : "com.mattjakeman.ExtensionManager",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "45",
     "sdk" : "org.gnome.Sdk",
@@ -49,43 +49,43 @@
             ]
         },
     	{
-            "name": "blueprint-compiler",
-            "builddir": true,
-            "buildsystem": "meson",
-            "cleanup": [
+            "name" : "blueprint-compiler",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "cleanup" : [
                 "*"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "commit": "2a39a16391122af2f3d812e478c1c1398c98b972",
-                    "tag": "v0.10.0"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
+                    "commit" : "2a39a16391122af2f3d812e478c1c1398c98b972",
+                    "tag" : "v0.10.0"
                 }
             ]
         },
         {
-            "name": "libbacktrace",
-            "builddir": true,
-            "buildsystem": "autotools",
-            "sources": [
+            "name" : "libbacktrace",
+            "builddir" : true,
+            "buildsystem" : "autotools",
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://github.com/ianlancetaylor/libbacktrace.git",
-                    "branch": "master"
+                    "type" : "git",
+                    "url" : "https://github.com/ianlancetaylor/libbacktrace.git",
+                    "commit" : "9ae4f4ae4481b1e69d38ed810980d33103544613"
                 }
             ]
         },
         {
-            "name": "text-engine",
-            "builddir": true,
-            "buildsystem": "meson",
-            "sources": [
+            "name" : "text-engine",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://github.com/mjakeman/text-engine.git",
-                    "commit": "379437b2b589a9414985dec9136b7b48bae76f9e",
-                    "tag": "v0.1.0"
+                    "type" : "git",
+                    "url" : "https://github.com/mjakeman/text-engine.git",
+                    "commit" : "379437b2b589a9414985dec9136b7b48bae76f9e",
+                    "tag" : "v0.1.0"
                 }
             ]
         },
@@ -94,13 +94,20 @@
             "builddir" : true,
             "buildsystem" : "meson",
             "build-options" : {
-            	"no-debuginfo" : true
+                "no-debuginfo" : true
             },
-            "config-opts" : [ "-Ddevelopment=true", "-Dpackage=Flatpak", "-Ddistributor=mjakeman", "-Dofficial=true" ],
+            "config-opts" : [
+                "-Ddevelopment=false",
+                "-Dpackage=Flatpak",
+                "-Ddistributor=mjakeman",
+                "-Dofficial=true"
+            ],
             "sources" : [
                 {
-                    "type" : "dir",
-                    "path" : "./"
+                    "type" : "git",
+                    "url" : "https://github.com/mjakeman/extension-manager",
+                    "commit" : "fce0e326dbddaf6ae17df79c01e553f4b73e3015",
+                    "tag" : "v0.4.3"
                 }
             ]
         }

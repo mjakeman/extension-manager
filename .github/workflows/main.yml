@@ -15,6 +15,6 @@ jobs:
     - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v6.3
       with:
         bundle: extension-manager.flatpak
-        manifest-path: com.mattjakeman.ExtensionManager.Devel.json
+        manifest-path: build-aux/com.mattjakeman.ExtensionManager.Devel.json
         cache-key: flatpak-builder-${{ github.sha }}
         run-tests: true
