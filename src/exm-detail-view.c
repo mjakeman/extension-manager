@@ -74,6 +74,9 @@ struct _ExmDetailView
 
     AdwActionRow *link_homepage;
     gchar *uri_homepage;
+    AdwExpanderRow *links_donations;
+    gchar **uri_donations;
+    GList *donation_rows_list;
     AdwActionRow *link_extensions;
     gchar *uri_extensions;
     int pk;
@@ -294,6 +297,69 @@ install_remote (GtkButton     *button,
 }
 
 static void
+delete_donation_rows (ExmDetailView *self)
+{
+    GtkWidget *row;
+
+    for (GList *iter = self->donation_rows_list; iter != NULL; iter = g_list_next (iter)) {
+        row = GTK_WIDGET (iter->data);
+        adw_expander_row_remove (self->links_donations, row);
+    }
+
+    g_list_free (self->donation_rows_list);
+    self->donation_rows_list = NULL;
+}
+
+static void
+new_donation_row (ExmDetailView *self,
+                  int            num_donation)
+{
+    GtkWidget *row;
+    GtkWidget *external_link_icon;
+
+    row = adw_action_row_new ();
+
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), self->uri_donations[num_donation]);
+    gtk_list_box_row_set_activatable (GTK_LIST_BOX_ROW (row), TRUE);
+
+    gtk_actionable_set_action_name (GTK_ACTIONABLE (row), "detail.open-donation");
+    gtk_actionable_set_action_target_value (GTK_ACTIONABLE (row), g_variant_new_int32 (num_donation));
+
+    external_link_icon = gtk_image_new_from_icon_name ("external-link-symbolic");
+    gtk_widget_add_css_class (external_link_icon, "dim-label");
+    adw_action_row_add_suffix (ADW_ACTION_ROW (row), external_link_icon);
+
+    adw_expander_row_add_row (self->links_donations, row);
+
+    self->donation_rows_list = g_list_append (self->donation_rows_list, row);
+}
+
+static void
+update_donation_rows (ExmDetailView  *self,
+                      gchar         **donation_urls)
+{
+    gtk_widget_set_visible (GTK_WIDGET (self->links_donations), FALSE);
+    delete_donation_rows (self);
+
+    if (donation_urls == NULL || donation_urls[0] == NULL)
+        return;
+
+    self->uri_donations = g_new0 (gchar *, g_strv_length (donation_urls));
+
+    for (int i = 0; donation_urls[i] != NULL; i++)
+    {
+        self->uri_donations[i] = g_uri_resolve_relative (donation_urls[i],
+                                                         "",
+                                                         G_URI_FLAGS_NONE,
+                                                         NULL);
+        new_donation_row (self, i);
+    }
+
+    adw_expander_row_set_expanded (self->links_donations, FALSE);
+    gtk_widget_set_visible (GTK_WIDGET (self->links_donations), TRUE);
+}
+
+static void
 on_data_loaded (GObject      *source,
                 GAsyncResult *result,
                 gpointer      user_data)
@@ -312,6 +378,7 @@ on_data_loaded (GObject      *source,
         gint pk, downloads;
         gboolean is_installed, is_supported;
         gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description, *url;
+        gchar **donation_urls;
         g_object_get (data,
                       "uuid", &uuid,
                       "name", &name,
@@ -324,6 +391,7 @@ on_data_loaded (GObject      *source,
                       "pk", &pk,
                       "url", &url,
                       "downloads", &downloads,
+                      "donation_urls", &donation_urls,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
@@ -381,6 +449,8 @@ on_data_loaded (GObject      *source,
                                                      "",
                                                      G_URI_FLAGS_NONE,
                                                      NULL);
+
+        update_donation_rows (self, donation_urls);
 
         self->uri_extensions = g_uri_resolve_relative ("https://extensions.gnome.org/",
                                                        link,
@@ -481,6 +551,12 @@ open_link (ExmDetailView *self,
         uri = gtk_uri_launcher_new (self->uri_extensions);
     else if (strcmp (action_name, "detail.open-homepage") == 0)
         uri = gtk_uri_launcher_new (self->uri_homepage);
+    else if (strcmp (action_name, "detail.open-donation") == 0)
+    {
+        guint val;
+        g_variant_get (param, "i", &val);
+        uri = gtk_uri_launcher_new (self->uri_donations[val]);
+    }
     else
         g_critical ("open_link() invalid action: %s", action_name);
 
@@ -585,6 +661,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_info_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, links_donations);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);
@@ -597,6 +674,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, (GtkWidgetActionActivateFunc) open_link);
+    gtk_widget_class_install_action (widget_class, "detail.open-donation", "i", (GtkWidgetActionActivateFunc) open_link);
 }
 
 static void
