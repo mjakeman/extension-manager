@@ -30,7 +30,7 @@ msgstr "Gerencie Extensões do GNOME Shell"
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "extension;manager;"
-msgstr "extensão;gerenciador;"
+msgstr "extension;manager;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
