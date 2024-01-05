@@ -182,7 +182,7 @@ exm_extension_class_init (ExmExtensionClass *klass)
                            "State",
                            "State",
                            EXM_TYPE_EXTENSION_STATE,
-                           EXM_EXTENSION_STATE_ENABLED,
+                           EXM_EXTENSION_STATE_ACTIVE,
                            G_PARAM_READWRITE);
 
     properties [PROP_IS_USER] =

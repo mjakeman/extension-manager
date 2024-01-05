@@ -124,8 +124,8 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
     g_object_get (this, "state", &this_state, NULL);
     g_object_get (other, "state", &other_state, NULL);
 
-    gboolean this_enabled = (this_state == EXM_EXTENSION_STATE_ENABLED);
-    gboolean other_enabled = (other_state == EXM_EXTENSION_STATE_ENABLED);
+    gboolean this_enabled = (this_state == EXM_EXTENSION_STATE_ACTIVE);
+    gboolean other_enabled = (other_state == EXM_EXTENSION_STATE_ACTIVE);
 
     if ((this_enabled && other_enabled) || (!this_enabled && !other_enabled))
         return 0;

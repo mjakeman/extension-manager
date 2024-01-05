@@ -143,12 +143,12 @@ update_state (ExmExtension    *extension,
 
     switch (new_state)
     {
-    case EXM_EXTENSION_STATE_ENABLED:
+    case EXM_EXTENSION_STATE_ACTIVE:
         g_simple_action_set_state (G_SIMPLE_ACTION (action),
                                    g_variant_new_boolean (TRUE));
         break;
 
-    case EXM_EXTENSION_STATE_DISABLED:
+    case EXM_EXTENSION_STATE_INACTIVE:
         g_simple_action_set_state (G_SIMPLE_ACTION (action),
                                    g_variant_new_boolean (FALSE));
         break;
@@ -170,7 +170,7 @@ update_state (ExmExtension    *extension,
     default:
         break;
     }
-    gboolean is_enabled = (new_state == EXM_EXTENSION_STATE_ENABLED);
+    gboolean is_enabled = (new_state == EXM_EXTENSION_STATE_ACTIVE);
 
     // Update state of toggle
     g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (is_enabled));
