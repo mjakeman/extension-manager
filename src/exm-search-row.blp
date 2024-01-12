@@ -1,80 +1,91 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmSearchRow : Gtk.ListBoxRow {
-	styles ["search-row"]
+template $ExmSearchRow: Gtk.ListBoxRow {
+  styles [
+    "search-row"
+  ]
 
-	activatable: true;
-	action-name: "win.show-detail";
+  activatable: true;
+  action-name: "win.show-detail";
 
-	Gtk.Box header {
-		styles ["header"]
-		hexpand: true;
-		spacing: 10;
+  Gtk.Box header {
+    styles [
+      "header"
+    ]
 
-		Gtk.Grid {
-			hexpand: true;
-			column-spacing:  10;
+    hexpand: true;
+    spacing: 10;
 
-			Gtk.Box {
-				hexpand: true;
-				orientation: vertical;
-				valign: center;
+    Gtk.Grid {
+      hexpand: true;
+      column-spacing: 10;
 
-				Gtk.Label title {
-					styles ["title"]
-					ellipsize: end;
-					xalign: 0;
+      Gtk.Box {
+        hexpand: true;
+        orientation: vertical;
+        valign: center;
 
-					label: bind template.search-result as <$ExmSearchResult>.name;
-				}
+        Gtk.Label title {
+          styles [
+            "title"
+          ]
 
-				Gtk.Label subtitle {
-					styles ["subtitle"]
-					ellipsize: end;
-					xalign: 0;
+          ellipsize: end;
+          xalign: 0;
+          label: bind template.search-result as <$ExmSearchResult>.name;
+        }
 
-					label: bind template.search-result as <$ExmSearchResult>.creator;
-				}
+        Gtk.Label subtitle {
+          styles [
+            "subtitle"
+          ]
 
-				layout {
-					row: 0;
-					column: 1;
-				}
-			}
+          ellipsize: end;
+          xalign: 0;
+          label: bind template.search-result as <$ExmSearchResult>.creator;
+        }
 
-			Gtk.Label description_label {
-				styles ["dim-label"]
+        layout {
+          row: 0;
+          column: 1;
+        }
+      }
 
-				margin-top: 5;
-				single-line-mode: true;
-				xalign: 0;
-				wrap: true;
-				wrap-mode: word_char;
-				ellipsize: end;
-				lines: 2;
+      Gtk.Label description_label {
+        styles [
+          "dim-label"
+        ]
 
-				label: bind template.search-result as <$ExmSearchResult>.description;
+        margin-top: 5;
+        single-line-mode: true;
+        xalign: 0;
+        wrap: true;
+        wrap-mode: word_char;
+        ellipsize: end;
+        lines: 2;
+        label: bind template.search-result as <$ExmSearchResult>.description;
 
-				layout {
-					row: 1;
-					column: 1;
-				}
-			}
-		}
+        layout {
+          row: 1;
+          column: 1;
+        }
+      }
+    }
 
-		$ExmInstallButton install_btn {
-			valign: center;
-			halign: end;
-		}
+    $ExmInstallButton install_btn {
+      valign: center;
+      halign: end;
+    }
 
-		Gtk.Image {
-			styles ["expander-row-arrow"]
+    Gtk.Image {
+      styles [
+        "expander-row-arrow"
+      ]
 
-			valign: center;
-			halign: end;
-
-			icon-name: "go-next-symbolic";
-		}
-	}
+      valign: center;
+      halign: end;
+      icon-name: "go-next-symbolic";
+    }
+  }
 }
