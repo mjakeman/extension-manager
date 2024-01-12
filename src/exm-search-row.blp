@@ -5,6 +5,7 @@ template $ExmSearchRow : Gtk.ListBoxRow {
 	styles ["search-row"]
 
 	activatable: true;
+	action-name: "win.show-detail";
 
 	Gtk.Box header {
 		styles ["header"]
@@ -24,12 +25,16 @@ template $ExmSearchRow : Gtk.ListBoxRow {
 					styles ["title"]
 					ellipsize: end;
 					xalign: 0;
+
+					label: bind template.search-result as <$ExmSearchResult>.name;
 				}
 
 				Gtk.Label subtitle {
 					styles ["subtitle"]
 					ellipsize: end;
 					xalign: 0;
+
+					label: bind template.search-result as <$ExmSearchResult>.creator;
 				}
 
 				layout {
@@ -48,6 +53,8 @@ template $ExmSearchRow : Gtk.ListBoxRow {
 				wrap-mode: word_char;
 				ellipsize: end;
 				lines: 2;
+
+				label: bind template.search-result as <$ExmSearchResult>.description;
 
 				layout {
 					row: 1;

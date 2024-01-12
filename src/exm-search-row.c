@@ -16,10 +16,7 @@ struct _ExmSearchRow
     gboolean is_supported;
     gchar *uuid;
 
-    GtkLabel *description_label;
     ExmInstallButton *install_btn;
-    GtkLabel *title;
-    GtkLabel *subtitle;
 };
 
 G_DEFINE_FINAL_TYPE (ExmSearchRow, exm_search_row, GTK_TYPE_LIST_BOX_ROW)
@@ -127,41 +124,16 @@ install_remote (GtkButton    *button,
 static void
 exm_search_row_constructed (GObject *object)
 {
-    // TODO: This big block of property assignments is currently copy/pasted
-    // from ExmExtension. We can replace this with GtkExpression lookups
-    // once blueprint-compiler supports expressions.
-    // (See https://gitlab.gnome.org/jwestman/blueprint-compiler/-/issues/5)
-
     ExmSearchRow *self = EXM_SEARCH_ROW (object);
 
     ExmInstallButtonState install_state;
 
-    gchar *uri;
-    int pk;
-
-    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description;
+    gchar *uuid;
     g_object_get (self->search_result,
                   "uuid", &uuid,
-                  "name", &name,
-                  "creator", &creator,
-                  "icon", &icon_uri,
-                  "screenshot", &screenshot_uri,
-                  "link", &link,
-                  "description", &description,
-                  "pk", &pk,
                   NULL);
 
-    uri = g_uri_resolve_relative ("https://extensions.gnome.org/",
-                                  link,
-                                  G_URI_FLAGS_NONE,
-                                  NULL);
-
-    gtk_actionable_set_action_name (GTK_ACTIONABLE (self), "win.show-detail");
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
-
-    gtk_label_set_label (self->title, name);
-    gtk_label_set_label (self->subtitle, creator);
-    gtk_label_set_label (self->description_label, description);
 
     install_state = self->is_installed
         ? EXM_INSTALL_BUTTON_STATE_INSTALLED
@@ -212,10 +184,7 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-search-row.ui");
 
-    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, description_label);
     gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, install_btn);
-    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, title);
-    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, subtitle);
 }
 
 static void
