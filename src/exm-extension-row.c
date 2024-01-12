@@ -232,7 +232,7 @@ bind_extension (ExmExtensionRow *self,
 
     self->uuid = g_strdup (uuid);
 
-    g_object_set (self, "title", name, "subtitle", uuid, NULL);
+    g_object_set (self, "title", g_markup_escape_text(name, -1), "subtitle", uuid, NULL);
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
     g_object_set (self->update_icon, "visible", has_update, NULL);
