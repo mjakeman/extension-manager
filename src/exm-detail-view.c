@@ -271,10 +271,7 @@ show_more_comments (GtkButton *button,
     dlg = exm_comment_dialog_new (self->pk);
     toplevel = gtk_widget_get_root (GTK_WIDGET (self));
 
-    gtk_window_set_transient_for (GTK_WINDOW (dlg), GTK_WINDOW (toplevel));
-    gtk_window_set_modal (GTK_WINDOW (dlg), TRUE);
-
-    gtk_window_present (GTK_WINDOW (dlg));
+    adw_dialog_present (ADW_DIALOG (dlg), GTK_WIDGET (toplevel));
 }
 
 static void
