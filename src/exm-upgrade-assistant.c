@@ -28,7 +28,7 @@
 
 struct _ExmUpgradeAssistant
 {
-    AdwWindow parent_instance;
+    AdwDialog parent_instance;
 
     // Auxiliary Classes
     ExmManager *manager;
@@ -66,7 +66,7 @@ struct _ExmUpgradeAssistant
     GtkButton *copy_details;
 };
 
-G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_WINDOW)
+G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_DIALOG)
 
 enum {
     PROP_0,
@@ -657,8 +657,6 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_callback (widget_class, do_compatibility_check);
     gtk_widget_class_bind_template_callback (widget_class, copy_to_clipboard);
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
-
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_Escape, 0, "window.close", NULL);
 }
 
 static void

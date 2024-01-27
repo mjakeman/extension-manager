@@ -28,7 +28,7 @@
  
  #define EXM_TYPE_UPGRADE_ASSISTANT (exm_upgrade_assistant_get_type())
  
- G_DECLARE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, EXM, UPGRADE_ASSISTANT, AdwWindow)
+ G_DECLARE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, EXM, UPGRADE_ASSISTANT, AdwDialog)
  
  ExmUpgradeAssistant *exm_upgrade_assistant_new (ExmManager *manager);
 

@@ -332,9 +332,7 @@ show_upgrade_assistant (GtkWidget  *widget,
     self = EXM_WINDOW (widget);
 
     ExmUpgradeAssistant *assistant = exm_upgrade_assistant_new (self->manager);
-    gtk_window_set_modal (GTK_WINDOW (assistant), TRUE);
-    gtk_window_set_transient_for (GTK_WINDOW (assistant), GTK_WINDOW (self));
-    gtk_window_present (GTK_WINDOW (assistant));
+    adw_dialog_present (ADW_DIALOG (assistant), widget);
 }
 
 static void
