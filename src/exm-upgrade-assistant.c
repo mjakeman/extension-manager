@@ -573,10 +573,12 @@ populate_drop_down (ExmUpgradeAssistant *self)
     // GNOME 40 came out in March 2021
     current_gnome_version = 40 + (year - 2021) * 2;
 
-    // If we are between september and march, then it is
-    // an odd numbered release, otherwise use an even numbered
+    // If we are between march and september, then it is
+    // an even numbered release, otherwise use an odd numbered
     // release.
-    if (month >= G_DATE_SEPTEMBER || month < G_DATE_MARCH)
+    if (month < G_DATE_MARCH)
+        current_gnome_version -= 1;
+    else if (month >= G_DATE_SEPTEMBER)
         current_gnome_version += 1;
 
     g_print ("Current GNOME Version: %d\n", current_gnome_version);
