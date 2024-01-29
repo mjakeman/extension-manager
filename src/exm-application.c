@@ -168,10 +168,12 @@ exm_application_show_about (GSimpleAction *action,
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-    about_window = adw_about_window_new_from_appdata ("/com/mattjakeman/ExtensionManager/com.mattjakeman.ExtensionManager.metainfo.xml", APP_VERSION);
+    about_window = adw_about_window_new_from_appdata ("/com/mattjakeman/ExtensionManager/com.mattjakeman.ExtensionManager.metainfo.xml",
+                                                      strstr (APP_ID, ".Devel") == NULL ? APP_VERSION : NULL);
     gtk_window_set_modal (GTK_WINDOW (about_window), TRUE);
     gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
 
+    adw_about_window_set_version (ADW_ABOUT_WINDOW (about_window), APP_VERSION);
     adw_about_window_set_comments (ADW_ABOUT_WINDOW (about_window), _("Browse, install, and manage GNOME Shell Extensions."));
     adw_about_window_set_developers (ADW_ABOUT_WINDOW (about_window), authors);
     adw_about_window_set_translator_credits (ADW_ABOUT_WINDOW (about_window), _("translator-credits"));

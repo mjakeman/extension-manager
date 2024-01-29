@@ -6,6 +6,7 @@ template $ExmWindow : Adw.ApplicationWindow {
   default-height: 600;
   width-request: 360;
   height-request: 294;
+  title: _("Extension Manager");
 
   Adw.Breakpoint main_breakpoint {
     condition ("max-width: 400sp")
@@ -20,6 +21,7 @@ template $ExmWindow : Adw.ApplicationWindow {
 
       Adw.NavigationPage main_view {
         can-pop: false;
+        title: bind template.title;
 
         Adw.ToolbarView {
 

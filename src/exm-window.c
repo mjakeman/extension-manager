@@ -454,21 +454,14 @@ do_version_check (ExmWindow *self)
 static void
 exm_window_init (ExmWindow *self)
 {
-    gchar *title;
-
     gtk_widget_init_template (GTK_WIDGET (self));
 
-    if (IS_DEVEL) {
+    if (strstr (APP_ID, ".Devel") != NULL) {
         gtk_widget_add_css_class (GTK_WIDGET (self), "devel");
     }
 
     self->manager = exm_manager_new ();
     g_signal_connect (self->manager, "error-occurred", on_error, self);
-
-    title = IS_DEVEL ? _("Extension Manager (Development)") : _("Extension Manager");
-
-    gtk_window_set_title (GTK_WINDOW (self), title);
-    adw_navigation_page_set_title (self->main_view, title);
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);

@@ -1,7 +1,5 @@
 desktop_file_in_config = configuration_data()
 desktop_file_in_config.set('app_id', app_id)
-desktop_file_in_config.set('app_title', app_title)
-desktop_file_in_config.set('app_version', meson.project_version())
 desktop_file_in = configure_file(
           input: 'com.mattjakeman.ExtensionManager.desktop.in.in',
          output: '@0@.desktop.in'.format(app_id),
@@ -26,7 +24,6 @@ endif
 
 appconf = configuration_data()
 appconf.set('app_id', app_id)
-appconf.set('app_title', app_title)
 appstream_file_in = configure_file(
           input: 'com.mattjakeman.ExtensionManager.metainfo.xml.in.in',
          output: 'com.mattjakeman.ExtensionManager.metainfo.xml.in',

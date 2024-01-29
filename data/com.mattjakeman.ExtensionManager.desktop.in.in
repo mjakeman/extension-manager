@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=@app_title@
+Name=Extension Manager
 Exec=extension-manager %U
 Icon=@app_id@
 Terminal=false
