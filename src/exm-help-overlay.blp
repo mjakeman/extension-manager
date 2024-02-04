@@ -1,0 +1,73 @@
+using Gtk 4.0;
+
+ShortcutsWindow help_overlay {
+  modal: true;
+
+  ShortcutsSection {
+    section-name: "shortcuts";
+    max-height: 12;
+
+    ShortcutsGroup {
+      title: _("General");
+
+      ShortcutsShortcut {
+        title: C_("Navigation", "Installed");
+        accelerator: "<Alt>1";
+      }
+
+      ShortcutsShortcut {
+        title: C_("Navigation", "Browse");
+        accelerator: "<Alt>2";
+      }
+
+      ShortcutsShortcut {
+        title: _("Main Menu");
+        accelerator: "F10";
+      }
+
+      ShortcutsShortcut {
+        title: _("Show Shortcuts");
+        action-name: "win.show-help-overlay";
+      }
+
+      ShortcutsShortcut {
+        title: _("Close");
+        action-name: "window.close";
+      }
+
+      ShortcutsShortcut {
+        title: _("Quit");
+        action-name: "app.quit";
+      }
+    }
+
+    ShortcutsGroup {
+      title: _("Image Viewer");
+
+      ShortcutsShortcut {
+        title: _("Zoom In");
+        accelerator: "<Primary>plus";
+      }
+
+      ShortcutsShortcut {
+        title: _("Zoom Out");
+        accelerator: "<Primary>minus";
+      }
+
+      ShortcutsShortcut {
+        title: _("Normal Size");
+        accelerator: "<Primary>0";
+      }
+
+      ShortcutsShortcut {
+        title: _("Zoom In");
+        shortcut-type: gesture_stretch;
+      }
+
+      ShortcutsShortcut {
+        title: _("Zoom Out");
+        shortcut-type: gesture_pinch;
+      }
+    }
+  }
+}
