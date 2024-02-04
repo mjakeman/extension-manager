@@ -16,9 +16,14 @@
     <file>exm-info-bar.ui</file>
     <file>exm-info-bar-item.ui</file>
     <file>exm-screenshot-view.ui</file>
+    <file alias="gtk/help-overlay.ui">exm-help-overlay.ui</file>
     <file alias="suggestions.txt">res/suggestions.txt</file>
     <file preprocess="xml-stripblanks" alias="com.mattjakeman.ExtensionManager.metainfo.xml">../data/@appstream_file@</file>
     <file>style.css</file>
+  </gresource>
+
+  <gresource prefix="/com/mattjakeman/ExtensionManager/Devel">
+    <file alias="gtk/help-overlay.ui">exm-help-overlay.ui</file>
   </gresource>
 
   <gresource prefix="/com/mattjakeman/ExtensionManager/icons/scalable/actions">

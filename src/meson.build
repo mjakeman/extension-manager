@@ -70,7 +70,8 @@ blueprints = custom_target('blueprints',
     'exm-error-dialog.blp',
     'exm-info-bar.blp',
     'exm-info-bar-item.blp',
-    'exm-screenshot-view.blp'
+    'exm-screenshot-view.blp',
+    'exm-help-overlay.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
