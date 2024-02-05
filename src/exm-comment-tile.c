@@ -98,7 +98,7 @@ exm_comment_tile_constructed (GObject *object)
                   "rating", &score,
                   NULL);
 
-    if (score >= 0 && score <= 5)
+    if (score >= 1 && score <= 5)
     {
         g_object_set (self->rating, "rating", score, NULL);
         gtk_widget_set_visible (GTK_WIDGET (self->rating), TRUE);
