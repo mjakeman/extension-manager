@@ -7,6 +7,9 @@
   <summary>Browse, install, and manage GNOME Shell Extensions</summary>
   <content_rating type="oars-1.1" />
   <developer_name translatable="no">Matthew Jakeman</developer_name>
+  <developer id="mattjakeman.com">
+    <name translatable="no">Matthew Jakeman</name>
+  </developer>
 	<description>
 	  <p>A utility for browsing and installing GNOME Shell Extensions.</p>
     <p>Features:</p>
@@ -30,9 +33,13 @@
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">@app_id@.desktop</launchable>
-  <url type="homepage">https://github.com/mjakeman/extension-manager</url>
+  <url type="homepage">https://mattjakeman.com/apps/extension-manager</url>
   <url type="bugtracker">https://github.com/mjakeman/extension-manager/issues</url>
   <url type="help">https://github.com/mjakeman/extension-manager/discussions</url>
+  <url type="donation">https://github.com/sponsors/mjakeman</url>
+  <url type="translate">https://github.com/mjakeman/extension-manager/blob/master/po/README.md</url>
+  <url type="contact">https://matrix.to/#/#extension-manager:matrix.org</url>
+  <url type="vcs-browser">https://github.com/mjakeman/extension-manager</url>
   <keywords>
     <keyword>Extensions</keyword>
     <keyword>Shell</keyword>
