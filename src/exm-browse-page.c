@@ -437,11 +437,6 @@ exm_browse_page_init (ExmBrowsePage *self)
                               G_CALLBACK (on_search_changed),
                               self);
 
-    g_signal_connect (self->search_entry,
-                      "realize",
-                      G_CALLBACK (on_search_entry_realize),
-                      self);
-
     g_signal_connect (self->more_results_btn,
                       "clicked",
                       G_CALLBACK (on_load_more_results),
