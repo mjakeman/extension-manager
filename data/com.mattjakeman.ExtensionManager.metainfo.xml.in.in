@@ -40,10 +40,6 @@
   <url type="translate">https://github.com/mjakeman/extension-manager/blob/master/po/README.md</url>
   <url type="contact">https://matrix.to/#/#extension-manager:matrix.org</url>
   <url type="vcs-browser">https://github.com/mjakeman/extension-manager</url>
-  <keywords>
-    <keyword>Extensions</keyword>
-    <keyword>Shell</keyword>
-  </keywords>
   <translation type="gettext">extension-manager</translation>
   <supports>
     <control>pointing</control>
@@ -55,7 +51,7 @@
   </requires>
   <releases>
     <release version="0.4.3" date="2023-11-08">
-      <description>
+      <description translatable="no">
         <ul>
           <li>HOTFIX: Fix broken 'recent' and 'popularity' search filters</li>
           <li>Various stability and correctness fixes</li>
@@ -64,7 +60,7 @@
       </description>
     </release>
     <release version="0.4.2" date="2023-06-19">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Translation updates</li>
           <li>Upgrade Assistant scroll fix</li>
@@ -73,7 +69,7 @@
       </description>
     </release>
     <release version="0.4.1" date="2023-05-06">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Translation updates</li>
           <li>Official snap support</li>
@@ -82,7 +78,7 @@
       </description>
     </release>
 		<release version="0.4.0" date="2022-09-26">
-			<description>
+			<description translatable="no">
 				<ul>
 					<li>Fully adaptive mobile-friendly user interface</li>
 					<li>Paginated search results</li>
@@ -97,7 +93,7 @@
 			</description>
 		</release>
     <release version="0.3.2" date="2022-08-17">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Translation updates</li>
           <li>Various bug fixes</li>
@@ -106,7 +102,7 @@
       </description>
     </release>
     <release version="0.3.1" date="2022-06-04">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Translation updates</li>
           <li>Remove release notes dialog</li>
@@ -116,7 +112,7 @@
       </description>
     </release>
     <release version="0.3.0" date="2022-03-21">
-      <description>
+      <description translatable="no">
         <p>The second feature update to extension-manager. Highlights include:</p>
         <ul>
           <li>View comments and reviews</li>
@@ -132,14 +128,14 @@
       </description>
     </release>
     <release version="0.2.3" date="2022-02-21">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Translation updates</li>
         </ul>
       </description>
     </release>
     <release version="0.2.2" date="2022-02-02">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Translation updates</li>
           <li>Fix special characters in search results</li>
@@ -147,12 +143,12 @@
       </description>
     </release>
     <release version="0.2.1" date="2022-01-24">
-      <description>
+      <description translatable="no">
         <p>Fixes a crash that sometimes occurs while uninstalling an extension</p>
       </description>
     </release>
     <release version="0.2.0" date="2022-01-24">
-      <description>
+      <description translatable="no">
         <p>The first feature update to extension-manager. Highlights include:</p>
         <ul>
           <li>Dark theme and support for overriding the system colour scheme</li>
