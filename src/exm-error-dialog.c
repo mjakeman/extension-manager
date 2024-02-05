@@ -101,7 +101,6 @@ exm_error_dialog_set_property (GObject      *object,
         GString *string_builder = g_string_new ("Support Log\n");
         g_string_append_printf (string_builder, "----\n");
         g_string_append_printf (string_builder, "Version: %s\n", APP_VERSION);
-        g_string_append_printf (string_builder, "Development: %s\n", IS_DEVEL ? "Yes" : "No");
         g_string_append_printf (string_builder, "Package Format: %s\n", PKG_NAME);
         g_string_append_printf (string_builder, "Status: %s\n", IS_OFFICIAL ? "Official" : "Third Party");
         g_string_append_printf (string_builder, "----\n");
