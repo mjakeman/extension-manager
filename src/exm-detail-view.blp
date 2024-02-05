@@ -105,9 +105,16 @@ template $ExmDetailView : Adw.NavigationPage {
 									orientation: horizontal;
 									spacing: 25;
 
+									Gtk.Image ext_icon {
+										halign: center;
+										valign: center;
+										pixel-size: 64;
+									}
+
 									Gtk.Box {
 										orientation: vertical;
 										hexpand: true;
+										valign: center;
 
 										Gtk.Label ext_title {
 											styles ["title-1"]

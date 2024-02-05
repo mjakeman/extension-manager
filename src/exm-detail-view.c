@@ -58,6 +58,7 @@ struct _ExmDetailView
     GtkStack *stack;
     GtkButton *ext_install;
     GtkLabel *ext_description;
+    GtkImage *ext_icon;
     GtkLabel *ext_title;
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
@@ -151,6 +152,27 @@ exm_detail_view_set_property (GObject      *object,
 }
 
 static void
+on_icon_loaded (GObject       *source,
+                GAsyncResult  *res,
+                ExmDetailView *self)
+{
+    GError *error = NULL;
+    GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
+                                                             res, &error);
+
+    if (error)
+    {
+        // TODO: Properly log this
+        g_critical ("%s\n", error->message);
+        return;
+    }
+
+    gtk_image_set_from_paintable (self->ext_icon, GDK_PAINTABLE (texture));
+    g_object_unref (texture);
+    g_object_unref (self);
+}
+
+static void
 on_image_loaded (GObject       *source,
                  GAsyncResult  *res,
                  ExmDetailView *self)
@@ -176,12 +198,13 @@ on_image_loaded (GObject       *source,
 }
 
 static void
-queue_resolve_screenshot (ExmDetailView    *self,
-                          const gchar      *screenshot_uri,
-                          GCancellable     *cancellable)
+queue_resolve_image (ExmDetailView    *self,
+                     const gchar      *image_uri,
+                     GCancellable     *cancellable,
+                     gboolean          is_icon)
 {
-    exm_image_resolver_resolve_async (self->resolver, screenshot_uri, cancellable,
-                                      (GAsyncReadyCallback) on_image_loaded,
+    exm_image_resolver_resolve_async (self->resolver, image_uri, cancellable,
+                                      (GAsyncReadyCallback) (is_icon ? on_icon_loaded : on_image_loaded),
                                       g_object_ref (self));
 }
 
@@ -310,6 +333,7 @@ on_data_loaded (GObject      *source,
         is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
         is_supported = exm_search_result_supports_shell_version (data, self->shell_version);
 
+        gtk_image_set_from_icon_name (self->ext_icon, "puzzle-piece-symbolic");
         gtk_label_set_label (self->ext_title, name);
         gtk_label_set_label (self->ext_author, creator);
         gtk_label_set_label (self->ext_description, description);
@@ -319,6 +343,13 @@ on_data_loaded (GObject      *source,
         {
             g_cancellable_cancel (self->resolver_cancel);
             g_clear_object (&self->resolver_cancel);
+        }
+
+        if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
+        {
+            self->resolver_cancel = g_cancellable_new ();
+
+            queue_resolve_image (self, icon_uri, self->resolver_cancel, TRUE);
         }
 
         if (screenshot_uri != NULL)
@@ -332,7 +363,7 @@ on_data_loaded (GObject      *source,
 			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
 			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
 
-            queue_resolve_screenshot (self, screenshot_uri, self->resolver_cancel);
+            queue_resolve_image (self, screenshot_uri, self->resolver_cancel, FALSE);
         }
         else
         {
@@ -547,6 +578,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, title);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_title);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_author);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_description);
