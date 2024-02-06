@@ -79,6 +79,22 @@ template $ExmWindow : Adw.ApplicationWindow {
       $ExmDetailView detail_view {}
     };
   }
+
+	Gtk.ShortcutController {
+		scope: managed;
+
+		Gtk.Shortcut {
+			trigger: "<Alt>1";
+			action: "action(win.show-page)";
+			arguments: "'installed'";
+		}
+
+		Gtk.Shortcut {
+			trigger: "<Alt>2";
+			action: "action(win.show-page)";
+			arguments: "'browse'";
+		}
+	}
 }
 
 menu primary_menu {
