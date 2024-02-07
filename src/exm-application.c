@@ -58,9 +58,9 @@ get_current_window (GApplication *app)
     /* Get the current window or create one if necessary. */
     window = gtk_application_get_active_window (GTK_APPLICATION (app));
     if (window == NULL)
-    window = g_object_new (EXM_TYPE_WINDOW,
-                           "application", app,
-                           NULL);
+        window = g_object_new (EXM_TYPE_WINDOW,
+                               "application", app,
+                               NULL);
 
     return EXM_WINDOW (window);
 }
