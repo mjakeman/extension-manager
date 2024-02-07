@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="extension-manager">
   <schema id="@app_id@" path="/com/mattjakeman/ExtensionManager/">
+    <key name="width" type="i">
+      <default>800</default>
+      <summary>Window Width</summary>
+    </key>
+    <key name="height" type="i">
+      <default>600</default>
+      <summary>Window Height</summary>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Is Maximized</summary>
+      <description>Wether app window is maximized.</description>
+    </key>
     <key name="last-used-version" type="s">
       <default>'@app_version@'</default>
       <summary>Last-Used Version</summary>
