@@ -280,7 +280,7 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-installed-page.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-installed-page.ui", RESOURCE_PATH));
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_banner);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_list_box);

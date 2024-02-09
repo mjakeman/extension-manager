@@ -3,6 +3,8 @@
 #include "exm-enums.h"
 #include "exm-types.h"
 
+#include "exm-config.h"
+
 struct _ExmExtensionRow
 {
     AdwExpanderRow parent_instance;
@@ -57,14 +59,6 @@ exm_extension_row_new (ExmExtension *extension,
                          "extension", extension,
                          "manager", manager,
                          NULL);
-}
-
-static void
-exm_extension_row_finalize (GObject *object)
-{
-    ExmExtensionRow *self = (ExmExtensionRow *)object;
-
-    G_OBJECT_CLASS (exm_extension_row_parent_class)->finalize (object);
 }
 
 static void
@@ -275,7 +269,6 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_extension_row_finalize;
     object_class->dispose = exm_extension_row_dispose;
     object_class->get_property = exm_extension_row_get_property;
     object_class->set_property = exm_extension_row_set_property;
@@ -298,7 +291,7 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-extension-row.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-extension-row.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_title);

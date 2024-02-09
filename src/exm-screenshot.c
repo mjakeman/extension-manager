@@ -2,6 +2,8 @@
 
 #include "exm-zoom-picture.h"
 
+#include "exm-config.h"
+
 struct _ExmScreenshot
 {
     GtkWidget parent_instance;
@@ -11,13 +13,6 @@ struct _ExmScreenshot
 };
 
 G_DEFINE_FINAL_TYPE (ExmScreenshot, exm_screenshot, GTK_TYPE_WIDGET)
-
-enum {
-    PROP_0,
-    N_PROPS
-};
-
-static GParamSpec *properties [N_PROPS];
 
 ExmScreenshot *
 exm_screenshot_new (void)
@@ -35,36 +30,6 @@ exm_screenshot_finalize (GObject *object)
     gtk_widget_unparent (child);
 
     G_OBJECT_CLASS (exm_screenshot_parent_class)->finalize (object);
-}
-
-static void
-exm_screenshot_get_property (GObject    *object,
-                             guint       prop_id,
-                             GValue     *value,
-                             GParamSpec *pspec)
-{
-    ExmScreenshot *self = EXM_SCREENSHOT (object);
-
-    switch (prop_id)
-    {
-    default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
-static void
-exm_screenshot_set_property (GObject      *object,
-                             guint         prop_id,
-                             const GValue *value,
-                             GParamSpec   *pspec)
-{
-    ExmScreenshot *self = EXM_SCREENSHOT (object);
-
-    switch (prop_id)
-    {
-    default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
 }
 
 void
@@ -138,12 +103,10 @@ exm_screenshot_class_init (ExmScreenshotClass *klass)
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
     object_class->finalize = exm_screenshot_finalize;
-    object_class->get_property = exm_screenshot_get_property;
-    object_class->set_property = exm_screenshot_set_property;
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-screenshot.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-screenshot.ui", RESOURCE_PATH));
 
     widget_class->get_request_mode = exm_screenshot_get_request_mode;
     widget_class->measure = exm_screenshot_measure;

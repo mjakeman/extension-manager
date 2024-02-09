@@ -78,24 +78,12 @@ static void
 exm_application_activate (GApplication *app)
 {
     GtkWindow *window;
-    GdkDisplay *display;
-    GtkCssProvider *provider;
-    GtkIconTheme *icon_theme;
 
     /* It's good practice to check your parameters at the beginning of the
     * function. It helps catch errors early and in development instead of
     * by your users.
     */
     g_assert (GTK_IS_APPLICATION (app));
-
-    display = gdk_display_get_default ();
-    provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_resource (provider, "/com/mattjakeman/ExtensionManager/style.css");
-    gtk_style_context_add_provider_for_display (display, GTK_STYLE_PROVIDER (provider),
-                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-    icon_theme = gtk_icon_theme_get_for_display (display);
-    gtk_icon_theme_add_resource_path (icon_theme, "/com/mattjakeman/ExtensionManager/icons");
 
     window = GTK_WINDOW (get_current_window (app));
 
@@ -175,7 +163,7 @@ exm_application_show_about (GSimpleAction *action,
 
     window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-    about_dialog = adw_about_dialog_new_from_appdata ("/com/mattjakeman/ExtensionManager/com.mattjakeman.ExtensionManager.metainfo.xml",
+    about_dialog = adw_about_dialog_new_from_appdata (g_strdup_printf ("%s/com.mattjakeman.ExtensionManager.metainfo.xml", RESOURCE_PATH),
                                                       strstr (APP_ID, ".Devel") == NULL ? APP_VERSION : NULL);
 
     adw_about_dialog_set_version (ADW_ABOUT_DIALOG (about_dialog), APP_VERSION);

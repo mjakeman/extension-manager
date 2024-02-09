@@ -53,14 +53,6 @@ exm_error_dialog_new (const char *text)
 }
 
 static void
-exm_error_dialog_finalize (GObject *object)
-{
-    ExmErrorDialog *self = (ExmErrorDialog *)object;
-
-    G_OBJECT_CLASS (exm_error_dialog_parent_class)->finalize (object);
-}
-
-static void
 exm_error_dialog_get_property (GObject    *object,
                                guint       prop_id,
                                GValue     *value,
@@ -146,7 +138,6 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_error_dialog_finalize;
     object_class->get_property = exm_error_dialog_get_property;
     object_class->set_property = exm_error_dialog_set_property;
 
@@ -161,7 +152,7 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-error-dialog.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-error-dialog.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, text_view);
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, instructions);

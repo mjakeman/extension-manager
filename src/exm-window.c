@@ -64,14 +64,6 @@ enum {
 static GParamSpec *properties [N_PROPS];
 
 static void
-exm_window_finalize (GObject *object)
-{
-    ExmWindow *self = (ExmWindow *)object;
-
-    G_OBJECT_CLASS (exm_window_parent_class)->finalize (object);
-}
-
-static void
 exm_window_get_property (GObject    *object,
                          guint       prop_id,
                          GValue     *value,
@@ -84,21 +76,6 @@ exm_window_get_property (GObject    *object,
     case PROP_MANAGER:
         g_value_set_object (value, self->manager);
         break;
-    default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
-static void
-exm_window_set_property (GObject      *object,
-                         guint         prop_id,
-                         const GValue *value,
-                         GParamSpec   *pspec)
-{
-    ExmWindow *self = EXM_WINDOW (object);
-
-    switch (prop_id)
-    {
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -368,9 +345,7 @@ exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_window_finalize;
     object_class->get_property = exm_window_get_property;
-    object_class->set_property = exm_window_set_property;
 
     properties [PROP_MANAGER]
         = g_param_spec_object ("manager",
@@ -383,7 +358,7 @@ exm_window_class_init (ExmWindowClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-window.ui", RESOURCE_PATH));
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
