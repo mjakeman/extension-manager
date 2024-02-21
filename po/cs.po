@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-26 23:46+1300\n"
+"POT-Creation-Date: 2024-02-16 13:53+0100\n"
 "PO-Revision-Date: 2022-02-09 20:48+0100\n"
 "Last-Translator: vikdevelop https://github.com/vikdevelop\n"
 "Language-Team: Czech\n"
@@ -21,177 +21,58 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
-msgid "@app_title@"
-msgstr "Správce rozšíření"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#: src/exm-application.c:187
-msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "Procházet, instalovat a spravovat rozšíření GNOME Shellu."
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
-msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "Jednoduchá aplikace, jež vám usnadní procházení a instalaci rozšíření GNOME Shellu."
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
-msgid "Features:"
-msgstr "Funkce:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
-msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Procházejte web extensions.gnome.org přímo v aplikaci"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
-msgid "Manage the extensions you already have installed"
-msgstr "Spravujte rozšíření, která již máte nainstalovaná"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Jednoduchý správce rozšíření GNOME Shellu"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
-msgid "Fully adaptive mobile-friendly user interface"
-msgstr "Plně adaptivní uživatelské rozhraní pro mobilní zařízení"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
-msgid "Paginated search results"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
-msgid "Upgrade Assistant for checking extension compatibility"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:47
-msgid "Unsupported extensions are hidden by default"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:48
-msgid "Overhauled error and crash reporting"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:49
-msgid "Full-screen image viewer"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:50
-msgid "Handles new <code>gnome-extensions://</code> URI scheme"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:51
-msgid "Randomised extension suggestions"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:52
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:61
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
-msgid "Performance and stability"
-msgstr "Zlepšení výkonu a stability"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:59
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:94
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
-msgid "Translation updates"
-msgstr "Aktualizace překladů"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:60
-msgid "Various bug fixes"
-msgstr "Opravy různých chyb"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
-msgid "Remove release notes dialog"
-msgstr "Odstraněn dialog s poznámkami k vydání"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
-msgid "Fix special characters in installed extension listings"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:77
-msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
-msgid "View comments and reviews"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
-msgid "Support for in-app updates"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
-msgid "Better handling errors and out-of-date extensions"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
-msgid "Allow installing 'unsupported' extensions"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
-msgid "Display release notes on first run"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
-msgid "New app icon"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
-msgid "Optionally sort extensions by enabled status"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
-msgid "Fix special characters in search results"
-msgstr ""
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "Opravuje občasné padání aplikace při odinstalaci rozšíření"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr "První aktualizace s novými funkcemi. Mezi hlavní novinky patří:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Tmavý režim a podpora pro jeho upřednostnění před barevným schématem systému"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
-msgid "Shows screenshots in extension listings"
-msgstr "Zobrazování snímků obrazovky v seznamu rozšíření"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
-msgid "Shell version compatibility check"
-msgstr "Kontrola kompatibility s aktuální verzí Shellu"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
-msgid "Localised into seven languages"
-msgstr "Přeloženo do sedmi jazyků"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
-msgid "Sort search results"
-msgstr "Filtrování výsledků vyhledávání"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
-msgid "Global extension on/off toggle"
-msgstr "Globální přepínač pro všechna rozšíření najednou"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
-msgid "Displays user and system extensions separately"
-msgstr "Zobrazení uživatelských a systémových rozšíření zvlášť"
-
-#: src/exm-application.c:165 src/exm-window.c:446
-msgid "Extension Manager (Development)"
-msgstr "Správce rozšíření (vývojářská verze)"
-
-#: src/exm-application.c:166 src/exm-window.c:446
+#: src/exm-window.blp:9
 msgid "Extension Manager"
 msgstr "Správce rozšíření"
 
-#: src/exm-application.c:193
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#, fuzzy
+#| msgid "A utility for managing GNOME Shell Extensions"
+msgid "Manage GNOME Shell Extensions"
+msgstr "Jednoduchý správce rozšíření GNOME Shellu"
+
+#. Translators: Do not translate
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#, fuzzy
+#| msgid "Extension Manager"
+msgid "extension;manager;shell;"
+msgstr "Správce rozšíření"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
+#, fuzzy
+#| msgid "Browse, install, and manage GNOME Shell Extensions."
+msgid "Browse, install, and manage GNOME Shell Extensions"
+msgstr "Procházet, instalovat a spravovat rozšíření GNOME Shellu."
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr ""
+"Jednoduchá aplikace, jež vám usnadní procházení a instalaci rozšíření GNOME "
+"Shellu."
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+msgid "Features:"
+msgstr "Funkce:"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Procházejte web extensions.gnome.org přímo v aplikaci"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
+msgid "Manage the extensions you already have installed"
+msgstr "Spravujte rozšíření, která již máte nainstalovaná"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Jednoduchý správce rozšíření GNOME Shellu"
+
+#: src/exm-application.c:177
+msgid "Browse, install, and manage GNOME Shell Extensions."
+msgstr "Procházet, instalovat a spravovat rozšíření GNOME Shellu."
+
+#: src/exm-application.c:179
 #, fuzzy
 msgid "translator-credits"
 msgstr ""
@@ -203,88 +84,111 @@ msgid "Search for extensions"
 msgstr "Hledat rozšíření"
 
 #: src/exm-browse-page.blp:8
-msgid "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
-msgstr "Zadejte klíčové slovo k vyhledávání rozšíření GNOME Shellu na „extensions.gnome.org“."
+msgid ""
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+msgstr ""
+"Zadejte klíčové slovo k vyhledávání rozšíření GNOME Shellu na „extensions."
+"gnome.org“."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
-msgid "Popularity"
-msgstr "Popularita"
+#: src/exm-browse-page.blp:29
+msgid "Relevance"
+msgstr ""
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Počet stažení"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Recent"
 msgstr "Poslední vydané"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Name"
 msgstr "Jméno"
 
-#: src/exm-browse-page.blp:58
-msgid "Load More Results"
+#: src/exm-browse-page.blp:56
+#, fuzzy
+#| msgid "Load More Results"
+msgid "_Load More Results"
 msgstr "Získat více výsledků"
 
-#: src/exm-browse-page.blp:68
+#: src/exm-browse-page.blp:67
 msgid "No Results Found"
 msgstr "Nebyly nalezeny žádné výsledky"
 
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
 #. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:292
+#: src/exm-browse-page.c:299
+#, c-format
 msgid "e.g. “%s”"
 msgstr "např. “%s”"
 
-#: src/exm-comment-dialog.blp:7
+#: src/exm-comment-dialog.blp:9
 msgid "Comments"
 msgstr "Komentáře"
 
-#: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:93
-#: src/exm-detail-view.blp:236 src/exm-detail-view.c:390
+#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
+#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
 msgid "An Error Occurred"
 msgstr "Nastala chyba"
 
-#: src/exm-detail-view.blp:43
+#: src/exm-comment-tile.blp:20
+msgid "Author"
+msgstr ""
+
+#: src/exm-detail-view.blp:38
 msgid "Zoom In"
 msgstr "Přiblížit"
 
-#: src/exm-detail-view.blp:52
+#: src/exm-detail-view.blp:47
 msgid "Zoom Out"
 msgstr "Oddálit"
 
-#: src/exm-detail-view.blp:62
+#: src/exm-detail-view.blp:57
 msgid "Return to view"
 msgstr "Zpět na zobrazení"
 
-#: src/exm-detail-view.blp:150
+#: src/exm-detail-view.blp:152
 msgid "Enlarge image"
 msgstr "Zvětšit obrázek"
 
-#: src/exm-detail-view.blp:162 src/exm-extension-row.blp:78
+#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Popis"
 
-#: src/exm-detail-view.blp:181
+#: src/exm-detail-view.blp:185
+msgid "Links"
+msgstr ""
+
+#: src/exm-detail-view.blp:200
+msgid "Homepage"
+msgstr ""
+
+#: src/exm-detail-view.blp:217
 msgid "View on Extensions"
 msgstr "Zobrazit na webu"
 
-#: src/exm-detail-view.blp:198
-msgid "Supported Versions"
-msgstr "Podporované verze"
-
-#: src/exm-detail-view.blp:214
+#: src/exm-detail-view.blp:236
 msgid "User Reviews"
 msgstr "Uživatelské recenze"
 
-#: src/exm-detail-view.blp:255
-msgid "Show All Reviews"
+#: src/exm-detail-view.blp:267
+msgid "There are no comments."
+msgstr ""
+
+#: src/exm-detail-view.blp:287
+#, fuzzy
+#| msgid "Show All Reviews"
+msgid "_Show All Reviews"
 msgstr "Zobrazit věechny recenze"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:404
+#: src/exm-detail-view.c:450
 msgid "Loading…"
 msgstr "Načítání…"
 
@@ -292,54 +196,95 @@ msgstr "Načítání…"
 msgid "Error Report"
 msgstr "Nahlásit chybu"
 
-#: src/exm-error-dialog.blp:27
-msgid "An unexpected error occurred in Extension Manager. Please open a new issue and attach the following information:"
-msgstr "Ve Správci rozšíření došlo k neočekávané chybě. Otevřete prosím nový problém a připojte následující informace:"
+#: src/exm-error-dialog.blp:29
+#, fuzzy
+#| msgid ""
+#| "An unexpected error occurred in Extension Manager. Please open a new "
+#| "issue and attach the following information:"
+msgid "An unexpected error occurred in Extension Manager."
+msgstr ""
+"Ve Správci rozšíření došlo k neočekávané chybě. Otevřete prosím nový problém "
+"a připojte následující informace:"
 
-#: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
-msgid "Copy to Clipboard"
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+#, fuzzy
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
 msgstr "Zkopírovat do schránky"
 
-#: src/exm-error-dialog.blp:57
-msgid "New Issue"
+#: src/exm-error-dialog.blp:64
+#, fuzzy
+#| msgid "New Issue"
+msgid "_New Issue"
 msgstr "Nový problém"
 
 #. Success indicator
-#: src/exm-error-dialog.c:117 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
 msgid "Copied"
 msgstr "Zkopírováno"
 
-#: src/exm-extension-row.blp:24
+#: src/exm-error-dialog.c:179
+#, fuzzy
+#| msgid ""
+#| "An unexpected error occurred in Extension Manager. Please open a new "
+#| "issue and attach the following information:"
+msgid "Please open a new issue and attach the following information:"
+msgstr ""
+"Ve Správci rozšíření došlo k neočekávané chybě. Otevřete prosím nový problém "
+"a připojte následující informace:"
+
+#. Translators: '%s' = Name of Distributor (e.g. "Packager123")
+#: src/exm-error-dialog.c:183
+#, c-format
+msgid ""
+"You are using a third-party build of Extension Manager. Please <span "
+"weight=\"bold\">contact the package distributor (%s) first</span> before "
+"filing an issue. Be sure to attach the following information:"
+msgstr ""
+
+#: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
 msgstr "Otevřít předvolby rozšíření"
 
-#: src/exm-extension-row.blp:37
+#: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
 msgstr "Při načítání tohoto rozšíření došlo k chybě"
 
-#: src/exm-extension-row.blp:50
+#: src/exm-extension-row.blp:58
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Toto rozšíření je nekompatibilní s vaší verzí prostředí GNOME"
 
-#: src/exm-extension-row.blp:63
+#: src/exm-extension-row.blp:74
 msgid "A newer version of this extension is available"
 msgstr "Je dostupná novější verze tohoto rozšíření"
 
-#: src/exm-extension-row.blp:105
+#: src/exm-extension-row.blp:116 src/exm-info-bar.blp:18
 msgid "Version"
 msgstr "Verze"
 
-#: src/exm-extension-row.blp:131
+#: src/exm-extension-row.blp:142
 msgid "Error"
 msgstr "Chyba"
 
-#: src/exm-extension-row.blp:166
+#: src/exm-extension-row.blp:181
 msgid "See Details"
 msgstr "Zobrazit podrobnosti"
 
-#: src/exm-extension-row.blp:175
+#: src/exm-extension-row.blp:190
 msgid "Remove"
 msgstr "Odinstalovat"
+
+#: src/exm-info-bar.blp:13
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Number of downloads"
+msgid "Downloads"
+msgstr "Počet stažení"
+
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-upgrade-assistant.c:516
+msgid "Unsupported"
+msgstr "Nepodporované"
 
 #: src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
@@ -354,36 +299,33 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Nainstalované"
 
-#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:515
-msgid "Unsupported"
-msgstr "Nepodporované"
-
-#: src/exm-installed-page.blp:23
+#: src/exm-installed-page.blp:31
 msgid "Use Extensions"
 msgstr "Použít rozšíření"
 
-#: src/exm-installed-page.blp:24
+#: src/exm-installed-page.blp:32
 msgid "Extensions can cause performance and stability issues."
 msgstr "Rozšíření mohou způsobit problémy s výkonem a stabilitou."
 
-#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
 msgid "User-Installed Extensions"
 msgstr "Uživatelská rozšíření"
 
-#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
 msgid "System Extensions"
 msgstr "Systémová rozšíření"
 
-#: src/exm-installed-page.blp:90
+#: src/exm-installed-page.blp:93
 msgid "Updates are available"
 msgstr "Aktualizace jsou k dispozici"
 
-#: src/exm-installed-page.blp:107
+#: src/exm-installed-page.blp:110
 msgid "Log Out"
 msgstr "Odhlásit se"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:224
+#, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "Jedno rozšíření bude aktualizováno po příštím přihlášení."
@@ -394,104 +336,236 @@ msgstr[2] "%d rozšíření bude aktulizováno po příštím přihlášení."
 msgid "Browse"
 msgstr "Procházet"
 
-#: src/exm-installed-page.c:348 src/exm-upgrade-assistant.c:687
+#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
 msgid "There are no user extensions installed."
 msgstr "Nejsou nainstalována žádná uživatelská rozšíření."
 
-#: src/exm-installed-page.c:362 src/exm-upgrade-assistant.c:692
+#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
 msgid "There are no system extensions installed."
 msgstr "Nejsou nainstalována žádná systémová rozšíření."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:98
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
 msgid "Upgrade Assistant"
 msgstr "Asistent pro povýšení"
 
-#: src/exm-upgrade-assistant.blp:49
-msgid "Check Compatibility"
+#: src/exm-upgrade-assistant.blp:47
+#, fuzzy
+#| msgid "Check Compatibility"
+msgid "_Check Compatibility"
 msgstr "Zkontrolovat kompatibilitu"
 
-#: src/exm-upgrade-assistant.c:215
-msgid "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently installed on the system."
-msgstr "<b>GNOME %s</b> podporuje <b>%d z %d</b> rozšíření aktuálně nainstalovaných v systému."
+#: src/exm-upgrade-assistant.c:176
+#, fuzzy, c-format
+#| msgid "Search for extensions"
+msgid "Checked %d/%d extensions"
+msgstr "Hledat rozšíření"
 
-#: src/exm-upgrade-assistant.c:511
+#. Set percentage text
+#: src/exm-upgrade-assistant.c:195
+#, c-format
+msgid "%d%% Compatible"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:215
+#, c-format
+msgid ""
+"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+"installed on the system."
+msgstr ""
+"<b>GNOME %s</b> podporuje <b>%d z %d</b> rozšíření aktuálně nainstalovaných "
+"v systému."
+
+#: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr "Podporováno"
 
-#: src/exm-upgrade-assistant.c:513
+#: src/exm-upgrade-assistant.c:514
 msgid "A compatible version of the extension exists."
 msgstr "Existuje kompatibilní verze tohoto rozšíření."
 
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:518
 msgid "No compatible version of the extension exists."
 msgstr "Žádná kompatibilní verze tohoto rozšíření neexistuje."
 
-#: src/exm-upgrade-assistant.c:519
+#: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
 msgstr "Neznámé"
 
-#: src/exm-upgrade-assistant.c:521
-msgid "This extension is not hosted on extensions.gnome.org. Its compatibility cannot be determined."
-msgstr "Toto rozšíření není hostováno na webu extensions.gnome.org. Jeho kompatibilitu nelze zaručit."
+#: src/exm-upgrade-assistant.c:522
+msgid ""
+"This extension is not hosted on extensions.gnome.org. Its compatibility "
+"cannot be determined."
+msgstr ""
+"Toto rozšíření není hostováno na webu extensions.gnome.org. Jeho "
+"kompatibilitu nelze zaručit."
 
-#: src/exm-upgrade-assistant.c:614
-msgid "You are currently running <b>GNOME %s</b>. Select a version of GNOME below and check whether your extensions will continue to be available."
-msgstr "Právě používáte <b>GNOME %s</b>. Níže vyberte verzi prostředí GNOME a zkontrolujte, zda budou vaše rozšíření nadále k dispozici."
+#: src/exm-upgrade-assistant.c:617
+#, c-format
+msgid ""
+"You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
+"and check whether your extensions will continue to be available."
+msgstr ""
+"Právě používáte <b>GNOME %s</b>. Níže vyberte verzi prostředí GNOME a "
+"zkontrolujte, zda budou vaše rozšíření nadále k dispozici."
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:42
+msgid "Main Menu"
+msgstr ""
+
+#: src/exm-window.blp:55
+#, fuzzy
+#| msgctxt "Navigation"
+#| msgid "Installed"
 msgctxt "Navigation"
-msgid "Installed"
+msgid "_Installed"
 msgstr "Nainstalováno"
 
-#: src/exm-window.blp:48
+#: src/exm-window.blp:64
+#, fuzzy
+#| msgid "Browse"
 msgctxt "Navigation"
-msgid "Browse"
+msgid "_Browse"
 msgstr "Procházet"
 
-#: src/exm-window.blp:70
-msgid "Theme"
-msgstr "Téma"
-
-#: src/exm-window.blp:72
-msgid "Follow System"
-msgstr "Podle systému"
-
-#: src/exm-window.blp:77
-msgid "Light"
-msgstr "Světlé"
-
-#: src/exm-window.blp:82
-msgid "Dark"
-msgstr "Tmavé"
-
-#: src/exm-window.blp:88
+#: src/exm-window.blp:87
 msgid "Sort Enabled First"
 msgstr "Třídění povoleno jako první"
 
-#: src/exm-window.blp:92
+#: src/exm-window.blp:91
 msgid "Show Unsupported"
 msgstr "Zobrazit nepodporované"
 
-#: src/exm-window.blp:102
+#: src/exm-window.blp:101
 msgid "About Extension Manager"
 msgstr "O Správci rozšíření"
 
-#: src/exm-window.c:183
-msgid "Are you sure you want to uninstall?"
-msgstr "Jste si jisti, že chcete rozšíření odinstalovat?"
+#: src/exm-window.c:181
+#, fuzzy
+#| msgid "User-Installed Extensions"
+msgid "Uninstall Extension?"
+msgstr "Uživatelská rozšíření"
 
-#: src/exm-window.c:250
+#: src/exm-window.c:182
 msgid ""
-"This extension does not support your GNOME Shell version.\n"
-"Would you like to install anyway?"
+"The extension's features and functionality will no longer be accessible. Are "
+"you sure you want to uninstall?"
+msgstr ""
+
+#: src/exm-window.c:185
+msgid "_No"
+msgstr ""
+
+#: src/exm-window.c:186
+msgid "_Yes"
+msgstr ""
+
+#: src/exm-window.c:256
+#, fuzzy
+#| msgid "Use Extensions"
+msgid "Unsupported Extension"
+msgstr "Použít rozšíření"
+
+#: src/exm-window.c:257
+#, fuzzy
+#| msgid ""
+#| "This extension does not support your GNOME Shell version.\n"
+#| "Would you like to install anyway?"
+msgid ""
+"This extension does not support your GNOME Shell version. It may cause "
+"errors if installed."
 msgstr ""
 "Toto rozšíření nepodporuje vaši verzi prostředí GNOME Shell.\n"
 "Chcete jej přesto nainstalovat?"
 
-#: src/exm-window.c:351
+#: src/exm-window.c:260
+#, fuzzy
+#| msgid "Install"
+msgid "_Install Anyway"
+msgstr "Nainstalovat"
+
+#: src/exm-window.c:261
+msgid "_Go Back"
+msgstr ""
+
+#: src/exm-window.c:372
 msgid "An error occurred."
 msgstr "Nastala chyba."
 
-#: src/exm-window.c:352
+#: src/exm-window.c:373
 msgid "Details"
 msgstr "Podrobnosti"
+
+#~ msgid "@app_title@"
+#~ msgstr "Správce rozšíření"
+
+#~ msgid "Fully adaptive mobile-friendly user interface"
+#~ msgstr "Plně adaptivní uživatelské rozhraní pro mobilní zařízení"
+
+#~ msgid "Performance and stability"
+#~ msgstr "Zlepšení výkonu a stability"
+
+#~ msgid "Translation updates"
+#~ msgstr "Aktualizace překladů"
+
+#~ msgid "Various bug fixes"
+#~ msgstr "Opravy různých chyb"
+
+#~ msgid "Remove release notes dialog"
+#~ msgstr "Odstraněn dialog s poznámkami k vydání"
+
+#~ msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+#~ msgstr "Opravuje občasné padání aplikace při odinstalaci rozšíření"
+
+#~ msgid "The first feature update to extension-manager. Highlights include:"
+#~ msgstr "První aktualizace s novými funkcemi. Mezi hlavní novinky patří:"
+
+#~ msgid "Dark theme and support for overriding the system colour scheme"
+#~ msgstr ""
+#~ "Tmavý režim a podpora pro jeho upřednostnění před barevným schématem "
+#~ "systému"
+
+#~ msgid "Shows screenshots in extension listings"
+#~ msgstr "Zobrazování snímků obrazovky v seznamu rozšíření"
+
+#~ msgid "Shell version compatibility check"
+#~ msgstr "Kontrola kompatibility s aktuální verzí Shellu"
+
+#~ msgid "Localised into seven languages"
+#~ msgstr "Přeloženo do sedmi jazyků"
+
+#~ msgid "Sort search results"
+#~ msgstr "Filtrování výsledků vyhledávání"
+
+#~ msgid "Global extension on/off toggle"
+#~ msgstr "Globální přepínač pro všechna rozšíření najednou"
+
+#~ msgid "Displays user and system extensions separately"
+#~ msgstr "Zobrazení uživatelských a systémových rozšíření zvlášť"
+
+#~ msgid "Extension Manager (Development)"
+#~ msgstr "Správce rozšíření (vývojářská verze)"
+
+#~ msgid "Popularity"
+#~ msgstr "Popularita"
+
+#~ msgid "Supported Versions"
+#~ msgstr "Podporované verze"
+
+#~ msgctxt "Navigation"
+#~ msgid "Browse"
+#~ msgstr "Procházet"
+
+#~ msgid "Theme"
+#~ msgstr "Téma"
+
+#~ msgid "Follow System"
+#~ msgstr "Podle systému"
+
+#~ msgid "Light"
+#~ msgstr "Světlé"
+
+#~ msgid "Dark"
+#~ msgstr "Tmavé"
+
+#~ msgid "Are you sure you want to uninstall?"
+#~ msgstr "Jste si jisti, že chcete rozšíření odinstalovat?"

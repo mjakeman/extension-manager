@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 00:48+0200\n"
+"POT-Creation-Date: 2024-02-16 13:53+0100\n"
 "PO-Revision-Date: 2023-12-11 15:20+0900\n"
 "Last-Translator: Ensup Choi <ensup@vivaldi.net>\n"
 "Language-Team: \n"
@@ -19,211 +19,52 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
-msgid "@app_title@"
-msgstr "@app_title@"
+#: src/exm-window.blp:9
+msgid "Extension Manager"
+msgstr "확장 관리자"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
 msgstr "GNOME Shell 확장 관리"
 
 #. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
-msgid "extension;manager;"
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#, fuzzy
+#| msgid "extension;manager;"
+msgid "extension;manager;shell;"
 msgstr "extension;manager;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr "GNOME Shell 확장을 검색, 설치, 관리합니다"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "GNOME Shell 확장 검색과 설치를 위한 프로그램."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
 msgid "Features:"
 msgstr "특징:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "앱 내에서 extensions.gnome.org를 검색할 수 있습니다"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
 msgid "Manage the extensions you already have installed"
 msgstr "이미 설치한 확장 관리"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "GNOME Shell 확장 관리를 위한 프로그램"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
-msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
-msgstr "HOTFIX: 고장난 '최근순'과 '인기순' 검색 필터 고침"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
-msgid "Various stability and correctness fixes"
-msgstr "다양한 안정성과 정확성 고침"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:95
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:130
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:137
-msgid "Translation updates"
-msgstr "번역 업데이트"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:63
-msgid "Upgrade Assistant scroll fix"
-msgstr "업그레이드 도우미 고침"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
-msgid "Pixel perfect app icon"
-msgstr "완벽한 픽셀 앱 아이콘"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
-msgid "Official snap support"
-msgstr "공식 Snap 지원"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:73
-msgid "Improved error log generation"
-msgstr "개선된 오류 로그 생성"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
-msgid "Fully adaptive mobile-friendly user interface"
-msgstr "적응형 모바일 친화적인 사용자 인터페이스"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
-msgid "Paginated search results"
-msgstr "페이지 매겨진 검색 결과"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
-msgid "Upgrade Assistant for checking extension compatibility"
-msgstr "확장 프로그램 호환성 확인을 위한 업그레이드 도우미"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
-msgid "Unsupported extensions are hidden by default"
-msgstr "지원되지 않는 확장은 기본적으로 숨겨져 있습니다"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
-msgid "Overhauled error and crash reporting"
-msgstr "오류 및 충돌 보고 검사"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
-msgid "Full-screen image viewer"
-msgstr "전체화면 이미지 뷰어"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
-msgid "Handles new <code>gnome-extensions://</code> URI scheme"
-msgstr "새 <code>gnome-extensions://</code> URI scheme 처리"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
-msgid "Randomised extension suggestions"
-msgstr "랜덤 확장 추천"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:88
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:97
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:123
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:158
-msgid "Performance and stability"
-msgstr "성능과 안정성"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:96
-msgid "Various bug fixes"
-msgstr "다양한 버그 고침"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
-msgid "Remove release notes dialog"
-msgstr "릴리스 노트 대화 상자 제거"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
-msgid "Fix special characters in installed extension listings"
-msgstr "설치된 확장 목록에서 특수 문자 수정"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
-msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-"확장 관리자에 대한 두 번째 기능 업데이트입니다. 하이라이트는 다음과 같습니다:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
-msgid "View comments and reviews"
-msgstr "댓글과 리뷰 보기"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
-msgid "Support for in-app updates"
-msgstr "인앱 업데이트 지원"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
-msgid "Better handling errors and out-of-date extensions"
-msgstr "오류 및 오래된 확장 처리 능력 향상"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
-msgid "Allow installing 'unsupported' extensions"
-msgstr "'지원되지 않는' 확장 설치 허용"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
-msgid "Display release notes on first run"
-msgstr "첫 실행시 릴리즈 노트 띄우기"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
-msgid "New app icon"
-msgstr "새 앱 아이콘"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
-msgid "Optionally sort extensions by enabled status"
-msgstr "선택적으로 사용 가능한 상태별로 확장 정렬"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:138
-msgid "Fix special characters in search results"
-msgstr "검색 결과에서 특수 문자 수정"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:144
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "확장을 제거하는 동안 종종 발생하는 충돌을 수정합니다"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:149
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-"확장 관리자에 대한 첫 번째 기능 업데이트입니다. 하이라이트는 다음을 포함합니"
-"다:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:151
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "어두운 테마와 시스템 색상 체계를 무시하기 위한 지원"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:152
-msgid "Shows screenshots in extension listings"
-msgstr "확장 목록에 스크린샷을 표시합니다"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:153
-msgid "Shell version compatibility check"
-msgstr "Shell 버전 호한성 체크"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:154
-msgid "Localised into seven languages"
-msgstr "일곱 언어로 현지화되었습니다"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:155
-msgid "Sort search results"
-msgstr "검색 결과 정렬"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:156
-msgid "Global extension on/off toggle"
-msgstr "전역 확장 on/off 토글"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:157
-msgid "Displays user and system extensions separately"
-msgstr "사용자 및 시스템 확장을 별도로 표시합니다"
-
-#: src/exm-application.c:175
+#: src/exm-application.c:177
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "GNOME Shell 확장을 검색, 설치, 관리합니다."
 
-#: src/exm-application.c:177
+#: src/exm-application.c:179
 msgid "translator-credits"
 msgstr "Ensup Choi <ensup@outlook.com>"
 
@@ -239,28 +80,28 @@ msgstr ""
 "다."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Relevance"
 msgstr "관련성"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "다운로드순"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Recent"
 msgstr "최근순"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Name"
 msgstr "이름순"
 
-#: src/exm-browse-page.blp:58
+#: src/exm-browse-page.blp:56
 msgid "_Load More Results"
 msgstr "_더 많은 결과 로드"
 
-#: src/exm-browse-page.blp:69
+#: src/exm-browse-page.blp:67
 msgid "No Results Found"
 msgstr "결과 없음"
 
@@ -277,7 +118,7 @@ msgid "Comments"
 msgstr "댓글"
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:251 src/exm-detail-view.c:405
+#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
 msgid "An Error Occurred"
 msgstr "오류가 발생했습니다"
 
@@ -297,40 +138,40 @@ msgstr "줌 아웃"
 msgid "Return to view"
 msgstr "보기로 돌아가기"
 
-#: src/exm-detail-view.blp:145
+#: src/exm-detail-view.blp:152
 msgid "Enlarge image"
 msgstr "이미지 확대"
 
-#: src/exm-detail-view.blp:157 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "설명"
 
-#: src/exm-detail-view.blp:178
+#: src/exm-detail-view.blp:185
 msgid "Links"
 msgstr "링크"
 
-#: src/exm-detail-view.blp:193
+#: src/exm-detail-view.blp:200
 msgid "Homepage"
 msgstr "홈페이지"
 
-#: src/exm-detail-view.blp:210
+#: src/exm-detail-view.blp:217
 msgid "View on Extensions"
 msgstr "확장 보기"
 
-#: src/exm-detail-view.blp:229
+#: src/exm-detail-view.blp:236
 msgid "User Reviews"
 msgstr "사용자 리뷰"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:267
 msgid "There are no comments."
 msgstr "댓글이 없습니다."
 
-#: src/exm-detail-view.blp:280
+#: src/exm-detail-view.blp:287
 msgid "_Show All Reviews"
 msgstr "_모든 리뷰 보기"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:419
+#: src/exm-detail-view.c:450
 msgid "Loading…"
 msgstr "로딩중…"
 
@@ -351,16 +192,16 @@ msgid "_New Issue"
 msgstr "_새 이슈"
 
 #. Success indicator
-#: src/exm-error-dialog.c:130 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
 msgid "Copied"
 msgstr "복사됨"
 
-#: src/exm-error-dialog.c:180
+#: src/exm-error-dialog.c:179
 msgid "Please open a new issue and attach the following information:"
 msgstr "새 이슈를 열고 다음 정보를 첨부하십시오:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:184
+#: src/exm-error-dialog.c:183
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
@@ -461,15 +302,15 @@ msgstr[0] "%d개의 확장이 다음 로그인시에 업데이트됩니다."
 msgid "Browse"
 msgstr "찾아보기"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:691
+#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
 msgid "There are no user extensions installed."
 msgstr "사용자 확장이 설치되지 않았습니다."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:697
+#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
 msgid "There are no system extensions installed."
 msgstr "시스템 확장이 설치되지 않았습니다."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:95
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
 msgid "Upgrade Assistant"
 msgstr "업그레이드 도우미"
 
@@ -521,7 +362,7 @@ msgstr ""
 "이 확장은 extensions.gnome.org에 호스트 되지 않았습니다. 호환성을 확인할 수 "
 "없습니다."
 
-#: src/exm-upgrade-assistant.c:615
+#: src/exm-upgrade-assistant.c:617
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -530,29 +371,29 @@ msgstr ""
 "현재 <b>GNOME %s</b>을 사용중 입니다. 아래 GNOME 버전을 선택하고 확장 기능을 "
 "계속 사용할 수 있는지 확인합니다."
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:42
 msgid "Main Menu"
 msgstr "메인 메뉴"
 
-#: src/exm-window.blp:53
+#: src/exm-window.blp:55
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_설치된 확장"
 
-#: src/exm-window.blp:62
+#: src/exm-window.blp:64
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_확장 검색"
 
-#: src/exm-window.blp:85
+#: src/exm-window.blp:87
 msgid "Sort Enabled First"
 msgstr "활성화된 것부터 정렬"
 
-#: src/exm-window.blp:89
+#: src/exm-window.blp:91
 msgid "Show Unsupported"
 msgstr "지원되지 않는 확장 표시"
 
-#: src/exm-window.blp:99
+#: src/exm-window.blp:101
 msgid "About Extension Manager"
 msgstr "확장 관리자에 대하여"
 
@@ -604,10 +445,123 @@ msgstr "오류가 발생했습니다."
 msgid "Details"
 msgstr "세부 사항"
 
-#: src/exm-window.c:468
-msgid "Extension Manager (Development)"
-msgstr "확장 관리자 (개발 버전)"
+#~ msgid "@app_title@"
+#~ msgstr "@app_title@"
 
-#: src/exm-window.c:468
-msgid "Extension Manager"
-msgstr "확장 관리자"
+#~ msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
+#~ msgstr "HOTFIX: 고장난 '최근순'과 '인기순' 검색 필터 고침"
+
+#~ msgid "Various stability and correctness fixes"
+#~ msgstr "다양한 안정성과 정확성 고침"
+
+#~ msgid "Translation updates"
+#~ msgstr "번역 업데이트"
+
+#~ msgid "Upgrade Assistant scroll fix"
+#~ msgstr "업그레이드 도우미 고침"
+
+#~ msgid "Pixel perfect app icon"
+#~ msgstr "완벽한 픽셀 앱 아이콘"
+
+#~ msgid "Official snap support"
+#~ msgstr "공식 Snap 지원"
+
+#~ msgid "Improved error log generation"
+#~ msgstr "개선된 오류 로그 생성"
+
+#~ msgid "Fully adaptive mobile-friendly user interface"
+#~ msgstr "적응형 모바일 친화적인 사용자 인터페이스"
+
+#~ msgid "Paginated search results"
+#~ msgstr "페이지 매겨진 검색 결과"
+
+#~ msgid "Upgrade Assistant for checking extension compatibility"
+#~ msgstr "확장 프로그램 호환성 확인을 위한 업그레이드 도우미"
+
+#~ msgid "Unsupported extensions are hidden by default"
+#~ msgstr "지원되지 않는 확장은 기본적으로 숨겨져 있습니다"
+
+#~ msgid "Overhauled error and crash reporting"
+#~ msgstr "오류 및 충돌 보고 검사"
+
+#~ msgid "Full-screen image viewer"
+#~ msgstr "전체화면 이미지 뷰어"
+
+#~ msgid "Handles new <code>gnome-extensions://</code> URI scheme"
+#~ msgstr "새 <code>gnome-extensions://</code> URI scheme 처리"
+
+#~ msgid "Randomised extension suggestions"
+#~ msgstr "랜덤 확장 추천"
+
+#~ msgid "Performance and stability"
+#~ msgstr "성능과 안정성"
+
+#~ msgid "Various bug fixes"
+#~ msgstr "다양한 버그 고침"
+
+#~ msgid "Remove release notes dialog"
+#~ msgstr "릴리스 노트 대화 상자 제거"
+
+#~ msgid "Fix special characters in installed extension listings"
+#~ msgstr "설치된 확장 목록에서 특수 문자 수정"
+
+#~ msgid "The second feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "확장 관리자에 대한 두 번째 기능 업데이트입니다. 하이라이트는 다음과 같습니"
+#~ "다:"
+
+#~ msgid "View comments and reviews"
+#~ msgstr "댓글과 리뷰 보기"
+
+#~ msgid "Support for in-app updates"
+#~ msgstr "인앱 업데이트 지원"
+
+#~ msgid "Better handling errors and out-of-date extensions"
+#~ msgstr "오류 및 오래된 확장 처리 능력 향상"
+
+#~ msgid "Allow installing 'unsupported' extensions"
+#~ msgstr "'지원되지 않는' 확장 설치 허용"
+
+#~ msgid "Display release notes on first run"
+#~ msgstr "첫 실행시 릴리즈 노트 띄우기"
+
+#~ msgid "New app icon"
+#~ msgstr "새 앱 아이콘"
+
+#~ msgid "Optionally sort extensions by enabled status"
+#~ msgstr "선택적으로 사용 가능한 상태별로 확장 정렬"
+
+#~ msgid "Fix special characters in search results"
+#~ msgstr "검색 결과에서 특수 문자 수정"
+
+#~ msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+#~ msgstr "확장을 제거하는 동안 종종 발생하는 충돌을 수정합니다"
+
+#~ msgid "The first feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "확장 관리자에 대한 첫 번째 기능 업데이트입니다. 하이라이트는 다음을 포함합"
+#~ "니다:"
+
+#~ msgid "Dark theme and support for overriding the system colour scheme"
+#~ msgstr "어두운 테마와 시스템 색상 체계를 무시하기 위한 지원"
+
+#~ msgid "Shows screenshots in extension listings"
+#~ msgstr "확장 목록에 스크린샷을 표시합니다"
+
+#~ msgid "Shell version compatibility check"
+#~ msgstr "Shell 버전 호한성 체크"
+
+#~ msgid "Localised into seven languages"
+#~ msgstr "일곱 언어로 현지화되었습니다"
+
+#~ msgid "Sort search results"
+#~ msgstr "검색 결과 정렬"
+
+#~ msgid "Global extension on/off toggle"
+#~ msgstr "전역 확장 on/off 토글"
+
+#~ msgid "Displays user and system extensions separately"
+#~ msgstr "사용자 및 시스템 확장을 별도로 표시합니다"
+
+#~ msgid "Extension Manager (Development)"
+#~ msgstr "확장 관리자 (개발 버전)"

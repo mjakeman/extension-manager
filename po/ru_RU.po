@@ -599,3 +599,6 @@ msgstr "Подробности"
 
 #~ msgid "Dark"
 #~ msgstr "Темная"
+
+#~ msgid "extension;manager;"
+#~ msgstr "extension;manager;менеджер;расширение;"

@@ -304,15 +304,15 @@ msgstr[1] ""
 msgid "Browse"
 msgstr "Böngészés"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:691
+#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
 msgid "There are no user extensions installed."
 msgstr "Nincs felhasználó által telepített kiterjesztés."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:697
+#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
 msgid "There are no system extensions installed."
 msgstr "Nincs előtelepített kiterjesztés."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:95
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
 msgid "Upgrade Assistant"
 msgstr "Frissítési segéd"
 
