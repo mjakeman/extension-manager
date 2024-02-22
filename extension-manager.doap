@@ -20,5 +20,14 @@
         </foaf:OnlineAccount>
       </foaf:account>
     </foaf:Person>
+    <foaf:Person>
+      <foaf:name>Óscar Fernández Díaz</foaf:name>
+      <foaf:account>
+        <foaf:OnlineAccount>
+          <foaf:accountServiceHomepage rdf:resource="https://github.com"/>
+          <foaf:accountName>oscfdezdz</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+    </foaf:Person>
   </maintainer>
 </Project>
