@@ -88,31 +88,14 @@ exm_comment_tile_constructed (GObject *object)
 
     TextFrame *frame;
 
-    gboolean is_extension_creator;
-    gchar *text, *author;
-    int score;
+    gchar *text;
     g_object_get (self->comment,
-                  "is_extension_creator", &is_extension_creator,
                   "comment", &text,
-                  "author", &author,
-                  "rating", &score,
                   NULL);
-
-    if (score >= 1 && score <= 5)
-    {
-        g_object_set (self->rating, "rating", score, NULL);
-        gtk_widget_set_visible (GTK_WIDGET (self->rating), TRUE);
-    }
-    else
-    {
-        gtk_widget_set_visible (GTK_WIDGET (self->rating), FALSE);
-    }
 
     frame = format_parse_html (text);
 
     g_object_set (self->display, "frame", frame, NULL);
-    gtk_label_set_text (self->author, author);
-    gtk_widget_set_visible (GTK_WIDGET (self->author_badge), is_extension_creator);
 
     G_OBJECT_CLASS (exm_comment_tile_parent_class)->constructed (object);
 }
