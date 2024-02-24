@@ -401,6 +401,9 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_btn);
 
     gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
+    gtk_widget_class_bind_template_callback (widget_class, on_search_changed);
+    gtk_widget_class_bind_template_callback (widget_class, on_load_more_results);
+    gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
@@ -426,26 +429,6 @@ exm_browse_page_init (ExmBrowsePage *self)
                               self);
 
     g_object_unref (settings);
-
-    g_signal_connect_swapped (self->search_entry,
-                              "search-changed",
-                              G_CALLBACK (on_search_changed),
-                              self);
-
-    g_signal_connect_swapped (self->search_dropdown,
-                              "notify::selected",
-                              G_CALLBACK (on_search_changed),
-                              self);
-
-    g_signal_connect (self->more_results_btn,
-                      "clicked",
-                      G_CALLBACK (on_load_more_results),
-                      self);
-
-    g_signal_connect (self,
-                      "notify::manager",
-                      G_CALLBACK (on_bind_manager),
-                      NULL);
 
     load_suggestions (self);
 }

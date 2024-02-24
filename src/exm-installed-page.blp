@@ -2,6 +2,8 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmInstalledPage : Gtk.Widget {
+	notify::manager => $on_bind_manager();
+
 	Gtk.Box {
 		orientation: vertical;
 
