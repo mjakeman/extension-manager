@@ -83,23 +83,11 @@ template $ExmWindow : Adw.ApplicationWindow {
 
 menu primary_menu {
   section {
-    item {
-      label: _("Sort Enabled First");
-      action: "app.sort-enabled-first";
-    }
-    item {
-      label: _("Show Unsupported");
-      action: "app.show-unsupported";
-    }
+    item (_("Sort Enabled First"), "app.sort-enabled-first")
+    item (_("Show Unsupported"), "app.show-unsupported")
   }
   section {
-    item {
-      label: _("Upgrade Assistant");
-      action: "win.show-upgrade-assistant";
-    }
-    item {
-      label: _("About Extension Manager");
-      action: "app.about";
-    }
+    item (_("Upgrade Assistant"), "win.show-upgrade-assistant")
+    item (_("About Extension Manager"), "app.about")
   }
 }
