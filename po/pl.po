@@ -9,16 +9,17 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-16 13:53+0100\n"
-"PO-Revision-Date: 2022-03-27 18:00+0200\n"
-"Last-Translator: Rafał Baran <>\n"
-"Language-Team: Polish <>\n"
+"PO-Revision-Date: 2024-02-27 13:02+0000\n"
+"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
+"app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 40.0\n"
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -89,7 +90,7 @@ msgstr "Wpisz słowo kluczowe, aby wyszukać rozszerzenia w extensions.gnome.org
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:29
 msgid "Relevance"
-msgstr ""
+msgstr "Trafność"
 
 #: src/exm-browse-page.blp:29
 #, fuzzy
@@ -108,7 +109,7 @@ msgstr "Nazwa"
 
 #: src/exm-browse-page.blp:56
 msgid "_Load More Results"
-msgstr ""
+msgstr "_Załaduj więcej wyników"
 
 #: src/exm-browse-page.blp:67
 msgid "No Results Found"
@@ -120,11 +121,11 @@ msgstr "Nie Znaleziono Wyników"
 #: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
-msgstr ""
+msgstr "np. “%s”"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
-msgstr ""
+msgstr "Komentarze"
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
 #: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
@@ -133,11 +134,11 @@ msgstr "Wystąpił Błąd"
 
 #: src/exm-comment-tile.blp:20
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: src/exm-detail-view.blp:38
 msgid "Zoom In"
-msgstr ""
+msgstr "Powiększ"
 
 #: src/exm-detail-view.blp:47
 #, fuzzy
@@ -151,7 +152,7 @@ msgstr ""
 
 #: src/exm-detail-view.blp:152
 msgid "Enlarge image"
-msgstr ""
+msgstr "Powiększ obraz"
 
 #: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
 msgid "Description"
@@ -192,7 +193,7 @@ msgstr "Ładowanie…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr ""
+msgstr "Zgłoszenie błędu"
 
 #: src/exm-error-dialog.blp:29
 #, fuzzy
@@ -202,16 +203,16 @@ msgstr "Wystąpił błąd podczas ładowania tego rozszerzenia"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
 msgid "_Copy to Clipboard"
-msgstr ""
+msgstr "_Skopiuj do schowka"
 
 #: src/exm-error-dialog.blp:64
 msgid "_New Issue"
-msgstr ""
+msgstr "_Nowe zgłoszenie"
 
 #. Success indicator
 #: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
 msgid "Copied"
-msgstr ""
+msgstr "Skopiowano"
 
 #: src/exm-error-dialog.c:179
 msgid "Please open a new issue and attach the following information:"
@@ -338,11 +339,11 @@ msgstr "Osobne wyświetlanie rozszerzeń systemowych i użytkownika"
 
 #: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
 msgid "Upgrade Assistant"
-msgstr ""
+msgstr "Asystent aktualizacji"
 
 #: src/exm-upgrade-assistant.blp:47
 msgid "_Check Compatibility"
-msgstr ""
+msgstr "_Sprawdź zgodność"
 
 #: src/exm-upgrade-assistant.c:176
 #, fuzzy, c-format
@@ -383,7 +384,7 @@ msgstr "Jest dostępna nowsza wersja tego rozszerzenia"
 
 #: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
-msgstr ""
+msgstr "Nieznane"
 
 #: src/exm-upgrade-assistant.c:522
 msgid ""
@@ -400,7 +401,7 @@ msgstr ""
 
 #: src/exm-window.blp:42
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu główne"
 
 #: src/exm-window.blp:55
 #, fuzzy
@@ -446,11 +447,11 @@ msgstr ""
 
 #: src/exm-window.c:185
 msgid "_No"
-msgstr ""
+msgstr "_Nie"
 
 #: src/exm-window.c:186
 msgid "_Yes"
-msgstr ""
+msgstr "_Tak"
 
 #: src/exm-window.c:256
 #, fuzzy
@@ -478,7 +479,7 @@ msgstr "Zainstaluj"
 
 #: src/exm-window.c:261
 msgid "_Go Back"
-msgstr ""
+msgstr "_Wstecz"
 
 #: src/exm-window.c:372
 #, fuzzy
