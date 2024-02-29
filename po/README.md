@@ -1,11 +1,28 @@
 # Translating Extension Manager
 Contributions to translations are always welcome!
 
+There are two ways to translate Extension Manager, via Weblate or manually, choose your favorite.
+
+> [!TIP]
+> Use Weblate if you don't know which one to choose.
+
+## Via Weblate
+
+We use Weblate - an open source continuous localisation tool - for translation management. Access to Hosted Weblate is kindly provided free of charge to the Extension Manager project.
+
+<p align="center">
+  <a href="https://hosted.weblate.org/engage/extension-manager/">
+  <img width="500"src="https://hosted.weblate.org/widget/extension-manager/open-graph.png" alt="Translation status" />
+  </a>
+</p>
+
+## Manually
+
 If you are totally new to GTK software translation (or software development in general), fear not! The entire process is explained below in as much detail as possible. If you have any trouble, please [get in touch](/README.md#-community).
 
 If you already have experience with translating GTK applications, remember that Extension Manager is written in C. You will need to rebuild it every time you make a change to the `po` files.
 
-## How to add new translation
+### How to add new translation
 
 1. You need software to translate Extension Manager (in this case, we will use [POEdit](https://poedit.net/)) and [GNOME Builder](https://apps.gnome.org/Builder/) to build and test your translation.
 2. Clone Extension Manager repository to your device.
@@ -61,7 +78,7 @@ You can learn more about locales [here](https://www.gnu.org/software/gettext/man
 9. Translate Extension Manager!
 10. [Test your translation](#how-to-test-translation).
 
-## How to test translation
+### How to test translation
 
 After you have finished your translation, you will want to test it. The easiest way to do so is to use [GNOME Builder](https://apps.gnome.org/Builder/).
 
@@ -162,7 +179,7 @@ If you want to update the translation that someone else already did:
 
 Try to be consistent with choices that previous translator did, unless they contradict other GTK/GNOME applications translated terms or you think that your translation will suit better.
 
-## How to contribute your translation
+### How to contribute your translation
 If you think that you done with translating, it's time to send your translation as pull request to developers of Extension Manager!
 
 This part might be tricky to someone who not familiar with software development and Github, so if you don't understand something, you can contact [community/developers here](/README.md#-community), where you will get help!
@@ -187,7 +204,7 @@ If not, you could use Github interface to do so:
 3. Make sure that everything is correct, there are no typos in translation, mistakes, you didn't upload wrong files by accident, etc.
 4. Open [pull request](https://github.com/mjakeman/extension-manager/compare) to Extension Manager repository against your fork.
 
-## Tips about translating
+### Tips about translating
 1. Try to be consistent in your translation with other GTK/GNOME applications.
 
 Pick same terms, use same accelerators, etc.
@@ -208,7 +225,7 @@ And if you want to place link:
 
 You can check if you input everything correctly in `About` dialog of Extension Manager.
 
-## Regenerate POT files
+### Regenerate POT files
 If you want to regenerate the `pot` file (i.e. when it hasn't been updated in
 a while), there are a few steps that need to be followed:
 
