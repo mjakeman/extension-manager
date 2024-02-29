@@ -21,10 +21,21 @@ template $ExmCommentDialog : Adw.Dialog {
           Gtk.StackPage {
             name: "page_spinner";
 
-            child: Gtk.Spinner {
-              spinning: true;
-              halign: center;
+            child: Gtk.Box {
+              orientation: vertical;
+              spacing: 12;
               valign: center;
+
+              Gtk.Spinner {
+                spinning: true;
+                height-request: 32;
+                width-request: 32;
+              }
+
+              Gtk.Label {
+              	styles["title-2"]
+              	label: _("Loading Comments");
+              }
             };
           }
 

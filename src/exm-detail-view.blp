@@ -74,10 +74,21 @@ template $ExmDetailView : Adw.NavigationPage {
 				Gtk.StackPage {
 					name: "page_spinner";
 
-					child: Gtk.Spinner {
-						spinning: true;
-						halign: center;
+					child: Gtk.Box {
+						orientation: vertical;
+						spacing: 24;
 						valign: center;
+
+						Gtk.Spinner {
+							spinning: true;
+							height-request: 32;
+							width-request: 32;
+						}
+
+						Gtk.Label {
+							styles["title-1"]
+							label: _("Loading Details");
+						}
 					};
 				}
 
@@ -244,9 +255,9 @@ template $ExmDetailView : Adw.NavigationPage {
 										Gtk.StackPage {
 											name: "page_spinner";
 
-											child: Gtk.Spinner {
-												spinning: true;
-												halign: center;
+											child: Gtk.Image {
+												icon-name: "content-loading-symbolic";
+												icon-size: large;
 												valign: center;
 											};
 										}

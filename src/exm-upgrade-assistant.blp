@@ -32,7 +32,6 @@ template $ExmUpgradeAssistant : Adw.Dialog {
               orientation: vertical;
 
               Gtk.Label description {
-                xalign: 0.5;
                 wrap: true;
               }
 
@@ -59,16 +58,17 @@ template $ExmUpgradeAssistant : Adw.Dialog {
       	name: "waiting";
         child: Gtk.Box {
         	orientation: vertical;
+        	spacing: 12;
         	valign: center;
-        	halign: center;
-        	spacing: 10;
 
         	Gtk.Spinner {
         		spinning: true;
+        		height-request: 32;
+        		width-request: 32;
         	}
 
         	Gtk.Label counter {
-        		xalign: 0.5;
+        		styles ["title-2"]
         	}
         };
       }

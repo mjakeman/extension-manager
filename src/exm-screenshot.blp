@@ -7,10 +7,10 @@ template $ExmScreenshot : Gtk.Widget {
 		Gtk.StackPage {
 			name: "page_spinner";
 
-			child: Gtk.Spinner {
-				spinning: true;
+			child: Gtk.Image {
+				icon-name: "image-loading-symbolic";
+				icon-size: large;
 				valign: center;
-				halign: center;
 			};
 		}
 
