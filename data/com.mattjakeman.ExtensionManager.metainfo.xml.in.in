@@ -6,8 +6,7 @@
   <name>Extension Manager</name>
   <summary>Browse, install, and manage GNOME Shell Extensions</summary>
   <content_rating type="oars-1.1" />
-  <developer_name translatable="no">Matthew Jakeman</developer_name>
-  <developer id="mattjakeman.com">
+  <developer id="com.mattjakeman">
     <name translatable="no">Matthew Jakeman</name>
   </developer>
 	<description>
