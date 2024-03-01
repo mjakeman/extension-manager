@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 00:48+0200\n"
-"PO-Revision-Date: 2023-11-24 17:16+0300\n"
+"POT-Creation-Date: 2024-02-16 13:53+0100\n"
+"PO-Revision-Date: 2024-03-01 15:32+0300\n"
 "Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -17,219 +17,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
-msgid "@app_title@"
-msgstr "@app_title@"
+#: src/exm-window.blp:9
+msgid "Extension Manager"
+msgstr "Менеджер расширений"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
 msgstr "Управление расширениями GNOME Shell"
 
 #. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
-msgid "extension;manager;"
-msgstr "extension;manager;менеджер;расширение;"
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+msgid "extension;manager;shell;"
+msgstr "extension;manager;shell;менеджер;расширение;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr "Просмотр, установка и управление расширениями GNOME Shell"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "Утилита для просмотра и установки расширений GNOME Shell."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
 msgid "Features:"
 msgstr "Функции:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Просмотр сайта extensions.gnome.org прямо в приложении"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
 msgid "Manage the extensions you already have installed"
 msgstr "Управление уже установленными расширениями"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Утилита для управления расширениями GNOME Shell"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
-msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
-msgstr ""
-"HOTFIX: Исправлены неработающие фильтры поиска 'недавние' и 'популярность'"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
-msgid "Various stability and correctness fixes"
-msgstr "Различные исправления стабильности и корректности"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:95
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:130
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:137
-msgid "Translation updates"
-msgstr "Обновления перевода"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:63
-msgid "Upgrade Assistant scroll fix"
-msgstr "Исправление прокрутки помощника по обновлению"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
-msgid "Pixel perfect app icon"
-msgstr "Идеальная пиксельная иконка приложения"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
-msgid "Official snap support"
-msgstr "Официальная поддержка snap"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:73
-msgid "Improved error log generation"
-msgstr "Улучшено формирование журнала ошибок"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
-msgid "Fully adaptive mobile-friendly user interface"
-msgstr ""
-"Полностью адаптивный пользовательский интерфейс, удобный для мобильных "
-"устройств"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
-msgid "Paginated search results"
-msgstr "Результаты поиска с разбивкой на страницы"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
-msgid "Upgrade Assistant for checking extension compatibility"
-msgstr "Помощник по обновлению для проверки совместимости расширений"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
-msgid "Unsupported extensions are hidden by default"
-msgstr "Неподдерживаемые расширения скрываются по умолчанию"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
-msgid "Overhauled error and crash reporting"
-msgstr "Переработанная отчетность об ошибках и сбоях"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
-msgid "Full-screen image viewer"
-msgstr "Полноэкранный просмотрщик изображений"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
-msgid "Handles new <code>gnome-extensions://</code> URI scheme"
-msgstr "Обработка новой схемы <code>gnome-extensions://</code> URI"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
-msgid "Randomised extension suggestions"
-msgstr "Случайные предложения по расширениям"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:88
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:97
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:123
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:158
-msgid "Performance and stability"
-msgstr "Производительность и стабильность"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:96
-msgid "Various bug fixes"
-msgstr "Некоторые исправления ошибок"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
-msgid "Remove release notes dialog"
-msgstr "Удаление диалогового окна примечаний к выпуску"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
-msgid "Fix special characters in installed extension listings"
-msgstr "Исправление специальных символов в списках установленных расширений"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
-msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-"Второе функциональное обновление extension-manager. Основные моменты "
-"включают:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
-msgid "View comments and reviews"
-msgstr "Просмотр комментариев и отзывов"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
-msgid "Support for in-app updates"
-msgstr "Поддержка обновлений в приложении"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
-msgid "Better handling errors and out-of-date extensions"
-msgstr "Улучшенная обработка ошибок и устаревших расширений"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
-msgid "Allow installing 'unsupported' extensions"
-msgstr "Разрешить установку \"неподдерживаемых\" расширений"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
-msgid "Display release notes on first run"
-msgstr "Отображение примечаний к выпуску при первом запуске"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
-msgid "New app icon"
-msgstr "Новая иконка приложения"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
-msgid "Optionally sort extensions by enabled status"
-msgstr "Опциональная сортировка расширений по статусу включения"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:138
-msgid "Fix special characters in search results"
-msgstr "Исправление специальных символов в результатах поиска"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:144
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "Устранение сбоя, который иногда возникает при удалении расширения"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:149
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-"Первое функциональное обновление extension-manager. Основные моменты "
-"включают:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:151
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Темная тема и поддержка переопределения системной цветовой схемы"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:152
-msgid "Shows screenshots in extension listings"
-msgstr "Показывает скриншоты в списках расширений"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:153
-msgid "Shell version compatibility check"
-msgstr "Проверка совместимости версии оболочки"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:154
-msgid "Localised into seven languages"
-msgstr "Локализована на семи языках"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:155
-msgid "Sort search results"
-msgstr "Сортировать результаты поиска"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:156
-msgid "Global extension on/off toggle"
-msgstr "Переключатель включения/выключения всех расширений"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:157
-msgid "Displays user and system extensions separately"
-msgstr "Отображение пользовательских и системных расширений по отдельности"
-
-#: src/exm-application.c:175
+#: src/exm-application.c:177
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Просмотр, установка и управление расширениями GNOME Shell."
 
-#: src/exm-application.c:177
+#: src/exm-application.c:179
 msgid "translator-credits"
 msgstr ""
 "Danik2343 <krutalevex@mail.ru>\n"
@@ -247,28 +82,28 @@ msgstr ""
 "Shell."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Relevance"
 msgstr "Релевантность"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Число загрузок"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Recent"
 msgstr "Недавние"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:29
 msgid "Name"
 msgstr "Название"
 
-#: src/exm-browse-page.blp:58
+#: src/exm-browse-page.blp:56
 msgid "_Load More Results"
 msgstr "_Загрузить больше результатов"
 
-#: src/exm-browse-page.blp:69
+#: src/exm-browse-page.blp:67
 msgid "No Results Found"
 msgstr "Результаты не найдены"
 
@@ -285,7 +120,7 @@ msgid "Comments"
 msgstr "Комментарии"
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:251 src/exm-detail-view.c:405
+#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
 msgid "An Error Occurred"
 msgstr "Произошла ошибка"
 
@@ -305,40 +140,40 @@ msgstr "Уменьшить"
 msgid "Return to view"
 msgstr "Вернуться к просмотру"
 
-#: src/exm-detail-view.blp:145
+#: src/exm-detail-view.blp:152
 msgid "Enlarge image"
 msgstr "Увеличить изображение"
 
-#: src/exm-detail-view.blp:157 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Описание"
 
-#: src/exm-detail-view.blp:178
+#: src/exm-detail-view.blp:185
 msgid "Links"
 msgstr "Ссылки"
 
-#: src/exm-detail-view.blp:193
+#: src/exm-detail-view.blp:200
 msgid "Homepage"
 msgstr "Домашняя страница"
 
-#: src/exm-detail-view.blp:210
+#: src/exm-detail-view.blp:217
 msgid "View on Extensions"
 msgstr "Посмотреть в Расширениях"
 
-#: src/exm-detail-view.blp:229
+#: src/exm-detail-view.blp:236
 msgid "User Reviews"
 msgstr "Отзывы пользователей"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:267
 msgid "There are no comments."
 msgstr "Комментариев нет."
 
-#: src/exm-detail-view.blp:280
+#: src/exm-detail-view.blp:287
 msgid "_Show All Reviews"
 msgstr "_Показать все отзывы"
 
 #. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:419
+#: src/exm-detail-view.c:450
 msgid "Loading…"
 msgstr "Загрузка…"
 
@@ -359,16 +194,16 @@ msgid "_New Issue"
 msgstr "_Новая проблема"
 
 #. Success indicator
-#: src/exm-error-dialog.c:130 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
 msgid "Copied"
 msgstr "Скопировано"
 
-#: src/exm-error-dialog.c:180
+#: src/exm-error-dialog.c:179
 msgid "Please open a new issue and attach the following information:"
 msgstr "Пожалуйста, откройте новую проблему и приложите следующую информацию:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:184
+#: src/exm-error-dialog.c:183
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
@@ -473,15 +308,15 @@ msgstr[2] "%d расширений будут обновлены при след
 msgid "Browse"
 msgstr "Обзор"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:691
+#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
 msgid "There are no user extensions installed."
 msgstr "Пользовательские расширения не установлены."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:697
+#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
 msgid "There are no system extensions installed."
 msgstr "Системные расширения не установлены."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:95
+#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
 msgid "Upgrade Assistant"
 msgstr "Помощник по обновлению"
 
@@ -533,7 +368,7 @@ msgstr ""
 "Это расширение не размещено на сайте extensions.gnome.org. Его совместимость "
 "не может быть определена."
 
-#: src/exm-upgrade-assistant.c:615
+#: src/exm-upgrade-assistant.c:617
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -542,29 +377,29 @@ msgstr ""
 "В настоящее время вы используете <b>GNOME %s</b>. Выберите версию GNOME ниже "
 "и проверьте, будут ли ваши расширения по-прежнему доступны."
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:42
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: src/exm-window.blp:53
+#: src/exm-window.blp:55
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "У_становленные"
 
-#: src/exm-window.blp:62
+#: src/exm-window.blp:64
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Обзор"
 
-#: src/exm-window.blp:85
+#: src/exm-window.blp:87
 msgid "Sort Enabled First"
 msgstr "Сортировать включенные первыми"
 
-#: src/exm-window.blp:89
+#: src/exm-window.blp:91
 msgid "Show Unsupported"
 msgstr "Показать неподдерживаемые"
 
-#: src/exm-window.blp:99
+#: src/exm-window.blp:101
 msgid "About Extension Manager"
 msgstr "О приложении"
 
@@ -616,13 +451,129 @@ msgstr "Произошла ошибка."
 msgid "Details"
 msgstr "Подробности"
 
-#: src/exm-window.c:468
-msgid "Extension Manager (Development)"
-msgstr "Менеджер расширений (Разрабатываемая версия)"
+#~ msgid "@app_title@"
+#~ msgstr "@app_title@"
 
-#: src/exm-window.c:468
-msgid "Extension Manager"
-msgstr "Менеджер расширений"
+#~ msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
+#~ msgstr ""
+#~ "HOTFIX: Исправлены неработающие фильтры поиска 'недавние' и 'популярность'"
+
+#~ msgid "Various stability and correctness fixes"
+#~ msgstr "Различные исправления стабильности и корректности"
+
+#~ msgid "Translation updates"
+#~ msgstr "Обновления перевода"
+
+#~ msgid "Upgrade Assistant scroll fix"
+#~ msgstr "Исправление прокрутки помощника по обновлению"
+
+#~ msgid "Pixel perfect app icon"
+#~ msgstr "Идеальная пиксельная иконка приложения"
+
+#~ msgid "Official snap support"
+#~ msgstr "Официальная поддержка snap"
+
+#~ msgid "Improved error log generation"
+#~ msgstr "Улучшено формирование журнала ошибок"
+
+#~ msgid "Fully adaptive mobile-friendly user interface"
+#~ msgstr ""
+#~ "Полностью адаптивный пользовательский интерфейс, удобный для мобильных "
+#~ "устройств"
+
+#~ msgid "Paginated search results"
+#~ msgstr "Результаты поиска с разбивкой на страницы"
+
+#~ msgid "Upgrade Assistant for checking extension compatibility"
+#~ msgstr "Помощник по обновлению для проверки совместимости расширений"
+
+#~ msgid "Unsupported extensions are hidden by default"
+#~ msgstr "Неподдерживаемые расширения скрываются по умолчанию"
+
+#~ msgid "Overhauled error and crash reporting"
+#~ msgstr "Переработанная отчетность об ошибках и сбоях"
+
+#~ msgid "Full-screen image viewer"
+#~ msgstr "Полноэкранный просмотрщик изображений"
+
+#~ msgid "Handles new <code>gnome-extensions://</code> URI scheme"
+#~ msgstr "Обработка новой схемы <code>gnome-extensions://</code> URI"
+
+#~ msgid "Randomised extension suggestions"
+#~ msgstr "Случайные предложения по расширениям"
+
+#~ msgid "Performance and stability"
+#~ msgstr "Производительность и стабильность"
+
+#~ msgid "Various bug fixes"
+#~ msgstr "Некоторые исправления ошибок"
+
+#~ msgid "Remove release notes dialog"
+#~ msgstr "Удаление диалогового окна примечаний к выпуску"
+
+#~ msgid "Fix special characters in installed extension listings"
+#~ msgstr "Исправление специальных символов в списках установленных расширений"
+
+#~ msgid "The second feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Второе функциональное обновление extension-manager. Основные моменты "
+#~ "включают:"
+
+#~ msgid "View comments and reviews"
+#~ msgstr "Просмотр комментариев и отзывов"
+
+#~ msgid "Support for in-app updates"
+#~ msgstr "Поддержка обновлений в приложении"
+
+#~ msgid "Better handling errors and out-of-date extensions"
+#~ msgstr "Улучшенная обработка ошибок и устаревших расширений"
+
+#~ msgid "Allow installing 'unsupported' extensions"
+#~ msgstr "Разрешить установку \"неподдерживаемых\" расширений"
+
+#~ msgid "Display release notes on first run"
+#~ msgstr "Отображение примечаний к выпуску при первом запуске"
+
+#~ msgid "New app icon"
+#~ msgstr "Новая иконка приложения"
+
+#~ msgid "Optionally sort extensions by enabled status"
+#~ msgstr "Опциональная сортировка расширений по статусу включения"
+
+#~ msgid "Fix special characters in search results"
+#~ msgstr "Исправление специальных символов в результатах поиска"
+
+#~ msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+#~ msgstr "Устранение сбоя, который иногда возникает при удалении расширения"
+
+#~ msgid "The first feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Первое функциональное обновление extension-manager. Основные моменты "
+#~ "включают:"
+
+#~ msgid "Dark theme and support for overriding the system colour scheme"
+#~ msgstr "Темная тема и поддержка переопределения системной цветовой схемы"
+
+#~ msgid "Shows screenshots in extension listings"
+#~ msgstr "Показывает скриншоты в списках расширений"
+
+#~ msgid "Shell version compatibility check"
+#~ msgstr "Проверка совместимости версии оболочки"
+
+#~ msgid "Localised into seven languages"
+#~ msgstr "Локализована на семи языках"
+
+#~ msgid "Sort search results"
+#~ msgstr "Сортировать результаты поиска"
+
+#~ msgid "Global extension on/off toggle"
+#~ msgstr "Переключатель включения/выключения всех расширений"
+
+#~ msgid "Displays user and system extensions separately"
+#~ msgstr "Отображение пользовательских и системных расширений по отдельности"
+
+#~ msgid "Extension Manager (Development)"
+#~ msgstr "Менеджер расширений (Разрабатываемая версия)"
 
 #~ msgid "Popularity"
 #~ msgstr "Популярность"
