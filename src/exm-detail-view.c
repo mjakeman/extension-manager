@@ -54,6 +54,7 @@ struct _ExmDetailView
     gchar *shell_version;
     gchar *uuid;
 
+    AdwHeaderBar *header_bar;
     AdwWindowTitle *title;
     GtkStack *stack;
     GtkButton *ext_install;
@@ -430,8 +431,6 @@ on_data_loaded (GObject      *source,
         return;
     }
 
-    adw_window_title_set_title (self->title, _("An Error Occurred"));
-    adw_window_title_set_subtitle (self->title, NULL);
     gtk_stack_set_visible_child_name (self->stack, "page_error");
 }
 
@@ -442,10 +441,6 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     // g_assert (gtk_widget_is_constructed)
 
     self->uuid = uuid;
-
-    /* Translators: Use unicode ellipsis '…' rather than three dots '...' */
-    adw_window_title_set_title (self->title, _("Loading…"));
-    adw_window_title_set_subtitle (self->title, NULL);
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
     gtk_widget_set_visible (GTK_WIDGET (self->image_overlay), FALSE);
@@ -545,6 +540,17 @@ on_bind_manager (ExmDetailView *self)
 }
 
 static void
+update_headerbar_cb (ExmDetailView *self)
+{
+    GtkAdjustment *adj;
+
+    adj = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (self->scroll_area));
+
+    adw_header_bar_set_show_title (ADW_HEADER_BAR (self->header_bar),
+                                   gtk_adjustment_get_value (adj) > 0);
+}
+
+static void
 exm_detail_view_class_init (ExmDetailViewClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -573,6 +579,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-detail-view.ui");
 
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, title);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_icon);
@@ -612,6 +619,7 @@ static void
 exm_detail_view_init (ExmDetailView *self)
 {
     GSimpleActionGroup *group;
+    GtkAdjustment *adj;
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
@@ -650,4 +658,10 @@ exm_detail_view_init (ExmDetailView *self)
 							  "clicked",
 							  G_CALLBACK (widget_hide),
 							  self->image_overlay);
+
+    adj = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (self->scroll_area));
+
+    g_signal_connect_swapped (adj, "value-changed", G_CALLBACK (update_headerbar_cb), self);
+
+    update_headerbar_cb (self);
 }
