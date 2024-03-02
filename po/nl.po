@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-16 13:53+0100\n"
-"PO-Revision-Date: 2024-03-02 22:52+0000\n"
+"PO-Revision-Date: 2024-03-02 23:04+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -166,7 +166,7 @@ msgstr "Beoordelingen"
 
 #: src/exm-detail-view.blp:267
 msgid "There are no comments."
-msgstr ""
+msgstr "Er zijn geen opmerkingen."
 
 #: src/exm-detail-view.blp:287
 #, fuzzy
