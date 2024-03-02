@@ -8,46 +8,40 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-16 13:53+0100\n"
-"PO-Revision-Date: 2022-10-28 14:19+0200\n"
+"PO-Revision-Date: 2024-03-02 22:52+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
+"app/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:9
 msgid "Extension Manager"
-msgstr "Uitbreidingsbeheer"
+msgstr "Uitbreidings­beheer"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
-#, fuzzy
-#| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Manage GNOME Shell Extensions"
-msgstr "Een toepassing voor beheren van GNOME Shell-uitbreidingen"
+msgstr "Beheer GNOME Shell-uitbreidingen"
 
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "extension;manager;shell;"
-msgstr "Uitbreidingsbeheer"
+msgstr "extension;manager;shell;uitbreiding;extensie;beheer;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "Ontdek, installeer en beheer GNOME Shell-uitbreidingen."
+msgstr "Ontdek, installeer en beheer GNOME Shell-uitbreidingen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr ""
-"Een toepassing voor het ontdekken en installeren van GNOME Shell-"
-"uitbreidingen."
+"Een app voor het ontdekken en installeren van GNOME Shell-uitbreidingen."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
 msgid "Features:"
@@ -56,7 +50,8 @@ msgstr "Kenmerken:"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Ontdek uitbreidingen op extensions.gnome.org vanuit de toepassing"
+msgstr ""
+"Blader door uitbreidingen van extensions.gnome.org recht­streeks in de app"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
@@ -65,7 +60,7 @@ msgstr "Beheer de reeds geïnstalleerde uitbreidingen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Een toepassing voor beheren van GNOME Shell-uitbreidingen"
+msgstr "Een app voor het beheren van GNOME Shell-uitbreidingen"
 
 #: src/exm-application.c:177
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -75,7 +70,7 @@ msgstr "Ontdek, installeer en beheer GNOME Shell-uitbreidingen."
 msgid "translator-credits"
 msgstr ""
 "Heimen Stoffels <vistausss@fastmail.com>\n"
-"Philip Goto <philip.goto@gmail.com>"
+"Philip Goto https://philipgoto.nl/"
 
 #: src/exm-browse-page.blp:7
 msgid "Search for extensions"
@@ -89,14 +84,12 @@ msgstr "Voer een zoekterm in om ‘extensions.gnome.org’ te doorzoeken."
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:29
 msgid "Relevance"
-msgstr ""
+msgstr "Relevantie"
 
 #: src/exm-browse-page.blp:29
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
-msgstr "Aantal downloads"
+msgstr "Downloads"
 
 #: src/exm-browse-page.blp:29
 msgid "Recent"
@@ -107,14 +100,12 @@ msgid "Name"
 msgstr "Naam"
 
 #: src/exm-browse-page.blp:56
-#, fuzzy
-#| msgid "Load More Results"
 msgid "_Load More Results"
-msgstr "Meer resultaten tonen"
+msgstr "_Meer resultaten laden"
 
 #: src/exm-browse-page.blp:67
 msgid "No Results Found"
-msgstr "Er zijn geen resultaten gevonden"
+msgstr "Geen resultaten gevonden"
 
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
@@ -122,11 +113,11 @@ msgstr "Er zijn geen resultaten gevonden"
 #: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
-msgstr "bijv. “%s”"
+msgstr "bijv. ‘%s’"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
-msgstr "Reacties"
+msgstr "Opmerkingen"
 
 #: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
 #: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
@@ -135,7 +126,7 @@ msgstr "Er is een fout opgetreden"
 
 #: src/exm-comment-tile.blp:20
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: src/exm-detail-view.blp:38
 msgid "Zoom In"
@@ -162,14 +153,12 @@ msgid "Links"
 msgstr "Links"
 
 #: src/exm-detail-view.blp:200
-#, fuzzy
-#| msgid "Project Homepage"
 msgid "Homepage"
-msgstr "Website"
+msgstr "Start­pagina"
 
 #: src/exm-detail-view.blp:217
 msgid "View on Extensions"
-msgstr "Uitbreidingspagina openen"
+msgstr "Uitbreidings­pagina openen"
 
 #: src/exm-detail-view.blp:236
 msgid "User Reviews"
@@ -212,10 +201,8 @@ msgid "_Copy to Clipboard"
 msgstr "Kopiëren naar klembord"
 
 #: src/exm-error-dialog.blp:64
-#, fuzzy
-#| msgid "New Issue"
 msgid "_New Issue"
-msgstr "Nieuw probleem"
+msgstr "_Nieuwe issue"
 
 #. Success indicator
 #: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
@@ -275,11 +262,9 @@ msgid "Remove"
 msgstr "Verwijderen"
 
 #: src/exm-info-bar.blp:13
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Number of downloads"
 msgid "Downloads"
-msgstr "Aantal downloads"
+msgstr "Downloads"
 
 #: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
 #: src/exm-upgrade-assistant.c:516
@@ -350,10 +335,8 @@ msgid "Upgrade Assistant"
 msgstr "Bijwerkassistent"
 
 #: src/exm-upgrade-assistant.blp:47
-#, fuzzy
-#| msgid "Check Compatibility"
 msgid "_Check Compatibility"
-msgstr "Compatibiliteit controleren"
+msgstr "_Compatibiliteit controleren"
 
 #: src/exm-upgrade-assistant.c:176
 #, fuzzy, c-format
@@ -365,7 +348,7 @@ msgstr "Zoeken naar uitbreidingen"
 #: src/exm-upgrade-assistant.c:195
 #, c-format
 msgid "%d%% Compatible"
-msgstr ""
+msgstr "%d%% Compatibel"
 
 #: src/exm-upgrade-assistant.c:215
 #, c-format
@@ -411,22 +394,17 @@ msgstr ""
 
 #: src/exm-window.blp:42
 msgid "Main Menu"
-msgstr ""
+msgstr "Hoofd­menu"
 
 #: src/exm-window.blp:55
-#, fuzzy
-#| msgctxt "Navigation"
-#| msgid "Installed"
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "Geïnstalleerd"
+msgstr "_Geïnstalleerd"
 
 #: src/exm-window.blp:64
-#, fuzzy
-#| msgid "Browse"
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "Ontdekken"
+msgstr "_Bladeren"
 
 #: src/exm-window.blp:87
 msgid "Sort Enabled First"
@@ -454,11 +432,11 @@ msgstr ""
 
 #: src/exm-window.c:185
 msgid "_No"
-msgstr ""
+msgstr "_Nee"
 
 #: src/exm-window.c:186
 msgid "_Yes"
-msgstr ""
+msgstr "_Ja"
 
 #: src/exm-window.c:256
 #, fuzzy
