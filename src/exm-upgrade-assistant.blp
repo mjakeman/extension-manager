@@ -5,6 +5,7 @@ template $ExmUpgradeAssistant : Adw.Window {
   default-width: 400;
   default-height: 550;
   title: _("Upgrade Assistant");
+  notify::manager => $on_bind_manager();
 
   Adw.ToolbarView {
 
@@ -48,6 +49,7 @@ template $ExmUpgradeAssistant : Adw.Window {
               halign: center;
               valign: end;
               use-underline: true;
+              clicked => $do_compatibility_check() swapped;
             }
           }
         };
@@ -127,6 +129,7 @@ template $ExmUpgradeAssistant : Adw.Window {
 								label: _("_Copy to Clipboard");
 								halign: center;
 								use-underline: true;
+								clicked => $copy_to_clipboard() swapped;
 			    		}
 				    };
 		      };

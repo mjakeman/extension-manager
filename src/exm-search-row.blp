@@ -76,6 +76,7 @@ template $ExmSearchRow: Gtk.ListBoxRow {
     $ExmInstallButton install_btn {
       valign: center;
       halign: end;
+      clicked => $install_remote();
     }
 
     Gtk.Image {

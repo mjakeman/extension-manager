@@ -2,6 +2,8 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmBrowsePage : Gtk.Widget {
+	notify::manager => $on_bind_manager();
+
 	Gtk.ScrolledWindow {
 		Adw.StatusPage {
 			title: _("Search for extensions");
@@ -18,8 +20,8 @@ template $ExmBrowsePage : Gtk.Widget {
 
 						Gtk.SearchEntry search_entry {
 							hexpand: true;
-
 							realize => $on_search_entry_realize();
+							search-changed => $on_search_changed() swapped;
 						}
 
 						// Keep the same order as the ExmSearchSort enum
@@ -28,6 +30,7 @@ template $ExmBrowsePage : Gtk.Widget {
 								// Translators: dropdown items for sorting search results
 								strings [_("Relevance"), C_("Sort search results", "Downloads"), _("Recent"), _("Name")]
 							};
+							notify::selected => $on_search_changed() swapped;
 						}
 					}
 
@@ -57,6 +60,7 @@ template $ExmBrowsePage : Gtk.Widget {
 					        halign: center;
 					        margin-top: 24;
 					        use-underline: true;
+					        clicked => $on_load_more_results();
 					      }
 							};
 						}

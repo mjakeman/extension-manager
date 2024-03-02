@@ -13,16 +13,20 @@ template $ExmCommentTile : Gtk.Widget {
       Gtk.Label author {
         styles ["dim-label"]
         xalign: 0;
+        label: bind template.comment as <$ExmComment>.author;
       }
 
       Gtk.Label author_badge {
       	styles ["author-badge"]
       	label: _("Author");
+        visible: bind template.comment as <$ExmComment>.is_extension_creator;
       }
 
       $ExmRating rating {
         halign: end;
         hexpand: true;
+        rating: bind template.comment as <$ExmComment>.rating;
+        visible: bind template.comment as <$ExmComment>.rating as <bool>;
       }
     }
 

@@ -326,6 +326,8 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_action_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
 
+    gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
+
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 
@@ -373,11 +375,6 @@ exm_installed_page_init (ExmInstalledPage *self)
     GSettings *settings;
 
     gtk_widget_init_template (GTK_WIDGET (self));
-
-    g_signal_connect (self,
-                      "notify::manager",
-                      G_CALLBACK (on_bind_manager),
-                      NULL);
 
     settings = g_settings_new (APP_ID);
 

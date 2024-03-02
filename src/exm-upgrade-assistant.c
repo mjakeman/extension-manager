@@ -654,6 +654,10 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, copy_details);
 
+    gtk_widget_class_bind_template_callback (widget_class, do_compatibility_check);
+    gtk_widget_class_bind_template_callback (widget_class, copy_to_clipboard);
+    gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
+
     gtk_widget_class_add_binding_action (widget_class, GDK_KEY_Escape, 0, "window.close", NULL);
 }
 
@@ -663,21 +667,6 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     GtkWidget *placeholder, *icon;
 
     gtk_widget_init_template (GTK_WIDGET (self));
-
-    g_signal_connect_swapped (self->run_button,
-                              "clicked",
-                              G_CALLBACK (do_compatibility_check),
-                              self);
-
-    g_signal_connect_swapped (self->copy_details,
-                              "clicked",
-                              G_CALLBACK (copy_to_clipboard),
-                              self);
-
-    g_signal_connect (self,
-                      "notify::manager",
-                      G_CALLBACK (on_bind_manager),
-                      NULL);
 
     self->data_provider = exm_data_provider_new ();
     self->target_shell_version = NULL;
