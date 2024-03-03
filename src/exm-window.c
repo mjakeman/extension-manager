@@ -145,11 +145,11 @@ typedef struct
 } RemoveDialogData;
 
 static void
-extension_remove_dialog_response (GtkDialog        *dialog,
+extension_remove_dialog_response (AdwDialog        *dialog,
                                   const char       *response,
                                   RemoveDialogData *data)
 {
-    gtk_window_destroy (GTK_WINDOW (dialog));
+    adw_dialog_force_close (dialog);
 
     if (strcmp(response, "yes") == 0)
     {
@@ -175,28 +175,27 @@ extension_remove (GtkWidget  *widget,
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
 
-    GtkWidget *dlg;
+    AdwDialog *dlg;
 
-    dlg = adw_message_dialog_new (GTK_WINDOW (self),
-                                  _("Uninstall Extension?"),
-                                  _("The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?"));
+    dlg = adw_alert_dialog_new (_("Uninstall Extension?"),
+                                _("The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?"));
 
-    adw_message_dialog_add_responses (ADW_MESSAGE_DIALOG (dlg),
-                                      "no", _("_No"),
-                                      "yes", _("_Yes"),
-                                      NULL);
+    adw_alert_dialog_add_responses (ADW_ALERT_DIALOG (dlg),
+                                    "no", _("_No"),
+                                    "yes", _("_Yes"),
+                                    NULL);
 
-    adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
+    adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
 
-    adw_message_dialog_set_default_response (ADW_MESSAGE_DIALOG (dlg), "no");
-    adw_message_dialog_set_close_response (ADW_MESSAGE_DIALOG (dlg), "no");
+    adw_alert_dialog_set_default_response (ADW_ALERT_DIALOG (dlg), "no");
+    adw_alert_dialog_set_close_response (ADW_ALERT_DIALOG (dlg), "no");
 
     RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
     data->manager = g_object_ref (self->manager);
     data->extension = g_object_ref (extension);
 
     g_signal_connect (dlg, "response", G_CALLBACK (extension_remove_dialog_response), data);
-    gtk_window_present (GTK_WINDOW (dlg));
+    adw_dialog_present (dlg, GTK_WIDGET (self));
 }
 
 static void
@@ -218,11 +217,11 @@ typedef struct
 } UnsupportedDialogData;
 
 static void
-extension_unsupported_dialog_response (GtkDialog             *dialog,
+extension_unsupported_dialog_response (AdwDialog             *dialog,
                                        const char            *response,
                                        UnsupportedDialogData *data)
 {
-    gtk_window_destroy (GTK_WINDOW (dialog));
+    adw_dialog_force_close (dialog);
 
     if (strcmp(response, "yes") == 0)
     {
@@ -250,29 +249,28 @@ extension_install (GtkWidget  *widget,
 
     if (warn)
     {
-        GtkWidget *dlg;
+        AdwDialog *dlg;
 
-        dlg = adw_message_dialog_new (GTK_WINDOW (self),
-                                      _("Unsupported Extension"),
-                                      _("This extension does not support your GNOME Shell version. It may cause errors if installed."));
+        dlg = adw_alert_dialog_new (_("Unsupported Extension"),
+                                    _("This extension does not support your GNOME Shell version. It may cause errors if installed."));
 
-        adw_message_dialog_add_responses (ADW_MESSAGE_DIALOG (dlg),
-                                          "yes", _("_Install Anyway"),
-                                          "no", _("_Go Back"),
-                                          NULL);
+        adw_alert_dialog_add_responses (ADW_ALERT_DIALOG (dlg),
+                                        "yes", _("_Install Anyway"),
+                                        "no", _("_Go Back"),
+                                        NULL);
 
-        adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
-        adw_message_dialog_set_response_appearance (ADW_MESSAGE_DIALOG (dlg), "no", ADW_RESPONSE_SUGGESTED);
+        adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
+        adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "no", ADW_RESPONSE_SUGGESTED);
 
-        adw_message_dialog_set_default_response (ADW_MESSAGE_DIALOG (dlg), "no");
-        adw_message_dialog_set_close_response (ADW_MESSAGE_DIALOG (dlg), "no");
+        adw_alert_dialog_set_default_response (ADW_ALERT_DIALOG (dlg), "no");
+        adw_alert_dialog_set_close_response (ADW_ALERT_DIALOG (dlg), "no");
 
         UnsupportedDialogData *data = g_new0 (UnsupportedDialogData, 1);
         data->manager = g_object_ref (self->manager);
         data->uuid = g_strdup (uuid);
 
         g_signal_connect (dlg, "response", G_CALLBACK (extension_unsupported_dialog_response), data);
-        gtk_window_present (GTK_WINDOW (dlg));
+        adw_dialog_present (dlg, GTK_WIDGET (self));
 
         return;
     }
@@ -334,9 +332,7 @@ show_upgrade_assistant (GtkWidget  *widget,
     self = EXM_WINDOW (widget);
 
     ExmUpgradeAssistant *assistant = exm_upgrade_assistant_new (self->manager);
-    gtk_window_set_modal (GTK_WINDOW (assistant), TRUE);
-    gtk_window_set_transient_for (GTK_WINDOW (assistant), GTK_WINDOW (self));
-    gtk_window_present (GTK_WINDOW (assistant));
+    adw_dialog_present (ADW_DIALOG (assistant), widget);
 }
 
 static void

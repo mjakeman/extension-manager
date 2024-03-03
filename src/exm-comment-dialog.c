@@ -7,7 +7,7 @@
 
 struct _ExmCommentDialog
 {
-    AdwWindow parent_instance;
+    AdwDialog parent_instance;
 
     ExmCommentProvider *comment_provider;
 
@@ -17,7 +17,7 @@ struct _ExmCommentDialog
     int web_id;
 };
 
-G_DEFINE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, ADW_TYPE_WINDOW)
+G_DEFINE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, ADW_TYPE_DIALOG)
 
 enum {
     PROP_0,
@@ -106,8 +106,6 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, stack);
-
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_Escape, 0, "window.close", NULL);
 }
 
 static GtkWidget *

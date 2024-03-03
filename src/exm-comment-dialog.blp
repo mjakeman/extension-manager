@@ -1,14 +1,14 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmCommentDialog : Adw.Window {
-  default-width: 600;
-  default-height: 500;
+template $ExmCommentDialog : Adw.Dialog {
+  content-width: 600;
+  content-height: 600;
   width-request: 360;
   height-request: 294;
   title: _("Comments");
 
-  Adw.ToolbarView {
+  child: Adw.ToolbarView {
 
     [top]
     Adw.HeaderBar {}
@@ -50,5 +50,5 @@ template $ExmCommentDialog : Adw.Window {
         }
       }
     };
-  }
+  };
 }
