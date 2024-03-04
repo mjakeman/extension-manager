@@ -77,7 +77,7 @@ to use unsupported extensions fully.
 
 > [!CAUTION]
 > Unsupported extensions will likely not work as intended and
-> may introduce instability to your system. Disabled the version check at your own risk.
+> may introduce instability to your system. Disable the version check at your own risk.
 
 > [!IMPORTANT]
 > Re-enable the version check before filing issues against GNOME components.
