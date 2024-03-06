@@ -101,36 +101,6 @@ exm_installed_page_set_property (GObject      *object,
     }
 }
 
-static gboolean
-on_state_toggled (GtkSwitch *toggle,
-                  gboolean   state,
-                  gchar     *uuid)
-{
-    gtk_widget_activate_action (GTK_WIDGET (toggle),
-                                "ext.state-set",
-                                "(sb)", uuid, state);
-
-    return FALSE;
-}
-
-static void
-on_open_prefs (GtkButton *button,
-               gchar     *uuid)
-{
-    gtk_widget_activate_action (GTK_WIDGET (button),
-                                "ext.open-prefs",
-                                "s", uuid);
-}
-
-static void
-on_remove (GtkButton *button,
-           gchar     *uuid)
-{
-    gtk_widget_activate_action (GTK_WIDGET (button),
-                                "ext.remove",
-                                "s", uuid);
-}
-
 static GtkWidget *
 widget_factory (ExmExtension* extension)
 {
