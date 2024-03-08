@@ -102,13 +102,15 @@ exm_installed_page_set_property (GObject      *object,
 }
 
 static GtkWidget *
-widget_factory (ExmExtension* extension)
+widget_factory (ExmExtension     *extension,
+                ExmInstalledPage *self)
 {
     ExmExtensionRow *row;
 
     g_return_if_fail (EXM_IS_EXTENSION (extension));
+    g_return_if_fail (EXM_IS_INSTALLED_PAGE (self));
 
-    row = exm_extension_row_new (extension);
+    row = exm_extension_row_new (extension, self->manager);
     return GTK_WIDGET (row);
 }
 
@@ -136,9 +138,10 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
 }
 
 static void
-bind_list_box (GtkListBox *list_box,
-               GListModel *model,
-               gboolean    sort_enabled_first)
+bind_list_box (GtkListBox       *list_box,
+               GListModel       *model,
+               gboolean          sort_enabled_first,
+               ExmInstalledPage *self)
 {
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;
@@ -172,7 +175,7 @@ bind_list_box (GtkListBox *list_box,
 
     gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
                              (GtkListBoxCreateWidgetFunc) widget_factory,
-                             NULL, NULL);
+                             self, NULL);
 }
 
 static guint
@@ -219,12 +222,14 @@ invalidate_model_bindings (ExmInstalledPage *self)
     if (user_ext_model)
         bind_list_box (self->user_list_box,
                        user_ext_model,
-                       self->sort_enabled_first);
+                       self->sort_enabled_first,
+                       self);
 
     if (system_ext_model)
         bind_list_box (self->system_list_box,
                        system_ext_model,
-                       self->sort_enabled_first);
+                       self->sort_enabled_first,
+                       self);
 }
 
 static void
