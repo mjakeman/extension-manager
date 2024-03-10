@@ -462,17 +462,6 @@ exm_detail_view_update (ExmDetailView *self)
     }
 }
 
-void
-exm_detail_view_adaptive (ExmDetailView *self, AdwBreakpoint *breakpoint)
-{
-    GValue value = G_VALUE_INIT;
-
-    g_value_init (&value, GTK_TYPE_ORIENTATION);
-    g_value_set_enum (&value, GTK_ORIENTATION_VERTICAL);
-
-    adw_breakpoint_add_setter (breakpoint, G_OBJECT (self->ext_info_bar), "orientation", &value);
-}
-
 static void
 open_link (ExmDetailView *self,
            const char    *action_name,
@@ -540,6 +529,20 @@ on_bind_manager (ExmDetailView *self)
 }
 
 static void
+breakpoint_apply_cb (ExmDetailView *self)
+{
+    gtk_widget_remove_css_class (GTK_WIDGET (self->ext_title), "title-1");
+    gtk_widget_add_css_class (GTK_WIDGET (self->ext_title), "title-2");
+}
+
+static void
+breakpoint_unapply_cb (ExmDetailView *self)
+{
+    gtk_widget_remove_css_class (GTK_WIDGET (self->ext_title), "title-2");
+    gtk_widget_add_css_class (GTK_WIDGET (self->ext_title), "title-1");
+}
+
+static void
 update_headerbar_cb (ExmDetailView *self)
 {
     GtkAdjustment *adj;
@@ -600,6 +603,9 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, show_more_btn);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, image_overlay);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, overlay_screenshot);
+
+    gtk_widget_class_bind_template_callback (widget_class, breakpoint_apply_cb);
+    gtk_widget_class_bind_template_callback (widget_class, breakpoint_unapply_cb);
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, open_link);

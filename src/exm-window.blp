@@ -8,7 +8,7 @@ template $ExmWindow : Adw.ApplicationWindow {
   height-request: 294;
   title: _("Extension Manager");
 
-  Adw.Breakpoint main_breakpoint {
+  Adw.Breakpoint {
     condition ("max-width: 400sp")
     setters {
       header_bar.title-widget: null;

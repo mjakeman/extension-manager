@@ -17,7 +17,4 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
 void
 exm_detail_view_update (ExmDetailView *self);
 
-void
-exm_detail_view_adaptive (ExmDetailView *self, AdwBreakpoint *breakpoint);
-
 G_END_DECLS
