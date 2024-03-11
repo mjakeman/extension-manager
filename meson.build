@@ -36,6 +36,7 @@ configure_file(
 )
 add_project_arguments([
   '-I' + meson.project_build_root(),
+  '-Werror=implicit-function-declaration',
 ], language: 'c')
 
 

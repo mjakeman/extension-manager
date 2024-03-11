@@ -18,6 +18,7 @@
 
 #include <glib/gi18n.h>
 #include <signal.h>
+#include <sys/wait.h>
 
 #include "exm-config.h"
 #include "exm-application.h"
