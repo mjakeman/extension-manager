@@ -102,7 +102,7 @@ update_state (ExmInstallButton *button)
     const gchar *tooltip;
     ExmInstallButtonState state;
 
-    tooltip = _("This extension is incompatible with your current version of GNOME.");
+    tooltip = _("This extension is incompatible with your current version of GNOME");
     state = button->state;
 
     gtk_widget_remove_css_class (GTK_WIDGET (button), "warning");
@@ -112,7 +112,7 @@ update_state (ExmInstallButton *button)
     switch ((int)state)
     {
     case EXM_INSTALL_BUTTON_STATE_DEFAULT:
-        gtk_button_set_label (GTK_BUTTON (button), _("Install"));
+        gtk_button_set_label (GTK_BUTTON (button), _("Install…"));
         gtk_widget_set_sensitive (GTK_WIDGET (button), TRUE);
         gtk_widget_add_css_class (GTK_WIDGET (button), "suggested-action");
         break;
@@ -121,7 +121,7 @@ update_state (ExmInstallButton *button)
         gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
         break;
     case EXM_INSTALL_BUTTON_STATE_UNSUPPORTED:
-        gtk_button_set_label (GTK_BUTTON (button), _("Unsupported"));
+        gtk_button_set_label (GTK_BUTTON (button), _("Unsupported…"));
         gtk_widget_add_css_class (GTK_WIDGET (button), "warning");
         gtk_widget_set_tooltip_text (GTK_WIDGET (button), tooltip);
         gtk_widget_set_sensitive (GTK_WIDGET (button), TRUE);

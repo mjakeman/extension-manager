@@ -284,7 +284,6 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
                          ExmBrowsePage  *self)
 {
     const char *suggestion;
-    char *fmt;
     int random_index;
     int num_suggestions;
 
@@ -293,13 +292,8 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
     random_index = g_random_int_range (0, num_suggestions);
     suggestion = gtk_string_list_get_string (self->suggestions, random_index);
 
-    // Translators:
-    //  - '%s' is an extension e.g. Blur my Shell
-    //  - Please use unicode quotation marks e.g. “” (not "")
-    fmt = g_strdup_printf (_("e.g. “%s”"), suggestion);
-
     // Set placeholder value
-    g_object_set (search_entry, "placeholder-text", fmt, NULL);
+    g_object_set (search_entry, "placeholder-text", suggestion, NULL);
 
     // Fire off a default search
     search (self, "", EXM_SEARCH_SORT_RELEVANCE);

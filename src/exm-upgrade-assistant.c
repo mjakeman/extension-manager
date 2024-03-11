@@ -212,7 +212,7 @@ display_results (ExmUpgradeAssistant *self)
         gtk_widget_add_css_class (GTK_WIDGET (self->progress_bar), "error");
     }
 
-    text = _("<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently installed on the system.");
+    text = _("<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently installed on the system");
     text = g_strdup_printf (text, self->target_shell_version, self->number_supported, self->total_extensions);
     gtk_label_set_markup (self->summary, text);
     g_free (text);
@@ -511,11 +511,11 @@ widget_factory (ExmUpgradeResult    *result,
     if (supported == STATUS_SUPPORTED) {
         status = gtk_label_new (_("Supported"));
         gtk_widget_add_css_class (status, "success");
-        gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("A compatible version of the extension exists."));
+        gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("A compatible version of the extension exists"));
     } else if (supported == STATUS_UNSUPPORTED) {
         status = gtk_label_new (_("Unsupported"));
         gtk_widget_add_css_class (status, "error");
-        gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("No compatible version of the extension exists."));
+        gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("No compatible version of the extension exists"));
     } else {
         status = gtk_label_new (_("Unknown"));
         gtk_widget_add_css_class (status, "warning");
@@ -677,13 +677,13 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     placeholder = adw_action_row_new ();
     icon = gtk_image_new_from_icon_name ("puzzle-piece-symbolic");
     adw_action_row_add_prefix (ADW_ACTION_ROW (placeholder), icon);
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("There are no user extensions installed."));
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("No User Extensions Installed"));
     gtk_list_box_set_placeholder (self->user_list_box, placeholder);
 
     placeholder = adw_action_row_new ();
     icon = gtk_image_new_from_icon_name ("settings-symbolic");
     adw_action_row_add_prefix (ADW_ACTION_ROW (placeholder), icon);
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("There are no system extensions installed."));
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("No System Extensions Installed"));
     gtk_list_box_set_placeholder (self->system_list_box, placeholder);
 
     populate_drop_down (self);
