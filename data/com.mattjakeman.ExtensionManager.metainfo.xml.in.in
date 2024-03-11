@@ -49,6 +49,18 @@
     <display_length compare="ge">360</display_length>
   </requires>
   <releases>
+    <release version="0.5.0" date="2024-03-18">
+      <description translatable="no">
+        <p>The 'Performance &amp; Polish' release</p>
+        <ul>
+          <li>Compatibility with GNOME 46</li>
+          <li>Display extension icons and statistics</li>
+          <li>Search is more reliable</li>
+          <li>New widgets, better resizing, cleaner look</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.4.3" date="2023-11-08">
       <description translatable="no">
         <ul>
