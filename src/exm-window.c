@@ -117,27 +117,6 @@ extension_open_prefs (GtkWidget  *widget,
     exm_manager_open_prefs (self->manager, extension);
 }
 
-static void
-extension_state_set (GtkWidget  *widget,
-                     const char *action_name,
-                     GVariant   *param)
-{
-    ExmWindow *self;
-    ExmExtension *extension;
-    gchar *uuid;
-    gboolean state;
-
-    self = EXM_WINDOW (widget);
-    g_variant_get (param, "(sb)", &uuid, &state);
-
-    extension = exm_manager_get_by_uuid (self->manager, uuid);
-
-    if (state)
-        exm_manager_enable_extension (self->manager, extension);
-    else
-        exm_manager_disable_extension (self->manager, extension);
-}
-
 typedef struct
 {
     ExmManager *manager;
@@ -421,7 +400,6 @@ exm_window_class_init (ExmWindowClass *klass)
     // then be passed to each page.
     gtk_widget_class_install_action (widget_class, "ext.install", "(sb)", extension_install);
     gtk_widget_class_install_action (widget_class, "ext.remove", "s", extension_remove);
-    gtk_widget_class_install_action (widget_class, "ext.state-set", "(sb)", extension_state_set);
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);

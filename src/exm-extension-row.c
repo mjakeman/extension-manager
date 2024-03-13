@@ -12,6 +12,8 @@ struct _ExmExtensionRow
     ExmExtension *extension;
     gchar *uuid;
 
+    ExmManager *manager;
+
     GtkButton *remove_btn;
     GtkButton *prefs_btn;
     GtkButton *details_btn;
@@ -25,8 +27,6 @@ struct _ExmExtensionRow
     GtkImage *update_icon;
     GtkImage *error_icon;
     GtkImage *out_of_date_icon;
-
-    guint signal_handler;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -34,6 +34,7 @@ G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
 enum {
     PROP_0,
     PROP_EXTENSION,
+    PROP_MANAGER,
     N_PROPS
 };
 
@@ -47,10 +48,12 @@ static void
 unbind_extension (ExmExtensionRow *self);
 
 ExmExtensionRow *
-exm_extension_row_new (ExmExtension *extension)
+exm_extension_row_new (ExmExtension *extension,
+                       ExmManager   *manager)
 {
     return g_object_new (EXM_TYPE_EXTENSION_ROW,
                          "extension", extension,
+                         "manager", manager,
                          NULL);
 }
 
@@ -85,6 +88,9 @@ exm_extension_row_get_property (GObject    *object,
     case PROP_EXTENSION:
         g_value_set_object (value, self->extension);
         break;
+    case PROP_MANAGER:
+        g_value_set_object (value, self->manager);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -103,77 +109,12 @@ exm_extension_row_set_property (GObject      *object,
     case PROP_EXTENSION:
         bind_extension (self, g_value_get_object (value));
         break;
+    case PROP_MANAGER:
+        self->manager = g_value_get_object (value);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
-}
-
-void
-update_state (ExmExtension    *extension,
-              GParamSpec      *pspec,
-              ExmExtensionRow *row)
-{
-    // We update the state of the action without activating it. If we activate
-    // it, then it will go back to gnome-shell and explicitly enable/disable
-    // the extension. We do not want this behaviour as it messes with the global
-    // extension toggle.
-
-    g_return_if_fail (EXM_IS_EXTENSION (extension));
-    g_return_if_fail (EXM_IS_EXTENSION_ROW (row));
-
-    g_assert (row->extension == extension);
-
-    const gchar *uuid;
-    ExmExtensionState new_state;
-    GAction *action;
-
-    g_object_get (extension,
-                  "state", &new_state,
-                  "uuid", &uuid,
-                  NULL);
-
-    g_info ("%s: %s\n", uuid, g_enum_to_string (EXM_TYPE_EXTENSION_STATE, new_state));
-
-    action = g_action_map_lookup_action (G_ACTION_MAP (row->action_group), "state-set");
-
-    // Reset state
-    g_simple_action_set_enabled (G_SIMPLE_ACTION (action), TRUE);
-    gtk_widget_set_visible (GTK_WIDGET (row->error_icon), FALSE);
-    gtk_widget_set_visible (GTK_WIDGET (row->out_of_date_icon), FALSE);
-
-    switch (new_state)
-    {
-    case EXM_EXTENSION_STATE_ENABLED:
-        g_simple_action_set_state (G_SIMPLE_ACTION (action),
-                                   g_variant_new_boolean (TRUE));
-        break;
-
-    case EXM_EXTENSION_STATE_DISABLED:
-        g_simple_action_set_state (G_SIMPLE_ACTION (action),
-                                   g_variant_new_boolean (FALSE));
-        break;
-
-    case EXM_EXTENSION_STATE_ERROR:
-        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), FALSE);
-        gtk_widget_set_visible (GTK_WIDGET (row->error_icon), TRUE);
-        g_simple_action_set_state (G_SIMPLE_ACTION (action),
-                                   g_variant_new_boolean (FALSE));
-        break;
-
-    case EXM_EXTENSION_STATE_OUT_OF_DATE:
-        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), FALSE);
-        gtk_widget_set_visible (GTK_WIDGET (row->out_of_date_icon), TRUE);
-        g_simple_action_set_state (G_SIMPLE_ACTION (action),
-                                   g_variant_new_boolean (FALSE));
-        break;
-
-    default:
-        break;
-    }
-    gboolean is_enabled = (new_state == EXM_EXTENSION_STATE_ENABLED);
-
-    // Update state of toggle
-    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (is_enabled));
 }
 
 static void
@@ -184,12 +125,22 @@ set_error_label_visible (ExmExtensionRow *self,
     gtk_widget_set_visible (GTK_WIDGET (self->error_label_tag), visible);
 }
 
+static gboolean
+transform_to_state (GBinding     *binding,
+                    const GValue *from_value,
+                    GValue       *to_value,
+                    gpointer      user_data)
+{
+    g_value_set_boolean (to_value, g_value_get_enum (from_value) == EXM_EXTENSION_STATE_ACTIVE);
+
+    return TRUE;
+}
+
 static void
 unbind_extension (ExmExtensionRow *self)
 {
     if (self->extension != NULL)
     {
-        g_signal_handler_disconnect (self->extension, self->signal_handler);
         g_clear_object (&self->extension);
         g_clear_pointer (&self->uuid, g_free);
     }
@@ -216,13 +167,14 @@ bind_extension (ExmExtensionRow *self,
         return;
 
     gchar *name, *uuid, *description, *version, *error_msg;
-    gboolean has_prefs, has_update, is_user;
+    gboolean enabled, has_prefs, has_update, is_user;
     ExmExtensionState state;
     g_object_get (self->extension,
                   "display-name", &name,
                   "uuid", &uuid,
                   "description", &description,
                   "state", &state,
+                  "enabled", &enabled,
                   "has-prefs", &has_prefs,
                   "has-update", &has_update,
                   "is-user", &is_user,
@@ -248,18 +200,12 @@ bind_extension (ExmExtensionRow *self,
     gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
     set_error_label_visible (self, has_error);
 
+    gtk_widget_set_visible (GTK_WIDGET (self->error_icon), state == EXM_EXTENSION_STATE_ERROR);
+    gtk_widget_set_visible (GTK_WIDGET (self->out_of_date_icon), state == EXM_EXTENSION_STATE_OUT_OF_DATE);
+
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
-    // One way binding from extension ("source of truth") to switch
-    self->signal_handler = g_signal_connect (self->extension,
-                                             "notify::state",
-                                             G_CALLBACK (update_state),
-                                             self);
-
     GAction *action;
-
-    action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "state-set");
-    g_simple_action_set_state (G_SIMPLE_ACTION (action), g_variant_new_boolean (TRUE));
 
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), has_prefs);
@@ -267,7 +213,49 @@ bind_extension (ExmExtensionRow *self,
     action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "remove");
     g_simple_action_set_enabled (G_SIMPLE_ACTION (action), is_user);
 
-    update_state (self->extension, NULL, self);
+    g_object_bind_property_full (self->extension,
+                                 "state",
+                                 self->ext_toggle,
+                                 "state",
+                                 G_BINDING_SYNC_CREATE,
+                                 transform_to_state,
+                                 NULL,
+                                 NULL,
+                                 NULL);
+
+    // Keep compatibility with GNOME Shell versions prior to 46
+    if (gtk_switch_get_state (self->ext_toggle) != enabled &&
+        (state == EXM_EXTENSION_STATE_ACTIVE || state == EXM_EXTENSION_STATE_ACTIVATING))
+        g_object_set (self->extension, "enabled", !enabled, NULL);
+}
+
+static gboolean
+on_state_changed (GtkSwitch        *toggle,
+                  gboolean          state,
+                  ExmExtensionRow  *self)
+{
+    g_return_if_fail (EXM_IS_EXTENSION_ROW (self));
+
+    g_assert (self->ext_toggle == toggle);
+
+    gboolean enabled;
+
+    g_object_get (self->extension, "enabled", &enabled, NULL);
+
+    // Prevents changing extensions' state when global switch is toggled
+    if (state == enabled)
+        return TRUE;
+
+    // Keep compatibility with GNOME Shell versions prior to 46
+    if (gtk_switch_get_state (toggle) != enabled)
+        g_object_set (self->extension, "enabled", !enabled, NULL);
+
+    if (state)
+        exm_manager_enable_extension (self->manager, self->extension);
+    else
+        exm_manager_disable_extension (self->manager, self->extension);
+
+    return TRUE;
 }
 
 static void
@@ -287,6 +275,13 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
                              EXM_TYPE_EXTENSION,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
+    properties [PROP_MANAGER]
+        = g_param_spec_object ("manager",
+                               "Manager",
+                               "Manager",
+                               EXM_TYPE_MANAGER,
+                               G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -305,26 +300,8 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, update_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, out_of_date_icon);
-}
 
-static void
-state_changed (GSimpleAction   *action,
-               GVariant        *new_value,
-               ExmExtensionRow *self)
-{
-    GVariant *variant;
-    gboolean enabled;
-
-    g_return_if_fail (self->extension);
-
-    variant = g_action_get_state (G_ACTION (action));
-    enabled = g_variant_get_boolean (variant);
-
-    gtk_widget_activate_action (GTK_WIDGET (self),
-                                "ext.state-set",
-                                "(sb)", self->uuid, !enabled);
-
-    g_simple_action_set_state (action, new_value);
+    gtk_widget_class_bind_template_callback (widget_class, on_state_changed);
 }
 
 static void
@@ -354,18 +331,13 @@ uninstall (GSimpleAction   *action,
 static void
 exm_extension_row_init (ExmExtensionRow *self)
 {
-    GSimpleAction *state_action;
     GSimpleAction *open_prefs_action;
     GSimpleAction *remove_action;
-    GtkWidget *action_row;
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
     // Define Actions
     self->action_group = g_simple_action_group_new ();
-
-    state_action = g_simple_action_new_stateful ("state-set", NULL, g_variant_new_boolean (TRUE));
-    g_signal_connect (state_action, "change-state", G_CALLBACK (state_changed), self);
 
     open_prefs_action = g_simple_action_new ("open-prefs", NULL);
     g_signal_connect (open_prefs_action, "activate", G_CALLBACK (open_prefs), self);
@@ -373,7 +345,6 @@ exm_extension_row_init (ExmExtensionRow *self)
     remove_action = g_simple_action_new ("remove", NULL);
     g_signal_connect (remove_action, "activate", G_CALLBACK (uninstall), self);
 
-    g_action_map_add_action (G_ACTION_MAP (self->action_group), G_ACTION (state_action));
     g_action_map_add_action (G_ACTION_MAP (self->action_group), G_ACTION (open_prefs_action));
     g_action_map_add_action (G_ACTION_MAP (self->action_group), G_ACTION (remove_action));
 

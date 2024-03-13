@@ -10,6 +10,7 @@ struct _ExmExtension
     gchar *display_name;
     gchar *description;
     ExmExtensionState state;
+    gboolean enabled;
     gboolean is_user;
     gboolean has_prefs;
     gboolean has_update;
@@ -25,6 +26,7 @@ enum {
     PROP_UUID,
     PROP_DISPLAY_NAME,
     PROP_STATE,
+    PROP_ENABLED,
     PROP_IS_USER,
     PROP_DESCRIPTION,
     PROP_HAS_PREFS,
@@ -75,6 +77,9 @@ exm_extension_get_property (GObject    *object,
     case PROP_STATE:
         g_value_set_enum (value, self->state);
         break;
+    case PROP_ENABLED:
+        g_value_set_boolean (value, self->enabled);
+        break;
     case PROP_IS_USER:
         g_value_set_boolean (value, self->is_user);
         break;
@@ -123,6 +128,9 @@ exm_extension_set_property (GObject      *object,
         break;
     case PROP_STATE:
         self->state = g_value_get_enum (value);
+        break;
+    case PROP_ENABLED:
+        self->enabled = g_value_get_boolean (value);
         break;
     case PROP_IS_USER:
         self->is_user = g_value_get_boolean (value);
@@ -182,8 +190,15 @@ exm_extension_class_init (ExmExtensionClass *klass)
                            "State",
                            "State",
                            EXM_TYPE_EXTENSION_STATE,
-                           EXM_EXTENSION_STATE_ENABLED,
+                           EXM_EXTENSION_STATE_ACTIVE,
                            G_PARAM_READWRITE);
+
+    properties [PROP_ENABLED] =
+        g_param_spec_boolean ("enabled",
+                              "Enabled",
+                              "Enabled",
+                              FALSE,
+                              G_PARAM_READWRITE);
 
     properties [PROP_IS_USER] =
         g_param_spec_boolean ("is-user",

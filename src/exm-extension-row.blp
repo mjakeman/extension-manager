@@ -8,9 +8,9 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 	[action]
 	Gtk.Switch ext_toggle {
 		valign: center;
-		halign: center;
-
-		action-name: 'row.state-set';
+		active: bind template.extension as <$ExmExtension>.enabled;
+		sensitive: bind template.extension as <$ExmExtension>.can-change;
+		state-set => $on_state_changed();
 	}
 
 	[action]

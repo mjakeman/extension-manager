@@ -101,44 +101,16 @@ exm_installed_page_set_property (GObject      *object,
     }
 }
 
-static gboolean
-on_state_toggled (GtkSwitch *toggle,
-                  gboolean   state,
-                  gchar     *uuid)
-{
-    gtk_widget_activate_action (GTK_WIDGET (toggle),
-                                "ext.state-set",
-                                "(sb)", uuid, state);
-
-    return FALSE;
-}
-
-static void
-on_open_prefs (GtkButton *button,
-               gchar     *uuid)
-{
-    gtk_widget_activate_action (GTK_WIDGET (button),
-                                "ext.open-prefs",
-                                "s", uuid);
-}
-
-static void
-on_remove (GtkButton *button,
-           gchar     *uuid)
-{
-    gtk_widget_activate_action (GTK_WIDGET (button),
-                                "ext.remove",
-                                "s", uuid);
-}
-
 static GtkWidget *
-widget_factory (ExmExtension* extension)
+widget_factory (ExmExtension     *extension,
+                ExmInstalledPage *self)
 {
     ExmExtensionRow *row;
 
     g_return_if_fail (EXM_IS_EXTENSION (extension));
+    g_return_if_fail (EXM_IS_INSTALLED_PAGE (self));
 
-    row = exm_extension_row_new (extension);
+    row = exm_extension_row_new (extension, self->manager);
     return GTK_WIDGET (row);
 }
 
@@ -154,8 +126,8 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
     g_object_get (this, "state", &this_state, NULL);
     g_object_get (other, "state", &other_state, NULL);
 
-    gboolean this_enabled = (this_state == EXM_EXTENSION_STATE_ENABLED);
-    gboolean other_enabled = (other_state == EXM_EXTENSION_STATE_ENABLED);
+    gboolean this_enabled = (this_state == EXM_EXTENSION_STATE_ACTIVE);
+    gboolean other_enabled = (other_state == EXM_EXTENSION_STATE_ACTIVE);
 
     if ((this_enabled && other_enabled) || (!this_enabled && !other_enabled))
         return 0;
@@ -166,9 +138,10 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
 }
 
 static void
-bind_list_box (GtkListBox *list_box,
-               GListModel *model,
-               gboolean    sort_enabled_first)
+bind_list_box (GtkListBox       *list_box,
+               GListModel       *model,
+               gboolean          sort_enabled_first,
+               ExmInstalledPage *self)
 {
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;
@@ -202,7 +175,7 @@ bind_list_box (GtkListBox *list_box,
 
     gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
                              (GtkListBoxCreateWidgetFunc) widget_factory,
-                             NULL, NULL);
+                             self, NULL);
 }
 
 static guint
@@ -249,12 +222,14 @@ invalidate_model_bindings (ExmInstalledPage *self)
     if (user_ext_model)
         bind_list_box (self->user_list_box,
                        user_ext_model,
-                       self->sort_enabled_first);
+                       self->sort_enabled_first,
+                       self);
 
     if (system_ext_model)
         bind_list_box (self->system_list_box,
                        system_ext_model,
-                       self->sort_enabled_first);
+                       self->sort_enabled_first,
+                       self);
 }
 
 static void

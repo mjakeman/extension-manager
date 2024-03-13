@@ -546,6 +546,7 @@ parse_single_extension (ExmExtension **extension,
     gchar *uuid = NULL;
     gchar *display_name = NULL;
     gchar *description = NULL;
+    gboolean enabled = FALSE;
     gboolean has_prefs = FALSE;
     gboolean has_update = FALSE;
     gboolean can_change = TRUE;
@@ -591,6 +592,10 @@ parse_single_extension (ExmExtension **extension,
             g_variant_get (prop_value, "d", &val);
             state = (ExmExtensionState)val;
         }
+        else if (strcmp (prop_name, "enabled") == 0)
+        {
+            g_variant_get (prop_value, "b", &enabled);
+        }
         else if (strcmp (prop_name, "name") == 0)
         {
             g_variant_get (prop_value, "s", &display_name);
@@ -630,6 +635,7 @@ parse_single_extension (ExmExtension **extension,
                   "display-name", display_name,
                   "description", description,
                   "state", state,
+                  "enabled", enabled,
                   "is-user", *is_user,
                   "has-prefs", has_prefs,
                   "has-update", has_update,
