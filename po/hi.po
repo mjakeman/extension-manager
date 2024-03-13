@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2024-03-01 12:49+0000\n"
+"PO-Revision-Date: 2024-03-13 20:01+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
 "app/hi/>\n"
@@ -117,10 +117,8 @@ msgid "Comments"
 msgstr "टिप्पणियाँ"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "टिप्पणियाँ"
+msgstr "टिप्पणियाँ लोड हो रही हैं"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -144,10 +142,8 @@ msgid "Return to view"
 msgstr "दृश्य पर वापस जाएँ"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "विवरण"
+msgstr "विवरण लोड हो रहा है"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -326,8 +322,7 @@ msgid "_Check Compatibility"
 msgstr "_संगतता जांचें"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d एक्सटेंशन की जाँच की गई"
 
@@ -394,28 +389,20 @@ msgid "_Browse"
 msgstr "_ब्राउज़"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "सक्षम को पहले क्रमबद्ध करें"
+msgstr "_पहले सक्षम को क्रमबद्ध करें"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "असमर्थित दिखाएँ"
+msgstr "_असमर्थित दिखाएँ"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "अपग्रेड सहायक"
+msgstr "_अपग्रेड सहायक"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "Extension Manager के बारे में"
+msgstr "_Extension Manager के बारे में"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"
