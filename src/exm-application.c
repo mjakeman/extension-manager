@@ -54,6 +54,7 @@ static ExmWindow *
 get_current_window (GApplication *app)
 {
     GtkWindow *window;
+    GSettings *settings;
 
     /* Get the current window or create one if necessary. */
     window = gtk_application_get_active_window (GTK_APPLICATION (app));
@@ -61,6 +62,20 @@ get_current_window (GApplication *app)
         window = g_object_new (EXM_TYPE_WINDOW,
                                "application", app,
                                NULL);
+
+    settings = g_settings_new (APP_ID);
+
+    g_settings_bind (settings, "width",
+                     window, "default-width",
+                     G_SETTINGS_BIND_DEFAULT);
+    g_settings_bind (settings, "height",
+                     window, "default-height",
+                     G_SETTINGS_BIND_DEFAULT);
+    g_settings_bind (settings, "is-maximized",
+                     window, "maximized",
+                     G_SETTINGS_BIND_DEFAULT);
+
+    g_object_unref (settings);
 
     return EXM_WINDOW (window);
 }
