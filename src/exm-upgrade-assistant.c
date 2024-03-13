@@ -173,7 +173,7 @@ update_checked_count (ExmUpgradeAssistant *self)
 {
     char *text;
 
-    text = g_strdup_printf (_("Checked %d/%d extensions"),
+    text = g_strdup_printf (_("Checked %d/%d Extensions"),
                             self->number_checked,
                             self->total_extensions);
 

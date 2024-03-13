@@ -38,9 +38,11 @@ template $ExmBrowsePage : Gtk.Widget {
 						Gtk.StackPage {
 							name: "page_spinner";
 							child: Gtk.Spinner {
-								valign: start;
+								valign: center;
 								halign: center;
 								spinning: true;
+								height-request: 32;
+								width-request: 32;
 							};
 						}
 
