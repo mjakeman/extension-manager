@@ -103,6 +103,9 @@ exm_error_dialog_set_property (GObject      *object,
         g_string_append_printf (string_builder, "Version: %s\n", APP_VERSION);
         g_string_append_printf (string_builder, "Package Format: %s\n", PKG_NAME);
         g_string_append_printf (string_builder, "Status: %s\n", IS_OFFICIAL ? "Official" : "Third Party");
+        g_string_append_printf (string_builder, "OS: %s %s\n", g_get_os_info ("NAME"), g_get_os_info ("VERSION"));
+        g_string_append_printf (string_builder, "GTK: %d.%d.%d\n", gtk_get_major_version (), gtk_get_minor_version (), gtk_get_micro_version ());
+        g_string_append_printf (string_builder, "Libadwaita: %d.%d.%d\n", adw_get_major_version (), adw_get_minor_version (), adw_get_micro_version ());
         g_string_append_printf (string_builder, "----\n");
         g_string_append_printf (string_builder, "%s", self->error_string);
         gtk_text_buffer_set_text (buffer, g_string_free (string_builder, FALSE), -1);
