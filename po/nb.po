@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 13:53+0100\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
 "PO-Revision-Date: 2022-10-09 06:09+0200\n"
 "Last-Translator: John Erling Blad <jeblad@gmail.com>\n"
 "Language-Team:  <gnome-no@gnome.org>\n"
@@ -44,41 +44,41 @@ msgstr "Utvidelsesadministrering"
 msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr "Bla gjennom, installer og administrer GNOME Skallutvidelser."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "Et verktøy for å bla gjennom og installere GNOME Skallutvidelser."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
 msgstr "Funksjoner:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Bla gjennom «extensions.gnome.org» inne i appen"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "Manage the extensions you already have installed"
 msgstr "Administrer utvidelsene du allerede har installert"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Et verktøy for administrering av GNOME Skallutvidelser"
 
-#: src/exm-application.c:177
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Bla gjennom, installer og administrer GNOME Skallutvidelser."
 
-#: src/exm-application.c:179
+#: src/exm-application.c:177
 msgid "translator-credits"
 msgstr "John Erling Blad"
 
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "Søk etter utvidelser"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
@@ -86,32 +86,32 @@ msgstr ""
 "Skallutvidelser."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Relevance"
 msgstr ""
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Nedlastinger"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Recent"
 msgstr "Nylig"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Name"
 msgstr "Navn"
 
-#: src/exm-browse-page.blp:56
+#: src/exm-browse-page.blp:61
 #, fuzzy
 #| msgid "Load More Results"
 msgid "_Load More Results"
 msgstr "Last inn flere resultater"
 
-#: src/exm-browse-page.blp:67
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "Fant ingen resultater"
 
@@ -127,67 +127,74 @@ msgstr "e.g. “%s”"
 msgid "Comments"
 msgstr "Kommentarer"
 
-#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "Kommentarer"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "En feil oppstod"
 
-#: src/exm-comment-tile.blp:20
+#: src/exm-comment-tile.blp:21
 msgid "Author"
 msgstr ""
 
-#: src/exm-detail-view.blp:38
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "Zoom inn"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "Zoom ut"
 
-#: src/exm-detail-view.blp:57
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "Gå tilbake til visningen"
 
-#: src/exm-detail-view.blp:152
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "Detaljer"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "Forstørr bildet"
 
-#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/exm-detail-view.blp:185
+#: src/exm-detail-view.blp:217
 msgid "Links"
 msgstr "Lenker"
 
-#: src/exm-detail-view.blp:200
+#: src/exm-detail-view.blp:232
 #, fuzzy
 #| msgid "Project Homepage"
 msgid "Homepage"
 msgstr "Prosjektets hjemmeside"
 
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "Se på utvidelser"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "Brukeranmeldelser"
 
-#: src/exm-detail-view.blp:267
+#: src/exm-detail-view.blp:299
 msgid "There are no comments."
 msgstr ""
 
-#: src/exm-detail-view.blp:287
+#: src/exm-detail-view.blp:319
 #, fuzzy
 #| msgid "Show All Reviews"
 msgid "_Show All Reviews"
 msgstr "Vis alle anmeldelser"
-
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:450
-msgid "Loading…"
-msgstr "Laster inn…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -203,7 +210,7 @@ msgstr ""
 "Det oppstod en uventet feil i Utvidelsesadministrasjon. Åpne en ny "
 "feilrapport og legg ved følgende informasjon:"
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 #, fuzzy
 #| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
@@ -297,27 +304,27 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Installert"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "Bruk systemutvidelser"
 
-#: src/exm-installed-page.blp:32
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr "Utvidelser kan forårsake ytelses- og stabilitetsproblemer."
 
-#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "Brukerinstallerte utvidelser"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "Systemutvidelser"
 
-#: src/exm-installed-page.blp:93
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "Oppdateringer er tilgjengelige"
 
-#: src/exm-installed-page.blp:110
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "Logg ut"
 
@@ -329,19 +336,19 @@ msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "En utvidelse vil bli oppdatert ved neste pålogging."
 msgstr[1] "%d utvidelser vil bli oppdatert ved neste pålogging."
 
-#: src/exm-installed-page.c:338
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "Bla"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "Det er ingen brukerutvidelser installert."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "Det er ingen systemutvidelser installert."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "Oppgraderingsassistent"
 
@@ -354,7 +361,7 @@ msgstr "Sjekk kompatibilitet"
 #: src/exm-upgrade-assistant.c:176
 #, fuzzy, c-format
 #| msgid "Search for extensions"
-msgid "Checked %d/%d extensions"
+msgid "Checked %d/%d Extensions"
 msgstr "Søk etter utvidelser"
 
 #. Set percentage text
@@ -424,45 +431,57 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "Bla"
 
-#: src/exm-window.blp:87
-msgid "Sort Enabled First"
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "Sorter aktivert først"
 
-#: src/exm-window.blp:91
-msgid "Show Unsupported"
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
 msgstr "Vis ustøttet"
 
-#: src/exm-window.blp:101
-msgid "About Extension Manager"
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "Oppgraderingsassistent"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Om Utvidelsesadministrasjon"
 
-#: src/exm-window.c:181
+#: src/exm-window.c:179
 #, fuzzy
 #| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
 msgstr "Brukerinstallerte utvidelser"
 
-#: src/exm-window.c:182
+#: src/exm-window.c:180
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
 
-#: src/exm-window.c:185
+#: src/exm-window.c:183
 msgid "_No"
 msgstr ""
 
-#: src/exm-window.c:186
+#: src/exm-window.c:184
 msgid "_Yes"
 msgstr ""
 
-#: src/exm-window.c:256
+#: src/exm-window.c:253
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Unsupported Extension"
 msgstr "Bruk systemutvidelser"
 
-#: src/exm-window.c:257
+#: src/exm-window.c:254
 #, fuzzy
 #| msgid ""
 #| "This extension does not support your GNOME Shell version.\n"
@@ -474,23 +493,26 @@ msgstr ""
 "Denne utvidelsen støtter ikke din GNOME Skall-versjon.\n"
 "Vil du installere uansett?"
 
-#: src/exm-window.c:260
+#: src/exm-window.c:257
 #, fuzzy
 #| msgid "Install"
 msgid "_Install Anyway"
 msgstr "Installer"
 
-#: src/exm-window.c:261
+#: src/exm-window.c:258
 msgid "_Go Back"
 msgstr ""
 
-#: src/exm-window.c:372
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "En feil oppstod."
 
-#: src/exm-window.c:373
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "Detaljer"
+
+#~ msgid "Loading…"
+#~ msgstr "Laster inn…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

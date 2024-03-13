@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 13:53+0100\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
 "PO-Revision-Date: 2024-03-04 12:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/"
-"extension-manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
+"manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,43 +38,43 @@ msgstr "extension;manager;shell;"
 msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr "GNOME Shell 拡張機能 を検索、インストール、管理します"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "GNOME Shell 拡張機能 を探せてインストールできるユーティリティです。"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
 msgstr "機能:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "アプリ内で extensions.gnome.org を探索できます"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "Manage the extensions you already have installed"
 msgstr "今までにインストールした拡張機能も管理できます"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "GNOME Shell 拡張機能 を管理するユーティリティ"
 
-#: src/exm-application.c:177
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "GNOME Shell 拡張機能 を検索、インストール、管理します。"
 
-#: src/exm-application.c:179
+#: src/exm-application.c:177
 msgid "translator-credits"
 msgstr ""
 "小山田 純 <oyamadajun@outlook.jp>\n"
 "Ryo Nakano <ryonakaknock3@gmail.com>"
 
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "拡張機能を検索"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
@@ -82,28 +82,28 @@ msgstr ""
 "GNOME Shell 拡張機能を検索できます。"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Relevance"
 msgstr "関連度順"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "ダウンロード数順"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Recent"
 msgstr "更新順"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Name"
 msgstr "名前順"
 
-#: src/exm-browse-page.blp:56
+#: src/exm-browse-page.blp:61
 msgid "_Load More Results"
 msgstr "結果をさらに表示(_L)"
 
-#: src/exm-browse-page.blp:67
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "結果はありません"
 
@@ -119,63 +119,70 @@ msgstr "例 “%s”"
 msgid "Comments"
 msgstr "コメント"
 
-#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "コメント"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "エラーが発生しました"
 
-#: src/exm-comment-tile.blp:20
+#: src/exm-comment-tile.blp:21
 msgid "Author"
 msgstr "作者"
 
-#: src/exm-detail-view.blp:38
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "拡大"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "縮小"
 
-#: src/exm-detail-view.blp:57
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "画像の拡大表示を閉じる"
 
-#: src/exm-detail-view.blp:152
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "詳細"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "画像を拡大表示"
 
-#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "説明"
 
-#: src/exm-detail-view.blp:185
+#: src/exm-detail-view.blp:217
 msgid "Links"
 msgstr "リンク"
 
-#: src/exm-detail-view.blp:200
+#: src/exm-detail-view.blp:232
 msgid "Homepage"
 msgstr "ホームページ"
 
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "この拡張機能を extensions.gnome.org で表示"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "レビュー"
 
-#: src/exm-detail-view.blp:267
+#: src/exm-detail-view.blp:299
 msgid "There are no comments."
 msgstr "コメントはありません。"
 
-#: src/exm-detail-view.blp:287
+#: src/exm-detail-view.blp:319
 msgid "_Show All Reviews"
 msgstr "すべてのレビューを表示(_S)"
-
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:450
-msgid "Loading…"
-msgstr "読み込み中…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -185,7 +192,7 @@ msgstr "エラーを報告"
 msgid "An unexpected error occurred in Extension Manager."
 msgstr "Extension Manager で予期しないエラーが発生しました。"
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
 msgstr "クリップボードにコピー(_C)"
 
@@ -211,8 +218,8 @@ msgid ""
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
 "お使いの Extension Manager は非公式ビルドです。不具合を報告する前に、<span "
-"weight=\"bold\">まずはパッケージ頒布者 (%s) "
-"に連絡</span>してください。その際、以下の情報を添付してください："
+"weight=\"bold\">まずはパッケージ頒布者 (%s) に連絡</span>してください。その"
+"際、以下の情報を添付してください："
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -269,27 +276,27 @@ msgctxt "State"
 msgid "Installed"
 msgstr "インストール済み"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "GNOME Shell 拡張機能 を使う"
 
-#: src/exm-installed-page.blp:32
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr "拡張機能を使うと、動作が安定しなくなるかもしれません。"
 
-#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "ユーザーがインストールした拡張機能"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "システムの拡張機能"
 
-#: src/exm-installed-page.blp:93
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "アップデートがあります"
 
-#: src/exm-installed-page.blp:110
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "ログアウト"
 
@@ -300,19 +307,19 @@ msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "%d個の拡張機能が次回ログイン時にアップデートされます。"
 
-#: src/exm-installed-page.c:338
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "探す"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "ユーザーがインストールした拡張機能はありません。"
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "システムの拡張機能はありません。"
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "アップグレードアシスタント"
 
@@ -321,8 +328,9 @@ msgid "_Check Compatibility"
 msgstr "互換性を確認(_C)"
 
 #: src/exm-upgrade-assistant.c:176
-#, c-format
-msgid "Checked %d/%d extensions"
+#, fuzzy, c-format
+#| msgid "Checked %d/%d extensions"
+msgid "Checked %d/%d Extensions"
 msgstr "%d/%d の拡張機能を確認済み"
 
 #. Set percentage text
@@ -386,62 +394,78 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "探す(_B)"
 
-#: src/exm-window.blp:87
-msgid "Sort Enabled First"
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "追加済タブで有効な拡張機能を優先表示"
 
-#: src/exm-window.blp:91
-msgid "Show Unsupported"
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
 msgstr "検索結果に非対応の拡張機能も表示"
 
-#: src/exm-window.blp:101
-msgid "About Extension Manager"
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "アップグレードアシスタント"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Extension Manager について"
 
-#: src/exm-window.c:181
+#: src/exm-window.c:179
 msgid "Uninstall Extension?"
 msgstr "拡張機能を削除しますか?"
 
-#: src/exm-window.c:182
+#: src/exm-window.c:180
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr "この拡張機能を利用できなくなります。削除しますか?"
 
-#: src/exm-window.c:185
+#: src/exm-window.c:183
 msgid "_No"
 msgstr "いいえ(_N)"
 
-#: src/exm-window.c:186
+#: src/exm-window.c:184
 msgid "_Yes"
 msgstr "はい(_Y)"
 
-#: src/exm-window.c:256
+#: src/exm-window.c:253
 msgid "Unsupported Extension"
 msgstr "非対応の拡張機能"
 
-#: src/exm-window.c:257
+#: src/exm-window.c:254
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
-msgstr "この拡張機能は、この GNOME Shell のバージョンに対応していません。インストール"
+msgstr ""
+"この拡張機能は、この GNOME Shell のバージョンに対応していません。インストール"
 "すると、エラーが発生する可能性があります。"
 
-#: src/exm-window.c:260
+#: src/exm-window.c:257
 msgid "_Install Anyway"
 msgstr "強制的にインストール(_I)"
 
-#: src/exm-window.c:261
+#: src/exm-window.c:258
 msgid "_Go Back"
 msgstr "戻る(_G)"
 
-#: src/exm-window.c:372
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "エラーが発生しました。"
 
-#: src/exm-window.c:373
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "詳細"
+
+#~ msgid "Loading…"
+#~ msgstr "読み込み中…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

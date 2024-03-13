@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 13:53+0100\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
 "PO-Revision-Date: 2023-03-23 23:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -46,46 +46,46 @@ msgstr ""
 "Αναζήτηση, εγκατάσταση και διαχείριση των επεκτάσεων του γραφικού κελύφους "
 "GNOME."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr ""
 "Εργαλείο για την περιήγηση και την εγκατάσταση επεκτάσεων για το γραφικό "
 "κέλυφος GNOME."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
 msgstr "Χαρακτηριστικά:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Περιηγηθείτε το extensions.gnome.org μέσα από την εφαρμογή"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "Manage the extensions you already have installed"
 msgstr "Κάντε διαχείριση των ήδη εγκατεστημένων επεκτάσεων σας"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr ""
 "Ένα εργαλείο για την διαχείριση των επεκτάσεων του γραφικού κελύφους GNOME"
 
-#: src/exm-application.c:177
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr ""
 "Αναζήτηση, εγκατάσταση και διαχείριση των επεκτάσεων του γραφικού κελύφους "
 "GNOME."
 
-#: src/exm-application.c:179
+#: src/exm-application.c:177
 msgid "translator-credits"
 msgstr "Καραχάλιος-Στάγκας Αθανάσιος-Νεκτάριος <1xlzgeu2y@mozmail.com>"
 
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "Αναζητήστε επεκτάσεις"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
@@ -93,32 +93,32 @@ msgstr ""
 "επεκτάσεις για το γραφικό κέλυφος GNOME."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Relevance"
 msgstr ""
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Λήψεις"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Recent"
 msgstr "Πρόσφατα"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Name"
 msgstr "Όνομα"
 
-#: src/exm-browse-page.blp:56
+#: src/exm-browse-page.blp:61
 #, fuzzy
 #| msgid "Load More Results"
 msgid "_Load More Results"
 msgstr "Φόρτωση περισσότερων αποτελεσμάτων"
 
-#: src/exm-browse-page.blp:67
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "Δεν βρεθήκαν αποτελέσματα"
 
@@ -134,67 +134,74 @@ msgstr "π.χ. “%s”"
 msgid "Comments"
 msgstr "Σχόλια"
 
-#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "Σχόλια"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "Προέκυψε σφάλμα"
 
-#: src/exm-comment-tile.blp:20
+#: src/exm-comment-tile.blp:21
 msgid "Author"
 msgstr ""
 
-#: src/exm-detail-view.blp:38
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "Μεγέθυνση"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "Σμίκρυνση"
 
-#: src/exm-detail-view.blp:57
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "Επιστροφή στην προβολή"
 
-#: src/exm-detail-view.blp:152
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "Λεπτομέρειες"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "Μεγέθυνση εικόνας"
 
-#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/exm-detail-view.blp:185
+#: src/exm-detail-view.blp:217
 msgid "Links"
 msgstr ""
 
-#: src/exm-detail-view.blp:200
+#: src/exm-detail-view.blp:232
 #, fuzzy
 #| msgid "Project Homepage"
 msgid "Homepage"
 msgstr "Σελίδα Έργου"
 
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "Δείτε στης Επεκτάσεις"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "Κριτικές Χρηστών"
 
-#: src/exm-detail-view.blp:267
+#: src/exm-detail-view.blp:299
 msgid "There are no comments."
 msgstr ""
 
-#: src/exm-detail-view.blp:287
+#: src/exm-detail-view.blp:319
 #, fuzzy
 #| msgid "Show All Reviews"
 msgid "_Show All Reviews"
 msgstr "Προβολή Όλων των Κριτικών"
-
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:450
-msgid "Loading…"
-msgstr "Φορτώνει…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -210,7 +217,7 @@ msgstr ""
 "Προέκυψε ένα απροσδόκητο σφάλμα στη Διαχείριση Επεκτάσεων. Παρακαλούμε "
 "ανοίξτε ένα νέο θέμα και επισυνάψτε τις ακόλουθες πληροφορίες:"
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 #, fuzzy
 #| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
@@ -303,28 +310,28 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Εγκατεστημένη"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "Χρήση επεκτάσεων"
 
-#: src/exm-installed-page.blp:32
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr ""
 "Οι επεκτάσεις μπορεί να προκαλέσουν προβλήματα απόδοσης και σταθερότητας."
 
-#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "Εγκατεστημένες Επεκτάσεις Χρήστη"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "Επεκτάσεις Συστήματος"
 
-#: src/exm-installed-page.blp:93
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "Διαθέσιμες Ενημερώσεις"
 
-#: src/exm-installed-page.blp:110
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "Αποσύνδεση"
 
@@ -336,19 +343,19 @@ msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "Μια επέκταση θα αναβαθμιστεί την επόμενη φόρα που θα συνδεθείτε."
 msgstr[1] "%d επέκτασής θα αναβαθμιστούν την επόμενη φόρα που θα συνδεθείτε."
 
-#: src/exm-installed-page.c:338
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "Περιήγηση"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "Δεν υπάρχουν εγκατεστημένες επεκτάσεις χρήστη."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "Δεν υπάρχουν εγκατεστημένες επεκτάσεις συστήματος."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "Βοηθός αναβάθμισης"
 
@@ -361,7 +368,7 @@ msgstr "Έλεγχος συμβατότητας"
 #: src/exm-upgrade-assistant.c:176
 #, fuzzy, c-format
 #| msgid "Search for extensions"
-msgid "Checked %d/%d extensions"
+msgid "Checked %d/%d Extensions"
 msgstr "Αναζητήστε επεκτάσεις"
 
 #. Set percentage text
@@ -431,45 +438,57 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "Περιήγηση"
 
-#: src/exm-window.blp:87
-msgid "Sort Enabled First"
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "Ταξινόμηση Πρώτα Ενεργοποιημένων Επεκτάσεων"
 
-#: src/exm-window.blp:91
-msgid "Show Unsupported"
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
 msgstr "Εμφάνιση μη υποστηριζόμενων"
 
-#: src/exm-window.blp:101
-msgid "About Extension Manager"
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "Βοηθός αναβάθμισης"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Περί Διαχειριστή Επεκτάσεων"
 
-#: src/exm-window.c:181
+#: src/exm-window.c:179
 #, fuzzy
 #| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
 msgstr "Εγκατεστημένες Επεκτάσεις Χρήστη"
 
-#: src/exm-window.c:182
+#: src/exm-window.c:180
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
 
-#: src/exm-window.c:185
+#: src/exm-window.c:183
 msgid "_No"
 msgstr ""
 
-#: src/exm-window.c:186
+#: src/exm-window.c:184
 msgid "_Yes"
 msgstr ""
 
-#: src/exm-window.c:256
+#: src/exm-window.c:253
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Unsupported Extension"
 msgstr "Χρήση επεκτάσεων"
 
-#: src/exm-window.c:257
+#: src/exm-window.c:254
 #, fuzzy
 #| msgid ""
 #| "This extension does not support your GNOME Shell version.\n"
@@ -481,23 +500,26 @@ msgstr ""
 "Αυτή η επέκταση δεν υποστηρίζεται από την τρέχουσα εκδοσή GNOME σας \n"
 "Θα θέλατε να την εγκαταστήσετε ανεξάρτητος;"
 
-#: src/exm-window.c:260
+#: src/exm-window.c:257
 #, fuzzy
 #| msgid "Install"
 msgid "_Install Anyway"
 msgstr "Εγκατάστασή"
 
-#: src/exm-window.c:261
+#: src/exm-window.c:258
 msgid "_Go Back"
 msgstr ""
 
-#: src/exm-window.c:372
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "Προέκυψε σφάλμα."
 
-#: src/exm-window.c:373
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "Λεπτομέρειες"
+
+#~ msgid "Loading…"
+#~ msgstr "Φορτώνει…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

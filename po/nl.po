@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 13:53+0100\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
 "PO-Revision-Date: 2024-03-03 10:48+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
@@ -38,45 +38,45 @@ msgstr "extension;manager;shell;uitbreiding;extensie;beheer;"
 msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr "Ontdek, installeer en beheer GNOME Shell-uitbreidingen"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr ""
 "Een app voor het ontdekken en installeren van GNOME Shell-uitbreidingen."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
 msgstr "Kenmerken:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr ""
 "Blader door uitbreidingen van extensions.gnome.org recht­streeks in de app"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "Manage the extensions you already have installed"
 msgstr "Beheer de reeds geïnstalleerde uitbreidingen"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Een app voor het beheren van GNOME Shell-uitbreidingen"
 
-#: src/exm-application.c:177
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Ontdek, installeer en beheer GNOME Shell-uitbreidingen."
 
-#: src/exm-application.c:179
+#: src/exm-application.c:177
 msgid "translator-credits"
 msgstr ""
 "Heimen Stoffels <vistausss@fastmail.com>\n"
 "Philip Goto https://philipgoto.nl/"
 
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "Zoeken naar uitbreidingen"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
@@ -84,28 +84,28 @@ msgstr ""
 "uitbreidingen."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Relevance"
 msgstr "Relevantie"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Recent"
 msgstr "Recent"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Name"
 msgstr "Naam"
 
-#: src/exm-browse-page.blp:56
+#: src/exm-browse-page.blp:61
 msgid "_Load More Results"
 msgstr "_Meer resultaten laden"
 
-#: src/exm-browse-page.blp:67
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "Geen resultaten gevonden"
 
@@ -121,63 +121,70 @@ msgstr "bijv. ‘%s’"
 msgid "Comments"
 msgstr "Opmerkingen"
 
-#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "Opmerkingen"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "Er is een fout opgetreden"
 
-#: src/exm-comment-tile.blp:20
+#: src/exm-comment-tile.blp:21
 msgid "Author"
 msgstr "Auteur"
 
-#: src/exm-detail-view.blp:38
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "Inzoomen"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "Uitzoomen"
 
-#: src/exm-detail-view.blp:57
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "Terug naar weergave"
 
-#: src/exm-detail-view.blp:152
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "Details"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "Afbeelding vergroten"
 
-#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Omschrijving"
 
-#: src/exm-detail-view.blp:185
+#: src/exm-detail-view.blp:217
 msgid "Links"
 msgstr "Links"
 
-#: src/exm-detail-view.blp:200
+#: src/exm-detail-view.blp:232
 msgid "Homepage"
 msgstr "Start­pagina"
 
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "Uitbreidings­pagina openen"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "Beoordelingen"
 
-#: src/exm-detail-view.blp:267
+#: src/exm-detail-view.blp:299
 msgid "There are no comments."
 msgstr "Er zijn geen opmerkingen."
 
-#: src/exm-detail-view.blp:287
+#: src/exm-detail-view.blp:319
 msgid "_Show All Reviews"
 msgstr "_Alle beoordelingen tonen"
-
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:450
-msgid "Loading…"
-msgstr "Bezig met laden…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -187,7 +194,7 @@ msgstr "Fout­melding"
 msgid "An unexpected error occurred in Extension Manager."
 msgstr "Er is een onverwachte fout opgetreden in Uitbreidings­beheer."
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
 msgstr "_Kopiëren naar klem­bord"
 
@@ -212,9 +219,10 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"U gebruikt een build van Uitbreidings­beheer van derden. <span weight=\"bold"
-"\">Neem eerst contact op met de pakket­distributeur (%s)</span> voordat u "
-"een probleem indient. Zorg ervoor dat u de volgende informatie bijvoegt:"
+"U gebruikt een build van Uitbreidings­beheer van derden. <span "
+"weight=\"bold\">Neem eerst contact op met de pakket­distributeur (%s)</span> "
+"voordat u een probleem indient. Zorg ervoor dat u de volgende informatie "
+"bijvoegt:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -271,29 +279,29 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Geïnstalleerd"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "Uitbreidingen gebruiken"
 
-#: src/exm-installed-page.blp:32
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr ""
 "Let op: uitbreidingen kunnen de prestaties en stabiliteit van uw systeem "
 "beïnvloeden."
 
-#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "Zelf-geïnstalleerde uitbreidingen"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "Systeem­uitbreidingen"
 
-#: src/exm-installed-page.blp:93
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "Er zijn updates beschikbaar"
 
-#: src/exm-installed-page.blp:110
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "Uitloggen"
 
@@ -305,19 +313,19 @@ msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "Na de volgende aanmelding wordt er één uitbreiding bijgewerkt."
 msgstr[1] "Na de volgende aanmelding worden er %d uitbreidingen bijgewerkt."
 
-#: src/exm-installed-page.c:338
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "Ontdekken"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "Er zijn geen zelf-geïnstalleerde uitbreidingen geïnstalleerd."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "Er zijn geen systeem­uitbreidingen geïnstalleerd."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "Bijwerk­assistent"
 
@@ -326,8 +334,9 @@ msgid "_Check Compatibility"
 msgstr "_Compatibiliteit controleren"
 
 #: src/exm-upgrade-assistant.c:176
-#, c-format
-msgid "Checked %d/%d extensions"
+#, fuzzy, c-format
+#| msgid "Checked %d/%d extensions"
+msgid "Checked %d/%d Extensions"
 msgstr "%d/%d uitbreidingen gecontroleerd"
 
 #. Set percentage text
@@ -392,23 +401,35 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Bladeren"
 
-#: src/exm-window.blp:87
-msgid "Sort Enabled First"
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "Ingeschakelde bovenaan tonen"
 
-#: src/exm-window.blp:91
-msgid "Show Unsupported"
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
 msgstr "Niet-ondersteunde tonen"
 
-#: src/exm-window.blp:101
-msgid "About Extension Manager"
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "Bijwerk­assistent"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Over Uitbreidings­beheer"
 
-#: src/exm-window.c:181
+#: src/exm-window.c:179
 msgid "Uninstall Extension?"
 msgstr "Uitbreiding verwijderen?"
 
-#: src/exm-window.c:182
+#: src/exm-window.c:180
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -416,19 +437,19 @@ msgstr ""
 "De functionaliteit van de uitbreiding zal niet langer toegankelijk zijn. "
 "Weet u zeker dat u deze wilt verwijderen?"
 
-#: src/exm-window.c:185
+#: src/exm-window.c:183
 msgid "_No"
 msgstr "_Nee"
 
-#: src/exm-window.c:186
+#: src/exm-window.c:184
 msgid "_Yes"
 msgstr "_Ja"
 
-#: src/exm-window.c:256
+#: src/exm-window.c:253
 msgid "Unsupported Extension"
 msgstr "Niet-ondersteunde uitbreiding"
 
-#: src/exm-window.c:257
+#: src/exm-window.c:254
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -436,21 +457,24 @@ msgstr ""
 "Deze uitbreiding is niet compatibel met uw huidige GNOME Shell-versie. Er "
 "kunnen fouten optreden als u deze installeert."
 
-#: src/exm-window.c:260
+#: src/exm-window.c:257
 msgid "_Install Anyway"
 msgstr "Toch _installeren"
 
-#: src/exm-window.c:261
+#: src/exm-window.c:258
 msgid "_Go Back"
 msgstr "_Terug"
 
-#: src/exm-window.c:372
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "Er is een fout opgetreden."
 
-#: src/exm-window.c:373
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "Details"
+
+#~ msgid "Loading…"
+#~ msgstr "Bezig met laden…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

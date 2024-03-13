@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 13:53+0100\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
 "PO-Revision-Date: 2023-12-17 16:06+0100\n"
 "Last-Translator: Omar TS <ots@duck.com>\n"
 "Language-Team: ar_AR <LL@li.org>\n"
@@ -40,68 +40,68 @@ msgstr "extension;manager ;إضافة;مدير"
 msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr "تصفح، تثبيت، وإدارة إضافات جنوم شل"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "أداة مساعدة لتصفح وتثبيت إضافات جنوم شل."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
 msgstr "الميزات:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:27
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "تصفح extension.gnome.org داخل التطبيق مباشرة"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:18
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:31
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "Manage the extensions you already have installed"
 msgstr "إدارة الإضافات التي قمت بتثبيتها بالفعل"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:23
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "أداة لإدارة إضافات جنوم شل"
 
-#: src/exm-application.c:177
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "تصفح، تثبيت، وإدارة إضافات جنوم شل."
 
-#: src/exm-application.c:179
+#: src/exm-application.c:177
 msgid "translator-credits"
 msgstr "Omar TS <ots@duck.com>"
 
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "بحث عن الإضافات"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr "أدخل كلمة أساسية للبحث في \"extensions.gnome.org\" عن إضافات جنوم شل."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Relevance"
 msgstr "الصلة"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "تنزيلات"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Recent"
 msgstr "الأخيرة"
 
-#: src/exm-browse-page.blp:29
+#: src/exm-browse-page.blp:31
 msgid "Name"
 msgstr "الاسم"
 
-#: src/exm-browse-page.blp:56
+#: src/exm-browse-page.blp:61
 msgid "_Load More Results"
 msgstr "_عرض المزيد من النتائج"
 
-#: src/exm-browse-page.blp:67
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "لا توجد نتائج"
 
@@ -117,63 +117,70 @@ msgstr "مثال  “%s”"
 msgid "Comments"
 msgstr "تعليقات"
 
-#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:258 src/exm-detail-view.c:436
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "تعليقات"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "حصل خطأ"
 
-#: src/exm-comment-tile.blp:20
+#: src/exm-comment-tile.blp:21
 msgid "Author"
 msgstr "المؤلف"
 
-#: src/exm-detail-view.blp:38
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "تكبير"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "تصغير"
 
-#: src/exm-detail-view.blp:57
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "رجوع إلى العرض"
 
-#: src/exm-detail-view.blp:152
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "تفاصيل"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "تكبير الصورة"
 
-#: src/exm-detail-view.blp:164 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "وصف"
 
-#: src/exm-detail-view.blp:185
+#: src/exm-detail-view.blp:217
 msgid "Links"
 msgstr "الروابط"
 
-#: src/exm-detail-view.blp:200
+#: src/exm-detail-view.blp:232
 msgid "Homepage"
 msgstr "الصفحة الرئيسية"
 
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "عرض على الإضافات"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "مراجعات المستخدم"
 
-#: src/exm-detail-view.blp:267
+#: src/exm-detail-view.blp:299
 msgid "There are no comments."
 msgstr "لا توجد تعليقات."
 
-#: src/exm-detail-view.blp:287
+#: src/exm-detail-view.blp:319
 msgid "_Show All Reviews"
 msgstr "_أظهر جميع التقييمات"
-
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:450
-msgid "Loading…"
-msgstr "جار التحميل…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -183,7 +190,7 @@ msgstr "تقرير خطأ"
 msgid "An unexpected error occurred in Extension Manager."
 msgstr "حدث خطأ غير متوقع في مدير الإضافة."
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
 msgstr "_نسخ إلى الحافظة"
 
@@ -267,27 +274,27 @@ msgctxt "State"
 msgid "Installed"
 msgstr "مثبت"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "استخدام الإضافات"
 
-#: src/exm-installed-page.blp:32
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr "إضافات قد تسبب مشاكل في الأداء والاستقرار."
 
-#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "إضافات المستخدم المثبتة"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "إضافات النظام"
 
-#: src/exm-installed-page.blp:93
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "تحديثات متوفرة"
 
-#: src/exm-installed-page.blp:110
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "خروج"
 
@@ -303,19 +310,19 @@ msgstr[3] "%d إضافات سيتم تحديثها عند الدخول التا�
 msgstr[4] "%d إضافات سيتم تحديثها عند الدخول التالي ."
 msgstr[5] "%d إضافات سيتم تحديثها عند الدخول التالي ."
 
-#: src/exm-installed-page.c:338
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "تصفح"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:693
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "لا توجد إضافات للمستخدم مثبتة."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:699
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "لا توجد إضافات للنظام مثبتة."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:97
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "مساعد الترقية"
 
@@ -324,8 +331,9 @@ msgid "_Check Compatibility"
 msgstr "_فحص التوافق"
 
 #: src/exm-upgrade-assistant.c:176
-#, c-format
-msgid "Checked %d/%d extensions"
+#, fuzzy, c-format
+#| msgid "Checked %d/%d extensions"
+msgid "Checked %d/%d Extensions"
 msgstr "تم التحقق من %d/%d من الإضافات"
 
 #. Set percentage text
@@ -388,23 +396,35 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_تصفح"
 
-#: src/exm-window.blp:87
-msgid "Sort Enabled First"
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "فرز المفعل أولا"
 
-#: src/exm-window.blp:91
-msgid "Show Unsupported"
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
 msgstr "عرض غير المدعومة"
 
-#: src/exm-window.blp:101
-msgid "About Extension Manager"
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "مساعد الترقية"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "حول مدير الإضافة"
 
-#: src/exm-window.c:181
+#: src/exm-window.c:179
 msgid "Uninstall Extension?"
 msgstr "إلغاء تثبيت الإضافة؟"
 
-#: src/exm-window.c:182
+#: src/exm-window.c:180
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -412,19 +432,19 @@ msgstr ""
 "لن يكون من الممكن الوصول إلى ميزات الامتداد ووظائفه بعد الآن. هل هل أنت "
 "متأكد أنك تريد إلغاء التثبيت؟"
 
-#: src/exm-window.c:185
+#: src/exm-window.c:183
 msgid "_No"
 msgstr "_لا"
 
-#: src/exm-window.c:186
+#: src/exm-window.c:184
 msgid "_Yes"
 msgstr "_نعم"
 
-#: src/exm-window.c:256
+#: src/exm-window.c:253
 msgid "Unsupported Extension"
 msgstr "إضافة غير مدعومة"
 
-#: src/exm-window.c:257
+#: src/exm-window.c:254
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -432,21 +452,24 @@ msgstr ""
 "هذه الإضافة لا تدعم إصدار جنوم شل الخاص بك. قد يسبب ذلك أخطاء في حالة "
 "التثبيت."
 
-#: src/exm-window.c:260
+#: src/exm-window.c:257
 msgid "_Install Anyway"
 msgstr "_تثبيت على اي حال"
 
-#: src/exm-window.c:261
+#: src/exm-window.c:258
 msgid "_Go Back"
 msgstr "_رجوع إلى الخلف"
 
-#: src/exm-window.c:372
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "حدث خطأ."
 
-#: src/exm-window.c:373
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "تفاصيل"
+
+#~ msgid "Loading…"
+#~ msgstr "جار التحميل…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"
