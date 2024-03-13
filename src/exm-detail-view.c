@@ -50,6 +50,7 @@ struct _ExmDetailView
 
   	GSimpleAction *zoom_in;
     GSimpleAction *zoom_out;
+    GSimpleAction *zoom_reset;
 
     gchar *shell_version;
     gchar *uuid;
@@ -609,6 +610,10 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, open_link);
+
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_plus, GDK_CONTROL_MASK, "detail.zoom-in", NULL);
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_minus, GDK_CONTROL_MASK, "detail.zoom-out", NULL);
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_0, GDK_CONTROL_MASK, "detail.zoom-reset", NULL);
 }
 
 static void
@@ -639,9 +644,13 @@ exm_detail_view_init (ExmDetailView *self)
 	self->zoom_out = g_simple_action_new ("zoom-out", NULL);
 	g_signal_connect_swapped (self->zoom_out, "activate", G_CALLBACK (exm_zoom_picture_zoom_out), self->overlay_screenshot);
 
+	self->zoom_reset = g_simple_action_new ("zoom-reset", NULL);
+	g_signal_connect_swapped (self->zoom_reset, "activate", G_CALLBACK (exm_zoom_picture_zoom_reset), self->overlay_screenshot);
+
 	group = g_simple_action_group_new ();
 	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_in));
 	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_out));
+	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_reset));
 	gtk_widget_insert_action_group (GTK_WIDGET (self), "detail", G_ACTION_GROUP (group));
 
     // Update action state on zoom change

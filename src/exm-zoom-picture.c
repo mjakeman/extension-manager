@@ -178,6 +178,12 @@ exm_zoom_picture_zoom_out (ExmZoomPicture *self)
 }
 
 void
+exm_zoom_picture_zoom_reset (ExmZoomPicture *self)
+{
+	exm_zoom_picture_set_zoom_level (self, 1);
+}
+
+void
 compute_scaled_dimensions (ExmZoomPicture *self)
 {
 	float width, height;
