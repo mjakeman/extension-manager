@@ -10,8 +10,8 @@
 
   <sup>Written with GTK 4 and libadwaita</sup>
   
-![Screenshot of the main GUI (light mode)](data/screenshot-combined.png#gh-light-mode-only)
-![Screenshot of the main GUI (dark mode)](data/screenshot-combined-dark.png#gh-dark-mode-only)
+![Screenshot of the main GUI (light mode)](data/screenshot-installed.png#gh-light-mode-only)
+![Screenshot of the main GUI (dark mode)](data/screenshot-browse-dark.png#gh-dark-mode-only)
 
 </div>
 

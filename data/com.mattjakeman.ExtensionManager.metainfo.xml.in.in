@@ -19,16 +19,16 @@
 	</description>
   <screenshots>
     <screenshot type="default">
-      <caption>A utility for managing GNOME Shell Extensions</caption>
-      <image width="2099" height="1556">https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-combined.png?token=GHSAT0AAAAAABQAZ3HOIYZECGZ6OIPZYE4IYPCKHVQ</image>
-    </screenshot>
-    <screenshot type="default">
       <caption>Browse extensions.gnome.org right inside the app</caption>
-      <image width="1844" height="1444">https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-browse.png?token=GHSAT0AAAAAABQAZ3HOZ6FIJC5TTAO6FSN6YPCKI3A</image>
+      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-browse.png?token=GHSAT0AAAAAABQAZ3HOZ6FIJC5TTAO6FSN6YPCKI3A</image>
     </screenshot>
     <screenshot type="default">
       <caption>Manage the extensions you already have installed</caption>
-      <image width="1844" height="1444">https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-installed.png?token=GHSAT0AAAAAABQAZ3HODHOYG7PH5I2RBLQSYPCKI3A</image>
+      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-installed-dark.png?token=GHSAT0AAAAAABQAZ3HODHOYG7PH5I2RBLQSYPCKI3A</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>A utility for managing GNOME Shell Extensions</caption>
+      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-details.png?token=GHSAT0AAAAAABQAZ3HOIYZECGZ6OIPZYE4IYPCKHVQ</image>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">@app_id@.desktop</launchable>
