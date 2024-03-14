@@ -7,173 +7,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-24 13:01+1200\n"
-"PO-Revision-Date: 2022-10-03 20:00+0900\n"
-"Last-Translator: 小山田 純 <oyamadajun@outlook.jp>\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
+"PO-Revision-Date: 2024-03-04 12:01+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
+"manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
-msgid "@app_title@"
-msgstr "@app_title@"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#: src/exm-application.c:136
-msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "GNOME Shell 拡張機能 を探せて追加して管理できるユーティリティ。"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
-msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "「GNOME Shell 拡張機能」を探せて追加できるユーティリティ。"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
-msgid "Features:"
-msgstr "機能:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
-msgid "Browse extensions.gnome.org right inside the app"
-msgstr "アプリ内で extensions.gnome.org を探索できます"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
-msgid "Manage the extensions you already have installed"
-msgstr "今までに追加した拡張機能も管理できます"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "GNOME Shell 拡張機能 を管理するユーティリティ"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
-msgid "Translation updates"
-msgstr "翻訳のアップデート"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
-msgid "Various bug fixes"
-msgstr "様々なバグ修正"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:56
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
-msgid "Performance and stability"
-msgstr "パフォーマンスと安定性の向上"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
-msgid "Remove release notes dialog"
-msgstr "リリースノートダイアログを廃止"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
-msgid "Fix special characters in installed extension listings"
-msgstr "追加済み拡張機能のリストの特殊文字に関する修正"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
-msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-"Extension Manager の2回目の機能アップデートです。主な内容は次のとおりです :"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
-msgid "View comments and reviews"
-msgstr "拡張機能のレビューが読めるように"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:65
-msgid "Support for in-app updates"
-msgstr "このアプリからの拡張機能のアップデートが可能に"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:66
-msgid "Better handling errors and out-of-date extensions"
-msgstr "エラーや古い拡張機能への対応を強化"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:67
-msgid "Allow installing 'unsupported' extensions"
-msgstr ""
-"使用している GNOME Shell のバージョンに未対応の拡張機能もインストール可能に"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
-msgid "Display release notes on first run"
-msgstr "リリースノートをアップデート後に表示"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
-msgid "New app icon"
-msgstr "アプリのアイコンを変更"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
-msgid "Optionally sort extensions by enabled status"
-msgstr ""
-"追加済のタブにおいて、有効になっている拡張機能が上に表示されるオプションが追"
-"加"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
-msgid "Fix special characters in search results"
-msgstr "検索結果の特殊文字に関する修正"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:93
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "拡張機能の削除中に、クラッシュする問題を修正しました"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:98
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-"Extension Manager の初めてのアップデートです。主な内容は次のとおりです :"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:100
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr ""
-"ダークテーマを追加し、システムのライト・ダークテーマに合わせることができるよ"
-"うになりました"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
-msgid "Shows screenshots in extension listings"
-msgstr "拡張機能のスクリーンショットを、見られるようになりました"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
-msgid "Shell version compatibility check"
-msgstr ""
-"拡張機能が対応しているGNOMEShellのバージョンが、わかるようになりました"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:103
-msgid "Localised into seven languages"
-msgstr "7言語に翻訳されました"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
-msgid "Sort search results"
-msgstr "検索結果の並べ替えが、できるようになりました"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
-msgid "Global extension on/off toggle"
-msgstr "すべての拡張機能をOFFにできる、トグルスイッチが追加されました"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
-msgid "Displays user and system extensions separately"
-msgstr "拡張機能の開発者の名前を、表示するようになりました"
-
-#: src/exm-application.c:114 src/exm-window.c:446
-msgid "Extension Manager (Development)"
-msgstr "Extension Manager (開発版)"
-
-#: src/exm-application.c:115 src/exm-window.c:446
+#: src/exm-window.blp:9
 msgid "Extension Manager"
 msgstr "Extension Manager"
 
-#: src/exm-application.c:142
-msgid "translator-credits"
-msgstr "小山田 純 <oyamadajun@outlook.jp>"
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+msgid "Manage GNOME Shell Extensions"
+msgstr "GNOME Shell 拡張機能 を管理します"
 
-#: src/exm-browse-page.blp:7
+#. Translators: Do not translate
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+msgid "extension;manager;shell;"
+msgstr "extension;manager;shell;"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
+msgid "Browse, install, and manage GNOME Shell Extensions"
+msgstr "GNOME Shell 拡張機能 を検索、インストール、管理します"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "GNOME Shell 拡張機能 を探せてインストールできるユーティリティです。"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+msgid "Features:"
+msgstr "機能:"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "アプリ内で extensions.gnome.org を探索できます"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
+msgid "Manage the extensions you already have installed"
+msgstr "今までにインストールした拡張機能も管理できます"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "GNOME Shell 拡張機能 を管理するユーティリティ"
+
+#: src/exm-application.c:175
+msgid "Browse, install, and manage GNOME Shell Extensions."
+msgstr "GNOME Shell 拡張機能 を検索、インストール、管理します。"
+
+#: src/exm-application.c:177
+msgid "translator-credits"
+msgstr ""
+"小山田 純 <oyamadajun@outlook.jp>\n"
+"Ryo Nakano <ryonakaknock3@gmail.com>"
+
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "拡張機能を検索"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
@@ -182,10 +83,11 @@ msgstr ""
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
-msgid "Popularity"
-msgstr "人気順"
+msgid "Relevance"
+msgstr "関連度順"
 
 #: src/exm-browse-page.blp:31
+msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "ダウンロード数順"
 
@@ -197,294 +99,480 @@ msgstr "更新順"
 msgid "Name"
 msgstr "名前順"
 
-#: src/exm-browse-page.blp:58
-msgid "Load More Results"
-msgstr "結果をさらに表示"
+#: src/exm-browse-page.blp:61
+msgid "_Load More Results"
+msgstr "結果をさらに表示(_L)"
 
-#: src/exm-browse-page.blp:68
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "結果はありません"
 
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
 #. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:288
+#: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
 msgstr "例 “%s”"
 
-#: src/exm-comment-dialog.blp:7
+#: src/exm-comment-dialog.blp:9
 msgid "Comments"
 msgstr "コメント"
 
-#: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:93
-#: src/exm-detail-view.blp:236 src/exm-detail-view.c:390
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "コメント"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "エラーが発生しました"
 
-#: src/exm-detail-view.blp:43
+#: src/exm-comment-tile.blp:21
+msgid "Author"
+msgstr "作者"
+
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "拡大"
 
-#: src/exm-detail-view.blp:52
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "縮小"
 
-#: src/exm-detail-view.blp:62
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "画像の拡大表示を閉じる"
 
-#: src/exm-detail-view.blp:150
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "詳細"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "画像を拡大表示"
 
-#: src/exm-detail-view.blp:162 src/exm-extension-row.blp:78
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "説明"
 
-#: src/exm-detail-view.blp:181
+#: src/exm-detail-view.blp:217
+msgid "Links"
+msgstr "リンク"
+
+#: src/exm-detail-view.blp:232
+msgid "Homepage"
+msgstr "ホームページ"
+
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "この拡張機能を extensions.gnome.org で表示"
 
-#: src/exm-detail-view.blp:198
-msgid "Supported Versions"
-msgstr "対応するGNOMEのバージョン"
-
-#: src/exm-detail-view.blp:214
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "レビュー"
 
-#: src/exm-detail-view.blp:255
-msgid "Show All Reviews"
-msgstr "すべてのレビューを表示"
+#: src/exm-detail-view.blp:299
+msgid "There are no comments."
+msgstr "コメントはありません。"
 
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:404
-msgid "Loading…"
-msgstr "読み込み中…"
+#: src/exm-detail-view.blp:319
+msgid "_Show All Reviews"
+msgstr "すべてのレビューを表示(_S)"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "エラーを報告"
 
-#: src/exm-error-dialog.blp:27
-msgid ""
-"An unexpected error occurred in Extension Manager. Please open a new issue "
-"and attach the following information:"
-msgstr ""
-"Extension Managerでエラーが発生しました。問題を報告して、以下の情報を添付し"
-"てください："
+#: src/exm-error-dialog.blp:29
+msgid "An unexpected error occurred in Extension Manager."
+msgstr "Extension Manager で予期しないエラーが発生しました。"
 
-#: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
-msgid "Copy to Clipboard"
-msgstr "クリップボードにコピー"
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
+msgid "_Copy to Clipboard"
+msgstr "クリップボードにコピー(_C)"
 
-#: src/exm-error-dialog.blp:57
-msgid "New Issue"
-msgstr "新しい問題"
+#: src/exm-error-dialog.blp:64
+msgid "_New Issue"
+msgstr "問題を報告(_N)"
 
 #. Success indicator
-#: src/exm-error-dialog.c:117 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
 msgid "Copied"
 msgstr "コピーしました"
 
-#: src/exm-extension-row.blp:24
+#: src/exm-error-dialog.c:179
+msgid "Please open a new issue and attach the following information:"
+msgstr "問題を報告して、以下の情報を添付してください："
+
+#. Translators: '%s' = Name of Distributor (e.g. "Packager123")
+#: src/exm-error-dialog.c:183
+#, c-format
+msgid ""
+"You are using a third-party build of Extension Manager. Please <span "
+"weight=\"bold\">contact the package distributor (%s) first</span> before "
+"filing an issue. Be sure to attach the following information:"
+msgstr ""
+"お使いの Extension Manager は非公式ビルドです。不具合を報告する前に、<span "
+"weight=\"bold\">まずはパッケージ頒布者 (%s) に連絡</span>してください。その"
+"際、以下の情報を添付してください："
+
+#: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
 msgstr "拡張機能の設定を開く"
 
-#: src/exm-extension-row.blp:37
+#: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
 msgstr "この拡張機能の読み込み中にエラーが発生しました"
 
-#: src/exm-extension-row.blp:50
+#: src/exm-extension-row.blp:58
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr ""
-"この拡張機能は、このコンピュータのGNOMEのバージョンには、対応していません"
+msgstr "この拡張機能は、お使いの GNOME のバージョンには、対応していません"
 
-#: src/exm-extension-row.blp:63
+#: src/exm-extension-row.blp:74
 msgid "A newer version of this extension is available"
 msgstr "この拡張機能にアップデートがあります"
 
-#: src/exm-extension-row.blp:105
+#: src/exm-extension-row.blp:116 src/exm-info-bar.blp:18
 msgid "Version"
 msgstr "バージョン"
 
-#: src/exm-extension-row.blp:131
+#: src/exm-extension-row.blp:142
 msgid "Error"
 msgstr "エラー"
 
-#: src/exm-extension-row.blp:166
+#: src/exm-extension-row.blp:181
 msgid "See Details"
 msgstr "詳細"
 
-#: src/exm-extension-row.blp:175
+#: src/exm-extension-row.blp:190
 msgid "Remove"
 msgstr "削除"
 
+#: src/exm-info-bar.blp:13
+msgctxt "Number of downloads"
+msgid "Downloads"
+msgstr "ダウンロード数"
+
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-upgrade-assistant.c:516
+msgid "Unsupported"
+msgstr "非対応"
+
 #: src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
-msgstr ""
-"この拡張機能は、このコンピュータのGNOMEのバージョンには、対応していません。"
+msgstr "この拡張機能は、お使いの GNOME のバージョンには、対応していません。"
 
 #: src/exm-install-button.c:115
 msgid "Install"
-msgstr "追加"
+msgstr "インストール"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
-msgstr "追加済"
+msgstr "インストール済み"
 
-#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:515
-msgid "Unsupported"
-msgstr "非対応"
-
-#: src/exm-installed-page.blp:23
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "GNOME Shell 拡張機能 を使う"
 
-#: src/exm-installed-page.blp:24
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr "拡張機能を使うと、動作が安定しなくなるかもしれません。"
 
-#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
-msgstr "ユーザーが追加した拡張機能"
+msgstr "ユーザーがインストールした拡張機能"
 
-#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "システムの拡張機能"
 
-#: src/exm-installed-page.blp:90
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "アップデートがあります"
 
-#: src/exm-installed-page.blp:107
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "ログアウト"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:220
+#: src/exm-installed-page.c:224
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "%d個の拡張機能が次回ログイン時にアップデートされます。"
 
-#: src/exm-installed-page.c:334
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "探す"
 
-#: src/exm-installed-page.c:344 src/exm-upgrade-assistant.c:687
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
-msgstr "ユーザーが追加した拡張機能はありません。"
+msgstr "ユーザーがインストールした拡張機能はありません。"
 
-#: src/exm-installed-page.c:358 src/exm-upgrade-assistant.c:692
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "システムの拡張機能はありません。"
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:98
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "アップグレードアシスタント"
 
-#: src/exm-upgrade-assistant.blp:49
-msgid "Check Compatibility"
-msgstr "互換性を確認"
+#: src/exm-upgrade-assistant.blp:47
+msgid "_Check Compatibility"
+msgstr "互換性を確認(_C)"
+
+#: src/exm-upgrade-assistant.c:176
+#, fuzzy, c-format
+#| msgid "Checked %d/%d extensions"
+msgid "Checked %d/%d Extensions"
+msgstr "%d/%d の拡張機能を確認済み"
+
+#. Set percentage text
+#: src/exm-upgrade-assistant.c:195
+#, c-format
+msgid "%d%% Compatible"
+msgstr "%d%% 完了"
 
 #: src/exm-upgrade-assistant.c:215
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system."
-msgstr "<b>GNOME %s</b>には、<b>%d/%d個</b> の拡張機能が対応しています。"
+msgstr "<b>GNOME %s</b> には、<b>%d/%d個</b> の拡張機能が対応しています。"
 
-#: src/exm-upgrade-assistant.c:511
+#: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr "対応"
 
-#: src/exm-upgrade-assistant.c:513
+#: src/exm-upgrade-assistant.c:514
 msgid "A compatible version of the extension exists."
-msgstr "この拡張機能は、指定したGNOMEのバージョンとの互換性があります。"
+msgstr "この拡張機能は、指定した GNOME のバージョンとの互換性があります。"
 
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:518
 msgid "No compatible version of the extension exists."
-msgstr "この拡張機能は、指定したGNOMEのバージョンとの互換性がありません。"
+msgstr "この拡張機能は、指定した GNOME のバージョンとの互換性がありません。"
 
-#: src/exm-upgrade-assistant.c:519
+#: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
 msgstr "不明"
 
-#: src/exm-upgrade-assistant.c:521
+#: src/exm-upgrade-assistant.c:522
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
-"この拡張機能は、extensions.gnome.org でホストされていません。そのため互換性"
-"があるかを判断できません。"
+"この拡張機能は、extensions.gnome.org でホストされていません。そのため互換性が"
+"あるかを判断できません。"
 
-#: src/exm-upgrade-assistant.c:614
+#: src/exm-upgrade-assistant.c:617
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"このシステムには、<b>GNOME %s</b>がインストールされています。プルダウンメ"
-"ニューからGNOMEのバージョンを選んで、今使っている拡張機能がそのバージョンで"
-"も使えるかを確認できます。"
+"このシステムは <b>GNOME %s</b> を実行しています。プルダウンメニューから "
+"GNOME のバージョンを選んで、今使っている拡張機能がそのバージョンでも使えるか"
+"を確認できます。"
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:42
+msgid "Main Menu"
+msgstr "メインメニュー"
+
+#: src/exm-window.blp:55
 msgctxt "Navigation"
-msgid "Installed"
-msgstr "追加済"
+msgid "_Installed"
+msgstr "インストール済(_I)"
 
-#: src/exm-window.blp:48
+#: src/exm-window.blp:64
 msgctxt "Navigation"
-msgid "Browse"
-msgstr "探す"
-
-#: src/exm-window.blp:70
-msgid "Theme"
-msgstr "テーマ"
-
-#: src/exm-window.blp:72
-msgid "Follow System"
-msgstr "システムのテーマ"
-
-#: src/exm-window.blp:77
-msgid "Light"
-msgstr "ライトテーマ"
-
-#: src/exm-window.blp:82
-msgid "Dark"
-msgstr "ダークテーマ"
-
-#: src/exm-window.blp:88
-msgid "Sort Enabled First"
-msgstr "追加済タブで有効な拡張機能を優先表示"
-
-#: src/exm-window.blp:92
-msgid "Show Unsupported"
-msgstr "検索結果に非対応の拡張機能も表示"
+msgid "_Browse"
+msgstr "探す(_B)"
 
 #: src/exm-window.blp:102
-msgid "About Extension Manager"
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
+msgstr "追加済タブで有効な拡張機能を優先表示"
+
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
+msgstr "検索結果に非対応の拡張機能も表示"
+
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "アップグレードアシスタント"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Extension Manager について"
 
-#: src/exm-window.c:183
-msgid "Are you sure you want to uninstall?"
-msgstr "この拡張機能を削除しますか？"
+#: src/exm-window.c:179
+msgid "Uninstall Extension?"
+msgstr "拡張機能を削除しますか?"
 
-#: src/exm-window.c:250
+#: src/exm-window.c:180
 msgid ""
-"This extension does not support your GNOME Shell version.\n"
-"Would you like to install anyway?"
-msgstr ""
-"この拡張機能は、この GNOME Shell のバージョンに対応していません。\n"
-"強制的にインストールしますか？"
+"The extension's features and functionality will no longer be accessible. Are "
+"you sure you want to uninstall?"
+msgstr "この拡張機能を利用できなくなります。削除しますか?"
 
-#: src/exm-window.c:351
+#: src/exm-window.c:183
+msgid "_No"
+msgstr "いいえ(_N)"
+
+#: src/exm-window.c:184
+msgid "_Yes"
+msgstr "はい(_Y)"
+
+#: src/exm-window.c:253
+msgid "Unsupported Extension"
+msgstr "非対応の拡張機能"
+
+#: src/exm-window.c:254
+msgid ""
+"This extension does not support your GNOME Shell version. It may cause "
+"errors if installed."
+msgstr ""
+"この拡張機能は、この GNOME Shell のバージョンに対応していません。インストール"
+"すると、エラーが発生する可能性があります。"
+
+#: src/exm-window.c:257
+msgid "_Install Anyway"
+msgstr "強制的にインストール(_I)"
+
+#: src/exm-window.c:258
+msgid "_Go Back"
+msgstr "戻る(_G)"
+
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "エラーが発生しました。"
 
-#: src/exm-window.c:352
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "詳細"
+
+#~ msgid "Loading…"
+#~ msgstr "読み込み中…"
+
+#~ msgid "@app_title@"
+#~ msgstr "@app_title@"
+
+#~ msgid "Translation updates"
+#~ msgstr "翻訳のアップデート"
+
+#~ msgid "Various bug fixes"
+#~ msgstr "様々なバグ修正"
+
+#~ msgid "Performance and stability"
+#~ msgstr "パフォーマンスと安定性の向上"
+
+#~ msgid "Remove release notes dialog"
+#~ msgstr "リリースノートダイアログを廃止"
+
+#~ msgid "Fix special characters in installed extension listings"
+#~ msgstr "追加済み拡張機能のリストの特殊文字に関する修正"
+
+#~ msgid "The second feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Extension Manager の2回目の機能アップデートです。主な内容は次のとおりで"
+#~ "す :"
+
+#~ msgid "View comments and reviews"
+#~ msgstr "拡張機能のレビューが読めるように"
+
+#~ msgid "Support for in-app updates"
+#~ msgstr "このアプリからの拡張機能のアップデートが可能に"
+
+#~ msgid "Better handling errors and out-of-date extensions"
+#~ msgstr "エラーや古い拡張機能への対応を強化"
+
+#~ msgid "Allow installing 'unsupported' extensions"
+#~ msgstr ""
+#~ "使用している GNOME Shell のバージョンに未対応の拡張機能もインストール可能"
+#~ "に"
+
+#~ msgid "Display release notes on first run"
+#~ msgstr "リリースノートをアップデート後に表示"
+
+#~ msgid "New app icon"
+#~ msgstr "アプリのアイコンを変更"
+
+#~ msgid "Optionally sort extensions by enabled status"
+#~ msgstr ""
+#~ "追加済のタブにおいて、有効になっている拡張機能が上に表示されるオプションが"
+#~ "追加"
+
+#~ msgid "Fix special characters in search results"
+#~ msgstr "検索結果の特殊文字に関する修正"
+
+#~ msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+#~ msgstr "拡張機能の削除中に、クラッシュする問題を修正しました"
+
+#~ msgid "The first feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Extension Manager の初めてのアップデートです。主な内容は次のとおりです :"
+
+#~ msgid "Dark theme and support for overriding the system colour scheme"
+#~ msgstr ""
+#~ "ダークテーマを追加し、システムのライト・ダークテーマに合わせることができる"
+#~ "ようになりました"
+
+#~ msgid "Shows screenshots in extension listings"
+#~ msgstr "拡張機能のスクリーンショットを、見られるようになりました"
+
+#~ msgid "Shell version compatibility check"
+#~ msgstr ""
+#~ "拡張機能が対応しているGNOMEShellのバージョンが、わかるようになりました"
+
+#~ msgid "Localised into seven languages"
+#~ msgstr "7言語に翻訳されました"
+
+#~ msgid "Sort search results"
+#~ msgstr "検索結果の並べ替えが、できるようになりました"
+
+#~ msgid "Global extension on/off toggle"
+#~ msgstr "すべての拡張機能をOFFにできる、トグルスイッチが追加されました"
+
+#~ msgid "Displays user and system extensions separately"
+#~ msgstr "拡張機能の開発者の名前を、表示するようになりました"
+
+#~ msgid "Extension Manager (Development)"
+#~ msgstr "Extension Manager (開発版)"
+
+#~ msgid "Popularity"
+#~ msgstr "人気順"
+
+#~ msgid "Supported Versions"
+#~ msgstr "対応するGNOMEのバージョン"
+
+#~ msgctxt "Navigation"
+#~ msgid "Browse"
+#~ msgstr "探す"
+
+#~ msgid "Theme"
+#~ msgstr "テーマ"
+
+#~ msgid "Follow System"
+#~ msgstr "システムのテーマ"
+
+#~ msgid "Light"
+#~ msgstr "ライトテーマ"
+
+#~ msgid "Dark"
+#~ msgstr "ダークテーマ"
+
+#~ msgid "Are you sure you want to uninstall?"
+#~ msgstr "この拡張機能を削除しますか？"

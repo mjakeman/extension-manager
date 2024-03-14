@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-21 13:23+0100\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
 "PO-Revision-Date: 2022-05-12 21:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,235 +19,268 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:6
-msgid "@app_title@"
-msgstr "Tillägshanterare"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:7
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:11
-msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "Ett verktyg för att hitta och installera GNOME-tillägg."
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:12
-msgid "Features:"
-msgstr "Funktioner:"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:24
-msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Bläddra extensions.gnome.org direkt i appen"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:28
-msgid "Manage the extensions you already have installed"
-msgstr "Hantera installerade tillägg"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:20
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Ett verktyg för att hantera GNOME-tillägg"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:43
-msgid "The second feature update to extension-manager. Highlights include:"
-msgstr "Den andra funktionsuppdateringen till Tilläggshanterare. Höjdpunkter:"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:45
-msgid "View comments and reviews"
-msgstr "Se kommentarer och  recensioner"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:46
-msgid "Support for in-app updates"
-msgstr "Stöd för uppdatering direkt i appen"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:47
-msgid "Better handling errors and out-of-date extensions"
-msgstr "Bättre hantering av felmeddelanden och utdaterade tillägg"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:48
-msgid "Allow installing 'unsupported' extensions"
-msgstr "Tillåtelse av tillägg 'utan stöd'"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:49
-msgid "Display release notes on first run"
-msgstr "Visa app nyheter vid första uppstart"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:50
-msgid "New app icon"
-msgstr "Ny app ikon"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:51
-msgid "Optionally sort extensions by enabled status"
-msgstr ""
-"Valfri funktion för att sortera enligt vilka tillägg som är aktiverade"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:52
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:59
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:64
-msgid "Translation updates"
-msgstr "Uppdateringar till översättningar"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:53
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:84
-msgid "Performance and stability"
-msgstr "Prestanda och stabilitet"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:65
-msgid "Fix special characters in search results"
-msgstr "Fix för speciella bokstäver i sökresultat"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:70
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "Fix för en krasch som ibland händer vi avinstallation av tillägg"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:75
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr "Första funktionsuppdatering för Tilläggshanterare.  Höjdpunkter:"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:77
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Mörkt tema och möjlighet att överskrida system tema"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:78
-msgid "Shows screenshots in extension listings"
-msgstr "Visa skärmdumpar i tillägglistningar"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:79
-msgid "Shell version compatibility check"
-msgstr "Check av kompatibilitet för skal-version"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:80
-msgid "Localised into seven languages"
-msgstr "Översatt till sju olika språk"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:81
-msgid "Sort search results"
-msgstr "Sortering av sökresultat"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:82
-msgid "Global extension on/off toggle"
-msgstr "Av/på knapp för globala tillägg"
-
-#: data/com.mattjakeman.ExtensionManager.appdata.xml.in.in:83
-msgid "Displays user and system extensions separately"
-msgstr "Visa system och användare-tillägg separat"
-
-#: src/exm-application.c:106
-msgid "Extension Manager (Development)"
-msgstr "Tilläggshanterare (Utveckling)"
-
-#: src/exm-application.c:107
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
+#: src/exm-window.blp:9
 msgid "Extension Manager"
 msgstr "Tilläggshanterare"
 
-#. TRANSLATORS: 'Name <email@domain.com>' or 'Name https://website.example'
-#: src/exm-application.c:117
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#, fuzzy
+#| msgid "A utility for managing GNOME Shell Extensions"
+msgid "Manage GNOME Shell Extensions"
+msgstr "Ett verktyg för att hantera GNOME-tillägg"
+
+#. Translators: Do not translate
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#, fuzzy
+#| msgid "Extension Manager"
+msgid "extension;manager;shell;"
+msgstr "Tilläggshanterare"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
+#, fuzzy
+#| msgid "A utility for managing GNOME Shell Extensions"
+msgid "Browse, install, and manage GNOME Shell Extensions"
+msgstr "Ett verktyg för att hantera GNOME-tillägg"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
+msgid "A utility for browsing and installing GNOME Shell Extensions."
+msgstr "Ett verktyg för att hitta och installera GNOME-tillägg."
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
+msgid "Features:"
+msgstr "Funktioner:"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+msgid "Browse extensions.gnome.org right inside the app"
+msgstr "Bläddra extensions.gnome.org direkt i appen"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
+msgid "Manage the extensions you already have installed"
+msgstr "Hantera installerade tillägg"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+msgid "A utility for managing GNOME Shell Extensions"
+msgstr "Ett verktyg för att hantera GNOME-tillägg"
+
+#: src/exm-application.c:175
+#, fuzzy
+#| msgid "A utility for managing GNOME Shell Extensions"
+msgid "Browse, install, and manage GNOME Shell Extensions."
+msgstr "Ett verktyg för att hantera GNOME-tillägg"
+
+#: src/exm-application.c:177
 msgid "translator-credits"
 msgstr "översättare"
 
-#: src/exm-application.c:118
-msgid ""
-"A very simple tool for browsing, downloading, and managing GNOME shell "
-"extensions."
-msgstr ""
-"Ett väldigt enkelt verktyg för att hitta, installera och hantera GNOME-"
-"tillägg."
-
-#: src/exm-application.c:124
-msgid "Project Homepage"
-msgstr "Hemsida för projektet"
-
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "Sök efter tillägg"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
 "Ange ett sökord för att söka efter GNOME-tillägg på 'extensions.gnome.org' ."
 
-#: src/exm-browse-page.blp:22
-msgid "e.g. \"Blur my Shell\""
-msgstr "t.e.x \"Blur my Shell\""
-
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:33
-msgid "Popularity"
-msgstr "Populäritet"
+#: src/exm-browse-page.blp:31
+msgid "Relevance"
+msgstr ""
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Hämtningar"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Recent"
 msgstr "Senaste"
 
-#: src/exm-browse-page.blp:33
+#: src/exm-browse-page.blp:31
 msgid "Name"
 msgstr "Namn"
 
-#: src/exm-browse-page.blp:60
+#: src/exm-browse-page.blp:61
+msgid "_Load More Results"
+msgstr ""
+
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "Hittade inga resultat"
 
-#: src/exm-comment-dialog.blp:35 src/exm-detail-view.blp:35
-#: src/exm-detail-view.blp:168 src/exm-detail-view.c:350
+#. Translators:
+#. - '%s' is an extension e.g. Blur my Shell
+#. - Please use unicode quotation marks e.g. “” (not "")
+#: src/exm-browse-page.c:299
+#, c-format
+msgid "e.g. “%s”"
+msgstr ""
+
+#: src/exm-comment-dialog.blp:9
+msgid "Comments"
+msgstr ""
+
+#: src/exm-comment-dialog.blp:37
+msgid "Loading Comments"
+msgstr ""
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "Ett fel inträffade"
 
-#: src/exm-detail-view.blp:95 src/exm-extension-row.blp:74
+#: src/exm-comment-tile.blp:21
+msgid "Author"
+msgstr ""
+
+#: src/exm-detail-view.blp:54
+msgid "Zoom In"
+msgstr ""
+
+#: src/exm-detail-view.blp:63
+#, fuzzy
+#| msgid "Log Out"
+msgid "Zoom Out"
+msgstr "Logga ut"
+
+#: src/exm-detail-view.blp:73
+msgid "Return to view"
+msgstr ""
+
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "See Details"
+msgid "Loading Details"
+msgstr "Detaljer"
+
+#: src/exm-detail-view.blp:184
+msgid "Enlarge image"
+msgstr ""
+
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Beskrivning"
 
-#: src/exm-detail-view.blp:113
+#: src/exm-detail-view.blp:217
+msgid "Links"
+msgstr ""
+
+#: src/exm-detail-view.blp:232
+#, fuzzy
+#| msgid "Project Homepage"
+msgid "Homepage"
+msgstr "Hemsida för projektet"
+
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "Se på Extensions"
 
-#: src/exm-detail-view.blp:130
-msgid "Supported Versions"
-msgstr "Stödda versioner"
-
-#: src/exm-detail-view.blp:146
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "Användarrecensioner"
 
-#: src/exm-detail-view.blp:187
-msgid "Show All Reviews"
+#: src/exm-detail-view.blp:299
+msgid "There are no comments."
+msgstr ""
+
+#: src/exm-detail-view.blp:319
+#, fuzzy
+#| msgid "Show All Reviews"
+msgid "_Show All Reviews"
 msgstr "Visa alla recensioner"
 
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:364
-msgid "Loading…"
-msgstr "Laddar…"
+#: src/exm-error-dialog.blp:7
+msgid "Error Report"
+msgstr ""
 
-#: src/exm-extension-row.blp:33
+#: src/exm-error-dialog.blp:29
+#, fuzzy
+#| msgid "An error occurred while loading this extension"
+msgid "An unexpected error occurred in Extension Manager."
+msgstr "Ett fel inträffade vid laddning av tillägget"
+
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
+msgid "_Copy to Clipboard"
+msgstr ""
+
+#: src/exm-error-dialog.blp:64
+msgid "_New Issue"
+msgstr ""
+
+#. Success indicator
+#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
+msgid "Copied"
+msgstr ""
+
+#: src/exm-error-dialog.c:179
+msgid "Please open a new issue and attach the following information:"
+msgstr ""
+
+#. Translators: '%s' = Name of Distributor (e.g. "Packager123")
+#: src/exm-error-dialog.c:183
+#, c-format
+msgid ""
+"You are using a third-party build of Extension Manager. Please <span "
+"weight=\"bold\">contact the package distributor (%s) first</span> before "
+"filing an issue. Be sure to attach the following information:"
+msgstr ""
+
+#: src/exm-extension-row.blp:26
+msgid "Open extension preferences"
+msgstr ""
+
+#: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
 msgstr "Ett fel inträffade vid laddning av tillägget"
 
-#: src/exm-extension-row.blp:46 src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
+#: src/exm-extension-row.blp:58
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME."
+msgid "This extension is incompatible with your current version of GNOME"
 msgstr ""
 "Det här tillägget är inte kompatibelt med din nuvarande version av GNOME."
 
-#: src/exm-extension-row.blp:59
+#: src/exm-extension-row.blp:74
 msgid "A newer version of this extension is available"
 msgstr "En nyare version av detta tillägg är tillgängligt"
 
-#: src/exm-extension-row.blp:100
+#: src/exm-extension-row.blp:116 src/exm-info-bar.blp:18
 msgid "Version"
 msgstr "Version"
 
-#: src/exm-extension-row.blp:126
+#: src/exm-extension-row.blp:142
 msgid "Error"
 msgstr "Fel"
 
-#: src/exm-extension-row.blp:161
+#: src/exm-extension-row.blp:181
 msgid "See Details"
 msgstr "Detaljer"
 
-#: src/exm-extension-row.blp:170
+#: src/exm-extension-row.blp:190
 msgid "Remove"
 msgstr "Ta bort"
+
+#: src/exm-info-bar.blp:13
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Number of downloads"
+msgid "Downloads"
+msgstr "Hämtningar"
+
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-upgrade-assistant.c:516
+msgid "Unsupported"
+msgstr "Stöds ej"
+
+#: src/exm-install-button.c:105
+msgid "This extension is incompatible with your current version of GNOME."
+msgstr ""
+"Det här tillägget är inte kompatibelt med din nuvarande version av GNOME."
 
 #: src/exm-install-button.c:115
 msgid "Install"
@@ -258,97 +291,329 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Installerat"
 
-#: src/exm-install-button.c:124
-msgid "Unsupported"
-msgstr "Stöds ej"
+#: src/exm-installed-page.blp:33
+#, fuzzy
+#| msgid "System Extensions"
+msgid "Use Extensions"
+msgstr "Systemtillägg"
 
-#: src/exm-installed-page.blp:25
+#: src/exm-installed-page.blp:34
+#, fuzzy
+#| msgid "Performance and stability"
+msgid "Extensions can cause performance and stability issues."
+msgstr "Prestanda och stabilitet"
+
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "Användarinstallerade tillägg"
 
-#: src/exm-installed-page.blp:38
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "Systemtillägg"
 
-#: src/exm-installed-page.blp:78
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "Uppdateringar är tillgängliga"
 
-#: src/exm-installed-page.blp:95
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "Logga ut"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:215
+#: src/exm-installed-page.c:224
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "Ett tillägg kommer uppdateras vid näst inloggning."
 msgstr[1] "%d  tillägg kommer uppdateras vid näst inloggning."
 
-#: src/exm-release-notes-dialog.blp:7 src/exm-window.blp:95
-msgid "Release Notes"
-msgstr "App nyheter"
-
-#: src/exm-window.blp:42
-msgctxt "Navigation"
-msgid "Installed"
-msgstr "Installerade"
-
-#: src/exm-window.blp:50
-msgctxt "Navigation"
+#: src/exm-installed-page.c:340
+#, fuzzy
+#| msgctxt "Navigation"
+#| msgid "Browse"
 msgid "Browse"
 msgstr "Utforska"
 
-#: src/exm-window.blp:71
-msgid "Theme"
-msgstr "Tema"
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
+msgid "There are no user extensions installed."
+msgstr ""
 
-#: src/exm-window.blp:73
-msgid "Follow System"
-msgstr "Följ systemet"
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
+#, fuzzy
+#| msgid "Displays user and system extensions separately"
+msgid "There are no system extensions installed."
+msgstr "Visa system och användare-tillägg separat"
 
-#: src/exm-window.blp:78
-msgid "Light"
-msgstr "Ljust"
+#: src/exm-upgrade-assistant.blp:7
+msgid "Upgrade Assistant"
+msgstr ""
 
-#: src/exm-window.blp:83
-msgid "Dark"
-msgstr "Mörkt"
+#: src/exm-upgrade-assistant.blp:47
+msgid "_Check Compatibility"
+msgstr ""
 
-#: src/exm-window.blp:89
-msgid "Sort Enabled First"
+#: src/exm-upgrade-assistant.c:176
+#, fuzzy, c-format
+#| msgid "Search for extensions"
+msgid "Checked %d/%d Extensions"
+msgstr "Sök efter tillägg"
+
+#. Set percentage text
+#: src/exm-upgrade-assistant.c:195
+#, c-format
+msgid "%d%% Compatible"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:215
+#, c-format
+msgid ""
+"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+"installed on the system."
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:512
+#, fuzzy
+#| msgid "Unsupported"
+msgid "Supported"
+msgstr "Stöds ej"
+
+#: src/exm-upgrade-assistant.c:514
+#, fuzzy
+#| msgid "A newer version of this extension is available"
+msgid "A compatible version of the extension exists."
+msgstr "En nyare version av detta tillägg är tillgängligt"
+
+#: src/exm-upgrade-assistant.c:518
+#, fuzzy
+#| msgid "A newer version of this extension is available"
+msgid "No compatible version of the extension exists."
+msgstr "En nyare version av detta tillägg är tillgängligt"
+
+#: src/exm-upgrade-assistant.c:520
+msgid "Unknown"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:522
+msgid ""
+"This extension is not hosted on extensions.gnome.org. Its compatibility "
+"cannot be determined."
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:617
+#, c-format
+msgid ""
+"You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
+"and check whether your extensions will continue to be available."
+msgstr ""
+
+#: src/exm-window.blp:42
+msgid "Main Menu"
+msgstr ""
+
+#: src/exm-window.blp:55
+#, fuzzy
+#| msgctxt "Navigation"
+#| msgid "Installed"
+msgctxt "Navigation"
+msgid "_Installed"
+msgstr "Installerade"
+
+#: src/exm-window.blp:64
+#, fuzzy
+#| msgctxt "Navigation"
+#| msgid "Browse"
+msgctxt "Navigation"
+msgid "_Browse"
+msgstr "Utforska"
+
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "Visa aktiverade först"
 
 #: src/exm-window.blp:103
-msgid "About Extension Manager"
+#, fuzzy
+#| msgid "Unsupported"
+msgid "_Show Unsupported"
+msgstr "Stöds ej"
+
+#: src/exm-window.blp:106
+msgid "_Upgrade Assistant"
+msgstr ""
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Om Tilläggshanterare"
 
-#: src/exm-window.c:180
-msgid "Are you sure you want to uninstall?"
-msgstr "Är du säker på att du vill avinstallera?"
+#: src/exm-window.c:179
+#, fuzzy
+#| msgid "User-Installed Extensions"
+msgid "Uninstall Extension?"
+msgstr "Användarinstallerade tillägg"
 
-#: src/exm-window.c:247
+#: src/exm-window.c:180
 msgid ""
-"This extension does not support your GNOME Shell version.\n"
-"Would you like to install anyway?"
+"The extension's features and functionality will no longer be accessible. Are "
+"you sure you want to uninstall?"
+msgstr ""
+
+#: src/exm-window.c:183
+msgid "_No"
+msgstr ""
+
+#: src/exm-window.c:184
+msgid "_Yes"
+msgstr ""
+
+#: src/exm-window.c:253
+#, fuzzy
+#| msgid "Supported Versions"
+msgid "Unsupported Extension"
+msgstr "Stödda versioner"
+
+#: src/exm-window.c:254
+#, fuzzy
+#| msgid ""
+#| "This extension does not support your GNOME Shell version.\n"
+#| "Would you like to install anyway?"
+msgid ""
+"This extension does not support your GNOME Shell version. It may cause "
+"errors if installed."
 msgstr ""
 "Det här tillägget stöder inte din GNOME version\n"
 "Vill du installera ändå?"
 
-#: src/exm-window.c:373
-msgid "What's New"
-msgstr "Nyheter"
+#: src/exm-window.c:257
+#, fuzzy
+#| msgid "Install"
+msgid "_Install Anyway"
+msgstr "Installera"
 
-#: src/exm-window.c:375
-msgid "View Release Notes"
-msgstr "Se nyheter"
-
-#: src/exm-window.c:379
-#, c-format
-msgid ""
-"This is your first time using <b>Extension Manager %s</b>.\n"
-"Would you like to see the release notes?"
+#: src/exm-window.c:258
+msgid "_Go Back"
 msgstr ""
-"Det här är första gången du använder <b>Tilläggshanterare %s</b>.\n"
-"Vill du se vad som är nytt?"
+
+#: src/exm-window.c:365
+#, fuzzy
+#| msgid "An Error Occurred"
+msgid "An error occurred."
+msgstr "Ett fel inträffade"
+
+#: src/exm-window.c:366
+#, fuzzy
+#| msgid "See Details"
+msgid "Details"
+msgstr "Detaljer"
+
+#~ msgid "Loading…"
+#~ msgstr "Laddar…"
+
+#~ msgid "@app_title@"
+#~ msgstr "Tillägshanterare"
+
+#~ msgid "The second feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Den andra funktionsuppdateringen till Tilläggshanterare. Höjdpunkter:"
+
+#~ msgid "View comments and reviews"
+#~ msgstr "Se kommentarer och  recensioner"
+
+#~ msgid "Support for in-app updates"
+#~ msgstr "Stöd för uppdatering direkt i appen"
+
+#~ msgid "Better handling errors and out-of-date extensions"
+#~ msgstr "Bättre hantering av felmeddelanden och utdaterade tillägg"
+
+#~ msgid "Allow installing 'unsupported' extensions"
+#~ msgstr "Tillåtelse av tillägg 'utan stöd'"
+
+#~ msgid "Display release notes on first run"
+#~ msgstr "Visa app nyheter vid första uppstart"
+
+#~ msgid "New app icon"
+#~ msgstr "Ny app ikon"
+
+#~ msgid "Optionally sort extensions by enabled status"
+#~ msgstr ""
+#~ "Valfri funktion för att sortera enligt vilka tillägg som är aktiverade"
+
+#~ msgid "Translation updates"
+#~ msgstr "Uppdateringar till översättningar"
+
+#~ msgid "Fix special characters in search results"
+#~ msgstr "Fix för speciella bokstäver i sökresultat"
+
+#~ msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+#~ msgstr "Fix för en krasch som ibland händer vi avinstallation av tillägg"
+
+#~ msgid "The first feature update to extension-manager. Highlights include:"
+#~ msgstr "Första funktionsuppdatering för Tilläggshanterare.  Höjdpunkter:"
+
+#~ msgid "Dark theme and support for overriding the system colour scheme"
+#~ msgstr "Mörkt tema och möjlighet att överskrida system tema"
+
+#~ msgid "Shows screenshots in extension listings"
+#~ msgstr "Visa skärmdumpar i tillägglistningar"
+
+#~ msgid "Shell version compatibility check"
+#~ msgstr "Check av kompatibilitet för skal-version"
+
+#~ msgid "Localised into seven languages"
+#~ msgstr "Översatt till sju olika språk"
+
+#~ msgid "Sort search results"
+#~ msgstr "Sortering av sökresultat"
+
+#~ msgid "Global extension on/off toggle"
+#~ msgstr "Av/på knapp för globala tillägg"
+
+#~ msgid "Extension Manager (Development)"
+#~ msgstr "Tilläggshanterare (Utveckling)"
+
+#~ msgid ""
+#~ "A very simple tool for browsing, downloading, and managing GNOME shell "
+#~ "extensions."
+#~ msgstr ""
+#~ "Ett väldigt enkelt verktyg för att hitta, installera och hantera GNOME-"
+#~ "tillägg."
+
+#~ msgid "e.g. \"Blur my Shell\""
+#~ msgstr "t.e.x \"Blur my Shell\""
+
+#~ msgid "Popularity"
+#~ msgstr "Populäritet"
+
+#~ msgid "Release Notes"
+#~ msgstr "App nyheter"
+
+#~ msgid "Theme"
+#~ msgstr "Tema"
+
+#~ msgid "Follow System"
+#~ msgstr "Följ systemet"
+
+#~ msgid "Light"
+#~ msgstr "Ljust"
+
+#~ msgid "Dark"
+#~ msgstr "Mörkt"
+
+#~ msgid "Are you sure you want to uninstall?"
+#~ msgstr "Är du säker på att du vill avinstallera?"
+
+#~ msgid "What's New"
+#~ msgstr "Nyheter"
+
+#~ msgid "View Release Notes"
+#~ msgstr "Se nyheter"
+
+#, c-format
+#~ msgid ""
+#~ "This is your first time using <b>Extension Manager %s</b>.\n"
+#~ "Would you like to see the release notes?"
+#~ msgstr ""
+#~ "Det här är första gången du använder <b>Tilläggshanterare %s</b>.\n"
+#~ "Vill du se vad som är nytt?"

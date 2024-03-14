@@ -7,225 +7,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 00:48+0200\n"
-"PO-Revision-Date: 2023-11-22 03:04+0200\n"
-"Last-Translator: volkov <volkovissocool@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
+"PO-Revision-Date: 2024-02-25 10:02+0000\n"
+"Last-Translator: Сергій <sergiy.goncharuk.1@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
+"manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4\n"
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
-msgid "@app_title@"
-msgstr "@app_title@"
+#: src/exm-window.blp:9
+msgid "Extension Manager"
+msgstr "Менеджер розширень"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
 msgstr "Керуйте розширеннями для стільниці GNOME"
 
 #. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
-msgid "extension;manager;"
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+msgid "extension;manager;shell;"
 msgstr ""
-"extension;manager;розширення;менеджер;гном;додатки;кастомізація;налаштування;"
+"extension;manager;shell;розширення;менеджер;гном;додатки;кастомізація;"
+"налаштування;оболонка;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr "Шукайте, встановлюйте та керуйте розширеннями для стільниці GNOME"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr "Програма для пошуку та встановлення розширень для стільниці GNOME."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
 msgstr "Функції:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Шукайте розширення з extensions.gnome.org прямо у додатку"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "Manage the extensions you already have installed"
 msgstr "Керуйте встановленими розширеннями"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Програма для керуваннями розширеннями для стільниці GNOME"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:53
-msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
-msgstr ""
-"Виправлення: виправлено зламані 'За датою оновлення' та 'За популярністю' "
-"фільтри пошуку"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:54
-msgid "Various stability and correctness fixes"
-msgstr "Різні покращення та виправлення"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:55
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:62
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:95
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:104
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:130
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:137
-msgid "Translation updates"
-msgstr "Оновлено переклади"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:63
-msgid "Upgrade Assistant scroll fix"
-msgstr "Виправлення для прокрутки у Помічнику оновлень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:64
-msgid "Pixel perfect app icon"
-msgstr "Піксель-перфект піктограма для додатку"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:72
-msgid "Official snap support"
-msgstr "Офіційна підтримка для snap пакунків"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:73
-msgid "Improved error log generation"
-msgstr "Покращено генерацію журналу помилок"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
-msgid "Fully adaptive mobile-friendly user interface"
-msgstr "Повністю адаптивний, сумісний з мобільними пристроями, інтерфейс"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
-msgid "Paginated search results"
-msgstr "Результати пошуку у вигляді сторінок"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
-msgid "Upgrade Assistant for checking extension compatibility"
-msgstr "Помічник оновлень, щоб перевіряти сумісність розширень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
-msgid "Unsupported extensions are hidden by default"
-msgstr "Не підтримувані розширення сховані за замовченням"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
-msgid "Overhauled error and crash reporting"
-msgstr "Покращено вікно звітування про вади і збої"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
-msgid "Full-screen image viewer"
-msgstr "Повноекранний перегляд зображень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
-msgid "Handles new <code>gnome-extensions://</code> URI scheme"
-msgstr "Підтримує нову <code>gnome-extensions://</code> URI схему"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
-msgid "Randomised extension suggestions"
-msgstr "Випадкові пропозиції для розширень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:88
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:97
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:107
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:123
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:158
-msgid "Performance and stability"
-msgstr "Швидкодія та стабільність"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:96
-msgid "Various bug fixes"
-msgstr "Невеликі виправлення помилок"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:105
-msgid "Remove release notes dialog"
-msgstr "Видалено вікно з списком змін оновлень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:106
-msgid "Fix special characters in installed extension listings"
-msgstr ""
-"Виправлено проблеми пов'язані з спеціальними символами у списках розширень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
-msgid "The second feature update to extension-manager. Highlights include:"
-msgstr ""
-"Друге оновлення для Менеджера розширень, яке додає новий функціонал. Що "
-"нового:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
-msgid "View comments and reviews"
-msgstr "Перегляд коментарів та відгуків"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
-msgid "Support for in-app updates"
-msgstr "Підтримка оновлень всередині додатку"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
-msgid "Better handling errors and out-of-date extensions"
-msgstr "Краще обробка помилок і застарілих розширень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
-msgid "Allow installing 'unsupported' extensions"
-msgstr "Дозволено встановлювати \"не підтримувані\" розширення"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
-msgid "Display release notes on first run"
-msgstr "Показує список змін релізу при запускую"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
-msgid "New app icon"
-msgstr "Нова піктограма додатку"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
-msgid "Optionally sort extensions by enabled status"
-msgstr "Сортування розширень за статусом вімк/вимк"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:138
-msgid "Fix special characters in search results"
-msgstr ""
-"Виправлено проблеми пов'язані з особливими символами у результатах пошуку"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:144
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr "Виправлено збій, який іноді стається при видаленні розширення"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:149
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-"Перше оновлення для Менеджера розширень, яке додає новий функціонал. Що "
-"нового:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:151
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Темний стиль/тема та підтримка заміни системної схеми кольорів"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:152
-msgid "Shows screenshots in extension listings"
-msgstr "Показує скриншоти у списку розширень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:153
-msgid "Shell version compatibility check"
-msgstr "Перевірка сумісності версій розширень з стільницею GNOME"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:154
-msgid "Localised into seven languages"
-msgstr "Перекладено на декілька мов"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:155
-msgid "Sort search results"
-msgstr "Сортування результатів пошуку"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:156
-msgid "Global extension on/off toggle"
-msgstr "Глобальне вимкнення/ввімкнення усіх розширень"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:157
-msgid "Displays user and system extensions separately"
-msgstr "Показувати розширення користувача та системи окремо"
 
 #: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -235,11 +71,11 @@ msgstr "Шукайте, встановлюйте та керуйте розши�
 msgid "translator-credits"
 msgstr "volkov <volkovissocool@gmail.com>"
 
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "Шукати розширення"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
@@ -264,11 +100,11 @@ msgstr "За датою оновлення"
 msgid "Name"
 msgstr "За назвою"
 
-#: src/exm-browse-page.blp:58
+#: src/exm-browse-page.blp:61
 msgid "_Load More Results"
 msgstr "_Завантажити більше результатів"
 
-#: src/exm-browse-page.blp:69
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "Нічого не знайдено"
 
@@ -284,63 +120,70 @@ msgstr "наприклад: “%s”"
 msgid "Comments"
 msgstr "Коментарі"
 
-#: src/exm-comment-dialog.blp:36 src/exm-detail-view.blp:88
-#: src/exm-detail-view.blp:251 src/exm-detail-view.c:405
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "Коментарі"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "Сталася помилка"
 
-#: src/exm-comment-tile.blp:20
+#: src/exm-comment-tile.blp:21
 msgid "Author"
 msgstr "Автор"
 
-#: src/exm-detail-view.blp:38
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "Збільшити"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "Зменшити"
 
-#: src/exm-detail-view.blp:57
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "Повернутися назад"
 
-#: src/exm-detail-view.blp:145
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "Подробиці"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "Збільшити зображення"
 
-#: src/exm-detail-view.blp:157 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Опис"
 
-#: src/exm-detail-view.blp:178
+#: src/exm-detail-view.blp:217
 msgid "Links"
 msgstr "Посилання"
 
-#: src/exm-detail-view.blp:193
+#: src/exm-detail-view.blp:232
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: src/exm-detail-view.blp:210
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "Переглянути це розширення на сайті Extensions"
 
-#: src/exm-detail-view.blp:229
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "Відгуки користувачів"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:299
 msgid "There are no comments."
 msgstr "Немає коментарів."
 
-#: src/exm-detail-view.blp:280
+#: src/exm-detail-view.blp:319
 msgid "_Show All Reviews"
 msgstr "_Показати всі відгуки"
-
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:419
-msgid "Loading…"
-msgstr "Завантаження…"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -350,7 +193,7 @@ msgstr "Звітувати про помилку"
 msgid "An unexpected error occurred in Extension Manager."
 msgstr "Неочікувана помилка сталася у Менеджері розширень."
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:127
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
 msgstr "_Скопіювати в буфер обміну"
 
@@ -359,17 +202,17 @@ msgid "_New Issue"
 msgstr "_Нова проблема"
 
 #. Success indicator
-#: src/exm-error-dialog.c:130 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
 msgid "Copied"
 msgstr "Скопійовано"
 
-#: src/exm-error-dialog.c:180
+#: src/exm-error-dialog.c:179
 msgid "Please open a new issue and attach the following information:"
 msgstr ""
 "Будь ласка, відкрийте нову проблему і додайте до неї наступну інформацію:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:184
+#: src/exm-error-dialog.c:183
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
@@ -435,27 +278,27 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Встановлено"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "Використовувати розширення"
 
-#: src/exm-installed-page.blp:32
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr "Розширення можуть спричиняти проблеми з швидкодією і стабільністю."
 
-#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "Встановленні користувачем розширення"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "Системні розширення"
 
-#: src/exm-installed-page.blp:93
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "Доступні оновлення"
 
-#: src/exm-installed-page.blp:110
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "Вийти"
 
@@ -468,19 +311,19 @@ msgstr[0] "%d розширення буде оновлено при наступ
 msgstr[1] "%d розширення буде оновлено при наступному вході в систему."
 msgstr[2] "%d розширень буде оновлено при наступному вході в систему."
 
-#: src/exm-installed-page.c:338
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "Шукати"
 
-#: src/exm-installed-page.c:349 src/exm-upgrade-assistant.c:691
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "Немає встановлених користувачем розширень."
 
-#: src/exm-installed-page.c:364 src/exm-upgrade-assistant.c:697
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "Немає встановлених системних розширень."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:95
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "Помічник оновлень"
 
@@ -489,8 +332,9 @@ msgid "_Check Compatibility"
 msgstr "_Перевірити сумісність"
 
 #: src/exm-upgrade-assistant.c:176
-#, c-format
-msgid "Checked %d/%d extensions"
+#, fuzzy, c-format
+#| msgid "Checked %d/%d extensions"
+msgid "Checked %d/%d Extensions"
 msgstr "Перевірено %d із %d розширень"
 
 #. Set percentage text
@@ -532,7 +376,7 @@ msgstr ""
 "Це розширення немає у extensions.gnome.org, тому перевірити сумісність "
 "неможливо."
 
-#: src/exm-upgrade-assistant.c:615
+#: src/exm-upgrade-assistant.c:617
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -541,37 +385,49 @@ msgstr ""
 "Зараз ви використовуєте <b>GNOME %s</b>. Оберіть версію GNOME та перевірте, "
 "чи будуть ваші розширення продовжувати бути доступні."
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:42
 msgid "Main Menu"
 msgstr "Головне меню"
 
-#: src/exm-window.blp:53
+#: src/exm-window.blp:55
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Встановлені"
 
-#: src/exm-window.blp:62
+#: src/exm-window.blp:64
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Шукати"
 
-#: src/exm-window.blp:85
-msgid "Sort Enabled First"
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "Спочатку сортувати ввімкнені розширення"
 
-#: src/exm-window.blp:89
-msgid "Show Unsupported"
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
 msgstr "Показувати не підтримувані розширення"
 
-#: src/exm-window.blp:99
-msgid "About Extension Manager"
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "Помічник оновлень"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Про Менеджер розширень"
 
-#: src/exm-window.c:181
+#: src/exm-window.c:179
 msgid "Uninstall Extension?"
 msgstr "Видалити розширення?"
 
-#: src/exm-window.c:182
+#: src/exm-window.c:180
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -579,19 +435,19 @@ msgstr ""
 "Функції та можливості розширення більше не будуть доступні. Ви впевнені, що "
 "хочете видалити?"
 
-#: src/exm-window.c:185
+#: src/exm-window.c:183
 msgid "_No"
 msgstr "_Ні"
 
-#: src/exm-window.c:186
+#: src/exm-window.c:184
 msgid "_Yes"
 msgstr "_Так"
 
-#: src/exm-window.c:256
+#: src/exm-window.c:253
 msgid "Unsupported Extension"
 msgstr "Непідтримуване розширення"
 
-#: src/exm-window.c:257
+#: src/exm-window.c:254
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -599,29 +455,149 @@ msgstr ""
 "Це розширення не підтримує вашу версію стільниці GNOME. Воно може викликати "
 "проблеми, якщо встановити."
 
-#: src/exm-window.c:260
+#: src/exm-window.c:257
 msgid "_Install Anyway"
 msgstr "_Все одно встановити"
 
-#: src/exm-window.c:261
+#: src/exm-window.c:258
 msgid "_Go Back"
 msgstr "_Повернутися"
 
-#: src/exm-window.c:372
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "Сталася помилка."
 
-#: src/exm-window.c:373
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "Подробиці"
 
-#: src/exm-window.c:468
-msgid "Extension Manager (Development)"
-msgstr "Менеджер розширень (Розробка)"
+#~ msgid "Loading…"
+#~ msgstr "Завантаження…"
 
-#: src/exm-window.c:468
-msgid "Extension Manager"
-msgstr "Менеджер розширень"
+#~ msgid "@app_title@"
+#~ msgstr "@app_title@"
+
+#~ msgid "HOTFIX: Fix broken 'recent' and 'popularity' search filters"
+#~ msgstr ""
+#~ "Виправлення: виправлено зламані 'За датою оновлення' та 'За популярністю' "
+#~ "фільтри пошуку"
+
+#~ msgid "Various stability and correctness fixes"
+#~ msgstr "Різні покращення та виправлення"
+
+#~ msgid "Translation updates"
+#~ msgstr "Оновлено переклади"
+
+#~ msgid "Upgrade Assistant scroll fix"
+#~ msgstr "Виправлення для прокрутки у Помічнику оновлень"
+
+#~ msgid "Pixel perfect app icon"
+#~ msgstr "Піксель-перфект піктограма для додатку"
+
+#~ msgid "Official snap support"
+#~ msgstr "Офіційна підтримка для snap пакунків"
+
+#~ msgid "Improved error log generation"
+#~ msgstr "Покращено генерацію журналу помилок"
+
+#~ msgid "Fully adaptive mobile-friendly user interface"
+#~ msgstr "Повністю адаптивний, сумісний з мобільними пристроями, інтерфейс"
+
+#~ msgid "Paginated search results"
+#~ msgstr "Результати пошуку у вигляді сторінок"
+
+#~ msgid "Upgrade Assistant for checking extension compatibility"
+#~ msgstr "Помічник оновлень, щоб перевіряти сумісність розширень"
+
+#~ msgid "Unsupported extensions are hidden by default"
+#~ msgstr "Не підтримувані розширення сховані за замовченням"
+
+#~ msgid "Overhauled error and crash reporting"
+#~ msgstr "Покращено вікно звітування про вади і збої"
+
+#~ msgid "Full-screen image viewer"
+#~ msgstr "Повноекранний перегляд зображень"
+
+#~ msgid "Handles new <code>gnome-extensions://</code> URI scheme"
+#~ msgstr "Підтримує нову <code>gnome-extensions://</code> URI схему"
+
+#~ msgid "Randomised extension suggestions"
+#~ msgstr "Випадкові пропозиції для розширень"
+
+#~ msgid "Performance and stability"
+#~ msgstr "Швидкодія та стабільність"
+
+#~ msgid "Various bug fixes"
+#~ msgstr "Невеликі виправлення помилок"
+
+#~ msgid "Remove release notes dialog"
+#~ msgstr "Видалено вікно з списком змін оновлень"
+
+#~ msgid "Fix special characters in installed extension listings"
+#~ msgstr ""
+#~ "Виправлено проблеми пов'язані з спеціальними символами у списках розширень"
+
+#~ msgid "The second feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Друге оновлення для Менеджера розширень, яке додає новий функціонал. Що "
+#~ "нового:"
+
+#~ msgid "View comments and reviews"
+#~ msgstr "Перегляд коментарів та відгуків"
+
+#~ msgid "Support for in-app updates"
+#~ msgstr "Підтримка оновлень всередині додатку"
+
+#~ msgid "Better handling errors and out-of-date extensions"
+#~ msgstr "Краще обробка помилок і застарілих розширень"
+
+#~ msgid "Allow installing 'unsupported' extensions"
+#~ msgstr "Дозволено встановлювати \"не підтримувані\" розширення"
+
+#~ msgid "Display release notes on first run"
+#~ msgstr "Показує список змін релізу при запускую"
+
+#~ msgid "New app icon"
+#~ msgstr "Нова піктограма додатку"
+
+#~ msgid "Optionally sort extensions by enabled status"
+#~ msgstr "Сортування розширень за статусом вімк/вимк"
+
+#~ msgid "Fix special characters in search results"
+#~ msgstr ""
+#~ "Виправлено проблеми пов'язані з особливими символами у результатах пошуку"
+
+#~ msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+#~ msgstr "Виправлено збій, який іноді стається при видаленні розширення"
+
+#~ msgid "The first feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Перше оновлення для Менеджера розширень, яке додає новий функціонал. Що "
+#~ "нового:"
+
+#~ msgid "Dark theme and support for overriding the system colour scheme"
+#~ msgstr "Темний стиль/тема та підтримка заміни системної схеми кольорів"
+
+#~ msgid "Shows screenshots in extension listings"
+#~ msgstr "Показує скриншоти у списку розширень"
+
+#~ msgid "Shell version compatibility check"
+#~ msgstr "Перевірка сумісності версій розширень з стільницею GNOME"
+
+#~ msgid "Localised into seven languages"
+#~ msgstr "Перекладено на декілька мов"
+
+#~ msgid "Sort search results"
+#~ msgstr "Сортування результатів пошуку"
+
+#~ msgid "Global extension on/off toggle"
+#~ msgstr "Глобальне вимкнення/ввімкнення усіх розширень"
+
+#~ msgid "Displays user and system extensions separately"
+#~ msgstr "Показувати розширення користувача та системи окремо"
+
+#~ msgid "Extension Manager (Development)"
+#~ msgstr "Менеджер розширень (Розробка)"
 
 #~ msgid "Popularity"
 #~ msgstr "За популярністю"

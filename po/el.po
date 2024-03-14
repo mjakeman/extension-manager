@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-28 14:17+0200\n"
+"POT-Creation-Date: 2024-03-11 11:11+0100\n"
 "PO-Revision-Date: 2023-03-23 23:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,195 +20,72 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
-msgid "@app_title@"
-msgstr "@app_title@"
+#: src/exm-window.blp:9
+msgid "Extension Manager"
+msgstr "Διαχειριστής Επεκτάσεων"
+
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#, fuzzy
+#| msgid "A utility for managing GNOME Shell Extensions"
+msgid "Manage GNOME Shell Extensions"
+msgstr ""
+"Ένα εργαλείο για την διαχείριση των επεκτάσεων του γραφικού κελύφους GNOME"
+
+#. Translators: Do not translate
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#, fuzzy
+#| msgid "Extension Manager"
+msgid "extension;manager;shell;"
+msgstr "Διαχειριστής Επεκτάσεων"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#: src/exm-application.c:187
-msgid "Browse, install, and manage GNOME Shell Extensions."
+#, fuzzy
+#| msgid "Browse, install, and manage GNOME Shell Extensions."
+msgid "Browse, install, and manage GNOME Shell Extensions"
 msgstr ""
 "Αναζήτηση, εγκατάσταση και διαχείριση των επεκτάσεων του γραφικού κελύφους "
 "GNOME."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:11
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr ""
 "Εργαλείο για την περιήγηση και την εγκατάσταση επεκτάσεων για το γραφικό "
 "κέλυφος GNOME."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:12
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
 msgstr "Χαρακτηριστικά:"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:24
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Περιηγηθείτε το extensions.gnome.org μέσα από την εφαρμογή"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:15
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:28
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "Manage the extensions you already have installed"
 msgstr "Κάντε διαχείριση των ήδη εγκατεστημένων επεκτάσεων σας"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:20
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr ""
 "Ένα εργαλείο για την διαχείριση των επεκτάσεων του γραφικού κελύφους GNOME"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:44
-msgid "Fully adaptive mobile-friendly user interface"
-msgstr "Πλήρως προσαρμόσιμη και φιλική προς τα κινητά διεπαφή χρήστη"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:45
-msgid "Paginated search results"
-msgstr "Αποτελέσματα αναζήτησης σελιδοποιημένα"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:46
-msgid "Upgrade Assistant for checking extension compatibility"
-msgstr "Βοηθός αναβαθμίσεων για τον έλεγχο της συμβατότητας των επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:47
-msgid "Unsupported extensions are hidden by default"
-msgstr "Οι μη υποστηριζόμενες επεκτάσεις αποκρύπτονται από προεπιλογή"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:48
-msgid "Overhauled error and crash reporting"
-msgstr "Αναθεωρημένη αναφορά σφαλμάτων και συντριβών"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:49
-msgid "Full-screen image viewer"
-msgstr "Πρόγραμμα προβολής εικόνων πλήρους οθόνης"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:50
-msgid "Handles new <code>gnome-extensions://</code> URI scheme"
-msgstr "Χειρίζεται νέο σχήμα URI <code>gnome-extensions://</code>"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:51
-msgid "Randomised extension suggestions"
-msgstr "Τυχαίες προτάσεις επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:52
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:61
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:71
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:87
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:122
-msgid "Performance and stability"
-msgstr "Αποδοτικότητα και σταθερότητα"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:59
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:68
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:86
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:94
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:101
-msgid "Translation updates"
-msgstr "Ενημερώσεις μεταφράσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:60
-msgid "Various bug fixes"
-msgstr "Διάφορες διορθώσεις σφαλμάτων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:69
-msgid "Remove release notes dialog"
-msgstr "Κατάργηση διαλόγου σημειώσεων  Ενημέρωσης"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:70
-msgid "Fix special characters in installed extension listings"
-msgstr "Διόρθωση ειδικών χαρακτήρων στις λίστες εγκατεστημένων επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:77
-msgid "The second feature update to extension-manager. Highlights include:"
+#: src/exm-application.c:175
+msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr ""
-"Η δεύτερη ενημέρωση χαρακτηριστικών του Διαχειριστή Επεκτάσεων.Επισημασμένες "
-"περιλαμβάνοντα:"
+"Αναζήτηση, εγκατάσταση και διαχείριση των επεκτάσεων του γραφικού κελύφους "
+"GNOME."
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:79
-msgid "View comments and reviews"
-msgstr "Δείτε σχόλια και κριτικές"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:80
-msgid "Support for in-app updates"
-msgstr "Υποστήριξη για ενημερώσεις μέσα από την εφαρμογή"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:81
-msgid "Better handling errors and out-of-date extensions"
-msgstr "Καλλίτερη αντιμετώπιση σφαλμάτων και απαρχαιωμένων επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:82
-msgid "Allow installing 'unsupported' extensions"
-msgstr "Δυνατότητα Εγκατάστασης μη \"υποστηριζόμενων\" επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:83
-msgid "Display release notes on first run"
-msgstr "Εμφάνισε τοις σημείωσης εκδόσεις κατά την πρώτη εκκίνηση"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:84
-msgid "New app icon"
-msgstr "Νέο εικονίδιο εφαρμογης"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:85
-msgid "Optionally sort extensions by enabled status"
-msgstr "Προαιρετική ταξινόμηση επεκτάσεων κατά κατάσταση ενεργοποιήσεις"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:102
-msgid "Fix special characters in search results"
-msgstr "Διόρθωση ειδικών χαρακτήρων στα αποτελέσματα αναζήτησής"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:108
-msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
-msgstr ""
-"Διόρθωση σφάλματος που μερικές φόρες συμβαίνει κατά την απεγκατάσταση "
-"επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:113
-msgid "The first feature update to extension-manager. Highlights include:"
-msgstr ""
-"Η πρώτη ενημέρωση χαρακτηριστικών του Διαχειριστή Επεκτάσεων.Επισημασμένες:"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:115
-msgid "Dark theme and support for overriding the system colour scheme"
-msgstr "Σκοτεινό θέμα και υποστήριξη παρέμβασης σχηματικού χρώματος συστήματος"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:116
-msgid "Shows screenshots in extension listings"
-msgstr "Δείχνει στιγμιότυπα στην λίστα επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:117
-msgid "Shell version compatibility check"
-msgstr "Έλεγχος συμβατότητας έκδοσης γραφικού κελύφους"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:118
-msgid "Localised into seven languages"
-msgstr "Μεταφρασμένο σε εφτά γλωσσες"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:119
-msgid "Sort search results"
-msgstr "Ταξινόμηση αποτελεσμάτων αναζήτησης"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:120
-msgid "Global extension on/off toggle"
-msgstr "Καθολικός on/off διακόπτης επεκτάσεων"
-
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:121
-msgid "Displays user and system extensions separately"
-msgstr "Απεικονίζει επέκτασης χρήστη και συστήματος ξεχωριστά"
-
-#: src/exm-application.c:165 src/exm-window.c:446
-msgid "Extension Manager (Development)"
-msgstr "Διαχειριστής Επεκτάσεων (Ανάπτυξη)"
-
-#: src/exm-application.c:166 src/exm-window.c:446
-msgid "Extension Manager"
-msgstr "Διαχειριστής Επεκτάσεων"
-
-#: src/exm-application.c:193
+#: src/exm-application.c:177
 msgid "translator-credits"
 msgstr "Καραχάλιος-Στάγκας Αθανάσιος-Νεκτάριος <1xlzgeu2y@mozmail.com>"
 
-#: src/exm-browse-page.blp:7
+#: src/exm-browse-page.blp:9
 msgid "Search for extensions"
 msgstr "Αναζητήστε επεκτάσεις"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
@@ -217,10 +94,13 @@ msgstr ""
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
-msgid "Popularity"
-msgstr "Δημοτικότητα"
+msgid "Relevance"
+msgstr ""
 
 #: src/exm-browse-page.blp:31
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Λήψεις"
 
@@ -232,128 +112,190 @@ msgstr "Πρόσφατα"
 msgid "Name"
 msgstr "Όνομα"
 
-#: src/exm-browse-page.blp:58
-msgid "Load More Results"
+#: src/exm-browse-page.blp:61
+#, fuzzy
+#| msgid "Load More Results"
+msgid "_Load More Results"
 msgstr "Φόρτωση περισσότερων αποτελεσμάτων"
 
-#: src/exm-browse-page.blp:68
+#: src/exm-browse-page.blp:73
 msgid "No Results Found"
 msgstr "Δεν βρεθήκαν αποτελέσματα"
 
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
 #. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:292
+#: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
 msgstr "π.χ. “%s”"
 
-#: src/exm-comment-dialog.blp:7
+#: src/exm-comment-dialog.blp:9
 msgid "Comments"
 msgstr "Σχόλια"
 
-#: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:93
-#: src/exm-detail-view.blp:236 src/exm-detail-view.c:390
+#: src/exm-comment-dialog.blp:37
+#, fuzzy
+#| msgid "Comments"
+msgid "Loading Comments"
+msgstr "Σχόλια"
+
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
+#: src/exm-detail-view.blp:290
 msgid "An Error Occurred"
 msgstr "Προέκυψε σφάλμα"
 
-#: src/exm-detail-view.blp:43
+#: src/exm-comment-tile.blp:21
+msgid "Author"
+msgstr ""
+
+#: src/exm-detail-view.blp:54
 msgid "Zoom In"
 msgstr "Μεγέθυνση"
 
-#: src/exm-detail-view.blp:52
+#: src/exm-detail-view.blp:63
 msgid "Zoom Out"
 msgstr "Σμίκρυνση"
 
-#: src/exm-detail-view.blp:62
+#: src/exm-detail-view.blp:73
 msgid "Return to view"
 msgstr "Επιστροφή στην προβολή"
 
-#: src/exm-detail-view.blp:150
+#: src/exm-detail-view.blp:106
+#, fuzzy
+#| msgid "Details"
+msgid "Loading Details"
+msgstr "Λεπτομέρειες"
+
+#: src/exm-detail-view.blp:184
 msgid "Enlarge image"
 msgstr "Μεγέθυνση εικόνας"
 
-#: src/exm-detail-view.blp:162 src/exm-extension-row.blp:78
+#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/exm-detail-view.blp:181
+#: src/exm-detail-view.blp:217
+msgid "Links"
+msgstr ""
+
+#: src/exm-detail-view.blp:232
+#, fuzzy
+#| msgid "Project Homepage"
+msgid "Homepage"
+msgstr "Σελίδα Έργου"
+
+#: src/exm-detail-view.blp:249
 msgid "View on Extensions"
 msgstr "Δείτε στης Επεκτάσεις"
 
-#: src/exm-detail-view.blp:198
-msgid "Supported Versions"
-msgstr "Υποστηριζόμενες Εκδόσεις"
-
-#: src/exm-detail-view.blp:214
+#: src/exm-detail-view.blp:268
 msgid "User Reviews"
 msgstr "Κριτικές Χρηστών"
 
-#: src/exm-detail-view.blp:255
-msgid "Show All Reviews"
-msgstr "Προβολή Όλων των Κριτικών"
+#: src/exm-detail-view.blp:299
+msgid "There are no comments."
+msgstr ""
 
-#. Translators: Use unicode ellipsis '…' rather than three dots '...'
-#: src/exm-detail-view.c:404
-msgid "Loading…"
-msgstr "Φορτώνει…"
+#: src/exm-detail-view.blp:319
+#, fuzzy
+#| msgid "Show All Reviews"
+msgid "_Show All Reviews"
+msgstr "Προβολή Όλων των Κριτικών"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "Αναφορά σφάλματος"
 
-#: src/exm-error-dialog.blp:27
-msgid ""
-"An unexpected error occurred in Extension Manager. Please open a new issue "
-"and attach the following information:"
+#: src/exm-error-dialog.blp:29
+#, fuzzy
+#| msgid ""
+#| "An unexpected error occurred in Extension Manager. Please open a new "
+#| "issue and attach the following information:"
+msgid "An unexpected error occurred in Extension Manager."
 msgstr ""
 "Προέκυψε ένα απροσδόκητο σφάλμα στη Διαχείριση Επεκτάσεων. Παρακαλούμε "
 "ανοίξτε ένα νέο θέμα και επισυνάψτε τις ακόλουθες πληροφορίες:"
 
-#: src/exm-error-dialog.blp:50 src/exm-upgrade-assistant.blp:127
-msgid "Copy to Clipboard"
+#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
+#, fuzzy
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
 msgstr "Αντιγραφή στο Πρόχειρο"
 
-#: src/exm-error-dialog.blp:57
-msgid "New Issue"
+#: src/exm-error-dialog.blp:64
+#, fuzzy
+#| msgid "New Issue"
+msgid "_New Issue"
 msgstr "Νέο θέμα"
 
 #. Success indicator
-#: src/exm-error-dialog.c:117 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
 msgid "Copied"
 msgstr "Αντιγραμμένο"
 
-#: src/exm-extension-row.blp:24
+#: src/exm-error-dialog.c:179
+#, fuzzy
+#| msgid ""
+#| "An unexpected error occurred in Extension Manager. Please open a new "
+#| "issue and attach the following information:"
+msgid "Please open a new issue and attach the following information:"
+msgstr ""
+"Προέκυψε ένα απροσδόκητο σφάλμα στη Διαχείριση Επεκτάσεων. Παρακαλούμε "
+"ανοίξτε ένα νέο θέμα και επισυνάψτε τις ακόλουθες πληροφορίες:"
+
+#. Translators: '%s' = Name of Distributor (e.g. "Packager123")
+#: src/exm-error-dialog.c:183
+#, c-format
+msgid ""
+"You are using a third-party build of Extension Manager. Please <span "
+"weight=\"bold\">contact the package distributor (%s) first</span> before "
+"filing an issue. Be sure to attach the following information:"
+msgstr ""
+
+#: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
 msgstr "Ανοίξτε τις προτιμήσεις επέκτασης"
 
-#: src/exm-extension-row.blp:37
+#: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
 msgstr "Προέκυψε σφάλμα κατά την φόρτωση της επέκτασης"
 
-#: src/exm-extension-row.blp:50
+#: src/exm-extension-row.blp:58
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Αυτή η επέκταση είναι μη συμβατή με την τρέχουσα εκδοσή GNOME"
 
-#: src/exm-extension-row.blp:63
+#: src/exm-extension-row.blp:74
 msgid "A newer version of this extension is available"
 msgstr "Μια νεότερη εκδοσή αυτής της επέκτασης είναι διαθέσιμη"
 
-#: src/exm-extension-row.blp:105
+#: src/exm-extension-row.blp:116 src/exm-info-bar.blp:18
 msgid "Version"
 msgstr "Έκδοση"
 
-#: src/exm-extension-row.blp:131
+#: src/exm-extension-row.blp:142
 msgid "Error"
 msgstr "Σφάλμα"
 
-#: src/exm-extension-row.blp:166
+#: src/exm-extension-row.blp:181
 msgid "See Details"
 msgstr "Δείτε Λεπτομέρειες"
 
-#: src/exm-extension-row.blp:175
+#: src/exm-extension-row.blp:190
 msgid "Remove"
 msgstr "Αφαίρεση"
+
+#: src/exm-info-bar.blp:13
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Number of downloads"
+msgid "Downloads"
+msgstr "Λήψεις"
+
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-upgrade-assistant.c:516
+msgid "Unsupported"
+msgstr "Δεν Υποστηρίζεται"
 
 #: src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
@@ -368,32 +310,28 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Εγκατεστημένη"
 
-#: src/exm-install-button.c:124 src/exm-upgrade-assistant.c:515
-msgid "Unsupported"
-msgstr "Δεν Υποστηρίζεται"
-
-#: src/exm-installed-page.blp:23
+#: src/exm-installed-page.blp:33
 msgid "Use Extensions"
 msgstr "Χρήση επεκτάσεων"
 
-#: src/exm-installed-page.blp:24
+#: src/exm-installed-page.blp:34
 msgid "Extensions can cause performance and stability issues."
 msgstr ""
 "Οι επεκτάσεις μπορεί να προκαλέσουν προβλήματα απόδοσης και σταθερότητας."
 
-#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:103
+#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "Εγκατεστημένες Επεκτάσεις Χρήστη"
 
-#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:116
+#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "Επεκτάσεις Συστήματος"
 
-#: src/exm-installed-page.blp:90
+#: src/exm-installed-page.blp:95
 msgid "Updates are available"
 msgstr "Διαθέσιμες Ενημερώσεις"
 
-#: src/exm-installed-page.blp:107
+#: src/exm-installed-page.blp:112
 msgid "Log Out"
 msgstr "Αποσύνδεση"
 
@@ -405,25 +343,39 @@ msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "Μια επέκταση θα αναβαθμιστεί την επόμενη φόρα που θα συνδεθείτε."
 msgstr[1] "%d επέκτασής θα αναβαθμιστούν την επόμενη φόρα που θα συνδεθείτε."
 
-#: src/exm-installed-page.c:338
+#: src/exm-installed-page.c:340
 msgid "Browse"
 msgstr "Περιήγηση"
 
-#: src/exm-installed-page.c:348 src/exm-upgrade-assistant.c:687
+#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "Δεν υπάρχουν εγκατεστημένες επεκτάσεις χρήστη."
 
-#: src/exm-installed-page.c:362 src/exm-upgrade-assistant.c:692
+#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "Δεν υπάρχουν εγκατεστημένες επεκτάσεις συστήματος."
 
-#: src/exm-upgrade-assistant.blp:7 src/exm-window.blp:98
+#: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "Βοηθός αναβάθμισης"
 
-#: src/exm-upgrade-assistant.blp:49
-msgid "Check Compatibility"
+#: src/exm-upgrade-assistant.blp:47
+#, fuzzy
+#| msgid "Check Compatibility"
+msgid "_Check Compatibility"
 msgstr "Έλεγχος συμβατότητας"
+
+#: src/exm-upgrade-assistant.c:176
+#, fuzzy, c-format
+#| msgid "Search for extensions"
+msgid "Checked %d/%d Extensions"
+msgstr "Αναζητήστε επεκτάσεις"
+
+#. Set percentage text
+#: src/exm-upgrade-assistant.c:195
+#, c-format
+msgid "%d%% Compatible"
+msgstr ""
 
 #: src/exm-upgrade-assistant.c:215
 #, c-format
@@ -434,23 +386,23 @@ msgstr ""
 "Το GNOME %s υποστηρίζει %d από της %d επεκτάσεις που είναι εγκατεστημένες "
 "στο σύστημα."
 
-#: src/exm-upgrade-assistant.c:511
+#: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr "Υποστηρίζεται"
 
-#: src/exm-upgrade-assistant.c:513
+#: src/exm-upgrade-assistant.c:514
 msgid "A compatible version of the extension exists."
 msgstr "Υπάρχει συμβατή έκδοση της επέκτασης."
 
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:518
 msgid "No compatible version of the extension exists."
 msgstr "Δεν υπάρχει συμβατή έκδοση της επέκτασης."
 
-#: src/exm-upgrade-assistant.c:519
+#: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: src/exm-upgrade-assistant.c:521
+#: src/exm-upgrade-assistant.c:522
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -458,7 +410,7 @@ msgstr ""
 "Αυτή η επέκταση δεν φιλοξενείται στο extensions.gnome.org. Η συμβατότητά της "
 "δεν μπορεί να προσδιοριστεί."
 
-#: src/exm-upgrade-assistant.c:614
+#: src/exm-upgrade-assistant.c:617
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -467,63 +419,238 @@ msgstr ""
 "Αυτή τη στιγμή εκτελείτε το <b>GNOME %s</b>. Επιλέξτε μια έκδοση του GNOME "
 "παρακάτω και ελέγξτε αν οι επεκτάσεις σας θα συνεχίσουν να είναι διαθέσιμες."
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:42
+msgid "Main Menu"
+msgstr ""
+
+#: src/exm-window.blp:55
+#, fuzzy
+#| msgctxt "Navigation"
+#| msgid "Installed"
 msgctxt "Navigation"
-msgid "Installed"
+msgid "_Installed"
 msgstr "Εγκατεστημένες"
 
-#: src/exm-window.blp:48
+#: src/exm-window.blp:64
+#, fuzzy
+#| msgid "Browse"
 msgctxt "Navigation"
-msgid "Browse"
+msgid "_Browse"
 msgstr "Περιήγηση"
 
-#: src/exm-window.blp:70
-msgid "Theme"
-msgstr "Θέμα"
-
-#: src/exm-window.blp:72
-msgid "Follow System"
-msgstr "Συστήματος"
-
-#: src/exm-window.blp:77
-msgid "Light"
-msgstr "Φωτεινό"
-
-#: src/exm-window.blp:82
-msgid "Dark"
-msgstr "Σκοτεινό"
-
-#: src/exm-window.blp:88
-msgid "Sort Enabled First"
+#: src/exm-window.blp:102
+#, fuzzy
+#| msgid "Sort Enabled First"
+msgid "Sort _Enabled First"
 msgstr "Ταξινόμηση Πρώτα Ενεργοποιημένων Επεκτάσεων"
 
-#: src/exm-window.blp:92
-msgid "Show Unsupported"
+#: src/exm-window.blp:103
+#, fuzzy
+#| msgid "Show Unsupported"
+msgid "_Show Unsupported"
 msgstr "Εμφάνιση μη υποστηριζόμενων"
 
-#: src/exm-window.blp:102
-msgid "About Extension Manager"
+#: src/exm-window.blp:106
+#, fuzzy
+#| msgid "Upgrade Assistant"
+msgid "_Upgrade Assistant"
+msgstr "Βοηθός αναβάθμισης"
+
+#: src/exm-window.blp:107
+#, fuzzy
+#| msgid "About Extension Manager"
+msgid "_About Extension Manager"
 msgstr "Περί Διαχειριστή Επεκτάσεων"
 
-#: src/exm-window.c:183
-msgid "Are you sure you want to uninstall?"
-msgstr "Είστε σίγουρος για την απεγκατάσταση ;"
+#: src/exm-window.c:179
+#, fuzzy
+#| msgid "User-Installed Extensions"
+msgid "Uninstall Extension?"
+msgstr "Εγκατεστημένες Επεκτάσεις Χρήστη"
 
-#: src/exm-window.c:250
+#: src/exm-window.c:180
 msgid ""
-"This extension does not support your GNOME Shell version.\n"
-"Would you like to install anyway?"
+"The extension's features and functionality will no longer be accessible. Are "
+"you sure you want to uninstall?"
+msgstr ""
+
+#: src/exm-window.c:183
+msgid "_No"
+msgstr ""
+
+#: src/exm-window.c:184
+msgid "_Yes"
+msgstr ""
+
+#: src/exm-window.c:253
+#, fuzzy
+#| msgid "Use Extensions"
+msgid "Unsupported Extension"
+msgstr "Χρήση επεκτάσεων"
+
+#: src/exm-window.c:254
+#, fuzzy
+#| msgid ""
+#| "This extension does not support your GNOME Shell version.\n"
+#| "Would you like to install anyway?"
+msgid ""
+"This extension does not support your GNOME Shell version. It may cause "
+"errors if installed."
 msgstr ""
 "Αυτή η επέκταση δεν υποστηρίζεται από την τρέχουσα εκδοσή GNOME σας \n"
 "Θα θέλατε να την εγκαταστήσετε ανεξάρτητος;"
 
-#: src/exm-window.c:351
+#: src/exm-window.c:257
+#, fuzzy
+#| msgid "Install"
+msgid "_Install Anyway"
+msgstr "Εγκατάστασή"
+
+#: src/exm-window.c:258
+msgid "_Go Back"
+msgstr ""
+
+#: src/exm-window.c:365
 msgid "An error occurred."
 msgstr "Προέκυψε σφάλμα."
 
-#: src/exm-window.c:352
+#: src/exm-window.c:366
 msgid "Details"
 msgstr "Λεπτομέρειες"
+
+#~ msgid "Loading…"
+#~ msgstr "Φορτώνει…"
+
+#~ msgid "@app_title@"
+#~ msgstr "@app_title@"
+
+#~ msgid "Fully adaptive mobile-friendly user interface"
+#~ msgstr "Πλήρως προσαρμόσιμη και φιλική προς τα κινητά διεπαφή χρήστη"
+
+#~ msgid "Paginated search results"
+#~ msgstr "Αποτελέσματα αναζήτησης σελιδοποιημένα"
+
+#~ msgid "Upgrade Assistant for checking extension compatibility"
+#~ msgstr "Βοηθός αναβαθμίσεων για τον έλεγχο της συμβατότητας των επεκτάσεων"
+
+#~ msgid "Unsupported extensions are hidden by default"
+#~ msgstr "Οι μη υποστηριζόμενες επεκτάσεις αποκρύπτονται από προεπιλογή"
+
+#~ msgid "Overhauled error and crash reporting"
+#~ msgstr "Αναθεωρημένη αναφορά σφαλμάτων και συντριβών"
+
+#~ msgid "Full-screen image viewer"
+#~ msgstr "Πρόγραμμα προβολής εικόνων πλήρους οθόνης"
+
+#~ msgid "Handles new <code>gnome-extensions://</code> URI scheme"
+#~ msgstr "Χειρίζεται νέο σχήμα URI <code>gnome-extensions://</code>"
+
+#~ msgid "Randomised extension suggestions"
+#~ msgstr "Τυχαίες προτάσεις επεκτάσεων"
+
+#~ msgid "Performance and stability"
+#~ msgstr "Αποδοτικότητα και σταθερότητα"
+
+#~ msgid "Translation updates"
+#~ msgstr "Ενημερώσεις μεταφράσεων"
+
+#~ msgid "Various bug fixes"
+#~ msgstr "Διάφορες διορθώσεις σφαλμάτων"
+
+#~ msgid "Remove release notes dialog"
+#~ msgstr "Κατάργηση διαλόγου σημειώσεων  Ενημέρωσης"
+
+#~ msgid "Fix special characters in installed extension listings"
+#~ msgstr "Διόρθωση ειδικών χαρακτήρων στις λίστες εγκατεστημένων επεκτάσεων"
+
+#~ msgid "The second feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Η δεύτερη ενημέρωση χαρακτηριστικών του Διαχειριστή Επεκτάσεων."
+#~ "Επισημασμένες περιλαμβάνοντα:"
+
+#~ msgid "View comments and reviews"
+#~ msgstr "Δείτε σχόλια και κριτικές"
+
+#~ msgid "Support for in-app updates"
+#~ msgstr "Υποστήριξη για ενημερώσεις μέσα από την εφαρμογή"
+
+#~ msgid "Better handling errors and out-of-date extensions"
+#~ msgstr "Καλλίτερη αντιμετώπιση σφαλμάτων και απαρχαιωμένων επεκτάσεων"
+
+#~ msgid "Allow installing 'unsupported' extensions"
+#~ msgstr "Δυνατότητα Εγκατάστασης μη \"υποστηριζόμενων\" επεκτάσεων"
+
+#~ msgid "Display release notes on first run"
+#~ msgstr "Εμφάνισε τοις σημείωσης εκδόσεις κατά την πρώτη εκκίνηση"
+
+#~ msgid "New app icon"
+#~ msgstr "Νέο εικονίδιο εφαρμογης"
+
+#~ msgid "Optionally sort extensions by enabled status"
+#~ msgstr "Προαιρετική ταξινόμηση επεκτάσεων κατά κατάσταση ενεργοποιήσεις"
+
+#~ msgid "Fix special characters in search results"
+#~ msgstr "Διόρθωση ειδικών χαρακτήρων στα αποτελέσματα αναζήτησής"
+
+#~ msgid "Fixes a crash that sometimes occurs while uninstalling an extension"
+#~ msgstr ""
+#~ "Διόρθωση σφάλματος που μερικές φόρες συμβαίνει κατά την απεγκατάσταση "
+#~ "επεκτάσεων"
+
+#~ msgid "The first feature update to extension-manager. Highlights include:"
+#~ msgstr ""
+#~ "Η πρώτη ενημέρωση χαρακτηριστικών του Διαχειριστή Επεκτάσεων."
+#~ "Επισημασμένες:"
+
+#~ msgid "Dark theme and support for overriding the system colour scheme"
+#~ msgstr ""
+#~ "Σκοτεινό θέμα και υποστήριξη παρέμβασης σχηματικού χρώματος συστήματος"
+
+#~ msgid "Shows screenshots in extension listings"
+#~ msgstr "Δείχνει στιγμιότυπα στην λίστα επεκτάσεων"
+
+#~ msgid "Shell version compatibility check"
+#~ msgstr "Έλεγχος συμβατότητας έκδοσης γραφικού κελύφους"
+
+#~ msgid "Localised into seven languages"
+#~ msgstr "Μεταφρασμένο σε εφτά γλωσσες"
+
+#~ msgid "Sort search results"
+#~ msgstr "Ταξινόμηση αποτελεσμάτων αναζήτησης"
+
+#~ msgid "Global extension on/off toggle"
+#~ msgstr "Καθολικός on/off διακόπτης επεκτάσεων"
+
+#~ msgid "Displays user and system extensions separately"
+#~ msgstr "Απεικονίζει επέκτασης χρήστη και συστήματος ξεχωριστά"
+
+#~ msgid "Extension Manager (Development)"
+#~ msgstr "Διαχειριστής Επεκτάσεων (Ανάπτυξη)"
+
+#~ msgid "Popularity"
+#~ msgstr "Δημοτικότητα"
+
+#~ msgid "Supported Versions"
+#~ msgstr "Υποστηριζόμενες Εκδόσεις"
+
+#~ msgctxt "Navigation"
+#~ msgid "Browse"
+#~ msgstr "Περιήγηση"
+
+#~ msgid "Theme"
+#~ msgstr "Θέμα"
+
+#~ msgid "Follow System"
+#~ msgstr "Συστήματος"
+
+#~ msgid "Light"
+#~ msgstr "Φωτεινό"
+
+#~ msgid "Dark"
+#~ msgstr "Σκοτεινό"
+
+#~ msgid "Are you sure you want to uninstall?"
+#~ msgstr "Είστε σίγουρος για την απεγκατάσταση ;"
 
 #~ msgid ""
 #~ "A very simple tool for browsing, downloading, and managing GNOME shell "
@@ -531,9 +658,6 @@ msgstr "Λεπτομέρειες"
 #~ msgstr ""
 #~ "Ένα απλό εργαλείο για την περιήγηση λήψη και διαχείριση επεκτάσεων του "
 #~ "γραφικού κελύφους GNOME."
-
-#~ msgid "Project Homepage"
-#~ msgstr "Σελίδα Έργου"
 
 #~ msgid "e.g. \"Blur my Shell\""
 #~ msgstr "π.χ \"Blur my Shell\""
