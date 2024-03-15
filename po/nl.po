@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2024-03-03 10:48+0000\n"
+"PO-Revision-Date: 2024-03-15 22:30+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -122,10 +122,8 @@ msgid "Comments"
 msgstr "Opmerkingen"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "Opmerkingen"
+msgstr "Opmerkingen laden"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -149,10 +147,8 @@ msgid "Return to view"
 msgstr "Terug naar weergave"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "Details"
+msgstr "Details laden"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -334,8 +330,7 @@ msgid "_Check Compatibility"
 msgstr "_Compatibiliteit controleren"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d uitbreidingen gecontroleerd"
 
@@ -402,28 +397,20 @@ msgid "_Browse"
 msgstr "_Bladeren"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "Ingeschakelde bovenaan tonen"
+msgstr "_Ingeschakelde bovenaan tonen"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "Niet-ondersteunde tonen"
+msgstr "_Niet-ondersteunde tonen"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "Bijwerk­assistent"
+msgstr "_Bijwerk­assistent"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "Over Uitbreidings­beheer"
+msgstr "_Over Uitbreidings­beheer"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"
