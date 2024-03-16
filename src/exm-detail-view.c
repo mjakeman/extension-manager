@@ -443,6 +443,9 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
 
     self->uuid = uuid;
 
+    adw_window_title_set_title (self->title, NULL);
+    adw_window_title_set_subtitle (self->title, NULL);
+
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
     gtk_widget_set_visible (GTK_WIDGET (self->image_overlay), FALSE);
 
