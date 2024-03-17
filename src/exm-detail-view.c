@@ -21,7 +21,7 @@
 #include "exm-detail-view.h"
 
 #include "exm-screenshot.h"
-#include "exm-zoom-picture.h"
+#include "exm-screenshot-view.h"
 #include "exm-info-bar.h"
 #include "exm-comment-tile.h"
 #include "exm-comment-dialog.h"
@@ -66,14 +66,11 @@ struct _ExmDetailView
     ExmScreenshot *ext_screenshot;
 	GtkOverlay *ext_screenshot_container;
 	GtkButton *ext_screenshot_popout_button;
-	GtkButton *ext_screenshot_popin_button;
     ExmInfoBar *ext_info_bar;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
     GtkFlowBox *comment_box;
     GtkButton *show_more_btn;
-	AdwBin *image_overlay;
-	ExmZoomPicture *overlay_screenshot;
 
     AdwActionRow *link_homepage;
     gchar *uri_homepage;
@@ -182,6 +179,9 @@ on_image_loaded (GObject       *source,
     GError *error = NULL;
     GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
                                                              res, &error);
+    AdwNavigationView *parent;
+    ExmScreenshotView *screenshot_view;
+
     if (error)
     {
         // TODO: Properly log this
@@ -189,10 +189,12 @@ on_image_loaded (GObject       *source,
         return;
     }
 
+    parent = ADW_NAVIGATION_VIEW (gtk_widget_get_parent (GTK_WIDGET (self)));
+    screenshot_view = EXM_SCREENSHOT_VIEW (adw_navigation_view_find_page (parent, "screenshot-view"));
+
     exm_screenshot_set_paintable (self->ext_screenshot, GDK_PAINTABLE (texture));
-	exm_zoom_picture_set_paintable (self->overlay_screenshot, GDK_PAINTABLE (texture));
+    exm_screenshot_view_set_screenshot (screenshot_view, GDK_PAINTABLE (texture));
     exm_screenshot_display (self->ext_screenshot);
-	exm_zoom_picture_set_zoom_level (self->overlay_screenshot, 1.0f);
     g_object_unref (texture);
     g_object_unref (self);
 
@@ -300,10 +302,8 @@ on_data_loaded (GObject      *source,
     GError *error = NULL;
     ExmDetailView *self;
     ExmInstallButtonState install_state;
-    GtkWidget *child;
     GList *version_iter;
     ExmShellVersionMap *version_map;
-    gchar *uri;
 
     self = EXM_DETAIL_VIEW (user_data);
 
@@ -328,6 +328,7 @@ on_data_loaded (GObject      *source,
 
         adw_window_title_set_title (self->title, name);
         adw_window_title_set_subtitle (self->title, uuid);
+        adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self), name);
 
         is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
         is_supported = exm_search_result_supports_shell_version (data, self->shell_version);
@@ -356,7 +357,6 @@ on_data_loaded (GObject      *source,
             self->resolver_cancel = g_cancellable_new ();
 
             exm_screenshot_set_paintable (self->ext_screenshot, NULL);
-			exm_zoom_picture_set_paintable (self->overlay_screenshot, NULL);
             exm_screenshot_reset (self->ext_screenshot);
 
 			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
@@ -444,7 +444,6 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     self->uuid = uuid;
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
-    gtk_widget_set_visible (GTK_WIDGET (self->image_overlay), FALSE);
 
     exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
 }
@@ -481,30 +480,6 @@ open_link (ExmDetailView *self,
         g_critical ("open_link() invalid action: %s", action_name);
 
     gtk_uri_launcher_launch (uri, GTK_WINDOW (toplevel), NULL, NULL, NULL);
-}
-
-static void
-notify_zoom (ExmZoomPicture *picture,
-             GParamSpec     *pspec,
-             ExmDetailView  *self)
-{
-    float zoom_level;
-    float max_zoom;
-    float min_zoom;
-
-    zoom_level = exm_zoom_picture_get_zoom_level (picture);
-    max_zoom = exm_zoom_picture_get_zoom_level_max (picture);
-    min_zoom = exm_zoom_picture_get_zoom_level_min (picture);
-
-	// Set action states
-	if (zoom_level < max_zoom)
-		g_simple_action_set_enabled (self->zoom_in, TRUE);
-	if (zoom_level == max_zoom)
-		g_simple_action_set_enabled (self->zoom_in, FALSE);
-	if (zoom_level > min_zoom)
-		g_simple_action_set_enabled (self->zoom_out, TRUE);
-	if (zoom_level == min_zoom)
-		g_simple_action_set_enabled (self->zoom_out, FALSE);
 }
 
 static void
@@ -555,6 +530,15 @@ update_headerbar_cb (ExmDetailView *self)
 }
 
 static void
+screenshot_view_cb (ExmDetailView *self)
+{
+    AdwNavigationView *parent;
+
+    parent = ADW_NAVIGATION_VIEW (gtk_widget_get_parent (GTK_WIDGET (self)));
+    adw_navigation_view_push_by_tag (parent, "screenshot-view");
+}
+
+static void
 exm_detail_view_class_init (ExmDetailViewClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -594,7 +578,6 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
 	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popin_button);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_info_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
@@ -602,34 +585,18 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, show_more_btn);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, image_overlay);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, overlay_screenshot);
 
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_apply_cb);
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_unapply_cb);
+    gtk_widget_class_bind_template_callback (widget_class, screenshot_view_cb);
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, open_link);
-
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_plus, GDK_CONTROL_MASK, "detail.zoom-in", NULL);
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_minus, GDK_CONTROL_MASK, "detail.zoom-out", NULL);
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_0, GDK_CONTROL_MASK, "detail.zoom-reset", NULL);
-}
-
-static void
-widget_show(GtkWidget *widget) {
-    gtk_widget_set_visible(widget, TRUE);
-}
-
-static void
-widget_hide(GtkWidget *widget) {
-    gtk_widget_set_visible(widget, FALSE);
 }
 
 static void
 exm_detail_view_init (ExmDetailView *self)
 {
-    GSimpleActionGroup *group;
     GtkAdjustment *adj;
 
     gtk_widget_init_template (GTK_WIDGET (self));
@@ -638,41 +605,10 @@ exm_detail_view_init (ExmDetailView *self)
     self->resolver = exm_image_resolver_new ();
     self->comment_provider = exm_comment_provider_new ();
 
-	self->zoom_in = g_simple_action_new ("zoom-in", NULL);
-	g_signal_connect_swapped (self->zoom_in, "activate", G_CALLBACK (exm_zoom_picture_zoom_in), self->overlay_screenshot);
-
-	self->zoom_out = g_simple_action_new ("zoom-out", NULL);
-	g_signal_connect_swapped (self->zoom_out, "activate", G_CALLBACK (exm_zoom_picture_zoom_out), self->overlay_screenshot);
-
-	self->zoom_reset = g_simple_action_new ("zoom-reset", NULL);
-	g_signal_connect_swapped (self->zoom_reset, "activate", G_CALLBACK (exm_zoom_picture_zoom_reset), self->overlay_screenshot);
-
-	group = g_simple_action_group_new ();
-	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_in));
-	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_out));
-	g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_reset));
-	gtk_widget_insert_action_group (GTK_WIDGET (self), "detail", G_ACTION_GROUP (group));
-
-    // Update action state on zoom change
-    g_signal_connect (self->overlay_screenshot,
-                      "notify::zoom-level",
-                      G_CALLBACK (notify_zoom),
-                      self);
-
     g_signal_connect (self->ext_install,
                       "clicked",
                       G_CALLBACK (install_remote),
                       self);
-
-	g_signal_connect_swapped (self->ext_screenshot_popout_button,
-							  "clicked",
-							  G_CALLBACK (widget_show),
-							  self->image_overlay);
-
-	g_signal_connect_swapped (self->ext_screenshot_popin_button,
-							  "clicked",
-							  G_CALLBACK (widget_hide),
-							  self->image_overlay);
 
     adj = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (self->scroll_area));
 

@@ -13,6 +13,9 @@ exm_sources = [
   'exm-info-bar.c',
   'exm-info-bar-item.c',
 
+  # Screenshot View
+  'exm-screenshot-view.c',
+
   # Installed Page
   'exm-installed-page.c',
   'exm-extension-row.c',
@@ -66,7 +69,8 @@ blueprints = custom_target('blueprints',
     'exm-upgrade-assistant.blp',
     'exm-error-dialog.blp',
     'exm-info-bar.blp',
-    'exm-info-bar-item.blp'
+    'exm-info-bar-item.blp',
+    'exm-screenshot-view.blp'
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],

@@ -25,6 +25,8 @@ src/exm-rating.blp
 src/exm-rating.c
 src/exm-screenshot.blp
 src/exm-screenshot.c
+src/exm-screenshot-view.blp
+src/exm-screenshot-view.c
 src/exm-search-row.blp
 src/exm-search-row.c
 src/exm-upgrade-assistant.blp
