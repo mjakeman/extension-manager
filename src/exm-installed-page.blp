@@ -43,7 +43,7 @@ template $ExmInstalledPage : Gtk.Widget {
 						}
 
 						Gtk.ListBox user_list_box {
-							styles ["boxed-list"]
+							styles ["boxed-list", "boxed-list-placeholder"]
 							valign: start;
 							selection-mode: none;
 						}
@@ -56,7 +56,7 @@ template $ExmInstalledPage : Gtk.Widget {
 						}
 
 						Gtk.ListBox system_list_box {
-							styles ["boxed-list"]
+							styles ["boxed-list", "boxed-list-placeholder"]
 							valign: start;
 							selection-mode: none;
 						}
