@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2024-03-04 12:01+0000\n"
+"PO-Revision-Date: 2024-03-16 08:50+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
-"manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"extension-manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,10 +120,8 @@ msgid "Comments"
 msgstr "コメント"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "コメント"
+msgstr "コメントを読み込み中"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -147,10 +145,8 @@ msgid "Return to view"
 msgstr "画像の拡大表示を閉じる"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "詳細"
+msgstr "詳細を読み込み中"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -328,8 +324,7 @@ msgid "_Check Compatibility"
 msgstr "互換性を確認(_C)"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d の拡張機能を確認済み"
 
@@ -395,28 +390,20 @@ msgid "_Browse"
 msgstr "探す(_B)"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "追加済タブで有効な拡張機能を優先表示"
+msgstr "有効な拡張機能を優先表示(_E)"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "検索結果に非対応の拡張機能も表示"
+msgstr "非対応の拡張機能も検索結果に表示(_U)"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "アップグレードアシスタント"
+msgstr "アップグレードアシスタント(_U)"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "Extension Manager について"
+msgstr "Extension Manager について(_A)"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"

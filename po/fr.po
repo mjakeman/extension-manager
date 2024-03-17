@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2023-11-18 18:58+0100\n"
-"Last-Translator: Irénée THIRION <irenee.thirion@e.email>\n"
-"Language-Team: French <gnomefr@traduc.org>\n"
+"PO-Revision-Date: 2024-03-16 18:50+0000\n"
+"Last-Translator: gnomelibre <xanatoth@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/extension-manager/"
+"app/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 45.3\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -31,10 +32,8 @@ msgstr "Gérez les extensions GNOME Shell"
 
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
-#, fuzzy
-#| msgid "extension;manager;"
 msgid "extension;manager;shell;"
-msgstr "extensions;gestionnaire;manager;"
+msgstr "extensions;gestionnaire;manager;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -83,7 +82,7 @@ msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
 msgstr ""
 "Saisissez un mot-clé pour rechercher les extensions de GNOME Shell sur le "
-"site 'extensions.gnome.org.'"
+"site 'extensions.gnome.org'."
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
@@ -126,10 +125,8 @@ msgid "Comments"
 msgstr "Commentaires"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "Commentaires"
+msgstr "Chargement des commentaires"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -138,7 +135,7 @@ msgstr "Une erreur s’est produite"
 
 #: src/exm-comment-tile.blp:21
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: src/exm-detail-view.blp:54
 msgid "Zoom In"
@@ -153,10 +150,8 @@ msgid "Return to view"
 msgstr "Retourner à l’aperçu"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "Détails"
+msgstr "Chargement des détails"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"

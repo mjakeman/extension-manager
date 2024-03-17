@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2023-12-17 16:06+0100\n"
+"PO-Revision-Date: 2024-03-15 22:30+0000\n"
 "Last-Translator: Omar TS <ots@duck.com>\n"
-"Language-Team: ar_AR <LL@li.org>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
+"app/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-"X-Generator: Poedit 3.4.1\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -31,10 +32,8 @@ msgstr "إدارة إضافات جنوم شل"
 
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
-#, fuzzy
-#| msgid "extension;manager;"
 msgid "extension;manager;shell;"
-msgstr "extension;manager ;إضافة;مدير"
+msgstr "extension;manager;إضافة;مدير;شل;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -111,17 +110,15 @@ msgstr "لا توجد نتائج"
 #: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
-msgstr "مثال  “%s”"
+msgstr "مثال “%s”"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
 msgstr "تعليقات"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "تعليقات"
+msgstr "تحميل التعليقات"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -145,10 +142,8 @@ msgid "Return to view"
 msgstr "رجوع إلى العرض"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "تفاصيل"
+msgstr "تحميل التفاصيل"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -303,12 +298,12 @@ msgstr "خروج"
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
-msgstr[0] ""
+msgstr[0] "0 إضافة سيتم تحديثها عند الدخول التالي ."
 msgstr[1] "سيتم تحديث إضافة واحدة عند تسجيل الدخول التالي."
 msgstr[2] "%d إضافات سيتم تحديثها عند الدخول التالي ."
 msgstr[3] "%d إضافات سيتم تحديثها عند الدخول التالي ."
-msgstr[4] "%d إضافات سيتم تحديثها عند الدخول التالي ."
-msgstr[5] "%d إضافات سيتم تحديثها عند الدخول التالي ."
+msgstr[4] "%d إضافة سيتم تحديثها عند الدخول التالي ."
+msgstr[5] "%d إضافة سيتم تحديثها عند الدخول التالي ."
 
 #: src/exm-installed-page.c:340
 msgid "Browse"
@@ -331,10 +326,9 @@ msgid "_Check Compatibility"
 msgstr "_فحص التوافق"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "تم التحقق من %d/%d من الإضافات"
+msgstr "تم التحقق مِنْ %d/%d مِنَ الإضافات"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:195
@@ -397,28 +391,20 @@ msgid "_Browse"
 msgstr "_تصفح"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "فرز المفعل أولا"
+msgstr "فرز_ المفعل أولا"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "عرض غير المدعومة"
+msgstr "_عرض غير المدعومة"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "مساعد الترقية"
+msgstr "_مساعد الترقية"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "حول مدير الإضافة"
+msgstr "_حول مدير الإضافة"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"
@@ -429,8 +415,8 @@ msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
-"لن يكون من الممكن الوصول إلى ميزات الامتداد ووظائفه بعد الآن. هل هل أنت "
-"متأكد أنك تريد إلغاء التثبيت؟"
+"لن يكون من الممكن الوصول إلى ميزات الامتداد ووظائفه بعد الآن. هل أنت متأكد "
+"أنك تريد إلغاء التثبيت؟"
 
 #: src/exm-window.c:183
 msgid "_No"
