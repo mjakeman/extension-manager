@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2024-03-15 22:30+0000\n"
+"PO-Revision-Date: 2024-03-17 11:07+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
-msgstr "Kenmerken:"
+msgstr "Functies:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
@@ -115,7 +115,7 @@ msgstr "Geen resultaten gevonden"
 #: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
-msgstr "bijv. ‘%s’"
+msgstr "bĳv. ‘%s’"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -156,7 +156,7 @@ msgstr "Afbeelding vergroten"
 
 #: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
 msgid "Description"
-msgstr "Omschrijving"
+msgstr "Omschrĳving"
 
 #: src/exm-detail-view.blp:217
 msgid "Links"
@@ -176,7 +176,7 @@ msgstr "Beoordelingen"
 
 #: src/exm-detail-view.blp:299
 msgid "There are no comments."
-msgstr "Er zijn geen opmerkingen."
+msgstr "Er zĳn geen opmerkingen."
 
 #: src/exm-detail-view.blp:319
 msgid "_Show All Reviews"
@@ -215,10 +215,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"U gebruikt een build van Uitbreidings­beheer van derden. <span "
-"weight=\"bold\">Neem eerst contact op met de pakket­distributeur (%s)</span> "
-"voordat u een probleem indient. Zorg ervoor dat u de volgende informatie "
-"bijvoegt:"
+"U gebruikt een build van Uitbreidings­beheer van derden. <span weight=\"bold"
+"\">Neem eerst contact op met de pakket­distributeur (%s)</span> voordat u "
+"een probleem indient. Zorg ervoor dat u de volgende informatie bĳvoegt:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -226,7 +225,7 @@ msgstr "Uitbreidings­voorkeuren openen"
 
 #: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
-msgstr "Er is een fout opgetreden tijdens het laden"
+msgstr "Er is een fout opgetreden tĳdens het laden"
 
 #: src/exm-extension-row.blp:58
 msgid "This extension is incompatible with your current version of GNOME"
@@ -250,7 +249,7 @@ msgstr "Details tonen"
 
 #: src/exm-extension-row.blp:190
 msgid "Remove"
-msgstr "Verwijderen"
+msgstr "Verwĳderen"
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
@@ -295,7 +294,7 @@ msgstr "Systeem­uitbreidingen"
 
 #: src/exm-installed-page.blp:95
 msgid "Updates are available"
-msgstr "Er zijn updates beschikbaar"
+msgstr "Er zĳn updates beschikbaar"
 
 #: src/exm-installed-page.blp:112
 msgid "Log Out"
@@ -307,7 +306,7 @@ msgstr "Uitloggen"
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "Na de volgende aanmelding wordt er één uitbreiding bijgewerkt."
-msgstr[1] "Na de volgende aanmelding worden er %d uitbreidingen bijgewerkt."
+msgstr[1] "Na de volgende aanmelding worden er %d uitbreidingen bĳgewerkt."
 
 #: src/exm-installed-page.c:340
 msgid "Browse"
@@ -315,15 +314,15 @@ msgstr "Ontdekken"
 
 #: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
-msgstr "Er zijn geen zelf-geïnstalleerde uitbreidingen geïnstalleerd."
+msgstr "Er zĳn geen zelf-geïnstalleerde uitbreidingen geïnstalleerd."
 
 #: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
-msgstr "Er zijn geen systeem­uitbreidingen geïnstalleerd."
+msgstr "Er zĳn geen systeem­uitbreidingen geïnstalleerd."
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
-msgstr "Bijwerk­assistent"
+msgstr "Bĳwerk­assistent"
 
 #: src/exm-upgrade-assistant.blp:47
 msgid "_Check Compatibility"
@@ -380,7 +379,7 @@ msgid ""
 "and check whether your extensions will continue to be available."
 msgstr ""
 "U gebruikt momenteel <b>GNOME %s</b>. Kies hieronder een GNOME-versie en "
-"controleer of uw uitbreidingen nog beschikbaar zijn."
+"controleer of uw uitbreidingen nog beschikbaar zĳn."
 
 #: src/exm-window.blp:42
 msgid "Main Menu"
@@ -406,7 +405,7 @@ msgstr "_Niet-ondersteunde tonen"
 
 #: src/exm-window.blp:106
 msgid "_Upgrade Assistant"
-msgstr "_Bijwerk­assistent"
+msgstr "_Bĳwerk­assistent"
 
 #: src/exm-window.blp:107
 msgid "_About Extension Manager"
@@ -414,7 +413,7 @@ msgstr "_Over Uitbreidings­beheer"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"
-msgstr "Uitbreiding verwijderen?"
+msgstr "Uitbreiding verwĳderen?"
 
 #: src/exm-window.c:180
 msgid ""
@@ -422,7 +421,7 @@ msgid ""
 "you sure you want to uninstall?"
 msgstr ""
 "De functionaliteit van de uitbreiding zal niet langer toegankelijk zijn. "
-"Weet u zeker dat u deze wilt verwijderen?"
+"Weet u zeker dat u deze wilt verwĳderen?"
 
 #: src/exm-window.c:183
 msgid "_No"
