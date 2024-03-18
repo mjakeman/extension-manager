@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2022-10-06 22:59+0800\n"
-"Last-Translator: Luke Luo <njlyf2011@hotmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-03-18 06:23+0000\n"
+"Last-Translator: CloneWith <clonewith@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"extension-manager/app/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -25,23 +26,17 @@ msgid "Extension Manager"
 msgstr "扩展管理器"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
-#, fuzzy
-#| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Manage GNOME Shell Extensions"
-msgstr "一款管理 GNOME Shell 扩展的使用程序"
+msgstr "管理 GNOME Shell 扩展"
 
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "extension;manager;shell;"
-msgstr "扩展管理器"
+msgstr "扩展;管理器;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "浏览、安装和管理 GNOME Shell 扩展。"
+msgstr "浏览、安装并管理 GNOME Shell 扩展"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -85,14 +80,12 @@ msgstr "请输入关键字，以便在 “extensions.gnome.org” 中搜索 GNOM
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
 msgid "Relevance"
-msgstr ""
+msgstr "相关性"
 
 #: src/exm-browse-page.blp:31
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
-msgstr "下载"
+msgstr "下载量"
 
 #: src/exm-browse-page.blp:31
 msgid "Recent"
@@ -103,10 +96,8 @@ msgid "Name"
 msgstr "名称"
 
 #: src/exm-browse-page.blp:61
-#, fuzzy
-#| msgid "Load More Results"
 msgid "_Load More Results"
-msgstr "载入更多结果"
+msgstr "载入更多结果 (_L)"
 
 #: src/exm-browse-page.blp:73
 msgid "No Results Found"
@@ -125,10 +116,8 @@ msgid "Comments"
 msgstr "留言"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "留言"
+msgstr "加载评论中"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -137,7 +126,7 @@ msgstr "发生了一个错误"
 
 #: src/exm-comment-tile.blp:21
 msgid "Author"
-msgstr ""
+msgstr "作者"
 
 #: src/exm-detail-view.blp:54
 msgid "Zoom In"
@@ -152,10 +141,8 @@ msgid "Return to view"
 msgstr "返回查看"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "细节"
+msgstr "加载详情中"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -167,11 +154,11 @@ msgstr "描述"
 
 #: src/exm-detail-view.blp:217
 msgid "Links"
-msgstr ""
+msgstr "链接"
 
 #: src/exm-detail-view.blp:232
 msgid "Homepage"
-msgstr ""
+msgstr "主页"
 
 #: src/exm-detail-view.blp:249
 msgid "View on Extensions"
@@ -183,37 +170,27 @@ msgstr "用户评论"
 
 #: src/exm-detail-view.blp:299
 msgid "There are no comments."
-msgstr ""
+msgstr "没有评论。"
 
 #: src/exm-detail-view.blp:319
-#, fuzzy
-#| msgid "Show All Reviews"
 msgid "_Show All Reviews"
-msgstr "显示所有评论"
+msgstr "显示所有评论 (_S)"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "错误报告"
 
 #: src/exm-error-dialog.blp:29
-#, fuzzy
-#| msgid ""
-#| "An unexpected error occurred in Extension Manager. Please open a new "
-#| "issue and attach the following information:"
 msgid "An unexpected error occurred in Extension Manager."
-msgstr "扩展管理器发生了意外错误。请开启一个新 Issue 然后附加以下信息："
+msgstr "扩展管理器发生了意外错误。"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
-#, fuzzy
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
-msgstr "复制到剪切板"
+msgstr "复制到剪贴板 (_C)"
 
 #: src/exm-error-dialog.blp:64
-#, fuzzy
-#| msgid "New Issue"
 msgid "_New Issue"
-msgstr "新建 Issue"
+msgstr "新建 Issue (_N)"
 
 #. Success indicator
 #: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
@@ -221,12 +198,8 @@ msgid "Copied"
 msgstr "已复制"
 
 #: src/exm-error-dialog.c:179
-#, fuzzy
-#| msgid ""
-#| "An unexpected error occurred in Extension Manager. Please open a new "
-#| "issue and attach the following information:"
 msgid "Please open a new issue and attach the following information:"
-msgstr "扩展管理器发生了意外错误。请开启一个新 Issue 然后附加以下信息："
+msgstr "请开启一个新 Issue 并附加以下信息："
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:183
@@ -236,6 +209,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
+"您在使用扩展管理器的第三方版本。在发布 Issue 前，请先<span weight=\"bold\""
+">联系软件包分发者 (%s)</span>。确保带有以下信息："
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -270,11 +245,9 @@ msgid "Remove"
 msgstr "移除"
 
 #: src/exm-info-bar.blp:13
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Number of downloads"
 msgid "Downloads"
-msgstr "下载"
+msgstr "下载量"
 
 #: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
 #: src/exm-upgrade-assistant.c:516
@@ -342,22 +315,19 @@ msgid "Upgrade Assistant"
 msgstr "更新助理"
 
 #: src/exm-upgrade-assistant.blp:47
-#, fuzzy
-#| msgid "Check Compatibility"
 msgid "_Check Compatibility"
-msgstr "检查兼容性"
+msgstr "检查兼容性 (_C)"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Search for extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "搜索扩展"
+msgstr "已检查 %d/%d 扩展"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:195
 #, c-format
 msgid "%d%% Compatible"
-msgstr ""
+msgstr "%d%% 兼容"
 
 #: src/exm-upgrade-assistant.c:215
 #, c-format
@@ -399,94 +369,69 @@ msgstr ""
 
 #: src/exm-window.blp:42
 msgid "Main Menu"
-msgstr ""
+msgstr "主菜单"
 
 #: src/exm-window.blp:55
-#, fuzzy
-#| msgctxt "Navigation"
-#| msgid "Installed"
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "已安装"
+msgstr "已安装 (_I)"
 
 #: src/exm-window.blp:64
-#, fuzzy
-#| msgid "Browse"
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "浏览"
+msgstr "浏览 (_B)"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "先显示启用的扩展"
+msgstr "优先显示已启用扩展 (_E)"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "显示不支持的扩展"
+msgstr "显示不支持的扩展 (_S)"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "更新助理"
+msgstr "更新助理 (_U)"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "关于扩展管理器"
+msgstr "关于扩展管理器 (_A)"
 
 #: src/exm-window.c:179
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
-msgstr "用户安装的扩展"
+msgstr "卸载扩展吗？"
 
 #: src/exm-window.c:180
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
-msgstr ""
+msgstr "您将无法再使用此扩展的特性与功能。确定要卸载吗？"
 
 #: src/exm-window.c:183
 msgid "_No"
-msgstr ""
+msgstr "否 (_N)"
 
 #: src/exm-window.c:184
 msgid "_Yes"
-msgstr ""
+msgstr "是 (_Y)"
 
 #: src/exm-window.c:253
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Unsupported Extension"
-msgstr "使用扩展"
+msgstr "不受支持的扩展"
 
 #: src/exm-window.c:254
-#, fuzzy
-#| msgid ""
-#| "This extension does not support your GNOME Shell version.\n"
-#| "Would you like to install anyway?"
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
-msgstr ""
-"此扩展不支持您目前的 GNOME Shell 版本。\n"
-"是否继续安装？"
+msgstr "此扩展不支持您目前的 GNOME Shell 版本。安装后可能导致错误。"
 
 #: src/exm-window.c:257
-#, fuzzy
-#| msgid "Install"
 msgid "_Install Anyway"
-msgstr "安装"
+msgstr "依然安装 (_I)"
 
 #: src/exm-window.c:258
 msgid "_Go Back"
-msgstr ""
+msgstr "返回 (_G)"
 
 #: src/exm-window.c:365
 msgid "An error occurred."
