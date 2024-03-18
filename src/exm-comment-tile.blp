@@ -1,8 +1,9 @@
 using Gtk 4.0;
-using Adw 1;
 
-template $ExmCommentTile : Gtk.Widget {
-  styles ["comment-tile"]
+template $ExmCommentTile: Gtk.Widget {
+  styles [
+    "comment-tile"
+  ]
 
   Gtk.Box {
     orientation: vertical;
@@ -11,14 +12,20 @@ template $ExmCommentTile : Gtk.Widget {
       orientation: horizontal;
 
       Gtk.Label author {
-        styles ["dim-label"]
+        styles [
+          "heading"
+        ]
+
         xalign: 0;
         label: bind template.comment as <$ExmComment>.author;
       }
 
       Gtk.Label author_badge {
-      	styles ["author-badge"]
-      	label: _("Author");
+        styles [
+          "author-badge"
+        ]
+
+        label: _("Author");
         visible: bind template.comment as <$ExmComment>.is_extension_creator;
       }
 
@@ -31,5 +38,14 @@ template $ExmCommentTile : Gtk.Widget {
     }
 
     $TextDisplay display {}
+
+    Gtk.Label date {
+      styles [
+        "dim-label"
+      ]
+
+      margin-top: 6;
+      xalign: 0;
+    }
   }
 }

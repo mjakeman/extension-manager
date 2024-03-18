@@ -13,6 +13,7 @@ struct _ExmCommentTile
 
     GtkLabel *author;
     GtkLabel *author_badge;
+    GtkLabel *date;
     ExmRating *rating;
     TextDisplay *display;
 };
@@ -38,8 +39,6 @@ exm_comment_tile_new (ExmComment *comment)
 static void
 exm_comment_tile_finalize (GObject *object)
 {
-    ExmCommentTile *self = (ExmCommentTile *)object;
-
     G_OBJECT_CLASS (exm_comment_tile_parent_class)->finalize (object);
 }
 
@@ -87,15 +86,27 @@ exm_comment_tile_constructed (GObject *object)
     g_return_if_fail (EXM_IS_COMMENT (self->comment));
 
     TextFrame *frame;
+    GDateTime *datetime;
 
-    gchar *text;
+    gchar *text, *date;
     g_object_get (self->comment,
                   "comment", &text,
+                  "date", &date,
                   NULL);
 
     frame = format_parse_html (text);
+    g_free (text);
+
+    datetime = g_date_time_new_from_iso8601 (date, g_time_zone_new_utc ());
+    g_free (date);
 
     g_object_set (self->display, "frame", frame, NULL);
+
+    if (datetime != NULL)
+    {
+      gtk_label_set_label (self->date, g_date_time_format (datetime, "%x"));
+      g_date_time_unref (datetime);
+    }
 
     G_OBJECT_CLASS (exm_comment_tile_parent_class)->constructed (object);
 }
@@ -126,6 +137,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, display);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author_badge);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, date);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, rating);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
