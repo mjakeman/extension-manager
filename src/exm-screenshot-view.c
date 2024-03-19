@@ -75,10 +75,6 @@ exm_screenshot_view_class_init (ExmScreenshotViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshotView, overlay_screenshot);
 
     gtk_widget_class_bind_template_callback (widget_class, notify_zoom);
-
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_plus, GDK_CONTROL_MASK, "screenshot.zoom-in", NULL);
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_minus, GDK_CONTROL_MASK, "screenshot.zoom-out", NULL);
-    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_0, GDK_CONTROL_MASK, "screenshot.zoom-reset", NULL);
 }
 
 static void

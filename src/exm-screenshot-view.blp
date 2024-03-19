@@ -64,4 +64,23 @@ template $ExmScreenshotView: Adw.NavigationPage {
       }
     };
   }
+
+  Gtk.ShortcutController {
+    scope: managed;
+
+    Gtk.Shortcut {
+      trigger: "<Control>plus";
+      action: "action(screenshot.zoom-in)";
+    }
+
+    Gtk.Shortcut {
+      trigger: "<Control>minus";
+      action: "action(screenshot.zoom-out)";
+    }
+
+    Gtk.Shortcut {
+      trigger: "<Control>0";
+      action: "action(screenshot.zoom-reset)";
+    }
+  }
 }
