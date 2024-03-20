@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2024-02-16 14:54+0000\n"
+"PO-Revision-Date: 2024-03-20 20:04+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"extension-manager/app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -118,10 +119,8 @@ msgid "Comments"
 msgstr "Comentários"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "Comentários"
+msgstr "A carregar comentários"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -145,10 +144,8 @@ msgid "Return to view"
 msgstr "Voltar à vista"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "Detalhes"
+msgstr "A carregar detalhes"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -328,10 +325,9 @@ msgid "_Check Compatibility"
 msgstr "_Verificar compatibilidade"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "Verificou %d/%d extensões"
+msgstr "Verificou %d/%d Extensões"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:195
@@ -396,28 +392,20 @@ msgid "_Browse"
 msgstr "_Procurar"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "Ordena as extensões ativadas em primeiro"
+msgstr "Ordenar _ativadas em primeiro"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "Mostrar sem suporte"
+msgstr "_Mostrar não suportadas"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "Assistente de atualização"
+msgstr "_Assistente de atualização"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "Acerca do Gestor de Extensões"
+msgstr "_Acerca do Gestor de Extensões"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"
