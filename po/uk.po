@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2024-02-25 10:02+0000\n"
-"Last-Translator: Сергій <sergiy.goncharuk.1@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
-"manager/app/uk/>\n"
+"PO-Revision-Date: 2024-03-20 20:04+0000\n"
+"Last-Translator: volkov <d2oo1dle2x@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"extension-manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,10 +121,8 @@ msgid "Comments"
 msgstr "Коментарі"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "Коментарі"
+msgstr "Завантажуємо коментарі"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -148,10 +146,8 @@ msgid "Return to view"
 msgstr "Повернутися назад"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "Подробиці"
+msgstr "Завантажуємо подробиці"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -219,8 +215,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Ви використовуєте сторонню збірку Менеджеру розширень. Будь-ласка, <span "
-"weight=\"bold\">спочатку, зверніться до пакувальника (%s) </span> перед тим "
+"Ви використовуєте сторонню збірку 'Менеджеру розширень'. Будь-ласка, <span "
+"weight=\"bold\">спочатку, зверніться до постачальника (%s) </span> перед тим "
 "як звітувати. Не забудьте додати наступну інформацію:"
 
 #: src/exm-extension-row.blp:26
@@ -288,7 +284,7 @@ msgstr "Розширення можуть спричиняти проблеми 
 
 #: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
-msgstr "Встановленні користувачем розширення"
+msgstr "Встановлені користувачем розширення"
 
 #: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
@@ -332,8 +328,7 @@ msgid "_Check Compatibility"
 msgstr "_Перевірити сумісність"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Перевірено %d із %d розширень"
 
@@ -400,28 +395,20 @@ msgid "_Browse"
 msgstr "_Шукати"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "Спочатку сортувати ввімкнені розширення"
+msgstr "Спочатку сортувати _увімкнені розширення"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "Показувати не підтримувані розширення"
+msgstr "_Показувати не підтримувані розширення"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "Помічник оновлень"
+msgstr "Помічник _оновлень"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "Про Менеджер розширень"
+msgstr "_Про Менеджер розширень"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"
