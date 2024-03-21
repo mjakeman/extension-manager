@@ -46,6 +46,8 @@ struct _ExmWindow
     AdwViewSwitcher      *title;
     AdwViewStack         *view_stack;
     AdwToastOverlay      *toast_overlay;
+    AdwAlertDialog       *remove_dialog;
+    AdwAlertDialog       *unsupported_dialog;
 };
 
 G_DEFINE_TYPE (ExmWindow, exm_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -123,11 +125,11 @@ typedef struct
 } RemoveDialogData;
 
 static void
-extension_remove_dialog_response (AdwDialog        *dialog,
-                                  const char       *response,
+extension_remove_dialog_response (AdwAlertDialog   *dialog,
+                                  GAsyncResult     *result,
                                   RemoveDialogData *data)
 {
-    adw_dialog_force_close (dialog);
+    const char *response = adw_alert_dialog_choose_finish (dialog, result);
 
     if (strcmp(response, "yes") == 0)
     {
@@ -153,27 +155,12 @@ extension_remove (GtkWidget  *widget,
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
 
-    AdwDialog *dlg;
-
-    dlg = adw_alert_dialog_new (_("Uninstall Extension?"),
-                                _("The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?"));
-
-    adw_alert_dialog_add_responses (ADW_ALERT_DIALOG (dlg),
-                                    "no", _("_No"),
-                                    "yes", _("_Yes"),
-                                    NULL);
-
-    adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
-
-    adw_alert_dialog_set_default_response (ADW_ALERT_DIALOG (dlg), "no");
-    adw_alert_dialog_set_close_response (ADW_ALERT_DIALOG (dlg), "no");
-
     RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
     data->manager = g_object_ref (self->manager);
     data->extension = g_object_ref (extension);
 
-    g_signal_connect (dlg, "response", G_CALLBACK (extension_remove_dialog_response), data);
-    adw_dialog_present (dlg, GTK_WIDGET (self));
+    adw_alert_dialog_choose (self->remove_dialog, widget, NULL,
+                             (GAsyncReadyCallback) extension_remove_dialog_response, data);
 }
 
 static void
@@ -195,13 +182,13 @@ typedef struct
 } UnsupportedDialogData;
 
 static void
-extension_unsupported_dialog_response (AdwDialog             *dialog,
-                                       const char            *response,
+extension_unsupported_dialog_response (AdwAlertDialog        *dialog,
+                                       GAsyncResult          *result,
                                        UnsupportedDialogData *data)
 {
-    adw_dialog_force_close (dialog);
+    const char *response = adw_alert_dialog_choose_finish (dialog, result);
 
-    if (strcmp(response, "yes") == 0)
+    if (strcmp(response, "install") == 0)
     {
         exm_manager_install_async (data->manager, data->uuid, NULL,
                                    (GAsyncReadyCallback) on_install_done,
@@ -227,28 +214,12 @@ extension_install (GtkWidget  *widget,
 
     if (warn)
     {
-        AdwDialog *dlg;
-
-        dlg = adw_alert_dialog_new (_("Unsupported Extension"),
-                                    _("This extension does not support your GNOME Shell version. It may cause errors if installed."));
-
-        adw_alert_dialog_add_responses (ADW_ALERT_DIALOG (dlg),
-                                        "yes", _("_Install Anyway"),
-                                        "no", _("_Go Back"),
-                                        NULL);
-
-        adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "yes", ADW_RESPONSE_DESTRUCTIVE);
-        adw_alert_dialog_set_response_appearance (ADW_ALERT_DIALOG (dlg), "no", ADW_RESPONSE_SUGGESTED);
-
-        adw_alert_dialog_set_default_response (ADW_ALERT_DIALOG (dlg), "no");
-        adw_alert_dialog_set_close_response (ADW_ALERT_DIALOG (dlg), "no");
-
         UnsupportedDialogData *data = g_new0 (UnsupportedDialogData, 1);
         data->manager = g_object_ref (self->manager);
         data->uuid = g_strdup (uuid);
 
-        g_signal_connect (dlg, "response", G_CALLBACK (extension_unsupported_dialog_response), data);
-        adw_dialog_present (dlg, GTK_WIDGET (self));
+        adw_alert_dialog_choose (self->unsupported_dialog, widget, NULL,
+                                 (GAsyncReadyCallback) extension_unsupported_dialog_response, data);
 
         return;
     }
@@ -390,6 +361,8 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, view_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, toast_overlay);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, remove_dialog);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, unsupported_dialog);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
