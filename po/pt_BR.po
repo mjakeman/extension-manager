@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-11 11:11+0100\n"
+"POT-Creation-Date: 2024-03-23 13:52+0100\n"
 "PO-Revision-Date: 2024-01-02 15:19-0300\n"
 "Last-Translator: Douglas Silva <douglasilvadev@gmail.com>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
-#: src/exm-window.blp:9
+#: src/exm-window.blp:7
 msgid "Extension Manager"
 msgstr "Gerenciador de Extensões"
 
@@ -48,24 +48,24 @@ msgid "Features:"
 msgstr "Recursos:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Navegue pelo extensions.gnome.org diretamente no aplicativo"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Manage the extensions you already have installed"
 msgstr "Gerencie as extensões que você já tem instaladas"
 
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Uma ferramenta para gerenciar Extensões do GNOME Shell"
 
-#: src/exm-application.c:175
+#: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Navegue, instale e gerencie as Extensões do GNOME Shell."
 
-#: src/exm-application.c:177
+#: src/exm-application.c:192
 msgid "translator-credits"
 msgstr ""
 "Celso Tavares https://github.com/celsotavaresdev\n"
@@ -127,8 +127,8 @@ msgstr "Comentários"
 msgid "Loading Comments"
 msgstr "Comentários"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
-#: src/exm-detail-view.blp:290
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:232
 msgid "An Error Occurred"
 msgstr "Ocorreu um erro"
 
@@ -136,53 +136,41 @@ msgstr "Ocorreu um erro"
 msgid "Author"
 msgstr "Autor"
 
-#: src/exm-detail-view.blp:54
-msgid "Zoom In"
-msgstr "Ampliar"
-
-#: src/exm-detail-view.blp:63
-msgid "Zoom Out"
-msgstr "Reduzir"
-
-#: src/exm-detail-view.blp:73
-msgid "Return to view"
-msgstr "Retornar à visualização"
-
-#: src/exm-detail-view.blp:106
+#: src/exm-detail-view.blp:47
 #, fuzzy
 #| msgid "Details"
 msgid "Loading Details"
 msgstr "Detalhes"
 
-#: src/exm-detail-view.blp:184
+#: src/exm-detail-view.blp:125
 msgid "Enlarge image"
 msgstr "Ampliar imagem"
 
-#: src/exm-detail-view.blp:196 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:138 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Descrição"
 
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:159
 msgid "Links"
 msgstr "Links"
 
-#: src/exm-detail-view.blp:232
+#: src/exm-detail-view.blp:174
 msgid "Homepage"
 msgstr "Página inicial"
 
-#: src/exm-detail-view.blp:249
+#: src/exm-detail-view.blp:191
 msgid "View on Extensions"
 msgstr "Ver em Extensões"
 
-#: src/exm-detail-view.blp:268
+#: src/exm-detail-view.blp:210
 msgid "User Reviews"
 msgstr "Avaliações do usuário"
 
-#: src/exm-detail-view.blp:299
+#: src/exm-detail-view.blp:241
 msgid "There are no comments."
 msgstr "Não há comentários."
 
-#: src/exm-detail-view.blp:319
+#: src/exm-detail-view.blp:261
 msgid "_Show All Reviews"
 msgstr "_Mostrar todas as avaliações"
 
@@ -203,16 +191,16 @@ msgid "_New Issue"
 msgstr "_Novo Problema"
 
 #. Success indicator
-#: src/exm-error-dialog.c:129 src/exm-upgrade-assistant.c:338
+#: src/exm-error-dialog.c:132 src/exm-upgrade-assistant.c:338
 msgid "Copied"
 msgstr "Copiado"
 
-#: src/exm-error-dialog.c:179
+#: src/exm-error-dialog.c:182
 msgid "Please open a new issue and attach the following information:"
 msgstr "Abra um novo problema e anexe as seguintes informações:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:183
+#: src/exm-error-dialog.c:186
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
@@ -304,24 +292,32 @@ msgid "Log Out"
 msgstr "Sair"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:224
+#: src/exm-installed-page.c:197
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "Uma extensão será atualizada no próximo login."
 msgstr[1] "%d extensão serão atualizadas no próximo login."
 
-#: src/exm-installed-page.c:340
+#: src/exm-installed-page.c:315
 msgid "Browse"
 msgstr "Navegar"
 
-#: src/exm-installed-page.c:351 src/exm-upgrade-assistant.c:680
+#: src/exm-installed-page.c:326 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "Não há extensões de usuário instaladas."
 
-#: src/exm-installed-page.c:366 src/exm-upgrade-assistant.c:686
+#: src/exm-installed-page.c:341 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "Não há extensões do sistema instaladas."
+
+#: src/exm-screenshot-view.blp:36
+msgid "Zoom Out"
+msgstr "Reduzir"
+
+#: src/exm-screenshot-view.blp:49
+msgid "Zoom In"
+msgstr "Ampliar"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -385,49 +381,49 @@ msgstr ""
 "Você está atualmente usando o <b>GNOME %s</b>. Selecione uma versão do GNOME "
 "abaixo e verifique se suas extensões continuarão disponíveis."
 
-#: src/exm-window.blp:42
+#: src/exm-window.blp:40
 msgid "Main Menu"
 msgstr "Menu Principal"
 
-#: src/exm-window.blp:55
+#: src/exm-window.blp:53
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Instalado"
 
-#: src/exm-window.blp:64
+#: src/exm-window.blp:62
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Navegar"
 
-#: src/exm-window.blp:102
+#: src/exm-window.blp:104
 #, fuzzy
 #| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
 msgstr "Classificar Primeiro Ativado"
 
-#: src/exm-window.blp:103
+#: src/exm-window.blp:105
 #, fuzzy
 #| msgid "Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "Mostrar Não Suportadas"
 
-#: src/exm-window.blp:106
+#: src/exm-window.blp:108
 #, fuzzy
 #| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
 msgstr "Assistente de Atualização"
 
-#: src/exm-window.blp:107
+#: src/exm-window.blp:109
 #, fuzzy
 #| msgid "About Extension Manager"
 msgid "_About Extension Manager"
 msgstr "Sobre o Gerenciador de Extensões"
 
-#: src/exm-window.c:179
+#: src/exm-window.c:158
 msgid "Uninstall Extension?"
 msgstr "Desinstalar Extensão?"
 
-#: src/exm-window.c:180
+#: src/exm-window.c:159
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -435,19 +431,19 @@ msgstr ""
 "Os recursos e funcionalidades da extensão não estão mais acessíveis. Tem "
 "certeza de que deseja desinstalar?"
 
-#: src/exm-window.c:183
+#: src/exm-window.c:162
 msgid "_No"
 msgstr "_Não"
 
-#: src/exm-window.c:184
+#: src/exm-window.c:163
 msgid "_Yes"
 msgstr "_Sim"
 
-#: src/exm-window.c:253
+#: src/exm-window.c:232
 msgid "Unsupported Extension"
 msgstr "Extensão Não Suportada"
 
-#: src/exm-window.c:254
+#: src/exm-window.c:233
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -455,21 +451,24 @@ msgstr ""
 "Esta extensão não suporta a sua versão do GNOME Shell. Pode causar erros se "
 "instalada."
 
-#: src/exm-window.c:257
+#: src/exm-window.c:236
 msgid "_Install Anyway"
 msgstr "_Instalar Mesmo Assim"
 
-#: src/exm-window.c:258
+#: src/exm-window.c:237
 msgid "_Go Back"
 msgstr "_Voltar"
 
-#: src/exm-window.c:365
+#: src/exm-window.c:344
 msgid "An error occurred."
 msgstr "Ocorreu um erro."
 
-#: src/exm-window.c:366
+#: src/exm-window.c:345
 msgid "Details"
 msgstr "Detalhes"
+
+#~ msgid "Return to view"
+#~ msgstr "Retornar à visualização"
 
 #~ msgid "Loading…"
 #~ msgstr "Carregando…"
