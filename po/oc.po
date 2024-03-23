@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-11 11:11+0100\n"
-"PO-Revision-Date: 2023-11-27 19:05+0100\n"
+"PO-Revision-Date: 2024-03-23 10:57+0100\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
 "Language: oc\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -30,10 +30,8 @@ msgstr "Gerir las extensions GNOME Shell"
 
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
-#, fuzzy
-#| msgid "extension;manager;"
 msgid "extension;manager;shell;"
-msgstr "extension;gestionari;"
+msgstr "extension;gestionari;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -116,13 +114,11 @@ msgstr "ex. « %s »"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
-msgstr "Comentaris "
+msgstr "Comentaris"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "Comentaris "
+msgstr "Cargament dels comentaris"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:115
 #: src/exm-detail-view.blp:290
@@ -146,10 +142,8 @@ msgid "Return to view"
 msgstr "Tornar a la vista"
 
 #: src/exm-detail-view.blp:106
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "Detalhs"
+msgstr "Cargament de las informacions"
 
 #: src/exm-detail-view.blp:184
 msgid "Enlarge image"
@@ -214,14 +208,14 @@ msgstr ""
 #: src/exm-error-dialog.c:183
 #, c-format
 msgid ""
-"You are using a third-party build of Extension Manager. Please <span "
-"weight=\"bold\">contact the package distributor (%s) first</span> before "
-"filing an issue. Be sure to attach the following information:"
+"You are using a third-party build of Extension Manager. Please <span weight="
+"\"bold\">contact the package distributor (%s) first</span> before filing an "
+"issue. Be sure to attach the following information:"
 msgstr ""
-"Utilizatz una compilcacion tèrça d'Extension Manager. Mercés de <span "
-"weight=\"bold\">contactar lo distribuidor de paquets (%s) per començar</"
-"span> abans de senhalar una anomalia. Asseguratz-vos de juntar las "
-"informacions seguentas :"
+"Utilizatz una compilcacion tèrça d'Extension Manager. Mercés de <span weight="
+"\"bold\">contactar lo distribuidor de paquets (%s) per començar</span> abans "
+"de senhalar una anomalia. Asseguratz-vos de juntar las informacions "
+"seguentas :"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -331,8 +325,7 @@ msgid "_Check Compatibility"
 msgstr "_Verificar la compatibilitat"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d extensions verificadas"
 
@@ -340,7 +333,7 @@ msgstr "%d/%d extensions verificadas"
 #: src/exm-upgrade-assistant.c:195
 #, c-format
 msgid "%d%% Compatible"
-msgstr "Compatibla %d%% "
+msgstr "Compatibla %d%%"
 
 #: src/exm-upgrade-assistant.c:215
 #, c-format
@@ -399,28 +392,20 @@ msgid "_Browse"
 msgstr "Percórrer"
 
 #: src/exm-window.blp:102
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "Las activadas en primièr"
+msgstr "Las _activadas en primièr"
 
 #: src/exm-window.blp:103
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "Afichar çò pas pres en carga"
+msgstr "_Afichar çò pas pres en carga"
 
 #: src/exm-window.blp:106
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "Assistent de mesa a nivèl"
+msgstr "_Assistent de mesa a nivèl"
 
 #: src/exm-window.blp:107
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "A prepaus del gestionari d’extensions"
+msgstr "_A prepaus del gestionari d’extensions"
 
 #: src/exm-window.c:179
 msgid "Uninstall Extension?"
@@ -464,7 +449,7 @@ msgstr "_Retorn"
 
 #: src/exm-window.c:365
 msgid "An error occurred."
-msgstr "Una error s'es producha"
+msgstr "Una error s'es producha."
 
 #: src/exm-window.c:366
 msgid "Details"
