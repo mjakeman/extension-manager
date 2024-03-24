@@ -109,10 +109,56 @@ template $ExmDetailView : Adw.NavigationPage {
 											}
 										}
 
-										$ExmInstallButton ext_install {
-											valign: center;
-											halign: center;
-										}
+                    Gtk.Stack tools_stack {
+                      Gtk.StackPage {
+                        name: "uninstalled-tools-page";
+                        child: $ExmInstallButton ext_install {
+											  valign: center;
+											  halign: center;
+										  };
+                      }
+                      Gtk.StackPage {
+                        name: "installed-tools-page";
+                        child: Gtk.Box {
+                          spacing: 16;
+
+                          Gtk.Box {
+                            styles ["linked"]
+
+                            Gtk.Button delete_btn {
+                             styles ["destructive-action"]
+
+                             icon-name: "user-trash-symbolic";
+                             valign: center;
+                             halign: center;
+
+                             action-name: 'page.remove';
+
+                             tooltip-text: _("Remove the extension");
+                           }
+
+                            Gtk.Button prefs_btn {
+
+	                            icon-name: "settings-symbolic";
+	                            valign: center;
+	                            halign: center;
+
+	                            action-name: 'page.open-prefs';
+
+	                            tooltip-text: _("Open extension preferences");
+                            }
+                          }
+
+                          Gtk.Switch ext_toggle {
+                            valign: center;
+	                          active: bind template.extension as <$ExmExtension>.enabled;
+	                          sensitive: bind template.extension as <$ExmExtension>.can-change;
+	                          state-set => $on_state_changed();
+                          }
+
+                        };
+                      }
+                    }
 									}
 								}
 

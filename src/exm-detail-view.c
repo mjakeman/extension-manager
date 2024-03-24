@@ -44,6 +44,7 @@ struct _ExmDetailView
     AdwNavigationPage parent_instance;
 
     ExmUnifiedData *data;
+    ExmExtension *extension;
 
     ExmManager *manager;
     ExmDataProvider *provider;
@@ -54,6 +55,8 @@ struct _ExmDetailView
   	GSimpleAction *zoom_in;
     GSimpleAction *zoom_out;
     GSimpleAction *zoom_reset;
+
+    GSimpleActionGroup *action_group;
 
     gchar *shell_version;
     gchar *uuid;
@@ -74,6 +77,8 @@ struct _ExmDetailView
     GtkStack *comment_stack;
     GtkFlowBox *comment_box;
     GtkButton *show_more_btn;
+    GtkStack *tools_stack;
+    GtkSwitch *ext_toggle;
 
     AdwActionRow *link_homepage;
     gchar *uri_homepage;
@@ -90,6 +95,7 @@ enum {
     PROP_MANAGER,
     PROP_SHELL_VERSION,
     PROP_DATA,
+    PROP_EXTENSION,
     N_PROPS
 };
 
@@ -128,6 +134,9 @@ exm_detail_view_get_property (GObject    *object,
     case PROP_DATA:
         g_value_set_object (value, self->data);
         break;
+    case PROP_EXTENSION:
+        g_value_set_object (value, self->extension);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -154,6 +163,9 @@ exm_detail_view_set_property (GObject      *object,
         break;
     case PROP_DATA:
         self->data = g_value_get_object (value);
+        break;
+    case PROP_EXTENSION:
+        self->extension = g_value_get_object (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -304,6 +316,68 @@ install_remote (GtkButton     *button,
 }
 
 static void
+open_prefs (GSimpleAction *action,
+            GVariant      *new_value,
+            ExmDetailView *self)
+{
+    g_return_if_fail (self->extension);
+
+    gtk_widget_activate_action (GTK_WIDGET (self),
+                                "ext.open-prefs",
+                                "s", self->uuid);
+}
+
+static void
+uninstall (GSimpleAction *action,
+           GVariant      *new_value,
+           ExmDetailView *self)
+{
+    g_return_if_fail (self->extension);
+
+    gtk_widget_activate_action (GTK_WIDGET (self),
+                                "ext.remove",
+                                "s", self->uuid);
+}
+
+static gboolean
+transform_to_state (GBinding     *binding,
+                    const GValue *from_value,
+                    GValue       *to_value,
+                    gpointer      user_data)
+{
+    g_value_set_boolean (to_value, g_value_get_enum (from_value) == EXM_EXTENSION_STATE_ACTIVE);
+
+    return TRUE;
+}
+
+static gboolean
+on_state_changed (GtkSwitch     *toggle,
+                  gboolean       state,
+                  ExmDetailView *self)
+{
+    g_return_val_if_fail (EXM_IS_DETAIL_VIEW (self), FALSE);
+
+    gboolean enabled;
+
+    g_object_get (self->extension, "enabled", &enabled, NULL);
+
+    // Prevents changing extensions' state when global switch is toggled
+    if (state == enabled)
+        return TRUE;
+
+    // Keep compatibility with GNOME Shell versions prior to 46
+    if (gtk_switch_get_state (toggle) != enabled)
+        g_object_set (self->extension, "enabled", !enabled, NULL);
+
+    if (state)
+        exm_manager_enable_extension (self->manager, self->extension);
+    else
+        exm_manager_disable_extension (self->manager, self->extension);
+
+    return TRUE;
+}
+
+static void
 populate_with_data (ExmUnifiedData *data,
                     gpointer      user_data)
 {
@@ -365,6 +439,15 @@ populate_with_data (ExmUnifiedData *data,
            ? EXM_INSTALL_BUTTON_STATE_DEFAULT
            : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
+    if (is_installed)
+    {
+        gtk_stack_set_visible_child_name (self->tools_stack, "installed-tools-page");
+    }
+    else
+    {
+        gtk_stack_set_visible_child_name (self->tools_stack, "uninstalled-tools-page");
+    }
+
     g_object_set (self->ext_install, "state", install_state, NULL);
 
     char *url;
@@ -385,6 +468,8 @@ populate_with_data (ExmUnifiedData *data,
     adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
     exm_info_bar_set_version (self->ext_info_bar, -1);
+
+    version_map = exm_unified_data_get_shell_version_map (data);
 
     for (version_iter = version_map->map;
          version_iter != NULL;
@@ -446,8 +531,45 @@ on_data_loaded (GObject      *source,
 
     // We need at least some data to proceed
     if (!exm_unified_data_is_empty (data)) {
-        g_object_set (self, "data", data, NULL);
+        g_object_set (self,
+                      "data", data,
+                      "extension", local_info,
+                      NULL);
         populate_with_data (data, self);
+
+        gchar *name, *uuid, *description, *version, *error_msg;
+        gboolean enabled, has_prefs, has_update, is_user;
+        ExmExtensionState state;
+        g_object_get (self->extension,
+                      "display-name", &name,
+                      "uuid", &uuid,
+                      "description", &description,
+                      "state", &state,
+                      "enabled", &enabled,
+                      "has-prefs", &has_prefs,
+                      "has-update", &has_update,
+                      "is-user", &is_user,
+                      "version", &version,
+                      "error-msg", &error_msg,
+                      NULL);
+
+        GAction *action;
+
+        action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
+        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), has_prefs);
+
+        action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "remove");
+        g_simple_action_set_enabled (G_SIMPLE_ACTION (action), is_user);
+
+        g_object_bind_property_full (self->extension,
+                                     "state",
+                                     self->ext_toggle,
+                                     "state",
+                                     G_BINDING_SYNC_CREATE,
+                                     transform_to_state,
+                                     NULL,
+                                     NULL,
+                                     NULL);
 
         // Reset scroll position
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
@@ -598,6 +720,13 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
                                EXM_TYPE_UNIFIED_DATA,
                                G_PARAM_READWRITE);
 
+    properties [PROP_EXTENSION]
+        = g_param_spec_object ("extension",
+                               "Extension",
+                               "Extension",
+                               EXM_TYPE_EXTENSION,
+                               G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -622,10 +751,13 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_box);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, comment_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, show_more_btn);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, tools_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_toggle);
 
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_apply_cb);
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_unapply_cb);
     gtk_widget_class_bind_template_callback (widget_class, screenshot_view_cb);
+    gtk_widget_class_bind_template_callback (widget_class, on_state_changed);
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, open_link);
@@ -652,4 +784,18 @@ exm_detail_view_init (ExmDetailView *self)
     g_signal_connect_swapped (adj, "value-changed", G_CALLBACK (update_headerbar_cb), self);
 
     update_headerbar_cb (self);
+
+    // Define Actions
+    self->action_group = g_simple_action_group_new ();
+
+    GSimpleAction *open_prefs_action = g_simple_action_new ("open-prefs", NULL);
+    g_signal_connect (open_prefs_action, "activate", G_CALLBACK (open_prefs), self);
+
+    GSimpleAction *remove_action = g_simple_action_new ("remove", NULL);
+    g_signal_connect (remove_action, "activate", G_CALLBACK (uninstall), self);
+
+    g_action_map_add_action (G_ACTION_MAP (self->action_group), G_ACTION (open_prefs_action));
+    g_action_map_add_action (G_ACTION_MAP (self->action_group), G_ACTION (remove_action));
+
+    gtk_widget_insert_action_group (GTK_WIDGET (self), "page", G_ACTION_GROUP (self->action_group));
 }
