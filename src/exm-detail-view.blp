@@ -38,12 +38,17 @@ template $ExmDetailView : Adw.NavigationPage {
 
 						Gtk.Spinner {
 							spinning: true;
+							focusable: true;
 							height-request: 32;
 							width-request: 32;
+
+							accessibility {
+								labelled-by: loading_details;
+							}
 						}
 
-						Gtk.Label {
-							styles["title-1"]
+						Gtk.Label loading_details {
+							styles ["title-1"]
 							label: _("Loading Details");
 						}
 					};
@@ -53,8 +58,10 @@ template $ExmDetailView : Adw.NavigationPage {
 					name: "page_error";
 
 					child: Adw.StatusPage {
-						title: _("An Error Occurred");
 						icon-name: "dialog-question-symbolic";
+						title: _("An Error Occurred");
+						description: _("No extension details available");
+						focusable: true;
 					};
 				}
 
@@ -74,6 +81,7 @@ template $ExmDetailView : Adw.NavigationPage {
 									spacing: 24;
 
 									Gtk.Image ext_icon {
+										focusable: true;
 										halign: center;
 										valign: center;
 										pixel-size: 64;
@@ -92,13 +100,22 @@ template $ExmDetailView : Adw.NavigationPage {
 												styles ["title-1"]
 												xalign: 0;
 												ellipsize: end;
+												selectable: true;
+
+												accessibility {
+													description: _("Name");
+												}
 											}
 
 											Gtk.Label ext_author {
 												styles ["dim-label"]
-												label: "Author";
 												xalign: 0;
 												ellipsize: end;
+												selectable: true;
+
+												accessibility {
+													description: _("Author");
+												}
 											}
 										}
 
@@ -126,13 +143,15 @@ template $ExmDetailView : Adw.NavigationPage {
 										clicked => $screenshot_view_cb(template);
 									}
 
-									$ExmScreenshot ext_screenshot {}
+									$ExmScreenshot ext_screenshot {
+										focusable: true;
+									}
 								}
 
 								Gtk.Box {
 									orientation: vertical;
 
-									Gtk.Label {
+									Gtk.Label description {
 										styles ["title-4", "detail-heading"]
 
 										label: _("Description");
@@ -145,67 +164,58 @@ template $ExmDetailView : Adw.NavigationPage {
 										wrap: true;
 										wrap-mode: word_char;
 										selectable: true;
+
+										accessibility {
+											labelled-by: description;
+										}
 									}
 								}
 
 								$ExmInfoBar ext_info_bar {}
 
-								Gtk.Box {
-									orientation: vertical;
+								Adw.PreferencesGroup {
+									title: _("Links");
 
-									Gtk.Label {
-										styles ["title-4", "detail-heading"]
+									Adw.ActionRow link_homepage {
+										[prefix]
+										Gtk.Image {
+											icon-name: "go-home-symbolic";
+										}
 
-										label: _("Links");
-										xalign: 0;
+										title: _("Homepage");
+										activatable: true;
+										action-name: "detail.open-homepage";
+
+										[suffix]
+										Gtk.Image {
+											styles ["dim-label"]
+											icon-name: "external-link-symbolic";
+										}
 									}
 
-									Gtk.ListBox {
-										styles ["boxed-list"]
-
-										selection-mode: none;
-
-										Adw.ActionRow link_homepage {
-											[prefix]
-											Gtk.Image {
-												icon-name: "go-home-symbolic";
-											}
-
-											title: _("Homepage");
-											activatable: true;
-											action-name: "detail.open-homepage";
-
-											[suffix]
-											Gtk.Image {
-												styles ["dim-label"]
-												icon-name: "external-link-symbolic";
-											}
+									Adw.ExpanderRow links_donations {
+										[prefix]
+										Gtk.Image {
+											icon-name: "donation-symbolic";
 										}
 
-										Adw.ExpanderRow links_donations {
-											[prefix]
-											Gtk.Image {
-												icon-name: "donation-symbolic";
-											}
+										title: _("Donate");
+									}
 
-											title: _("Donate");
+									Adw.ActionRow link_extensions {
+										[prefix]
+										Gtk.Image {
+											icon-name: "web-browser-symbolic";
 										}
 
-										Adw.ActionRow link_extensions {
-											[prefix]
-											Gtk.Image {
-												icon-name: "web-browser-symbolic";
-											}
+										title: _("View on Extensions");
+										activatable: true;
+										action-name: "detail.open-extensions";
 
-											title: _("View on Extensions");
-											activatable: true;
-											action-name: "detail.open-extensions";
-
-											[suffix]
-											Gtk.Image {
-												styles ["dim-label"]
-												icon-name: "external-link-symbolic";
-											}
+										[suffix]
+										Gtk.Image {
+											styles ["dim-label"]
+											icon-name: "external-link-symbolic";
 										}
 									}
 								}
@@ -218,6 +228,7 @@ template $ExmDetailView : Adw.NavigationPage {
 
 										label: _("User Reviews");
 										xalign: 0;
+										selectable: true;
 									}
 
 									// TODO: Abstract into common class
@@ -250,6 +261,7 @@ template $ExmDetailView : Adw.NavigationPage {
 												label: _("No comments yet");
 												valign: start;
 												xalign: 0;
+												selectable: true;
 											};
 										}
 
@@ -266,6 +278,7 @@ template $ExmDetailView : Adw.NavigationPage {
 													row-spacing: 12;
 													column-spacing: 12;
 												}
+
 												Gtk.Button show_more_btn {
 													label: _("_Show All Reviews");
 													halign: center;
