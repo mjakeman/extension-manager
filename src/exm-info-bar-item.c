@@ -1,5 +1,7 @@
 #include "exm-info-bar-item.h"
 
+#include "exm-config.h"
+
 struct _ExmInfoBarItem
 {
     AdwBin parent_instance;
@@ -138,7 +140,7 @@ exm_info_bar_item_class_init (ExmInfoBarItemClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-info-bar-item.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-info-bar-item.ui", RESOURCE_PATH));
 
     g_type_ensure (EXM_TYPE_INFO_BAR_ITEM);
 

@@ -1,5 +1,7 @@
 #include "exm-rating.h"
 
+#include "exm-config.h"
+
 struct _ExmRating
 {
     GtkWidget parent_instance;
@@ -125,7 +127,7 @@ exm_rating_class_init (ExmRatingClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-rating.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-rating.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmRating, star_one);
     gtk_widget_class_bind_template_child (widget_class, ExmRating, star_two);

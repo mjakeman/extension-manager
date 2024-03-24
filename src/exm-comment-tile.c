@@ -5,6 +5,8 @@
 
 #include "exm-rating.h"
 
+#include "exm-config.h"
+
 struct _ExmCommentTile
 {
     GtkWidget parent_instance;
@@ -121,7 +123,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-comment-tile.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-comment-tile.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, display);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author);

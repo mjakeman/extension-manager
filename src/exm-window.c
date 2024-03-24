@@ -380,7 +380,7 @@ exm_window_class_init (ExmWindowClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-window.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-window.ui", RESOURCE_PATH));
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_page);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, browse_page);
