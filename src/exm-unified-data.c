@@ -33,6 +33,14 @@ G_DEFINE_FINAL_TYPE (ExmUnifiedData, exm_unified_data, G_TYPE_OBJECT)
 enum {
     PROP_0,
     PROP_NAME,
+    PROP_CREATOR,
+    PROP_UUID,
+    PROP_DESCRIPTION,
+    PROP_SCREENSHOT_URI,
+    PROP_LINK,
+    PROP_HOMEPAGE,
+    PROP_PK,
+    PROP_SHELL_VERSION_MAP,
     N_PROPS
 };
 
@@ -71,6 +79,51 @@ exm_unified_data_get_property (GObject    *object,
     case PROP_NAME:
         g_value_set_string (value, exm_unified_data_get_name (self));
         break;
+    case PROP_CREATOR:
+        g_value_set_string (value, exm_unified_data_get_creator (self));
+        break;
+    case PROP_UUID:
+        g_value_set_string (value, exm_unified_data_get_uuid (self));
+        break;
+    case PROP_DESCRIPTION:
+        g_value_set_string (value, exm_unified_data_get_description (self));
+        break;
+    case PROP_SCREENSHOT_URI:
+        {
+            char *uri = NULL;
+            exm_unified_data_get_screenshot_uri (self, &uri);
+            g_value_set_string (value, uri);
+        }
+        break;
+    case PROP_LINK:
+        {
+            char *uri = NULL;
+            exm_unified_data_get_link (self, &uri);
+            g_value_set_string (value, uri);
+        }
+        break;
+    case PROP_HOMEPAGE:
+        {
+            char *uri = NULL;
+            exm_unified_data_get_homepage (self, &uri);
+            g_value_set_string (value, uri);
+        }
+        break;
+    case PROP_PK:
+        {
+            int pk = 0;
+            exm_unified_data_get_pk (self, &pk);
+            g_value_set_int (value, pk);
+        }
+
+        break;
+    case PROP_SHELL_VERSION_MAP:
+        {
+            ExmShellVersionMap *map;
+            map = exm_unified_data_get_shell_version_map (self);
+            g_value_set_object (value, map);
+        }
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -78,9 +131,9 @@ exm_unified_data_get_property (GObject    *object,
 
 static void
 exm_unified_data_set_property (GObject      *object,
-                                 guint         prop_id,
-                                 const GValue *value,
-                                 GParamSpec   *pspec)
+                               guint         prop_id,
+                               const GValue *value,
+                               GParamSpec   *pspec)
 {
     ExmUnifiedData *self = EXM_UNIFIED_DATA (object);
 
@@ -171,6 +224,126 @@ exm_unified_data_get_uuid (ExmUnifiedData *self)
     return NULL;
 }
 
+const char *
+exm_unified_data_get_description (ExmUnifiedData *self)
+{
+    const char *description;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "description", &description, NULL);
+        return description;
+    }
+
+    if (self->local_data)
+    {
+        g_object_get (self->local_data, "description", &description, NULL);
+        return description;
+    }
+
+    return NULL;
+}
+
+gboolean
+exm_unified_data_get_screenshot_uri (ExmUnifiedData  *self,
+                                     char           **uri)
+{
+    g_return_val_if_fail (uri != NULL, FALSE);
+
+    *uri = NULL;
+
+    if (self->web_data)
+    {
+        const char *tmp;
+
+        g_object_get (self->web_data, "screenshot", &tmp, NULL);
+        *uri = g_strdup (tmp);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_get_link (ExmUnifiedData  *self,
+                           char           **link)
+{
+    g_return_val_if_fail (link != NULL, FALSE);
+
+    *link = NULL;
+
+    if (self->web_data)
+    {
+        const char *tmp;
+
+        g_object_get (self->web_data, "link", &tmp, NULL);
+        *link = g_strdup (tmp);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_get_homepage (ExmUnifiedData  *self,
+                               char           **homepage)
+{
+    g_return_val_if_fail (homepage != NULL, FALSE);
+
+    *homepage = NULL;
+
+    if (self->web_data)
+    {
+        const char *tmp;
+
+        g_object_get (self->web_data, "homepage", &tmp, NULL);
+        *homepage = g_strdup (tmp);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_get_pk (ExmUnifiedData *self,
+                         int            *pk)
+{
+    g_return_val_if_fail (pk != NULL, FALSE);
+
+    *pk = 0;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "pk", pk, NULL);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_is_empty (ExmUnifiedData *self)
+{
+    return !(self->local_data || self->web_data);
+}
+
+ExmShellVersionMap *
+exm_unified_data_get_shell_version_map (ExmUnifiedData *self)
+{
+    ExmShellVersionMap *version_map;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "shell_version_map", &version_map, NULL);
+        return version_map;
+    }
+
+    return NULL;
+}
+
 static void
 exm_unified_data_class_init (ExmUnifiedDataClass *klass)
 {
@@ -182,6 +355,30 @@ exm_unified_data_class_init (ExmUnifiedDataClass *klass)
 
     properties [PROP_NAME] =
         g_param_spec_string ("name", "Name", "Name", NULL, G_PARAM_READABLE);
+
+    properties [PROP_CREATOR] =
+        g_param_spec_string ("creator", "Creator", "Creator", NULL, G_PARAM_READABLE);
+
+    properties [PROP_UUID] =
+        g_param_spec_string ("uuid", "UUID", "UUID", NULL, G_PARAM_READABLE);
+
+    properties [PROP_DESCRIPTION] =
+        g_param_spec_string ("description", "Description", "Description", NULL, G_PARAM_READABLE);
+
+    properties [PROP_SCREENSHOT_URI] =
+        g_param_spec_string ("screenshot-uri", "Screenshot URI", "Screenshot URI", NULL, G_PARAM_READABLE);
+
+    properties [PROP_LINK] =
+        g_param_spec_string ("link", "Link", "Link", NULL, G_PARAM_READABLE);
+
+    properties [PROP_HOMEPAGE] =
+        g_param_spec_string ("homepage", "Homepage", "Homepage", NULL, G_PARAM_READABLE);
+
+    properties [PROP_PK] =
+        g_param_spec_int ("pk", "Pk", "Pk", 0, G_MAXINT32, 0, G_PARAM_READABLE);
+
+    properties [PROP_SHELL_VERSION_MAP] =
+        g_param_spec_boxed ("shell-version-map", "Shell Version Map", "Shell Version Map", EXM_TYPE_SHELL_VERSION_MAP, G_PARAM_READABLE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }

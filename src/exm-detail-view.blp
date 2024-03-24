@@ -92,13 +92,14 @@ template $ExmDetailView : Adw.NavigationPage {
 												styles ["title-1"]
 												xalign: 0;
 												ellipsize: end;
+												label: bind template.data as <$ExmUnifiedData>.name;
 											}
 
 											Gtk.Label ext_author {
 												styles ["dim-label"]
-												label: "Author";
 												xalign: 0;
 												ellipsize: end;
+												label: bind template.data as <$ExmUnifiedData>.creator;
 											}
 										}
 
@@ -145,6 +146,8 @@ template $ExmDetailView : Adw.NavigationPage {
 										wrap: true;
 										wrap-mode: word_char;
 										selectable: true;
+
+										label: bind template.data as <$ExmUnifiedData>.description;
 									}
 								}
 
@@ -175,6 +178,8 @@ template $ExmDetailView : Adw.NavigationPage {
 											activatable: true;
 											action-name: "detail.open-homepage";
 
+											subtitle: bind template.data as <$ExmUnifiedData>.homepage;
+
 											[suffix]
 											Gtk.Image {
 												styles ["dim-label"]
@@ -191,6 +196,8 @@ template $ExmDetailView : Adw.NavigationPage {
 											title: _("View on Extensions");
 											activatable: true;
 											action-name: "detail.open-extensions";
+
+											subtitle: bind template.data as <$ExmUnifiedData>.link;
 
 											[suffix]
 											Gtk.Image {
