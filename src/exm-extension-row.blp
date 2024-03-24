@@ -33,6 +33,7 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 		icon-name: "dialog-error-symbolic";
 		valign: center;
 		halign: center;
+		focusable: true;
 
 		margin-start: 9;
 		margin-end: 9;
@@ -49,6 +50,7 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 		icon-name: "clock-alt-symbolic";
 		valign: center;
 		halign: center;
+		focusable: true;
 
 		margin-start: 9;
 		margin-end: 9;
@@ -65,6 +67,7 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 		icon-name: "software-update-available-symbolic";
 		valign: center;
 		halign: center;
+		focusable: true;
 
 		margin-start: 9;
 		margin-end: 9;
@@ -81,6 +84,7 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 		icon-name: "dialog-information-symbolic";
 		valign: center;
 		halign: center;
+		focusable: true;
 
 		margin-start: 9;
 		margin-end: 9;
@@ -99,7 +103,7 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 			row-spacing: 15;
 			column-spacing: 15;
 
-			Gtk.Label {
+			Gtk.Label description_title {
 				styles ["dim-label"]
 
 				label: _("Description");
@@ -124,9 +128,13 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 					row: 0;
 					column: 1;
 				}
+
+				accessibility {
+					labelled-by: description_title;
+				}
 			}
 
-			Gtk.Label {
+			Gtk.Label version_title {
 				styles ["dim-label"]
 
 				label: _("Version");
@@ -149,6 +157,10 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 				layout {
 					row: 1;
 					column: 1;
+				}
+
+				accessibility {
+					labelled-by: version_title;
 				}
 			}
 
