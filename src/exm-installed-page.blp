@@ -20,7 +20,7 @@ template $ExmInstalledPage: Gtk.Widget {
         }
       }
 
-      Adw.PreferencesGroup {
+      Adw.PreferencesGroup user_list {
         title: _("User-Installed Extensions");
 
         Gtk.ListBox user_list_box {
@@ -30,10 +30,14 @@ template $ExmInstalledPage: Gtk.Widget {
           ]
 
           selection-mode: none;
+
+          accessibility {
+            labelled-by: user_list;
+          }
         }
       }
 
-      Adw.PreferencesGroup {
+      Adw.PreferencesGroup system_list {
         title: _("System Extensions");
 
         Gtk.ListBox system_list_box {
@@ -43,6 +47,10 @@ template $ExmInstalledPage: Gtk.Widget {
           ]
 
           selection-mode: none;
+
+          accessibility {
+            labelled-by: system_list;
+          }
         }
       }
     }
@@ -75,7 +83,7 @@ template $ExmInstalledPage: Gtk.Widget {
           valign: center;
           hexpand: true;
 
-          Gtk.Label {
+          Gtk.Label updates_title {
             styles [
               "heading"
             ]
