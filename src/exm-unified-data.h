@@ -82,4 +82,12 @@ exm_unified_data_is_empty (ExmUnifiedData *self);
 ExmShellVersionMap *
 exm_unified_data_get_shell_version_map (ExmUnifiedData *self);
 
+gboolean
+exm_unified_data_get_downloads (ExmUnifiedData *self,
+                                int            *downloads);
+
+gboolean
+exm_unified_data_get_icon_uri (ExmUnifiedData  *self,
+                               char           **icon_uri);
+
 G_END_DECLS

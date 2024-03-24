@@ -2,11 +2,17 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmDetailView : Adw.NavigationPage {
+
+  title: bind template.data as <$ExmUnifiedData>.name;
+
 	Adw.ToolbarView {
 
 		[top]
 		Adw.HeaderBar header_bar {
-			title-widget: Adw.WindowTitle title {};
+			title-widget: Adw.WindowTitle title {
+			  title: bind template.data as <$ExmUnifiedData>.name;
+			  subtitle: bind template.data as <$ExmUnifiedData>.uuid;
+			};
 		}
 
 		content: Adw.BreakpointBin {
@@ -178,7 +184,7 @@ template $ExmDetailView : Adw.NavigationPage {
 											activatable: true;
 											action-name: "detail.open-homepage";
 
-											subtitle: bind template.data as <$ExmUnifiedData>.homepage;
+											// subtitle: bind template.data as <$ExmUnifiedData>.homepage;
 
 											[suffix]
 											Gtk.Image {
@@ -197,7 +203,7 @@ template $ExmDetailView : Adw.NavigationPage {
 											activatable: true;
 											action-name: "detail.open-extensions";
 
-											subtitle: bind template.data as <$ExmUnifiedData>.link;
+											// subtitle: bind template.data as <$ExmUnifiedData>.link;
 
 											[suffix]
 											Gtk.Image {

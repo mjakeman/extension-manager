@@ -303,47 +303,28 @@ install_remote (GtkButton     *button,
                                 "(sb)", self->uuid, warn);
 }
 
-/*static void
+static void
 populate_with_data (ExmUnifiedData *data,
                     gpointer      user_data)
 {
-    ExmSearchResult *data;
+    // TODO: Slowly migrate all of this over to Blueprint
     GError *error = NULL;
     ExmDetailView *self;
     ExmInstallButtonState install_state;
     GList *version_iter;
     ExmShellVersionMap *version_map;
+    int downloads;
+    char *screenshot_uri;
 
     self = EXM_DETAIL_VIEW (user_data);
 
-    gint pk, downloads;
     gboolean is_installed, is_supported;
-    gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description, *url;
-    g_object_get (data,
-                  "uuid", &uuid,
-                  "name", &name,
-                  "creator", &creator,
-                  "icon", &icon_uri,
-                  "screenshot", &screenshot_uri,
-                  "link", &link,
-                  "description", &description,
-                  "shell_version_map", &version_map,
-                  "pk", &pk,
-                  "url", &url,
-                  "downloads", &downloads,
-                  NULL);
 
-    adw_window_title_set_title (self->title, name);
-    adw_window_title_set_subtitle (self->title, uuid);
-    adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self), name);
-
-    is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
-    is_supported = exm_search_result_supports_shell_version (data, self->shell_version);
+    is_installed = exm_manager_is_installed_uuid (self->manager, exm_unified_data_get_uuid (data));
+    is_supported = exm_shell_version_map_supports (exm_unified_data_get_shell_version_map (data), self->shell_version);
 
     gtk_image_set_from_icon_name (self->ext_icon, "puzzle-piece-symbolic");
-    gtk_label_set_label (self->ext_title, name);
-    gtk_label_set_label (self->ext_author, creator);
-    gtk_label_set_label (self->ext_description, description);
+    exm_unified_data_get_downloads (data, &downloads);
     exm_info_bar_set_downloads (self->ext_info_bar, downloads);
 
     if (self->resolver_cancel)
@@ -352,6 +333,8 @@ populate_with_data (ExmUnifiedData *data,
         g_clear_object (&self->resolver_cancel);
     }
 
+    char *icon_uri;
+    exm_unified_data_get_icon_uri (data, &icon_uri);
     if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
     {
         self->resolver_cancel = g_cancellable_new ();
@@ -359,15 +342,15 @@ populate_with_data (ExmUnifiedData *data,
         queue_resolve_image (self, icon_uri, self->resolver_cancel, TRUE);
     }
 
-    if (screenshot_uri != NULL)
+    if (exm_unified_data_get_screenshot_uri (data, &screenshot_uri))
     {
         self->resolver_cancel = g_cancellable_new ();
 
         exm_screenshot_set_paintable (self->ext_screenshot, NULL);
         exm_screenshot_reset (self->ext_screenshot);
 
-	gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
-	gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
+	    gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
+	    gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
 
         queue_resolve_image (self, screenshot_uri, self->resolver_cancel, FALSE);
     }
@@ -384,11 +367,15 @@ populate_with_data (ExmUnifiedData *data,
 
     g_object_set (self->ext_install, "state", install_state, NULL);
 
+    char *url;
+    exm_unified_data_get_homepage (data, &url);
     self->uri_homepage = g_uri_resolve_relative (url,
                                                  "",
                                                  G_URI_FLAGS_NONE,
                                                  NULL);
 
+    char *link;
+    exm_unified_data_get_link (data, &link);
     self->uri_extensions = g_uri_resolve_relative ("https://extensions.gnome.org/",
                                                    link,
                                                    G_URI_FLAGS_NONE,
@@ -419,7 +406,7 @@ populate_with_data (ExmUnifiedData *data,
         g_free (version);
     }
 
-    self->pk = pk;
+    exm_unified_data_get_pk (data, &self->pk);
 
     if (self->signal_id > 0)
         g_signal_handler_disconnect (self->show_more_btn, self->signal_id);
@@ -429,13 +416,8 @@ populate_with_data (ExmUnifiedData *data,
                                         G_CALLBACK (show_more_comments),
                                         self);
 
-    queue_resolve_comments (self, pk, self->resolver_cancel);
-
-    // Reset scroll position
-    gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
-
-    gtk_stack_set_visible_child_name (self->stack, "page_detail");
-}*/
+    queue_resolve_comments (self, self->pk, self->resolver_cancel);
+}
 
 static void
 on_data_loaded (GObject      *source,
@@ -465,8 +447,9 @@ on_data_loaded (GObject      *source,
     // We need at least some data to proceed
     if (!exm_unified_data_is_empty (data)) {
         g_object_set (self, "data", data, NULL);
+        populate_with_data (data, self);
 
-       // Reset scroll position
+        // Reset scroll position
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
 

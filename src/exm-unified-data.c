@@ -41,6 +41,8 @@ enum {
     PROP_HOMEPAGE,
     PROP_PK,
     PROP_SHELL_VERSION_MAP,
+    PROP_DOWNLOADS,
+    PROP_ICON_URI,
     N_PROPS
 };
 
@@ -115,13 +117,26 @@ exm_unified_data_get_property (GObject    *object,
             exm_unified_data_get_pk (self, &pk);
             g_value_set_int (value, pk);
         }
-
         break;
     case PROP_SHELL_VERSION_MAP:
         {
             ExmShellVersionMap *map;
             map = exm_unified_data_get_shell_version_map (self);
             g_value_set_object (value, map);
+        }
+        break;
+    case PROP_DOWNLOADS:
+        {
+            int downloads = 0;
+            exm_unified_data_get_downloads (self, &downloads);
+            g_value_set_int (value, downloads);
+        }
+        break;
+    case PROP_ICON_URI:
+        {
+            char *uri = NULL;
+            exm_unified_data_get_icon_uri (self, &uri);
+            g_value_set_string (value, uri);
         }
         break;
     default:
@@ -298,7 +313,7 @@ exm_unified_data_get_homepage (ExmUnifiedData  *self,
     {
         const char *tmp;
 
-        g_object_get (self->web_data, "homepage", &tmp, NULL);
+        g_object_get (self->web_data, "url", &tmp, NULL);
         *homepage = g_strdup (tmp);
 
         return TRUE;
@@ -344,6 +359,44 @@ exm_unified_data_get_shell_version_map (ExmUnifiedData *self)
     return NULL;
 }
 
+gboolean
+exm_unified_data_get_downloads (ExmUnifiedData *self,
+                                int            *downloads)
+{
+    g_return_val_if_fail (downloads != NULL, FALSE);
+
+    *downloads = 0;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "downloads", downloads, NULL);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean
+exm_unified_data_get_icon_uri (ExmUnifiedData  *self,
+                               char           **uri)
+{
+    g_return_val_if_fail (uri != NULL, FALSE);
+
+    *uri = NULL;
+
+    if (self->web_data)
+    {
+        const char *tmp;
+
+        g_object_get (self->web_data, "icon", &tmp, NULL);
+        *uri = g_strdup (tmp);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 static void
 exm_unified_data_class_init (ExmUnifiedDataClass *klass)
 {
@@ -379,6 +432,12 @@ exm_unified_data_class_init (ExmUnifiedDataClass *klass)
 
     properties [PROP_SHELL_VERSION_MAP] =
         g_param_spec_boxed ("shell-version-map", "Shell Version Map", "Shell Version Map", EXM_TYPE_SHELL_VERSION_MAP, G_PARAM_READABLE);
+
+    properties [PROP_DOWNLOADS] =
+        g_param_spec_int ("downloads", "Downloads", "Downloads", 0, G_MAXINT32, 0, G_PARAM_READABLE);
+
+    properties [PROP_ICON_URI] =
+        g_param_spec_string ("icon-uri", "Icon URI", "Icon URI", NULL, G_PARAM_READABLE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
