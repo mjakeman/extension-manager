@@ -25,6 +25,11 @@ template $ExmUpgradeAssistant : Adw.Dialog {
             Gtk.Image {
             	icon-name: "software-update-available-symbolic";
             	icon-size: large;
+            	focusable: true;
+
+            	accessibility {
+              	labelled-by: description;
+            	}
             }
 
             Gtk.Box {
@@ -63,6 +68,7 @@ template $ExmUpgradeAssistant : Adw.Dialog {
 
         	Gtk.Spinner {
         		spinning: true;
+        		focusable: true;
         		height-request: 32;
         		width-request: 32;
         	}
@@ -92,38 +98,41 @@ template $ExmUpgradeAssistant : Adw.Dialog {
 								show-text: true;
 								margin-start: 24;
 								margin-end: 24;
+								focusable: true;
+
+								accessibility {
+									labelled-by: summary;
+									described-by: progress_bar;
+								}
 				    	}
 
-				    	Gtk.Box {
-				    		orientation: vertical;
-				    		spacing: 10;
-
-				    		Gtk.Label {
-									styles ["heading"]
-									xalign: 0;
-									margin-top: 20;
-									label: _("User-Installed Extensions");
-								}
+							Adw.PreferencesGroup user_list_title {
+								title: _("User-Installed Extensions");
 
 								Gtk.ListBox user_list_box {
 									styles ["boxed-list", "boxed-list-placeholder"]
 									valign: start;
 									selection-mode: none;
-								}
 
-								Gtk.Label {
-									styles ["heading"]
-									xalign: 0;
-									margin-top: 20;
-									label: _("System Extensions");
+									accessibility {
+										labelled-by: user_list_title;
+									}
 								}
+							}
+
+							Adw.PreferencesGroup system_list_title {
+								title: _("System Extensions");
 
 								Gtk.ListBox system_list_box {
 									styles ["boxed-list", "boxed-list-placeholder"]
 									valign: start;
 									selection-mode: none;
+
+									accessibility {
+										labelled-by: system_list_title;
+									}
 								}
-			    		}
+							}
 
 			    		Gtk.Button copy_details {
 								label: _("_Copy to Clipboard");
