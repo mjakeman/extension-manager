@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-23 13:52+0100\n"
-"PO-Revision-Date: 2024-03-16 18:50+0000\n"
-"Last-Translator: gnomelibre <xanatoth@gmail.com>\n"
+"PO-Revision-Date: 2024-03-26 12:08+0000\n"
+"Last-Translator: Marceau <git@marceau-h.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/extension-manager/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -28,12 +28,12 @@ msgstr "Gestionnaire d’extensions"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
-msgstr "Gérez les extensions GNOME Shell"
+msgstr "Gérez les extensions du Shell GNOME"
 
 #. Translators: Do not translate
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
 msgid "extension;manager;shell;"
-msgstr "extensions;gestionnaire;manager;shell;"
+msgstr "extension;manager;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -46,7 +46,7 @@ msgstr "Un outil pour parcourir et installer les extensions GNOME Shell."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
-msgstr "Caractéristiques :"
+msgstr "Caractéristiques :"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
@@ -71,7 +71,8 @@ msgid "translator-credits"
 msgstr ""
 "PaxtonGround\n"
 "Geoffrey Coulaud <geoffrey.coulaud@gmail.com>\n"
-"Irénée Thirion <irenee.thirion@e.email>"
+"Irénée Thirion <irenee.thirion@e.email>\n"
+"Marceau Hernandez <git@marceau-h.fr>"
 
 #: src/exm-browse-page.blp:9
 msgid "Search for extensions"
@@ -90,8 +91,6 @@ msgid "Relevance"
 msgstr "Pertinence"
 
 #: src/exm-browse-page.blp:31
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Téléchargements"
@@ -163,11 +162,11 @@ msgstr "Voir sur Extensions"
 
 #: src/exm-detail-view.blp:210
 msgid "User Reviews"
-msgstr "Avis utilisateurs"
+msgstr "Avis des utilisateurs"
 
 #: src/exm-detail-view.blp:241
 msgid "There are no comments."
-msgstr "Aucun commentaire"
+msgstr "Aucun commentaire."
 
 #: src/exm-detail-view.blp:261
 msgid "_Show All Reviews"
@@ -175,7 +174,7 @@ msgstr "_Montrer tous les avis"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr "Signalement d’erreurs"
+msgstr "Signalement d’erreur"
 
 #: src/exm-error-dialog.blp:29
 msgid "An unexpected error occurred in Extension Manager."
@@ -198,7 +197,7 @@ msgstr "Copié"
 msgid "Please open a new issue and attach the following information:"
 msgstr ""
 "Merci de signaler un nouveau problème et d’y joindre les informations "
-"suivantes :"
+"suivantes :"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:186
@@ -208,10 +207,10 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Vous utilisez une version tierce de Gestionnaire d’Extensions. Veuillez "
-"d’abord <span weight=\"bold\">contacter le distributeur du paquet (%s) avant "
-"</span> de signaler tout problème. Veillez à joindre les informations "
-"suivantes :"
+"Vous utilisez une version tierce du Gestionnaire d’Extensions. Veuillez d’"
+"abord <span weight=\"bold\">contacter le distributeur du paquet (%s) avant </"
+"span> de signaler tout problème. Veillez à joindre les informations "
+"suivantes :"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -243,11 +242,9 @@ msgstr "Voir les détails"
 
 #: src/exm-extension-row.blp:190
 msgid "Remove"
-msgstr "Enlever"
+msgstr "Supprimer"
 
 #: src/exm-info-bar.blp:13
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Téléchargements"
@@ -281,11 +278,11 @@ msgstr ""
 
 #: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
-msgstr "Installées manuellement"
+msgstr "Installées par l'utilisateur"
 
 #: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
-msgstr "Intégrées"
+msgstr "Extensions intégrées"
 
 #: src/exm-installed-page.blp:95
 msgid "Updates are available"
@@ -332,8 +329,7 @@ msgid "_Check Compatibility"
 msgstr "_Vérifier la compatibilité"
 
 #: src/exm-upgrade-assistant.c:176
-#, fuzzy, c-format
-#| msgid "Checked %d/%d extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d extensions vérifiées"
 
@@ -373,7 +369,7 @@ msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
-"Cette extension n’est pas hébergée sur extensions.gnome.org. Sa "
+"Cette extension n’est pas hébergée sur extensions.gnome.org. De ce fait, sa "
 "compatibilité ne peut pas être déterminée."
 
 #: src/exm-upgrade-assistant.c:617
@@ -382,7 +378,7 @@ msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"Vous utilisez actuellement <b>GNOME %s<b/>. Sélectionnez une version de "
+"Vous utilisez actuellement <b>GNOME %s</b>. Sélectionnez une version de "
 "GNOME ci-dessous et vérifiez si vos extensions seront toujours disponibles."
 
 #: src/exm-window.blp:40
@@ -400,40 +396,32 @@ msgid "_Browse"
 msgstr "_Parcourir"
 
 #: src/exm-window.blp:104
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
 msgstr "Extensions activées en premier"
 
 #: src/exm-window.blp:105
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "Afficher les extensions non prises en charge"
 
 #: src/exm-window.blp:108
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "Assistant de mise à jour"
+msgstr "_Assistant de mise à jour"
 
 #: src/exm-window.blp:109
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "À propos de Gestionnaire d’extensions"
+msgstr "À propos du Gestionnaire d’extensions"
 
 #: src/exm-window.c:158
 msgid "Uninstall Extension?"
-msgstr "Désinstaller l’extension ?"
+msgstr "Désinstaller l’extension ?"
 
 #: src/exm-window.c:159
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
-"Les fonctionnalités de l’extension ne seront plus accessibles. Êtes-vous sûr "
-"de vouloir la désinstaller ?"
+"Les fonctionnalités de cette extension ne seront plus accessibles. Êtes-vous "
+"sûr de vouloir la désinstaller ?"
 
 #: src/exm-window.c:162
 msgid "_No"
@@ -461,7 +449,7 @@ msgstr "_Installer quand même"
 
 #: src/exm-window.c:237
 msgid "_Go Back"
-msgstr "_Retour"
+msgstr "_Annuler"
 
 #: src/exm-window.c:344
 msgid "An error occurred."
