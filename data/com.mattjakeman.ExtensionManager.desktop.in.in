@@ -9,5 +9,5 @@ StartupNotify=true
 MimeType=x-scheme-handler/gnome-extensions;
 Comment=Manage GNOME Shell Extensions
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-# Make sure to leave the original strings and add your translations afterwords, so that users can search both in English and your language.
+# Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 Keywords=extension;manager;shell;
