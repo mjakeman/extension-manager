@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 13:52+0100\n"
+"POT-Creation-Date: 2024-03-26 14:42+0100\n"
 "PO-Revision-Date: 2024-03-23 15:54+0000\n"
 "Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
@@ -30,8 +30,9 @@ msgstr "Менеджер расширений"
 msgid "Manage GNOME Shell Extensions"
 msgstr "Управление расширениями GNOME Shell"
 
-#. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;менеджер;расширение;"
 
@@ -391,19 +392,21 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Обзор"
 
-#: src/exm-window.blp:104
+#. Translators: the character preceded by "_" should not be the same
+#. as others in the same menu
+#: src/exm-window.blp:106
 msgid "Sort _Enabled First"
 msgstr "Сортировать _включенные первыми"
 
-#: src/exm-window.blp:105
+#: src/exm-window.blp:107
 msgid "_Show Unsupported"
 msgstr "_Показать неподдерживаемые"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
 msgstr "Помощник по _обновлению"
 
-#: src/exm-window.blp:109
+#: src/exm-window.blp:111
 msgid "_About Extension Manager"
 msgstr "О пр_иложении"
 

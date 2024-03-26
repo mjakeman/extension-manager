@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 13:52+0100\n"
+"POT-Creation-Date: 2024-03-26 14:42+0100\n"
 "PO-Revision-Date: 2024-03-26 12:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/"
-"extension-manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
+"manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,8 +29,9 @@ msgstr "Extension Manager"
 msgid "Manage GNOME Shell Extensions"
 msgstr "GNOME Shell 拡張機能 を管理します"
 
-#. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;拡張機能;"
 
@@ -385,19 +386,21 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "探す(_B)"
 
-#: src/exm-window.blp:104
+#. Translators: the character preceded by "_" should not be the same
+#. as others in the same menu
+#: src/exm-window.blp:106
 msgid "Sort _Enabled First"
 msgstr "有効な拡張機能を優先表示(_E)"
 
-#: src/exm-window.blp:105
+#: src/exm-window.blp:107
 msgid "_Show Unsupported"
 msgstr "非対応の拡張機能も検索結果に表示(_U)"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
 msgstr "アップグレードアシスタント(_U)"
 
-#: src/exm-window.blp:109
+#: src/exm-window.blp:111
 msgid "_About Extension Manager"
 msgstr "Extension Manager について(_A)"
 
