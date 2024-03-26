@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 13:52+0100\n"
+"POT-Creation-Date: 2024-03-26 14:42+0100\n"
 "PO-Revision-Date: 2022-10-08 00:16+0800\n"
 "Last-Translator: Sean Wang <sn1128231220jd@yahoo.com>\n"
 "Language-Team: none\n"
@@ -30,8 +30,9 @@ msgstr "擴充套件管理員"
 msgid "Manage GNOME Shell Extensions"
 msgstr "一個用來管理 GNOME Shell 擴充套件的工具程式"
 
-#. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 #, fuzzy
 #| msgid "Extension Manager"
 msgid "extension;manager;shell;"
@@ -417,25 +418,27 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "瀏覽"
 
-#: src/exm-window.blp:104
+#. Translators: the character preceded by "_" should not be the same
+#. as others in the same menu
+#: src/exm-window.blp:106
 #, fuzzy
 #| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
 msgstr "啟用的擴充套件在前"
 
-#: src/exm-window.blp:105
+#: src/exm-window.blp:107
 #, fuzzy
 #| msgid "Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "顯示不支援的擴充套件"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:110
 #, fuzzy
 #| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
 msgstr "更新助理"
 
-#: src/exm-window.blp:109
+#: src/exm-window.blp:111
 #, fuzzy
 #| msgid "About Extension Manager"
 msgid "_About Extension Manager"

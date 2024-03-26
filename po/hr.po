@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 13:52+0100\n"
+"POT-Creation-Date: 2024-03-26 14:42+0100\n"
 "PO-Revision-Date: 2024-03-24 10:32+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/"
-"extension-manager/app/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/extension-"
+"manager/app/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,8 +30,9 @@ msgstr "Upravitelj proširenja"
 msgid "Manage GNOME Shell Extensions"
 msgstr "Upravljajte proširenjima GNOME ljuske"
 
-#. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;"
 
@@ -202,9 +203,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Koristite verziju upravitelja proširenja treće strane. Najprije <span weight="
-"\"bold\">kontaktirajte distributera paketa (%s)</span> prije prijavljivanja "
-"problema. Priložite sljedeće podatke:"
+"Koristite verziju upravitelja proširenja treće strane. Najprije <span "
+"weight=\"bold\">kontaktirajte distributera paketa (%s)</span> prije "
+"prijavljivanja problema. Priložite sljedeće podatke:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -389,19 +390,21 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Pretraga"
 
-#: src/exm-window.blp:104
+#. Translators: the character preceded by "_" should not be the same
+#. as others in the same menu
+#: src/exm-window.blp:106
 msgid "Sort _Enabled First"
 msgstr "_Razvrstaj najprije omogućena"
 
-#: src/exm-window.blp:105
+#: src/exm-window.blp:107
 msgid "_Show Unsupported"
 msgstr "_Prikaži nepodržana"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
 msgstr "Po_moćnik nadogradnje"
 
-#: src/exm-window.blp:109
+#: src/exm-window.blp:111
 msgid "_About Extension Manager"
 msgstr "_O Upravitelju proširenja"
 

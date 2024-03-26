@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 13:52+0100\n"
+"POT-Creation-Date: 2024-03-26 14:42+0100\n"
 "PO-Revision-Date: 2022-02-09 20:48+0100\n"
 "Last-Translator: vikdevelop https://github.com/vikdevelop\n"
 "Language-Team: Czech\n"
@@ -31,8 +31,9 @@ msgstr "Správce rozšíření"
 msgid "Manage GNOME Shell Extensions"
 msgstr "Jednoduchý správce rozšíření GNOME Shellu"
 
-#. Translators: Do not translate
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:13
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 #, fuzzy
 #| msgid "Extension Manager"
 msgid "extension;manager;shell;"
@@ -430,25 +431,27 @@ msgctxt "Navigation"
 msgid "_Browse"
 msgstr "Procházet"
 
-#: src/exm-window.blp:104
+#. Translators: the character preceded by "_" should not be the same
+#. as others in the same menu
+#: src/exm-window.blp:106
 #, fuzzy
 #| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
 msgstr "Třídění povoleno jako první"
 
-#: src/exm-window.blp:105
+#: src/exm-window.blp:107
 #, fuzzy
 #| msgid "Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "Zobrazit nepodporované"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:110
 #, fuzzy
 #| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
 msgstr "Asistent pro povýšení"
 
-#: src/exm-window.blp:109
+#: src/exm-window.blp:111
 #, fuzzy
 #| msgid "About Extension Manager"
 msgid "_About Extension Manager"
