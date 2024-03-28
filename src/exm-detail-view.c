@@ -406,8 +406,10 @@ on_data_loaded (GObject      *source,
             else
                 version = g_strdup_printf ("%s.0", entry->shell_major_version);
 
-            if (strcmp (version, self->shell_version) == 0 || strncmp(version, self->shell_version, strchr(version, '.') - version) == 0)
-                exm_info_bar_set_version (self->ext_info_bar, entry->extension_version);
+              if (version != NULL && self->shell_version != NULL &&
+                  (strcmp (version, self->shell_version) == 0 ||
+                   strncmp(version, self->shell_version, strchr(version, '.') - version) == 0))
+                  exm_info_bar_set_version (self->ext_info_bar, entry->extension_version);
 
             g_free (version);
         }
