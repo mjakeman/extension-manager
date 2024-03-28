@@ -165,11 +165,28 @@ exm_unified_data_get_local_data (ExmUnifiedData *self)
     return self->local_data;
 }
 
+static void
+notify_properties (ExmUnifiedData *self)
+{
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_NAME]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_CREATOR]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_UUID]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_DESCRIPTION]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_SCREENSHOT_URI]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_LINK]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_HOMEPAGE]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_PK]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_SHELL_VERSION_MAP]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_DOWNLOADS]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_ICON_URI]);
+}
+
 void
 exm_unified_data_set_local_data (ExmUnifiedData *self,
-                                   ExmExtension     *extension)
+                                 ExmExtension   *extension)
 {
     self->local_data = g_object_ref (extension);
+    notify_properties (self);
 }
 
 ExmSearchResult *
@@ -179,10 +196,11 @@ exm_unified_data_get_web_data (ExmUnifiedData *self)
 }
 
 void
-exm_unified_data_set_web_data (ExmUnifiedData *self,
-                                 ExmSearchResult  *extension)
+exm_unified_data_set_web_data (ExmUnifiedData  *self,
+                               ExmSearchResult *extension)
 {
     self->web_data = g_object_ref (extension);
+    notify_properties (self);
 }
 
 const char *

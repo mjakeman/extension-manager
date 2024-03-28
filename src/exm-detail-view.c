@@ -520,21 +520,16 @@ on_data_loaded (GObject      *source,
 
     self = EXM_DETAIL_VIEW (user_data);
 
-    data = exm_unified_data_new ();
-
-    // Build Unified Data Representation
-    if ((local_info = exm_manager_get_by_uuid (self->manager, self->uuid)))
-        exm_unified_data_set_local_data (data, local_info);
+    g_object_get (G_OBJECT (self),
+                  "data", &data,
+                  "extension", &local_info,
+                  NULL);
 
     if ((web_info = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), async_result, &error)) != FALSE)
         exm_unified_data_set_web_data (data, web_info);
 
     // We need at least some data to proceed
     if (!exm_unified_data_is_empty (data)) {
-        g_object_set (self,
-                      "data", data,
-                      "extension", local_info,
-                      NULL);
         populate_with_data (data, self);
 
         gchar *name, *uuid, *description, *version, *error_msg;
@@ -588,14 +583,27 @@ void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
                                gchar         *uuid)
 {
-    // g_assert (gtk_widget_is_constructed)
+    ExmUnifiedData *data;
+    ExmExtension *local_info;
 
     self->uuid = uuid;
 
     adw_window_title_set_title (self->title, NULL);
     adw_window_title_set_subtitle (self->title, NULL);
 
-    gtk_stack_set_visible_child_name (self->stack, "page_spinner");
+    // gtk_stack_set_visible_child_name (self->stack, "page_spinner");
+    gtk_stack_set_visible_child_name (self->stack, "page_detail");
+
+    data = exm_unified_data_new ();
+
+    // Build Unified Data Representation
+    if ((local_info = exm_manager_get_by_uuid (self->manager, self->uuid)))
+        exm_unified_data_set_local_data (data, local_info);
+
+    g_object_set (self,
+                  "data", data,
+                  "extension", local_info,
+                  NULL);
 
     exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
 }
@@ -799,3 +807,4 @@ exm_detail_view_init (ExmDetailView *self)
 
     gtk_widget_insert_action_group (GTK_WIDGET (self), "page", G_ACTION_GROUP (self->action_group));
 }
+
