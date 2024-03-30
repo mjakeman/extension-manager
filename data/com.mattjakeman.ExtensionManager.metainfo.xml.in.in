@@ -7,7 +7,7 @@
   <summary>Browse, install, and manage GNOME Shell Extensions</summary>
   <content_rating type="oars-1.1" />
   <developer id="com.mattjakeman">
-    <name translatable="no">Matthew Jakeman</name>
+    <name translate="no">Matthew Jakeman</name>
   </developer>
 	<description>
 	  <p>A utility for browsing and installing GNOME Shell Extensions.</p>
@@ -50,7 +50,7 @@
   </requires>
   <releases>
     <release version="0.5.0" date="2024-03-18">
-      <description translatable="no">
+      <description translate="no">
         <p>The 'Performance &amp; Polish' release</p>
         <ul>
           <li>Compatibility with GNOME 46</li>
@@ -62,7 +62,7 @@
       </description>
     </release>
     <release version="0.4.3" date="2023-11-08">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>HOTFIX: Fix broken 'recent' and 'popularity' search filters</li>
           <li>Various stability and correctness fixes</li>
@@ -71,7 +71,7 @@
       </description>
     </release>
     <release version="0.4.2" date="2023-06-19">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Translation updates</li>
           <li>Upgrade Assistant scroll fix</li>
@@ -80,7 +80,7 @@
       </description>
     </release>
     <release version="0.4.1" date="2023-05-06">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Translation updates</li>
           <li>Official snap support</li>
@@ -89,7 +89,7 @@
       </description>
     </release>
 		<release version="0.4.0" date="2022-09-26">
-			<description translatable="no">
+			<description translate="no">
 				<ul>
 					<li>Fully adaptive mobile-friendly user interface</li>
 					<li>Paginated search results</li>
@@ -104,7 +104,7 @@
 			</description>
 		</release>
     <release version="0.3.2" date="2022-08-17">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Translation updates</li>
           <li>Various bug fixes</li>
@@ -113,7 +113,7 @@
       </description>
     </release>
     <release version="0.3.1" date="2022-06-04">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Translation updates</li>
           <li>Remove release notes dialog</li>
@@ -123,7 +123,7 @@
       </description>
     </release>
     <release version="0.3.0" date="2022-03-21">
-      <description translatable="no">
+      <description translate="no">
         <p>The second feature update to extension-manager. Highlights include:</p>
         <ul>
           <li>View comments and reviews</li>
@@ -139,14 +139,14 @@
       </description>
     </release>
     <release version="0.2.3" date="2022-02-21">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Translation updates</li>
         </ul>
       </description>
     </release>
     <release version="0.2.2" date="2022-02-02">
-      <description translatable="no">
+      <description translate="no">
         <ul>
           <li>Translation updates</li>
           <li>Fix special characters in search results</li>
@@ -154,12 +154,12 @@
       </description>
     </release>
     <release version="0.2.1" date="2022-01-24">
-      <description translatable="no">
+      <description translate="no">
         <p>Fixes a crash that sometimes occurs while uninstalling an extension</p>
       </description>
     </release>
     <release version="0.2.0" date="2022-01-24">
-      <description translatable="no">
+      <description translate="no">
         <p>The first feature update to extension-manager. Highlights include:</p>
         <ul>
           <li>Dark theme and support for overriding the system colour scheme</li>
