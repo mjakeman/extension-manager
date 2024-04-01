@@ -1,0 +1,74 @@
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'data/com.mattjakeman.ExtensionManager.desktop.in.in'
+      - 'data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in'
+      - 'po/POTFILES'
+      - 'src/*.c'
+      - 'src/*.blp'
+  workflow_dispatch:
+  workflow_call:
+
+name: Translations
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+  update_pot:
+    name: Update template
+    runs-on: ubuntu-latest
+    container: debian:sid
+    permissions:
+      contents: write
+    steps:
+      - name: Install dependencies
+        run: |
+          apt update
+          apt install -y git meson gcc gettext cmake appstream desktop-file-utils \
+            libadwaita-1-dev libgtk-4-dev libjson-glib-dev libsoup-3.0-dev libtext-engine-dev \
+            blueprint-compiler
+
+      - name: Setup repository
+        run: |
+          git clone -b ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} \
+            ${{ github.server_url }}/${{ github.repository }} .
+          git config --global --add safe.directory "$(pwd)"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Update POTFILES
+        run: |
+          cd po
+          bash ./print-source-files.sh > ./POTFILES
+          cd ..
+
+      - name: Update translation template
+        run: |
+          meson setup _build -Dbacktrace=false
+          meson compile -C _build extension-manager-pot
+
+      - name: Commit changes
+        id: commit-changes
+        run: |
+          echo "po: Update template" \
+          | git commit -a -F - || export failure=$?
+
+          if [ -z $failure ]; then
+            echo "status=true" >> $GITHUB_OUTPUT
+          elif [ $failure = '1' ]; then
+            echo 'No commit made, skip push.'
+            echo "status=false" >> $GITHUB_OUTPUT
+          else
+            exit $failure
+          fi
+
+      - name: Push changes
+        if: ${{ steps.commit-changes.outputs.status == 'true' }}
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
