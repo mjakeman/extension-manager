@@ -121,3 +121,7 @@ meson setup _build
 ninja -C _build
 ninja install -C _build
 ```
+
+## 👫 Code of Conduct
+This project follows the [GNOME Code of Conduct](https://conduct.gnome.org/). Please
+adhere to it in all project spaces and interactions.

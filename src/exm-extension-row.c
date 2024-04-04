@@ -5,7 +5,7 @@
 
 struct _ExmExtensionRow
 {
-    AdwExpanderRow parent_instance;
+    AdwActionRow parent_instance;
 
     GSimpleActionGroup *action_group;
 
@@ -14,22 +14,22 @@ struct _ExmExtensionRow
 
     ExmManager *manager;
 
-    GtkButton *remove_btn;
+    // GtkButton *remove_btn;
     GtkButton *prefs_btn;
-    GtkButton *details_btn;
+    // GtkButton *details_btn;
     GtkSwitch *ext_toggle;
 
-    GtkLabel *description_label;
-    GtkLabel *version_label;
-    GtkLabel *error_label;
-    GtkLabel *error_label_tag;
+    // GtkLabel *description_label;
+    // GtkLabel *version_label;
+    // GtkLabel *error_label;
+    // GtkLabel *error_label_tag;
 
     GtkImage *update_icon;
     GtkImage *error_icon;
     GtkImage *out_of_date_icon;
 };
 
-G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
+G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_ACTION_ROW)
 
 enum {
     PROP_0,
@@ -121,8 +121,8 @@ static void
 set_error_label_visible (ExmExtensionRow *self,
                          gboolean         visible)
 {
-    gtk_widget_set_visible (GTK_WIDGET (self->error_label), visible);
-    gtk_widget_set_visible (GTK_WIDGET (self->error_label_tag), visible);
+    // gtk_widget_set_visible (GTK_WIDGET (self->error_label), visible);
+    // gtk_widget_set_visible (GTK_WIDGET (self->error_label_tag), visible);
 }
 
 static gboolean
@@ -186,24 +186,24 @@ bind_extension (ExmExtensionRow *self,
 
     g_object_set (self, "title", g_markup_escape_text(name, -1), "subtitle", uuid, NULL);
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
-    g_object_set (self->remove_btn, "visible", is_user, NULL);
+    // g_object_set (self->remove_btn, "visible", is_user, NULL);
     g_object_set (self->update_icon, "visible", has_update, NULL);
-    g_object_set (self->version_label, "label", version, NULL);
+    // g_object_set (self->version_label, "label", version, NULL);
 
     // Trim description label's leading and trailing whitespace
-    char *description_trimmed = g_strchomp (g_strstrip (description));
-    g_object_set (self->description_label, "label", description_trimmed, NULL);
-    g_free (description_trimmed);
+    // char *description_trimmed = g_strchomp (g_strstrip (description));
+    // g_object_set (self->description_label, "label", description_trimmed, NULL);
+    // g_free (description_trimmed);
 
     // Only show if error_msg exists and is not empty
-    g_object_set (self->error_label, "label", error_msg, NULL);
-    gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
-    set_error_label_visible (self, has_error);
+    // g_object_set (self->error_label, "label", error_msg, NULL);
+    // gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
+    // set_error_label_visible (self, has_error);
 
     gtk_widget_set_visible (GTK_WIDGET (self->error_icon), state == EXM_EXTENSION_STATE_ERROR);
     gtk_widget_set_visible (GTK_WIDGET (self->out_of_date_icon), state == EXM_EXTENSION_STATE_OUT_OF_DATE);
 
-    gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
+    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
 
     GAction *action;
 
@@ -288,14 +288,14 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-extension-row.ui");
 
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label_tag);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_label);
+    // gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
+    // gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label);
+    // gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label_tag);
+    // gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_label);
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, details_btn);
+    // gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
+    // gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, details_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, ext_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, update_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_icon);

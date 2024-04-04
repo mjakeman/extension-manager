@@ -2,11 +2,17 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmDetailView : Adw.NavigationPage {
+
+  title: bind template.data as <$ExmUnifiedData>.name;
+
 	Adw.ToolbarView {
 
 		[top]
 		Adw.HeaderBar header_bar {
-			title-widget: Adw.WindowTitle title {};
+			title-widget: Adw.WindowTitle title {
+			  title: bind template.data as <$ExmUnifiedData>.name;
+			  subtitle: bind template.data as <$ExmUnifiedData>.uuid;
+			};
 		}
 
 		content: Adw.BreakpointBin {
@@ -92,20 +98,67 @@ template $ExmDetailView : Adw.NavigationPage {
 												styles ["title-1"]
 												xalign: 0;
 												ellipsize: end;
+												label: bind template.data as <$ExmUnifiedData>.name;
 											}
 
 											Gtk.Label ext_author {
 												styles ["dim-label"]
-												label: "Author";
 												xalign: 0;
 												ellipsize: end;
+												label: bind template.data as <$ExmUnifiedData>.creator;
 											}
 										}
 
-										$ExmInstallButton ext_install {
-											valign: center;
-											halign: center;
-										}
+                    Gtk.Stack tools_stack {
+                      Gtk.StackPage {
+                        name: "uninstalled-tools-page";
+                        child: $ExmInstallButton ext_install {
+											  valign: center;
+											  halign: center;
+										  };
+                      }
+                      Gtk.StackPage {
+                        name: "installed-tools-page";
+                        child: Gtk.Box {
+                          spacing: 16;
+
+                          Gtk.Box {
+                            styles ["linked"]
+
+                            Gtk.Button delete_btn {
+                             styles ["destructive-action"]
+
+                             icon-name: "user-trash-symbolic";
+                             valign: center;
+                             halign: center;
+
+                             action-name: 'page.remove';
+
+                             tooltip-text: _("Remove the extension");
+                           }
+
+                            Gtk.Button prefs_btn {
+
+	                            icon-name: "settings-symbolic";
+	                            valign: center;
+	                            halign: center;
+
+	                            action-name: 'page.open-prefs';
+
+	                            tooltip-text: _("Open extension preferences");
+                            }
+                          }
+
+                          Gtk.Switch ext_toggle {
+                            valign: center;
+	                          active: bind template.extension as <$ExmExtension>.enabled;
+	                          sensitive: bind template.extension as <$ExmExtension>.can-change;
+	                          state-set => $on_state_changed();
+                          }
+
+                        };
+                      }
+                    }
 									}
 								}
 
@@ -145,6 +198,8 @@ template $ExmDetailView : Adw.NavigationPage {
 										wrap: true;
 										wrap-mode: word_char;
 										selectable: true;
+
+										label: bind template.data as <$ExmUnifiedData>.description;
 									}
 								}
 
@@ -175,6 +230,8 @@ template $ExmDetailView : Adw.NavigationPage {
 											activatable: true;
 											action-name: "detail.open-homepage";
 
+											// subtitle: bind template.data as <$ExmUnifiedData>.homepage;
+
 											[suffix]
 											Gtk.Image {
 												styles ["dim-label"]
@@ -191,6 +248,8 @@ template $ExmDetailView : Adw.NavigationPage {
 											title: _("View on Extensions");
 											activatable: true;
 											action-name: "detail.open-extensions";
+
+											// subtitle: bind template.data as <$ExmUnifiedData>.link;
 
 											[suffix]
 											Gtk.Image {
