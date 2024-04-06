@@ -1,6 +1,7 @@
-/* exm-manager.c
+/*
+ * exm-manager.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +26,8 @@
 
 #include "../exm-types.h"
 #include "../exm-enums.h"
+
+#include "exm-config.h"
 
 struct _ExmManager
 {
@@ -764,12 +767,18 @@ on_state_changed (ShellExtensions *object,
         return;
     }
 
+    GSettings *settings;
+    settings = g_settings_new (APP_ID);
+
     // Emit items-changed signal to re-sort extension list
+    if (g_settings_get_boolean (settings, "sort-enabled-first"))
     {
         guint position;
         if (g_list_store_find_with_equal_func (list_store, extension, (GEqualFunc)is_extension_equal, &position))
             g_list_model_items_changed (G_LIST_MODEL (list_store), position, 1, 1);
     }
+
+    g_object_unref (settings);
 
     // If the extension that has changed has an update, then
     // one or more extensions have updates available. Lazily
