@@ -1,7 +1,7 @@
 {
     "id" : "com.mattjakeman.ExtensionManager",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "45",
+    "runtime-version" : "46",
     "sdk" : "org.gnome.Sdk",
     "command" : "extension-manager",
     "finish-args" : [
@@ -11,8 +11,7 @@
         "--device=dri",
         "--socket=wayland",
         "--talk-name=org.gnome.Shell.Extensions",
-        "--talk-name=org.gnome.SessionManager",
-        "--env=GDK_PIXBUF_MODULE_FILE=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
+        "--talk-name=org.gnome.SessionManager"
     ],
     "cleanup" : [
         "/include",
@@ -26,28 +25,6 @@
         "*.a"
     ],
     "modules" : [
-        {
-            "name" : "webp-pixbuf-loader",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dgdk_pixbuf_moduledir=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/aruiz/webp-pixbuf-loader.git",
-                    "tag" : "0.2.4"
-                }
-            ]
-        },
-        {
-            "name" : "update-pixbuf-loaders",
-            "buildsystem" : "simple",
-            "build-commands" : [
-                "GDK_PIXBUF_MODULEDIR=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/ gdk-pixbuf-query-loaders > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache",
-                "gdk-pixbuf-query-loaders >> /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
-            ]
-        },
     	{
             "name" : "blueprint-compiler",
             "builddir" : true,
@@ -59,8 +36,8 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "commit" : "2a39a16391122af2f3d812e478c1c1398c98b972",
-                    "tag" : "v0.10.0"
+                    "commit" : "66b43c36cf1017c878762007373964a096b3d2a5",
+                    "tag" : "v0.12.0"
                 }
             ]
         },
@@ -106,8 +83,8 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/mjakeman/extension-manager",
-                    "commit" : "fce0e326dbddaf6ae17df79c01e553f4b73e3015",
-                    "tag" : "v0.4.3"
+                    "commit" : "db86b87151d9564c22fce34205de999335cb7f5a",
+                    "tag" : "v0.5.0"
                 }
             ]
         }
