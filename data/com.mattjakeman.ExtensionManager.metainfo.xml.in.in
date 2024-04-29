@@ -49,6 +49,14 @@
     <display_length compare="ge">360</display_length>
   </requires>
   <releases>
+    <release version="0.5.1" date="2024-04-29">
+      <description translate="no">
+        <ul>
+          <li>Translation updates</li>
+          <li>Performance and stability</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.5.0" date="2024-03-18">
       <description translate="no">
         <p>The 'Performance &amp; Polish' release</p>
