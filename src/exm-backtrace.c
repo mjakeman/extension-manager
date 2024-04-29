@@ -33,7 +33,6 @@
 #if WITH_BACKTRACE
 static struct backtrace_state *state = NULL;
 static int frames_omitted_count = 0;
-#endif
 
 static void
 exm_backtrace_error_cb (void       *data,
@@ -71,6 +70,7 @@ exm_backtrace_full_cb (GString    *string_builder,
 
     return 0;
 }
+#endif
 
 void
 exm_backtrace_init (char *filename)
