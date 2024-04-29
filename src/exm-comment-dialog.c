@@ -10,6 +10,8 @@ struct _ExmCommentDialog
     AdwDialog parent_instance;
 
     ExmCommentProvider *comment_provider;
+    GCancellable *cancellable;
+    gboolean closed;
 
     GtkListBox *list_box;
     GtkStack *stack;
@@ -40,8 +42,6 @@ exm_comment_dialog_new (int web_id)
 static void
 exm_comment_dialog_finalize (GObject *object)
 {
-    ExmCommentDialog *self = (ExmCommentDialog *)object;
-
     G_OBJECT_CLASS (exm_comment_dialog_parent_class)->finalize (object);
 }
 
@@ -127,6 +127,9 @@ on_get_comments (GObject          *source,
 {
     GError *error = NULL;
 
+    if (self->closed)
+      return;
+
     GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
 
     if (error != NULL)
@@ -144,15 +147,25 @@ on_get_comments (GObject          *source,
 }
 
 static void
+on_dialog_closed (ExmCommentDialog *self)
+{
+  self->closed = TRUE;
+}
+
+static void
 exm_comment_dialog_constructed (GObject *object)
 {
     ExmCommentDialog *self = EXM_COMMENT_DIALOG (object);
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
+
+    g_cancellable_cancel (self->cancellable);
+    self->cancellable = g_cancellable_new ();
+
     exm_comment_provider_get_comments_async (self->comment_provider,
                                              self->web_id,
                                              true,
-                                             NULL,
+                                             self->cancellable,
                                              (GAsyncReadyCallback) on_get_comments,
                                              self);
 
@@ -165,5 +178,9 @@ exm_comment_dialog_init (ExmCommentDialog *self)
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->comment_provider = exm_comment_provider_new ();
+
+    self->closed = FALSE;
+
+    g_signal_connect (self, "closed", G_CALLBACK (on_dialog_closed), NULL);
 }
 
