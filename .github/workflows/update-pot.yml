@@ -19,20 +19,20 @@ concurrency:
 
 jobs:
   update_pot:
-    name: Update template
+    name: Update Template
     runs-on: ubuntu-latest
     container: debian:sid
     permissions:
       contents: write
     steps:
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
           apt update
           apt install -y git meson gcc gettext cmake appstream desktop-file-utils \
             libadwaita-1-dev libgtk-4-dev libjson-glib-dev libsoup-3.0-dev libtext-engine-dev \
             blueprint-compiler
 
-      - name: Setup repository
+      - name: Setup Repository
         run: |
           git clone -b ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} \
             ${{ github.server_url }}/${{ github.repository }} .
@@ -46,29 +46,15 @@ jobs:
           bash ./print-source-files.sh > ./POTFILES
           cd ..
 
-      - name: Update translation template
+      - name: Update Translation Template
         run: |
           meson setup _build -Dbacktrace=false
           meson compile -C _build extension-manager-pot
 
-      - name: Commit changes
-        id: commit-changes
-        run: |
-          echo "po: Update template" \
-          | git commit -a -F - || export failure=$?
-
-          if [ -z $failure ]; then
-            echo "status=true" >> $GITHUB_OUTPUT
-          elif [ $failure = '1' ]; then
-            echo 'No commit made, skip push.'
-            echo "status=false" >> $GITHUB_OUTPUT
-          else
-            exit $failure
-          fi
-
-      - name: Push changes
-        if: ${{ steps.commit-changes.outputs.status == 'true' }}
-        uses: ad-m/github-push-action@v0.8.0
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6.0.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "po: Update template"
+          branch: update-pot
+          base: master
