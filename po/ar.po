@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 14:42+0100\n"
-"PO-Revision-Date: 2024-03-15 22:30+0000\n"
-"Last-Translator: Omar TS <ots@duck.com>\n"
+"PO-Revision-Date: 2024-05-07 23:53+0000\n"
+"Last-Translator: Ali Galal <ali.sameh.galal@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.4-rc\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
-msgstr "مدير الإضافة"
+msgstr "مدير الامتدادات"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
-msgstr "إدارة إضافات جنوم شل"
+msgstr "أدِر امتدادات جنوم شل"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
-msgstr "extension;manager;إضافة;مدير;شل;"
+msgstr "extension;manager;امتداد;مدير;شل;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "تصفح، تثبيت، وإدارة إضافات جنوم شل"
+msgstr "تصفح ونصِّب وأدِر امتدادات جنوم شل"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "أداة مساعدة لتصفح وتثبيت إضافات جنوم شل."
+msgstr "أداة تصفح وتنصيب امتدادت جنوم شل."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -50,46 +50,52 @@ msgstr "الميزات:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#, fuzzy
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "تصفح extension.gnome.org داخل التطبيق مباشرة"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Manage the extensions you already have installed"
-msgstr "إدارة الإضافات التي قمت بتثبيتها بالفعل"
+msgstr "أدِر الامتدادات التي نصَّبتها"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "A utility for managing GNOME Shell Extensions"
-msgstr "أداة لإدارة إضافات جنوم شل"
+msgstr "أداة إدراة امتدادت جنوم شل"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "تصفح، تثبيت، وإدارة إضافات جنوم شل."
+msgstr "تصفح ونصِّب وأدِر امتدادات جنوم شل."
 
 #: src/exm-application.c:192
 msgid "translator-credits"
-msgstr "Omar TS <ots@duck.com>"
+msgstr ""
+"Omar TS <ots@duck.com>\n"
+"علي جلال <AleuqabAli@gmail.com>"
 
 #: src/exm-browse-page.blp:9
 msgid "Search for extensions"
-msgstr "بحث عن الإضافات"
+msgstr "ابحث عن امتدادات"
 
 #: src/exm-browse-page.blp:10
+#, fuzzy
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
-msgstr "أدخل كلمة أساسية للبحث في \"extensions.gnome.org\" عن إضافات جنوم شل."
+msgstr "أدخل كلمة مفتاحية للبحث عن امتدادات جنوم شل في «extensions.gnome.org»"
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
+#, fuzzy
 msgid "Relevance"
 msgstr "الصلة"
 
 #: src/exm-browse-page.blp:31
 msgctxt "Sort search results"
 msgid "Downloads"
-msgstr "تنزيلات"
+msgstr "التنزيلات"
 
 #: src/exm-browse-page.blp:31
+#, fuzzy
 msgid "Recent"
 msgstr "الأخيرة"
 
@@ -98,12 +104,13 @@ msgid "Name"
 msgstr "الاسم"
 
 #: src/exm-browse-page.blp:61
+#, fuzzy
 msgid "_Load More Results"
-msgstr "_عرض المزيد من النتائج"
+msgstr "_حمِّل المزيد من النتائج"
 
 #: src/exm-browse-page.blp:73
 msgid "No Results Found"
-msgstr "لا توجد نتائج"
+msgstr "لم يُعثَّر على نتائج"
 
 #. Translators:
 #. - '%s' is an extension e.g. Blur my Shell
@@ -111,36 +118,40 @@ msgstr "لا توجد نتائج"
 #: src/exm-browse-page.c:299
 #, c-format
 msgid "e.g. “%s”"
-msgstr "مثال “%s”"
+msgstr "مثال «%s»"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
-msgstr "تعليقات"
+msgstr "التعليقات"
 
 #: src/exm-comment-dialog.blp:37
+#, fuzzy
 msgid "Loading Comments"
-msgstr "تحميل التعليقات"
+msgstr "يُحمل التعليقات"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
 #: src/exm-detail-view.blp:232
 msgid "An Error Occurred"
-msgstr "حصل خطأ"
+msgstr "حدث خطأ"
 
 #: src/exm-comment-tile.blp:21
+#, fuzzy
 msgid "Author"
-msgstr "المؤلف"
+msgstr "الصانع"
 
 #: src/exm-detail-view.blp:47
+#, fuzzy
 msgid "Loading Details"
-msgstr "تحميل التفاصيل"
+msgstr "يُحمل التفاصيل"
 
 #: src/exm-detail-view.blp:125
+#, fuzzy
 msgid "Enlarge image"
-msgstr "تكبير الصورة"
+msgstr "كبِّر الصورة"
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:89
 msgid "Description"
-msgstr "وصف"
+msgstr "الوصف"
 
 #: src/exm-detail-view.blp:159
 msgid "Links"
@@ -151,12 +162,14 @@ msgid "Homepage"
 msgstr "الصفحة الرئيسية"
 
 #: src/exm-detail-view.blp:191
+#, fuzzy
 msgid "View on Extensions"
-msgstr "عرض على الإضافات"
+msgstr "طالعها في موقع الامتدادات"
 
 #: src/exm-detail-view.blp:210
+#, fuzzy
 msgid "User Reviews"
-msgstr "مراجعات المستخدم"
+msgstr "تعقيبات المستخدمين"
 
 #: src/exm-detail-view.blp:241
 msgid "There are no comments."
@@ -164,36 +177,38 @@ msgstr "لا توجد تعليقات."
 
 #: src/exm-detail-view.blp:261
 msgid "_Show All Reviews"
-msgstr "_أظهر جميع التقييمات"
+msgstr "ا_عرض جميع التعقيبات"
 
 #: src/exm-error-dialog.blp:7
+#, fuzzy
 msgid "Error Report"
 msgstr "تقرير خطأ"
 
 #: src/exm-error-dialog.blp:29
 msgid "An unexpected error occurred in Extension Manager."
-msgstr "حدث خطأ غير متوقع في مدير الإضافة."
+msgstr "حدث خطأ غير متوقع في مدير الامتدادات."
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
-msgstr "_نسخ إلى الحافظة"
+msgstr "ا_نسخ إلى الحافظة"
 
 #: src/exm-error-dialog.blp:64
+#, fuzzy
 msgid "_New Issue"
-msgstr "_مشكلة جديدة"
+msgstr "_علة جديدة"
 
 #. Success indicator
 #: src/exm-error-dialog.c:132 src/exm-upgrade-assistant.c:338
 msgid "Copied"
-msgstr "منسوخ"
+msgstr "نُسخَت"
 
 #: src/exm-error-dialog.c:182
 msgid "Please open a new issue and attach the following information:"
-msgstr "يرجى فتح مشكلة جديدة وإرفاق المعلومات التالية:"
+msgstr "بلِّغ عن علة جديدة وأرفق المعلومات التالية:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:186
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
@@ -205,86 +220,92 @@ msgstr ""
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
-msgstr "فتح تفضيلات الإضافة"
+msgstr "افتح تفضيلات الامتداد"
 
 #: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
-msgstr "حدث خطأ أثناء تحميل هذه الإضافة"
+msgstr "حدث خطأ أثناء تحميل هذا الامتداد"
 
 #: src/exm-extension-row.blp:58
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr "هذه الإضافة غير متوافقة مع إصدارك الحالي من جنوم"
+msgstr "هذا الامتداد غير متوافق مع إصدارك الحالي من جنوم"
 
 #: src/exm-extension-row.blp:74
 msgid "A newer version of this extension is available"
-msgstr "يتوفر إصدار أحدث من هذه الإضافة"
+msgstr "يتوفَّر إصدار أحدث لهذا الامتداد"
 
 #: src/exm-extension-row.blp:116 src/exm-info-bar.blp:18
 msgid "Version"
 msgstr "الإصدار"
 
 #: src/exm-extension-row.blp:142
+#, fuzzy
 msgid "Error"
 msgstr "خطأ"
 
 #: src/exm-extension-row.blp:181
+#, fuzzy
 msgid "See Details"
-msgstr "عرض التفاصيل"
+msgstr "اعرض التفاصيل"
 
 #: src/exm-extension-row.blp:190
 msgid "Remove"
-msgstr "حذف"
+msgstr "أزِل"
 
 #: src/exm-info-bar.blp:13
+#, fuzzy
 msgctxt "Number of downloads"
 msgid "Downloads"
-msgstr "التنزيلات"
+msgstr "مرات التنزيل"
 
 #: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
 #: src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
-msgstr "غير مدعوم"
+msgstr "لا تدعم"
 
 #: src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME."
-msgstr "هذه الإضافة غير متوافقة مع إصدارك الحالي من جنوم."
+msgstr "هذا الامتداد غير متوافق مع إصدارك الحالي من جنوم."
 
 #: src/exm-install-button.c:115
 msgid "Install"
-msgstr "تثبيت"
+msgstr "نصِّب"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
-msgstr "مثبت"
+msgstr "مُنصَّب"
 
 #: src/exm-installed-page.blp:33
 msgid "Use Extensions"
-msgstr "استخدام الإضافات"
+msgstr "استخدم الامتدادات"
 
 #: src/exm-installed-page.blp:34
+#, fuzzy
 msgid "Extensions can cause performance and stability issues."
-msgstr "إضافات قد تسبب مشاكل في الأداء والاستقرار."
+msgstr "قد تُسبِّب الامتدادات مشكلات أداء واستقرار."
 
 #: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
-msgstr "إضافات المستخدم المثبتة"
+msgstr "امتدادات نصبَّها المستخدم"
 
 #: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
-msgstr "إضافات النظام"
+msgstr "امتدادات مُنصَّبة في النظام"
 
 #: src/exm-installed-page.blp:95
+#, fuzzy
 msgid "Updates are available"
 msgstr "تحديثات متوفرة"
 
 #: src/exm-installed-page.blp:112
+#, fuzzy
 msgid "Log Out"
-msgstr "خروج"
+msgstr "اخرج"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:197
-#, c-format
+#, c-format, fuzzy
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
 msgstr[0] "0 إضافة سيتم تحديثها عند الدخول التالي ."
@@ -300,19 +321,19 @@ msgstr "تصفح"
 
 #: src/exm-installed-page.c:326 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
-msgstr "لا توجد إضافات للمستخدم مثبتة."
+msgstr "لا تُوجَد امتدادات نصَّبها المستخدم."
 
 #: src/exm-installed-page.c:341 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
-msgstr "لا توجد إضافات للنظام مثبتة."
+msgstr "لا تُوجَد امتدادات مُنصَّبة في النظام."
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
-msgstr "تصغير"
+msgstr "بعِّد"
 
 #: src/exm-screenshot-view.blp:49
 msgid "Zoom In"
-msgstr "تكبير"
+msgstr "قرِّب"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -320,58 +341,63 @@ msgstr "مساعد الترقية"
 
 #: src/exm-upgrade-assistant.blp:47
 msgid "_Check Compatibility"
-msgstr "_فحص التوافق"
+msgstr "ا_فحص التوافق"
 
 #: src/exm-upgrade-assistant.c:176
-#, c-format
+#, c-format, fuzzy
 msgid "Checked %d/%d Extensions"
-msgstr "تم التحقق مِنْ %d/%d مِنَ الإضافات"
+msgstr "فُحِص %d/%d من الامتدادات"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:195
-#, c-format
+#, c-format, fuzzy
 msgid "%d%% Compatible"
 msgstr "%d%% متوافق"
 
 #: src/exm-upgrade-assistant.c:215
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system."
 msgstr ""
-"<b>جنوم %s</b> يدعم <b>%d من اصل %d</b> من الإضافات المثبتة على النظام."
+"<b>%d من أصل %d</b> من الامتدادات المُنصَّبة على جهازك تتوافق مع إصدار "
+"<b>جنوم %s</b>"
 
 #: src/exm-upgrade-assistant.c:512
 msgid "Supported"
-msgstr "مدعوم"
+msgstr "مُتوافِق"
 
 #: src/exm-upgrade-assistant.c:514
+#, fuzzy
 msgid "A compatible version of the extension exists."
-msgstr "يتوفر إصدار مدعوم من هذه الإضافة."
+msgstr "يُوجَد إصدار مُتوافِق من هذا الامتداد."
 
 #: src/exm-upgrade-assistant.c:518
+#, fuzzy
 msgid "No compatible version of the extension exists."
-msgstr "لا يتوفر إصدار مدعوم من هذه الإضافة."
+msgstr "لا يُوجَد إصدار مُتوافِق من هذا الامتداد."
 
 #: src/exm-upgrade-assistant.c:520
+#, fuzzy
 msgid "Unknown"
 msgstr "مجهول"
 
 #: src/exm-upgrade-assistant.c:522
+#, fuzzy
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
-"لا يتم استضافة هذه الإضافة على extensions.gnome.org. لا يمكن تحديد توافقها."
+"هذا الامتداد غير مُستضاف على extensions.gnome.org، لذا لا يمكن تحديد توافقه."
 
 #: src/exm-upgrade-assistant.c:617
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"أنت تشغل حاليا <b>جنوم %s</b>. حدد إصدارا من جنوم أدناه وتحقق مما إذا كانت "
-"إضافاتك ستظل متاحة."
+"أنت تُشغِل حاليًا <b>جنوم %s</b>، فحدد إصدارًا من جنوم أدناه وتحقق مما إذا "
+"كانت امتداداتك  ستظل متاحة."
 
 #: src/exm-window.blp:40
 msgid "Main Menu"
@@ -380,22 +406,24 @@ msgstr "القائمة الرئيسية"
 #: src/exm-window.blp:53
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "_مثبت"
+msgstr "ال_مُنصَّبة"
 
 #: src/exm-window.blp:62
+#, fuzzy
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "_تصفح"
+msgstr "_التصفح"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
 #: src/exm-window.blp:106
 msgid "Sort _Enabled First"
-msgstr "فرز_ المفعل أولا"
+msgstr "افرز ال_مُفعَّل أولًا"
 
 #: src/exm-window.blp:107
+#, fuzzy
 msgid "_Show Unsupported"
-msgstr "_عرض غير المدعومة"
+msgstr "_اعرض غير المتوافق"
 
 #: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
@@ -403,13 +431,15 @@ msgstr "_مساعد الترقية"
 
 #: src/exm-window.blp:111
 msgid "_About Extension Manager"
-msgstr "_حول مدير الإضافة"
+msgstr "_عن"
 
 #: src/exm-window.c:158
+#, fuzzy
 msgid "Uninstall Extension?"
-msgstr "إلغاء تثبيت الإضافة؟"
+msgstr "أتُزيل الإضافة؟"
 
 #: src/exm-window.c:159
+#, fuzzy
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -427,23 +457,23 @@ msgstr "_نعم"
 
 #: src/exm-window.c:232
 msgid "Unsupported Extension"
-msgstr "إضافة غير مدعومة"
+msgstr "امتداد غير مُتوافِق"
 
 #: src/exm-window.c:233
+#, fuzzy
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
-"هذه الإضافة لا تدعم إصدار جنوم شل الخاص بك. قد يسبب ذلك أخطاء في حالة "
-"التثبيت."
+"هذا الامتداد لا يدعم إصدار جنوم شل الخاص بك، فلو نُصِّب قد يُسبِّب أخطاءً."
 
 #: src/exm-window.c:236
 msgid "_Install Anyway"
-msgstr "_تثبيت على اي حال"
+msgstr "نصِّب على أي حال"
 
 #: src/exm-window.c:237
 msgid "_Go Back"
-msgstr "_رجوع إلى الخلف"
+msgstr "ا_رجع"
 
 #: src/exm-window.c:344
 msgid "An error occurred."
@@ -451,7 +481,7 @@ msgstr "حدث خطأ."
 
 #: src/exm-window.c:345
 msgid "Details"
-msgstr "تفاصيل"
+msgstr "التفاصيل"
 
 #~ msgid "Return to view"
 #~ msgstr "رجوع إلى العرض"
