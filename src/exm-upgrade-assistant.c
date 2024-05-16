@@ -595,7 +595,7 @@ populate_drop_down (ExmUpgradeAssistant *self)
         gchar *key;
 
         key = g_strdup_printf ("GNOME %d", index);
-        g_hash_table_insert (hash_table, key, index);
+        g_hash_table_insert (hash_table, key, &index);
         gtk_string_list_append (string_list, key);
     }
 
