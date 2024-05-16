@@ -595,8 +595,8 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_unapply_cb);
     gtk_widget_class_bind_template_callback (widget_class, screenshot_view_cb);
 
-    gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, open_link);
-    gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, open_link);
+    gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);
+    gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, (GtkWidgetActionActivateFunc) open_link);
 }
 
 static void
