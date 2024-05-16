@@ -106,9 +106,8 @@ widget_factory (ExmExtension     *extension,
                 ExmInstalledPage *self)
 {
     ExmExtensionRow *row;
-
-    g_return_if_fail (EXM_IS_EXTENSION (extension));
-    g_return_if_fail (EXM_IS_INSTALLED_PAGE (self));
+    g_return_val_if_fail (EXM_IS_EXTENSION (extension), GTK_WIDGET (NULL));
+    g_return_val_if_fail (EXM_IS_INSTALLED_PAGE (self), GTK_WIDGET (NULL));
 
     row = exm_extension_row_new (extension, self->manager);
     return GTK_WIDGET (row);
@@ -117,8 +116,8 @@ widget_factory (ExmExtension     *extension,
 static int
 compare_enabled (ExmExtension *this, ExmExtension *other)
 {
-    g_return_if_fail (EXM_IS_EXTENSION (this));
-    g_return_if_fail (EXM_IS_EXTENSION (other));
+    g_return_val_if_fail (EXM_IS_EXTENSION (this), 2);
+    g_return_val_if_fail (EXM_IS_EXTENSION (other), 2); // Crash
 
     ExmExtensionState this_state;
     ExmExtensionState other_state;
