@@ -406,7 +406,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     if (!key)
         return;
 
-    target_version = (int) g_hash_table_lookup (self->version_map, key);
+    target_version = GPOINTER_TO_INT (g_hash_table_lookup (self->version_map, key));
 
     if (self->target_shell_version)
         g_free (self->target_shell_version);
@@ -595,7 +595,7 @@ populate_drop_down (ExmUpgradeAssistant *self)
         gchar *key;
 
         key = g_strdup_printf ("GNOME %d", index);
-        g_hash_table_insert (hash_table, key, index);
+        g_hash_table_insert (hash_table, key, GINT_TO_POINTER (index));
         gtk_string_list_append (string_list, key);
     }
 
