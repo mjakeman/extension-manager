@@ -404,7 +404,7 @@ exm_window_init (ExmWindow *self)
     }
 
     self->manager = exm_manager_new ();
-    g_signal_connect (self->manager, "error-occurred", on_error, self);
+    g_signal_connect (self->manager, "error-occurred", G_CALLBACK (on_error), self);
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
