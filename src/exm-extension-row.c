@@ -234,7 +234,7 @@ on_state_changed (GtkSwitch        *toggle,
                   gboolean          state,
                   ExmExtensionRow  *self)
 {
-    g_return_if_fail (EXM_IS_EXTENSION_ROW (self));
+    g_return_val_if_fail (EXM_IS_EXTENSION_ROW (self), FALSE);
 
     g_assert (self->ext_toggle == toggle);
 
