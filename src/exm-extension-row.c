@@ -146,6 +146,18 @@ unbind_extension (ExmExtensionRow *self)
     }
 }
 
+static const gchar *extension_state[] = {
+    [EXM_EXTENSION_STATE_ACTIVE] = "ACTIVE",
+    [EXM_EXTENSION_STATE_INACTIVE] = "INACTIVE",
+    [EXM_EXTENSION_STATE_ERROR] = "ERROR",
+    [EXM_EXTENSION_STATE_OUT_OF_DATE] = "OUT_OF_DATE",
+    [EXM_EXTENSION_STATE_DOWNLOADING] = "DOWNLOADING",
+    [EXM_EXTENSION_STATE_INITIALIZED] = "INITIALIZED",
+    [EXM_EXTENSION_STATE_DEACTIVATING] = "DEACTIVATING",
+    [EXM_EXTENSION_STATE_ACTIVATING] = "ACTIVATING",
+    [EXM_EXTENSION_STATE_UNINSTALLED] = "UNINSTALLED"
+};
+
 static void
 bind_extension (ExmExtensionRow *self,
                 ExmExtension    *extension)
@@ -222,6 +234,9 @@ bind_extension (ExmExtensionRow *self,
                                  NULL,
                                  NULL,
                                  NULL);
+
+    // set tooltip
+    gtk_widget_set_tooltip_text (self->ext_toggle, extension_state[state]);
 
     // Keep compatibility with GNOME Shell versions prior to 46
     if (gtk_switch_get_state (self->ext_toggle) != enabled &&
