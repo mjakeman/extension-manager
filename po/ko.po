@@ -50,7 +50,7 @@ msgstr "특징:"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "앱 내에서 extensions.gnome.org를 검색할 수 있습니다"
+msgstr "앱에서 바로 extensions.gnome.org 찾아보기"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
@@ -100,7 +100,7 @@ msgstr "이름순"
 
 #: src/exm-browse-page.blp:61
 msgid "_Load More Results"
-msgstr "_더 많은 결과 로드"
+msgstr "_더 많은 결과 불러오기"
 
 #: src/exm-browse-page.blp:73
 msgid "No Results Found"
@@ -122,7 +122,7 @@ msgstr "댓글"
 #, fuzzy
 #| msgid "Comments"
 msgid "Loading Comments"
-msgstr "댓글"
+msgstr "댓글 불러오는 중"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
 #: src/exm-detail-view.blp:232
@@ -137,7 +137,7 @@ msgstr "저자"
 #, fuzzy
 #| msgid "Details"
 msgid "Loading Details"
-msgstr "세부 사항"
+msgstr "세부 사항 불러오는 중"
 
 #: src/exm-detail-view.blp:125
 msgid "Enlarge image"
@@ -468,7 +468,7 @@ msgstr "세부 사항"
 #~ msgstr "보기로 돌아가기"
 
 #~ msgid "Loading…"
-#~ msgstr "로딩중…"
+#~ msgstr "불러오는 중…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"
