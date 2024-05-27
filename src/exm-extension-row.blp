@@ -74,6 +74,22 @@ template $ExmExtensionRow : Adw.ExpanderRow {
 		tooltip-text: _("A newer version of this extension is available");
 	}
 
+	[action]
+	Gtk.Image info_icon {
+		styles ["warning"]
+
+		icon-name: "dialog-information-symbolic";
+		valign: center;
+		halign: center;
+
+		margin-start: 9;
+		margin-end: 9;
+
+		visible: false;
+
+		tooltip-text: _("This extension could be activated in session modes such as the login screen or the lock screen");
+	}
+
 	Gtk.ListBoxRow {
 		activatable: false;
 
