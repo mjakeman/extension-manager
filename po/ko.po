@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 14:42+0100\n"
-"PO-Revision-Date: 2023-12-11 15:20+0900\n"
-"Last-Translator: Ensup Choi <ensup@vivaldi.net>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-05-27 12:09+0000\n"
+"Last-Translator: tabby <tabby4442@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/extension-manager/"
+"app/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -30,10 +31,8 @@ msgstr "GNOME Shell 확장 관리"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
-#, fuzzy
-#| msgid "extension;manager;"
 msgid "extension;manager;shell;"
-msgstr "extension;manager;"
+msgstr "확장;관리자;쉘;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -119,8 +118,6 @@ msgid "Comments"
 msgstr "댓글"
 
 #: src/exm-comment-dialog.blp:37
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
 msgstr "댓글 불러오는 중"
 
