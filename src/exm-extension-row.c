@@ -27,6 +27,7 @@ struct _ExmExtensionRow
     GtkImage *update_icon;
     GtkImage *error_icon;
     GtkImage *out_of_date_icon;
+    GtkImage *info_icon;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -203,6 +204,11 @@ bind_extension (ExmExtensionRow *self,
     gtk_widget_set_visible (GTK_WIDGET (self->error_icon), state == EXM_EXTENSION_STATE_ERROR);
     gtk_widget_set_visible (GTK_WIDGET (self->out_of_date_icon), state == EXM_EXTENSION_STATE_OUT_OF_DATE);
 
+    gtk_widget_set_visible (GTK_WIDGET (self->info_icon),
+                            (state == EXM_EXTENSION_STATE_INITIALIZED
+                             || state == EXM_EXTENSION_STATE_INACTIVE)
+                             && enabled);
+
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
     GAction *action;
@@ -300,6 +306,7 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, update_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, out_of_date_icon);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, info_icon);
 
     gtk_widget_class_bind_template_callback (widget_class, on_state_changed);
 }
