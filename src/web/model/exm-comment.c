@@ -10,6 +10,7 @@ struct _ExmComment
     gchar *comment;
     gchar *author;
     int rating;
+    gchar *date;
 };
 
 static JsonSerializableIface *serializable_iface = NULL;
@@ -26,6 +27,7 @@ enum {
     PROP_COMMENT,
     PROP_AUTHOR,
     PROP_RATING,
+    PROP_DATE,
     N_PROPS
 };
 
@@ -67,6 +69,9 @@ exm_comment_get_property (GObject    *object,
     case PROP_RATING:
         g_value_set_int (value, self->rating);
         break;
+    case PROP_DATE:
+        g_value_set_string (value, self->date);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -93,6 +98,9 @@ exm_comment_set_property (GObject      *object,
         break;
     case PROP_RATING:
         self->rating = g_value_get_int (value);
+        break;
+    case PROP_DATE:
+        self->date = g_value_dup_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -136,6 +144,13 @@ exm_comment_class_init (ExmCommentClass *klass)
                           -1, 5, -1, /* min -1, max 5, default -1 */
                           G_PARAM_READWRITE);
 
+    properties [PROP_DATE] =
+        g_param_spec_string ("date",
+                             "Date",
+                             "Date",
+                             NULL,
+                             G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
@@ -159,6 +174,14 @@ exm_comment_deserialize_property (JsonSerializable *serializable,
 
         obj = json_node_get_object (property_node);
         g_value_set_string (value, json_object_get_string_member (obj, "username"));
+        return TRUE;
+    }
+    else if (strcmp (property_name, "date") == 0)
+    {
+        JsonObject *obj;
+
+        obj = json_node_get_object (property_node);
+        g_value_set_string (value, json_object_get_string_member (obj, "timestamp"));
         return TRUE;
     }
 
