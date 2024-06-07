@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-06 13:53+0000\n"
-"PO-Revision-Date: 2024-03-17 11:07+0000\n"
+"PO-Revision-Date: 2024-06-07 10:04+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -157,7 +157,7 @@ msgstr "Start­pagina"
 
 #: src/exm-detail-view.blp:191
 msgid "Donate"
-msgstr ""
+msgstr "Doneren"
 
 #: src/exm-detail-view.blp:200
 msgid "View on Extensions"
@@ -234,6 +234,8 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"Deze uitbreiding kan worden geactiveerd in sessie­modussen zoals het inlog­"
+"scherm of het vergrendel­scherm"
 
 #: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
 msgid "Version"
