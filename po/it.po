@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-06 13:53+0000\n"
-"PO-Revision-Date: 2024-05-14 08:01+0000\n"
-"Last-Translator: Gianni Frittella <giannifrittella@fastwebnet.it>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/extension-"
-"manager/app/it/>\n"
+"PO-Revision-Date: 2024-06-10 02:09+0000\n"
+"Last-Translator: Nathan Hadley <nathanhadley.pigeon@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"extension-manager/app/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -151,7 +151,7 @@ msgstr "Home page"
 
 #: src/exm-detail-view.blp:191
 msgid "Donate"
-msgstr ""
+msgstr "Donare"
 
 #: src/exm-detail-view.blp:200
 msgid "View on Extensions"
@@ -228,6 +228,8 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"Questa estensione potrebbe essere attivata in modalità sessione come "
+"schermata di accesso o schermata di blocco"
 
 #: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
 msgid "Version"
