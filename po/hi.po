@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-06 13:53+0000\n"
-"PO-Revision-Date: 2024-05-22 22:22+0000\n"
+"PO-Revision-Date: 2024-06-12 07:12+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
 "app/hi/>\n"
@@ -151,7 +151,7 @@ msgstr "मुखपृष्ठ"
 
 #: src/exm-detail-view.blp:191
 msgid "Donate"
-msgstr ""
+msgstr "दान करें"
 
 #: src/exm-detail-view.blp:200
 msgid "View on Extensions"
@@ -227,6 +227,8 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"इस एक्सटेंशन को सत्र मोड जैसे लॉगिन स्क्रीन या लॉक स्क्रीन में सक्रिय किया जा"
+" सकता है"
 
 #: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
 msgid "Version"
