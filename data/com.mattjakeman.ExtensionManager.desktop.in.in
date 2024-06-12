@@ -5,6 +5,7 @@ Icon=@app_id@
 Terminal=false
 Type=Application
 Categories=GTK;Utility
+OnlyShowIn=GNOME;
 StartupNotify=true
 MimeType=x-scheme-handler/gnome-extensions;
 Comment=Manage GNOME Shell Extensions
