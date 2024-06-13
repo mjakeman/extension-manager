@@ -48,6 +48,10 @@
   <requires>
     <display_length compare="ge">360</display_length>
   </requires>
+  <branding>
+    <color type="primary" scheme_preference="light">#95d1ff</color>
+    <color type="primary" scheme_preference="dark">#005edf</color>
+  </branding>
   <releases>
     <release version="0.5.1" date="2024-04-29">
       <description translate="no">
