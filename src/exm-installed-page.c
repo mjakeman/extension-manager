@@ -248,18 +248,6 @@ on_bind_manager (ExmInstalledPage *self)
                             "active",
                             G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
 
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->user_list_box,
-                            "sensitive",
-                            G_BINDING_SYNC_CREATE);
-
-    g_object_bind_property (self->manager,
-                            "extensions-enabled",
-                            self->system_list_box,
-                            "sensitive",
-                            G_BINDING_SYNC_CREATE);
-
     // Check if updates are available
     // NOTE: We need to do this *after* connecting the signal
     // handler above, otherwise we will not be notified.
