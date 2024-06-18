@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 14:42+0100\n"
-"PO-Revision-Date: 2024-03-23 15:54+0000\n"
+"POT-Creation-Date: 2024-06-13 12:13+0000\n"
+"PO-Revision-Date: 2024-06-10 17:18+0000\n"
 "Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
 "manager/app/ru/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -26,13 +26,13 @@ msgstr ""
 msgid "Extension Manager"
 msgstr "Менеджер расширений"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
 msgstr "Управление расширениями GNOME Shell"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;менеджер;расширение;"
 
@@ -126,11 +126,11 @@ msgid "Loading Comments"
 msgstr "Загрузка комментариев"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:232
+#: src/exm-detail-view.blp:241
 msgid "An Error Occurred"
 msgstr "Произошла ошибка"
 
-#: src/exm-comment-tile.blp:21
+#: src/exm-comment-tile.blp:28
 msgid "Author"
 msgstr "Автор"
 
@@ -142,7 +142,7 @@ msgstr "Загрузка подробностей"
 msgid "Enlarge image"
 msgstr "Увеличить изображение"
 
-#: src/exm-detail-view.blp:138 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
 msgid "Description"
 msgstr "Описание"
 
@@ -155,18 +155,22 @@ msgid "Homepage"
 msgstr "Домашняя страница"
 
 #: src/exm-detail-view.blp:191
+msgid "Donate"
+msgstr "Пожертвовать"
+
+#: src/exm-detail-view.blp:200
 msgid "View on Extensions"
 msgstr "Посмотреть в Расширениях"
 
-#: src/exm-detail-view.blp:210
+#: src/exm-detail-view.blp:219
 msgid "User Reviews"
 msgstr "Отзывы пользователей"
 
-#: src/exm-detail-view.blp:241
+#: src/exm-detail-view.blp:250
 msgid "There are no comments."
 msgstr "Комментариев нет."
 
-#: src/exm-detail-view.blp:261
+#: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
 msgstr "_Показать все отзывы"
 
@@ -224,19 +228,27 @@ msgstr "Это расширение несовместимо с вашей те�
 msgid "A newer version of this extension is available"
 msgstr "Доступная новая версия этого расширения"
 
-#: src/exm-extension-row.blp:116 src/exm-info-bar.blp:18
+#: src/exm-extension-row.blp:90
+msgid ""
+"This extension could be activated in session modes such as the login screen "
+"or the lock screen"
+msgstr ""
+"Это расширение может быть активировано в режимах сеанса, таких как экран "
+"входа в систему или экран блокировки"
+
+#: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
 msgid "Version"
 msgstr "Версия"
 
-#: src/exm-extension-row.blp:142
+#: src/exm-extension-row.blp:158
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/exm-extension-row.blp:181
+#: src/exm-extension-row.blp:197
 msgid "See Details"
 msgstr "Посмотреть подробности"
 
-#: src/exm-extension-row.blp:190
+#: src/exm-extension-row.blp:206
 msgid "Remove"
 msgstr "Удалить"
 
@@ -263,33 +275,33 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Установлено"
 
-#: src/exm-installed-page.blp:33
+#: src/exm-installed-page.blp:18
 msgid "Use Extensions"
 msgstr "Использовать Расширения"
 
-#: src/exm-installed-page.blp:34
+#: src/exm-installed-page.blp:19
 msgid "Extensions can cause performance and stability issues."
 msgstr ""
 "Расширения могут вызывать проблемы с производительностью и стабильностью."
 
-#: src/exm-installed-page.blp:42 src/exm-upgrade-assistant.blp:105
+#: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
 msgstr "Расширения, установленные пользователем"
 
-#: src/exm-installed-page.blp:55 src/exm-upgrade-assistant.blp:118
+#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
 msgstr "Системные расширения"
 
-#: src/exm-installed-page.blp:95
+#: src/exm-installed-page.blp:84
 msgid "Updates are available"
 msgstr "Доступны обновления"
 
-#: src/exm-installed-page.blp:112
+#: src/exm-installed-page.blp:102
 msgid "Log Out"
 msgstr "Выйти"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:197
+#: src/exm-installed-page.c:196
 #, c-format
 msgid "One extension will be updated on next login."
 msgid_plural "%d extensions will be updated on next login."
@@ -297,15 +309,15 @@ msgstr[0] "%d расширение будет обновлено при след
 msgstr[1] "%d расширения будут обновлены при следующем входе в систему."
 msgstr[2] "%d расширений будут обновлены при следующем входе в систему."
 
-#: src/exm-installed-page.c:315
+#: src/exm-installed-page.c:314
 msgid "Browse"
 msgstr "Обзор"
 
-#: src/exm-installed-page.c:326 src/exm-upgrade-assistant.c:680
+#: src/exm-installed-page.c:325 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr "Пользовательские расширения не установлены."
 
-#: src/exm-installed-page.c:341 src/exm-upgrade-assistant.c:686
+#: src/exm-installed-page.c:340 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr "Системные расширения не установлены."
 
@@ -410,11 +422,11 @@ msgstr "Помощник по _обновлению"
 msgid "_About Extension Manager"
 msgstr "О пр_иложении"
 
-#: src/exm-window.c:158
+#: src/exm-window.blp:116
 msgid "Uninstall Extension?"
 msgstr "Удалить расширение?"
 
-#: src/exm-window.c:159
+#: src/exm-window.blp:117
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -422,19 +434,19 @@ msgstr ""
 "Функции и возможности расширения больше не будут доступны. Вы уверены, что "
 "хотите удалить расширение?"
 
-#: src/exm-window.c:162
+#: src/exm-window.blp:122
 msgid "_No"
 msgstr "_Нет"
 
-#: src/exm-window.c:163
+#: src/exm-window.blp:123
 msgid "_Yes"
 msgstr "_Да"
 
-#: src/exm-window.c:232
+#: src/exm-window.blp:128
 msgid "Unsupported Extension"
 msgstr "Неподдерживаемое расширение"
 
-#: src/exm-window.c:233
+#: src/exm-window.blp:129
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -442,19 +454,19 @@ msgstr ""
 "Это расширение не поддерживает вашу версию GNOME Shell. Его установка может "
 "привести к ошибкам."
 
-#: src/exm-window.c:236
+#: src/exm-window.blp:134
 msgid "_Install Anyway"
 msgstr "_Установить все равно"
 
-#: src/exm-window.c:237
+#: src/exm-window.blp:135
 msgid "_Go Back"
 msgstr "Н_азад"
 
-#: src/exm-window.c:344
+#: src/exm-window.c:315
 msgid "An error occurred."
 msgstr "Произошла ошибка."
 
-#: src/exm-window.c:345
+#: src/exm-window.c:316
 msgid "Details"
 msgstr "Подробности"
 
