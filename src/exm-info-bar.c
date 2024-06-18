@@ -103,5 +103,7 @@ exm_info_bar_class_init (ExmInfoBarClass *klass)
 static void
 exm_info_bar_init (ExmInfoBar *self)
 {
+    g_type_ensure (EXM_TYPE_INFO_BAR_ITEM);
+
     gtk_widget_init_template (GTK_WIDGET (self));
 }
