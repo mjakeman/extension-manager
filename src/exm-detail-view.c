@@ -25,6 +25,8 @@
 #include "exm-info-bar.h"
 #include "exm-comment-tile.h"
 #include "exm-comment-dialog.h"
+#include "exm-install-button.h"
+#include "exm-screenshot.h"
 
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
@@ -681,6 +683,10 @@ static void
 exm_detail_view_init (ExmDetailView *self)
 {
     GtkAdjustment *adj;
+
+    g_type_ensure (EXM_TYPE_INSTALL_BUTTON);
+    g_type_ensure (EXM_TYPE_SCREENSHOT);
+    g_type_ensure (EXM_TYPE_INFO_BAR);
 
     gtk_widget_init_template (GTK_WIDGET (self));
 

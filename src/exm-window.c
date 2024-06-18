@@ -22,6 +22,7 @@
 #include "exm-browse-page.h"
 #include "exm-installed-page.h"
 #include "exm-detail-view.h"
+#include "exm-screenshot-view.h"
 #include "exm-upgrade-assistant.h"
 #include "exm-error-dialog.h"
 
@@ -397,6 +398,11 @@ do_version_check (ExmWindow *self)
 static void
 exm_window_init (ExmWindow *self)
 {
+    g_type_ensure (EXM_TYPE_INSTALLED_PAGE);
+    g_type_ensure (EXM_TYPE_BROWSE_PAGE);
+    g_type_ensure (EXM_TYPE_DETAIL_VIEW);
+    g_type_ensure (EXM_TYPE_SCREENSHOT_VIEW);
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     if (strstr (APP_ID, ".Devel") != NULL) {
