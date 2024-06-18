@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 13:53+0000\n"
+"POT-Creation-Date: 2024-06-13 12:13+0000\n"
 "PO-Revision-Date: 2024-05-10 16:54+0000\n"
 "Last-Translator: Ali Galal <ali.sameh.galal@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
@@ -26,13 +26,13 @@ msgstr ""
 msgid "Extension Manager"
 msgstr "مدير الامتدادات"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
 msgstr "أدِر امتدادات جنوم شل"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
 msgstr "extension;manager;امتداد;مدير;شل;"
 

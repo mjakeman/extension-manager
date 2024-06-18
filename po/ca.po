@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 13:53+0000\n"
+"POT-Creation-Date: 2024-06-13 12:13+0000\n"
 "PO-Revision-Date: 2024-03-26 12:08+0000\n"
 "Last-Translator: Marceau <git@marceau-h.fr>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Extension Manager"
 msgstr "Gestor d'extensions"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 #, fuzzy
 #| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Manage GNOME Shell Extensions"
@@ -33,7 +33,7 @@ msgstr "Una utilitat per gestionar les extensions del GNOME Shell"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 #, fuzzy
 #| msgid "Extension Manager"
 msgid "extension;manager;shell;"

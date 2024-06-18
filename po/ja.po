@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 13:53+0000\n"
+"POT-Creation-Date: 2024-06-13 12:13+0000\n"
 "PO-Revision-Date: 2024-06-10 02:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/"
-"extension-manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
+"manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,13 +25,13 @@ msgstr ""
 msgid "Extension Manager"
 msgstr "Extension Manager"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
 msgstr "GNOME Shell 拡張機能 を管理します"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;拡張機能;"
 
@@ -207,8 +207,8 @@ msgid ""
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
 "お使いの Extension Manager は非公式ビルドです。不具合を報告する前に、<span "
-"weight=\"bold\">まずはパッケージ頒布者 (%s) "
-"に連絡</span>してください。その際、以下の情報を添付してください:"
+"weight=\"bold\">まずはパッケージ頒布者 (%s) に連絡</span>してください。その"
+"際、以下の情報を添付してください:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -230,8 +230,9 @@ msgstr "この拡張機能にアップデートがあります"
 msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
-msgstr "この拡張機能はセッションモード (例: ログイン画面やロック画面) "
-"で有効になる可能性があります"
+msgstr ""
+"この拡張機能はセッションモード (例: ログイン画面やロック画面) で有効になる可"
+"能性があります"
 
 #: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
 msgid "Version"

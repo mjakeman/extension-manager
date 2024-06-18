@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 13:53+0000\n"
+"POT-Creation-Date: 2024-06-13 12:13+0000\n"
 "PO-Revision-Date: 2024-06-12 07:12+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
@@ -25,13 +25,13 @@ msgstr ""
 msgid "Extension Manager"
 msgstr "Extension Manager"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
 msgstr "गनोम शैल एक्सटेंशन प्रबंधित करें"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
 msgstr "विस्तार;प्रबंधक;शैल;"
 
@@ -227,8 +227,7 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
-"इस एक्सटेंशन को सत्र मोड जैसे लॉगिन स्क्रीन या लॉक स्क्रीन में सक्रिय किया जा"
-" सकता है"
+"इस एक्सटेंशन को सत्र मोड जैसे लॉगिन स्क्रीन या लॉक स्क्रीन में सक्रिय किया जा सकता है"
 
 #: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
 msgid "Version"
