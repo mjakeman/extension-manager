@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 12:13+0000\n"
+"POT-Creation-Date: 2024-06-20 12:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -295,15 +295,15 @@ msgid_plural "%d extensions will be updated on next login."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/exm-installed-page.c:314
+#: src/exm-installed-page.c:302
 msgid "Browse"
 msgstr ""
 
-#: src/exm-installed-page.c:325 src/exm-upgrade-assistant.c:680
+#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
 msgid "There are no user extensions installed."
 msgstr ""
 
-#: src/exm-installed-page.c:340 src/exm-upgrade-assistant.c:686
+#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
 msgid "There are no system extensions installed."
 msgstr ""
 
