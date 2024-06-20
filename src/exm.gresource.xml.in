@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/mattjakeman/ExtensionManager">
+  <gresource prefix="@resource_path@">
     <file>exm-window.ui</file>
     <file>exm-installed-page.ui</file>
     <file>exm-browse-page.ui</file>
@@ -16,12 +16,13 @@
     <file>exm-info-bar.ui</file>
     <file>exm-info-bar-item.ui</file>
     <file>exm-screenshot-view.ui</file>
+    <file alias="gtk/help-overlay.ui">exm-help-overlay.ui</file>
     <file alias="suggestions.txt">res/suggestions.txt</file>
     <file preprocess="xml-stripblanks" alias="com.mattjakeman.ExtensionManager.metainfo.xml">../data/@appstream_file@</file>
     <file>style.css</file>
   </gresource>
 
-  <gresource prefix="/com/mattjakeman/ExtensionManager/icons/scalable/actions">
+  <gresource prefix="@resource_path@/icons/scalable/actions">
     <file preprocess="xml-stripblanks" alias="clock-alt-symbolic.svg">../data/icons/hicolor/scalable/actions/clock-alt-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="dialog-error-symbolic.svg">../data/icons/hicolor/scalable/actions/dialog-error-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="donation-symbolic.svg">../data/icons/hicolor/scalable/actions/donation-symbolic.svg</file>

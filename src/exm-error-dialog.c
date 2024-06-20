@@ -161,7 +161,7 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-error-dialog.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-error-dialog.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, text_view);
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, instructions);

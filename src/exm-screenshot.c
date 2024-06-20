@@ -2,6 +2,8 @@
 
 #include "exm-zoom-picture.h"
 
+#include "exm-config.h"
+
 struct _ExmScreenshot
 {
     GtkWidget parent_instance;
@@ -143,7 +145,7 @@ exm_screenshot_class_init (ExmScreenshotClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-screenshot.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-screenshot.ui", RESOURCE_PATH));
 
     widget_class->get_request_mode = exm_screenshot_get_request_mode;
     widget_class->measure = exm_screenshot_measure;
