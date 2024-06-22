@@ -154,6 +154,8 @@ exm_screenshot_class_init (ExmScreenshotClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshot, picture);
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshot, stack);
 
+    gtk_widget_class_set_accessible_role (widget_class, GTK_ACCESSIBLE_ROLE_IMG);
+
 }
 
 static void
