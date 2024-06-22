@@ -145,6 +145,8 @@ exm_info_bar_item_class_init (ExmInfoBarItemClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmInfoBarItem, icon);
     gtk_widget_class_bind_template_child (widget_class, ExmInfoBarItem, title);
     gtk_widget_class_bind_template_child (widget_class, ExmInfoBarItem, subtitle);
+
+    gtk_widget_class_set_accessible_role (widget_class, GTK_ACCESSIBLE_ROLE_LIST_ITEM);
 }
 
 static void

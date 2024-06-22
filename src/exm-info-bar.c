@@ -98,6 +98,8 @@ exm_info_bar_class_init (ExmInfoBarClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmInfoBar, downloads_item);
     gtk_widget_class_bind_template_child (widget_class, ExmInfoBar, version_item);
+
+    gtk_widget_class_set_accessible_role (widget_class, GTK_ACCESSIBLE_ROLE_LIST);
 }
 
 static void
