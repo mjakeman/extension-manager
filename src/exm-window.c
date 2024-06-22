@@ -161,6 +161,12 @@ extension_remove (GtkWidget  *widget,
 
     adw_alert_dialog_choose (self->remove_dialog, widget, NULL,
                              (GAsyncReadyCallback) extension_remove_dialog_response, data);
+
+    gtk_accessible_announce (GTK_ACCESSIBLE (self->remove_dialog),
+                             g_strdup_printf ("%s %s",
+                                              adw_alert_dialog_get_heading (self->remove_dialog),
+                                              adw_alert_dialog_get_body (self->remove_dialog)),
+                             GTK_ACCESSIBLE_ANNOUNCEMENT_PRIORITY_HIGH);
 }
 
 static void
@@ -220,6 +226,12 @@ extension_install (GtkWidget  *widget,
 
         adw_alert_dialog_choose (self->unsupported_dialog, widget, NULL,
                                  (GAsyncReadyCallback) extension_unsupported_dialog_response, data);
+
+        gtk_accessible_announce (GTK_ACCESSIBLE (self->unsupported_dialog),
+                                 g_strdup_printf ("%s %s",
+                                                  adw_alert_dialog_get_heading (self->unsupported_dialog),
+                                                  adw_alert_dialog_get_body (self->unsupported_dialog)),
+                                 GTK_ACCESSIBLE_ANNOUNCEMENT_PRIORITY_HIGH);
 
         return;
     }
@@ -320,6 +332,10 @@ show_error (GtkWidget  *widget,
     adw_toast_set_action_target (toast, "s", error_text);
 
     adw_toast_overlay_add_toast (self->toast_overlay, toast);
+
+    gtk_accessible_announce (GTK_ACCESSIBLE (self->toast_overlay),
+                             adw_toast_get_title (toast),
+                             GTK_ACCESSIBLE_ANNOUNCEMENT_PRIORITY_HIGH);
 }
 
 
