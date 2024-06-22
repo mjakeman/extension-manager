@@ -5,7 +5,7 @@ template $ExmBrowsePage : Gtk.Widget {
 	notify::manager => $on_bind_manager();
 
 	Gtk.ScrolledWindow {
-		Adw.StatusPage {
+		Adw.StatusPage status_page {
 			title: _("Search for Extensions");
 			description: _("Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions");
 			valign: start;
@@ -24,6 +24,10 @@ template $ExmBrowsePage : Gtk.Widget {
 							realize => $on_search_entry_realize();
 							search-changed => $on_search_changed() swapped;
 							changed => $gtk_widget_grab_focus();
+
+							accessibility {
+								labelled-by: status_page;
+							}
 						}
 
 						// Keep the same order as the ExmSearchSort enum
@@ -33,6 +37,10 @@ template $ExmBrowsePage : Gtk.Widget {
 								strings [_("Relevance"), C_("Sort search results", "Downloads"), _("Recent"), _("Name")]
 							};
 							notify::selected => $on_search_changed() swapped;
+
+							accessibility {
+								description: _("Sort search results");
+							}
 						}
 					}
 
