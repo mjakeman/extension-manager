@@ -1,5 +1,7 @@
 #include "exm-rating.h"
 
+#include <glib/gi18n.h>
+
 struct _ExmRating
 {
     GtkWidget parent_instance;
@@ -103,6 +105,10 @@ void update_rating (ExmRating *self)
     default:
         break;
     }
+
+    gtk_widget_set_tooltip_text (GTK_WIDGET (self),
+                                 g_strdup_printf (ngettext ("%i Star", "%i Stars", self->rating),
+                                                  self->rating));
 }
 
 static void
