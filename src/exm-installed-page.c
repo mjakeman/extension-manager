@@ -193,8 +193,8 @@ on_updates_available (ExmManager       *manager,
     char *label;
 
     // Translators: '%d' = number of extensions that will be updated
-    label = g_strdup_printf(ngettext("One extension will be updated on next login.",
-                                     "%d extensions will be updated on next login.",
+    label = g_strdup_printf(ngettext("One extension will be updated on next login",
+                                     "%d extensions will be updated on next login",
                                      n_updates), n_updates);
 
     gtk_label_set_label (self->num_updates_label, label);
@@ -310,7 +310,7 @@ create_user_placeholder ()
 
     adw_action_row_add_prefix (ADW_ACTION_ROW (row), icon);
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
-                                   _("There are no user extensions installed."));
+                                   _("No User Extensions Installed"));
     adw_action_row_add_suffix (ADW_ACTION_ROW (row), button);
 
     return row;
@@ -325,7 +325,7 @@ create_system_placeholder ()
     icon = gtk_image_new_from_icon_name ("settings-symbolic");
     adw_action_row_add_prefix (ADW_ACTION_ROW (row), icon);
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
-                                   _("There are no system extensions installed."));
+                                   _("No System Extensions Installed"));
 
     return row;
 
