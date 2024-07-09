@@ -43,12 +43,13 @@ exm_backtrace_error_cb (void       *data,
 }
 
 static int
-exm_backtrace_full_cb (GString    *string_builder,
+exm_backtrace_full_cb (void       *data,
                        uintptr_t   pc,
                        const char *filename,
                        int         lineno,
                        const char *function)
 {
+    GString *string_builder = (GString *) data;
     char *entry;
 
     entry = g_strdup_printf ("%s:%d '%s'\n", filename, lineno, function);
