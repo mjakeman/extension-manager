@@ -85,7 +85,7 @@ exm_comment_tile_constructed (GObject *object)
 
     g_return_if_fail (EXM_IS_COMMENT (self->comment));
 
-    TextFrame *frame;
+    TextDocument *document;
     GDateTime *datetime;
 
     gchar *text, *date;
@@ -94,13 +94,14 @@ exm_comment_tile_constructed (GObject *object)
                   "date", &date,
                   NULL);
 
-    frame = format_parse_html (text);
+    document = text_document_new ();
+    document->frame = format_parse_html (text);
     g_free (text);
 
     datetime = g_date_time_new_from_iso8601 (date, g_time_zone_new_utc ());
     g_free (date);
 
-    g_object_set (self->display, "frame", frame, NULL);
+    g_object_set (self->display, "document", document, NULL);
 
     if (datetime != NULL)
     {
