@@ -36,10 +36,11 @@ template $ExmDetailView : Adw.NavigationPage {
 						spacing: 24;
 						valign: center;
 
-						Gtk.Spinner {
-							spinning: true;
-							height-request: 32;
-							width-request: 32;
+						Adw.Spinner {
+              halign: center;
+              valign: center;
+              width-request: 32;
+              height-request: 32;
 						}
 
 						Gtk.Label {
