@@ -313,7 +313,7 @@ show_error (GtkWidget  *widget,
 
     g_variant_get (param, "s", &error_text);
 
-    toast = adw_toast_new (_("An error occurred."));
+    toast = adw_toast_new (_("An Error Occurred"));
     adw_toast_set_button_label (toast, _("Details"));
     adw_toast_set_timeout (toast, 5);
 
