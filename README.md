@@ -39,8 +39,8 @@ Flatpak is the recommended way to install Extension Manager.
 You can get the latest version from flathub by clicking the button below. There
 may also be independently-maintained packages available for your distribution.
 
-<a href="https://flathub.org/apps/details/com.mattjakeman.ExtensionManager">
-<img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
+<a href='https://flathub.org/apps/com.mattjakeman.ExtensionManager'>
+<img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?locale=en'/>
 </a>
 
 ### Third Party Packages
