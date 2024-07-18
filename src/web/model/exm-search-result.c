@@ -22,6 +22,8 @@ struct _ExmSearchResult
     ExmShellVersionMap *shell_version_map;*/
 };
 
+static JsonSerializableIface *serializable_iface = NULL;
+
 static void json_serializable_iface_init (JsonSerializableIface *iface);
 
 G_DEFINE_FINAL_TYPE_WITH_CODE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT,
@@ -319,7 +321,33 @@ exm_search_result_init (ExmSearchResult *self)
 {
 }
 
+static gboolean
+exm_search_result_deserialize_property (JsonSerializable *serializable,
+                                        const gchar      *property_name,
+                                        GValue           *value,
+                                        GParamSpec       *pspec,
+                                        JsonNode         *property_node)
+{
+    if (strcmp (property_name, "creator") == 0)
+    {
+        JsonObject *obj;
+
+        obj = json_node_get_object (property_node);
+        g_value_set_string (value, json_object_get_string_member (obj, "username"));
+        return TRUE;
+    }
+
+    return serializable_iface->deserialize_property (serializable,
+                                                     property_name,
+                                                     value,
+                                                     pspec,
+                                                     property_node);
+}
+
 static void
 json_serializable_iface_init (JsonSerializableIface *iface)
 {
+    serializable_iface = g_type_default_interface_peek (JSON_TYPE_SERIALIZABLE);
+
+    iface->deserialize_property = exm_search_result_deserialize_property;
 }
