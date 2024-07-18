@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 12:13+0000\n"
+"POT-Creation-Date: 2024-07-18 10:42+0000\n"
 "PO-Revision-Date: 2024-03-13 20:01+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
@@ -76,12 +76,18 @@ msgstr ""
 "Oğuz Ersen <oguz@ersen.moe>"
 
 #: src/exm-browse-page.blp:9
-msgid "Search for extensions"
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "Search for Extensions"
 msgstr "Uzantı arayın"
 
 #: src/exm-browse-page.blp:10
+#, fuzzy
+#| msgid ""
+#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
+#| "Extensions."
 msgid ""
-"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
 "'extensions.gnome.org'da GNOME Shell uzantılarını aramak için bir sözcük "
 "girin."
@@ -112,14 +118,6 @@ msgstr "Daha Fazla Sonuç _Yükle"
 msgid "No Results Found"
 msgstr "Sonuç Bulunamadı"
 
-#. Translators:
-#. - '%s' is an extension e.g. Blur my Shell
-#. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:299
-#, c-format
-msgid "e.g. “%s”"
-msgstr "ör: “%s”"
-
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
 msgstr "Yorumlar"
@@ -129,7 +127,7 @@ msgid "Loading Comments"
 msgstr "Yorumlar Yükleniyor"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:241
+#: src/exm-detail-view.blp:241 src/exm-window.c:316
 msgid "An Error Occurred"
 msgstr "Hata Oluştu"
 
@@ -142,7 +140,9 @@ msgid "Loading Details"
 msgstr "Ayrıntılar Yükleniyor"
 
 #: src/exm-detail-view.blp:125
-msgid "Enlarge image"
+#, fuzzy
+#| msgid "Enlarge image"
+msgid "Enlarge Image"
 msgstr "Resmi genişlet"
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
@@ -170,8 +170,10 @@ msgid "User Reviews"
 msgstr "Kullanıcı Yorumları"
 
 #: src/exm-detail-view.blp:250
-msgid "There are no comments."
-msgstr "Yorum yok."
+#, fuzzy
+#| msgid "Comments"
+msgid "No comments yet"
+msgstr "Yorumlar"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
@@ -182,7 +184,9 @@ msgid "Error Report"
 msgstr "Hata Raporla"
 
 #: src/exm-error-dialog.blp:29
-msgid "An unexpected error occurred in Extension Manager."
+#, fuzzy
+#| msgid "An unexpected error occurred in Extension Manager."
+msgid "An unexpected error occurred in Extension Manager"
 msgstr "Uzantı Yöneticisi'nde beklenmedik bir hata oluştu."
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
@@ -223,7 +227,7 @@ msgstr "Uzantı tercihlerini aç"
 msgid "An error occurred while loading this extension"
 msgstr "Uzantı yüklenirken hata oluştu"
 
-#: src/exm-extension-row.blp:58
+#: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz"
 
@@ -250,25 +254,82 @@ msgid "See Details"
 msgstr "Ayrıntıları Görüntüle"
 
 #: src/exm-extension-row.blp:206
-msgid "Remove"
+#, fuzzy
+#| msgid "Remove"
+msgid "Remove…"
 msgstr "Kaldır"
+
+#: src/exm-help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: src/exm-help-overlay.blp:14
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgctxt "shortcut window"
+msgid "Show Installed Page"
+msgstr "Kurulu"
+
+#: src/exm-help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Show Browse Page"
+msgstr ""
+
+#: src/exm-help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr ""
+
+#: src/exm-help-overlay.blp:29
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr ""
+
+#: src/exm-help-overlay.blp:34
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: src/exm-help-overlay.blp:40
+msgctxt "shortcut window"
+msgid "Screenshot View"
+msgstr ""
+
+#: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
+#, fuzzy
+#| msgid "Zoom In"
+msgctxt "shortcut window"
+msgid "Zoom In"
+msgstr "Yakınlaştır"
+
+#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
+#, fuzzy
+#| msgid "Zoom Out"
+msgctxt "shortcut window"
+msgid "Zoom Out"
+msgstr "Uzaklaştır"
+
+#: src/exm-help-overlay.blp:53
+msgctxt "shortcut window"
+msgid "Reset Zoom"
+msgstr ""
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "İndirilenler"
 
-#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
 #: src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
 msgstr "Desteklenmiyor"
 
-#: src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz."
-
 #: src/exm-install-button.c:115
-msgid "Install"
+#, fuzzy
+#| msgid "Install"
+msgid "Install…"
 msgstr "Kur"
 
 #: src/exm-install-button.c:120
@@ -276,12 +337,20 @@ msgctxt "State"
 msgid "Installed"
 msgstr "Kurulu"
 
+#: src/exm-install-button.c:124
+#, fuzzy
+#| msgid "Unsupported"
+msgid "Unsupported…"
+msgstr "Desteklenmiyor"
+
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
 msgstr "Uzantıları Kullan"
 
 #: src/exm-installed-page.blp:19
-msgid "Extensions can cause performance and stability issues."
+#, fuzzy
+#| msgid "Extensions can cause performance and stability issues."
+msgid "Extensions can cause performance and stability issues"
 msgstr "Uzantılar başarım ve kararlılık sorunlarına neden olabilir."
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
@@ -293,30 +362,40 @@ msgid "System Extensions"
 msgstr "Sistem Uzantıları"
 
 #: src/exm-installed-page.blp:84
-msgid "Updates are available"
+#, fuzzy
+#| msgid "Updates are available"
+msgid "Updates Available"
 msgstr "Güncellemeler var"
 
 #: src/exm-installed-page.blp:102
-msgid "Log Out"
+#, fuzzy
+#| msgid "Log Out"
+msgid "Log Out…"
 msgstr "Oturumu Kapat"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
-#, c-format
-msgid "One extension will be updated on next login."
-msgid_plural "%d extensions will be updated on next login."
+#, fuzzy, c-format
+#| msgid "One extension will be updated on next login."
+#| msgid_plural "%d extensions will be updated on next login."
+msgid "One extension will be updated on next login"
+msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "%d uzantı sonraki girişte güncellenecek."
 
-#: src/exm-installed-page.c:314
+#: src/exm-installed-page.c:302
 msgid "Browse"
 msgstr "Göz At"
 
-#: src/exm-installed-page.c:325 src/exm-upgrade-assistant.c:680
-msgid "There are no user extensions installed."
+#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
+#, fuzzy
+#| msgid "There are no user extensions installed."
+msgid "No User Extensions Installed"
 msgstr "Kurulu kullanıcı uzantısı yok."
 
-#: src/exm-installed-page.c:340 src/exm-upgrade-assistant.c:686
-msgid "There are no system extensions installed."
+#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
+#, fuzzy
+#| msgid "There are no system extensions installed."
+msgid "No System Extensions Installed"
 msgstr "Kurulu sistem uzantısı yok."
 
 #: src/exm-screenshot-view.blp:36
@@ -347,10 +426,13 @@ msgid "%d%% Compatible"
 msgstr "%%%d Uyumlu"
 
 #: src/exm-upgrade-assistant.c:215
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+#| "installed on the system."
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system."
+"installed on the system"
 msgstr ""
 "<b>GNOME %s</b>, sistemde kurulu olan <b>%d / %d</b> eklentiyi destekliyor."
 
@@ -359,11 +441,15 @@ msgid "Supported"
 msgstr "Destekleniyor"
 
 #: src/exm-upgrade-assistant.c:514
-msgid "A compatible version of the extension exists."
+#, fuzzy
+#| msgid "A compatible version of the extension exists."
+msgid "A compatible version of the extension exists"
 msgstr "Uzantının uyumlu bir sürümü var."
 
 #: src/exm-upgrade-assistant.c:518
-msgid "No compatible version of the extension exists."
+#, fuzzy
+#| msgid "No compatible version of the extension exists."
+msgid "No compatible version of the extension exists"
 msgstr "Uzantının uyumlu bir sürümü yok."
 
 #: src/exm-upgrade-assistant.c:520
@@ -416,14 +502,18 @@ msgid "_Upgrade Assistant"
 msgstr "_Yükseltme Yardımcısı"
 
 #: src/exm-window.blp:111
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/exm-window.blp:112
 msgid "_About Extension Manager"
 msgstr "Uzantı Yöneticisi _Hakkında"
 
-#: src/exm-window.blp:116
+#: src/exm-window.blp:117
 msgid "Uninstall Extension?"
 msgstr "Uzantı Kaldırılsın Mı?"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:118
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -431,19 +521,19 @@ msgstr ""
 "Uzantının özelliklerine ve işlevlerine artık erişilemeyecektir. Kaldırmak "
 "istediğinizden emin misiniz?"
 
-#: src/exm-window.blp:122
+#: src/exm-window.blp:123
 msgid "_No"
 msgstr "_Hayır"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:124
 msgid "_Yes"
 msgstr "_Evet"
 
-#: src/exm-window.blp:128
+#: src/exm-window.blp:129
 msgid "Unsupported Extension"
 msgstr "Desteklenmeyen Uzantı"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:130
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -451,21 +541,30 @@ msgstr ""
 "Bu uzantı GNOME Shell sürümünüzü desteklemiyor. Kurulması hatalara denen "
 "olabilir."
 
-#: src/exm-window.blp:134
+#: src/exm-window.blp:135
 msgid "_Install Anyway"
 msgstr "Yine De _Kur"
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:136
 msgid "_Go Back"
 msgstr "Geri _Git"
 
-#: src/exm-window.c:315
-msgid "An error occurred."
-msgstr "Hata oluştu."
-
-#: src/exm-window.c:316
+#: src/exm-window.c:317
 msgid "Details"
 msgstr "Ayrıntılar"
+
+#, c-format
+#~ msgid "e.g. “%s”"
+#~ msgstr "ör: “%s”"
+
+#~ msgid "There are no comments."
+#~ msgstr "Yorum yok."
+
+#~ msgid "This extension is incompatible with your current version of GNOME."
+#~ msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz."
+
+#~ msgid "An error occurred."
+#~ msgstr "Hata oluştu."
 
 #~ msgid "Return to view"
 #~ msgstr "Görünüme geri dön"

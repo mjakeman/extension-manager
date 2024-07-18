@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 12:13+0000\n"
+"POT-Creation-Date: 2024-07-18 10:42+0000\n"
 "PO-Revision-Date: 2024-07-17 19:09+0000\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -72,12 +72,18 @@ msgstr ""
 "Oliver Tzeng(曾嘉禾) <olivertzengolivertzeng@gmail.com>"
 
 #: src/exm-browse-page.blp:9
-msgid "Search for extensions"
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "Search for Extensions"
 msgstr "搜尋擴充功能"
 
 #: src/exm-browse-page.blp:10
+#, fuzzy
+#| msgid ""
+#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
+#| "Extensions."
 msgid ""
-"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr "輸入關鍵字以在 extensions.gnome.org 搜尋 GNOME Shell 擴充功能。"
 
 #. Translators: dropdown items for sorting search results
@@ -106,14 +112,6 @@ msgstr "載入更多搜尋結果 (&L)"
 msgid "No Results Found"
 msgstr "無搜尋結果"
 
-#. Translators:
-#. - '%s' is an extension e.g. Blur my Shell
-#. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:299
-#, c-format
-msgid "e.g. “%s”"
-msgstr "例如「%s」"
-
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
 msgstr "評論"
@@ -123,7 +121,7 @@ msgid "Loading Comments"
 msgstr "正在載入評論"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:241
+#: src/exm-detail-view.blp:241 src/exm-window.c:316
 msgid "An Error Occurred"
 msgstr "發生錯誤"
 
@@ -136,7 +134,9 @@ msgid "Loading Details"
 msgstr "正在載入詳細資訊"
 
 #: src/exm-detail-view.blp:125
-msgid "Enlarge image"
+#, fuzzy
+#| msgid "Enlarge image"
+msgid "Enlarge Image"
 msgstr "放大圖片"
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
@@ -164,8 +164,10 @@ msgid "User Reviews"
 msgstr "使用者評論"
 
 #: src/exm-detail-view.blp:250
-msgid "There are no comments."
-msgstr "沒有評論。"
+#, fuzzy
+#| msgid "Comments"
+msgid "No comments yet"
+msgstr "評論"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
@@ -176,7 +178,9 @@ msgid "Error Report"
 msgstr "錯誤報告"
 
 #: src/exm-error-dialog.blp:29
-msgid "An unexpected error occurred in Extension Manager."
+#, fuzzy
+#| msgid "An unexpected error occurred in Extension Manager."
+msgid "An unexpected error occurred in Extension Manager"
 msgstr "擴充功能管理員發生意外錯誤。"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
@@ -215,7 +219,7 @@ msgstr "開啟擴充功能偏好設定"
 msgid "An error occurred while loading this extension"
 msgstr "載入此擴充功能時發生錯誤"
 
-#: src/exm-extension-row.blp:58
+#: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "此擴充功能不支援你目前使用的 GNOME 版本"
 
@@ -242,25 +246,82 @@ msgid "See Details"
 msgstr "檢視詳細資訊"
 
 #: src/exm-extension-row.blp:206
-msgid "Remove"
+#, fuzzy
+#| msgid "Remove"
+msgid "Remove…"
 msgstr "移除"
+
+#: src/exm-help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: src/exm-help-overlay.blp:14
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgctxt "shortcut window"
+msgid "Show Installed Page"
+msgstr "已安裝"
+
+#: src/exm-help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Show Browse Page"
+msgstr ""
+
+#: src/exm-help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr ""
+
+#: src/exm-help-overlay.blp:29
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr ""
+
+#: src/exm-help-overlay.blp:34
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: src/exm-help-overlay.blp:40
+msgctxt "shortcut window"
+msgid "Screenshot View"
+msgstr ""
+
+#: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
+#, fuzzy
+#| msgid "Zoom In"
+msgctxt "shortcut window"
+msgid "Zoom In"
+msgstr "放大"
+
+#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
+#, fuzzy
+#| msgid "Zoom Out"
+msgctxt "shortcut window"
+msgid "Zoom Out"
+msgstr "縮小"
+
+#: src/exm-help-overlay.blp:53
+msgctxt "shortcut window"
+msgid "Reset Zoom"
+msgstr ""
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "下載次數"
 
-#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
 #: src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
 msgstr "不支援"
 
-#: src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr "此擴充功能不支援你目前使用的 GNOME 版本。"
-
 #: src/exm-install-button.c:115
-msgid "Install"
+#, fuzzy
+#| msgid "Install"
+msgid "Install…"
 msgstr "安裝"
 
 #: src/exm-install-button.c:120
@@ -268,12 +329,20 @@ msgctxt "State"
 msgid "Installed"
 msgstr "已安裝"
 
+#: src/exm-install-button.c:124
+#, fuzzy
+#| msgid "Unsupported"
+msgid "Unsupported…"
+msgstr "不支援"
+
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
 msgstr "使用擴充功能"
 
 #: src/exm-installed-page.blp:19
-msgid "Extensions can cause performance and stability issues."
+#, fuzzy
+#| msgid "Extensions can cause performance and stability issues."
+msgid "Extensions can cause performance and stability issues"
 msgstr "擴充功能可能造成效能和穩定性問題。"
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
@@ -285,30 +354,40 @@ msgid "System Extensions"
 msgstr "系統擴充功能"
 
 #: src/exm-installed-page.blp:84
-msgid "Updates are available"
+#, fuzzy
+#| msgid "Updates are available"
+msgid "Updates Available"
 msgstr "有可用的更新"
 
 #: src/exm-installed-page.blp:102
-msgid "Log Out"
+#, fuzzy
+#| msgid "Log Out"
+msgid "Log Out…"
 msgstr "登出"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
-#, c-format
-msgid "One extension will be updated on next login."
-msgid_plural "%d extensions will be updated on next login."
+#, fuzzy, c-format
+#| msgid "One extension will be updated on next login."
+#| msgid_plural "%d extensions will be updated on next login."
+msgid "One extension will be updated on next login"
+msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "%d 個擴充功能將會在下次登入時更新。"
 
-#: src/exm-installed-page.c:314
+#: src/exm-installed-page.c:302
 msgid "Browse"
 msgstr "瀏覽"
 
-#: src/exm-installed-page.c:325 src/exm-upgrade-assistant.c:680
-msgid "There are no user extensions installed."
+#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
+#, fuzzy
+#| msgid "There are no user extensions installed."
+msgid "No User Extensions Installed"
 msgstr "未安裝使用者擴充功能。"
 
-#: src/exm-installed-page.c:340 src/exm-upgrade-assistant.c:686
-msgid "There are no system extensions installed."
+#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
+#, fuzzy
+#| msgid "There are no system extensions installed."
+msgid "No System Extensions Installed"
 msgstr "未安裝系統擴充功能。"
 
 #: src/exm-screenshot-view.blp:36
@@ -339,10 +418,13 @@ msgid "%d%% Compatible"
 msgstr "%d%% 相容"
 
 #: src/exm-upgrade-assistant.c:215
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+#| "installed on the system."
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system."
+"installed on the system"
 msgstr "<b>GNOME %s</b> 支援目前安裝在系統上的 <b>%d／%d 個</b>擴充功能。"
 
 #: src/exm-upgrade-assistant.c:512
@@ -350,11 +432,15 @@ msgid "Supported"
 msgstr "支援"
 
 #: src/exm-upgrade-assistant.c:514
-msgid "A compatible version of the extension exists."
+#, fuzzy
+#| msgid "A compatible version of the extension exists."
+msgid "A compatible version of the extension exists"
 msgstr "此擴充功能有相容的版本。"
 
 #: src/exm-upgrade-assistant.c:518
-msgid "No compatible version of the extension exists."
+#, fuzzy
+#| msgid "No compatible version of the extension exists."
+msgid "No compatible version of the extension exists"
 msgstr "此擴充功能無相容的版本。"
 
 #: src/exm-upgrade-assistant.c:520
@@ -405,52 +491,65 @@ msgid "_Upgrade Assistant"
 msgstr "更新助理 (&U)"
 
 #: src/exm-window.blp:111
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/exm-window.blp:112
 msgid "_About Extension Manager"
 msgstr "關於擴充功能管理員 (&A)"
 
-#: src/exm-window.blp:116
+#: src/exm-window.blp:117
 msgid "Uninstall Extension?"
 msgstr "解除安裝擴充功能？"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:118
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr "此擴充功能的功能將不再可以存取。你確定要解除安裝嗎？"
 
-#: src/exm-window.blp:122
+#: src/exm-window.blp:123
 msgid "_No"
 msgstr "否 (&N)"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:124
 msgid "_Yes"
 msgstr "是 (&Y)"
 
-#: src/exm-window.blp:128
+#: src/exm-window.blp:129
 msgid "Unsupported Extension"
 msgstr "不支援的擴充功能"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:130
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr "此擴充功能不支援你的 GNOME Shell 版本。如果安裝的話可能會導致錯誤。"
 
-#: src/exm-window.blp:134
+#: src/exm-window.blp:135
 msgid "_Install Anyway"
 msgstr "仍要安裝 (&I)"
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:136
 msgid "_Go Back"
 msgstr "返回 (&G)"
 
-#: src/exm-window.c:315
-msgid "An error occurred."
-msgstr "發生錯誤。"
-
-#: src/exm-window.c:316
+#: src/exm-window.c:317
 msgid "Details"
 msgstr "詳細資訊"
+
+#, c-format
+#~ msgid "e.g. “%s”"
+#~ msgstr "例如「%s」"
+
+#~ msgid "There are no comments."
+#~ msgstr "沒有評論。"
+
+#~ msgid "This extension is incompatible with your current version of GNOME."
+#~ msgstr "此擴充功能不支援你目前使用的 GNOME 版本。"
+
+#~ msgid "An error occurred."
+#~ msgstr "發生錯誤。"
 
 #~ msgid "Return to view"
 #~ msgstr "返回至檢視畫面"
