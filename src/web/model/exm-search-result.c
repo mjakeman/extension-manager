@@ -8,18 +8,18 @@ struct _ExmSearchResult
 {
     GObject parent_instance;
 
+    int id;
     gchar *uuid;
     gchar *name;
     gchar *creator;
-    gchar *icon;
+    gchar *description;
+    int downloads;
     gchar *screenshot;
+    gchar *icon;/*
     gchar *url;
     gchar **donation_urls;
     gchar *link;
-    gchar *description;
-    int pk;
-    int downloads;
-    ExmShellVersionMap *shell_version_map;
+    ExmShellVersionMap *shell_version_map;*/
 };
 
 static void json_serializable_iface_init (JsonSerializableIface *iface);
@@ -30,18 +30,18 @@ G_DEFINE_FINAL_TYPE_WITH_CODE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT
 
 enum {
     PROP_0,
+    PROP_ID,
     PROP_UUID,
     PROP_NAME,
     PROP_CREATOR,
-    PROP_ICON,
+    PROP_DESCRIPTION,
+    PROP_DOWNLOADS,
     PROP_SCREENSHOT,
+    PROP_ICON,/*
     PROP_URL,
     PROP_DONATION_URLS,
     PROP_LINK,
-    PROP_DESCRIPTION,
-    PROP_PK,
-    PROP_DOWNLOADS,
-    PROP_SHELL_VERSION_MAP,
+    PROP_SHELL_VERSION_MAP,*/
     N_PROPS
 };
 
@@ -57,9 +57,9 @@ static void
 exm_search_result_finalize (GObject *object)
 {
     ExmSearchResult *self = (ExmSearchResult *)object;
-
+/*
     g_clear_pointer (&self->shell_version_map, exm_shell_version_map_unref);
-
+*/
     G_OBJECT_CLASS (exm_search_result_parent_class)->finalize (object);
 }
 
@@ -73,6 +73,9 @@ exm_search_result_get_property (GObject    *object,
 
     switch (prop_id)
     {
+    case PROP_ID:
+        g_value_set_int (value, self->id);
+        break;
     case PROP_UUID:
         g_value_set_string (value, self->uuid);
         break;
@@ -82,12 +85,18 @@ exm_search_result_get_property (GObject    *object,
     case PROP_CREATOR:
         g_value_set_string (value, self->creator);
         break;
-    case PROP_ICON:
-        g_value_set_string (value, self->icon);
+    case PROP_DESCRIPTION:
+        g_value_set_string (value, self->description);
+        break;
+    case PROP_DOWNLOADS:
+        g_value_set_int (value, self->downloads);
         break;
     case PROP_SCREENSHOT:
         g_value_set_string (value, self->screenshot);
         break;
+    case PROP_ICON:
+        g_value_set_string (value, self->icon);
+        break;/*
     case PROP_URL:
         g_value_set_string (value, self->url);
         break;
@@ -97,18 +106,9 @@ exm_search_result_get_property (GObject    *object,
     case PROP_LINK:
         g_value_set_string (value, self->link);
         break;
-    case PROP_DESCRIPTION:
-        g_value_set_string (value, self->description);
-        break;
-    case PROP_PK:
-        g_value_set_int (value, self->pk);
-        break;
-    case PROP_DOWNLOADS:
-        g_value_set_int (value, self->downloads);
-        break;
     case PROP_SHELL_VERSION_MAP:
         g_value_set_boxed (value, self->shell_version_map);
-        break;
+        break;*/
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -126,6 +126,9 @@ exm_search_result_set_property (GObject      *object,
 
     switch (prop_id)
     {
+    case PROP_ID:
+        self->id = g_value_get_int (value);
+        break;
     case PROP_UUID:
         self->uuid = g_value_dup_string (value);
         break;
@@ -135,12 +138,18 @@ exm_search_result_set_property (GObject      *object,
     case PROP_CREATOR:
         self->creator = g_value_dup_string (value);
         break;
-    case PROP_ICON:
-        self->icon = g_value_dup_string (value);
+    case PROP_DESCRIPTION:
+        self->description = g_value_dup_string (value);
+        break;
+    case PROP_DOWNLOADS:
+        self->downloads = g_value_get_int (value);
         break;
     case PROP_SCREENSHOT:
         self->screenshot = g_value_dup_string (value);
         break;
+    case PROP_ICON:
+        self->icon = g_value_dup_string (value);
+        break;/*
     case PROP_URL:
         self->url = g_value_dup_string (value);
         break;
@@ -150,21 +159,12 @@ exm_search_result_set_property (GObject      *object,
     case PROP_LINK:
         self->link = g_value_dup_string (value);
         break;
-    case PROP_DESCRIPTION:
-        self->description = g_value_dup_string (value);
-        break;
-    case PROP_PK:
-        self->pk = g_value_get_int (value);
-        break;
-    case PROP_DOWNLOADS:
-        self->downloads = g_value_get_int (value);
-        break;
     case PROP_SHELL_VERSION_MAP:
         if (self->shell_version_map)
             g_clear_pointer (&self->shell_version_map, exm_shell_version_map_unref);
 
         self->shell_version_map = exm_shell_version_map_ref (g_value_get_boxed (value));
-        break;
+        break;*/
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -176,7 +176,7 @@ exm_search_result_supports_shell_version (ExmSearchResult *self,
 {
     g_return_val_if_fail (shell_version, FALSE);
 
-    return exm_shell_version_map_supports (self->shell_version_map,
+    return exm_shell_version_map_supports (NULL/*self->shell_version_map*/,
                                            shell_version);
 }
 
@@ -192,7 +192,7 @@ deserialize_version (JsonObject         *object,
 
     version_obj = json_node_get_object (member_node);
 
-    package = json_object_get_int_member (version_obj, "pk");
+    package = json_object_get_int_member (version_obj, "id");
     version = json_object_get_double_member (version_obj, "version");
 
     exm_shell_version_map_add (version_map, shell_version, package, version);
@@ -223,6 +223,13 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
     object_class->get_property = exm_search_result_get_property;
     object_class->set_property = exm_search_result_set_property;
 
+    properties [PROP_ID] =
+        g_param_spec_int ("id",
+                          "Package ID",
+                          "Package ID",
+                          0, G_MAXINT, 0,
+                          G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
     properties [PROP_UUID] =
         g_param_spec_string ("uuid",
                              "UUID",
@@ -244,12 +251,19 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
-    properties [PROP_ICON] =
-        g_param_spec_string ("icon",
-                             "Icon",
-                             "Icon",
+    properties [PROP_DESCRIPTION] =
+        g_param_spec_string ("description",
+                             "Description",
+                             "Description",
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_DOWNLOADS] =
+        g_param_spec_int ("downloads",
+                          "Downloads",
+                          "Downloads",
+                          0, G_MAXINT, 0,
+                          G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
     properties [PROP_SCREENSHOT] =
         g_param_spec_string ("screenshot",
@@ -258,6 +272,13 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
+    properties [PROP_ICON] =
+        g_param_spec_string ("icon",
+                             "Icon",
+                             "Icon",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+/*
     properties [PROP_URL] =
         g_param_spec_string ("url",
                              "Url",
@@ -279,34 +300,13 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
-    properties [PROP_DESCRIPTION] =
-        g_param_spec_string ("description",
-                             "Description",
-                             "Description",
-                             NULL,
-                             G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
-
-    properties [PROP_PK] =
-        g_param_spec_int ("pk",
-                          "Package ID",
-                          "Package ID",
-                          0, G_MAXINT, 0,
-                          G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
-
-    properties [PROP_DOWNLOADS] =
-        g_param_spec_int ("downloads",
-                          "Downloads",
-                          "Downloads",
-                          0, G_MAXINT, 0,
-                          G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
-
     properties [PROP_SHELL_VERSION_MAP] =
         g_param_spec_boxed ("shell_version_map",
                              "Shell Version Map",
                              "Shell Version Map",
                              EXM_TYPE_SHELL_VERSION_MAP,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
-
+*/
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     json_boxed_register_deserialize_func (EXM_TYPE_SHELL_VERSION_MAP,
