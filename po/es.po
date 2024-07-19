@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-18 10:42+0000\n"
-"PO-Revision-Date: 2024-07-19 08:58+0000\n"
+"PO-Revision-Date: 2024-07-19 19:33+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "extension-manager/app/es/>\n"
@@ -454,7 +454,7 @@ msgstr "Mostrar no _soportadas"
 
 #: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
-msgstr "Asistente de actua_lización"
+msgstr "Asistente de actuali_zación"
 
 #: src/exm-window.blp:111
 msgid "_Keyboard Shortcuts"
