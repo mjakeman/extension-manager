@@ -20,6 +20,7 @@ template $ExmBrowsePage : Gtk.Widget {
 
 						Gtk.SearchEntry search_entry {
 							hexpand: true;
+							search-delay: 750;
 							realize => $on_search_entry_realize();
 							search-changed => $on_search_changed() swapped;
 						}
