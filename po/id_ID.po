@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-18 10:42+0000\n"
-"PO-Revision-Date: 2022-02-26 22:41+0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-08-01 23:09+0000\n"
+"Last-Translator: Reza Almanda <rezaalmanda27@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"extension-manager/app/id/>\n"
 "Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -25,24 +26,18 @@ msgid "Extension Manager"
 msgstr "Pengelola Ekstensi"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
-#, fuzzy
-#| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Manage GNOME Shell Extensions"
-msgstr "Sebuah alat untuk mengelola Ekstensi GNOME Shell"
+msgstr "Kelola Ekstensi Shell GNOME"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "extension;manager;shell;"
-msgstr "Pengelola Ekstensi"
+msgstr "extension;manager;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "Sebuah alat untuk mengelola Ekstensi GNOME Shell"
+msgstr "Jelajahi, instal, dan kelola Ekstensi Shell GNOME"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -67,40 +62,30 @@ msgid "A utility for managing GNOME Shell Extensions"
 msgstr "Sebuah alat untuk mengelola Ekstensi GNOME Shell"
 
 #: src/exm-application.c:190
-#, fuzzy
-#| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "Sebuah alat untuk mengelola Ekstensi GNOME Shell"
+msgstr "Jelajahi, instal, dan kelola Ekstensi Shell GNOME."
 
 #: src/exm-application.c:192
 msgid "translator-credits"
 msgstr "neko <smurfkandy@tutanota.com>"
 
 #: src/exm-browse-page.blp:9
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
-msgstr "Cari ekstensi"
+msgstr "Cari Ekstensi"
 
 #: src/exm-browse-page.blp:10
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Masukan kata kunci untuk mencari 'extensions.gnome.org' untuk Ekstensi Shell "
-"GNOME."
+"Masukkan kata kunci untuk mencari 'extensions.gnome.org' untuk Ekstensi "
+"GNOME Shell"
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
 msgid "Relevance"
-msgstr ""
+msgstr "Relevansi"
 
 #: src/exm-browse-page.blp:31
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Unduhan"
@@ -115,7 +100,7 @@ msgstr "Nama"
 
 #: src/exm-browse-page.blp:61
 msgid "_Load More Results"
-msgstr ""
+msgstr "_Muat Lebih Banyak Hasil"
 
 #: src/exm-browse-page.blp:73
 msgid "No Results Found"
@@ -123,7 +108,7 @@ msgstr "Tidak Ada Hasil Yang Ditemukan"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
-msgstr ""
+msgstr "Komentar"
 
 #: src/exm-comment-dialog.blp:37
 msgid "Loading Comments"
