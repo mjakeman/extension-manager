@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-18 10:42+0000\n"
-"PO-Revision-Date: 2024-06-10 02:09+0000\n"
+"PO-Revision-Date: 2024-08-01 23:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
-"manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"extension-manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -72,21 +72,15 @@ msgstr ""
 "Ryo Nakano"
 
 #: src/exm-browse-page.blp:9
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
 msgstr "拡張機能を検索"
 
 #: src/exm-browse-page.blp:10
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
 "キーワードを入力すると extensions.gnome.org にある\n"
-"GNOME Shell 拡張機能を検索できます。"
+"GNOME Shell 拡張機能を検索できます"
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:31
@@ -136,8 +130,6 @@ msgid "Loading Details"
 msgstr "詳細を読み込み中"
 
 #: src/exm-detail-view.blp:125
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "画像を拡大表示"
 
@@ -166,10 +158,8 @@ msgid "User Reviews"
 msgstr "レビュー"
 
 #: src/exm-detail-view.blp:250
-#, fuzzy
-#| msgid "Comments"
 msgid "No comments yet"
-msgstr "コメント"
+msgstr "まだコメントがありません"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
@@ -180,10 +170,8 @@ msgid "Error Report"
 msgstr "エラーを報告"
 
 #: src/exm-error-dialog.blp:29
-#, fuzzy
-#| msgid "An unexpected error occurred in Extension Manager."
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Extension Manager で予期しないエラーが発生しました。"
+msgstr "Extension Manager で予期しないエラーが発生しました"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
@@ -251,67 +239,58 @@ msgid "See Details"
 msgstr "詳細"
 
 #: src/exm-extension-row.blp:206
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "削除"
+msgstr "削除…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "インストール済み"
+msgstr "“インストール済み”ページを表示する"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "“探す”ページを表示する"
 
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr ""
+msgstr "キーボードショートカットを表示する"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "ウィンドウを閉じる"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "終了する"
 
 #: src/exm-help-overlay.blp:40
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "スクリーンショット表示"
 
 #: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom In"
-msgstr "拡大"
+msgstr "拡大する"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom Out"
-msgstr "縮小"
+msgstr "縮小する"
 
 #: src/exm-help-overlay.blp:53
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "拡大率をリセットする"
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
@@ -324,10 +303,8 @@ msgid "Unsupported"
 msgstr "非対応"
 
 #: src/exm-install-button.c:115
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "インストール"
+msgstr "インストール…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
@@ -335,20 +312,16 @@ msgid "Installed"
 msgstr "インストール済み"
 
 #: src/exm-install-button.c:124
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "非対応"
+msgstr "非対応…"
 
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
 msgstr "GNOME Shell 拡張機能 を使う"
 
 #: src/exm-installed-page.blp:19
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "拡張機能を使うと、動作が安定しなくなるかもしれません。"
+msgstr "拡張機能を使うと、動作が安定しなくなるかもしれません"
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
@@ -359,41 +332,31 @@ msgid "System Extensions"
 msgstr "システムの拡張機能"
 
 #: src/exm-installed-page.blp:84
-#, fuzzy
-#| msgid "Updates are available"
 msgid "Updates Available"
-msgstr "アップデートがあります"
+msgstr "アップデート利用可能"
 
 #: src/exm-installed-page.blp:102
-#, fuzzy
-#| msgid "Log Out"
 msgid "Log Out…"
-msgstr "ログアウト"
+msgstr "ログアウト…"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
+#, c-format
 msgid "One extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "%d個の拡張機能が次回ログイン時にアップデートされます。"
+msgstr[0] "%d個の拡張機能が次回ログイン時にアップデートされます"
 
 #: src/exm-installed-page.c:302
 msgid "Browse"
 msgstr "探す"
 
 #: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
-msgstr "ユーザーがインストールした拡張機能はありません。"
+msgstr "ユーザーがインストールした拡張機能なし"
 
 #: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
-#, fuzzy
-#| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
-msgstr "システムの拡張機能はありません。"
+msgstr "システムの拡張機能なし"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -423,30 +386,23 @@ msgid "%d%% Compatible"
 msgstr "%d%% 対応"
 
 #: src/exm-upgrade-assistant.c:215
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system."
+#, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
-msgstr "<b>GNOME %s</b> には、<b>%d/%d個</b> の拡張機能が対応しています。"
+msgstr "<b>GNOME %s</b> には、<b>%d/%d個</b> の拡張機能が対応しています"
 
 #: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr "対応"
 
 #: src/exm-upgrade-assistant.c:514
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
-msgstr "この拡張機能は、指定した GNOME のバージョンとの互換性があります。"
+msgstr "この拡張機能は、指定した GNOME のバージョンとの互換性があります"
 
 #: src/exm-upgrade-assistant.c:518
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
-msgstr "この拡張機能は、指定した GNOME のバージョンとの互換性がありません。"
+msgstr "この拡張機能は、指定した GNOME のバージョンとの互換性がありません"
 
 #: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
@@ -500,7 +456,7 @@ msgstr "アップグレードアシスタント(_U)"
 
 #: src/exm-window.blp:111
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "キーボードショートカット(_K)"
 
 #: src/exm-window.blp:112
 msgid "_About Extension Manager"
