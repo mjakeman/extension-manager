@@ -19,16 +19,20 @@
 	</description>
   <screenshots>
     <screenshot type="default">
-      <caption>Browse extensions.gnome.org right inside the app</caption>
-      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-browse.png?token=GHSAT0AAAAAABQAZ3HOZ6FIJC5TTAO6FSN6YPCKI3A</image>
-    </screenshot>
-    <screenshot type="default">
       <caption>Manage the extensions you already have installed</caption>
-      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-installed-dark.png?token=GHSAT0AAAAAABQAZ3HODHOYG7PH5I2RBLQSYPCKI3A</image>
+      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-installed.png</image>
     </screenshot>
     <screenshot type="default">
-      <caption>A utility for managing GNOME Shell Extensions</caption>
-      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-details.png?token=GHSAT0AAAAAABQAZ3HOIYZECGZ6OIPZYE4IYPCKHVQ</image>
+      <caption>Browse extensions.gnome.org right inside the app</caption>
+      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-browse-dark.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>See all the details of your extensions</caption>
+      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-details.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Check your extensions compatibility with the next version of GNOME</caption>
+      <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-upgrade-assistant-dark.png</image>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">@app_id@.desktop</launchable>
