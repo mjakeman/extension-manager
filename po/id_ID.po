@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-18 10:42+0000\n"
-"PO-Revision-Date: 2024-08-01 23:09+0000\n"
+"PO-Revision-Date: 2024-08-04 02:41+0000\n"
 "Last-Translator: Reza Almanda <rezaalmanda27@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "extension-manager/app/id/>\n"
@@ -112,7 +112,7 @@ msgstr "Komentar"
 
 #: src/exm-comment-dialog.blp:37
 msgid "Loading Comments"
-msgstr ""
+msgstr "Memuat Komentar"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
 #: src/exm-detail-view.blp:241 src/exm-window.c:316
@@ -121,17 +121,15 @@ msgstr "Sebuah Error Terjadi"
 
 #: src/exm-comment-tile.blp:28
 msgid "Author"
-msgstr ""
+msgstr "Pengarang"
 
 #: src/exm-detail-view.blp:47
-#, fuzzy
-#| msgid "See Details"
 msgid "Loading Details"
-msgstr "Lihat Detail"
+msgstr "Memuat Detil"
 
 #: src/exm-detail-view.blp:125
 msgid "Enlarge Image"
-msgstr ""
+msgstr "Perbesar Gambar"
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
 msgid "Description"
@@ -142,14 +140,12 @@ msgid "Links"
 msgstr "Tautan"
 
 #: src/exm-detail-view.blp:174
-#, fuzzy
-#| msgid "Project Homepage"
 msgid "Homepage"
-msgstr "Beranda Proyek"
+msgstr "Beranda"
 
 #: src/exm-detail-view.blp:191
 msgid "Donate"
-msgstr ""
+msgstr "Donasi"
 
 #: src/exm-detail-view.blp:200
 msgid "View on Extensions"
@@ -157,19 +153,19 @@ msgstr "Lihat dalam Extensions"
 
 #: src/exm-detail-view.blp:219
 msgid "User Reviews"
-msgstr ""
+msgstr "Ulasan Pengguna"
 
 #: src/exm-detail-view.blp:250
 msgid "No comments yet"
-msgstr ""
+msgstr "Belum ada komentar"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
-msgstr ""
+msgstr "_Tampilkan Semua Ulasan"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr ""
+msgstr "Laporan Error"
 
 #: src/exm-error-dialog.blp:29
 msgid "An unexpected error occurred in Extension Manager"
