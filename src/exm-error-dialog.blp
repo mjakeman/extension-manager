@@ -22,9 +22,15 @@ template $ExmErrorDialog : Adw.Window {
       Gtk.Image {
         icon-name: "dialog-error-symbolic";
         icon-size: large;
+        focusable: true;
+
+        accessibility {
+          labelled-by: title;
+          described-by: instructions;
+        }
       }
 
-      Gtk.Label {
+      Gtk.Label title {
         styles ["heading"]
         label: _("An unexpected error occurred in Extension Manager");
       }
@@ -37,6 +43,7 @@ template $ExmErrorDialog : Adw.Window {
       Gtk.ScrolledWindow {
         child: Gtk.TextView text_view {
           wrap-mode: char;
+          editable: false;
           vexpand: true;
 
           top-margin: 16;
