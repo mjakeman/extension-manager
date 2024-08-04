@@ -46,6 +46,7 @@ struct _ExmWindow
     ExmDetailView        *detail_view;
     AdwViewSwitcher      *title;
     AdwViewStack         *view_stack;
+    AdwViewStackPage     *installed_stack;
     AdwToastOverlay      *toast_overlay;
     AdwAlertDialog       *remove_dialog;
     AdwAlertDialog       *unsupported_dialog;
@@ -333,6 +334,24 @@ on_error (ExmManager *manager,
 }
 
 static void
+on_updates_available (ExmManager *manager,
+                      int         n_updates,
+                      ExmWindow  *self)
+{
+    adw_view_stack_page_set_badge_number (self->installed_stack, (guint) n_updates);
+}
+
+static void
+on_needs_attention (AdwViewStack *view_stack,
+                    GtkWidget    *widget,
+                    ExmWindow    *self)
+{
+    adw_view_stack_page_set_needs_attention (self->installed_stack,
+                                             EXM_IS_BROWSE_PAGE (adw_view_stack_get_visible_child (view_stack))
+                                             && adw_view_stack_page_get_badge_number (self->installed_stack) > 0);
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -361,9 +380,12 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, view_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, toast_overlay);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, remove_dialog);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, unsupported_dialog);
+
+    gtk_widget_class_bind_template_callback (widget_class, on_needs_attention);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -421,6 +443,11 @@ exm_window_init (ExmWindow *self)
                             self->detail_view,
                             "shell-version",
                             G_BINDING_SYNC_CREATE);
+
+    g_signal_connect (self->manager,
+                      "updates-available",
+                      G_CALLBACK (on_updates_available),
+                      self);
 
     // Window must be mapped to show version check dialog
     g_signal_connect (self, "map", G_CALLBACK (do_version_check), NULL);
