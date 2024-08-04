@@ -38,11 +38,16 @@ template $ExmDetailView : Adw.NavigationPage {
 
 						Gtk.Spinner {
 							spinning: true;
+							focusable: true;
 							height-request: 32;
 							width-request: 32;
+
+							accessibility {
+								labelled-by: loading_details;
+							}
 						}
 
-						Gtk.Label {
+						Gtk.Label loading_details {
 							styles["title-1"]
 							label: _("Loading Details");
 						}
@@ -53,8 +58,10 @@ template $ExmDetailView : Adw.NavigationPage {
 					name: "page_error";
 
 					child: Adw.StatusPage {
-						title: _("An Error Occurred");
 						icon-name: "dialog-question-symbolic";
+						title: _("An Error Occurred");
+						description: _("No extension details available");
+						focusable: true;
 					};
 				}
 
@@ -74,6 +81,7 @@ template $ExmDetailView : Adw.NavigationPage {
 									spacing: 24;
 
 									Gtk.Image ext_icon {
+										focusable: true;
 										halign: center;
 										valign: center;
 										pixel-size: 64;
@@ -92,13 +100,22 @@ template $ExmDetailView : Adw.NavigationPage {
 												styles ["title-1"]
 												xalign: 0;
 												ellipsize: end;
+												selectable: true;
+
+												accessibility {
+													description: _("Extension name");
+												}
 											}
 
 											Gtk.Label ext_author {
 												styles ["dim-label"]
-												label: "Author";
 												xalign: 0;
 												ellipsize: end;
+												selectable: true;
+
+												accessibility {
+													description: _("Author");
+												}
 											}
 										}
 
@@ -126,7 +143,9 @@ template $ExmDetailView : Adw.NavigationPage {
 										clicked => $screenshot_view_cb(template);
 									}
 
-									$ExmScreenshot ext_screenshot {}
+									$ExmScreenshot ext_screenshot {
+										focusable: true;
+									}
 								}
 
 								Gtk.Box {
@@ -137,6 +156,7 @@ template $ExmDetailView : Adw.NavigationPage {
 
 										label: _("Description");
 										xalign: 0;
+										selectable: true;
 									}
 
 									Gtk.Label ext_description {
@@ -153,7 +173,7 @@ template $ExmDetailView : Adw.NavigationPage {
 								Gtk.Box {
 									orientation: vertical;
 
-									Gtk.Label {
+									Gtk.Label links_label {
 										styles ["title-4", "detail-heading"]
 
 										label: _("Links");
@@ -207,6 +227,10 @@ template $ExmDetailView : Adw.NavigationPage {
 												icon-name: "external-link-symbolic";
 											}
 										}
+
+										accessibility {
+											labelled-by: links_label;
+										}
 									}
 								}
 
@@ -218,6 +242,7 @@ template $ExmDetailView : Adw.NavigationPage {
 
 										label: _("User Reviews");
 										xalign: 0;
+										selectable: true;
 									}
 
 									// TODO: Abstract into common class
@@ -250,6 +275,7 @@ template $ExmDetailView : Adw.NavigationPage {
 												label: _("No comments yet");
 												valign: start;
 												xalign: 0;
+												selectable: true;
 											};
 										}
 
@@ -266,6 +292,7 @@ template $ExmDetailView : Adw.NavigationPage {
 													row-spacing: 12;
 													column-spacing: 12;
 												}
+
 												Gtk.Button show_more_btn {
 													label: _("_Show All Reviews");
 													halign: center;
