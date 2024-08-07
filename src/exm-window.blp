@@ -47,8 +47,9 @@ template $ExmWindow : Adw.ApplicationWindow {
             Adw.ViewStack view_stack {
               vexpand: true;
               hexpand: true;
+              notify::visible-child => $on_needs_attention();
 
-              Adw.ViewStackPage {
+              Adw.ViewStackPage installed_stack {
                 name: "installed";
                 title: C_("Navigation", "_Installed");
                 icon-name: "puzzle-piece-symbolic";
