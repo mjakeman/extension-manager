@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-07-19 22:24+0000\n"
+"PO-Revision-Date: 2024-08-07 14:19+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -62,10 +62,8 @@ msgid "Manage the extensions you already have installed"
 msgstr "Verwalten Sie bereits installierte Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "See all the details of your extensions"
-msgstr "Suchen Sie nach Erweiterungen"
+msgstr "Sehen Sie alle Details Ihrer Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
 #, fuzzy
