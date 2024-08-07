@@ -38,12 +38,11 @@ template $ExmBrowsePage : Gtk.Widget {
 					Gtk.Stack search_stack {
 						Gtk.StackPage {
 							name: "page_spinner";
-							child: Gtk.Spinner {
-								valign: center;
-								halign: center;
-								spinning: true;
-								height-request: 32;
-								width-request: 32;
+							child: Adw.Spinner {
+                halign: center;
+                valign: center;
+                width-request: 32;
+                height-request: 32;
 							};
 						}
 
@@ -51,19 +50,22 @@ template $ExmBrowsePage : Gtk.Widget {
 							name: "page_results";
 							child: Gtk.Box {
 							  orientation: vertical;
+							  spacing: 12;
 
 							  Gtk.ListBox search_results {
 								  styles ["boxed-list"]
-								  valign: start;
 								  selection-mode: none;
 							  }
 
-							  Gtk.Button more_results_btn {
-					        label: _("_Load More Results");
-					        halign: center;
-					        margin-top: 24;
-					        use-underline: true;
-					        clicked => $on_load_more_results();
+                Gtk.ListBox more_results_list {
+								  styles ["boxed-list"]
+								  selection-mode: none;
+
+							    Adw.ButtonRow more_results_btn {
+					          title: _("_Load More Results");
+					          use-underline: true;
+					          activated => $on_load_more_results();
+					        }
 					      }
 							};
 						}

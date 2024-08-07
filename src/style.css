@@ -16,7 +16,7 @@
 
 .tint {
   /* Dark view_bg_color */
-  background-color: rgba(30, 30, 30, 1);
+  background-color: rgb(30 30 30 / 100%);
   color: white;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .update-bar {
-  border-top: 1px solid @borders;
+  border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent);
   padding: 8px 12px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 rating {
-  color: @yellow_4;
+  color: var(--yellow-4);
 }
 
 .upgrade-assistant-result {
@@ -73,50 +73,50 @@ rating {
 }
 
 .author-badge {
-	background-color: @blue_3;
-	border-radius: 999px;
-	color: @white_1;
-	margin-left: 6px;
-	padding: 2px 6px;
+  background-color: var(--accent-color);
+  border-radius: 999px;
+  color: var(--window-bg-color);
+  margin-left: 6px;
+  padding: 2px 6px;
 }
 
 /* Progress Bar Colours */
 progressbar.error progress {
-    background-color: @red_1;
+  background-color: var(--red-1);
 }
 
 progressbar.error text {
-    color: @red_1;
-    opacity: 0.8;
+  color: var(--red-1);
+  opacity: 0.8;
 }
 
 progressbar.warning progress {
-    background-color: @yellow_4;
+  background-color: var(--yellow-4);
 }
 
 progressbar.warning text {
-    color: @window_fg_color;
+  color: var(--window-fg-color);
 }
 
 progressbar.success progress {
-    background-color: @green_1;
+  background-color: var(--green-1);
 }
 
 progressbar.success text {
-    color: @green_1;
-    opacity: 0.8;
+  color: var(--green-1);
+  opacity: 0.8;
 }
 
 /* Workaround for https://gitlab.gnome.org/GNOME/gtk/-/issues/5309 */
 .boxed-list-placeholder > row:nth-last-child(2),
 .boxed-list-placeholder > row.expander:nth-last-child(2):not(:checked) > box > list > row.header,
 .boxed-list-placeholder > row.expander:nth-last-child(2) > box > revealer > list.nested > row:last-child {
-    border-bottom: 0;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+  border-bottom: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .boxed-list-placeholder > row.expander:nth-last-child(2) > box > revealer > list.nested {
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }

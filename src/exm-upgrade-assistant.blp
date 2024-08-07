@@ -61,11 +61,12 @@ template $ExmUpgradeAssistant : Adw.Dialog {
         	spacing: 12;
         	valign: center;
 
-        	Gtk.Spinner {
-        		spinning: true;
-        		height-request: 32;
-        		width-request: 32;
-        	}
+          Adw.Spinner {
+            halign: center;
+            valign: center;
+            width-request: 32;
+            height-request: 32;
+          }
 
         	Gtk.Label counter {
         		styles ["title-2"]
