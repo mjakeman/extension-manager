@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 12:13+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2022-02-23 16:48+0100\n"
 "Last-Translator: John Erling Blad <jeblad@gmail.com>\n"
 "Language-Team: \n"
@@ -53,18 +53,27 @@ msgid "Features:"
 msgstr "Funksjonar:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Bla gjennom «extensions.gnome.org» inne i appen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Administrer utvidingane du allereie har installert"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Eit verktøy for administrering av GNOME Skallutvidelser"
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "See all the details of your extensions"
+msgstr "Søk etter utvidingar"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME."
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr ""
+"Denne utvidinga er ikke-kompatibel med den noverande versjonen din av GNOME."
 
 #: src/exm-application.c:190
 #, fuzzy
@@ -77,51 +86,49 @@ msgid "translator-credits"
 msgstr "John Erling Blad"
 
 #: src/exm-browse-page.blp:9
-msgid "Search for extensions"
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "Search for Extensions"
 msgstr "Søk etter utvidingar"
 
 #: src/exm-browse-page.blp:10
+#, fuzzy
+#| msgid ""
+#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
+#| "Extensions."
 msgid ""
-"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
 "Skriv inn eit nøkkelord for å søka på «extensions.gnome.org» etter GNOME "
 "Skalutvidingar."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr ""
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Nedlastingar"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Nyleg"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Namn"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr ""
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "Fann ingen resultat"
-
-#. Translators:
-#. - '%s' is an extension e.g. Blur my Shell
-#. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:299
-#, c-format
-msgid "e.g. “%s”"
-msgstr ""
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -132,7 +139,7 @@ msgid "Loading Comments"
 msgstr ""
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:241
+#: src/exm-detail-view.blp:241 src/exm-window.c:316
 msgid "An Error Occurred"
 msgstr "Ein feil oppstod"
 
@@ -147,7 +154,7 @@ msgid "Loading Details"
 msgstr "Sjå detaljar"
 
 #: src/exm-detail-view.blp:125
-msgid "Enlarge image"
+msgid "Enlarge Image"
 msgstr ""
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
@@ -177,7 +184,7 @@ msgid "User Reviews"
 msgstr ""
 
 #: src/exm-detail-view.blp:250
-msgid "There are no comments."
+msgid "No comments yet"
 msgstr ""
 
 #: src/exm-detail-view.blp:270
@@ -189,7 +196,7 @@ msgid "Error Report"
 msgstr ""
 
 #: src/exm-error-dialog.blp:29
-msgid "An unexpected error occurred in Extension Manager."
+msgid "An unexpected error occurred in Extension Manager"
 msgstr ""
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
@@ -226,7 +233,7 @@ msgstr ""
 msgid "An error occurred while loading this extension"
 msgstr ""
 
-#: src/exm-extension-row.blp:58
+#: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 #, fuzzy
 #| msgid "This extension is incompatible with your current version of GNOME."
 msgid "This extension is incompatible with your current version of GNOME"
@@ -256,8 +263,64 @@ msgid "See Details"
 msgstr "Sjå detaljar"
 
 #: src/exm-extension-row.blp:206
-msgid "Remove"
+#, fuzzy
+#| msgid "Remove"
+msgid "Remove…"
 msgstr "Fjern"
+
+#: src/exm-help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Allment"
+
+#: src/exm-help-overlay.blp:14
+#, fuzzy
+#| msgid "Installed"
+msgctxt "shortcut window"
+msgid "Show Installed Page"
+msgstr "Installert"
+
+#: src/exm-help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Show Browse Page"
+msgstr ""
+
+#: src/exm-help-overlay.blp:24
+#, fuzzy
+#| msgid "Keyboard Shortcuts"
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Tastatursnarvegar"
+
+#: src/exm-help-overlay.blp:29
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr ""
+
+#: src/exm-help-overlay.blp:34
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Avslutt"
+
+#: src/exm-help-overlay.blp:40
+msgctxt "shortcut window"
+msgid "Screenshot View"
+msgstr ""
+
+#: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
+msgctxt "shortcut window"
+msgid "Zoom In"
+msgstr ""
+
+#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
+msgctxt "shortcut window"
+msgid "Zoom Out"
+msgstr ""
+
+#: src/exm-help-overlay.blp:53
+msgctxt "shortcut window"
+msgid "Reset Zoom"
+msgstr ""
 
 #: src/exm-info-bar.blp:13
 #, fuzzy
@@ -266,18 +329,15 @@ msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Nedlastingar"
 
-#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
 #: src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
 msgstr "Ikkje støtta"
 
-#: src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr ""
-"Denne utvidinga er ikke-kompatibel med den noverande versjonen din av GNOME."
-
 #: src/exm-install-button.c:115
-msgid "Install"
+#, fuzzy
+#| msgid "Install"
+msgid "Install…"
 msgstr "Installer"
 
 #: src/exm-install-button.c:120
@@ -286,6 +346,12 @@ msgstr "Installer"
 msgctxt "State"
 msgid "Installed"
 msgstr "Installert"
+
+#: src/exm-install-button.c:124
+#, fuzzy
+#| msgid "Unsupported"
+msgid "Unsupported…"
+msgstr "Ikkje støtta"
 
 #: src/exm-installed-page.blp:18
 #, fuzzy
@@ -296,7 +362,7 @@ msgstr "Systemutvidingar"
 #: src/exm-installed-page.blp:19
 #, fuzzy
 #| msgid "Performance and stability"
-msgid "Extensions can cause performance and stability issues."
+msgid "Extensions can cause performance and stability issues"
 msgstr "Yting og stabilitet"
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
@@ -308,33 +374,35 @@ msgid "System Extensions"
 msgstr "Systemutvidingar"
 
 #: src/exm-installed-page.blp:84
-msgid "Updates are available"
+msgid "Updates Available"
 msgstr ""
 
 #: src/exm-installed-page.blp:102
-msgid "Log Out"
+msgid "Log Out…"
 msgstr ""
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
 #, c-format
-msgid "One extension will be updated on next login."
-msgid_plural "%d extensions will be updated on next login."
+msgid "One extension will be updated on next login"
+msgid_plural "%d extensions will be updated on next login"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/exm-installed-page.c:314
+#: src/exm-installed-page.c:302
 msgid "Browse"
 msgstr "Bla"
 
-#: src/exm-installed-page.c:325 src/exm-upgrade-assistant.c:680
-msgid "There are no user extensions installed."
-msgstr ""
-
-#: src/exm-installed-page.c:340 src/exm-upgrade-assistant.c:686
+#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
 #, fuzzy
 #| msgid "Displays user and system extensions separately"
-msgid "There are no system extensions installed."
+msgid "No User Extensions Installed"
+msgstr "Vis brukar- og systemutvidingar separat"
+
+#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
+#, fuzzy
+#| msgid "Displays user and system extensions separately"
+msgid "No System Extensions Installed"
 msgstr "Vis brukar- og systemutvidingar separat"
 
 #: src/exm-screenshot-view.blp:36
@@ -369,7 +437,7 @@ msgstr ""
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system."
+"installed on the system"
 msgstr ""
 
 #: src/exm-upgrade-assistant.c:512
@@ -379,11 +447,11 @@ msgid "Supported"
 msgstr "Ikkje støtta"
 
 #: src/exm-upgrade-assistant.c:514
-msgid "A compatible version of the extension exists."
+msgid "A compatible version of the extension exists"
 msgstr ""
 
 #: src/exm-upgrade-assistant.c:518
-msgid "No compatible version of the extension exists."
+msgid "No compatible version of the extension exists"
 msgstr ""
 
 #: src/exm-upgrade-assistant.c:520
@@ -439,63 +507,76 @@ msgstr ""
 
 #: src/exm-window.blp:111
 #, fuzzy
+#| msgid "Keyboard Shortcuts"
+msgid "_Keyboard Shortcuts"
+msgstr "Tastatursnarvegar"
+
+#: src/exm-window.blp:112
+#, fuzzy
 #| msgid "About Extension Manager"
 msgid "_About Extension Manager"
 msgstr "Om Utvidelsesadministrasjon"
 
-#: src/exm-window.blp:116
+#: src/exm-window.blp:117
 #, fuzzy
 #| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
 msgstr "Brukarinstallerte utvidingar"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:118
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
 
-#: src/exm-window.blp:122
+#: src/exm-window.blp:123
 msgid "_No"
 msgstr ""
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:124
 msgid "_Yes"
 msgstr ""
 
-#: src/exm-window.blp:128
+#: src/exm-window.blp:129
 #, fuzzy
 #| msgid "Supported Versions"
 msgid "Unsupported Extension"
 msgstr "Støtta versjonar"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:130
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
 
-#: src/exm-window.blp:134
+#: src/exm-window.blp:135
 #, fuzzy
 #| msgid "Install"
 msgid "_Install Anyway"
 msgstr "Installer"
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:136
 msgid "_Go Back"
 msgstr ""
 
-#: src/exm-window.c:315
-#, fuzzy
-#| msgid "An Error Occurred"
-msgid "An error occurred."
-msgstr "Ein feil oppstod"
-
-#: src/exm-window.c:316
+#: src/exm-window.c:317
 #, fuzzy
 #| msgid "See Details"
 msgid "Details"
 msgstr "Sjå detaljar"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Eit verktøy for administrering av GNOME Skallutvidelser"
+
+#~ msgid "This extension is incompatible with your current version of GNOME."
+#~ msgstr ""
+#~ "Denne utvidinga er ikke-kompatibel med den noverande versjonen din av "
+#~ "GNOME."
+
+#, fuzzy
+#~| msgid "An Error Occurred"
+#~ msgid "An error occurred."
+#~ msgstr "Ein feil oppstod"
 
 #~ msgid "Loading…"
 #~ msgstr "Laster inn…"
@@ -566,20 +647,9 @@ msgstr "Sjå detaljar"
 #~ msgid "Dark"
 #~ msgstr "Mørkt"
 
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "Tastatursnarvegar"
-
 #~ msgid "Are you sure you want to uninstall?"
 #~ msgstr "Er du sikker på at du ønsker å avinstallere?"
 
 #~ msgctxt "shortcut window"
-#~ msgid "General"
-#~ msgstr "Allment"
-
-#~ msgctxt "shortcut window"
 #~ msgid "Show Shortcuts"
 #~ msgstr "Vis snarvegar"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Quit"
-#~ msgstr "Avslutt"

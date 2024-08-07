@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 12:13+0000\n"
-"PO-Revision-Date: 2024-06-07 10:04+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
+"PO-Revision-Date: 2024-07-20 14:01+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -49,19 +49,27 @@ msgid "Features:"
 msgstr "Functies:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr ""
 "Blader door uitbreidingen van extensions.gnome.org recht­streeks in de app"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Beheer de reeds geïnstalleerde uitbreidingen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Een app voor het beheren van GNOME Shell-uitbreidingen"
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "See all the details of your extensions"
+msgstr "Zoeken naar uitbreidingen"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr "Deze uitbreiding is niet compatibel met uw huidige versie van GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -74,49 +82,41 @@ msgstr ""
 "Philip Goto https://philipgoto.nl/"
 
 #: src/exm-browse-page.blp:9
-msgid "Search for extensions"
+msgid "Search for Extensions"
 msgstr "Zoeken naar uitbreidingen"
 
 #: src/exm-browse-page.blp:10
 msgid ""
-"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Voer een zoekterm in om ‘extensions.gnome.org’ te doorzoeken op GNOME Shell-"
-"uitbreidingen."
+"Voer een zoek­term in om ‘extensions.gnome.org’ te door­zoeken op GNOME Shell-"
+"uitbreidingen"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "Relevantie"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Recent"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Naam"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "_Meer resultaten laden"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "Geen resultaten gevonden"
-
-#. Translators:
-#. - '%s' is an extension e.g. Blur my Shell
-#. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:299
-#, c-format
-msgid "e.g. “%s”"
-msgstr "bĳv. ‘%s’"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -127,7 +127,7 @@ msgid "Loading Comments"
 msgstr "Opmerkingen laden"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:241
+#: src/exm-detail-view.blp:241 src/exm-window.c:316
 msgid "An Error Occurred"
 msgstr "Er is een fout opgetreden"
 
@@ -140,7 +140,7 @@ msgid "Loading Details"
 msgstr "Details laden"
 
 #: src/exm-detail-view.blp:125
-msgid "Enlarge image"
+msgid "Enlarge Image"
 msgstr "Afbeelding vergroten"
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
@@ -168,8 +168,8 @@ msgid "User Reviews"
 msgstr "Beoordelingen"
 
 #: src/exm-detail-view.blp:250
-msgid "There are no comments."
-msgstr "Er zĳn geen opmerkingen."
+msgid "No comments yet"
+msgstr "Nog geen opmerkingen"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
@@ -180,8 +180,8 @@ msgid "Error Report"
 msgstr "Fout­melding"
 
 #: src/exm-error-dialog.blp:29
-msgid "An unexpected error occurred in Extension Manager."
-msgstr "Er is een onverwachte fout opgetreden in Uitbreidings­beheer."
+msgid "An unexpected error occurred in Extension Manager"
+msgstr "Er is een onverwachte fout opgetreden in Uitbreidings­beheer"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
@@ -221,7 +221,7 @@ msgstr "Uitbreidings­voorkeuren openen"
 msgid "An error occurred while loading this extension"
 msgstr "Er is een fout opgetreden tĳdens het laden"
 
-#: src/exm-extension-row.blp:58
+#: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Deze uitbreiding is niet compatibel met uw huidige versie van GNOME"
 
@@ -250,41 +250,91 @@ msgid "See Details"
 msgstr "Details tonen"
 
 #: src/exm-extension-row.blp:206
-msgid "Remove"
-msgstr "Verwĳderen"
+msgid "Remove…"
+msgstr "Verwĳderen…"
+
+#: src/exm-help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Algemeen"
+
+#: src/exm-help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Installed Page"
+msgstr "Pagina geïnstalleerd tonen"
+
+#: src/exm-help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Show Browse Page"
+msgstr "Pagina bladeren tonen"
+
+#: src/exm-help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Snel­toetsen tonen"
+
+#: src/exm-help-overlay.blp:29
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Venster sluiten"
+
+#: src/exm-help-overlay.blp:34
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: src/exm-help-overlay.blp:40
+msgctxt "shortcut window"
+msgid "Screenshot View"
+msgstr "Weergave van scherm­afdruk"
+
+#: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
+msgctxt "shortcut window"
+msgid "Zoom In"
+msgstr "Inzoomen"
+
+#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
+msgctxt "shortcut window"
+msgid "Zoom Out"
+msgstr "Uitzoomen"
+
+#: src/exm-help-overlay.blp:53
+msgctxt "shortcut window"
+msgid "Reset Zoom"
+msgstr "Zoom resetten"
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
 #: src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
 msgstr "Niet-ondersteund"
 
-#: src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr "Deze uitbreiding is niet compatibel met uw huidige versie van GNOME."
-
 #: src/exm-install-button.c:115
-msgid "Install"
-msgstr "Installeren"
+msgid "Install…"
+msgstr "Installeren…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
 msgstr "Geïnstalleerd"
 
+#: src/exm-install-button.c:124
+msgid "Unsupported…"
+msgstr "Niet-ondersteund…"
+
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
 msgstr "Uitbreidingen gebruiken"
 
 #: src/exm-installed-page.blp:19
-msgid "Extensions can cause performance and stability issues."
+msgid "Extensions can cause performance and stability issues"
 msgstr ""
 "Let op: uitbreidingen kunnen de prestaties en stabiliteit van uw systeem "
-"beïnvloeden."
+"beïnvloeden"
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
@@ -295,32 +345,32 @@ msgid "System Extensions"
 msgstr "Systeem­uitbreidingen"
 
 #: src/exm-installed-page.blp:84
-msgid "Updates are available"
-msgstr "Er zĳn updates beschikbaar"
+msgid "Updates Available"
+msgstr "Updates beschikbaar"
 
 #: src/exm-installed-page.blp:102
-msgid "Log Out"
-msgstr "Uitloggen"
+msgid "Log Out…"
+msgstr "Uitloggen…"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
 #, c-format
-msgid "One extension will be updated on next login."
-msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "Na de volgende aanmelding wordt er één uitbreiding bijgewerkt."
-msgstr[1] "Na de volgende aanmelding worden er %d uitbreidingen bĳgewerkt."
+msgid "One extension will be updated on next login"
+msgid_plural "%d extensions will be updated on next login"
+msgstr[0] "Na de volgende keer inloggen wordt er één uitbreiding bĳgewerkt"
+msgstr[1] "Na de volgende keer inloggen worden er %d uitbreidingen bĳgewerkt"
 
-#: src/exm-installed-page.c:314
+#: src/exm-installed-page.c:302
 msgid "Browse"
 msgstr "Ontdekken"
 
-#: src/exm-installed-page.c:325 src/exm-upgrade-assistant.c:680
-msgid "There are no user extensions installed."
-msgstr "Er zĳn geen zelf-geïnstalleerde uitbreidingen geïnstalleerd."
+#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
+msgid "No User Extensions Installed"
+msgstr "Geen gebruikers­uitbreidingen geïnstalleerd"
 
-#: src/exm-installed-page.c:340 src/exm-upgrade-assistant.c:686
-msgid "There are no system extensions installed."
-msgstr "Er zĳn geen systeem­uitbreidingen geïnstalleerd."
+#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
+msgid "No System Extensions Installed"
+msgstr "Geen systeem­uitbreidingen geïnstalleerd"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -353,22 +403,22 @@ msgstr "%d%% Compatibel"
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system."
+"installed on the system"
 msgstr ""
-"<b>GNOME %s</b> ondersteunt <b>%d van de %d</b> de op uw systeem aanwezige "
-"uitbreidingen."
+"<b>GNOME %s</b> ondersteunt <b>%d van de %d</b> op uw systeem aanwezige "
+"uitbreidingen"
 
 #: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr "Ondersteund"
 
 #: src/exm-upgrade-assistant.c:514
-msgid "A compatible version of the extension exists."
-msgstr "Er is een compatibele versie van deze uitbreiding beschikbaar."
+msgid "A compatible version of the extension exists"
+msgstr "Er is een compatibele versie van deze uitbreiding beschikbaar"
 
 #: src/exm-upgrade-assistant.c:518
-msgid "No compatible version of the extension exists."
-msgstr "Er is geen compatibele versie van deze uitbreiding beschikbaar."
+msgid "No compatible version of the extension exists"
+msgstr "Er is geen compatibele versie van deze uitbreiding beschikbaar"
 
 #: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
@@ -420,14 +470,18 @@ msgid "_Upgrade Assistant"
 msgstr "_Bĳwerk­assistent"
 
 #: src/exm-window.blp:111
+msgid "_Keyboard Shortcuts"
+msgstr "_Snel­toetsen"
+
+#: src/exm-window.blp:112
 msgid "_About Extension Manager"
 msgstr "_Over Uitbreidings­beheer"
 
-#: src/exm-window.blp:116
+#: src/exm-window.blp:117
 msgid "Uninstall Extension?"
 msgstr "Uitbreiding verwĳderen?"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:118
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -435,19 +489,19 @@ msgstr ""
 "De functionaliteit van de uitbreiding zal niet langer toegankelijk zijn. "
 "Weet u zeker dat u deze wilt verwĳderen?"
 
-#: src/exm-window.blp:122
+#: src/exm-window.blp:123
 msgid "_No"
 msgstr "_Nee"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:124
 msgid "_Yes"
 msgstr "_Ja"
 
-#: src/exm-window.blp:128
+#: src/exm-window.blp:129
 msgid "Unsupported Extension"
 msgstr "Niet-ondersteunde uitbreiding"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:130
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -455,21 +509,34 @@ msgstr ""
 "Deze uitbreiding is niet compatibel met uw huidige GNOME Shell-versie. Er "
 "kunnen fouten optreden als u deze installeert."
 
-#: src/exm-window.blp:134
+#: src/exm-window.blp:135
 msgid "_Install Anyway"
 msgstr "Toch _installeren"
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:136
 msgid "_Go Back"
 msgstr "_Terug"
 
-#: src/exm-window.c:315
-msgid "An error occurred."
-msgstr "Er is een fout opgetreden."
-
-#: src/exm-window.c:316
+#: src/exm-window.c:317
 msgid "Details"
 msgstr "Details"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Een app voor het beheren van GNOME Shell-uitbreidingen"
+
+#, c-format
+#~ msgid "e.g. “%s”"
+#~ msgstr "bĳv. ‘%s’"
+
+#~ msgid "There are no comments."
+#~ msgstr "Er zĳn geen opmerkingen."
+
+#~ msgid "This extension is incompatible with your current version of GNOME."
+#~ msgstr ""
+#~ "Deze uitbreiding is niet compatibel met uw huidige versie van GNOME."
+
+#~ msgid "An error occurred."
+#~ msgstr "Er is een fout opgetreden."
 
 #~ msgid "Return to view"
 #~ msgstr "Terug naar weergave"
@@ -642,20 +709,6 @@ msgstr "Details"
 #~ "Of het systeemthema moet worden gebruikt of dat een eigen thema wordt "
 #~ "gekozen."
 
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "Sneltoetsen"
-
-#~ msgctxt "shortcut window"
-#~ msgid "General"
-#~ msgstr "Algemeen"
-
 #~ msgctxt "shortcut window"
 #~ msgid "Show Shortcuts"
 #~ msgstr "Sneltoetsen tonen"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Quit"
-#~ msgstr "Afsluiten"
-
-#~ msgid "Go to Page"
-#~ msgstr "Ga naar pagina"

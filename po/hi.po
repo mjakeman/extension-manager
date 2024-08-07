@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 12:13+0000\n"
-"PO-Revision-Date: 2024-06-12 07:12+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
+"PO-Revision-Date: 2024-07-19 08:58+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
 "app/hi/>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
-msgstr "Extension Manager"
+msgstr "एक्सटेंशन मैनेजर"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
@@ -48,18 +48,26 @@ msgid "Features:"
 msgstr "विशेषताएं:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "ऐप के ठीक अंदर extensions.gnome.org ब्राउज़ करें"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "आपके द्वारा पहले से स्थापित किए गए एक्सटेंशन प्रबंधित करें"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "गनोम शैल एक्सटेंशन के प्रबंधन के लिए एक उपयोगिता"
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "See all the details of your extensions"
+msgstr "एक्सटेंशन खोजें"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -70,47 +78,39 @@ msgid "translator-credits"
 msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 
 #: src/exm-browse-page.blp:9
-msgid "Search for extensions"
+msgid "Search for Extensions"
 msgstr "एक्सटेंशन खोजें"
 
 #: src/exm-browse-page.blp:10
 msgid ""
-"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions."
-msgstr "गनोम शैल एक्सटेंशन के लिए 'extensions.gnome.org' खोजने के लिए खोजशब्द दर्ज करें।"
+"Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
+msgstr "गनोम शैल एक्सटेंशन के लिए 'extensions.gnome.org' खोजने के लिए खोजशब्द दर्ज करें"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "प्रासंगिकता"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "डाउनलोड"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "हालिया"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "नाम"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "अधिक परिणाम लोड करें (_L)"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "कोई परिणाम नहीं मिला"
-
-#. Translators:
-#. - '%s' is an extension e.g. Blur my Shell
-#. - Please use unicode quotation marks e.g. “” (not "")
-#: src/exm-browse-page.c:299
-#, c-format
-msgid "e.g. “%s”"
-msgstr "जैसे “%s”"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -121,7 +121,7 @@ msgid "Loading Comments"
 msgstr "टिप्पणियां लोड हो रही हैं"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:241
+#: src/exm-detail-view.blp:241 src/exm-window.c:316
 msgid "An Error Occurred"
 msgstr "एक त्रुटि हुई"
 
@@ -134,7 +134,7 @@ msgid "Loading Details"
 msgstr "विवरण लोड हो रहा है"
 
 #: src/exm-detail-view.blp:125
-msgid "Enlarge image"
+msgid "Enlarge Image"
 msgstr "छवि बड़ा करें"
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
@@ -162,8 +162,8 @@ msgid "User Reviews"
 msgstr "उपयोक्ता समीक्षा"
 
 #: src/exm-detail-view.blp:250
-msgid "There are no comments."
-msgstr "कोई टिप्पणियां नहीं हैं।"
+msgid "No comments yet"
+msgstr "अभी कोई टिप्पणी नहीं"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
@@ -174,8 +174,8 @@ msgid "Error Report"
 msgstr "त्रुटि रिपोर्ट"
 
 #: src/exm-error-dialog.blp:29
-msgid "An unexpected error occurred in Extension Manager."
-msgstr "Extension Manager में एक अप्रत्याशित त्रुटि उत्पन्न हुई।"
+msgid "An unexpected error occurred in Extension Manager"
+msgstr "एक्सटेंशन मैनेजर में एक अप्रत्याशित त्रुटि हुई"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
@@ -202,9 +202,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"आप Extension Manager के तृतीय-पक्ष बिल्ड का उपयोग कर रहे हैं। कृपया समस्या दर्ज करने से "
-"पहले <span weight=\"bold\">पहले पैकेज वितरक (%s) से संपर्क करें</span>। निम्नलिखित "
-"जानकारी संलग्न करना सुनिश्चित करें:"
+"आप एक्सटेंशन मैनेजर के तृतीय-पक्ष बिल्ड का उपयोग कर रहे हैं। कृपया समस्या दर्ज करने से पहले "
+"<span weight=\"bold\">पहले पैकेज वितरक (%s) से संपर्क करें</span>। निम्नलिखित जानकारी "
+"संलग्न करना सुनिश्चित करें:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -214,7 +214,7 @@ msgstr "एक्सटेंशन प्राथमिकताएं खो�
 msgid "An error occurred while loading this extension"
 msgstr "इस एक्सटेंशन को लोड करते समय त्रुटि उत्पन्न हुई"
 
-#: src/exm-extension-row.blp:58
+#: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है"
 
@@ -242,39 +242,89 @@ msgid "See Details"
 msgstr "विवरण देखें"
 
 #: src/exm-extension-row.blp:206
-msgid "Remove"
-msgstr "हटाएं"
+msgid "Remove…"
+msgstr "हटाएं…"
+
+#: src/exm-help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "सामान्य"
+
+#: src/exm-help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Installed Page"
+msgstr "स्थापित पृष्ठ दिखाएं"
+
+#: src/exm-help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Show Browse Page"
+msgstr "ब्राउज़ पृष्ठ दिखाएं"
+
+#: src/exm-help-overlay.blp:24
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट दिखाएं"
+
+#: src/exm-help-overlay.blp:29
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "विंडो बंद करें"
+
+#: src/exm-help-overlay.blp:34
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "बंद करें"
+
+#: src/exm-help-overlay.blp:40
+msgctxt "shortcut window"
+msgid "Screenshot View"
+msgstr "स्क्रीनशॉट दृश्य"
+
+#: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
+msgctxt "shortcut window"
+msgid "Zoom In"
+msgstr "बड़ा करें"
+
+#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
+msgctxt "shortcut window"
+msgid "Zoom Out"
+msgstr "छोटा करें"
+
+#: src/exm-help-overlay.blp:53
+msgctxt "shortcut window"
+msgid "Reset Zoom"
+msgstr "जूम रीसेट करें"
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "डाउनलोड"
 
-#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81 src/exm-install-button.c:124
+#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
 #: src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
 msgstr "असमर्थित"
 
-#: src/exm-install-button.c:105
-msgid "This extension is incompatible with your current version of GNOME."
-msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है।"
-
 #: src/exm-install-button.c:115
-msgid "Install"
-msgstr "स्थापित करें"
+msgid "Install…"
+msgstr "स्थापित करें…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
 msgstr "स्थापित"
 
+#: src/exm-install-button.c:124
+msgid "Unsupported…"
+msgstr "असमर्थित…"
+
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
 msgstr "एक्सटेंशन का उपयोग करें"
 
 #: src/exm-installed-page.blp:19
-msgid "Extensions can cause performance and stability issues."
-msgstr "एक्सटेंशन प्रदर्शन और स्थिरता संबंधी समस्याएं पैदा कर सकते हैं।"
+msgid "Extensions can cause performance and stability issues"
+msgstr "एक्सटेंशन प्रदर्शन और स्थिरता संबंधी समस्याएं पैदा कर सकते हैं"
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
@@ -285,40 +335,40 @@ msgid "System Extensions"
 msgstr "सिस्टम एक्सटेंशन"
 
 #: src/exm-installed-page.blp:84
-msgid "Updates are available"
-msgstr "अद्यतन उपलब्ध हैं"
+msgid "Updates Available"
+msgstr "अद्यतन उपलब्ध"
 
 #: src/exm-installed-page.blp:102
-msgid "Log Out"
-msgstr "लॉग आउट"
+msgid "Log Out…"
+msgstr "लॉग आउट…"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
 #, c-format
-msgid "One extension will be updated on next login."
-msgid_plural "%d extensions will be updated on next login."
-msgstr[0] "अगले लॉगिन पर एक एक्सटेंशन अद्यतित की जाएगी।"
-msgstr[1] "%d एक्सटेंशन अगले लॉगिन पर अद्यतित की जाएगी।"
+msgid "One extension will be updated on next login"
+msgid_plural "%d extensions will be updated on next login"
+msgstr[0] "अगले लॉगिन पर एक एक्सटेंशन अद्यतित की जाएगी"
+msgstr[1] "%d एक्सटेंशन अगले लॉगिन पर अद्यतित की जाएगी"
 
-#: src/exm-installed-page.c:314
+#: src/exm-installed-page.c:302
 msgid "Browse"
-msgstr "ब्राउज़"
+msgstr "देखें"
 
-#: src/exm-installed-page.c:325 src/exm-upgrade-assistant.c:680
-msgid "There are no user extensions installed."
-msgstr "कोई उपयोक्ता एक्सटेंशन स्थापित नहीं हैं।"
+#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
+msgid "No User Extensions Installed"
+msgstr "कोई उपयोक्ता एक्सटेंशन स्थापित नहीं हैं"
 
-#: src/exm-installed-page.c:340 src/exm-upgrade-assistant.c:686
-msgid "There are no system extensions installed."
-msgstr "कोई सिस्टम एक्सटेंशन स्थापित नहीं हैं।"
+#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
+msgid "No System Extensions Installed"
+msgstr "कोई सिस्टम एक्सटेंशन स्थापित नहीं हैं"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
-msgstr "जूम आउट"
+msgstr "छोटा करें"
 
 #: src/exm-screenshot-view.blp:49
 msgid "Zoom In"
-msgstr "जूम इन"
+msgstr "बड़ा करें"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -343,22 +393,22 @@ msgstr "%d%% संगत"
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system."
+"installed on the system"
 msgstr ""
 "<b>गनोम %s</b> सिस्टम पर वर्तमान में स्थापित एक्सटेंशनों में से <b>%d में से %d</b> का "
-"समर्थन करता है।"
+"समर्थन करता है"
 
 #: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr "समर्थित"
 
 #: src/exm-upgrade-assistant.c:514
-msgid "A compatible version of the extension exists."
-msgstr "एक्सटेंशन का एक संगत संस्करण मौजूद है।"
+msgid "A compatible version of the extension exists"
+msgstr "एक्सटेंशन का एक संगत संस्करण मौजूद है"
 
 #: src/exm-upgrade-assistant.c:518
-msgid "No compatible version of the extension exists."
-msgstr "एक्सटेंशन का कोई संगत संस्करण मौजूद नहीं है।"
+msgid "No compatible version of the extension exists"
+msgstr "एक्सटेंशन का कोई संगत संस्करण मौजूद नहीं है"
 
 #: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
@@ -393,7 +443,7 @@ msgstr "स्थापित (_I)"
 #: src/exm-window.blp:62
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "ब्राउज़ (_B)"
+msgstr "देखें (_B)"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
@@ -407,17 +457,21 @@ msgstr "असमर्थित दिखाएं (_S)"
 
 #: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
-msgstr "अपग्रेड सहायक (_U)"
+msgstr "उन्नयन सहायक (_U)"
 
 #: src/exm-window.blp:111
-msgid "_About Extension Manager"
-msgstr "Extension Manager के बारे में (_A)"
+msgid "_Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट (_K)"
 
-#: src/exm-window.blp:116
-msgid "Uninstall Extension?"
-msgstr "Extension अस्थापित करें?"
+#: src/exm-window.blp:112
+msgid "_About Extension Manager"
+msgstr "एक्सटेंशन मैनेजर के बारे में (_A)"
 
 #: src/exm-window.blp:117
+msgid "Uninstall Extension?"
+msgstr "एक्सटेंशन अस्थापित करें?"
+
+#: src/exm-window.blp:118
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -425,19 +479,19 @@ msgstr ""
 "एक्सटेंशन की सुविधाएं और कार्यक्षमता अब पहुंच योग्य नहीं होंगी। क्या आप स्थापना रद्द करना "
 "चाहते हैं?"
 
-#: src/exm-window.blp:122
+#: src/exm-window.blp:123
 msgid "_No"
 msgstr "नहीं (_N)"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:124
 msgid "_Yes"
 msgstr "हाँ (_Y)"
 
-#: src/exm-window.blp:128
+#: src/exm-window.blp:129
 msgid "Unsupported Extension"
 msgstr "असमर्थित एक्सटेंशन"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:130
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -445,21 +499,33 @@ msgstr ""
 "यह एक्सटेंशन आपके गनोम शैल संस्करण का समर्थन नहीं करता है। स्थापित होने पर यह त्रुटियां "
 "उत्पन्न कर सकता है।"
 
-#: src/exm-window.blp:134
+#: src/exm-window.blp:135
 msgid "_Install Anyway"
 msgstr "फिर भी स्थापित करें (_I)"
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:136
 msgid "_Go Back"
 msgstr "पीछे जाएं (_G)"
 
-#: src/exm-window.c:315
-msgid "An error occurred."
-msgstr "एक त्रुटि हुई।"
-
-#: src/exm-window.c:316
+#: src/exm-window.c:317
 msgid "Details"
 msgstr "विवरण"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "गनोम शैल एक्सटेंशन के प्रबंधन के लिए एक उपयोगिता"
+
+#, c-format
+#~ msgid "e.g. “%s”"
+#~ msgstr "जैसे “%s”"
+
+#~ msgid "There are no comments."
+#~ msgstr "कोई टिप्पणियां नहीं हैं।"
+
+#~ msgid "This extension is incompatible with your current version of GNOME."
+#~ msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है।"
+
+#~ msgid "An error occurred."
+#~ msgstr "एक त्रुटि हुई।"
 
 #~ msgid "Return to view"
 #~ msgstr "दृश्य पर वापस जाएँ"
