@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-08-07 14:19+0000\n"
+"PO-Revision-Date: 2024-08-07 16:33+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -66,10 +66,10 @@ msgid "See all the details of your extensions"
 msgstr "Sehen Sie alle Details Ihrer Erweiterungen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Diese Erweiterung ist inkompatibel mit ihrer aktuellen GNOME-Version"
+msgstr ""
+"Prüfen Sie die Kompatibilität Ihrer Erweiterungen mit der nächsten GNOME-"
+"Version"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
