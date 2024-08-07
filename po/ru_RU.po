@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 10:42+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2024-07-19 19:33+0000\n"
 "Last-Translator: Xto <0uxtojgt3@mozmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"extension-manager/app/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
+"manager/app/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,18 +49,26 @@ msgid "Features:"
 msgstr "Функции:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Просмотр сайта extensions.gnome.org прямо в приложении"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Управление уже установленными расширениями"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Утилита для управления расширениями GNOME Shell"
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "See all the details of your extensions"
+msgstr "Поиск Расширений"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr "Это расширение несовместимо с вашей текущей версией GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -80,32 +88,32 @@ msgstr "Поиск Расширений"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Введите ключевое слово для поиска расширений GNOME Shell из 'extensions.gnome"
-".org'"
+"Введите ключевое слово для поиска расширений GNOME Shell из 'extensions."
+"gnome.org'"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "Релевантность"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Число загрузок"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Недавние"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Название"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "_Загрузить больше результатов"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "Результаты не найдены"
 
@@ -511,6 +519,9 @@ msgstr "Н_азад"
 #: src/exm-window.c:317
 msgid "Details"
 msgstr "Подробности"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Утилита для управления расширениями GNOME Shell"
 
 #, c-format
 #~ msgid "e.g. “%s”"

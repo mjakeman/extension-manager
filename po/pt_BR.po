@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 10:42+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2024-08-04 02:41+0000\n"
 "Last-Translator: SirKrlos <translations@skalamark.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -48,18 +48,26 @@ msgid "Features:"
 msgstr "Recursos:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Navegue pelo extensions.gnome.org diretamente no aplicativo"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Gerencie as extensões que você já tem instaladas"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Uma ferramenta para gerenciar Extensões do GNOME Shell"
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "See all the details of your extensions"
+msgstr "Pesquise por Extensões"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr "Esta extensão é incompatível com a sua versão atual do GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -85,28 +93,28 @@ msgstr ""
 "Extensões do GNOME Shell"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "Relevância"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Baixados"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Recentes"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Nome"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "_Carregar Mais Resultados"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "Nenhum Resultado Encontrado"
 
@@ -510,6 +518,9 @@ msgstr "_Voltar"
 #: src/exm-window.c:317
 msgid "Details"
 msgstr "Detalhes"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Uma ferramenta para gerenciar Extensões do GNOME Shell"
 
 #, c-format
 #~ msgid "e.g. “%s”"

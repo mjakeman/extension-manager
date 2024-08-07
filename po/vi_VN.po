@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 10:42+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2023-11-09 22:59+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -49,18 +49,27 @@ msgid "Features:"
 msgstr "Tính năng:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Duyệt extensions.gnome.org ngay bên trong ứng dụng"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Quản lý các tiện ích mở rộng bạn đã cài đặt"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Một tiện ích để quản lý Tiện ích Mở rộng Gnome Shell"
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "See all the details of your extensions"
+msgstr "Tìm kiếm tiện ích mở rộng"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr ""
+"Tiện ích mở rộng này không tương thích với phiên bản GNOME hiện tại của bạn"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -88,30 +97,30 @@ msgstr ""
 "Shell."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "Liên quan"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Tải xuống"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Gần đây"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Tên"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "_Tải thêm kết quả"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "Không có kết quả nào được tìm thấy"
 
@@ -566,6 +575,9 @@ msgstr "_Quay lại"
 #: src/exm-window.c:317
 msgid "Details"
 msgstr "Chi tiết"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Một tiện ích để quản lý Tiện ích Mở rộng Gnome Shell"
 
 #, c-format
 #~ msgid "e.g. “%s”"

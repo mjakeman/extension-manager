@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 10:42+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2024-07-31 12:12+0000\n"
 "Last-Translator: Troja <d.iwowi.b@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
-"extension-manager/app/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/extension-"
+"manager/app/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,18 +49,26 @@ msgid "Features:"
 msgstr "Асаблівасці:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Прагляд сайта extensions.gnome.org прама ў дадатку"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Кіруйце пашырэннямі, якія вы ўжо ўсталявалі"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Утыліта для кіравання пашырэннямі абалонкі GNOME"
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "See all the details of your extensions"
+msgstr "Пошук пашырэнняў"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr "Гэта пашырэнне несумяшчальна з вашай бягучай версіяй GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -82,28 +90,28 @@ msgstr ""
 "gnome.org'"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "Па актуальнасці"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Па колькасці загрузак"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Па даце абнаўлення"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Па назве"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "_Загрузіць больш вынікаў"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "Нічога не знойдзена"
 
@@ -187,7 +195,8 @@ msgstr "Скапіравана"
 
 #: src/exm-error-dialog.c:182
 msgid "Please open a new issue and attach the following information:"
-msgstr "Калі ласка, адкрыйце новую праюлему і прыкладзеце наступную інфармацыю:"
+msgstr ""
+"Калі ласка, адкрыйце новую праюлему і прыкладзеце наступную інфармацыю:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:186
@@ -507,3 +516,6 @@ msgstr "_Павярнуцца назад"
 #: src/exm-window.c:317
 msgid "Details"
 msgstr "Падрабязнасці"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Утыліта для кіравання пашырэннямі абалонкі GNOME"

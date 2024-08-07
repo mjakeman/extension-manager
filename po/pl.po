@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 10:42+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2024-08-04 19:59+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
@@ -50,18 +50,26 @@ msgid "Features:"
 msgstr "Funkcje:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Przeglądaj extensions.gnome.org bezpośrednio w aplikacji"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Zarządzaj już zainstalowanymi rozszerzeniami"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "See all the details of your extensions"
+msgstr "Wyszukaj rozszerzenie"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr "To rozszerzenie nie jest kompatybilne z twoją wersją GNOME."
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -82,28 +90,28 @@ msgstr ""
 "Wpisz słowo kluczowe, aby wyszukać rozszerzenia GNOME w extensions.gnome.org"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "Trafność"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Liczba pobrań"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Ostatnie"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Nazwa"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "Załaduj więcej wyników"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "Brak wyników"
 
@@ -197,9 +205,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Korzystasz z wersji z źródeł trzecich Menedżera rozszerzeń. <span weight="
-"\"bold\">Skontaktuj się(%s) najpierw </span> z dostawcą tej wersji, przed "
-"otwarciem problemu. Upewnij się, że dołączasz wymagane informacje:"
+"Korzystasz z wersji z źródeł trzecich Menedżera rozszerzeń. <span "
+"weight=\"bold\">Skontaktuj się(%s) najpierw </span> z dostawcą tej wersji, "
+"przed otwarciem problemu. Upewnij się, że dołączasz wymagane informacje:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -471,7 +479,8 @@ msgstr "Usunąć rozszerzenie?"
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
-msgstr "Funkcje rozszerzenia nie będą już dostępne. Czy na pewno chcesz usunąć?"
+msgstr ""
+"Funkcje rozszerzenia nie będą już dostępne. Czy na pewno chcesz usunąć?"
 
 #: src/exm-window.blp:123
 msgid "_No"
@@ -504,6 +513,9 @@ msgstr "Wstecz"
 #: src/exm-window.c:317
 msgid "Details"
 msgstr "Szczegóły"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
 
 #, c-format
 #~ msgid "e.g. “%s”"

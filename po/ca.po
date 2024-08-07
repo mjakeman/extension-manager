@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 10:42+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2024-03-26 12:08+0000\n"
 "Last-Translator: Marceau <git@marceau-h.fr>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
@@ -54,18 +54,27 @@ msgid "Features:"
 msgstr "Característiques:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "Explora extensions.gnome.org dins de l'aplicació"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "Gestiones les extensions que ja tens instal·lades"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "Una utilitat per gestionar les extensions del GNOME Shell"
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "See all the details of your extensions"
+msgstr "Cerca extensions"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME."
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr ""
+"Aquesta extensió és incompatible amb la vostra versió actual del GNOME."
 
 #: src/exm-application.c:190
 #, fuzzy
@@ -95,30 +104,30 @@ msgstr ""
 "del GNOME Shell."
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "Pertinença"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Baixades"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "Recent"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "Nom"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "_Carregueu més resultas"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "No s'ha trobat cap resultat"
 
@@ -560,6 +569,9 @@ msgstr ""
 #| msgid "See Details"
 msgid "Details"
 msgstr "Vegeu els detalls"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "Una utilitat per gestionar les extensions del GNOME Shell"
 
 #, c-format
 #~ msgid "e.g. “%s”"

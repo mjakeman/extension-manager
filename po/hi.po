@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 10:42+0000\n"
+"POT-Creation-Date: 2024-08-07 13:29+0000\n"
 "PO-Revision-Date: 2024-07-19 08:58+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
@@ -48,18 +48,26 @@ msgid "Features:"
 msgstr "विशेषताएं:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
 msgstr "ऐप के ठीक अंदर extensions.gnome.org ब्राउज़ करें"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
-#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
 msgstr "आपके द्वारा पहले से स्थापित किए गए एक्सटेंशन प्रबंधित करें"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-msgid "A utility for managing GNOME Shell Extensions"
-msgstr "गनोम शैल एक्सटेंशन के प्रबंधन के लिए एक उपयोगिता"
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "See all the details of your extensions"
+msgstr "एक्सटेंशन खोजें"
+
+#: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
+#, fuzzy
+#| msgid "This extension is incompatible with your current version of GNOME"
+msgid "Check your extensions compatibility with the next version of GNOME"
+msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -76,32 +84,31 @@ msgstr "एक्सटेंशन खोजें"
 #: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
-msgstr ""
-"गनोम शैल एक्सटेंशन के लिए 'extensions.gnome.org' खोजने के लिए खोजशब्द दर्ज करें"
+msgstr "गनोम शैल एक्सटेंशन के लिए 'extensions.gnome.org' खोजने के लिए खोजशब्द दर्ज करें"
 
 #. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Relevance"
 msgstr "प्रासंगिकता"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "डाउनलोड"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Recent"
 msgstr "हालिया"
 
-#: src/exm-browse-page.blp:31
+#: src/exm-browse-page.blp:32
 msgid "Name"
 msgstr "नाम"
 
-#: src/exm-browse-page.blp:61
+#: src/exm-browse-page.blp:62
 msgid "_Load More Results"
 msgstr "अधिक परिणाम लोड करें (_L)"
 
-#: src/exm-browse-page.blp:73
+#: src/exm-browse-page.blp:74
 msgid "No Results Found"
 msgstr "कोई परिणाम नहीं मिला"
 
@@ -195,9 +202,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"आप एक्सटेंशन मैनेजर के तृतीय-पक्ष बिल्ड का उपयोग कर रहे हैं। कृपया समस्या दर्ज करने से पहले <span "
-"weight=\"bold\">पहले पैकेज वितरक (%s) से संपर्क करें</span>। निम्नलिखित जानकारी संलग्न करना सुनिश्चि"
-"त करें:"
+"आप एक्सटेंशन मैनेजर के तृतीय-पक्ष बिल्ड का उपयोग कर रहे हैं। कृपया समस्या दर्ज करने से पहले "
+"<span weight=\"bold\">पहले पैकेज वितरक (%s) से संपर्क करें</span>। निम्नलिखित जानकारी "
+"संलग्न करना सुनिश्चित करें:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -388,7 +395,8 @@ msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
 msgstr ""
-"<b>गनोम %s</b> सिस्टम पर वर्तमान में स्थापित एक्सटेंशनों में से <b>%d में से %d</b> का समर्थन करता है"
+"<b>गनोम %s</b> सिस्टम पर वर्तमान में स्थापित एक्सटेंशनों में से <b>%d में से %d</b> का "
+"समर्थन करता है"
 
 #: src/exm-upgrade-assistant.c:512
 msgid "Supported"
@@ -502,6 +510,9 @@ msgstr "पीछे जाएं (_G)"
 #: src/exm-window.c:317
 msgid "Details"
 msgstr "विवरण"
+
+#~ msgid "A utility for managing GNOME Shell Extensions"
+#~ msgstr "गनोम शैल एक्सटेंशन के प्रबंधन के लिए एक उपयोगिता"
 
 #, c-format
 #~ msgid "e.g. “%s”"
