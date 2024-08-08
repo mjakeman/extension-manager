@@ -16,6 +16,7 @@ struct _ExmExtension
     gboolean has_update;
     gboolean can_change;
     gchar *version;
+    gchar *version_name;
     gchar *error_msg;
 };
 
@@ -33,6 +34,7 @@ enum {
     PROP_HAS_UPDATE,
     PROP_CAN_CHANGE,
     PROP_VERSION,
+    PROP_VERSION_NAME,
     PROP_ERROR_MSG,
     N_PROPS
 };
@@ -95,6 +97,9 @@ exm_extension_get_property (GObject    *object,
     case PROP_VERSION:
         g_value_set_string (value, self->version);
         break;
+    case PROP_VERSION_NAME:
+        g_value_set_string (value, self->version_name);
+        break;
     case PROP_ERROR_MSG:
         g_value_set_string (value, self->error_msg);
         break;
@@ -146,6 +151,9 @@ exm_extension_set_property (GObject      *object,
         break;
     case PROP_VERSION:
         self->version = g_value_dup_string (value);
+        break;
+    case PROP_VERSION_NAME:
+        self->version_name = g_value_dup_string (value);
         break;
     case PROP_ERROR_MSG:
         self->error_msg = g_value_dup_string (value);
@@ -232,6 +240,13 @@ exm_extension_class_init (ExmExtensionClass *klass)
         g_param_spec_string ("version",
                              "Version",
                              "Version",
+                             NULL,
+                             G_PARAM_READWRITE);
+
+    properties [PROP_VERSION_NAME] =
+        g_param_spec_string ("version-name",
+                             "Version Name",
+                             "Version Name",
                              NULL,
                              G_PARAM_READWRITE);
 
