@@ -167,7 +167,7 @@ bind_extension (ExmExtensionRow *self,
     if (self->extension == NULL)
         return;
 
-    gchar *name, *uuid, *description, *version, *error_msg;
+    gchar *name, *uuid, *description, *version, *version_name, *error_msg;
     gboolean enabled, has_prefs, has_update, is_user;
     ExmExtensionState state;
     g_object_get (self->extension,
@@ -180,6 +180,7 @@ bind_extension (ExmExtensionRow *self,
                   "has-update", &has_update,
                   "is-user", &is_user,
                   "version", &version,
+                  "version-name", &version_name,
                   "error-msg", &error_msg,
                   NULL);
 
@@ -189,7 +190,8 @@ bind_extension (ExmExtensionRow *self,
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
     g_object_set (self->update_icon, "visible", has_update, NULL);
-    g_object_set (self->version_label, "label", version, NULL);
+    g_object_set (self->version_label, "label", version_name ? g_strdup_printf ("%s (%s)", version_name, version)
+                                                             : version, NULL);
 
     // Trim description label's leading and trailing whitespace
     char *description_trimmed = g_strchomp (g_strstrip (description));

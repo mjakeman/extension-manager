@@ -553,6 +553,7 @@ parse_single_extension (ExmExtension **extension,
     ExmExtensionState state;
     ExmExtensionType type;
     gchar *version = NULL;
+    gchar *version_name = NULL;
     gchar *error_msg = NULL;
 
     if (extension && *extension)
@@ -622,6 +623,10 @@ parse_single_extension (ExmExtension **extension,
             g_variant_get (prop_value, "d", &val);
             version = g_strdup_printf ("%d", (gint)val);
         }
+        else if (strcmp (prop_name, "version-name") == 0)
+        {
+            g_variant_get (prop_value, "s", &version_name);
+        }
         else if (strcmp (prop_name, "error") == 0)
         {
             g_variant_get (prop_value, "s", &error_msg);
@@ -641,12 +646,16 @@ parse_single_extension (ExmExtension **extension,
                   "has-update", has_update,
                   "can-change", can_change,
                   "version", version,
+                  "version_name", version_name,
                   "error-msg", error_msg,
                   NULL);
 
     g_free (uuid);
     g_free (display_name);
     g_free (description);
+    g_free (version);
+    g_free (version_name);
+    g_free (error_msg);
 }
 
 static void
