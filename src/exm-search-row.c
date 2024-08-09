@@ -5,6 +5,8 @@
 #include "exm-types.h"
 #include "exm-enums.h"
 
+#include "exm-config.h"
+
 #include <glib/gi18n.h>
 
 struct _ExmSearchRow
@@ -181,7 +183,7 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-search-row.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-search-row.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, install_btn);
 

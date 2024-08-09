@@ -2,6 +2,8 @@
 
 #include "exm-zoom-picture.h"
 
+#include "exm-config.h"
+
 struct _ExmScreenshotView
 {
     AdwNavigationPage parent_instance;
@@ -70,7 +72,7 @@ exm_screenshot_view_class_init (ExmScreenshotViewClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-screenshot-view.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-screenshot-view.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshotView, overlay_screenshot);
 
