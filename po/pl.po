@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-08-04 19:59+0000\n"
-"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
+"PO-Revision-Date: 2024-08-12 22:09+0000\n"
+"Last-Translator: adiee5 <adikrab@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -29,7 +29,7 @@ msgstr "Menedżer rozszerzeń"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
-msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
+msgstr "Zarządzaj rozszerzeniami powłoki GNOME"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
@@ -39,7 +39,7 @@ msgstr "extension;manager;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "Przeglądaj, instaluj oraz zarządzaj rozszerzeniami powłoki GNOME"
+msgstr "Przeglądaj, instaluj i zarządzaj rozszerzeniami powłoki GNOME"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -60,24 +60,23 @@ msgid "Manage the extensions you already have installed"
 msgstr "Zarządzaj już zainstalowanymi rozszerzeniami"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "See all the details of your extensions"
-msgstr "Wyszukaj rozszerzenie"
+msgstr "Zobacz wszystkie detale twoich rozszerzeń"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "To rozszerzenie nie jest kompatybilne z twoją wersją GNOME."
+msgstr "Sprawdź, czy twoje rozszerzenia są kompatybilne z następną wersją GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "Narzędzie do zarządzania rozszerzeniami powłoki GNOME"
+msgstr "Przeglądaj, instaluj i zarządzaj rozszerzeniami powłoki GNOME."
 
 #: src/exm-application.c:192
 msgid "translator-credits"
-msgstr "Rafał Baran, Adam Lewicki"
+msgstr ""
+"Rafał Baran\n"
+"Adam Lewicki\n"
+"Adiee5"
 
 #: src/exm-browse-page.blp:9
 msgid "Search for Extensions"
@@ -134,7 +133,7 @@ msgstr "Autor"
 
 #: src/exm-detail-view.blp:47
 msgid "Loading Details"
-msgstr "Ładowanie szczegółów"
+msgstr "Ładowanie Szczegółów"
 
 #: src/exm-detail-view.blp:125
 msgid "Enlarge Image"
@@ -178,7 +177,7 @@ msgstr "Zgłoszenie błędu"
 
 #: src/exm-error-dialog.blp:29
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Wystąpił błąd podczas ładowania tego rozszerzenia"
+msgstr "Pojawił się nieoczekiwany błąd w Menedżerze Rozszerzeń"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
@@ -211,7 +210,7 @@ msgstr ""
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
-msgstr "Otwórz preferencje"
+msgstr "Otwórz ustawienia rozszerzenia"
 
 #: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
@@ -219,7 +218,7 @@ msgstr "Wystąpił błąd podczas ładowania tego rozszerzenia"
 
 #: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr "To rozszerzenie nie jest kompatybilne z twoją wersją GNOME."
+msgstr "To rozszerzenie nie jest kompatybilne z twoją wersją GNOME"
 
 #: src/exm-extension-row.blp:74
 msgid "A newer version of this extension is available"
@@ -247,7 +246,7 @@ msgstr "Zobacz szczegóły"
 
 #: src/exm-extension-row.blp:206
 msgid "Remove…"
-msgstr "Usuń"
+msgstr "Usuń…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -267,7 +266,7 @@ msgstr "Otwórz stronę"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr "Skróty klawiszowe"
+msgstr "Pokaż Skróty Klawiszowe"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -311,7 +310,7 @@ msgstr "Niewspierane"
 
 #: src/exm-install-button.c:115
 msgid "Install…"
-msgstr "Zainstaluj"
+msgstr "Zainstaluj…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
@@ -320,11 +319,11 @@ msgstr "Zainstalowane"
 
 #: src/exm-install-button.c:124
 msgid "Unsupported…"
-msgstr "Niewspierane"
+msgstr "Niewspierane…"
 
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
-msgstr "Użyj rozszerzenia"
+msgstr "Użyj rozszerzeń"
 
 #: src/exm-installed-page.blp:19
 msgid "Extensions can cause performance and stability issues"
@@ -344,7 +343,7 @@ msgstr "Dostępne aktualizacje"
 
 #: src/exm-installed-page.blp:102
 msgid "Log Out…"
-msgstr "Wyloguj"
+msgstr "Wyloguj…"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
@@ -442,12 +441,12 @@ msgstr "Menu główne"
 #: src/exm-window.blp:53
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "Zainstalowane"
+msgstr "Za_instalowane"
 
 #: src/exm-window.blp:62
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "Przeglądaj"
+msgstr "_Przeglądaj"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
@@ -461,11 +460,11 @@ msgstr "Pokaż niewspierane"
 
 #: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
-msgstr "Asystent aktualizacji"
+msgstr "Asystent _Aktualizacji"
 
 #: src/exm-window.blp:111
 msgid "_Keyboard Shortcuts"
-msgstr "Skróty klawiszowe"
+msgstr "Skróty _Klawiszowe"
 
 #: src/exm-window.blp:112
 msgid "_About Extension Manager"
@@ -492,15 +491,15 @@ msgstr "Tak"
 
 #: src/exm-window.blp:129
 msgid "Unsupported Extension"
-msgstr "Niewspierane"
+msgstr "Niewspierane Rozszerzenie"
 
 #: src/exm-window.blp:130
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
-"To rozszerzenie nie wspiera twojej wersji powłoki GNOME.\n"
-"Może ono powodować błędy po zainstalowaniu."
+"To rozszerzenie nie wspiera twojej wersji powłoki GNOME. Może ono powodować "
+"błędy po zainstalowaniu."
 
 #: src/exm-window.blp:135
 msgid "_Install Anyway"
