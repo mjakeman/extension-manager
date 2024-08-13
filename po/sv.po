@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-06-12 07:12+0000\n"
+"PO-Revision-Date: 2024-08-13 06:46+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/extension-"
-"manager/app/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"extension-manager/app/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -58,17 +58,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "Hantera installerade tillägg"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "See all the details of your extensions"
-msgstr "Sök efter tillägg"
+msgstr "Se alla detaljer om dina tillägg"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr ""
-"Det här tillägget är inte kompatibelt med din nuvarande version av GNOME"
+msgstr "Kontrollera att tilläggen är kompatibla med nästa version av GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -79,20 +74,15 @@ msgid "translator-credits"
 msgstr "översättare"
 
 #: src/exm-browse-page.blp:9
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
 msgstr "Sök efter tillägg"
 
 #: src/exm-browse-page.blp:10
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Ange ett sökord för att söka efter GNOME-tillägg på 'extensions.gnome.org' ."
+"Ange ett nyckelord för att söka på \"extensions.gnome.org\" efter GNOME-"
+"skaltillägg"
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:32
@@ -142,8 +132,6 @@ msgid "Loading Details"
 msgstr "Hämtar Detaljer"
 
 #: src/exm-detail-view.blp:125
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "Förstora bild"
 
@@ -172,10 +160,8 @@ msgid "User Reviews"
 msgstr "Användarrecensioner"
 
 #: src/exm-detail-view.blp:250
-#, fuzzy
-#| msgid "Comments"
 msgid "No comments yet"
-msgstr "Kommentarer"
+msgstr "Inga kommentarer än"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
@@ -186,10 +172,8 @@ msgid "Error Report"
 msgstr "Fel rapport"
 
 #: src/exm-error-dialog.blp:29
-#, fuzzy
-#| msgid "An unexpected error occurred in Extension Manager."
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Ett oväntat fel inträffade i Extension Manager."
+msgstr "Ett oväntat fel inträffade i tilläggshanterare"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
@@ -216,7 +200,7 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Du använder en tredjepartsversion av Extension Manager. Vänligen <span "
+"Du använder en tredjepartsversion av tilläggshanteraren. Vänligen <span "
 "weight=\"bold\">kontakta paketdistributören (%s) först</span> innan du "
 "lämnar in ett ärende. Var noga med att bifoga följande information:"
 
@@ -258,59 +242,50 @@ msgid "See Details"
 msgstr "Se detaljer"
 
 #: src/exm-extension-row.blp:206
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "Ta bort"
+msgstr "Ta bort…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 #: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "Installerat"
+msgstr "Visa installerat sida"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "Visa bläddra sida"
 
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr ""
+msgstr "Visa tangentbordsgenvägar"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "Stäng fönster"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Avsluta"
 
 #: src/exm-help-overlay.blp:40
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "Skärmbildsvy"
 
 #: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom In"
 msgstr "Zooma in"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom Out"
 msgstr "Zooma ut"
@@ -318,7 +293,7 @@ msgstr "Zooma ut"
 #: src/exm-help-overlay.blp:53
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "Återställ zoom"
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
@@ -331,10 +306,8 @@ msgid "Unsupported"
 msgstr "Stöds ej"
 
 #: src/exm-install-button.c:115
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "Installera"
+msgstr "Installera…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
@@ -342,20 +315,16 @@ msgid "Installed"
 msgstr "Installerat"
 
 #: src/exm-install-button.c:124
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "Stöds ej"
+msgstr "Stöds ej…"
 
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
 msgstr "Använd tillägg"
 
 #: src/exm-installed-page.blp:19
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "Tillägg kan orsaka prestanda- och stabilitetsproblem."
+msgstr "Tillägg kan orsaka prestanda och stabilitetsproblem"
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
@@ -366,42 +335,32 @@ msgid "System Extensions"
 msgstr "Systemtillägg"
 
 #: src/exm-installed-page.blp:84
-#, fuzzy
-#| msgid "Updates are available"
 msgid "Updates Available"
-msgstr "Uppdateringar är tillgängliga"
+msgstr "Uppdateringar tillgängliga"
 
 #: src/exm-installed-page.blp:102
-#, fuzzy
-#| msgid "Log Out"
 msgid "Log Out…"
-msgstr "Logga ut"
+msgstr "Logga ut…"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
+#, c-format
 msgid "One extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "Ett tillägg kommer uppdateras vid näst inloggning."
-msgstr[1] "%d tillägg kommer uppdateras vid näst inloggning."
+msgstr[0] "Ett tillägg kommer uppdateras vid näst inloggning"
+msgstr[1] "%d tillägg kommer uppdateras vid näst inloggning"
 
 #: src/exm-installed-page.c:302
 msgid "Browse"
 msgstr "Utforska"
 
 #: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
-msgstr "Det finns inga användartillägg installerade."
+msgstr "Inga användartillägg installerade"
 
 #: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
-#, fuzzy
-#| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
-msgstr "Det finns inga systemtillägg installerade."
+msgstr "Inga systemtillägg installerade"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -431,32 +390,25 @@ msgid "%d%% Compatible"
 msgstr "%d%% Kompatibla"
 
 #: src/exm-upgrade-assistant.c:215
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system."
+#, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
 msgstr ""
 "<b>GNOME %s</b> stöder <b>%d av %d</b> av de tillägg som för närvarande är "
-"installerade på systemet."
+"installerade på systemet"
 
 #: src/exm-upgrade-assistant.c:512
 msgid "Supported"
 msgstr "Stöds"
 
 #: src/exm-upgrade-assistant.c:514
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
-msgstr "En kompatibel version av detta tillägg är tillgängligt."
+msgstr "En kompatibel version av detta tillägg är tillgängligt"
 
 #: src/exm-upgrade-assistant.c:518
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
-msgstr "En nyare version av detta tillägg är tillgängligt."
+msgstr "En nyare version av detta tillägg är tillgängligt"
 
 #: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
@@ -509,7 +461,7 @@ msgstr "_Uppgraderingsassistent"
 
 #: src/exm-window.blp:111
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Tangentbordsgenvägar"
 
 #: src/exm-window.blp:112
 msgid "_About Extension Manager"
