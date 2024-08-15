@@ -316,7 +316,6 @@ show_error (GtkWidget  *widget,
 
     toast = adw_toast_new (_("An Error Occurred"));
     adw_toast_set_button_label (toast, _("_Details"));
-    adw_toast_set_timeout (toast, 5);
 
     adw_toast_set_action_name (toast, "win.show-error-dialog");
     adw_toast_set_action_target (toast, "s", error_text);
