@@ -402,22 +402,6 @@ exm_window_class_init (ExmWindowClass *klass)
 }
 
 static void
-do_version_check (ExmWindow *self)
-{
-    GSettings *settings;
-    gchar *version_string;
-
-    settings = g_settings_new (APP_ID);
-    version_string = g_settings_get_string (settings, "last-used-version");
-
-    // In the future, use this to show a toast or notification when
-    // a new version has been installed. Maybe with rich text release notes?
-    // if (strcmp (version_string, APP_VERSION) != 0) { ... }
-
-    g_settings_set_string (settings, "last-used-version", APP_VERSION);
-}
-
-static void
 exm_window_init (ExmWindow *self)
 {
     g_type_ensure (EXM_TYPE_INSTALLED_PAGE);
@@ -448,7 +432,4 @@ exm_window_init (ExmWindow *self)
                       "updates-available",
                       G_CALLBACK (on_updates_available),
                       self);
-
-    // Window must be mapped to show version check dialog
-    g_signal_connect (self, "map", G_CALLBACK (do_version_check), NULL);
 }

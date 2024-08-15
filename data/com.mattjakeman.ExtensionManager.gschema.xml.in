@@ -14,11 +14,6 @@
       <summary>Is Maximized</summary>
       <description>Wether app window is maximized.</description>
     </key>
-    <key name="last-used-version" type="s">
-      <default>'@app_version@'</default>
-      <summary>Last-Used Version</summary>
-      <description>The last-used version of the app. If the saved version does not match, the "What's New" dialog is shown.</description>
-    </key>
     <key name="sort-enabled-first" type="b">
       <default>false</default>
       <summary>Sort Enabled First</summary>
