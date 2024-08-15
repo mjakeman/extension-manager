@@ -293,7 +293,7 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
     suggestion = gtk_string_list_get_string (self->suggestions, random_index);
 
     // Set placeholder value
-    g_object_set (search_entry, "placeholder-text", suggestion, NULL);
+    gtk_search_entry_set_placeholder_text (search_entry, suggestion);
 
     // Fire off a default search
     search (self, "", EXM_SEARCH_SORT_RELEVANCE);
