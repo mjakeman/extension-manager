@@ -297,7 +297,6 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
 
     // Fire off a default search
     search (self, "", EXM_SEARCH_SORT_RELEVANCE);
-    gtk_widget_grab_focus (GTK_WIDGET (search_entry));
 }
 
 static void
@@ -425,5 +424,7 @@ exm_browse_page_init (ExmBrowsePage *self)
     g_object_unref (settings);
 
     load_suggestions (self);
+
+    gtk_search_entry_set_key_capture_widget (self->search_entry, GTK_WIDGET (self));
 }
 

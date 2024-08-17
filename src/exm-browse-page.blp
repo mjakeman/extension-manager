@@ -23,6 +23,7 @@ template $ExmBrowsePage : Gtk.Widget {
 							search-delay: 750;
 							realize => $on_search_entry_realize();
 							search-changed => $on_search_changed() swapped;
+							changed => $gtk_widget_grab_focus();
 						}
 
 						// Keep the same order as the ExmSearchSort enum
