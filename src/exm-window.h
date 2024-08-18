@@ -26,4 +26,7 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmWindow, exm_window, EXM, WINDOW, AdwApplicationWindow)
 
+GtkSearchBar *
+exm_window_get_search_bar (ExmWindow *self);
+
 G_END_DECLS

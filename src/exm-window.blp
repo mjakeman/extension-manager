@@ -20,6 +20,7 @@ template $ExmWindow: Adw.ApplicationWindow {
       Adw.NavigationPage main_view {
         can-pop: false;
         title: bind template.title;
+        tag: "main";
 
         Adw.ToolbarView {
           [top]
@@ -31,6 +32,13 @@ template $ExmWindow: Adw.ApplicationWindow {
               stack: view_stack;
             };
 
+            [start]
+            Gtk.ToggleButton search_button {
+              icon-name: "edit-find-symbolic";
+              tooltip-text: _("Search Installed Extensions");
+              receives-default: true;
+            }
+
             [end]
             Gtk.MenuButton {
               icon-name: "open-menu-symbolic";
@@ -40,13 +48,25 @@ template $ExmWindow: Adw.ApplicationWindow {
             }
           }
 
+          [top]
+          Gtk.SearchBar search_bar {
+            key-capture-widget: template;
+            search-mode-enabled: bind search_button.active bidirectional;
+            notify::search-mode-enabled => $on_visible_installed_stack_changed();
+
+            child: Gtk.SearchEntry {
+              placeholder-text: _("Search for installed extensions");
+              max-width-chars: 35;
+            };
+          }
+
           content: Gtk.Box {
             orientation: vertical;
 
             Adw.ViewStack view_stack {
               vexpand: true;
               hexpand: true;
-              notify::visible-child => $on_needs_attention();
+              notify::visible-child => $on_visible_page_changed();
 
               Adw.ViewStackPage installed_stack {
                 name: "installed";
