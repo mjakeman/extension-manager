@@ -20,17 +20,13 @@
 
 #include "exm-browse-page.h"
 
-#include "exm-search-row.h"
-
-#include "local/exm-manager.h"
-
-#include "web/exm-search-provider.h"
-#include "web/exm-image-resolver.h"
-
-#include "web/model/exm-search-result.h"
-
 #include "exm-config.h"
+#include "exm-search-row.h"
 #include "exm-utils.h"
+#include "local/exm-manager.h"
+#include "web/exm-image-resolver.h"
+#include "web/exm-search-provider.h"
+#include "web/model/exm-search-result.h"
 
 #include <glib/gi18n.h>
 
@@ -123,6 +119,12 @@ exm_browse_page_set_property (GObject      *object,
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
+}
+
+GtkSearchEntry *
+exm_browse_page_get_search_entry (ExmBrowsePage *self)
+{
+  return self->search_entry;
 }
 
 static GtkWidget *

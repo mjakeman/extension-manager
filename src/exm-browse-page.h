@@ -29,6 +29,10 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmBrowsePage, exm_browse_page, EXM, BROWSE_PAGE, GtkWidget)
 
-ExmBrowsePage *exm_browse_page_new (void);
+ExmBrowsePage *
+exm_browse_page_new (void);
+
+GtkSearchEntry *
+exm_browse_page_get_search_entry (ExmBrowsePage *self);
 
 G_END_DECLS

@@ -9,6 +9,13 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, EXM, INSTALLED_PAGE, GtkWidget)
 
-ExmInstalledPage *exm_installed_page_new (void);
+ExmInstalledPage *
+exm_installed_page_new (void);
+
+GtkStack *
+exm_installed_page_get_stack (ExmInstalledPage *self);
+
+GtkFilterListModel *
+exm_installed_page_get_search_list_model (ExmInstalledPage *self);
 
 G_END_DECLS

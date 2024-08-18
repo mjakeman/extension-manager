@@ -18,18 +18,17 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "exm-config.h"
 #include "exm-window.h"
 
 #include "exm-browse-page.h"
-#include "exm-installed-page.h"
+#include "exm-config.h"
 #include "exm-detail-view.h"
+#include "exm-error-dialog.h"
+#include "exm-installed-page.h"
 #include "exm-screenshot-view.h"
 #include "exm-upgrade-assistant.h"
-#include "exm-error-dialog.h"
-
-#include "local/exm-manager.h"
 #include "local/exm-extension.h"
+#include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
 
@@ -48,6 +47,8 @@ struct _ExmWindow
     ExmDetailView        *detail_view;
     ExmScreenshotView    *screenshot_view;
     AdwViewSwitcher      *title;
+    GtkToggleButton      *search_button;
+    GtkSearchBar         *search_bar;
     AdwViewStack         *view_stack;
     AdwViewStackPage     *installed_stack;
     AdwToastOverlay      *toast_overlay;
@@ -81,6 +82,12 @@ exm_window_get_property (GObject    *object,
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
+}
+
+GtkSearchBar *
+exm_window_get_search_bar (ExmWindow *self)
+{
+  return self->search_bar;
 }
 
 static void
@@ -303,6 +310,24 @@ show_error (GtkWidget  *widget,
     adw_toast_overlay_add_toast (self->toast_overlay, toast);
 }
 
+static void
+search_online (GtkWidget  *widget,
+               const char *action_name,
+               GVariant   *param)
+{
+    ExmWindow *self;
+    GtkSearchEntry *search_entry;
+    const char *search_text;
+
+    self = EXM_WINDOW (widget);
+
+    search_entry = exm_browse_page_get_search_entry (self->browse_page);
+    search_text = gtk_editable_get_text (GTK_EDITABLE (gtk_search_bar_get_child (self->search_bar)));
+    adw_view_stack_set_visible_child_name (self->view_stack, "browse");
+    gtk_editable_set_text (GTK_EDITABLE (search_entry) , search_text);
+    gtk_toggle_button_set_active (self->search_button, FALSE);
+}
+
 
 static void
 on_error (ExmManager *manager,
@@ -321,13 +346,75 @@ on_updates_available (ExmManager *manager,
 }
 
 static void
-on_needs_attention (AdwViewStack *view_stack,
-                    GtkWidget    *widget,
-                    ExmWindow    *self)
+on_visible_page_changed (AdwViewStack *view_stack,
+                         GtkWidget    *widget,
+                         ExmWindow    *self)
 {
+    gboolean is_installed_page = EXM_IS_INSTALLED_PAGE (adw_view_stack_get_visible_child (view_stack));
+
     adw_view_stack_page_set_needs_attention (self->installed_stack,
-                                             EXM_IS_BROWSE_PAGE (adw_view_stack_get_visible_child (view_stack))
-                                             && adw_view_stack_page_get_badge_number (self->installed_stack) > 0);
+                                             !is_installed_page &&
+                                             adw_view_stack_page_get_badge_number (self->installed_stack) > 0);
+
+    gtk_widget_set_visible (GTK_WIDGET (self->search_bar),
+                            is_installed_page);
+
+    gtk_widget_set_visible (GTK_WIDGET (self->search_button),
+                            is_installed_page);
+}
+
+void
+on_visible_installed_stack_changed (GObject    *object,
+                                    GParamSpec *pspec,
+                                    gpointer    user_data)
+{
+    ExmWindow *self = (ExmWindow *) user_data;
+    gboolean search_mode;
+    GtkFilterListModel *search_list_model;
+    GtkStack *stack;
+
+    search_mode = gtk_search_bar_get_search_mode (self->search_bar);
+    search_list_model = exm_installed_page_get_search_list_model (self->installed_page);
+    stack = exm_installed_page_get_stack (self->installed_page);
+
+    if (search_mode && g_list_model_get_n_items (G_LIST_MODEL (search_list_model)) > 0)
+        gtk_stack_set_visible_child_name (stack , "page_results");
+    else if (search_mode)
+        gtk_stack_set_visible_child_name (stack , "page_empty");
+    else
+        gtk_stack_set_visible_child_name (stack , "page_list");
+}
+
+static gboolean
+search_open_cb (GtkWidget *widget,
+                GVariant  *args,
+                gpointer   user_data)
+{
+  ExmWindow *self = EXM_WINDOW (widget);
+  AdwNavigationPage *visible_page;
+  const char *visible_stack_name, *visible_page_name;
+
+  visible_page = adw_navigation_view_get_visible_page (self->navigation_view);
+  visible_stack_name = adw_view_stack_get_visible_child_name (self->view_stack);
+  visible_page_name = adw_navigation_page_get_tag (visible_page);
+
+  if (g_strcmp0 (visible_stack_name, "installed") == 0
+      && g_strcmp0 (visible_page_name, "main") == 0)
+  {
+      gboolean is_active = gtk_toggle_button_get_active (self->search_button);
+      gtk_toggle_button_set_active (self->search_button, !is_active);
+  }
+  else if (g_strcmp0 (visible_stack_name, "browse") == 0)
+  {
+      GtkSearchEntry *search_entry = exm_browse_page_get_search_entry (self->browse_page);
+      gtk_widget_grab_focus (GTK_WIDGET (search_entry));
+  }
+  else
+  {
+      return GDK_EVENT_PROPAGATE;
+  }
+
+  return GDK_EVENT_STOP;
 }
 
 static void
@@ -369,13 +456,16 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, screenshot_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_button);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, view_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, toast_overlay);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, remove_dialog);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, unsupported_dialog);
 
-    gtk_widget_class_bind_template_callback (widget_class, on_needs_attention);
+    gtk_widget_class_bind_template_callback (widget_class, on_visible_page_changed);
+    gtk_widget_class_bind_template_callback (widget_class, on_visible_installed_stack_changed);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -389,9 +479,12 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
     gtk_widget_class_install_action (widget_class, "win.show-error", "s", show_error);
     gtk_widget_class_install_action (widget_class, "win.show-error-dialog", "s", show_error_dialog);
+    gtk_widget_class_install_action (widget_class, "win.search-online", NULL, search_online);
     gtk_widget_class_install_action (widget_class, "screenshot.zoom-in", NULL, screenshot_zoom);
     gtk_widget_class_install_action (widget_class, "screenshot.zoom-out", NULL, screenshot_zoom);
     gtk_widget_class_install_action (widget_class, "screenshot.zoom-reset", NULL, screenshot_zoom);
+
+    gtk_widget_class_add_binding (widget_class, GDK_KEY_f, GDK_CONTROL_MASK, search_open_cb, NULL);
 
     gtk_widget_class_add_binding_action (widget_class, GDK_KEY_1, GDK_ALT_MASK, "win.show-page", "s", "installed");
     gtk_widget_class_add_binding_action (widget_class, GDK_KEY_2, GDK_ALT_MASK, "win.show-page", "s", "browse");
