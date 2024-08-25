@@ -50,10 +50,6 @@ struct _ExmDetailView
     ExmCommentProvider *comment_provider;
     GCancellable *resolver_cancel;
 
-  	GSimpleAction *zoom_in;
-    GSimpleAction *zoom_out;
-    GSimpleAction *zoom_reset;
-
     gchar *shell_version;
     gchar *uuid;
 
