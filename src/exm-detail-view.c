@@ -582,20 +582,13 @@ open_link (ExmDetailView *self,
 static void
 on_bind_manager (ExmDetailView *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
 
     g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
+                  "extensions", &ext_model,
                   NULL);
 
-    g_signal_connect_swapped (user_ext_model,
-                              "items-changed",
-                              G_CALLBACK (exm_detail_view_update),
-                              self);
-
-    g_signal_connect_swapped (system_ext_model,
+    g_signal_connect_swapped (ext_model,
                               "items-changed",
                               G_CALLBACK (exm_detail_view_update),
                               self);

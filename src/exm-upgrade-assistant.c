@@ -398,8 +398,7 @@ on_extension_processed (GObject      *source,
 static void
 do_compatibility_check (ExmUpgradeAssistant *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
     int num_items;
     int i;
 
@@ -426,8 +425,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         return;
 
     g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
+                  "extensions", &ext_model,
                   NULL);
 
     // Display spinner
@@ -444,35 +442,22 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     g_list_store_remove_all (self->user_results_store);
     g_list_store_remove_all (self->system_results_store);
 
-    num_items = g_list_model_get_n_items (user_ext_model);
+    num_items = g_list_model_get_n_items (ext_model);
     for (i = 0; i < num_items; i++) {
         char *uuid;
+        gboolean is_user;
         ExmExtension *extension;
         ExtensionCheckData *data;
 
-        extension = EXM_EXTENSION (g_list_model_get_item (user_ext_model, i));
+        extension = EXM_EXTENSION (g_list_model_get_item (ext_model, i));
 
-        g_object_get (extension, "uuid", &uuid, NULL);
+        g_object_get (extension,
+                      "uuid", &uuid,
+                      "is-user", &is_user,
+                      NULL);
         g_debug ("Processing: %s\n", uuid);
 
-        data = create_check_data (extension, self, TRUE);
-
-        self->total_extensions++;
-        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_extension_processed, data);
-    }
-
-    num_items = g_list_model_get_n_items (system_ext_model);
-    for (i = 0; i < num_items; i++) {
-        char *uuid;
-        ExmExtension *extension;
-        ExtensionCheckData *data;
-
-        extension = EXM_EXTENSION (g_list_model_get_item (system_ext_model, i));
-
-        g_object_get (extension, "uuid", &uuid, NULL);
-        g_debug ("Processing: %s\n", uuid);
-
-        data = create_check_data (extension, self, FALSE);
+        data = create_check_data (extension, self, is_user);
 
         self->total_extensions++;
         exm_data_provider_get_async (self->data_provider, uuid, NULL, on_extension_processed, data);
@@ -525,8 +510,8 @@ widget_factory (ExmUpgradeResult    *result,
 
 static void
 bind_list_box (ExmUpgradeAssistant *self,
-               GtkListBox *list_box,
-               GListModel *model)
+               GtkListBox          *list_box,
+               GListModel          *model)
 {
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;

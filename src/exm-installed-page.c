@@ -156,23 +156,22 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
 }
 
 static void
-bind_list_box (GtkListBox       *list_box,
-               GListModel       *model,
-               gboolean          sort_enabled_first,
+bind_list_box (GListModel       *model,
                ExmInstalledPage *self)
 {
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;
     GtkSortListModel *sorted_model;
+    GtkBoolFilter *is_user_filter;
+    GtkFilterListModel *filtered_model;
 
-    g_return_if_fail (GTK_IS_LIST_BOX (list_box));
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
     // Sort alphabetically
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
-    if (sort_enabled_first)
+    if (self->sort_enabled_first)
     {
         GtkCustomSorter *enabled_sorter;
         GtkMultiSorter *multi_sorter;
@@ -191,7 +190,20 @@ bind_list_box (GtkListBox       *list_box,
         sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (alphabetical_sorter));
     }
 
-    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
+    // Filter by user/system extension
+    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user");
+    is_user_filter = gtk_bool_filter_new (expression);
+    filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+
+    gtk_list_box_bind_model (self->user_list_box, G_LIST_MODEL (filtered_model),
+                             (GtkListBoxCreateWidgetFunc) widget_factory,
+                             self, NULL);
+
+    is_user_filter = gtk_bool_filter_new (expression);
+    gtk_bool_filter_set_invert (is_user_filter, TRUE);
+    filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+
+    gtk_list_box_bind_model (self->system_list_box, G_LIST_MODEL (filtered_model),
                              (GtkListBoxCreateWidgetFunc) widget_factory,
                              self, NULL);
 }
@@ -226,28 +238,17 @@ on_updates_available (ExmManager       *manager,
 static void
 invalidate_model_bindings (ExmInstalledPage *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
 
     if (!self->manager)
         return;
 
     g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
+                  "extensions", &ext_model,
                   NULL);
 
-    if (user_ext_model)
-        bind_list_box (self->user_list_box,
-                       user_ext_model,
-                       self->sort_enabled_first,
-                       self);
-
-    if (system_ext_model)
-        bind_list_box (self->system_list_box,
-                       system_ext_model,
-                       self->sort_enabled_first,
-                       self);
+    if (ext_model)
+        bind_list_box (ext_model, self);
 }
 
 static void

@@ -11,8 +11,7 @@ struct _ExmManager
     GObject parent_instance;
 
     ShellExtensions *proxy;
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
 
     const gchar *shell_version;
     gboolean extensions_enabled;
@@ -24,8 +23,7 @@ G_DEFINE_FINAL_TYPE (ExmManager, exm_manager, G_TYPE_OBJECT)
 
 enum {
     PROP_0,
-    PROP_USER_EXTENSIONS,
-    PROP_SYSTEM_EXTENSIONS,
+    PROP_EXTENSIONS,
     PROP_EXTENSIONS_ENABLED,
     PROP_SHELL_VERSION,
     N_PROPS
@@ -49,14 +47,6 @@ exm_manager_new (void)
 }
 
 static void
-exm_manager_finalize (GObject *object)
-{
-    ExmManager *self = (ExmManager *)object;
-
-    G_OBJECT_CLASS (exm_manager_parent_class)->finalize (object);
-}
-
-static void
 exm_manager_get_property (GObject    *object,
                           guint       prop_id,
                           GValue     *value,
@@ -66,11 +56,8 @@ exm_manager_get_property (GObject    *object,
 
     switch (prop_id)
     {
-    case PROP_USER_EXTENSIONS:
-        g_value_set_object (value, self->user_ext_model);
-        break;
-    case PROP_SYSTEM_EXTENSIONS:
-        g_value_set_object (value, self->system_ext_model);
+    case PROP_EXTENSIONS:
+        g_value_set_object (value, self->ext_model);
         break;
     case PROP_SHELL_VERSION:
         g_value_set_string (value, self->shell_version);
@@ -329,10 +316,7 @@ exm_manager_get_by_uuid (ExmManager  *self,
 {
     ExmExtension *result = NULL;
 
-    if ((result = list_model_get_by_uuid (self->user_ext_model, uuid)) != NULL)
-        return result;
-
-    if ((result = list_model_get_by_uuid (self->system_ext_model, uuid)) != NULL)
+    if ((result = list_model_get_by_uuid (self->ext_model, uuid)) != NULL)
         return result;
 
     return NULL;
@@ -342,10 +326,7 @@ gboolean
 exm_manager_is_installed_uuid (ExmManager  *self,
                                const gchar *uuid)
 {
-    if (list_model_contains (self->user_ext_model, uuid))
-        return TRUE;
-
-    if (list_model_contains (self->system_ext_model, uuid))
+    if (list_model_contains (self->ext_model, uuid))
         return TRUE;
 
     return FALSE;
@@ -426,8 +407,7 @@ notify_extension_updates (ExmManager *self)
     // emits the 'updates-available' signal with the number of updates
     int n_updates = 0;
 
-    n_updates += list_model_get_number_of_updates (self->user_ext_model);
-    n_updates += list_model_get_number_of_updates (self->system_ext_model);
+    n_updates += list_model_get_number_of_updates (self->ext_model);
 
     g_info ("There are %d new updates available.", n_updates);
 
@@ -481,21 +461,13 @@ exm_manager_class_init (ExmManagerClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_manager_finalize;
     object_class->get_property = exm_manager_get_property;
     object_class->set_property = exm_manager_set_property;
 
-    properties [PROP_USER_EXTENSIONS]
-        = g_param_spec_object ("user-extensions",
-                               "User Extensions List Model",
-                               "User Extensions List Model",
-                               G_TYPE_LIST_MODEL,
-                               G_PARAM_READABLE);
-
-    properties [PROP_SYSTEM_EXTENSIONS]
-        = g_param_spec_object ("system-extensions",
-                               "System Extensions List Model",
-                               "System Extensions List Model",
+    properties [PROP_EXTENSIONS]
+        = g_param_spec_object ("extensions",
+                               "Extensions List Model",
+                               "Extensions List Model",
                                G_TYPE_LIST_MODEL,
                                G_PARAM_READABLE);
 
@@ -536,7 +508,6 @@ static void
 parse_single_extension (ExmExtension **extension,
                         const gchar   *extension_uuid,
                         GVariantIter  *variant_iter,
-                        gboolean      *is_user,
                         gboolean      *is_uninstall_operation)
 {
     gchar *prop_name;
@@ -547,6 +518,7 @@ parse_single_extension (ExmExtension **extension,
     gchar *display_name = NULL;
     gchar *description = NULL;
     gboolean enabled = FALSE;
+    gboolean is_user = FALSE;
     gboolean has_prefs = FALSE;
     gboolean has_update = FALSE;
     gboolean can_change = TRUE;
@@ -633,7 +605,7 @@ parse_single_extension (ExmExtension **extension,
         }
     }
 
-    *is_user = (type == EXM_EXTENSION_TYPE_PER_USER);
+    is_user = (type == EXM_EXTENSION_TYPE_PER_USER);
     *is_uninstall_operation = (state == EXM_EXTENSION_STATE_UNINSTALLED);
 
     g_object_set (*extension,
@@ -641,7 +613,7 @@ parse_single_extension (ExmExtension **extension,
                   "description", description,
                   "state", state,
                   "enabled", enabled,
-                  "is-user", *is_user,
+                  "is-user", is_user,
                   "has-prefs", has_prefs,
                   "has-update", has_update,
                   "can-change", can_change,
@@ -659,12 +631,10 @@ parse_single_extension (ExmExtension **extension,
 }
 
 static void
-parse_extension_list (GVariant   *exlist,
-                      GListModel **user_ext_model,
-                      GListModel **system_ext_model)
+parse_extension_list (GVariant    *exlist,
+                      GListModel **ext_model)
 {
-    GListStore *user_ext_store;
-    GListStore *system_ext_store;
+    GListStore *ext_store;
 
     /* format: a{sa{sv}}
      * array of interfaces, where each interface is an array of properties
@@ -675,16 +645,14 @@ parse_extension_list (GVariant   *exlist,
     GVariantIter *iter, *iter2;
     gchar *exname;
 
-    user_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
-    system_ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
+    ext_store = g_list_store_new (EXM_TYPE_EXTENSION);
 
     g_variant_get (exlist, "a{sa{sv}}", &iter);
     while (g_variant_iter_loop (iter, "{sa{sv}}", &exname, &iter2)) {
-        gboolean is_user;
         gboolean is_uninstall_operation;
         ExmExtension *extension = NULL;
 
-        parse_single_extension (&extension, exname, iter2, &is_user, &is_uninstall_operation);
+        parse_single_extension (&extension, exname, iter2, &is_uninstall_operation);
 
         if (is_uninstall_operation)
         {
@@ -692,12 +660,11 @@ parse_extension_list (GVariant   *exlist,
             continue;
         }
 
-        g_list_store_append ((is_user ? user_ext_store : system_ext_store), extension);
+        g_list_store_append (ext_store, extension);
     }
     g_variant_iter_free (iter);
 
-    *user_ext_model = G_LIST_MODEL (user_ext_store);
-    *system_ext_model = G_LIST_MODEL (system_ext_store);
+    *ext_model = G_LIST_MODEL (ext_store);
 }
 
 static void
@@ -715,13 +682,11 @@ update_extension_list (ExmManager *self)
     }
 
     // Unref object if exists
-    g_clear_object (&self->user_ext_model);
-    g_clear_object (&self->system_ext_model);
+    g_clear_object (&self->ext_model);
 
-    parse_extension_list (exlist, &self->user_ext_model, &self->system_ext_model);
+    parse_extension_list (exlist, &self->ext_model);
 
-    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_USER_EXTENSIONS]);
-    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_SYSTEM_EXTENSIONS]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_EXTENSIONS]);
 
     queue_notify_extension_updates (self);
 }
@@ -743,7 +708,6 @@ on_state_changed (ShellExtensions *object,
                   ExmManager      *self)
 {
     ExmExtension *extension;
-    gboolean is_user;
     gboolean is_new;
     gboolean is_uninstall_operation;
     GListStore *list_store;
@@ -760,10 +724,10 @@ on_state_changed (ShellExtensions *object,
 
     GVariantIter *iter;
     g_variant_get (arg_state, "a{sv}", &iter);
-    parse_single_extension (&extension, arg_uuid, iter, &is_user, &is_uninstall_operation);
+    parse_single_extension (&extension, arg_uuid, iter, &is_uninstall_operation);
     g_variant_iter_free (iter);
 
-    list_store = G_LIST_STORE (is_user ? self->user_ext_model : self->system_ext_model);
+    list_store = G_LIST_STORE (self->ext_model);
 
     if (is_new)
     {
