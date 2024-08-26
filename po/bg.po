@@ -8,185 +8,191 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-08-26 18:49+0000\n"
+"Last-Translator: trunars <trunars@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/"
+"extension-manager/app/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
-msgstr ""
+msgstr "Мениджър на разширения"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
-msgstr ""
+msgstr "Управление на разширенията на GNOME Shell"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
-msgstr ""
+msgstr "разширение;мениджър;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr ""
+msgstr "Преглеждайте, инсталирайте и управлявайте разширенията на GNOME Shell"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
 msgstr ""
+"Помощна програма за разглеждане и инсталиране на разширения на GNOME Shell."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
-msgstr ""
+msgstr "Характеристики:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr ""
+msgstr "Разгледайте extensions.gnome.org направо в приложението"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
-msgstr ""
+msgstr "Управлявайте разширенията, които вече сте инсталирали"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "See all the details of your extensions"
-msgstr ""
+msgstr "Вижте всички подробности за вашите разширения"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr ""
+"Проверете съвместимостта на вашите разширения със следващата версия на GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr ""
+msgstr "Преглеждайте, инсталирайте и управлявайте разширенията на GNOME Shell."
 
 #: src/exm-application.c:192
 msgid "translator-credits"
-msgstr ""
+msgstr "преводачески-кредити"
 
 #: src/exm-browse-page.blp:9
 msgid "Search for Extensions"
-msgstr ""
+msgstr "Търсене на разширения"
 
 #: src/exm-browse-page.blp:10
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
+"Въведете ключова дума, за да търсите „extensions.gnome.org“ за разширения на "
+"GNOME Shell"
 
 #. Translators: dropdown items for sorting search results
 #: src/exm-browse-page.blp:32
 msgid "Relevance"
-msgstr ""
+msgstr "Уместност"
 
 #: src/exm-browse-page.blp:32
 msgctxt "Sort search results"
 msgid "Downloads"
-msgstr ""
+msgstr "Изтегляния"
 
 #: src/exm-browse-page.blp:32
 msgid "Recent"
-msgstr ""
+msgstr "Скорошни"
 
 #: src/exm-browse-page.blp:32
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: src/exm-browse-page.blp:62
 msgid "_Load More Results"
-msgstr ""
+msgstr "_Зареждане на още резултати"
 
 #: src/exm-browse-page.blp:74
 msgid "No Results Found"
-msgstr ""
+msgstr "Няма намерени резултати"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
-msgstr ""
+msgstr "Коментари"
 
 #: src/exm-comment-dialog.blp:37
 msgid "Loading Comments"
-msgstr ""
+msgstr "Коментари се зареждат"
 
 #: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
 #: src/exm-detail-view.blp:241 src/exm-window.c:316
 msgid "An Error Occurred"
-msgstr ""
+msgstr "Възникна грешка"
 
 #: src/exm-comment-tile.blp:28
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
 #: src/exm-detail-view.blp:47
 msgid "Loading Details"
-msgstr ""
+msgstr "Зареждане на подробности"
 
 #: src/exm-detail-view.blp:125
 msgid "Enlarge Image"
-msgstr ""
+msgstr "Увеличете изображението"
 
 #: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: src/exm-detail-view.blp:159
 msgid "Links"
-msgstr ""
+msgstr "Връзки"
 
 #: src/exm-detail-view.blp:174
 msgid "Homepage"
-msgstr ""
+msgstr "Домашна страница"
 
 #: src/exm-detail-view.blp:191
 msgid "Donate"
-msgstr ""
+msgstr "Дарете"
 
 #: src/exm-detail-view.blp:200
 msgid "View on Extensions"
-msgstr ""
+msgstr "Преглед на разширения"
 
 #: src/exm-detail-view.blp:219
 msgid "User Reviews"
-msgstr ""
+msgstr "Потребителски отзиви"
 
 #: src/exm-detail-view.blp:250
 msgid "No comments yet"
-msgstr ""
+msgstr "Все още няма коментари"
 
 #: src/exm-detail-view.blp:270
 msgid "_Show All Reviews"
-msgstr ""
+msgstr "_Покажи всички отзиви"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr ""
+msgstr "Доклад за грешка"
 
 #: src/exm-error-dialog.blp:29
 msgid "An unexpected error occurred in Extension Manager"
-msgstr ""
+msgstr "Възникна неочаквана грешка в Мениджър на разширения"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
-msgstr ""
+msgstr "_Копиране в клипборда"
 
 #: src/exm-error-dialog.blp:64
 msgid "_New Issue"
-msgstr ""
+msgstr "_Нов брой"
 
 #. Success indicator
 #: src/exm-error-dialog.c:132 src/exm-upgrade-assistant.c:338
 msgid "Copied"
-msgstr ""
+msgstr "Копирано"
 
 #: src/exm-error-dialog.c:182
 msgid "Please open a new issue and attach the following information:"
-msgstr ""
+msgstr "Моля, отворете нова тема и прикачете следната информация:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:186
@@ -196,188 +202,196 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
+"Използвате компилация на трета страна на Мениджър на разширения. Моля, <span "
+"weight=\"bold\">първо се свържете с дистрибутора на пакета (%s)</span>, "
+"преди да подадете сигнал. Не забравяйте да прикачите следната информация:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
 msgstr ""
+"Подсказка на бутона за отваряне на диалоговия прозорец за предпочитания на "
+"разширението"
 
 #: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
-msgstr ""
+msgstr "Възникна грешка при зареждането на това разширение"
 
 #: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr ""
+msgstr "Това разширение е несъвместимо с текущата ви версия на GNOME"
 
 #: src/exm-extension-row.blp:74
 msgid "A newer version of this extension is available"
-msgstr ""
+msgstr "Налична е по-нова версия на това разширение"
 
 #: src/exm-extension-row.blp:90
 msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"Това разширение може да се активира в режими на сесия, като например екран "
+"за влизане или заключен екран"
 
 #: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 #: src/exm-extension-row.blp:158
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: src/exm-extension-row.blp:197
 msgid "See Details"
-msgstr ""
+msgstr "Вижте подробности"
 
 #: src/exm-extension-row.blp:206
 msgid "Remove…"
-msgstr ""
+msgstr "Премахване…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Общи"
 
 #: src/exm-help-overlay.blp:14
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr ""
+msgstr "Показване на инсталираната страница"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "Показване на страницата за разглеждане"
 
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr ""
+msgstr "Показване на клавишни комбинации"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "Затваряне на прозореца"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Напусни"
 
 #: src/exm-help-overlay.blp:40
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "Изглед на екранна снимка"
 
 #: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
 msgctxt "shortcut window"
 msgid "Zoom In"
-msgstr ""
+msgstr "Увеличете"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
 msgctxt "shortcut window"
 msgid "Zoom Out"
-msgstr ""
+msgstr "Намаляване"
 
 #: src/exm-help-overlay.blp:53
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "Нулиране на мащаба"
 
 #: src/exm-info-bar.blp:13
 msgctxt "Number of downloads"
 msgid "Downloads"
-msgstr ""
+msgstr "Изтегляния"
 
 #: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
 #: src/exm-upgrade-assistant.c:516
 msgid "Unsupported"
-msgstr ""
+msgstr "Не се поддържа"
 
 #: src/exm-install-button.c:115
 msgid "Install…"
-msgstr ""
+msgstr "Инсталиране…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
 msgid "Installed"
-msgstr ""
+msgstr "Инсталиран"
 
 #: src/exm-install-button.c:124
 msgid "Unsupported…"
-msgstr ""
+msgstr "Не се поддържа…"
 
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
-msgstr ""
+msgstr "Използвайте разширения"
 
 #: src/exm-installed-page.blp:19
 msgid "Extensions can cause performance and stability issues"
 msgstr ""
+"Разширенията могат да причинят проблеми с производителността и стабилността"
 
 #: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
 msgid "User-Installed Extensions"
-msgstr ""
+msgstr "Разширения, инсталирани от потребителя"
 
 #: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:118
 msgid "System Extensions"
-msgstr ""
+msgstr "Системни разширения"
 
 #: src/exm-installed-page.blp:84
 msgid "Updates Available"
-msgstr ""
+msgstr "Налични актуализации"
 
 #: src/exm-installed-page.blp:102
 msgid "Log Out…"
-msgstr ""
+msgstr "Изход…"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:196
 #, c-format
 msgid "One extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Едно разширение ще бъде актуализирано при следващо влизане"
+msgstr[1] "%d разширения ще бъдат актуализирани при следващо влизане"
 
 #: src/exm-installed-page.c:302
 msgid "Browse"
-msgstr ""
+msgstr "Прегледайте"
 
 #: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
 msgid "No User Extensions Installed"
-msgstr ""
+msgstr "Няма инсталирани потребителски разширения"
 
 #: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
 msgid "No System Extensions Installed"
-msgstr ""
+msgstr "Няма инсталирани системни разширения"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
-msgstr ""
+msgstr "Намаляване"
 
 #: src/exm-screenshot-view.blp:49
 msgid "Zoom In"
-msgstr ""
+msgstr "Увеличаване"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
-msgstr ""
+msgstr "Помощник за надграждане"
 
 #: src/exm-upgrade-assistant.blp:47
 msgid "_Check Compatibility"
-msgstr ""
+msgstr "_Проверете съвместимостта"
 
 #: src/exm-upgrade-assistant.c:176
 #, c-format
 msgid "Checked %d/%d Extensions"
-msgstr ""
+msgstr "Проверени %d/%d разширения"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:195
 #, c-format
 msgid "%d%% Compatible"
-msgstr ""
+msgstr "%d%% Съвместим"
 
 #: src/exm-upgrade-assistant.c:215
 #, c-format
@@ -385,28 +399,32 @@ msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
 msgstr ""
+"<b>GNOME %s</b> поддържа <b>%d от %d</b> от разширенията, инсталирани в "
+"момента в системата"
 
 #: src/exm-upgrade-assistant.c:512
 msgid "Supported"
-msgstr ""
+msgstr "Поддържа се"
 
 #: src/exm-upgrade-assistant.c:514
 msgid "A compatible version of the extension exists"
-msgstr ""
+msgstr "Съществува съвместима версия на разширението"
 
 #: src/exm-upgrade-assistant.c:518
 msgid "No compatible version of the extension exists"
-msgstr ""
+msgstr "Не съществува съвместима версия на разширението"
 
 #: src/exm-upgrade-assistant.c:520
 msgid "Unknown"
-msgstr ""
+msgstr "Непознат"
 
 #: src/exm-upgrade-assistant.c:522
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
+"Това разширение не се хоства на extensions.gnome.org. Неговата съвместимост "
+"не може да бъде определена."
 
 #: src/exm-upgrade-assistant.c:617
 #, c-format
@@ -414,79 +432,85 @@ msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
+"В момента работите с <b>GNOME %s</b>. Изберете версия на GNOME по-долу и "
+"проверете дали вашите разширения ще продължат да бъдат налични."
 
 #: src/exm-window.blp:40
 msgid "Main Menu"
-msgstr ""
+msgstr "Главно меню"
 
 #: src/exm-window.blp:53
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr ""
+msgstr "_Инсталиран"
 
 #: src/exm-window.blp:62
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr ""
+msgstr "_Преглед"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
 #: src/exm-window.blp:106
 msgid "Sort _Enabled First"
-msgstr ""
+msgstr "Първо сортирайте _Активирано"
 
 #: src/exm-window.blp:107
 msgid "_Show Unsupported"
-msgstr ""
+msgstr "_Покажи неподдържан"
 
 #: src/exm-window.blp:110
 msgid "_Upgrade Assistant"
-msgstr ""
+msgstr "_Помощник за надграждане"
 
 #: src/exm-window.blp:111
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Клавишни комбинации"
 
 #: src/exm-window.blp:112
 msgid "_About Extension Manager"
-msgstr ""
+msgstr "_Относно мениджъра на разширения"
 
 #: src/exm-window.blp:117
 msgid "Uninstall Extension?"
-msgstr ""
+msgstr "Деинсталиране на разширението?"
 
 #: src/exm-window.blp:118
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
+"Функциите и функциите на разширението вече няма да бъдат достъпни. Сигурни "
+"ли сте, че искате да деинсталирате?"
 
 #: src/exm-window.blp:123
 msgid "_No"
-msgstr ""
+msgstr "_Не"
 
 #: src/exm-window.blp:124
 msgid "_Yes"
-msgstr ""
+msgstr "_Да"
 
 #: src/exm-window.blp:129
 msgid "Unsupported Extension"
-msgstr ""
+msgstr "Неподдържано разширение"
 
 #: src/exm-window.blp:130
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
+"Това разширение не поддържа вашата версия на GNOME Shell. Може да причини "
+"грешки, ако е инсталиран."
 
 #: src/exm-window.blp:135
 msgid "_Install Anyway"
-msgstr ""
+msgstr "_Инсталирайте въпреки това"
 
 #: src/exm-window.blp:136
 msgid "_Go Back"
-msgstr ""
+msgstr "_Върни се назад"
 
 #: src/exm-window.c:317
 msgid "Details"
-msgstr ""
+msgstr "Подробности"
