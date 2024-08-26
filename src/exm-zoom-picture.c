@@ -166,24 +166,6 @@ exm_zoom_picture_get_zoom_level_step (ExmZoomPicture *self)
 }
 
 void
-exm_zoom_picture_zoom_in (ExmZoomPicture *self)
-{
-	exm_zoom_picture_set_zoom_level (self, self->zoom_level += ZOOM_STEP);
-}
-
-void
-exm_zoom_picture_zoom_out (ExmZoomPicture *self)
-{
-	exm_zoom_picture_set_zoom_level (self, self->zoom_level -= ZOOM_STEP);
-}
-
-void
-exm_zoom_picture_zoom_reset (ExmZoomPicture *self)
-{
-	exm_zoom_picture_set_zoom_level (self, 1);
-}
-
-void
 compute_scaled_dimensions (ExmZoomPicture *self)
 {
 	float width, height;
