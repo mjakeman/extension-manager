@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-07-29 11:09+0000\n"
-"Last-Translator: Masterix <masterix@duck.com>\n"
+"PO-Revision-Date: 2024-09-02 15:16+0000\n"
+"Last-Translator: Jan Kalabza <jan.kalabza@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -34,7 +34,7 @@ msgstr "Spravovat Rozšíření GNOME Shellu"
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
-msgstr "extension;manager;shell;rozšíření;správce;shell"
+msgstr "rozšíření;správce;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -61,16 +61,13 @@ msgid "Manage the extensions you already have installed"
 msgstr "Spravujte rozšíření, která již máte nainstalovaná"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "See all the details of your extensions"
-msgstr "Hledat Rozšíření"
+msgstr "Zobrazit všechny detaily vašeho rozšíření"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Toto rozšíření je nekompatibilní s vaší verzí prostředí GNOME"
+msgstr ""
+"Zkontrolujte kompatibilitu svých rozšíření s příští verzí prostředí GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
