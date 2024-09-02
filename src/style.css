@@ -41,26 +41,24 @@ rating {
   color: @yellow_4;
 }
 
-.info-bar.horizontal > :not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-left: 1px;
+.info-bar.horizontal > :not(:first-child),
+.info-bar.horizontal > :not(:first-child) > row {
+  border-radius: 0 12px 12px 0;
 }
 
-.info-bar.horizontal > :not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.info-bar.horizontal > :not(:last-child),
+.info-bar.horizontal > :not(:last-child) > row {
+  border-radius: 12px 0 0 12px;
 }
 
-.info-bar.vertical > :not(:first-child) {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  margin-top: 1px;
+.info-bar.vertical > :not(:first-child),
+.info-bar.vertical > :not(:first-child) > row {
+  border-radius: 0 0 12px 12px;
 }
 
-.info-bar.vertical > :not(:last-child) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.info-bar.vertical > :not(:last-child),
+.info-bar.vertical > :not(:last-child) > row {
+  border-radius: 12px 12px 0 0;
 }
 
 .author-badge {

@@ -1,21 +1,45 @@
 using Gtk 4.0;
+using Adw 1;
 
 template $ExmInfoBar: Gtk.Box {
-	styles [
-		"info-bar"
-	]
+  styles [
+    "info-bar"
+  ]
 
-	homogeneous: true;
-	orientation: horizontal;
+  homogeneous: true;
 
-	$ExmInfoBarItem downloads_item {
-		icon: "folder-download-symbolic";
-		title: C_("Number of downloads", "Downloads");
-	}
+  Gtk.ListBox {
+    styles [
+      "card"
+    ]
 
-	$ExmInfoBarItem version_item {
-		icon: "system-software-install-symbolic";
-		title: _("Version");
-		subtitle: _("Unsupported");
-	}
+    selection-mode: none;
+
+    Adw.ActionRow downloads_item {
+      [prefix]
+      Gtk.Image {
+        icon-name: "folder-download-symbolic";
+      }
+
+      title: C_("Number of downloads", "Downloads");
+    }
+  }
+
+  Gtk.ListBox {
+    styles [
+      "card"
+    ]
+
+    selection-mode: none;
+
+    Adw.ActionRow version_item {
+      [prefix]
+      Gtk.Image {
+        icon-name: "system-software-install-symbolic";
+      }
+
+      title: _("Version");
+      subtitle: _("Unsupported");
+    }
+  }
 }

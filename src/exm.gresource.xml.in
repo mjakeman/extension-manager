@@ -14,7 +14,6 @@
     <file>exm-upgrade-assistant.ui</file>
     <file>exm-error-dialog.ui</file>
     <file>exm-info-bar.ui</file>
-    <file>exm-info-bar-item.ui</file>
     <file>exm-screenshot-view.ui</file>
     <file alias="gtk/help-overlay.ui">exm-help-overlay.ui</file>
     <file alias="suggestions.txt">res/suggestions.txt</file>
