@@ -7,6 +7,11 @@ template $ExmInstalledPage: Gtk.Widget {
   Gtk.Box {
     orientation: vertical;
 
+    Adw.Banner updates_banner {
+      button-label: _("_Log Out…");
+      action-name: "app.logout";
+    }
+
     Adw.PreferencesPage {
       Adw.PreferencesGroup {
         Adw.SwitchRow global_toggle {
@@ -51,64 +56,6 @@ template $ExmInstalledPage: Gtk.Widget {
           accessibility {
             labelled-by: system_list;
           }
-        }
-      }
-    }
-
-    Gtk.Revealer updates_action_bar {
-      reveal-child: false;
-      transition-type: slide_up;
-
-      Gtk.Box {
-        styles [
-          "actionbar",
-          "update-bar"
-        ]
-
-        spacing: 12;
-
-        Gtk.Image update_icon {
-          styles [
-            "update"
-          ]
-
-          icon-name: "software-update-available-symbolic";
-          pixel-size: 24;
-          valign: center;
-          halign: center;
-        }
-
-        Gtk.Box {
-          orientation: vertical;
-          valign: center;
-          hexpand: true;
-
-          Gtk.Label updates_title {
-            styles [
-              "heading"
-            ]
-
-            xalign: 0;
-            label: _("Updates Available");
-            ellipsize: end;
-          }
-
-          Gtk.Label num_updates_label {
-            xalign: 0;
-            ellipsize: end;
-          }
-        }
-
-        [end]
-        Gtk.Button {
-          styles [
-            "suggested-action"
-          ]
-
-          valign: center;
-          halign: center;
-          label: _("Log Out…");
-          action-name: "app.logout";
         }
       }
     }
