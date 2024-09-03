@@ -41,5 +41,8 @@
     <file preprocess="xml-stripblanks" alias="software-update-available-symbolic.svg">../data/icons/hicolor/scalable/actions/software-update-available-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="star-filled-rounded-symbolic.svg">../data/icons/hicolor/scalable/actions/star-filled-rounded-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="star-outline-rounded-symbolic.svg">../data/icons/hicolor/scalable/actions/star-outline-rounded-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="supported-symbolic.svg">../data/icons/hicolor/scalable/actions/supported-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="unknown-symbolic.svg">../data/icons/hicolor/scalable/actions/unknown-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="unsupported-symbolic.svg">../data/icons/hicolor/scalable/actions/unsupported-symbolic.svg</file>
   </gresource>
 </gresources>
