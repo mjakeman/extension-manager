@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: format-blueprint
+        name: Format Blueprint files
+        entry: blueprint-compiler format -f
+        language: system
+        files: \.blp$
