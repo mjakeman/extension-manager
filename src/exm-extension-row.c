@@ -20,6 +20,7 @@ struct _ExmExtensionRow
     GtkSwitch *ext_toggle;
 
     GtkLabel *description_label;
+    GtkLabel *version_title;
     GtkLabel *version_label;
     GtkLabel *error_label;
     GtkLabel *error_label_tag;
@@ -211,6 +212,9 @@ bind_extension (ExmExtensionRow *self,
                              || state == EXM_EXTENSION_STATE_INACTIVE)
                              && enabled);
 
+    gtk_widget_set_visible (GTK_WIDGET (self->version_title), version != NULL);
+    gtk_widget_set_visible (GTK_WIDGET (self->version_label), version != NULL);
+
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
     GAction *action;
@@ -297,9 +301,10 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-extension-row.ui");
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_title);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_label);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label_tag);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_label);
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
