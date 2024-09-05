@@ -1,35 +1,38 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmUpgradeAssistant : Adw.Dialog {
+template $ExmUpgradeAssistant: Adw.Dialog {
   content-width: 400;
   content-height: 600;
   title: _("Upgrade Assistant");
   notify::manager => $on_bind_manager();
 
   child: Adw.ToolbarView {
-
     [top]
     Adw.HeaderBar {}
 
     content: Gtk.Stack stack {
       Gtk.StackPage version_select {
-      	name: "version-select";
+        name: "version-select";
+
         child: Adw.Clamp {
           Gtk.Box {
-          	styles ["detail"]
+            styles [
+              "detail"
+            ]
+
             orientation: vertical;
             spacing: 15;
             vexpand: true;
 
             Gtk.Image {
-            	icon-name: "software-update-available-symbolic";
-            	icon-size: large;
-            	focusable: true;
+              icon-name: "software-update-available-symbolic";
+              icon-size: large;
+              focusable: true;
 
-            	accessibility {
-              	labelled-by: description;
-            	}
+              accessibility {
+                labelled-by: description;
+              }
             }
 
             Gtk.Box {
@@ -47,7 +50,9 @@ template $ExmUpgradeAssistant : Adw.Dialog {
             }
 
             Gtk.Button run_button {
-              styles ["pill"]
+              styles [
+                "pill"
+              ]
 
               label: _("_Check Compatibility");
               halign: center;
@@ -60,88 +65,104 @@ template $ExmUpgradeAssistant : Adw.Dialog {
       }
 
       Gtk.StackPage waiting {
-      	name: "waiting";
+        name: "waiting";
+
         child: Gtk.Box {
-        	orientation: vertical;
-        	spacing: 12;
-        	valign: center;
+          orientation: vertical;
+          spacing: 12;
+          valign: center;
 
-        	Gtk.Spinner {
-        		spinning: true;
-        		focusable: true;
-        		height-request: 32;
-        		width-request: 32;
-        	}
+          Gtk.Spinner {
+            spinning: true;
+            focusable: true;
+            height-request: 32;
+            width-request: 32;
+          }
 
-        	Gtk.Label counter {
-        		styles ["title-2"]
-        	}
+          Gtk.Label counter {
+            styles [
+              "title-2"
+            ]
+          }
         };
       }
 
       Gtk.StackPage results {
-      	name: "results";
+        name: "results";
+
         child: Gtk.ScrolledWindow {
-		      hscrollbar-policy: never;
-		      child: Adw.Clamp {
-				    child: Gtk.Box {
-				    	styles ["content"]
-				    	orientation: vertical;
-				    	vexpand: true;
-				    	spacing: 24;
+          hscrollbar-policy: never;
 
-				    	Gtk.Label summary {
-								wrap: true;
-				    	}
+          child: Adw.Clamp {
+            child: Gtk.Box {
+              styles [
+                "content"
+              ]
 
-				    	Gtk.ProgressBar progress_bar {
-								show-text: true;
-								margin-start: 24;
-								margin-end: 24;
-								focusable: true;
+              orientation: vertical;
+              vexpand: true;
+              spacing: 24;
 
-								accessibility {
-									labelled-by: summary;
-									described-by: progress_bar;
-								}
-				    	}
+              Gtk.Label summary {
+                wrap: true;
+              }
 
-							Adw.PreferencesGroup user_list_title {
-								title: _("User-Installed Extensions");
+              Gtk.ProgressBar progress_bar {
+                show-text: true;
+                margin-start: 24;
+                margin-end: 24;
+                focusable: true;
 
-								Gtk.ListBox user_list_box {
-									styles ["boxed-list", "boxed-list-placeholder"]
-									valign: start;
-									selection-mode: none;
+                accessibility {
+                  labelled-by: summary;
+                  described-by: progress_bar;
+                }
+              }
 
-									accessibility {
-										labelled-by: user_list_title;
-									}
-								}
-							}
+              Adw.PreferencesGroup user_list_title {
+                title: _("User-Installed Extensions");
 
-							Adw.PreferencesGroup system_list_title {
-								title: _("System Extensions");
+                Gtk.ListBox user_list_box {
+                  styles [
+                    "boxed-list",
+                    "boxed-list-placeholder"
+                  ]
 
-								Gtk.ListBox system_list_box {
-									styles ["boxed-list", "boxed-list-placeholder"]
-									valign: start;
-									selection-mode: none;
+                  valign: start;
+                  selection-mode: none;
 
-									accessibility {
-										labelled-by: system_list_title;
-									}
-								}
-							}
+                  accessibility {
+                    labelled-by: user_list_title;
+                  }
+                }
+              }
 
-			    		Gtk.Button copy_details {
-								label: _("_Copy to Clipboard");
-								halign: center;
-								use-underline: true;
-								clicked => $copy_to_clipboard() swapped;
-			    		}
-				    };
-		      };
+              Adw.PreferencesGroup system_list_title {
+                title: _("System Extensions");
+
+                Gtk.ListBox system_list_box {
+                  styles [
+                    "boxed-list",
+                    "boxed-list-placeholder"
+                  ]
+
+                  valign: start;
+                  selection-mode: none;
+
+                  accessibility {
+                    labelled-by: system_list_title;
+                  }
+                }
+              }
+
+              Gtk.Button copy_details {
+                label: _("_Copy to Clipboard");
+                halign: center;
+                use-underline: true;
+                clicked => $copy_to_clipboard() swapped;
+              }
+            };
+          };
         };
       }
     };
