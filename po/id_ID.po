@@ -1,23 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Reza Almanda <rezaalmanda27@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-08-04 02:41+0000\n"
+"PO-Revision-Date: 2024-09-09 23:09+0000\n"
 "Last-Translator: Reza Almanda <rezaalmanda27@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/extension-"
-"manager/app/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"extension-manager/app/id/>\n"
 "Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -58,16 +57,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "Kelola ekstensi yang telah Anda pasang"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "See all the details of your extensions"
-msgstr "Cari Ekstensi"
+msgstr "Lihat semua detail ekstensi Anda"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME."
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Ekstensi ini tidak cocok untuk versi GNOME kamu."
+msgstr "Periksa kompatibilitas ekstensi Anda dengan versi GNOME berikutnya"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -177,24 +172,24 @@ msgstr "Laporan Error"
 
 #: src/exm-error-dialog.blp:29
 msgid "An unexpected error occurred in Extension Manager"
-msgstr ""
+msgstr "Terjadi error tak terduga di Extension Manager"
 
 #: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
 msgid "_Copy to Clipboard"
-msgstr ""
+msgstr "_Salin ke Papan Klip"
 
 #: src/exm-error-dialog.blp:64
 msgid "_New Issue"
-msgstr ""
+msgstr "_Isu Baru"
 
 #. Success indicator
 #: src/exm-error-dialog.c:132 src/exm-upgrade-assistant.c:338
 msgid "Copied"
-msgstr ""
+msgstr "Disalin"
 
 #: src/exm-error-dialog.c:182
 msgid "Please open a new issue and attach the following information:"
-msgstr ""
+msgstr "Silakan buka masalah baru dan lampirkan informasi berikut:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:186
@@ -204,14 +199,17 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
+"Anda menggunakan Extension Manager versi pihak ketiga. Harap <span weight="
+"\"bold\">menghubungi distributor paket (%s) terlebih dahulu</span> sebelum "
+"mengajukan masalah. Pastikan untuk melampirkan informasi berikut ini:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
-msgstr ""
+msgstr "Buka preferensi ekstensi"
 
 #: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
-msgstr ""
+msgstr "Terjadi error saat memuat ekstensi ini"
 
 #: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 #, fuzzy
