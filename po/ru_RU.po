@@ -1,24 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Aleksandr Melman <alexmelman88@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-07-19 19:33+0000\n"
-"Last-Translator: Xto <0uxtojgt3@mozmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
-"manager/app/ru/>\n"
+"PO-Revision-Date: 2024-09-14 11:44+0000\n"
+"Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"extension-manager/app/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -59,16 +58,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "Управление уже установленными расширениями"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "See all the details of your extensions"
-msgstr "Поиск Расширений"
+msgstr "Просмотр всех подробностей ваших расширений"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Это расширение несовместимо с вашей текущей версией GNOME"
+msgstr "Проверка совместимости ваших расширений со следующей версией GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -82,7 +77,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:9
 msgid "Search for Extensions"
-msgstr "Поиск Расширений"
+msgstr "Поиск расширений"
 
 #: src/exm-browse-page.blp:10
 msgid ""
@@ -255,7 +250,7 @@ msgstr "Удалить…"
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Основное"
+msgstr "Общие"
 
 #: src/exm-help-overlay.blp:14
 msgctxt "shortcut window"
@@ -270,7 +265,7 @@ msgstr "Показать «Обзор»"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr "Показать горячие клавиши"
+msgstr "Показать комбинации клавиш"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -327,7 +322,7 @@ msgstr "Не поддерживается…"
 
 #: src/exm-installed-page.blp:18
 msgid "Use Extensions"
-msgstr "Использовать Расширения"
+msgstr "Использовать расширения"
 
 #: src/exm-installed-page.blp:19
 msgid "Extensions can cause performance and stability issues"
@@ -470,7 +465,7 @@ msgstr "Помощник по _обновлению"
 
 #: src/exm-window.blp:111
 msgid "_Keyboard Shortcuts"
-msgstr "_Горячие клавиши"
+msgstr "_Комбинации клавиш"
 
 #: src/exm-window.blp:112
 msgid "_About Extension Manager"
