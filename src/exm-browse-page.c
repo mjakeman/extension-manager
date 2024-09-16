@@ -180,15 +180,11 @@ on_first_page_result (GObject       *source,
 {
     GError *error = NULL;
     GListModel *to_append;
-    int n_items;
-    int i;
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
 
     if (G_IS_LIST_MODEL (to_append))
     {
-        n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
-
         // Populate list model
         self->search_results_model = to_append;
     }
@@ -221,6 +217,9 @@ on_next_page_result (GObject       *source,
 
             item = g_list_model_get_object (to_append, i);
             g_list_store_append (G_LIST_STORE (self->search_results_model), item);
+
+            if (i == 0)
+               gtk_widget_grab_focus (gtk_widget_get_last_child (GTK_WIDGET (self->search_results)));
         }
 
         // Remove unnecessary model

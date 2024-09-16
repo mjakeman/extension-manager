@@ -17,11 +17,10 @@ struct _ExmInstalledPage
     ExmManager *manager;
 
     // Template Widgets
+    AdwBanner *updates_banner;
+    AdwSwitchRow *global_toggle;
     GtkListBox *user_list_box;
     GtkListBox *system_list_box;
-    GtkLabel *num_updates_label;
-    GtkRevealer *updates_action_bar;
-    AdwSwitchRow *global_toggle;
 
     gboolean sort_enabled_first;
 };
@@ -178,9 +177,9 @@ bind_list_box (GtkListBox       *list_box,
 }
 
 static guint
-show_updates_bar (ExmInstalledPage *self)
+show_updates_banner (ExmInstalledPage *self)
 {
-    gtk_revealer_set_reveal_child (self->updates_action_bar, TRUE);
+    adw_banner_set_revealed (self->updates_banner, TRUE);
 
     return G_SOURCE_REMOVE;
 }
@@ -193,15 +192,15 @@ on_updates_available (ExmManager       *manager,
     char *label;
 
     // Translators: '%d' = number of extensions that will be updated
-    label = g_strdup_printf(ngettext("One extension will be updated on next login",
+    label = g_strdup_printf(ngettext("%d extension will be updated on next login",
                                      "%d extensions will be updated on next login",
                                      n_updates), n_updates);
 
-    gtk_label_set_label (self->num_updates_label, label);
+    adw_banner_set_title (self->updates_banner, label);
     g_free (label);
 
     // Short delay to draw user attention
-    g_timeout_add (500, G_SOURCE_FUNC (show_updates_bar), self);
+    g_timeout_add (500, G_SOURCE_FUNC (show_updates_banner), self);
 }
 
 static void
@@ -282,11 +281,10 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-installed-page.ui");
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_banner);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, num_updates_label);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_action_bar);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
 
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
 
@@ -328,7 +326,6 @@ create_system_placeholder ()
                                    _("No System Extensions Installed"));
 
     return row;
-
 }
 
 static void
@@ -351,6 +348,4 @@ exm_installed_page_init (ExmInstalledPage *self)
 
     gtk_list_box_set_placeholder (self->system_list_box,
                                   create_system_placeholder ());
-
-
 }

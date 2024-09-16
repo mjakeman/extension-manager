@@ -1,213 +1,231 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmExtensionRow : Adw.ExpanderRow {
-	title-lines: 1;
-	subtitle-lines: 1;
+template $ExmExtensionRow: Adw.ExpanderRow {
+  title-lines: 1;
+  subtitle-lines: 1;
 
-	[action]
-	Gtk.Switch ext_toggle {
-		valign: center;
-		active: bind template.extension as <$ExmExtension>.enabled;
-		sensitive: bind template.extension as <$ExmExtension>.can-change;
-		state-set => $on_state_changed();
-	}
+  [action]
+  Gtk.Switch ext_toggle {
+    valign: center;
+    active: bind template.extension as <$ExmExtension>.enabled;
+    sensitive: bind template.extension as <$ExmExtension>.can-change;
+    state-set => $on_state_changed();
+  }
 
-	[action]
-	Gtk.Button prefs_btn {
-	  styles ["flat"]
+  [action]
+  Gtk.Button prefs_btn {
+    styles [
+      "flat"
+    ]
 
-		icon-name: "settings-symbolic";
-		valign: center;
-		halign: center;
+    icon-name: "settings-symbolic";
+    valign: center;
+    halign: center;
+    action-name: 'row.open-prefs';
+    tooltip-text: _("Open extension preferences");
+  }
 
-		action-name: 'row.open-prefs';
+  [action]
+  Gtk.Image error_icon {
+    styles [
+      "error"
+    ]
 
-		tooltip-text: _("Open extension preferences");
-	}
+    icon-name: "dialog-error-symbolic";
+    valign: center;
+    halign: center;
+    focusable: true;
+    margin-start: 9;
+    margin-end: 9;
+    visible: false;
+    tooltip-text: _("An error occurred while loading this extension");
+  }
 
-	[action]
-	Gtk.Image error_icon {
-		styles ["error"]
+  [action]
+  Gtk.Image out_of_date_icon {
+    styles [
+      "error"
+    ]
 
-		icon-name: "dialog-error-symbolic";
-		valign: center;
-		halign: center;
+    icon-name: "clock-alt-symbolic";
+    valign: center;
+    halign: center;
+    focusable: true;
+    margin-start: 9;
+    margin-end: 9;
+    visible: false;
+    tooltip-text: _("This extension is incompatible with your current version of GNOME");
+  }
 
-		margin-start: 9;
-		margin-end: 9;
+  [action]
+  Gtk.Image update_icon {
+    styles [
+      "update"
+    ]
 
-		visible: false;
+    icon-name: "software-update-available-symbolic";
+    valign: center;
+    halign: center;
+    focusable: true;
+    margin-start: 9;
+    margin-end: 9;
+    visible: false;
+    tooltip-text: _("A newer version of this extension is available");
+  }
 
-		tooltip-text: _("An error occurred while loading this extension");
-	}
+  [action]
+  Gtk.Image info_icon {
+    styles [
+      "warning"
+    ]
 
-	[action]
-	Gtk.Image out_of_date_icon {
-		styles ["error"]
+    icon-name: "dialog-information-symbolic";
+    valign: center;
+    halign: center;
+    focusable: true;
+    margin-start: 9;
+    margin-end: 9;
+    visible: false;
+    tooltip-text: _("This extension could be activated in session modes such as the login screen or the lock screen");
+  }
 
-		icon-name: "clock-alt-symbolic";
-		valign: center;
-		halign: center;
+  Gtk.ListBoxRow {
+    activatable: false;
 
-		margin-start: 9;
-		margin-end: 9;
+    Gtk.Grid {
+      styles [
+        "row-content"
+      ]
 
-		visible: false;
+      row-spacing: 15;
+      column-spacing: 15;
 
-		tooltip-text: _("This extension is incompatible with your current version of GNOME");
-	}
+      Gtk.Label description_title {
+        styles [
+          "dim-label"
+        ]
 
-	[action]
-	Gtk.Image update_icon {
-		styles ["update"]
+        label: _("Description");
+        xalign: 0;
+        yalign: 0;
 
-		icon-name: "software-update-available-symbolic";
-		valign: center;
-		halign: center;
+        layout {
+          row: 0;
+          column: 0;
+        }
+      }
 
-		margin-start: 9;
-		margin-end: 9;
+      Gtk.Label description_label {
+        styles [
+          "multiline"
+        ]
 
-		visible: false;
+        xalign: 0;
+        wrap-mode: word;
+        wrap: true;
+        selectable: true;
 
-		tooltip-text: _("A newer version of this extension is available");
-	}
+        layout {
+          row: 0;
+          column: 1;
+        }
 
-	[action]
-	Gtk.Image info_icon {
-		styles ["warning"]
+        accessibility {
+          labelled-by: description_title;
+        }
+      }
 
-		icon-name: "dialog-information-symbolic";
-		valign: center;
-		halign: center;
+      Gtk.Label version_title {
+        styles [
+          "dim-label"
+        ]
 
-		margin-start: 9;
-		margin-end: 9;
+        label: _("Version");
+        xalign: 0;
+        yalign: 0;
 
-		visible: false;
+        layout {
+          row: 1;
+          column: 0;
+        }
+      }
 
-		tooltip-text: _("This extension could be activated in session modes such as the login screen or the lock screen");
-	}
+      Gtk.Label version_label {
+        xalign: 0;
+        wrap-mode: word;
+        wrap: true;
+        selectable: true;
 
-	Gtk.ListBoxRow {
-		activatable: false;
+        layout {
+          row: 1;
+          column: 1;
+        }
 
-		Gtk.Grid {
-			styles ["row-content"]
+        accessibility {
+          labelled-by: version_title;
+        }
+      }
 
-			row-spacing: 15;
-			column-spacing: 15;
+      Gtk.Label error_label_tag {
+        styles [
+          "dim-label"
+        ]
 
-			Gtk.Label {
-				styles ["dim-label"]
+        label: _("Error");
+        xalign: 0;
+        yalign: 0;
 
-				label: _("Description");
+        layout {
+          row: 2;
+          column: 0;
+        }
+      }
 
-				xalign: 0;
-				yalign: 0;
+      Gtk.Label error_label {
+        xalign: 0;
+        wrap-mode: word_char;
+        wrap: true;
+        selectable: true;
 
-				layout {
-					row: 0;
-					column: 0;
-				}
-			}
+        layout {
+          row: 2;
+          column: 1;
+        }
+      }
+    }
+  }
 
-			Gtk.Label description_label {
-			  styles ["multiline"]
-				xalign: 0;
-				wrap-mode: word;
-				wrap: true;
-				selectable: true;
+  Gtk.ListBoxRow {
+    activatable: false;
+    focusable: false;
+    height-request: 46;
 
-				layout {
-					row: 0;
-					column: 1;
-				}
-			}
+    Gtk.Box {
+      halign: end;
+      spacing: 6;
+      margin-start: 4;
+      margin-end: 4;
 
-			Gtk.Label {
-				styles ["dim-label"]
+      Gtk.Button details_btn {
+        styles [
+          "flat"
+        ]
 
-				label: _("Version");
+        label: _("See Details");
+        valign: center;
+        action-name: 'win.show-detail';
+      }
 
-				xalign: 0;
-				yalign: 0;
+      Gtk.Button remove_btn {
+        styles [
+          "destructive-action"
+        ]
 
-				layout {
-					row: 1;
-					column: 0;
-				}
-			}
-
-			Gtk.Label version_label {
-				xalign: 0;
-				wrap-mode: word;
-				wrap: true;
-				selectable: true;
-
-				layout {
-					row: 1;
-					column: 1;
-				}
-			}
-
-			Gtk.Label error_label_tag {
-				styles ["dim-label"]
-
-				label: _("Error");
-
-				xalign: 0;
-				yalign: 0;
-
-				layout {
-					row: 2;
-					column: 0;
-				}
-			}
-
-			Gtk.Label error_label {
-				xalign: 0;
-				wrap-mode: word_char;
-				wrap: true;
-				selectable: true;
-
-				layout {
-					row: 2;
-					column: 1;
-				}
-			}
-		}
-	}
-
-	Gtk.ListBoxRow {
-		activatable: false;
-		focusable: false;
-		height-request: 46;
-
-		Gtk.Box {
-			halign: end;
-			spacing: 6;
-			margin-start: 4;
-			margin-end: 4;
-
-			Gtk.Button details_btn {
-				styles ["flat"]
-
-				label: _("See Details");
-				valign: center;
-
-				action-name: 'win.show-detail';
-			}
-
-			Gtk.Button remove_btn {
-				styles ["destructive-action"]
-
-				label: _("Remove…");
-				valign: center;
-
-				action-name: 'row.remove';
-			}
-		}
-	}
+        label: _("Remove…");
+        valign: center;
+        action-name: 'row.remove';
+      }
+    }
+  }
 }

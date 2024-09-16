@@ -480,7 +480,7 @@ widget_factory (ExmUpgradeResult    *result,
 {
     SupportStatus supported;
     const gchar *name, *creator;
-    GtkWidget *hbox, *vbox, *label, *status;
+    GtkWidget *row, *status;
 
     g_return_val_if_fail (EXM_IS_UPGRADE_RESULT (result), NULL);
 
@@ -489,44 +489,29 @@ widget_factory (ExmUpgradeResult    *result,
 
     supported = get_support_status (result, self->target_shell_version);
 
-    // TODO: Append icon?
-    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
-    gtk_widget_add_css_class (hbox, "upgrade-assistant-result");
-
-    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
-    gtk_widget_set_hexpand (vbox, TRUE);
-    gtk_box_append (GTK_BOX (hbox), vbox);
-
-    label = gtk_label_new (name);
-    gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
-    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
-    gtk_widget_add_css_class (label, "heading");
-    gtk_box_append (GTK_BOX (vbox), label);
-
-    label = gtk_label_new (creator);
-    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
-    gtk_widget_add_css_class (label, "dim-label");
-    gtk_box_append (GTK_BOX (vbox), label);
+    row = adw_action_row_new ();
+    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row) , name);
+    adw_action_row_set_subtitle (ADW_ACTION_ROW (row), creator);
 
     if (supported == STATUS_SUPPORTED) {
-        status = gtk_label_new (_("Supported"));
+        status = gtk_image_new_from_icon_name ("supported-symbolic");
         gtk_widget_add_css_class (status, "success");
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("A compatible version of the extension exists"));
     } else if (supported == STATUS_UNSUPPORTED) {
-        status = gtk_label_new (_("Unsupported"));
+        status = gtk_image_new_from_icon_name ("unsupported-symbolic");
         gtk_widget_add_css_class (status, "error");
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("No compatible version of the extension exists"));
     } else {
-        status = gtk_label_new (_("Unknown"));
+        status = gtk_image_new_from_icon_name ("unknown-symbolic");
         gtk_widget_add_css_class (status, "warning");
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("This extension is not hosted on extensions.gnome.org. Its compatibility cannot be determined."));
     }
 
-    gtk_widget_set_valign (status, GTK_ALIGN_CENTER);
-    gtk_widget_set_halign (status, GTK_ALIGN_CENTER);
-    gtk_box_append (GTK_BOX (hbox), status);
+    gtk_image_set_pixel_size (GTK_IMAGE (status), 24);
+    gtk_widget_set_focusable (status, TRUE);
+    adw_action_row_add_suffix (ADW_ACTION_ROW (row), status);
 
-    return GTK_WIDGET (hbox);
+    return row;
 }
 
 static void

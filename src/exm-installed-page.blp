@@ -7,6 +7,11 @@ template $ExmInstalledPage: Gtk.Widget {
   Gtk.Box {
     orientation: vertical;
 
+    Adw.Banner updates_banner {
+      button-label: _("_Log Out…");
+      action-name: "app.logout";
+    }
+
     Adw.PreferencesPage {
       Adw.PreferencesGroup {
         Adw.SwitchRow global_toggle {
@@ -20,7 +25,7 @@ template $ExmInstalledPage: Gtk.Widget {
         }
       }
 
-      Adw.PreferencesGroup {
+      Adw.PreferencesGroup user_list {
         title: _("User-Installed Extensions");
 
         Gtk.ListBox user_list_box {
@@ -30,10 +35,14 @@ template $ExmInstalledPage: Gtk.Widget {
           ]
 
           selection-mode: none;
+
+          accessibility {
+            labelled-by: user_list;
+          }
         }
       }
 
-      Adw.PreferencesGroup {
+      Adw.PreferencesGroup system_list {
         title: _("System Extensions");
 
         Gtk.ListBox system_list_box {
@@ -43,64 +52,10 @@ template $ExmInstalledPage: Gtk.Widget {
           ]
 
           selection-mode: none;
-        }
-      }
-    }
 
-    Gtk.Revealer updates_action_bar {
-      reveal-child: false;
-      transition-type: slide_up;
-
-      Gtk.Box {
-        styles [
-          "actionbar",
-          "update-bar"
-        ]
-
-        spacing: 12;
-
-        Gtk.Image update_icon {
-          styles [
-            "update"
-          ]
-
-          icon-name: "software-update-available-symbolic";
-          pixel-size: 24;
-          valign: center;
-          halign: center;
-        }
-
-        Gtk.Box {
-          orientation: vertical;
-          valign: center;
-          hexpand: true;
-
-          Gtk.Label {
-            styles [
-              "heading"
-            ]
-
-            xalign: 0;
-            label: _("Updates Available");
-            ellipsize: end;
+          accessibility {
+            labelled-by: system_list;
           }
-
-          Gtk.Label num_updates_label {
-            xalign: 0;
-            ellipsize: end;
-          }
-        }
-
-        [end]
-        Gtk.Button {
-          styles [
-            "suggested-action"
-          ]
-
-          valign: center;
-          halign: center;
-          label: _("Log Out…");
-          action-name: "app.logout";
         }
       }
     }

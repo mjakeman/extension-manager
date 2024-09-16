@@ -1,31 +1,41 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmErrorDialog : Adw.Window {
+template $ExmErrorDialog: Adw.Window {
   default-width: 450;
   default-height: 450;
   title: _("Error Report");
 
   Adw.ToolbarView {
-
     [top]
     Adw.HeaderBar {}
 
     content: Gtk.Box {
-      styles ["content"]
+      styles [
+        "content"
+      ]
+
       orientation: vertical;
       spacing: 16;
-
       margin-start: 8;
       margin-end: 8;
 
       Gtk.Image {
         icon-name: "dialog-error-symbolic";
         icon-size: large;
+        focusable: true;
+
+        accessibility {
+          labelled-by: title;
+          described-by: instructions;
+        }
       }
 
-      Gtk.Label {
-        styles ["heading"]
+      Gtk.Label title {
+        styles [
+          "heading"
+        ]
+
         label: _("An unexpected error occurred in Extension Manager");
       }
 
@@ -37,8 +47,8 @@ template $ExmErrorDialog : Adw.Window {
       Gtk.ScrolledWindow {
         child: Gtk.TextView text_view {
           wrap-mode: char;
+          editable: false;
           vexpand: true;
-
           top-margin: 16;
           left-margin: 16;
           right-margin: 16;
@@ -55,15 +65,16 @@ template $ExmErrorDialog : Adw.Window {
         Gtk.Button copy_button {
           label: _("_Copy to Clipboard");
           use-underline: true;
-
           clicked => $on_copy_button_clicked();
         }
 
         Gtk.Button new_issue_button {
-          styles ["suggested-action"]
+          styles [
+            "suggested-action"
+          ]
+
           label: _("_New Issue");
           use-underline: true;
-
           clicked => $on_new_issue_button_clicked() swapped;
         }
       }

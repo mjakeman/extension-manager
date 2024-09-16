@@ -404,6 +404,9 @@ on_data_loaded (GObject      *source,
         is_supported = exm_search_result_supports_shell_version (data, self->shell_version);
 
         gtk_image_set_from_icon_name (self->ext_icon, "puzzle-piece-symbolic");
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->ext_icon),
+                                     // Translators: '%s' = extension name
+                                     g_strdup_printf (_("%s Icon"), name));
         gtk_label_set_label (self->ext_title, name);
         gtk_label_set_label (self->ext_author, creator);
         gtk_label_set_label (self->ext_description, description);
@@ -433,6 +436,10 @@ on_data_loaded (GObject      *source,
 			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
 
             queue_resolve_image (self, screenshot_uri, self->resolver_cancel, FALSE);
+
+            gtk_widget_set_tooltip_text (GTK_WIDGET (self->ext_screenshot),
+                                         // Translators: '%s' = extension name
+                                         g_strdup_printf (_("%s Screenshot"), name));
         }
         else
         {

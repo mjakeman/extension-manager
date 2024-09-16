@@ -46,8 +46,6 @@ exm_search_row_new (ExmSearchResult *search_result,
 static void
 exm_search_row_finalize (GObject *object)
 {
-    ExmSearchRow *self = (ExmSearchRow *)object;
-
     G_OBJECT_CLASS (exm_search_row_parent_class)->finalize (object);
 }
 
@@ -128,9 +126,11 @@ exm_search_row_constructed (GObject *object)
 
     ExmInstallButtonState install_state;
 
-    gchar *uuid;
+    gchar *uuid, *name, *creator;
     g_object_get (self->search_result,
                   "uuid", &uuid,
+                  "name", &name,
+                  "creator", &creator,
                   NULL);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
@@ -142,6 +142,11 @@ exm_search_row_constructed (GObject *object)
            : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
     g_object_set (self->install_btn, "state", install_state, NULL);
+
+    gtk_accessible_update_property (GTK_ACCESSIBLE (self),
+                                    // Translators: '%s' = extension name, '%s' = extension creator
+                                    GTK_ACCESSIBLE_PROPERTY_LABEL, g_strdup_printf (_("%s by %s"), name, creator),
+                                    -1);
 
     G_OBJECT_CLASS (exm_search_row_parent_class)->constructed (object);
 }
