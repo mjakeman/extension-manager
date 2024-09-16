@@ -15,8 +15,6 @@ src/exm-error-dialog.c
 src/exm-extension-row.blp
 src/exm-extension-row.c
 src/exm-help-overlay.blp
-src/exm-info-bar-item.blp
-src/exm-info-bar-item.c
 src/exm-info-bar.blp
 src/exm-info-bar.c
 src/exm-install-button.c
