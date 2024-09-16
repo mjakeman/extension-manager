@@ -44,6 +44,7 @@ struct _ExmWindow
     AdwNavigationView    *navigation_view;
     AdwNavigationPage    *main_view;
     ExmDetailView        *detail_view;
+    ExmScreenshotView    *screenshot_view;
     AdwViewSwitcher      *title;
     AdwViewStack         *view_stack;
     AdwViewStackPage     *installed_stack;
@@ -316,7 +317,6 @@ show_error (GtkWidget  *widget,
 
     toast = adw_toast_new (_("An Error Occurred"));
     adw_toast_set_button_label (toast, _("_Details"));
-    adw_toast_set_timeout (toast, 5);
 
     adw_toast_set_action_name (toast, "win.show-error-dialog");
     adw_toast_set_action_target (toast, "s", error_text);
@@ -352,6 +352,18 @@ on_needs_attention (AdwViewStack *view_stack,
 }
 
 static void
+screenshot_zoom (GtkWidget  *widget,
+                 const char *action_name,
+                 GVariant   *parameter)
+{
+  ExmWindow *self = (ExmWindow *)widget;
+
+  g_assert (EXM_IS_WINDOW (self));
+
+  exm_screenshot_view_zoom (self->screenshot_view, action_name);
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -378,6 +390,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, navigation_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmWindow, screenshot_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, view_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, installed_stack);
@@ -399,22 +412,15 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
     gtk_widget_class_install_action (widget_class, "win.show-error", "s", show_error);
     gtk_widget_class_install_action (widget_class, "win.show-error-dialog", "s", show_error_dialog);
-}
+    gtk_widget_class_install_action (widget_class, "screenshot.zoom-in", NULL, screenshot_zoom);
+    gtk_widget_class_install_action (widget_class, "screenshot.zoom-out", NULL, screenshot_zoom);
+    gtk_widget_class_install_action (widget_class, "screenshot.zoom-reset", NULL, screenshot_zoom);
 
-static void
-do_version_check (ExmWindow *self)
-{
-    GSettings *settings;
-    gchar *version_string;
-
-    settings = g_settings_new (APP_ID);
-    version_string = g_settings_get_string (settings, "last-used-version");
-
-    // In the future, use this to show a toast or notification when
-    // a new version has been installed. Maybe with rich text release notes?
-    // if (strcmp (version_string, APP_VERSION) != 0) { ... }
-
-    g_settings_set_string (settings, "last-used-version", APP_VERSION);
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_1, GDK_ALT_MASK, "win.show-page", "s", "installed");
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_2, GDK_ALT_MASK, "win.show-page", "s", "browse");
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_plus, GDK_CONTROL_MASK, "screenshot.zoom-in", NULL);
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_minus, GDK_CONTROL_MASK, "screenshot.zoom-out", NULL);
+    gtk_widget_class_add_binding_action (widget_class, GDK_KEY_0, GDK_CONTROL_MASK, "screenshot.zoom-reset", NULL);
 }
 
 static void
@@ -448,7 +454,4 @@ exm_window_init (ExmWindow *self)
                       "updates-available",
                       G_CALLBACK (on_updates_available),
                       self);
-
-    // Window must be mapped to show version check dialog
-    g_signal_connect (self, "map", G_CALLBACK (do_version_check), NULL);
 }

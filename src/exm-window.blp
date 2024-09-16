@@ -1,13 +1,14 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmWindow : Adw.ApplicationWindow {
+template $ExmWindow: Adw.ApplicationWindow {
   width-request: 360;
   height-request: 294;
   title: _("Extension Manager");
 
   Adw.Breakpoint {
     condition ("max-width: 400sp")
+
     setters {
       header_bar.title-widget: null;
       switcher_bar.reveal: true;
@@ -16,13 +17,11 @@ template $ExmWindow : Adw.ApplicationWindow {
 
   Adw.ToastOverlay toast_overlay {
     child: Adw.NavigationView navigation_view {
-
       Adw.NavigationPage main_view {
         can-pop: false;
         title: bind template.title;
 
         Adw.ToolbarView {
-
           [top]
           Adw.HeaderBar header_bar {
             show-back-button: false;
@@ -82,22 +81,6 @@ template $ExmWindow : Adw.ApplicationWindow {
       }
     };
   }
-
-	Gtk.ShortcutController {
-		scope: managed;
-
-		Gtk.Shortcut {
-			trigger: "<Alt>1";
-			action: "action(win.show-page)";
-			arguments: "'installed'";
-		}
-
-		Gtk.Shortcut {
-			trigger: "<Alt>2";
-			action: "action(win.show-page)";
-			arguments: "'browse'";
-		}
-	}
 }
 
 menu primary_menu {
@@ -107,6 +90,7 @@ menu primary_menu {
     item (_("Sort _Enabled First"), "app.sort-enabled-first")
     item (_("_Show Unsupported"), "app.show-unsupported")
   }
+
   section {
     item (_("_Upgrade Assistant"), "win.show-upgrade-assistant")
     item (_("_Keyboard Shortcuts"), "win.show-help-overlay")

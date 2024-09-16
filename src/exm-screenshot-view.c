@@ -6,10 +6,6 @@ struct _ExmScreenshotView
 {
     AdwNavigationPage parent_instance;
 
-    GSimpleAction *zoom_in;
-    GSimpleAction *zoom_out;
-    GSimpleAction *zoom_reset;
-
     ExmZoomPicture *overlay_screenshot;
 };
 
@@ -24,8 +20,6 @@ exm_screenshot_view_new (void)
 static void
 exm_screenshot_view_finalize (GObject *object)
 {
-    ExmScreenshotView *self = (ExmScreenshotView *)object;
-
     G_OBJECT_CLASS (exm_screenshot_view_parent_class)->finalize (object);
 }
 
@@ -37,28 +31,42 @@ exm_screenshot_view_set_screenshot (ExmScreenshotView *self,
     exm_zoom_picture_set_zoom_level (self->overlay_screenshot, 1.0f);
 }
 
+void
+exm_screenshot_view_zoom (ExmScreenshotView *self,
+                          const char        *action_name)
+{
+  float zoom_level;
+  float zoom_step;
+
+  zoom_level = exm_zoom_picture_get_zoom_level (self->overlay_screenshot);
+  zoom_step = exm_zoom_picture_get_zoom_level_step (self->overlay_screenshot);
+
+  if (g_strcmp0 (action_name, "screenshot.zoom-in") == 0)
+    exm_zoom_picture_set_zoom_level (self->overlay_screenshot, zoom_level + zoom_step);
+  else if (g_strcmp0 (action_name, "screenshot.zoom-out") == 0)
+    exm_zoom_picture_set_zoom_level (self->overlay_screenshot, zoom_level - zoom_step);
+  else if (g_strcmp0 (action_name, "screenshot.zoom-reset") == 0)
+    exm_zoom_picture_set_zoom_level (self->overlay_screenshot, 1.0f);
+  else
+    g_assert_not_reached ();
+}
+
 static void
 notify_zoom (ExmZoomPicture    *picture,
              GParamSpec        *pspec,
              ExmScreenshotView *self)
 {
+    GtkRoot *toplevel;
     float zoom_level;
-    float max_zoom;
-    float min_zoom;
 
+    toplevel = gtk_widget_get_root (GTK_WIDGET (self));
     zoom_level = exm_zoom_picture_get_zoom_level (picture);
-    max_zoom = exm_zoom_picture_get_zoom_level_max (picture);
-    min_zoom = exm_zoom_picture_get_zoom_level_min (picture);
 
     // Set action states
-    if (zoom_level < max_zoom)
-        g_simple_action_set_enabled (self->zoom_in, TRUE);
-    if (zoom_level == max_zoom)
-        g_simple_action_set_enabled (self->zoom_in, FALSE);
-    if (zoom_level > min_zoom)
-        g_simple_action_set_enabled (self->zoom_out, TRUE);
-    if (zoom_level == min_zoom)
-        g_simple_action_set_enabled (self->zoom_out, FALSE);
+    gtk_widget_action_set_enabled (GTK_WIDGET (toplevel), "screenshot.zoom-in",
+                                   zoom_level < exm_zoom_picture_get_zoom_level_max (picture));
+    gtk_widget_action_set_enabled (GTK_WIDGET (toplevel), "screenshot.zoom-out",
+                                   zoom_level > exm_zoom_picture_get_zoom_level_min (picture));
 }
 
 static void
@@ -80,22 +88,5 @@ exm_screenshot_view_class_init (ExmScreenshotViewClass *klass)
 static void
 exm_screenshot_view_init (ExmScreenshotView *self)
 {
-    GSimpleActionGroup *group;
-
     gtk_widget_init_template (GTK_WIDGET (self));
-
-    self->zoom_in = g_simple_action_new ("zoom-in", NULL);
-    g_signal_connect_swapped (self->zoom_in, "activate", G_CALLBACK (exm_zoom_picture_zoom_in), self->overlay_screenshot);
-
-    self->zoom_out = g_simple_action_new ("zoom-out", NULL);
-    g_signal_connect_swapped (self->zoom_out, "activate", G_CALLBACK (exm_zoom_picture_zoom_out), self->overlay_screenshot);
-
-    self->zoom_reset = g_simple_action_new ("zoom-reset", NULL);
-    g_signal_connect_swapped (self->zoom_reset, "activate", G_CALLBACK (exm_zoom_picture_zoom_reset), self->overlay_screenshot);
-
-    group = g_simple_action_group_new ();
-    g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_in));
-    g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_out));
-    g_action_map_add_action (G_ACTION_MAP (group), G_ACTION (self->zoom_reset));
-    gtk_widget_insert_action_group (GTK_WIDGET (self), "screenshot", G_ACTION_GROUP (group));
 }

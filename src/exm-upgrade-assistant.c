@@ -566,7 +566,7 @@ populate_drop_down (ExmUpgradeAssistant *self)
     else if (month >= G_DATE_SEPTEMBER)
         current_gnome_version += 1;
 
-    g_print ("Current GNOME Version: %d\n", current_gnome_version);
+    g_info ("Current GNOME Version: %d\n", current_gnome_version);
 
     // Make sure we at least have GNOME 40-43 regardless
     // of the date calculation. Update this periodically
