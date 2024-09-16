@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-07 13:29+0000\n"
+"POT-Creation-Date: 2024-09-16 18:41+0000\n"
 "PO-Revision-Date: 2024-07-29 17:11+0000\n"
 "Last-Translator: volkov <volkov@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
@@ -91,29 +91,32 @@ msgstr ""
 "Введіть щось для пошуку розширень з 'extensions.gnome.org' для стільниці "
 "GNOME"
 
-#. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:40
 msgid "Relevance"
 msgstr "За актуальністю"
 
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:41
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "За кількістю завантажень"
 
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:42
 msgid "Recent"
 msgstr "За датою оновлення"
 
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
 msgid "Name"
 msgstr "За назвою"
 
-#: src/exm-browse-page.blp:62
+#: src/exm-browse-page.blp:50
+msgid "Sort search results"
+msgstr "Сортування результатів пошуку"
+
+#: src/exm-browse-page.blp:84
 msgid "_Load More Results"
 msgstr "_Завантажити більше результатів"
 
-#: src/exm-browse-page.blp:74
+#: src/exm-browse-page.blp:97
 msgid "No Results Found"
 msgstr "Нічого не знайдено"
 
@@ -125,68 +128,88 @@ msgstr "Коментарі"
 msgid "Loading Comments"
 msgstr "Завантажуємо коментарі"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:241 src/exm-window.c:316
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
+#: src/exm-detail-view.blp:283 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Сталася помилка"
 
-#: src/exm-comment-tile.blp:28
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
 msgid "Author"
 msgstr "Автор"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:56
 msgid "Loading Details"
 msgstr "Завантажуємо подробиці"
 
-#: src/exm-detail-view.blp:125
+#: src/exm-detail-view.blp:67
+#, fuzzy
+#| msgid "A newer version of this extension is available"
+msgid "No extension details available"
+msgstr "Доступна нова версія цього розширення"
+
+#: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
 msgstr "Збільшити зображення"
 
-#: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
+#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Опис"
 
-#: src/exm-detail-view.blp:159
+#: src/exm-detail-view.blp:199
 msgid "Links"
 msgstr "Посилання"
 
-#: src/exm-detail-view.blp:174
+#: src/exm-detail-view.blp:207
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: src/exm-detail-view.blp:191
+#: src/exm-detail-view.blp:227
 msgid "Donate"
 msgstr "Пожертвувати"
 
-#: src/exm-detail-view.blp:200
+#: src/exm-detail-view.blp:236
 msgid "View on Extensions"
 msgstr "Переглянути це розширення на сайті Extensions"
 
-#: src/exm-detail-view.blp:219
+#: src/exm-detail-view.blp:260
 msgid "User Reviews"
 msgstr "Відгуки користувачів"
 
-#: src/exm-detail-view.blp:250
+#: src/exm-detail-view.blp:292
 msgid "No comments yet"
 msgstr "Коментарів немає поки що"
 
-#: src/exm-detail-view.blp:270
+#: src/exm-detail-view.blp:314
 msgid "_Show All Reviews"
 msgstr "_Показати всі відгуки"
+
+#. Translators: '%s' = extension name
+#: src/exm-detail-view.c:405
+#, c-format
+msgid "%s Icon"
+msgstr ""
+
+#. Translators: '%s' = extension name
+#: src/exm-detail-view.c:438
+#, fuzzy, c-format
+#| msgctxt "shortcut window"
+#| msgid "Screenshot View"
+msgid "%s Screenshot"
+msgstr "Перегляд скриншотів"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "Звітувати про помилку"
 
-#: src/exm-error-dialog.blp:29
+#: src/exm-error-dialog.blp:39
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Неочікувана помилка сталася у Менеджері розширень"
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
 msgid "_Copy to Clipboard"
 msgstr "_Скопіювати в буфер обміну"
 
-#: src/exm-error-dialog.blp:64
+#: src/exm-error-dialog.blp:76
 msgid "_New Issue"
 msgstr "_Нова проблема"
 
@@ -236,19 +259,19 @@ msgstr ""
 "Це розширення може бути активовано у таких режимах сессії, як екран входу в "
 "систему або екран блокування"
 
-#: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
+#: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
 msgid "Version"
 msgstr "Версія"
 
-#: src/exm-extension-row.blp:158
+#: src/exm-extension-row.blp:175
 msgid "Error"
 msgstr "Помилка"
 
-#: src/exm-extension-row.blp:197
+#: src/exm-extension-row.blp:215
 msgid "See Details"
 msgstr "Подробиці"
 
-#: src/exm-extension-row.blp:206
+#: src/exm-extension-row.blp:225
 msgid "Remove…"
 msgstr "Видалити…"
 
@@ -302,13 +325,12 @@ msgctxt "shortcut window"
 msgid "Reset Zoom"
 msgstr "Скинути маштабування"
 
-#: src/exm-info-bar.blp:13
+#: src/exm-info-bar.blp:24
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Завантажень"
 
-#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
-#: src/exm-upgrade-assistant.c:516
+#: src/exm-info-bar.blp:42 src/exm-info-bar.c:40
 msgid "Unsupported"
 msgstr "Не підтримується"
 
@@ -325,50 +347,58 @@ msgstr "Встановлено"
 msgid "Unsupported…"
 msgstr "Не підтримується…"
 
-#: src/exm-installed-page.blp:18
+#: src/exm-installed-page.blp:11
+#, fuzzy
+#| msgid "Log Out…"
+msgid "_Log Out…"
+msgstr "Вийти…"
+
+#: src/exm-installed-page.blp:23
 msgid "Use Extensions"
 msgstr "Використовувати розширення"
 
-#: src/exm-installed-page.blp:19
+#: src/exm-installed-page.blp:24
 msgid "Extensions can cause performance and stability issues"
 msgstr "Розширення можуть спричиняти проблеми з швидкодією і стабільністю"
 
-#: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
 msgid "User-Installed Extensions"
 msgstr "Встановлені користувачем розширення"
 
-#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:118
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
 msgid "System Extensions"
 msgstr "Системні розширення"
 
-#: src/exm-installed-page.blp:84
-msgid "Updates Available"
-msgstr "Доступні оновлення"
-
-#: src/exm-installed-page.blp:102
-msgid "Log Out…"
-msgstr "Вийти…"
-
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:196
-#, c-format
-msgid "One extension will be updated on next login"
+#: src/exm-installed-page.c:195
+#, fuzzy, c-format
+#| msgid "One extension will be updated on next login"
+#| msgid_plural "%d extensions will be updated on next login"
+msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "%d розширення буде оновлено при наступному вході в систему"
 msgstr[1] "%d розширення буде оновлено при наступному вході в систему"
 msgstr[2] "%d розширень буде оновлено при наступному вході в систему"
 
-#: src/exm-installed-page.c:302
+#: src/exm-installed-page.c:300
 msgid "Browse"
 msgstr "Шукати"
 
-#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
+#: src/exm-installed-page.c:311 src/exm-upgrade-assistant.c:665
 msgid "No User Extensions Installed"
 msgstr "Немає встановлених користувачем розширень"
 
-#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
+#: src/exm-installed-page.c:326 src/exm-upgrade-assistant.c:671
 msgid "No System Extensions Installed"
 msgstr "Немає встановлених системних розширень"
+
+#: src/exm-rating.c:110
+#, c-format
+msgid "%i Star"
+msgid_plural "%i Stars"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -378,11 +408,17 @@ msgstr "Зменшити"
 msgid "Zoom In"
 msgstr "Збільшити"
 
+#. Translators: '%s' = extension name, '%s' = extension creator
+#: src/exm-search-row.c:148
+#, c-format
+msgid "%s by %s"
+msgstr ""
+
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "Помічник оновлень"
 
-#: src/exm-upgrade-assistant.blp:47
+#: src/exm-upgrade-assistant.blp:57
 msgid "_Check Compatibility"
 msgstr "_Перевірити сумісність"
 
@@ -406,23 +442,15 @@ msgstr ""
 "<b>GNOME %s</b> підтримує <b>%d із %d</b> розширень які встановлені на вашій "
 "системі"
 
-#: src/exm-upgrade-assistant.c:512
-msgid "Supported"
-msgstr "Підтримується"
-
-#: src/exm-upgrade-assistant.c:514
+#: src/exm-upgrade-assistant.c:499
 msgid "A compatible version of the extension exists"
 msgstr "Сумісна версія цього розширення існує"
 
-#: src/exm-upgrade-assistant.c:518
+#: src/exm-upgrade-assistant.c:503
 msgid "No compatible version of the extension exists"
 msgstr "Немає сумісної версії цього розширення"
 
-#: src/exm-upgrade-assistant.c:520
-msgid "Unknown"
-msgstr "Невідомо"
-
-#: src/exm-upgrade-assistant.c:522
+#: src/exm-upgrade-assistant.c:507
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -430,7 +458,7 @@ msgstr ""
 "Це розширення немає у extensions.gnome.org, тому перевірити сумісність "
 "неможливо."
 
-#: src/exm-upgrade-assistant.c:617
+#: src/exm-upgrade-assistant.c:602
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -439,7 +467,7 @@ msgstr ""
 "Зараз ви використовуєте <b>GNOME %s</b>. Оберіть версію GNOME та перевірте, "
 "чи будуть ваші розширення продовжувати бути доступні."
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:39
 msgid "Main Menu"
 msgstr "Головне меню"
 
@@ -455,31 +483,31 @@ msgstr "_Шукати"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:106
+#: src/exm-window.blp:90
 msgid "Sort _Enabled First"
 msgstr "Спочатку сортувати _увімкнені розширення"
 
-#: src/exm-window.blp:107
+#: src/exm-window.blp:91
 msgid "_Show Unsupported"
 msgstr "_Показувати не підтримувані розширення"
 
-#: src/exm-window.blp:110
+#: src/exm-window.blp:95
 msgid "_Upgrade Assistant"
 msgstr "Помічник _оновлень"
 
-#: src/exm-window.blp:111
+#: src/exm-window.blp:96
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:97
 msgid "_About Extension Manager"
 msgstr "_Про Менеджер розширень"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:102
 msgid "Uninstall Extension?"
 msgstr "Видалити розширення?"
 
-#: src/exm-window.blp:118
+#: src/exm-window.blp:103
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -487,19 +515,19 @@ msgstr ""
 "Функції та можливості розширення більше не будуть доступні. Ви впевнені, що "
 "хочете видалити?"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:108
 msgid "_No"
 msgstr "_Ні"
 
-#: src/exm-window.blp:124
+#: src/exm-window.blp:109
 msgid "_Yes"
 msgstr "_Так"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:114
 msgid "Unsupported Extension"
 msgstr "Непідтримуване розширення"
 
-#: src/exm-window.blp:130
+#: src/exm-window.blp:115
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -507,17 +535,28 @@ msgstr ""
 "Це розширення не підтримує вашу версію стільниці GNOME. Воно може викликати "
 "проблеми, якщо встановити."
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:120
 msgid "_Install Anyway"
 msgstr "_Все одно встановити"
 
-#: src/exm-window.blp:136
+#: src/exm-window.blp:121
 msgid "_Go Back"
 msgstr "_Повернутися"
 
-#: src/exm-window.c:317
-msgid "Details"
+#: src/exm-window.c:319
+#, fuzzy
+#| msgid "Details"
+msgid "_Details"
 msgstr "Подробиці"
+
+#~ msgid "Updates Available"
+#~ msgstr "Доступні оновлення"
+
+#~ msgid "Supported"
+#~ msgstr "Підтримується"
+
+#~ msgid "Unknown"
+#~ msgstr "Невідомо"
 
 #~ msgid "A utility for managing GNOME Shell Extensions"
 #~ msgstr "Програма для керуваннями розширеннями для стільниці GNOME"
@@ -653,9 +692,6 @@ msgstr "Подробиці"
 
 #~ msgid "Localised into seven languages"
 #~ msgstr "Перекладено на декілька мов"
-
-#~ msgid "Sort search results"
-#~ msgstr "Сортування результатів пошуку"
 
 #~ msgid "Global extension on/off toggle"
 #~ msgstr "Глобальне вимкнення/ввімкнення усіх розширень"
