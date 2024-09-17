@@ -1,14 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Reza Almanda <rezaalmanda27@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-07 13:29+0000\n"
-"PO-Revision-Date: 2024-08-04 02:41+0000\n"
+"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"PO-Revision-Date: 2024-09-09 23:09+0000\n"
 "Last-Translator: Reza Almanda <rezaalmanda27@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/extension-"
 "manager/app/id/>\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -58,16 +57,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "Kelola ekstensi yang telah Anda pasang"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "See all the details of your extensions"
-msgstr "Cari Ekstensi"
+msgstr "Lihat semua detail ekstensi Anda"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME."
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Ekstensi ini tidak cocok untuk versi GNOME kamu."
+msgstr "Periksa kompatibilitas ekstensi Anda dengan versi GNOME berikutnya"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -88,29 +83,32 @@ msgstr ""
 "Masukkan kata kunci untuk mencari 'extensions.gnome.org' untuk Ekstensi "
 "GNOME Shell"
 
-#. Translators: dropdown items for sorting search results
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:40
 msgid "Relevance"
 msgstr "Relevansi"
 
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:41
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Unduhan"
 
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:42
 msgid "Recent"
 msgstr "Terkini"
 
-#: src/exm-browse-page.blp:32
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
 msgid "Name"
 msgstr "Nama"
 
-#: src/exm-browse-page.blp:62
+#: src/exm-browse-page.blp:50
+msgid "Sort search results"
+msgstr "Menyortir hasil pencarian"
+
+#: src/exm-browse-page.blp:84
 msgid "_Load More Results"
 msgstr "_Muat Lebih Banyak Hasil"
 
-#: src/exm-browse-page.blp:74
+#: src/exm-browse-page.blp:97
 msgid "No Results Found"
 msgstr "Tidak Ada Hasil Yang Ditemukan"
 
@@ -122,79 +120,97 @@ msgstr "Komentar"
 msgid "Loading Comments"
 msgstr "Memuat Komentar"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:56
-#: src/exm-detail-view.blp:241 src/exm-window.c:316
+#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
+#: src/exm-detail-view.blp:283 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Sebuah Error Terjadi"
 
-#: src/exm-comment-tile.blp:28
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
 msgid "Author"
 msgstr "Pengarang"
 
-#: src/exm-detail-view.blp:47
+#: src/exm-detail-view.blp:56
 msgid "Loading Details"
 msgstr "Memuat Detil"
 
-#: src/exm-detail-view.blp:125
+#: src/exm-detail-view.blp:67
+#, fuzzy
+#| msgid "Displays user and system extensions separately"
+msgid "No extension details available"
+msgstr "Tampilkan ekstensi pengguna dan sistem secara terpisah"
+
+#: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
 msgstr "Perbesar Gambar"
 
-#: src/exm-detail-view.blp:138 src/exm-extension-row.blp:105
+#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Deskripsi"
 
-#: src/exm-detail-view.blp:159
+#: src/exm-detail-view.blp:199
 msgid "Links"
 msgstr "Tautan"
 
-#: src/exm-detail-view.blp:174
+#: src/exm-detail-view.blp:207
 msgid "Homepage"
 msgstr "Beranda"
 
-#: src/exm-detail-view.blp:191
+#: src/exm-detail-view.blp:227
 msgid "Donate"
 msgstr "Donasi"
 
-#: src/exm-detail-view.blp:200
+#: src/exm-detail-view.blp:236
 msgid "View on Extensions"
 msgstr "Lihat dalam Extensions"
 
-#: src/exm-detail-view.blp:219
+#: src/exm-detail-view.blp:260
 msgid "User Reviews"
 msgstr "Ulasan Pengguna"
 
-#: src/exm-detail-view.blp:250
+#: src/exm-detail-view.blp:292
 msgid "No comments yet"
 msgstr "Belum ada komentar"
 
-#: src/exm-detail-view.blp:270
+#: src/exm-detail-view.blp:314
 msgid "_Show All Reviews"
 msgstr "_Tampilkan Semua Ulasan"
+
+#. Translators: '%s' = extension name
+#: src/exm-detail-view.c:405
+#, c-format
+msgid "%s Icon"
+msgstr ""
+
+#. Translators: '%s' = extension name
+#: src/exm-detail-view.c:438
+#, c-format
+msgid "%s Screenshot"
+msgstr ""
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "Laporan Error"
 
-#: src/exm-error-dialog.blp:29
+#: src/exm-error-dialog.blp:39
 msgid "An unexpected error occurred in Extension Manager"
-msgstr ""
+msgstr "Terjadi error tak terduga di Extension Manager"
 
-#: src/exm-error-dialog.blp:56 src/exm-upgrade-assistant.blp:129
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
 msgid "_Copy to Clipboard"
-msgstr ""
+msgstr "_Salin ke Papan Klip"
 
-#: src/exm-error-dialog.blp:64
+#: src/exm-error-dialog.blp:76
 msgid "_New Issue"
-msgstr ""
+msgstr "_Isu Baru"
 
 #. Success indicator
 #: src/exm-error-dialog.c:132 src/exm-upgrade-assistant.c:338
 msgid "Copied"
-msgstr ""
+msgstr "Disalin"
 
 #: src/exm-error-dialog.c:182
 msgid "Please open a new issue and attach the following information:"
-msgstr ""
+msgstr "Silakan buka masalah baru dan lampirkan informasi berikut:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:186
@@ -204,14 +220,17 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
+"Anda menggunakan Extension Manager versi pihak ketiga. Harap <span "
+"weight=\"bold\">menghubungi distributor paket (%s) terlebih dahulu</span> "
+"sebelum mengajukan masalah. Pastikan untuk melampirkan informasi berikut ini:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
-msgstr ""
+msgstr "Buka preferensi ekstensi"
 
 #: src/exm-extension-row.blp:42
 msgid "An error occurred while loading this extension"
-msgstr ""
+msgstr "Terjadi error saat memuat ekstensi ini"
 
 #: src/exm-extension-row.blp:58 src/exm-install-button.c:105
 #, fuzzy
@@ -229,19 +248,19 @@ msgid ""
 "or the lock screen"
 msgstr ""
 
-#: src/exm-extension-row.blp:132 src/exm-info-bar.blp:18
+#: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
 msgid "Version"
 msgstr ""
 
-#: src/exm-extension-row.blp:158
+#: src/exm-extension-row.blp:175
 msgid "Error"
 msgstr ""
 
-#: src/exm-extension-row.blp:197
+#: src/exm-extension-row.blp:215
 msgid "See Details"
 msgstr "Lihat Detail"
 
-#: src/exm-extension-row.blp:206
+#: src/exm-extension-row.blp:225
 #, fuzzy
 #| msgid "Remove"
 msgid "Remove…"
@@ -301,15 +320,14 @@ msgctxt "shortcut window"
 msgid "Reset Zoom"
 msgstr ""
 
-#: src/exm-info-bar.blp:13
+#: src/exm-info-bar.blp:24
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Unduhan"
 
-#: src/exm-info-bar.blp:19 src/exm-info-bar.c:81
-#: src/exm-upgrade-assistant.c:516
+#: src/exm-info-bar.blp:42 src/exm-info-bar.c:40
 msgid "Unsupported"
 msgstr "Tidak didukung"
 
@@ -332,56 +350,58 @@ msgstr "Terpasang"
 msgid "Unsupported…"
 msgstr "Tidak didukung"
 
-#: src/exm-installed-page.blp:18
+#: src/exm-installed-page.blp:11
+msgid "_Log Out…"
+msgstr ""
+
+#: src/exm-installed-page.blp:23
 #, fuzzy
 #| msgid "System Extensions"
 msgid "Use Extensions"
 msgstr "Ekstensi Sistem"
 
-#: src/exm-installed-page.blp:19
+#: src/exm-installed-page.blp:24
 #, fuzzy
 #| msgid "Performance and stability"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Performa dan stabilitas"
 
-#: src/exm-installed-page.blp:24 src/exm-upgrade-assistant.blp:105
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
 msgid "User-Installed Extensions"
 msgstr "Ekstensi Yang Dipasang Pengguna"
 
-#: src/exm-installed-page.blp:37 src/exm-upgrade-assistant.blp:118
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
 msgid "System Extensions"
 msgstr "Ekstensi Sistem"
 
-#: src/exm-installed-page.blp:84
-msgid "Updates Available"
-msgstr ""
-
-#: src/exm-installed-page.blp:102
-msgid "Log Out…"
-msgstr ""
-
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:196
+#: src/exm-installed-page.c:195
 #, c-format
-msgid "One extension will be updated on next login"
+msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] ""
 
-#: src/exm-installed-page.c:302
+#: src/exm-installed-page.c:300
 msgid "Browse"
 msgstr "Jelajah"
 
-#: src/exm-installed-page.c:313 src/exm-upgrade-assistant.c:680
+#: src/exm-installed-page.c:311 src/exm-upgrade-assistant.c:665
 #, fuzzy
 #| msgid "Displays user and system extensions separately"
 msgid "No User Extensions Installed"
 msgstr "Tampilkan ekstensi pengguna dan sistem secara terpisah"
 
-#: src/exm-installed-page.c:328 src/exm-upgrade-assistant.c:686
+#: src/exm-installed-page.c:326 src/exm-upgrade-assistant.c:671
 #, fuzzy
 #| msgid "Displays user and system extensions separately"
 msgid "No System Extensions Installed"
 msgstr "Tampilkan ekstensi pengguna dan sistem secara terpisah"
+
+#: src/exm-rating.c:110
+#, c-format
+msgid "%i Star"
+msgid_plural "%i Stars"
+msgstr[0] ""
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -391,11 +411,17 @@ msgstr ""
 msgid "Zoom In"
 msgstr ""
 
+#. Translators: '%s' = extension name, '%s' = extension creator
+#: src/exm-search-row.c:148
+#, c-format
+msgid "%s by %s"
+msgstr ""
+
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr ""
 
-#: src/exm-upgrade-assistant.blp:47
+#: src/exm-upgrade-assistant.blp:57
 msgid "_Check Compatibility"
 msgstr ""
 
@@ -418,38 +444,28 @@ msgid ""
 "installed on the system"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:512
-#, fuzzy
-#| msgid "Unsupported"
-msgid "Supported"
-msgstr "Tidak didukung"
-
-#: src/exm-upgrade-assistant.c:514
+#: src/exm-upgrade-assistant.c:499
 msgid "A compatible version of the extension exists"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:518
+#: src/exm-upgrade-assistant.c:503
 msgid "No compatible version of the extension exists"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:520
-msgid "Unknown"
-msgstr ""
-
-#: src/exm-upgrade-assistant.c:522
+#: src/exm-upgrade-assistant.c:507
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:617
+#: src/exm-upgrade-assistant.c:602
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
 
-#: src/exm-window.blp:40
+#: src/exm-window.blp:39
 msgid "Main Menu"
 msgstr ""
 
@@ -469,79 +485,84 @@ msgstr "Jelajah"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:106
+#: src/exm-window.blp:90
 msgid "Sort _Enabled First"
 msgstr ""
 
-#: src/exm-window.blp:107
+#: src/exm-window.blp:91
 #, fuzzy
 #| msgid "Unsupported"
 msgid "_Show Unsupported"
 msgstr "Tidak didukung"
 
-#: src/exm-window.blp:110
+#: src/exm-window.blp:95
 msgid "_Upgrade Assistant"
 msgstr ""
 
-#: src/exm-window.blp:111
+#: src/exm-window.blp:96
 #, fuzzy
 #| msgid "Keyboard Shortcuts"
 msgid "_Keyboard Shortcuts"
 msgstr "Pintasan Keyboard"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:97
 #, fuzzy
 #| msgid "About Extension Manager"
 msgid "_About Extension Manager"
 msgstr "Tentang Pengelola Ekstensi"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:102
 #, fuzzy
 #| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
 msgstr "Ekstensi Yang Dipasang Pengguna"
 
-#: src/exm-window.blp:118
+#: src/exm-window.blp:103
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:108
 msgid "_No"
 msgstr ""
 
-#: src/exm-window.blp:124
+#: src/exm-window.blp:109
 msgid "_Yes"
 msgstr ""
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:114
 #, fuzzy
 #| msgid "Supported Versions"
 msgid "Unsupported Extension"
 msgstr "Versi Yang Didukung"
 
-#: src/exm-window.blp:130
+#: src/exm-window.blp:115
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:120
 #, fuzzy
 #| msgid "Install"
 msgid "_Install Anyway"
 msgstr "Pasang"
 
-#: src/exm-window.blp:136
+#: src/exm-window.blp:121
 msgid "_Go Back"
 msgstr ""
 
-#: src/exm-window.c:317
+#: src/exm-window.c:319
 #, fuzzy
 #| msgid "See Details"
-msgid "Details"
+msgid "_Details"
 msgstr "Lihat Detail"
+
+#, fuzzy
+#~| msgid "Unsupported"
+#~ msgid "Supported"
+#~ msgstr "Tidak didukung"
 
 #~ msgid "A utility for managing GNOME Shell Extensions"
 #~ msgstr "Sebuah alat untuk mengelola Ekstensi GNOME Shell"
@@ -578,9 +599,6 @@ msgstr "Lihat Detail"
 
 #~ msgid "Localised into seven languages"
 #~ msgstr "Dilokalisasi ke tujuh bahasa"
-
-#~ msgid "Sort search results"
-#~ msgstr "Menyortir hasil pencarian"
 
 #~ msgid "Global extension on/off toggle"
 #~ msgstr "Pengalih aktif/nonaktif ekstensi global"
