@@ -1,23 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# trunars <trunars@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-08-26 18:49+0000\n"
+"PO-Revision-Date: 2024-09-25 12:15+0000\n"
 "Last-Translator: trunars <trunars@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/extension-"
-"manager/app/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/"
+"extension-manager/app/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -105,7 +104,7 @@ msgstr "Име"
 
 #: src/exm-browse-page.blp:50
 msgid "Sort search results"
-msgstr ""
+msgstr "Сортиране на резултатите от търсенето"
 
 #: src/exm-browse-page.blp:84
 msgid "_Load More Results"
@@ -137,10 +136,8 @@ msgid "Loading Details"
 msgstr "Зареждане на подробности"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Налична е по-нова версия на това разширение"
+msgstr "Няма налични подробности за разширението"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -182,15 +179,13 @@ msgstr "_Покажи всички отзиви"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s Икона"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Изглед на екранна снимка"
+msgstr "%s Екранна снимка"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -344,10 +339,8 @@ msgid "Unsupported…"
 msgstr "Не се поддържа…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Изход…"
+msgstr "_Изход…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -368,12 +361,10 @@ msgstr "Системни разширения"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "Едно разширение ще бъде актуализирано при следващо влизане"
+msgstr[0] "%d разширение ще бъде актуализирано при следващо влизане"
 msgstr[1] "%d разширения ще бъдат актуализирани при следващо влизане"
 
 #: src/exm-installed-page.c:300
@@ -392,8 +383,8 @@ msgstr "Няма инсталирани системни разширения"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i Звезда"
+msgstr[1] "%i Звезди"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -407,7 +398,7 @@ msgstr "Увеличаване"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s от %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -539,10 +530,8 @@ msgid "_Go Back"
 msgstr "_Върни се назад"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Подробности"
+msgstr "_Подробности"
 
 #~ msgid "Updates Available"
 #~ msgstr "Налични актуализации"
