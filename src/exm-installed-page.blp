@@ -11,86 +11,83 @@ template $ExmInstalledPage: Gtk.Widget {
     Gtk.StackPage page_list {
       name: "page_list";
 
-      child: Gtk.Box {
-        orientation: vertical;
-
-        Adw.Banner updates_banner {
+      child: Adw.PreferencesPage {
+        banner: Adw.Banner updates_banner {
           button-label: _("_Log Out…");
+          button-style: suggested;
           action-name: "app.logout";
+        };
+
+        Adw.PreferencesGroup {
+          Adw.SwitchRow global_toggle {
+            [prefix]
+            Gtk.Image {
+              icon-name: 'puzzle-piece-symbolic';
+            }
+
+            title: _("Use Extensions");
+            subtitle: _("Extensions can cause performance and stability issues");
+          }
         }
 
-        Adw.PreferencesPage {
-          Adw.PreferencesGroup {
-            Adw.SwitchRow global_toggle {
+        Adw.PreferencesGroup user_list {
+          title: _("User-Installed Extensions");
+
+          Gtk.ListBox user_list_box {
+            styles [
+              "boxed-list",
+              "boxed-list-placeholder",
+            ]
+
+            selection-mode: none;
+
+            [placeholder]
+            Adw.ActionRow {
               [prefix]
               Gtk.Image {
-                icon-name: 'puzzle-piece-symbolic';
+                icon-name: "globe-symbolic";
               }
 
-              title: _("Use Extensions");
-              subtitle: _("Extensions can cause performance and stability issues");
-            }
-          }
+              title: _("No User Extensions Installed");
 
-          Adw.PreferencesGroup user_list {
-            title: _("User-Installed Extensions");
-
-            Gtk.ListBox user_list_box {
-              styles [
-                "boxed-list",
-                "boxed-list-placeholder",
-              ]
-
-              selection-mode: none;
-
-              [placeholder]
-              Adw.ActionRow {
-                [prefix]
-                Gtk.Image {
-                  icon-name: "globe-symbolic";
-                }
-
-                title: _("No User Extensions Installed");
-
-                [suffix]
-                Gtk.Button {
-                  label: _("Browse");
-                  action-name: "win.show-page";
-                  action-target: "\"browse\"";
-                  valign: center;
-                }
-              }
-
-              accessibility {
-                labelled-by: user_list;
+              [suffix]
+              Gtk.Button {
+                label: _("Browse");
+                action-name: "win.show-page";
+                action-target: "\"browse\"";
+                valign: center;
               }
             }
+
+            accessibility {
+              labelled-by: user_list;
+            }
           }
+        }
 
-          Adw.PreferencesGroup system_list {
-            title: _("System Extensions");
+        Adw.PreferencesGroup system_list {
+          title: _("System Extensions");
 
-            Gtk.ListBox system_list_box {
-              styles [
-                "boxed-list",
-                "boxed-list-placeholder",
-              ]
+          Gtk.ListBox system_list_box {
+            styles [
+              "boxed-list",
+              "boxed-list-placeholder",
+            ]
 
-              selection-mode: none;
+            selection-mode: none;
 
-              [placeholder]
-              Adw.ActionRow {
-                [prefix]
-                Gtk.Image {
-                  icon-name: "settings-symbolic";
-                }
-
-                title: _("No System Extensions Installed");
+            [placeholder]
+            Adw.ActionRow {
+              [prefix]
+              Gtk.Image {
+                icon-name: "settings-symbolic";
               }
 
-              accessibility {
-                labelled-by: system_list;
-              }
+              title: _("No System Extensions Installed");
+            }
+
+            accessibility {
+              labelled-by: system_list;
             }
           }
         }
