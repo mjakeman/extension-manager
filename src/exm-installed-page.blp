@@ -4,58 +4,54 @@ using Adw 1;
 template $ExmInstalledPage: Gtk.Widget {
   notify::manager => $on_bind_manager();
 
-  Gtk.Box {
-    orientation: vertical;
-
-    Adw.Banner updates_banner {
+  Adw.PreferencesPage {
+    banner: Adw.Banner updates_banner {
       button-label: _("_Log Out…");
       action-name: "app.logout";
+    };
+
+    Adw.PreferencesGroup {
+      Adw.SwitchRow global_toggle {
+        [prefix]
+        Gtk.Image {
+          icon-name: 'puzzle-piece-symbolic';
+        }
+
+        title: _("Use Extensions");
+        subtitle: _("Extensions can cause performance and stability issues");
+      }
     }
 
-    Adw.PreferencesPage {
-      Adw.PreferencesGroup {
-        Adw.SwitchRow global_toggle {
-          [prefix]
-          Gtk.Image {
-            icon-name: 'puzzle-piece-symbolic';
-          }
+    Adw.PreferencesGroup user_list {
+      title: _("User-Installed Extensions");
 
-          title: _("Use Extensions");
-          subtitle: _("Extensions can cause performance and stability issues");
+      Gtk.ListBox user_list_box {
+        styles [
+          "boxed-list",
+          "boxed-list-placeholder"
+        ]
+
+        selection-mode: none;
+
+        accessibility {
+          labelled-by: user_list;
         }
       }
+    }
 
-      Adw.PreferencesGroup user_list {
-        title: _("User-Installed Extensions");
+    Adw.PreferencesGroup system_list {
+      title: _("System Extensions");
 
-        Gtk.ListBox user_list_box {
-          styles [
-            "boxed-list",
-            "boxed-list-placeholder"
-          ]
+      Gtk.ListBox system_list_box {
+        styles [
+          "boxed-list",
+          "boxed-list-placeholder"
+        ]
 
-          selection-mode: none;
+        selection-mode: none;
 
-          accessibility {
-            labelled-by: user_list;
-          }
-        }
-      }
-
-      Adw.PreferencesGroup system_list {
-        title: _("System Extensions");
-
-        Gtk.ListBox system_list_box {
-          styles [
-            "boxed-list",
-            "boxed-list-placeholder"
-          ]
-
-          selection-mode: none;
-
-          accessibility {
-            labelled-by: system_list;
-          }
+        accessibility {
+          labelled-by: system_list;
         }
       }
     }
