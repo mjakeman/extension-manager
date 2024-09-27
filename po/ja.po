@@ -2,22 +2,22 @@
 # Copyright (C) 2022 extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # 小山田 純 <oyamadajun@outlook.jp>, 2022.
-#
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-08-12 22:09+0000\n"
+"PO-Revision-Date: 2024-09-28 08:34+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
-"manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"extension-manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -137,10 +137,8 @@ msgid "Loading Details"
 msgstr "詳細を読み込み中"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "この拡張機能にアップデートがあります"
+msgstr "拡張機能の詳細は利用不可"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -182,15 +180,13 @@ msgstr "すべてのレビューを表示(_S)"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s のアイコン"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "スクリーンショット表示"
+msgstr "%s のスクリーンショット"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -342,10 +338,8 @@ msgid "Unsupported…"
 msgstr "非対応…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "ログアウト…"
+msgstr "ログアウト(_L)…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -365,9 +359,7 @@ msgstr "システムの拡張機能"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "%d個の拡張機能が次回ログイン時にアップデートされます"
@@ -388,7 +380,7 @@ msgstr "システムの拡張機能なし"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
+msgstr[0] "%iつ星"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -402,7 +394,7 @@ msgstr "拡大"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s (作: %s)"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -531,10 +523,8 @@ msgid "_Go Back"
 msgstr "戻る(_G)"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "詳細"
+msgstr "詳細(_D)"
 
 #~ msgid "Updates Available"
 #~ msgstr "アップデート利用可能"
