@@ -72,9 +72,10 @@ template $ExmUpgradeAssistant: Adw.Dialog {
           spacing: 12;
           valign: center;
 
-          Gtk.Spinner {
-            spinning: true;
+          Adw.Spinner {
             focusable: true;
+            halign: center;
+            valign: center;
             height-request: 32;
             width-request: 32;
           }
