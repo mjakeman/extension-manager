@@ -1,6 +1,6 @@
 /* exm-detail-view.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -96,14 +96,6 @@ ExmDetailView *
 exm_detail_view_new (void)
 {
     return g_object_new (EXM_TYPE_DETAIL_VIEW, NULL);
-}
-
-static void
-exm_detail_view_finalize (GObject *object)
-{
-    ExmDetailView *self = (ExmDetailView *)object;
-
-    G_OBJECT_CLASS (exm_detail_view_parent_class)->finalize (object);
 }
 
 static void
@@ -571,20 +563,13 @@ open_link (ExmDetailView *self,
 static void
 on_bind_manager (ExmDetailView *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
 
     g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
+                  "extensions", &ext_model,
                   NULL);
 
-    g_signal_connect_swapped (user_ext_model,
-                              "items-changed",
-                              G_CALLBACK (exm_detail_view_update),
-                              self);
-
-    g_signal_connect_swapped (system_ext_model,
+    g_signal_connect_swapped (ext_model,
                               "items-changed",
                               G_CALLBACK (exm_detail_view_update),
                               self);
@@ -629,7 +614,6 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_detail_view_finalize;
     object_class->get_property = exm_detail_view_get_property;
     object_class->set_property = exm_detail_view_set_property;
 
