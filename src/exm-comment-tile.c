@@ -39,6 +39,12 @@ exm_comment_tile_new (ExmComment *comment)
 static void
 exm_comment_tile_finalize (GObject *object)
 {
+    GtkWidget *child;
+    ExmCommentTile *self = (ExmCommentTile *)object;
+
+    child = gtk_widget_get_first_child (GTK_WIDGET (self));
+    gtk_widget_unparent (child);
+
     G_OBJECT_CLASS (exm_comment_tile_parent_class)->finalize (object);
 }
 
