@@ -34,7 +34,11 @@ exm_rating_new (void)
 static void
 exm_rating_finalize (GObject *object)
 {
+    GtkWidget *child;
     ExmRating *self = (ExmRating *)object;
+
+    child = gtk_widget_get_first_child (GTK_WIDGET (self));
+    gtk_widget_unparent (child);
 
     G_OBJECT_CLASS (exm_rating_parent_class)->finalize (object);
 }
