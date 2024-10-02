@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-09-14 11:44+0000\n"
+"PO-Revision-Date: 2024-10-03 11:15+0000\n"
 "Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
-"manager/app/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"extension-manager/app/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,10 +137,8 @@ msgid "Loading Details"
 msgstr "Загрузка подробностей"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Доступная новая версия этого расширения"
+msgstr "Информация о расширении отсутствует"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -182,15 +180,13 @@ msgstr "_Показать все отзывы"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "Значок '%s'"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Просмотр скриншотов"
+msgstr "Cкриншот '%s'"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -343,10 +339,8 @@ msgid "Unsupported…"
 msgstr "Не поддерживается…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Выйти…"
+msgstr "_Выйти…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -367,9 +361,7 @@ msgstr "Системные расширения"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "%d расширение будет обновлено при следующем входе в систему"
@@ -392,9 +384,9 @@ msgstr "Системные расширения не установлены"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i звезда"
+msgstr[1] "%i звезды"
+msgstr[2] "%i звезд"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -408,7 +400,7 @@ msgstr "Увеличить"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s от %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -540,10 +532,8 @@ msgid "_Go Back"
 msgstr "Н_азад"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Подробности"
+msgstr "_Подробности"
 
 #~ msgid "Updates Available"
 #~ msgstr "Доступны обновления"
