@@ -2,23 +2,23 @@
 # Copyright (C) 2023 THE extension-manager COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # volkov <volkovissocool@gmail.com>, 2023.
-#
+# Володимир Давибіда <mrvovavova17@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-07-29 17:11+0000\n"
-"Last-Translator: volkov <volkov@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
-"manager/app/uk/>\n"
+"PO-Revision-Date: 2024-10-05 09:03+0000\n"
+"Last-Translator: Володимир Давибіда <mrvovavova17@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"extension-manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -61,16 +61,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "Керуйте встановленими розширеннями"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "See all the details of your extensions"
-msgstr "Шукати розширення"
+msgstr "Детальна інформація щодо ваших розширень"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Це розширення не підтримується у вашій поточній версії GNOME"
+msgstr "Перевірте сумісність ваших розширень із наступною версією GNOME"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -142,10 +138,8 @@ msgid "Loading Details"
 msgstr "Завантажуємо подробиці"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Доступна нова версія цього розширення"
+msgstr "Дані щодо цього розширення відсутні"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -187,15 +181,13 @@ msgstr "_Показати всі відгуки"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "Значок розширення %s"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Перегляд скриншотів"
+msgstr "Скриншоти розширення %s"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -348,10 +340,8 @@ msgid "Unsupported…"
 msgstr "Не підтримується…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Вийти…"
+msgstr "_Вийти…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -371,9 +361,7 @@ msgstr "Системні розширення"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "%d розширення буде оновлено при наступному вході в систему"
@@ -396,9 +384,9 @@ msgstr "Немає встановлених системних розширен�
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i Зірка"
+msgstr[1] "%i Зірки"
+msgstr[2] "%i Зірок"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -412,7 +400,7 @@ msgstr "Збільшити"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s від %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -544,10 +532,8 @@ msgid "_Go Back"
 msgstr "_Повернутися"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Подробиці"
+msgstr "_Подробиці"
 
 #~ msgid "Updates Available"
 #~ msgstr "Доступні оновлення"

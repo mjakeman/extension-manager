@@ -2,22 +2,22 @@
 # Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # musiclover <musiclover382@protonmail.com>, 2022.
-#
+# albanobattistella <albano_battistella@hotmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-08-25 10:09+0000\n"
+"PO-Revision-Date: 2024-09-22 15:34+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/extension-"
-"manager/app/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"extension-manager/app/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -135,10 +135,8 @@ msgid "Loading Details"
 msgstr "Caricamento dei dettagli"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "È disponibile una nuova versione di questa estensione"
+msgstr "Nessun dettaglio disponibile sull'estensione"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -180,15 +178,13 @@ msgstr "_Mostra tutte le recensioni"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s Icona"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Visualizza screenshot"
+msgstr "%s Screenshot"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -341,10 +337,8 @@ msgid "Unsupported…"
 msgstr "Non compatibile…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Termina sessione…"
+msgstr "_Termina sessione…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -364,13 +358,11 @@ msgstr "Estensioni integrate"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "Un'estensione sarà aggiornata al prossimo accesso"
-msgstr[1] "%d estensioni saranno aggiornate al prossimo accesso"
+msgstr[0] "%d l' estensioni sarà aggiornata al prossimo accesso"
+msgstr[1] "%d le estensioni saranno aggiornate al prossimo accesso"
 
 #: src/exm-installed-page.c:300
 msgid "Browse"
@@ -388,8 +380,8 @@ msgstr "Nessuna estensione di sistema installata"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i Stella"
+msgstr[1] "%i Stelle"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -403,7 +395,7 @@ msgstr "Ingrandisci"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s di %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -535,10 +527,8 @@ msgid "_Go Back"
 msgstr "_Torna indietro"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Dettagli"
+msgstr "_Dettagli"
 
 #~ msgid "Updates Available"
 #~ msgstr "Aggiornamenti disponibili"

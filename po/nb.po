@@ -1,16 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # John Erling Blad <jeblad@gmail.com>, 2022.
-#
+# Brage Fuglseth <brage.fuglseth@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-09-02 15:16+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2024-10-03 11:15+0000\n"
+"Last-Translator: Brage Fuglseth <brage.fuglseth@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "extension-manager/app/nb_NO/>\n"
 "Language: nb\n"
@@ -63,16 +62,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "Administrer og still inn allerede installerte utvidelser"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "See all the details of your extensions"
-msgstr "Søk etter utvidelser"
+msgstr "Se all informasjon om utvidelsene dine på ett sted"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Denne utvidelsen er inkompatibel med GNOME-versjonen din"
+msgstr "Sjekk om utvidelsene dine er kompatible med neste GNOME-versjon"
 
 #: src/exm-application.c:190
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -83,19 +78,13 @@ msgid "translator-credits"
 msgstr "Brage Fuglseth https://bragefuglseth.dev"
 
 #: src/exm-browse-page.blp:9
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
 msgstr "Søk etter utvidelser"
 
 #: src/exm-browse-page.blp:10
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
-msgstr "Begynn å skrive for å søke etter utvidelser på extensions.gnome.org."
+msgstr "Begynn å skrive for å søke etter utvidelser på extensions.gnome.org"
 
 #: src/exm-browse-page.blp:40
 msgid "Relevance"
@@ -148,14 +137,10 @@ msgid "Loading Details"
 msgstr "Laster inn informasjon"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "En nyere versjon av denne utvidelsen er tilgjengelig"
+msgstr "Ingen informasjon tilgjengelig"
 
 #: src/exm-detail-view.blp:158
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "Forstørr bilde"
 
@@ -173,7 +158,7 @@ msgstr "Nettsted"
 
 #: src/exm-detail-view.blp:227
 msgid "Donate"
-msgstr ""
+msgstr "Doner"
 
 #: src/exm-detail-view.blp:236
 msgid "View on Extensions"
@@ -184,10 +169,8 @@ msgid "User Reviews"
 msgstr "Anmeldelser"
 
 #: src/exm-detail-view.blp:292
-#, fuzzy
-#| msgid "Comments"
 msgid "No comments yet"
-msgstr "Anmeldelser"
+msgstr "Ingen anmeldelser"
 
 #: src/exm-detail-view.blp:314
 msgid "_Show All Reviews"
@@ -197,23 +180,21 @@ msgstr "_Vis alle anmeldelser"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "Ikon til %s"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
 #, c-format
 msgid "%s Screenshot"
-msgstr ""
+msgstr "Skjermbilde av %s"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "Feilmelding"
 
 #: src/exm-error-dialog.blp:39
-#, fuzzy
-#| msgid "An unexpected error occurred in Extension Manager."
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Noe gikk galt med Extension Manager."
+msgstr "Noe gikk galt med Extension Manager"
 
 #: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
 msgid "_Copy to Clipboard"
@@ -265,6 +246,8 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"Denne utvidelsen kan aktiveres på steder som innloggingsskjermen eller "
+"låseskjermen"
 
 #: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
 msgid "Version"
@@ -279,10 +262,8 @@ msgid "See Details"
 msgstr "Se detaljer"
 
 #: src/exm-extension-row.blp:225
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "Fjern"
+msgstr "Fjern…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -290,29 +271,24 @@ msgid "General"
 msgstr "Generelt"
 
 #: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "Installert"
+msgstr "Vis installerte utvidelser"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "Vis utforskningsside"
 
 #: src/exm-help-overlay.blp:24
-#, fuzzy
-#| msgid "Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr "Tastatursnarveier"
+msgstr "Vis tastatursnarveier"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "Lukk"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
@@ -322,18 +298,14 @@ msgstr "Avslutt"
 #: src/exm-help-overlay.blp:40
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "Vis skjermbilder"
 
 #: src/exm-help-overlay.blp:43 src/exm-help-overlay.blp:58
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom In"
 msgstr "Forstørr"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom Out"
 msgstr "Forminsk"
@@ -341,7 +313,7 @@ msgstr "Forminsk"
 #: src/exm-help-overlay.blp:53
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "Tilbakestill skalering"
 
 #: src/exm-info-bar.blp:24
 msgctxt "Number of downloads"
@@ -353,10 +325,8 @@ msgid "Unsupported"
 msgstr "Støttes ikke"
 
 #: src/exm-install-button.c:115
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "Installer"
+msgstr "Installer…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
@@ -364,26 +334,20 @@ msgid "Installed"
 msgstr "Installert"
 
 #: src/exm-install-button.c:124
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "Støttes ikke"
+msgstr "Støttes ikke…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out"
 msgid "_Log Out…"
-msgstr "Logg ut"
+msgstr "_Logg ut…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
 msgstr "Bruk utvidelser"
 
 #: src/exm-installed-page.blp:24
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "Utvidelser kan skape problemer med ytelse og stabilitet."
+msgstr "Utvidelser kan skape problemer med ytelse og stabilitet"
 
 #: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
 msgid "User-Installed Extensions"
@@ -395,9 +359,7 @@ msgstr "System"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "1 utvidelse vil oppdateres ved neste innlogging"
@@ -408,23 +370,19 @@ msgid "Browse"
 msgstr "Utforsk"
 
 #: src/exm-installed-page.c:311 src/exm-upgrade-assistant.c:665
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
-msgstr "Ingen utvidelser installert."
+msgstr "Ingen egne utvidelser"
 
 #: src/exm-installed-page.c:326 src/exm-upgrade-assistant.c:671
-#, fuzzy
-#| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
-msgstr "Ingen systemutvidelser."
+msgstr "Ingen systemutvidelser"
 
 #: src/exm-rating.c:110
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i stjerne"
+msgstr[1] "%i stjerner"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -438,7 +396,7 @@ msgstr "Forstørr"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s fra %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -457,28 +415,21 @@ msgstr "Sjekker %d/%d"
 #: src/exm-upgrade-assistant.c:195
 #, c-format
 msgid "%d%% Compatible"
-msgstr "%d %% kompatibelt"
+msgstr "%d %% kompatibilitet"
 
 #: src/exm-upgrade-assistant.c:215
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system."
+#, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
 msgstr ""
-"<b>GNOME %s</b> støtter <b>%d av %d</b> nåværende utvidelser på systemet."
+"<b>GNOME %s</b> støtter <b>%d av %d</b> nåværende utvidelser på systemet"
 
 #: src/exm-upgrade-assistant.c:499
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
 msgstr "Utvidelsen har en kompatibel versjon"
 
 #: src/exm-upgrade-assistant.c:503
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
 msgstr "Utvidelsen har ikke en kompatibel versjon"
 
@@ -528,10 +479,8 @@ msgid "_Upgrade Assistant"
 msgstr "Oppdaterings_sjekk"
 
 #: src/exm-window.blp:96
-#, fuzzy
-#| msgid "Keyboard Shortcuts"
 msgid "_Keyboard Shortcuts"
-msgstr "Tastatursnarveier"
+msgstr "_Tastatursnarveier"
 
 #: src/exm-window.blp:97
 msgid "_About Extension Manager"
@@ -578,10 +527,8 @@ msgid "_Go Back"
 msgstr "_Avbryt"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Informasjon"
+msgstr "_Informasjon"
 
 #, fuzzy
 #~| msgid "Updates are available"
