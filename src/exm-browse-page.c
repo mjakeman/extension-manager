@@ -56,6 +56,7 @@ struct _ExmBrowsePage
     GtkListBox          *search_results;
     GtkStack            *search_stack;
     GtkDropDown         *search_dropdown;
+    GtkListBox          *more_results_list;
     GtkButton           *more_results_btn;
 };
 
@@ -146,7 +147,7 @@ static void
 update_load_more_btn (ExmBrowsePage *self)
 {
     // Hide button if we are the last page
-    gtk_widget_set_visible (GTK_WIDGET (self->more_results_btn), self->current_page != self->max_pages);
+    gtk_widget_set_visible (GTK_WIDGET (self->more_results_list), self->current_page != self->max_pages);
 
     // Make it clickable
     gtk_widget_set_sensitive (GTK_WIDGET (self->more_results_btn), TRUE);
@@ -231,7 +232,7 @@ on_next_page_result (GObject       *source,
 }
 
 static void
-on_load_more_results (GtkButton     *btn,
+on_load_more_results (AdwButtonRow  *row,
                       ExmBrowsePage *self)
 {
     const char *query;
@@ -390,6 +391,7 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_list);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_btn);
 
     gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
