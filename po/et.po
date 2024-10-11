@@ -2,22 +2,22 @@
 # Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Henri <contact@hen.ee>, 2022.
-#
+# Indrek Haav <IndrekHaav@users.noreply.hosted.weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-08-21 20:09+0000\n"
+"PO-Revision-Date: 2024-09-18 09:28+0000\n"
 "Last-Translator: Indrek Haav <IndrekHaav@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/extension-"
-"manager/app/et/>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/"
+"extension-manager/app/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -59,7 +59,7 @@ msgstr "Halda juba paigaldatud laiendusi"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "See all the details of your extensions"
-msgstr "Vaata oma laienduste kõiki pisiasju"
+msgstr "Vaata oma laienduste kõiki üksikasju"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
 msgid "Check your extensions compatibility with the next version of GNOME"
@@ -135,10 +135,8 @@ msgid "Loading Details"
 msgstr "Üksikasjade laadimine"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Uus laienduse versioon on saadaval"
+msgstr "Laienduse üksikasjad pole saadaval"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -180,15 +178,13 @@ msgstr "_Näita kõiki arvustusi"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s ikoon"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Ekraanipildi vaade"
+msgstr "%s ekraanipilt"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -340,10 +336,8 @@ msgid "Unsupported…"
 msgstr "Mittetoetatud…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Logi välja…"
+msgstr "_Logi välja…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -363,12 +357,10 @@ msgstr "Süsteemsed laiendused"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "Üks laiendus uuendatakse järgmisel sisselogimisel"
+msgstr[0] "%d laiendus uuendatakse järgmisel sisselogimisel"
 msgstr[1] "%d laiendust uuendatakse järgmisel sisselogimisel"
 
 #: src/exm-installed-page.c:300
@@ -387,8 +379,8 @@ msgstr "Süsteemsed laiendused puuduvad"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i tärn"
+msgstr[1] "%i tärni"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -402,7 +394,7 @@ msgstr "Suumi sisse"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s, autor: %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -532,10 +524,8 @@ msgid "_Go Back"
 msgstr "_Tagasi"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Üksikasjad"
+msgstr "_Üksikasjad"
 
 #~ msgid "Updates Available"
 #~ msgstr "Uuendused on saadaval"

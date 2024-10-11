@@ -1,14 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Philip Goto <philip.goto@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-08-08 18:09+0000\n"
+"PO-Revision-Date: 2024-09-19 11:40+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -141,10 +140,8 @@ msgid "Loading Details"
 msgstr "Details laden"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Er is een nieuwe versie beschikbaar"
+msgstr "Geen uitbreidings­details beschikbaar"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -186,15 +183,13 @@ msgstr "_Alle beoordelingen tonen"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "Icoon van %s"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Weergave van scherm­afdruk"
+msgstr "Scherm­afdruk van %s"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -347,10 +342,8 @@ msgid "Unsupported…"
 msgstr "Niet-ondersteund…"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Uitloggen…"
+msgstr "_Uitloggen…"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -372,12 +365,10 @@ msgstr "Systeem­uitbreidingen"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "Na de volgende keer inloggen wordt er één uitbreiding bĳgewerkt"
+msgstr[0] "Na de volgende keer inloggen wordt er %d uitbreiding bĳgewerkt"
 msgstr[1] "Na de volgende keer inloggen worden er %d uitbreidingen bĳgewerkt"
 
 #: src/exm-installed-page.c:300
@@ -396,8 +387,8 @@ msgstr "Geen systeem­uitbreidingen geïnstalleerd"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i ster"
+msgstr[1] "%i sterren"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -411,7 +402,7 @@ msgstr "Inzoomen"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s door %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -543,10 +534,8 @@ msgid "_Go Back"
 msgstr "_Terug"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Details"
+msgstr "_Details"
 
 #~ msgid "Updates Available"
 #~ msgstr "Updates beschikbaar"
