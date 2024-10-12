@@ -1,6 +1,6 @@
 /* exm-window.h
  *
- * Copyright 2022 Matthew Jakeman
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #pragma once
@@ -25,5 +27,8 @@ G_BEGIN_DECLS
 #define EXM_TYPE_WINDOW (exm_window_get_type())
 
 G_DECLARE_FINAL_TYPE (ExmWindow, exm_window, EXM, WINDOW, AdwApplicationWindow)
+
+GtkSearchBar *
+exm_window_get_search_bar (ExmWindow *self);
 
 G_END_DECLS

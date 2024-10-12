@@ -1,7 +1,6 @@
-/*
- * exm-upgrade-assistant.c
+/* exm-upgrade-assistant.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -82,14 +81,6 @@ exm_upgrade_assistant_new (ExmManager *manager)
     return g_object_new (EXM_TYPE_UPGRADE_ASSISTANT,
                          "manager", manager,
                          NULL);
-}
-
-static void
-exm_upgrade_assistant_finalize (GObject *object)
-{
-    ExmUpgradeAssistant *self = (ExmUpgradeAssistant *)object;
-
-    G_OBJECT_CLASS (exm_upgrade_assistant_parent_class)->finalize (object);
 }
 
 static void
@@ -250,7 +241,7 @@ print_list_model (GListModel  *model,
     num_extensions = g_list_model_get_n_items (model);
     for (i = 0; i < num_extensions; i++) {
         ExmUpgradeResult *result;
-        const gchar *name, *creator, *uuid, *url, *supported_text;
+        const gchar *name, *creator, *uuid, *supported_text;
         SupportStatus supported;
 
         result = g_list_model_get_item (model, i);
@@ -389,8 +380,7 @@ on_extension_processed (GObject      *source,
 static void
 do_compatibility_check (ExmUpgradeAssistant *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
     int num_items;
     int i;
 
@@ -417,8 +407,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         return;
 
     g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
+                  "extensions", &ext_model,
                   NULL);
 
     // Display spinner
@@ -435,35 +424,22 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     g_list_store_remove_all (self->user_results_store);
     g_list_store_remove_all (self->system_results_store);
 
-    num_items = g_list_model_get_n_items (user_ext_model);
+    num_items = g_list_model_get_n_items (ext_model);
     for (i = 0; i < num_items; i++) {
         char *uuid;
+        gboolean is_user;
         ExmExtension *extension;
         ExtensionCheckData *data;
 
-        extension = EXM_EXTENSION (g_list_model_get_item (user_ext_model, i));
+        extension = EXM_EXTENSION (g_list_model_get_item (ext_model, i));
 
-        g_object_get (extension, "uuid", &uuid, NULL);
+        g_object_get (extension,
+                      "uuid", &uuid,
+                      "is-user", &is_user,
+                      NULL);
         g_debug ("Processing: %s\n", uuid);
 
-        data = create_check_data (extension, self, TRUE);
-
-        self->total_extensions++;
-        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_extension_processed, data);
-    }
-
-    num_items = g_list_model_get_n_items (system_ext_model);
-    for (i = 0; i < num_items; i++) {
-        char *uuid;
-        ExmExtension *extension;
-        ExtensionCheckData *data;
-
-        extension = EXM_EXTENSION (g_list_model_get_item (system_ext_model, i));
-
-        g_object_get (extension, "uuid", &uuid, NULL);
-        g_debug ("Processing: %s\n", uuid);
-
-        data = create_check_data (extension, self, FALSE);
+        data = create_check_data (extension, self, is_user);
 
         self->total_extensions++;
         exm_data_provider_get_async (self->data_provider, uuid, NULL, on_extension_processed, data);
@@ -516,8 +492,8 @@ widget_factory (ExmUpgradeResult    *result,
 
 static void
 bind_list_box (ExmUpgradeAssistant *self,
-               GtkListBox *list_box,
-               GListModel *model)
+               GtkListBox          *list_box,
+               GListModel          *model)
 {
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;
@@ -612,7 +588,6 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_upgrade_assistant_finalize;
     object_class->get_property = exm_upgrade_assistant_get_property;
     object_class->set_property = exm_upgrade_assistant_set_property;
 
