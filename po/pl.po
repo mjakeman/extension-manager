@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # Rafał Baran <>, 2022.
 # Oskar Kąklewski <oskarkaklewski@gmail.com>, 2024.
+# adiee5 <adikrab@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
 "PO-Revision-Date: 2024-10-13 22:03+0000\n"
-"Last-Translator: Oskar Kąklewski <oskarkaklewski@gmail.com>\n"
+"Last-Translator: adiee5 <adikrab@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -223,9 +224,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Korzystasz z wersji z źródeł trzecich Menedżera rozszerzeń. <span "
-"weight=\"bold\">Skontaktuj się(%s) najpierw </span> z dostawcą tej wersji, "
-"przed otwarciem problemu. Upewnij się, że dołączasz wymagane informacje:"
+"Korzystasz z wersji z nieoficjalnej wersji Menedżera rozszerzeń. <span "
+"weight=\"bold\">Skontaktuj się najpierw z dostawcą tej wersji (%s)</span> "
+"przed otwarciem problemu. Upewnij się, że dołączasz następujące informacje:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
