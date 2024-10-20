@@ -99,14 +99,6 @@ exm_detail_view_new (void)
 }
 
 static void
-exm_detail_view_finalize (GObject *object)
-{
-    ExmDetailView *self = (ExmDetailView *)object;
-
-    G_OBJECT_CLASS (exm_detail_view_parent_class)->finalize (object);
-}
-
-static void
 exm_detail_view_get_property (GObject    *object,
                               guint       prop_id,
                               GValue     *value,
@@ -369,9 +361,19 @@ on_data_loaded (GObject      *source,
     GList *version_iter;
     ExmShellVersionMap *version_map;
 
+    data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error);
     self = EXM_DETAIL_VIEW (user_data);
 
-    if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
+    if (error)
+    {
+        gtk_stack_set_visible_child_name (self->stack, "page_error");
+
+        g_clear_error (&error);
+
+        return;
+    }
+
+    if (EXM_IS_SEARCH_RESULT (data))
     {
         gint pk, downloads;
         gboolean is_installed, is_supported;
@@ -509,7 +511,7 @@ on_data_loaded (GObject      *source,
         return;
     }
 
-    gtk_stack_set_visible_child_name (self->stack, "page_error");
+    gtk_stack_set_visible_child_name (self->stack, "page_empty");
 }
 
 void
@@ -629,7 +631,6 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_detail_view_finalize;
     object_class->get_property = exm_detail_view_get_property;
     object_class->set_property = exm_detail_view_set_property;
 
