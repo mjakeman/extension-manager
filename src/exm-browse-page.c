@@ -183,6 +183,15 @@ on_first_page_result (GObject       *source,
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
 
+    if (error)
+    {
+        gtk_stack_set_visible_child_name (self->search_stack, "page_error");
+
+        g_clear_error (&error);
+
+        return;
+    }
+
     if (G_IS_LIST_MODEL (to_append))
     {
         // Populate list model
