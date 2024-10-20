@@ -58,6 +58,7 @@ struct _ExmBrowsePage
     GtkDropDown         *search_dropdown;
     GtkListBox          *more_results_list;
     AdwButtonRow        *more_results_btn;
+    GtkLabel            *error_label;
 };
 
 G_DEFINE_FINAL_TYPE (ExmBrowsePage, exm_browse_page, GTK_TYPE_WIDGET)
@@ -183,6 +184,21 @@ on_first_page_result (GObject       *source,
     GListModel *to_append;
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
+
+    if (error)
+    {
+        // Filter 5xx status codes (server errors)
+        if (error->code / 100 == 5)
+            gtk_label_set_markup (self->error_label, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
+        else
+            gtk_label_set_text (self->error_label, _("Check your network status and try again"));
+
+        gtk_stack_set_visible_child_name (self->search_stack, "page_error");
+
+        g_clear_error (&error);
+
+        return;
+    }
 
     if (G_IS_LIST_MODEL (to_append))
     {
@@ -393,6 +409,7 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_list);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_btn);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, error_label);
 
     gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
     gtk_widget_class_bind_template_callback (widget_class, on_search_changed);
