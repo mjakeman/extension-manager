@@ -88,6 +88,15 @@ template $ExmUpgradeAssistant: Adw.Dialog {
         };
       }
 
+      Gtk.StackPage error {
+        name: "error";
+
+        child: Adw.StatusPage error_status {
+          icon-name: "offline-symbolic";
+          title: _("Connection Error");
+        };
+      }
+
       Gtk.StackPage results {
         name: "results";
 
