@@ -87,6 +87,16 @@ template $ExmUpgradeAssistant: Adw.Dialog {
         };
       }
 
+      Gtk.StackPage error {
+        name: "error";
+
+        child: Adw.StatusPage {
+          icon-name: "offline-symbolic";
+          title: _("Connection Error");
+          description: _("Check your network or <a href=\"https://status.gnome.org/\">GNOME infrastructure</a> status");
+        };
+      }
+
       Gtk.StackPage results {
         name: "results";
 
