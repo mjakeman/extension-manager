@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-09-25 12:15+0000\n"
+"PO-Revision-Date: 2024-10-20 12:16+0000\n"
 "Last-Translator: trunars <trunars@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/"
 "extension-manager/app/bg/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -32,7 +32,7 @@ msgstr "Управление на разширенията на GNOME Shell"
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
-msgstr "разширение;мениджър;shell;"
+msgstr "разширение;мениджър;обвивка;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
