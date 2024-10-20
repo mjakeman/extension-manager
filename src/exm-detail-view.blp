@@ -62,6 +62,16 @@ template $ExmDetailView: Adw.NavigationPage {
         Gtk.StackPage {
           name: "page_error";
 
+          child: Adw.StatusPage error_status {
+            icon-name: "offline-symbolic";
+            title: _("Connection Error");
+            focusable: true;
+          };
+        }
+
+        Gtk.StackPage {
+          name: "page_empty";
+
           child: Adw.StatusPage {
             icon-name: "dialog-question-symbolic";
             title: _("An Error Occurred");

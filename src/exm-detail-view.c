@@ -56,6 +56,7 @@ struct _ExmDetailView
     AdwHeaderBar *header_bar;
     AdwWindowTitle *title;
     GtkStack *stack;
+    AdwStatusPage *error_status;
     GtkButton *ext_install;
     GtkLabel *ext_description;
     GtkImage *ext_icon;
@@ -96,14 +97,6 @@ ExmDetailView *
 exm_detail_view_new (void)
 {
     return g_object_new (EXM_TYPE_DETAIL_VIEW, NULL);
-}
-
-static void
-exm_detail_view_finalize (GObject *object)
-{
-    ExmDetailView *self = (ExmDetailView *)object;
-
-    G_OBJECT_CLASS (exm_detail_view_parent_class)->finalize (object);
 }
 
 static void
@@ -369,9 +362,25 @@ on_data_loaded (GObject      *source,
     GList *version_iter;
     ExmShellVersionMap *version_map;
 
+    data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error);
     self = EXM_DETAIL_VIEW (user_data);
 
-    if ((data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error)) != FALSE)
+    if (error)
+    {
+        // Filter 5xx status codes (server errors)
+        if (error->code / 100 == 5)
+            adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
+        else
+            adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
+
+        gtk_stack_set_visible_child_name (self->stack, "page_error");
+
+        g_clear_error (&error);
+
+        return;
+    }
+
+    if (EXM_IS_SEARCH_RESULT (data))
     {
         gint pk, downloads;
         gboolean is_installed, is_supported;
@@ -509,7 +518,7 @@ on_data_loaded (GObject      *source,
         return;
     }
 
-    gtk_stack_set_visible_child_name (self->stack, "page_error");
+    gtk_stack_set_visible_child_name (self->stack, "page_empty");
 }
 
 void
@@ -629,7 +638,6 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_detail_view_finalize;
     object_class->get_property = exm_detail_view_get_property;
     object_class->set_property = exm_detail_view_set_property;
 
@@ -656,6 +664,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, title);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, error_status);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_title);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_author);
