@@ -16,7 +16,7 @@
 
 .tint {
   /* Dark view_bg_color */
-  background-color: rgba(30, 30, 30, 1);
+  background-color: rgb(30 30 30);
   color: white;
 }
 
@@ -38,7 +38,7 @@
 }
 
 rating {
-  color: @yellow_4;
+  color: var(--yellow-4);
 }
 
 .info-bar.horizontal > :not(:first-child),
@@ -62,50 +62,28 @@ rating {
 }
 
 .author-badge {
-	background-color: @blue_3;
-	border-radius: 999px;
-	color: @white_1;
-	margin-left: 6px;
-	padding: 2px 6px;
+  background-color: var(--accent-color);
+  border-radius: 999px;
+  color: var(--window-bg-color);
+  margin-left: 6px;
+  padding: 2px 6px;
 }
 
-/* Progress Bar Colours */
-progressbar.error progress {
-    background-color: @red_1;
-}
-
-progressbar.error text {
-    color: @red_1;
-    opacity: 0.8;
-}
-
-progressbar.warning progress {
-    background-color: @yellow_4;
-}
-
-progressbar.warning text {
-    color: @window_fg_color;
-}
-
-progressbar.success progress {
-    background-color: @green_1;
-}
-
-progressbar.success text {
-    color: @green_1;
-    opacity: 0.8;
+progressbar text {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* Workaround for https://gitlab.gnome.org/GNOME/gtk/-/issues/5309 */
 .boxed-list-placeholder > row:nth-last-child(2),
 .boxed-list-placeholder > row.expander:nth-last-child(2):not(:checked) > box > list > row.header,
 .boxed-list-placeholder > row.expander:nth-last-child(2) > box > revealer > list.nested > row:last-child {
-    border-bottom: 0;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+  border-bottom: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .boxed-list-placeholder > row.expander:nth-last-child(2) > box > revealer > list.nested {
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
