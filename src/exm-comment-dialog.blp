@@ -1,7 +1,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $ExmCommentDialog : Adw.Dialog {
+template $ExmCommentDialog: Adw.Dialog {
   content-width: 600;
   content-height: 600;
   width-request: 360;
@@ -9,7 +9,6 @@ template $ExmCommentDialog : Adw.Dialog {
   title: _("Comments");
 
   child: Adw.ToolbarView {
-
     [top]
     Adw.HeaderBar {}
 
@@ -26,15 +25,19 @@ template $ExmCommentDialog : Adw.Dialog {
               spacing: 12;
               valign: center;
 
-              Gtk.Spinner {
-                spinning: true;
+              Adw.Spinner {
+                halign: center;
+                valign: center;
                 height-request: 32;
                 width-request: 32;
               }
 
               Gtk.Label {
-              	styles["title-2"]
-              	label: _("Loading Comments");
+                styles [
+                  "title-2"
+                ]
+
+                label: _("Loading Comments");
               }
             };
           }
@@ -43,7 +46,10 @@ template $ExmCommentDialog : Adw.Dialog {
             name: "page_error";
 
             child: Adw.StatusPage {
-              styles ["content"]
+              styles [
+                "content"
+              ]
+
               title: _("An Error Occurred");
               icon-name: "dialog-question-symbolic";
             };
@@ -53,7 +59,11 @@ template $ExmCommentDialog : Adw.Dialog {
             name: "page_comments";
 
             child: Gtk.ListBox list_box {
-              styles ["content", "boxed-list"]
+              styles [
+                "content",
+                "boxed-list"
+              ]
+
               valign: start;
               selection-mode: none;
             };
