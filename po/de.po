@@ -5,14 +5,14 @@
 # Antifallobst <antifallobst@riseup.net>, 2022.
 # Lauri Jouaux <lauri.jouaux@outlook.com>, 2022.
 # Gabriel Brand <gabr.brand@gmail.com>, 2022-2024.
-#
+# Robert Winzer <weissnicht000099@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-08-07 16:33+0000\n"
-"Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
+"PO-Revision-Date: 2024-10-27 08:35+0000\n"
+"Last-Translator: Robert Winzer <weissnicht000099@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8.2-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -36,7 +36,7 @@ msgstr "GNOME-Shell-Erweiterungen verwalten"
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
-msgstr "extension;manager;shell;"
+msgstr "extension;manager;shell;gnome;erweiterung;verwalten;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -80,7 +80,8 @@ msgid "translator-credits"
 msgstr ""
 "Antifallobst <antifallobst@riseup.net>\n"
 "Lauri Jouaux <lauri.jouaux@outlook.com>\n"
-"Gabriel Brand <gabr.brand@gmail.com>"
+"Gabriel Brand <gabr.brand@gmail.com>\n"
+"Robert Winzer <weissnicht000099@gmail.com>"
 
 #: src/exm-browse-page.blp:9
 msgid "Search for Extensions"
@@ -112,7 +113,7 @@ msgstr "Name"
 
 #: src/exm-browse-page.blp:50
 msgid "Sort search results"
-msgstr ""
+msgstr "Suchergebnisse sortieren"
 
 #: src/exm-browse-page.blp:84
 msgid "_Load More Results"
@@ -144,10 +145,8 @@ msgid "Loading Details"
 msgstr "Details werden geladen"
 
 #: src/exm-detail-view.blp:67
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Eine neuere Version dieser Erweiterung ist verfügbar"
+msgstr "Keine Erweiterungsdetails verfügbar"
 
 #: src/exm-detail-view.blp:158
 msgid "Enlarge Image"
@@ -189,15 +188,13 @@ msgstr "_Alle Rezensionen anzeigen"
 #: src/exm-detail-view.c:405
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s Symbol"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:438
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Bildschirmfotoansicht"
+msgstr "Bildschirmfoto"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -351,10 +348,8 @@ msgid "Unsupported…"
 msgstr "Nicht unterstützt …"
 
 #: src/exm-installed-page.blp:11
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Abmelden …"
+msgstr "_Abmelden …"
 
 #: src/exm-installed-page.blp:23
 msgid "Use Extensions"
@@ -374,9 +369,7 @@ msgstr "Systemerweiterungen"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:195
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "Eine Erweiterung wird bei der nächsten Anmeldung aktualisiert"
@@ -398,8 +391,8 @@ msgstr "Keine Systemerweiterungen installiert"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i Stern"
+msgstr[1] "%i Sterne"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -413,7 +406,7 @@ msgstr "Vergrößern"
 #: src/exm-search-row.c:148
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s von %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -545,10 +538,8 @@ msgid "_Go Back"
 msgstr "_Zurückgehen"
 
 #: src/exm-window.c:319
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Details"
+msgstr "_Details"
 
 #~ msgid "Updates Available"
 #~ msgstr "Updates verfügbar"
