@@ -47,6 +47,7 @@ typedef struct
 {
     ExmRequestHandler *self;
     GTask *task;
+    SoupMessage *msg;
 } RequestData;
 
 static void
@@ -56,14 +57,21 @@ request_callback (GObject      *source,
 {
     GBytes *bytes;
     GListModel *model;
-
+    guint status_code;
     GError *error = NULL;
 
     bytes = soup_session_send_and_read_finish (SOUP_SESSION (source), res, &error);
 
+    g_object_get (G_OBJECT (data->msg), "status-code", &status_code, NULL);
+
     if (error)
     {
         g_task_return_error (data->task, error);
+    }
+    else if (status_code != SOUP_STATUS_OK)
+    {
+        g_task_return_new_error (data->task, g_quark_from_string ("exm-request-handler"), status_code,
+                                 "HTTP error: %d", status_code);
     }
     else
     {
@@ -72,19 +80,16 @@ request_callback (GObject      *source,
         model = klass->handle_response (bytes, &error);
 
         if (model == NULL)
-        {
             g_task_return_error (data->task, error);
-        }
         else
-        {
             g_task_return_pointer (data->task, model, g_object_unref);
-        }
 
         g_bytes_unref (bytes);
     }
 
     g_object_unref (data->self);
     g_object_unref (data->task);
+    g_object_unref (data->msg);
     g_free (data);
 }
 
@@ -115,6 +120,7 @@ exm_request_handler_request_async (ExmRequestHandler   *self,
     RequestData *data = g_new0 (RequestData, 1);
     data->self = g_object_ref (self);
     data->task = g_object_ref (task);
+    data->msg = g_object_ref (msg);
 
     soup_session_send_and_read_async (priv->session, msg,
                                       G_PRIORITY_DEFAULT,
