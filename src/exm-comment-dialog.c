@@ -1,9 +1,10 @@
 #include "exm-comment-dialog.h"
 
+#include "exm-comment-tile.h"
 #include "web/exm-comment-provider.h"
 #include "web/model/exm-comment.h"
 
-#include "exm-comment-tile.h"
+#include <glib/gi18n.h>
 
 struct _ExmCommentDialog
 {
@@ -15,6 +16,7 @@ struct _ExmCommentDialog
 
     GtkListBox *list_box;
     GtkStack *stack;
+    AdwStatusPage *error_status;
 
     int web_id;
 };
@@ -106,6 +108,7 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, error_status);
 }
 
 static GtkWidget *
@@ -132,10 +135,16 @@ on_get_comments (GObject          *source,
 
     GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
 
-    if (error != NULL)
+    if (error)
     {
+        // Filter 5xx status codes (server errors)
+        if (error->code / 100 == 5)
+            adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
+        else
+            adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
+
         gtk_stack_set_visible_child_name (self->stack, "page_error");
-        g_critical ("An issue occurred while loading comments: %s", error->message);
+
         return;
     }
 
