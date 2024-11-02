@@ -54,21 +54,6 @@
             ]
         },
         {
-            "name" : "text-engine",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "--libdir=/app/lib"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/mjakeman/text-engine.git",
-                    "branch" : "master"
-                }
-            ]
-        },
-        {
             "name" : "extension-manager",
             "builddir" : true,
             "buildsystem" : "meson",
