@@ -20,9 +20,6 @@
 
 #include "exm-comment-tile.h"
 
-#include <text-engine/format/import.h>
-#include <text-engine/ui/display.h>
-
 #include "exm-rating.h"
 
 struct _ExmCommentTile
@@ -33,9 +30,8 @@ struct _ExmCommentTile
 
     GtkLabel *author;
     GtkLabel *author_badge;
-    GtkLabel *date;
     ExmRating *rating;
-    TextDisplay *display;
+    GtkLabel *date;
 };
 
 G_DEFINE_FINAL_TYPE (ExmCommentTile, exm_comment_tile, GTK_TYPE_WIDGET)
@@ -111,23 +107,15 @@ exm_comment_tile_constructed (GObject *object)
 
     g_return_if_fail (EXM_IS_COMMENT (self->comment));
 
-    TextDocument *document;
     GDateTime *datetime;
 
-    gchar *text, *date;
+    gchar *date;
     g_object_get (self->comment,
-                  "comment", &text,
                   "date", &date,
                   NULL);
 
-    document = text_document_new ();
-    document->frame = format_parse_html (text);
-    g_free (text);
-
     datetime = g_date_time_new_from_iso8601 (date, g_time_zone_new_utc ());
     g_free (date);
-
-    g_object_set (self->display, "document", document, NULL);
 
     if (datetime != NULL)
     {
@@ -161,11 +149,10 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-comment-tile.ui");
 
-    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, display);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, author_badge);
-    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, date);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, rating);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, date);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
