@@ -27,8 +27,7 @@ jobs:
         run: |
           apt update
           apt install -y git meson gcc gettext cmake appstream desktop-file-utils \
-            libadwaita-1-dev libgtk-4-dev libjson-glib-dev libsoup-3.0-dev libtext-engine-dev \
-            blueprint-compiler
+            libadwaita-1-dev libgtk-4-dev libjson-glib-dev libsoup-3.0-dev blueprint-compiler
 
       - name: Setup Repository
         run: |
