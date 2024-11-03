@@ -1,5 +1,7 @@
 #include "exm-comment.h"
 
+#include "exm-utils.h"
+
 #include <json-glib/json-glib.h>
 
 struct _ExmComment
@@ -40,14 +42,6 @@ exm_comment_new (void)
 }
 
 static void
-exm_comment_finalize (GObject *object)
-{
-    ExmComment *self = (ExmComment *)object;
-
-    G_OBJECT_CLASS (exm_comment_parent_class)->finalize (object);
-}
-
-static void
 exm_comment_get_property (GObject    *object,
                           guint       prop_id,
                           GValue     *value,
@@ -61,7 +55,7 @@ exm_comment_get_property (GObject    *object,
         g_value_set_boolean (value, self->is_extension_creator);
         break;
     case PROP_COMMENT:
-        g_value_set_string (value, self->comment);
+        g_value_set_string (value, exm_utils_convert_html (self->comment));
         break;
     case PROP_AUTHOR:
         g_value_set_string (value, self->author);
@@ -112,7 +106,6 @@ exm_comment_class_init (ExmCommentClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_comment_finalize;
     object_class->get_property = exm_comment_get_property;
     object_class->set_property = exm_comment_set_property;
 
