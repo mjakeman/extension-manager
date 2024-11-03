@@ -40,7 +40,8 @@ exm_deps = [
   dependency('libadwaita-1'),
   dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
-  dependency('libsoup-3.0')
+  dependency('libsoup-3.0'),
+  dependency('libxml-2.0'),
 ]
 
 if libbacktrace_dep.found()

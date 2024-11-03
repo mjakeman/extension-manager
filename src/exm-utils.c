@@ -20,6 +20,9 @@
 
 #include "exm-utils.h"
 
+#include <libxml/HTMLparser.h>
+#include <libxml/HTMLtree.h>
+
 char *
 exm_utils_read_resource (const char *resource, gsize *length)
 {
@@ -54,4 +57,83 @@ exm_utils_read_resource (const char *resource, gsize *length)
 
   g_clear_object (&file);
   return NULL;
+}
+
+static GString *
+build_text_recursive (xmlNode *node, GString *string)
+{
+    xmlNode *cur_node = NULL;
+
+    for (cur_node = node; cur_node != NULL; cur_node = cur_node->next)
+    {
+        // ENTER NODE
+        if (cur_node->type == XML_ELEMENT_NODE)
+        {
+            if (g_str_equal (cur_node->name, "b"))
+                g_string_append (string, "<b>");
+            else if (g_str_equal (cur_node->name, "i"))
+                g_string_append (string, "<i>");
+            else if (g_str_equal (cur_node->name, "u"))
+                g_string_append (string, "<u>");
+            else if (g_str_equal (cur_node->name, "br"))
+                g_string_append (string, "\n");
+            else if (g_str_equal (cur_node->name, "p"))
+                g_string_append (string, "");
+            else
+                g_info ("Ignored element: %s\n", cur_node->name);
+        }
+        else if (cur_node->type == XML_TEXT_NODE)
+        {
+            gchar *escaped_text = g_markup_escape_text ((const gchar *)cur_node->content, -1);
+            g_string_append (string, escaped_text);
+            g_free (escaped_text);
+        }
+
+        // PROCESS CHILDREN
+        build_text_recursive (cur_node->children, string);
+
+        // EXIT NODE
+        if (cur_node->type == XML_ELEMENT_NODE)
+        {
+            if (g_str_equal (cur_node->name, "b"))
+                g_string_append (string, "</b>");
+            else if (g_str_equal (cur_node->name, "i"))
+                g_string_append (string, "</i>");
+            else if (g_str_equal (cur_node->name, "u"))
+                g_string_append (string, "</u>");
+        }
+    }
+
+    return string;
+}
+
+gchar *
+exm_utils_convert_html (const gchar *html)
+{
+    htmlDocPtr doc;
+    xmlNode *root;
+    GString *string = g_string_new ("");
+
+    doc = htmlParseDoc ((const xmlChar *)html, "UTF-8");
+    if (doc == NULL)
+    {
+        g_critical ("Failed to parse HTML document.");
+        return NULL;
+    }
+
+    root = xmlDocGetRootElement (doc);
+    if (root == NULL)
+    {
+        g_warning ("Empty HTML document.");
+        xmlFreeDoc (doc);
+        xmlCleanupParser ();
+        return NULL;
+    }
+
+    build_text_recursive (root, string);
+
+    xmlFreeDoc (doc);
+    xmlCleanupParser ();
+
+    return g_string_free (string, FALSE);
 }

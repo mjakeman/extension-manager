@@ -24,3 +24,6 @@
 
 char *
 exm_utils_read_resource (const char *resource, gsize *length);
+
+gchar *
+exm_utils_convert_html (const gchar *html);
