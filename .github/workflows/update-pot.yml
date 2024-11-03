@@ -35,7 +35,7 @@ jobs:
           git clone -b ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} \
             ${{ github.server_url }}/${{ github.repository }} .
 
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.2.2
         with:
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -51,7 +51,7 @@ jobs:
           meson compile -C _build extension-manager-pot
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6.0.5
+        uses: peter-evans/create-pull-request@v7.0.5
         with:
           commit-message: 'po: Update template'
           title: 'po: Update template'
