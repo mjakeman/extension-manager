@@ -4,22 +4,22 @@
 #
 # Onur Ankut <ripsivis@gmail.com>, 2022.
 # Sabri Ünal <libreajans@gmail.com>, 2022.
-#
+# AlphaBeta1 <hsynulassudem200w@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-16 18:41+0000\n"
-"PO-Revision-Date: 2024-03-13 20:01+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
-"manager/app/tr/>\n"
+"PO-Revision-Date: 2024-11-05 12:14+0000\n"
+"Last-Translator: AlphaBeta1 <hsynulassudem200w@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"extension-manager/app/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -176,7 +176,7 @@ msgstr "Ana Sayfa"
 
 #: src/exm-detail-view.blp:227
 msgid "Donate"
-msgstr ""
+msgstr "Bağış"
 
 #: src/exm-detail-view.blp:236
 msgid "View on Extensions"
@@ -213,10 +213,8 @@ msgid "Error Report"
 msgstr "Hata Raporla"
 
 #: src/exm-error-dialog.blp:39
-#, fuzzy
-#| msgid "An unexpected error occurred in Extension Manager."
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Uzantı Yöneticisi'nde beklenmedik bir hata oluştu."
+msgstr "Uzantı Yöneticisi'nde beklenmedik bir hata oluştu"
 
 #: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
 msgid "_Copy to Clipboard"
@@ -283,10 +281,8 @@ msgid "See Details"
 msgstr "Ayrıntıları Görüntüle"
 
 #: src/exm-extension-row.blp:225
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "Kaldır"
+msgstr "Kaldır…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -355,10 +351,8 @@ msgid "Unsupported"
 msgstr "Desteklenmiyor"
 
 #: src/exm-install-button.c:115
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "Kur"
+msgstr "Kur…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
