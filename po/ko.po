@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-05-27 12:09+0000\n"
 "Last-Translator: tabby <tabby4442@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/extension-manager/"
@@ -106,7 +106,7 @@ msgstr "다운로드순"
 msgid "Recent"
 msgstr "최근순"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "이름순"
 
@@ -114,11 +114,11 @@ msgstr "이름순"
 msgid "Sort search results"
 msgstr "검색 결과 정렬"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "_더 많은 결과 불러오기"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "결과 없음"
 
@@ -126,68 +126,68 @@ msgstr "결과 없음"
 msgid "Comments"
 msgstr "댓글"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "댓글 불러오는 중"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "오류가 발생했습니다"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "저자"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 #, fuzzy
 #| msgid "Details"
 msgid "Loading Details"
 msgstr "세부 사항 불러오는 중"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
 msgstr "이 확장의 새 버전이 사용 가능합니다"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 #, fuzzy
 #| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "이미지 확대"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "설명"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "링크"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "홈페이지"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr ""
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "확장 보기"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "사용자 리뷰"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 #, fuzzy
 #| msgid "Comments"
 msgid "No comments yet"
 msgstr "댓글"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "_모든 리뷰 보기"
 
@@ -213,7 +213,7 @@ msgstr "오류 보고"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "확장 관리자에서 예상하지 못한 오류가 발생했습니다."
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "_클립보드에 붙여넣기"
 
@@ -381,11 +381,11 @@ msgstr "확장 사용"
 msgid "Extensions can cause performance and stability issues"
 msgstr "확장 사용은 성능과 안정성 문제를 일으킬 수 있습니다."
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "사용자 설치 확장"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "시스템 확장"
 
@@ -414,7 +414,7 @@ msgstr "사용자 확장이 설치되지 않았습니다."
 msgid "No System Extensions Installed"
 msgstr "시스템 확장이 설치되지 않았습니다."
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -571,11 +571,11 @@ msgstr ""
 "이 확장을 사용자의 GNOME Shell 버전을 지원하지 않습니다. 설치할 시 오류를 일"
 "으킬 수 있습니다."
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "_아무튼 설치"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "_돌아가기"
 

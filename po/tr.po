@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-11-05 12:14+0000\n"
 "Last-Translator: AlphaBeta1 <hsynulassudem200w@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/"
-"extension-manager/app/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
+"manager/app/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,7 +113,7 @@ msgstr "İndirilenler"
 msgid "Recent"
 msgstr "Yeni çıkanlar"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "Ada göre"
 
@@ -121,11 +121,11 @@ msgstr "Ada göre"
 msgid "Sort search results"
 msgstr "Arama sonuçlarını sıralama"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "Daha Fazla Sonuç _Yükle"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "Sonuç Bulunamadı"
 
@@ -133,66 +133,66 @@ msgstr "Sonuç Bulunamadı"
 msgid "Comments"
 msgstr "Yorumlar"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "Yorumlar Yükleniyor"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Hata Oluştu"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "Yazar"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "Ayrıntılar Yükleniyor"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
 msgstr "Uzantının yeni bir sürümü var"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 #, fuzzy
 #| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "Resmi genişlet"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Açıklama"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "Bağlantılar"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "Ana Sayfa"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr "Bağış"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "Uzantılar Sitesinde Görüntüle"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "Kullanıcı Yorumları"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 #, fuzzy
 #| msgid "Comments"
 msgid "No comments yet"
 msgstr "Yorumlar"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "Tüm Yorumları _Göster"
 
@@ -216,7 +216,7 @@ msgstr "Hata Raporla"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Uzantı Yöneticisi'nde beklenmedik bir hata oluştu"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "Panoya _Kopyala"
 
@@ -381,11 +381,11 @@ msgstr "Uzantıları Kullan"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Uzantılar başarım ve kararlılık sorunlarına neden olabilir."
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "Kurulu Uzantılarınız"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "Sistem Uzantıları"
 
@@ -414,7 +414,7 @@ msgstr "Kurulu kullanıcı uzantısı yok."
 msgid "No System Extensions Installed"
 msgstr "Kurulu sistem uzantısı yok."
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -561,11 +561,11 @@ msgstr ""
 "Bu uzantı GNOME Shell sürümünüzü desteklemiyor. Kurulması hatalara denen "
 "olabilir."
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "Yine De _Kur"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "Geri _Git"
 

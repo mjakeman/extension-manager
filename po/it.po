@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-09-22 15:34+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/"
-"extension-manager/app/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/extension-"
+"manager/app/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,7 +97,7 @@ msgstr "Download"
 msgid "Recent"
 msgstr "Recenti"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "Nome"
 
@@ -105,11 +105,11 @@ msgstr "Nome"
 msgid "Sort search results"
 msgstr "Ordinamento dei risultati di ricerca"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "Carica più risultati"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "Nessun risultato"
 
@@ -117,60 +117,60 @@ msgstr "Nessun risultato"
 msgid "Comments"
 msgstr "Commenti"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "Caricamento dei commenti"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Si è verificato un errore"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "Autore"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "Caricamento dei dettagli"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 msgid "No extension details available"
 msgstr "Nessun dettaglio disponibile sull'estensione"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 msgid "Enlarge Image"
 msgstr "Ingrandisci immagine"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Descrizione"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "Link"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "Home page"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr "Donare"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "Pagina di GNOME Extensions"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "Recensioni"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 msgid "No comments yet"
 msgstr "Ancora nessun commento"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "_Mostra tutte le recensioni"
 
@@ -194,7 +194,7 @@ msgstr "Rapporto di errore"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Si è verificato un errore imprevisto nel gestore delle estensioni"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "_Copia negli appunti"
 
@@ -348,11 +348,11 @@ msgstr "Estensioni"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Le estensioni possono causare problemi di prestazioni e stabilità"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "Estensioni installate dall'utente"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "Estensioni integrate"
 
@@ -376,7 +376,7 @@ msgstr "Nessuna estensione utente installata"
 msgid "No System Extensions Installed"
 msgstr "Nessuna estensione di sistema installata"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -518,11 +518,11 @@ msgstr ""
 "Questa estensione non supporta la tua versione di GNOME. Potrebbe causare "
 "errori se installato."
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "_Installa comunque"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "_Torna indietro"
 

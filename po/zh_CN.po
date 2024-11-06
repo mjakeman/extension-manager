@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-03-18 06:23+0000\n"
 "Last-Translator: CloneWith <clonewith@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -105,7 +105,7 @@ msgstr "下载量"
 msgid "Recent"
 msgstr "最近"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "名称"
 
@@ -113,11 +113,11 @@ msgstr "名称"
 msgid "Sort search results"
 msgstr "排序搜索结果"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "载入更多结果 (_L)"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "没有找到结果"
 
@@ -125,66 +125,66 @@ msgstr "没有找到结果"
 msgid "Comments"
 msgstr "留言"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "加载评论中"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "发生了一个错误"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "作者"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "加载详情中"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
 msgstr "此扩展有新版本可用"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 #, fuzzy
 #| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "放大图片"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "描述"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "链接"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "主页"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr ""
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "在 Extensions 网站中查看"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "用户评论"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 #, fuzzy
 #| msgid "Comments"
 msgid "No comments yet"
 msgstr "留言"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "显示所有评论 (_S)"
 
@@ -210,7 +210,7 @@ msgstr "错误报告"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "扩展管理器发生了意外错误。"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "复制到剪贴板 (_C)"
 
@@ -377,11 +377,11 @@ msgstr "使用扩展"
 msgid "Extensions can cause performance and stability issues"
 msgstr "扩展可能会导致出现性能和稳定性问题。"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "用户安装的扩展"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "系统扩展"
 
@@ -410,7 +410,7 @@ msgstr "没有已安装的用户扩展。"
 msgid "No System Extensions Installed"
 msgstr "没有已安装的系统扩展。"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -550,11 +550,11 @@ msgid ""
 "errors if installed."
 msgstr "此扩展不支持您目前的 GNOME Shell 版本。安装后可能导致错误。"
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "依然安装 (_I)"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "返回 (_G)"
 

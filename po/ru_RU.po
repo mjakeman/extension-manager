@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-10-03 11:15+0000\n"
 "Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"extension-manager/app/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
+"manager/app/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,7 +99,7 @@ msgstr "Число загрузок"
 msgid "Recent"
 msgstr "Недавние"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "Название"
 
@@ -107,11 +107,11 @@ msgstr "Название"
 msgid "Sort search results"
 msgstr "Сортировать результаты поиска"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "_Загрузить больше результатов"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "Результаты не найдены"
 
@@ -119,60 +119,60 @@ msgstr "Результаты не найдены"
 msgid "Comments"
 msgstr "Комментарии"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "Загрузка комментариев"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Произошла ошибка"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "Автор"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "Загрузка подробностей"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 msgid "No extension details available"
 msgstr "Информация о расширении отсутствует"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 msgid "Enlarge Image"
 msgstr "Увеличить изображение"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Описание"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "Ссылки"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "Домашняя страница"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr "Пожертвовать"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "Посмотреть в Расширениях"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "Отзывы пользователей"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 msgid "No comments yet"
 msgstr "Комментариев пока нет"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "_Показать все отзывы"
 
@@ -196,7 +196,7 @@ msgstr "Отчет об ошибке"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "В менеджере расширений произошла непредвиденная ошибка"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "_Копировать в буфер обмена"
 
@@ -351,11 +351,11 @@ msgid "Extensions can cause performance and stability issues"
 msgstr ""
 "Расширения могут вызывать проблемы с производительностью и стабильностью"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "Расширения, установленные пользователем"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "Системные расширения"
 
@@ -380,7 +380,7 @@ msgstr "Пользовательские расширения не устано�
 msgid "No System Extensions Installed"
 msgstr "Системные расширения не установлены"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -523,11 +523,11 @@ msgstr ""
 "Это расширение не поддерживает вашу версию GNOME Shell. Его установка может "
 "привести к ошибкам."
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "_Установить все равно"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "Н_азад"
 

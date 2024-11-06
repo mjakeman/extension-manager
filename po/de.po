@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-11-03 13:38+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
@@ -107,7 +107,7 @@ msgstr "Downloads"
 msgid "Recent"
 msgstr "Aktualität"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "Name"
 
@@ -115,11 +115,11 @@ msgstr "Name"
 msgid "Sort search results"
 msgstr "Suchergebnisse sortieren"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "_Weitere Ergebnisse laden"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "Keine Ergebnisse gefunden"
 
@@ -127,60 +127,60 @@ msgstr "Keine Ergebnisse gefunden"
 msgid "Comments"
 msgstr "Kommentare"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "Kommentare werden geladen"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Ein Fehler ist aufgetreten"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "Autor"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "Details werden geladen"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 msgid "No extension details available"
 msgstr "Keine Erweiterungsdetails verfügbar"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 msgid "Enlarge Image"
 msgstr "Bild vergrößern"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Beschreibung"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "Links"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "Homepage"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr "Spenden"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "Auf »GNOME Extensions« anzeigen"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "Benutzerrezensionen"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 msgid "No comments yet"
 msgstr "Noch keine Kommentare"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "_Alle Rezensionen anzeigen"
 
@@ -204,7 +204,7 @@ msgstr "Fehlerbericht"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Ein unerwarteter Fehler ist im Erweiterungs-Manager aufgetreten"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "In die Zwischenablage _kopieren"
 
@@ -359,11 +359,11 @@ msgstr "Erweiterungen verwenden"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Erweiterungen können Leistungs- und Stabilitätsprobleme verursachen"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "Benutzerinstallierte Erweiterungen"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "Systemerweiterungen"
 
@@ -387,7 +387,7 @@ msgstr "Keine Benutzererweiterungen installiert"
 msgid "No System Extensions Installed"
 msgstr "Keine Systemerweiterungen installiert"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -529,11 +529,11 @@ msgstr ""
 "Diese Erweiterung unterstützt Ihre GNOME-Shell-Version nicht. Sie kann bei "
 "der Installation Fehler verursachen."
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "_Trotzdem installieren"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "_Zurückgehen"
 

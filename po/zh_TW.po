@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-10-31 06:00+0000\n"
 "Last-Translator: hugoalh <hugoalh@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -98,7 +98,7 @@ msgstr "下載次數"
 msgid "Recent"
 msgstr "最近"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "名稱"
 
@@ -106,11 +106,11 @@ msgstr "名稱"
 msgid "Sort search results"
 msgstr "排序搜尋結果"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "載入更多搜尋結果 (&L)"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "無搜尋結果"
 
@@ -118,60 +118,60 @@ msgstr "無搜尋結果"
 msgid "Comments"
 msgstr "評論"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "正在載入評論"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "發生錯誤"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "作者"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "正在載入詳細資訊"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 msgid "No extension details available"
 msgstr "無擴充功能詳細資訊"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 msgid "Enlarge Image"
 msgstr "放大圖片"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "描述"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "連結"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "主頁"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr "贊助"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "在 Extensions 上查看"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "使用者評論"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 msgid "No comments yet"
 msgstr "暫無評論"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "顯示所有評論 (&S)"
 
@@ -195,7 +195,7 @@ msgstr "錯誤報告"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "擴充功能管理員發生意外錯誤"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "複製至剪貼簿 (&C)"
 
@@ -347,11 +347,11 @@ msgstr "使用擴充功能"
 msgid "Extensions can cause performance and stability issues"
 msgstr "擴充功能可能造成效能和穩定性問題"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "使用者安裝的擴充功能"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "系統擴充功能"
 
@@ -374,7 +374,7 @@ msgstr "沒有已安裝的使用者擴充功能"
 msgid "No System Extensions Installed"
 msgstr "沒有已安裝的系統擴充功能"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -507,11 +507,11 @@ msgid ""
 "errors if installed."
 msgstr "此擴充功能不支援你的 GNOME Shell 版本。如果安裝的話可能會導致錯誤。"
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "仍要安裝 (&I)"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "返回 (&G)"
 
