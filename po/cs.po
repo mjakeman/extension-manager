@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-09-02 15:16+0000\n"
 "Last-Translator: Jan Kalabza <jan.kalabza@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
@@ -104,7 +104,7 @@ msgstr "Počet Stažení"
 msgid "Recent"
 msgstr "Nedávné"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "Jméno"
 
@@ -112,11 +112,11 @@ msgstr "Jméno"
 msgid "Sort search results"
 msgstr "Filtrování výsledků vyhledávání"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "_Načíst Více Výsledků"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "Nebyly Nalezeny Žádné Výsledky"
 
@@ -124,62 +124,62 @@ msgstr "Nebyly Nalezeny Žádné Výsledky"
 msgid "Comments"
 msgstr "Komentáře"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "Načítání Komentářů"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Vyskytla se Chyba"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "Autor"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "Načítání Podrobností"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
 msgstr "Je dostupná novější verze tohoto rozšíření"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 msgid "Enlarge Image"
 msgstr "Zvětšit Obrázek"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Popis"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "Odkazy"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "Domovská Stránka"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr "Darovat"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "Zobrazit na Webu"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "Uživatelské Recenze"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 msgid "No comments yet"
 msgstr "Zatím žádné komentáře"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "_Zobrazit Všechny Recenze"
 
@@ -205,7 +205,7 @@ msgstr "Nahlásit Chybu"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Ve Správci Rozšíření došlo k neočekávané chybě"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "_Zkopírovat do Schránky"
 
@@ -360,11 +360,11 @@ msgstr "Použít Rozšíření"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Rozšíření mohou způsobit problémy s výkonem a stabilitou"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "Uživatelská Rozšíření"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "Systémová Rozšíření"
 
@@ -391,7 +391,7 @@ msgstr "Žádná Uživatelská Rozšíření"
 msgid "No System Extensions Installed"
 msgstr "Žádná Systémová Rozšíření"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -534,11 +534,11 @@ msgstr ""
 "Toto rozšíření nepodporuje vaši verzi GNOME Shell. Při nainstalování může "
 "způsobovat problémy."
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "_Přesto Nainstalovat"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "_Zpět"
 

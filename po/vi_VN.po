@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2023-11-09 22:59+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -111,7 +111,7 @@ msgstr "Tải xuống"
 msgid "Recent"
 msgstr "Gần đây"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "Tên"
 
@@ -119,11 +119,11 @@ msgstr "Tên"
 msgid "Sort search results"
 msgstr "Sắp xếp kết quả tìm kiếm"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "_Tải thêm kết quả"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "Không có kết quả nào được tìm thấy"
 
@@ -131,70 +131,70 @@ msgstr "Không có kết quả nào được tìm thấy"
 msgid "Comments"
 msgstr "Bình luận"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 #, fuzzy
 #| msgid "Comments"
 msgid "Loading Comments"
 msgstr "Bình luận"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "Đã xảy ra lỗi"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr ""
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 #, fuzzy
 #| msgid "Details"
 msgid "Loading Details"
 msgstr "Chi tiết"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
 msgstr "Đã có phiên bản mới hơn của tiện ích mở rộng này"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 #, fuzzy
 #| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "Phóng to hình ảnh"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Miêu tả"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr ""
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr ""
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr ""
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "Xem trên Tiện ích mở rộng"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "Đánh giá của người dùng"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 #, fuzzy
 #| msgid "Comments"
 msgid "No comments yet"
 msgstr "Bình luận"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "_Hiển thị tất cả đánh giá"
 
@@ -220,7 +220,7 @@ msgstr "Báo cáo lỗi"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Đã xảy ra lỗi không mong muốn trong Trình quản lý tiện ích mở rộng."
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "_Sao chép vào clipboard"
 
@@ -391,11 +391,11 @@ msgstr "Sử dụng tiện ích mở rộng"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Tiện ích mở rộng có thể gây ra vấn đề về hiệu suất và độ ổn định."
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "Tiện ích mở rộng do người dùng cài đặt"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "Tiện ích mở rộng hệ thống"
 
@@ -425,7 +425,7 @@ msgstr "Không có tiện ích mở rộng người dùng nào được cài đ�
 msgid "No System Extensions Installed"
 msgstr "Không có phần mở rộng hệ thống nào được cài đặt."
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -582,11 +582,11 @@ msgstr ""
 "Tiện ích mở rộng này không hỗ trợ phiên bản GNOME Shell của bạn. Nó có thể "
 "gây ra lỗi nếu cài đặt."
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "_Vẫn cài đặt"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "_Quay lại"
 

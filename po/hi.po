@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2024-08-16 15:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
@@ -95,7 +95,7 @@ msgstr "डाउनलोड"
 msgid "Recent"
 msgstr "हालिया"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "नाम"
 
@@ -103,11 +103,11 @@ msgstr "नाम"
 msgid "Sort search results"
 msgstr ""
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr "अधिक परिणाम लोड करें (_L)"
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "कोई परिणाम नहीं मिला"
 
@@ -115,62 +115,62 @@ msgstr "कोई परिणाम नहीं मिला"
 msgid "Comments"
 msgstr "टिप्पणियां"
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr "टिप्पणियां लोड हो रही हैं"
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "एक त्रुटि हुई"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr "लेखक"
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 msgid "Loading Details"
 msgstr "विवरण लोड हो रहा है"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
 msgstr "इस एक्सटेंशन का एक नया संस्करण उपलब्ध है"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 msgid "Enlarge Image"
 msgstr "छवि बड़ा करें"
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "विवरण"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "लिंक"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 msgid "Homepage"
 msgstr "मुखपृष्ठ"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr "दान करें"
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "एक्सटेंशन पर देखें"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "उपयोक्ता समीक्षा"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 msgid "No comments yet"
 msgstr "अभी कोई टिप्पणी नहीं"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "_Show All Reviews"
 msgstr "सभी समीक्षाएं दिखाएं (_S)"
 
@@ -196,7 +196,7 @@ msgstr "त्रुटि रिपोर्ट"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "एक्सटेंशन मैनेजर में एक अप्रत्याशित त्रुटि हुई"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr "क्लिपबोर्ड पर कॉपी करें (_C)"
 
@@ -350,11 +350,11 @@ msgstr "एक्सटेंशन का उपयोग करें"
 msgid "Extensions can cause performance and stability issues"
 msgstr "एक्सटेंशन प्रदर्शन और स्थिरता संबंधी समस्याएं पैदा कर सकते हैं"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "उपयोक्ता-स्थापित एक्सटेंशन"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "सिस्टम एक्सटेंशन"
 
@@ -380,7 +380,7 @@ msgstr "कोई उपयोक्ता एक्सटेंशन स्थ
 msgid "No System Extensions Installed"
 msgstr "कोई सिस्टम एक्सटेंशन स्थापित नहीं हैं"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -522,11 +522,11 @@ msgstr ""
 "यह एक्सटेंशन आपके गनोम शैल संस्करण का समर्थन नहीं करता है। स्थापित होने पर यह त्रुटियां "
 "उत्पन्न कर सकता है।"
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid "_Install Anyway"
 msgstr "फिर भी स्थापित करें (_I)"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr "पीछे जाएं (_G)"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 18:41+0000\n"
+"POT-Creation-Date: 2024-11-02 20:22+0000\n"
 "PO-Revision-Date: 2022-04-06 08:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -116,7 +116,7 @@ msgstr "Hentninger"
 msgid "Recent"
 msgstr "Nylig"
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:117
+#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:118
 msgid "Name"
 msgstr "Navn"
 
@@ -124,11 +124,11 @@ msgstr "Navn"
 msgid "Sort search results"
 msgstr "Sortér søgeresultater"
 
-#: src/exm-browse-page.blp:84
+#: src/exm-browse-page.blp:90
 msgid "_Load More Results"
 msgstr ""
 
-#: src/exm-browse-page.blp:97
+#: src/exm-browse-page.blp:102
 msgid "No Results Found"
 msgstr "Ingen Resultater Fundet"
 
@@ -136,66 +136,66 @@ msgstr "Ingen Resultater Fundet"
 msgid "Comments"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:37
+#: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:47 src/exm-detail-view.blp:66
-#: src/exm-detail-view.blp:283 src/exm-window.c:318
+#: src/exm-comment-dialog.blp:53 src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:284 src/exm-window.c:318
 msgid "An Error Occurred"
 msgstr "En Fejl Opstod"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:131
+#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:132
 msgid "Author"
 msgstr ""
 
-#: src/exm-detail-view.blp:56
+#: src/exm-detail-view.blp:57
 #, fuzzy
 #| msgid "See Details"
 msgid "Loading Details"
 msgstr "Se Detaljer"
 
-#: src/exm-detail-view.blp:67
+#: src/exm-detail-view.blp:68
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
 msgstr "En nyere version af denne udvidelse er tilgængelig"
 
-#: src/exm-detail-view.blp:158
+#: src/exm-detail-view.blp:159
 msgid "Enlarge Image"
 msgstr ""
 
-#: src/exm-detail-view.blp:176 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:177 src/exm-extension-row.blp:109
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/exm-detail-view.blp:199
+#: src/exm-detail-view.blp:200
 msgid "Links"
 msgstr "Links"
 
-#: src/exm-detail-view.blp:207
+#: src/exm-detail-view.blp:208
 #, fuzzy
 #| msgid "Project Homepage"
 msgid "Homepage"
 msgstr "Projekt Hjemmeside"
 
-#: src/exm-detail-view.blp:227
+#: src/exm-detail-view.blp:228
 msgid "Donate"
 msgstr ""
 
-#: src/exm-detail-view.blp:236
+#: src/exm-detail-view.blp:237
 msgid "View on Extensions"
 msgstr "Se på Extensions"
 
-#: src/exm-detail-view.blp:260
+#: src/exm-detail-view.blp:261
 msgid "User Reviews"
 msgstr "Bruger Anmeldelser"
 
-#: src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:293
 msgid "No comments yet"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 #, fuzzy
 #| msgid "Show All Reviews"
 msgid "_Show All Reviews"
@@ -223,7 +223,7 @@ msgstr ""
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Der opstod en fejl mens udvidelsen blev indlæst"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:159
+#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:160
 msgid "_Copy to Clipboard"
 msgstr ""
 
@@ -396,11 +396,11 @@ msgstr "Systeminstallerede Udvidelser"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Ydelse og stabilitet"
 
-#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:123
+#: src/exm-installed-page.blp:29 src/exm-upgrade-assistant.blp:124
 msgid "User-Installed Extensions"
 msgstr "Brugerinstallerede Udvidelser"
 
-#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:141
+#: src/exm-installed-page.blp:46 src/exm-upgrade-assistant.blp:142
 msgid "System Extensions"
 msgstr "Systeminstallerede Udvidelser"
 
@@ -433,7 +433,7 @@ msgstr "Vis bruger- og systemudvidelser seperat"
 msgid "No System Extensions Installed"
 msgstr "Vis bruger- og systemudvidelser seperat"
 
-#: src/exm-rating.c:110
+#: src/exm-rating.c:134
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
@@ -596,13 +596,13 @@ msgstr ""
 "Denne udvidelse understøtter ikke din GNOME Skalversion.\n"
 "Vil du installerer den alligevel?"
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 #, fuzzy
 #| msgid "Install"
 msgid "_Install Anyway"
 msgstr "Installér"
 
-#: src/exm-window.blp:121
+#: src/exm-window.blp:122
 msgid "_Go Back"
 msgstr ""
 
