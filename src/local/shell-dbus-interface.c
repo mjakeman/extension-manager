@@ -17,6 +17,52 @@
 #  include <gio/gunixfdlist.h>
 #endif
 
+#ifdef G_ENABLE_DEBUG
+#define g_marshal_value_peek_boolean(v)  g_value_get_boolean (v)
+#define g_marshal_value_peek_char(v)     g_value_get_schar (v)
+#define g_marshal_value_peek_uchar(v)    g_value_get_uchar (v)
+#define g_marshal_value_peek_int(v)      g_value_get_int (v)
+#define g_marshal_value_peek_uint(v)     g_value_get_uint (v)
+#define g_marshal_value_peek_long(v)     g_value_get_long (v)
+#define g_marshal_value_peek_ulong(v)    g_value_get_ulong (v)
+#define g_marshal_value_peek_int64(v)    g_value_get_int64 (v)
+#define g_marshal_value_peek_uint64(v)   g_value_get_uint64 (v)
+#define g_marshal_value_peek_enum(v)     g_value_get_enum (v)
+#define g_marshal_value_peek_flags(v)    g_value_get_flags (v)
+#define g_marshal_value_peek_float(v)    g_value_get_float (v)
+#define g_marshal_value_peek_double(v)   g_value_get_double (v)
+#define g_marshal_value_peek_string(v)   (char*) g_value_get_string (v)
+#define g_marshal_value_peek_param(v)    g_value_get_param (v)
+#define g_marshal_value_peek_boxed(v)    g_value_get_boxed (v)
+#define g_marshal_value_peek_pointer(v)  g_value_get_pointer (v)
+#define g_marshal_value_peek_object(v)   g_value_get_object (v)
+#define g_marshal_value_peek_variant(v)  g_value_get_variant (v)
+#else /* !G_ENABLE_DEBUG */
+/* WARNING: This code accesses GValues directly, which is UNSUPPORTED API.
+ *          Do not access GValues directly in your code. Instead, use the
+ *          g_value_get_*() functions
+ */
+#define g_marshal_value_peek_boolean(v)  (v)->data[0].v_int
+#define g_marshal_value_peek_char(v)     (v)->data[0].v_int
+#define g_marshal_value_peek_uchar(v)    (v)->data[0].v_uint
+#define g_marshal_value_peek_int(v)      (v)->data[0].v_int
+#define g_marshal_value_peek_uint(v)     (v)->data[0].v_uint
+#define g_marshal_value_peek_long(v)     (v)->data[0].v_long
+#define g_marshal_value_peek_ulong(v)    (v)->data[0].v_ulong
+#define g_marshal_value_peek_int64(v)    (v)->data[0].v_int64
+#define g_marshal_value_peek_uint64(v)   (v)->data[0].v_uint64
+#define g_marshal_value_peek_enum(v)     (v)->data[0].v_long
+#define g_marshal_value_peek_flags(v)    (v)->data[0].v_ulong
+#define g_marshal_value_peek_float(v)    (v)->data[0].v_float
+#define g_marshal_value_peek_double(v)   (v)->data[0].v_double
+#define g_marshal_value_peek_string(v)   (v)->data[0].v_pointer
+#define g_marshal_value_peek_param(v)    (v)->data[0].v_pointer
+#define g_marshal_value_peek_boxed(v)    (v)->data[0].v_pointer
+#define g_marshal_value_peek_pointer(v)  (v)->data[0].v_pointer
+#define g_marshal_value_peek_object(v)   (v)->data[0].v_pointer
+#define g_marshal_value_peek_variant(v)  (v)->data[0].v_pointer
+#endif /* !G_ENABLE_DEBUG */
+
 typedef struct
 {
   GDBusArgInfo parent_struct;
@@ -151,6 +197,225 @@ _g_value_equal (const GValue *a, const GValue *b)
   return ret;
 }
 
+static void
+_g_dbus_codegen_marshal_VOID__STRING_VARIANT (
+    GClosure     *closure,
+    GValue       *return_value G_GNUC_UNUSED,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint G_GNUC_UNUSED,
+    void         *marshal_data)
+{
+  typedef void (*_GDbusCodegenMarshalVoid_StringVariantFunc)
+       (void *data1,
+        const gchar *arg_uuid,
+        GVariant *arg_state,
+        void *data2);
+  _GDbusCodegenMarshalVoid_StringVariantFunc callback;
+  GCClosure *cc = (GCClosure*) closure;
+  void *data1, *data2;
+
+  g_return_if_fail (n_param_values == 3);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+
+  callback = (_GDbusCodegenMarshalVoid_StringVariantFunc)
+    (marshal_data ? marshal_data : cc->callback);
+
+  callback (data1,
+            g_marshal_value_peek_string (param_values + 1),
+            g_marshal_value_peek_variant (param_values + 2),
+            data2);
+}
+
+static void
+_g_dbus_codegen_marshal_VOID__STRING_INT_STRING (
+    GClosure     *closure,
+    GValue       *return_value G_GNUC_UNUSED,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint G_GNUC_UNUSED,
+    void         *marshal_data)
+{
+  typedef void (*_GDbusCodegenMarshalVoid_StringIntStringFunc)
+       (void *data1,
+        const gchar *arg_uuid,
+        gint arg_state,
+        const gchar *arg_error,
+        void *data2);
+  _GDbusCodegenMarshalVoid_StringIntStringFunc callback;
+  GCClosure *cc = (GCClosure*) closure;
+  void *data1, *data2;
+
+  g_return_if_fail (n_param_values == 4);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+
+  callback = (_GDbusCodegenMarshalVoid_StringIntStringFunc)
+    (marshal_data ? marshal_data : cc->callback);
+
+  callback (data1,
+            g_marshal_value_peek_string (param_values + 1),
+            g_marshal_value_peek_int (param_values + 2),
+            g_marshal_value_peek_string (param_values + 3),
+            data2);
+}
+
+static void
+_g_dbus_codegen_marshal_BOOLEAN__OBJECT (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint G_GNUC_UNUSED,
+    void         *marshal_data)
+{
+  typedef gboolean (*_GDbusCodegenMarshalBoolean_ObjectFunc)
+       (void *data1,
+        GDBusMethodInvocation *arg_method_invocation,
+        void *data2);
+  _GDbusCodegenMarshalBoolean_ObjectFunc callback;
+  GCClosure *cc = (GCClosure*) closure;
+  void *data1, *data2;
+  gboolean v_return;
+
+  g_return_if_fail (return_value != NULL);
+  g_return_if_fail (n_param_values == 2);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+
+  callback = (_GDbusCodegenMarshalBoolean_ObjectFunc)
+    (marshal_data ? marshal_data : cc->callback);
+
+  v_return =
+    callback (data1,
+              g_marshal_value_peek_object (param_values + 1),
+              data2);
+
+  g_value_set_boolean (return_value, v_return);
+}
+
+static void
+_g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint G_GNUC_UNUSED,
+    void         *marshal_data)
+{
+  typedef gboolean (*_GDbusCodegenMarshalBoolean_ObjectStringFunc)
+       (void *data1,
+        GDBusMethodInvocation *arg_method_invocation,
+        const gchar *arg_uuid,
+        void *data2);
+  _GDbusCodegenMarshalBoolean_ObjectStringFunc callback;
+  GCClosure *cc = (GCClosure*) closure;
+  void *data1, *data2;
+  gboolean v_return;
+
+  g_return_if_fail (return_value != NULL);
+  g_return_if_fail (n_param_values == 3);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+
+  callback = (_GDbusCodegenMarshalBoolean_ObjectStringFunc)
+    (marshal_data ? marshal_data : cc->callback);
+
+  v_return =
+    callback (data1,
+              g_marshal_value_peek_object (param_values + 1),
+              g_marshal_value_peek_string (param_values + 2),
+              data2);
+
+  g_value_set_boolean (return_value, v_return);
+}
+
+static void
+_g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING_STRING_VARIANT (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint G_GNUC_UNUSED,
+    void         *marshal_data)
+{
+  typedef gboolean (*_GDbusCodegenMarshalBoolean_ObjectStringStringVariantFunc)
+       (void *data1,
+        GDBusMethodInvocation *arg_method_invocation,
+        const gchar *arg_uuid,
+        const gchar *arg_parent_window,
+        GVariant *arg_options,
+        void *data2);
+  _GDbusCodegenMarshalBoolean_ObjectStringStringVariantFunc callback;
+  GCClosure *cc = (GCClosure*) closure;
+  void *data1, *data2;
+  gboolean v_return;
+
+  g_return_if_fail (return_value != NULL);
+  g_return_if_fail (n_param_values == 5);
+
+  if (G_CCLOSURE_SWAP_DATA (closure))
+    {
+      data1 = closure->data;
+      data2 = g_value_peek_pointer (param_values + 0);
+    }
+  else
+    {
+      data1 = g_value_peek_pointer (param_values + 0);
+      data2 = closure->data;
+    }
+
+  callback = (_GDbusCodegenMarshalBoolean_ObjectStringStringVariantFunc)
+    (marshal_data ? marshal_data : cc->callback);
+
+  v_return =
+    callback (data1,
+              g_marshal_value_peek_object (param_values + 1),
+              g_marshal_value_peek_string (param_values + 2),
+              g_marshal_value_peek_string (param_values + 3),
+              g_marshal_value_peek_variant (param_values + 4),
+              data2);
+
+  g_value_set_boolean (return_value, v_return);
+}
+
 /* ------------------------------------------------------------------------
  * Code for interface org.gnome.Shell.Extensions
  * ------------------------------------------------------------------------
@@ -163,6 +428,14 @@ _g_value_equal (const GValue *a, const GValue *b)
  *
  * This section contains code for working with the <link linkend="gdbus-interface-org-gnome-Shell-Extensions.top_of_page">org.gnome.Shell.Extensions</link> D-Bus interface in C.
  */
+
+enum
+{
+  SHELL__EXTENSIONS_EXTENSION_STATE_CHANGED,
+  SHELL__EXTENSIONS_EXTENSION_STATUS_CHANGED,
+};
+
+static unsigned SHELL__EXTENSIONS_SIGNALS[2] = { 0 };
 
 /* ---- Introspection data for org.gnome.Shell.Extensions ---- */
 
@@ -801,6 +1074,175 @@ shell_extensions_override_properties (GObjectClass *klass, guint property_id_beg
 }
 
 
+inline static void
+shell_extensions_signal_marshal_extension_state_changed (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_VOID__STRING_VARIANT (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_signal_marshal_extension_status_changed (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_VOID__STRING_INT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_list_extensions (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_get_extension_info (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_get_extension_errors (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_install_remote_extension (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_uninstall_extension (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_reload_extension (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_enable_extension (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_disable_extension (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_launch_extension_prefs (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_open_extension_prefs (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT_STRING_STRING_VARIANT (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
+inline static void
+shell_extensions_method_marshal_check_for_updates (
+    GClosure     *closure,
+    GValue       *return_value,
+    unsigned int  n_param_values,
+    const GValue *param_values,
+    void         *invocation_hint,
+    void         *marshal_data)
+{
+  _g_dbus_codegen_marshal_BOOLEAN__OBJECT (closure,
+    return_value, n_param_values, param_values, invocation_hint, marshal_data);
+}
+
 
 /**
  * ShellExtensions:
@@ -844,7 +1286,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.ListExtensions">ListExtensions()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_list_extensions() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_list_extensions() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -854,7 +1296,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_list_extensions),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_list_extensions,
     G_TYPE_BOOLEAN,
     1,
     G_TYPE_DBUS_METHOD_INVOCATION);
@@ -867,7 +1309,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.GetExtensionInfo">GetExtensionInfo()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_get_extension_info() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_get_extension_info() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -877,7 +1319,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_get_extension_info),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_get_extension_info,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -890,7 +1332,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.GetExtensionErrors">GetExtensionErrors()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_get_extension_errors() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_get_extension_errors() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -900,7 +1342,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_get_extension_errors),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_get_extension_errors,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -913,7 +1355,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.InstallRemoteExtension">InstallRemoteExtension()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_install_remote_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_install_remote_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -923,7 +1365,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_install_remote_extension),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_install_remote_extension,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -936,7 +1378,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.UninstallExtension">UninstallExtension()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_uninstall_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_uninstall_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -946,7 +1388,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_uninstall_extension),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_uninstall_extension,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -959,7 +1401,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.ReloadExtension">ReloadExtension()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_reload_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_reload_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -969,7 +1411,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_reload_extension),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_reload_extension,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -982,7 +1424,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.EnableExtension">EnableExtension()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_enable_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_enable_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -992,7 +1434,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_enable_extension),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_enable_extension,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -1005,7 +1447,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.DisableExtension">DisableExtension()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_disable_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_disable_extension() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -1015,7 +1457,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_disable_extension),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_disable_extension,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -1028,7 +1470,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.LaunchExtensionPrefs">LaunchExtensionPrefs()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_launch_extension_prefs() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_launch_extension_prefs() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -1038,7 +1480,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_launch_extension_prefs),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_launch_extension_prefs,
     G_TYPE_BOOLEAN,
     2,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING);
@@ -1053,7 +1495,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.OpenExtensionPrefs">OpenExtensionPrefs()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_open_extension_prefs() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_open_extension_prefs() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -1063,7 +1505,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_open_extension_prefs),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_open_extension_prefs,
     G_TYPE_BOOLEAN,
     4,
     G_TYPE_DBUS_METHOD_INVOCATION, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_VARIANT);
@@ -1075,7 +1517,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * Signal emitted when a remote caller is invoking the <link linkend="gdbus-method-org-gnome-Shell-Extensions.CheckForUpdates">CheckForUpdates()</link> D-Bus method.
    *
-   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_check_for_updates() or e.g. g_dbus_method_invocation_return_error() on it) and no order signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
+   * If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call shell_extensions_complete_check_for_updates() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.
    *
    * Returns: %G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.
    */
@@ -1085,7 +1527,7 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
     G_STRUCT_OFFSET (ShellExtensionsIface, handle_check_for_updates),
     g_signal_accumulator_true_handled,
     NULL,
-    g_cclosure_marshal_generic,
+      shell_extensions_method_marshal_check_for_updates,
     G_TYPE_BOOLEAN,
     1,
     G_TYPE_DBUS_METHOD_INVOCATION);
@@ -1101,15 +1543,16 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * On the service-side, this signal can be used with e.g. g_signal_emit_by_name() to make the object emit the D-Bus signal.
    */
-  g_signal_new ("extension-state-changed",
-    G_TYPE_FROM_INTERFACE (iface),
-    G_SIGNAL_RUN_LAST,
-    G_STRUCT_OFFSET (ShellExtensionsIface, extension_state_changed),
-    NULL,
-    NULL,
-    g_cclosure_marshal_generic,
-    G_TYPE_NONE,
-    2, G_TYPE_STRING, G_TYPE_VARIANT);
+  SHELL__EXTENSIONS_SIGNALS[SHELL__EXTENSIONS_EXTENSION_STATE_CHANGED] =
+    g_signal_new ("extension-state-changed",
+      G_TYPE_FROM_INTERFACE (iface),
+      G_SIGNAL_RUN_LAST,
+      G_STRUCT_OFFSET (ShellExtensionsIface, extension_state_changed),
+      NULL,
+      NULL,
+      shell_extensions_signal_marshal_extension_state_changed,
+      G_TYPE_NONE,
+      2, G_TYPE_STRING, G_TYPE_VARIANT);
 
   /**
    * ShellExtensions::extension-status-changed:
@@ -1122,15 +1565,16 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
    *
    * On the service-side, this signal can be used with e.g. g_signal_emit_by_name() to make the object emit the D-Bus signal.
    */
-  g_signal_new ("extension-status-changed",
-    G_TYPE_FROM_INTERFACE (iface),
-    G_SIGNAL_RUN_LAST,
-    G_STRUCT_OFFSET (ShellExtensionsIface, extension_status_changed),
-    NULL,
-    NULL,
-    g_cclosure_marshal_generic,
-    G_TYPE_NONE,
-    3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
+  SHELL__EXTENSIONS_SIGNALS[SHELL__EXTENSIONS_EXTENSION_STATUS_CHANGED] =
+    g_signal_new ("extension-status-changed",
+      G_TYPE_FROM_INTERFACE (iface),
+      G_SIGNAL_RUN_LAST,
+      G_STRUCT_OFFSET (ShellExtensionsIface, extension_status_changed),
+      NULL,
+      NULL,
+      shell_extensions_signal_marshal_extension_status_changed,
+      G_TYPE_NONE,
+      3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
 
   /* GObject properties for D-Bus properties: */
   /**
@@ -1168,6 +1612,8 @@ shell_extensions_default_init (ShellExtensionsIface *iface)
 const gchar *
 shell_extensions_get_shell_version (ShellExtensions *object)
 {
+  g_return_val_if_fail (SHELL_IS_EXTENSIONS (object), NULL);
+
   return SHELL_EXTENSIONS_GET_IFACE (object)->get_shell_version (object);
 }
 
@@ -1217,6 +1663,8 @@ shell_extensions_set_shell_version (ShellExtensions *object, const gchar *value)
 gboolean 
 shell_extensions_get_user_extensions_enabled (ShellExtensions *object)
 {
+  g_return_val_if_fail (SHELL_IS_EXTENSIONS (object), FALSE);
+
   return SHELL_EXTENSIONS_GET_IFACE (object)->get_user_extensions_enabled (object);
 }
 
@@ -1249,7 +1697,7 @@ shell_extensions_emit_extension_state_changed (
     const gchar *arg_uuid,
     GVariant *arg_state)
 {
-  g_signal_emit_by_name (object, "extension-state-changed", arg_uuid, arg_state);
+  g_signal_emit (object, SHELL__EXTENSIONS_SIGNALS[SHELL__EXTENSIONS_EXTENSION_STATE_CHANGED], 0, arg_uuid, arg_state);
 }
 
 /**
@@ -1268,7 +1716,7 @@ shell_extensions_emit_extension_status_changed (
     gint arg_state,
     const gchar *arg_error)
 {
-  g_signal_emit_by_name (object, "extension-status-changed", arg_uuid, arg_state, arg_error);
+  g_signal_emit (object, SHELL__EXTENSIONS_SIGNALS[SHELL__EXTENSIONS_EXTENSION_STATUS_CHANGED], 0, arg_uuid, arg_state, arg_error);
 }
 
 /**
@@ -2807,7 +3255,7 @@ shell_extensions_proxy_get_user_extensions_enabled (ShellExtensions *object)
 {
   ShellExtensionsProxy *proxy = SHELL_EXTENSIONS_PROXY (object);
   GVariant *variant;
-  gboolean value = 0;
+  gboolean value = FALSE;
   variant = g_dbus_proxy_get_cached_property (G_DBUS_PROXY (proxy), "UserExtensionsEnabled");
   if (variant != NULL)
     {
@@ -3511,7 +3959,7 @@ shell_extensions_skeleton_get_shell_version (ShellExtensions *object)
   ShellExtensionsSkeleton *skeleton = SHELL_EXTENSIONS_SKELETON (object);
   const gchar *value;
   g_mutex_lock (&skeleton->priv->lock);
-  value = g_value_get_string (&(skeleton->priv->properties[0]));
+  value = g_marshal_value_peek_string (&(skeleton->priv->properties[0]));
   g_mutex_unlock (&skeleton->priv->lock);
   return value;
 }
@@ -3522,7 +3970,7 @@ shell_extensions_skeleton_get_user_extensions_enabled (ShellExtensions *object)
   ShellExtensionsSkeleton *skeleton = SHELL_EXTENSIONS_SKELETON (object);
   gboolean value;
   g_mutex_lock (&skeleton->priv->lock);
-  value = g_value_get_boolean (&(skeleton->priv->properties[1]));
+  value = g_marshal_value_peek_boolean (&(skeleton->priv->properties[1]));
   g_mutex_unlock (&skeleton->priv->lock);
   return value;
 }
@@ -3950,10 +4398,10 @@ shell_object_manager_client_get_proxy_type (GDBusObjectManagerClient *manager G_
   if (g_once_init_enter (&once_init_value))
     {
       lookup_hash = g_hash_table_new (g_str_hash, g_str_equal);
-      g_hash_table_insert (lookup_hash, (gpointer) "org.gnome.Shell.Extensions", GSIZE_TO_POINTER (SHELL_TYPE_EXTENSIONS_PROXY));
+      g_hash_table_insert (lookup_hash, (gpointer) "org.gnome.Shell.Extensions", (gpointer) (guintptr) (SHELL_TYPE_EXTENSIONS_PROXY));
       g_once_init_leave (&once_init_value, 1);
     }
-  ret = (GType) GPOINTER_TO_SIZE (g_hash_table_lookup (lookup_hash, interface_name));
+  ret = (GType) (guintptr) (g_hash_table_lookup (lookup_hash, interface_name));
   if (ret == (GType) 0)
     ret = G_TYPE_DBUS_PROXY;
   return ret;
