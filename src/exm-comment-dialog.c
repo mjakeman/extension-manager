@@ -157,7 +157,7 @@ on_get_comments (GObject          *source,
 
     GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
 
-    if (error)
+    if (error && error->code != 404)
     {
         // Filter 5xx status codes (server errors)
         if (error->code / 100 == 5)
