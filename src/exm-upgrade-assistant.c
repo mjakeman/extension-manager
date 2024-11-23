@@ -1,7 +1,6 @@
-/*
- * exm-upgrade-assistant.c
+/* exm-upgrade-assistant.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -683,3 +682,4 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 
     populate_drop_down (self);
 }
+
