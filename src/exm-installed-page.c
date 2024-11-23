@@ -20,13 +20,12 @@
 
 #include "exm-installed-page.h"
 
-#include "exm-extension-row.h"
-
-#include "local/exm-manager.h"
-#include "exm-enums.h"
-#include "exm-types.h"
-
 #include "exm-config.h"
+#include "exm-enums.h"
+#include "exm-extension-row.h"
+#include "exm-types.h"
+#include "exm-window.h"
+#include "local/exm-manager.h"
 
 #include <glib/gi18n.h>
 
@@ -37,10 +36,13 @@ struct _ExmInstalledPage
     ExmManager *manager;
 
     // Template Widgets
+    GtkStack *stack;
     AdwBanner *updates_banner;
     AdwSwitchRow *global_toggle;
     GtkListBox *user_list_box;
     GtkListBox *system_list_box;
+    GtkListBox *search_list_box;
+    GtkFilterListModel *search_list_model;
 
     gboolean sort_enabled_first;
 };
@@ -120,6 +122,18 @@ exm_installed_page_set_property (GObject      *object,
     }
 }
 
+GtkStack *
+exm_installed_page_get_stack (ExmInstalledPage *self)
+{
+    return self->stack;
+}
+
+GtkFilterListModel *
+exm_installed_page_get_search_list_model (ExmInstalledPage *self)
+{
+    return self->search_list_model;
+}
+
 static GtkWidget *
 widget_factory (ExmExtension     *extension,
                 ExmInstalledPage *self)
@@ -156,23 +170,55 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
 }
 
 static void
-bind_list_box (GtkListBox       *list_box,
-               GListModel       *model,
-               gboolean          sort_enabled_first,
+on_search_changed (GtkSearchEntry *search_entry,
+                   gpointer        user_data)
+{
+    GtkStringFilter *search_filter = (GtkStringFilter *)user_data;
+
+    gtk_string_filter_set_search (search_filter, gtk_editable_get_text (GTK_EDITABLE (search_entry)));
+}
+
+static void
+on_visible_stack_changed (GObject    *object,
+                          GParamSpec *pspec,
+                          gpointer    user_data)
+{
+    ExmInstalledPage *self = (ExmInstalledPage *) user_data;
+    ExmWindow *window;
+    gboolean search_mode;
+
+    window = EXM_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), EXM_TYPE_WINDOW));
+    search_mode = gtk_search_bar_get_search_mode (exm_window_get_search_bar (window));
+
+    if (search_mode && g_list_model_get_n_items (G_LIST_MODEL (self->search_list_model)) > 0)
+        gtk_stack_set_visible_child_name (self->stack , "page_results");
+    else if (search_mode)
+        gtk_stack_set_visible_child_name (self->stack , "page_empty");
+    else
+        gtk_stack_set_visible_child_name (self->stack , "page_list");
+}
+
+static void
+bind_list_box (GListModel       *model,
                ExmInstalledPage *self)
 {
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;
     GtkSortListModel *sorted_model;
+    GtkStringFilter *search_filter;
+    GtkBoolFilter *is_user_filter;
+    GtkFilterListModel *filtered_model;
+    ExmWindow *window;
+    GtkSearchEntry *search_entry;
+    const gchar *search_text = NULL;
 
-    g_return_if_fail (GTK_IS_LIST_BOX (list_box));
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
     // Sort alphabetically
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
-    if (sort_enabled_first)
+    if (self->sort_enabled_first)
     {
         GtkCustomSorter *enabled_sorter;
         GtkMultiSorter *multi_sorter;
@@ -191,9 +237,47 @@ bind_list_box (GtkListBox       *list_box,
         sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (alphabetical_sorter));
     }
 
-    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
+    search_filter = gtk_string_filter_new (expression);
+    self->search_list_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (search_filter));
+
+    gtk_list_box_bind_model (self->search_list_box, G_LIST_MODEL (self->search_list_model),
                              (GtkListBoxCreateWidgetFunc) widget_factory,
                              self, NULL);
+
+    // Filter by user/system extension
+    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user");
+    is_user_filter = gtk_bool_filter_new (expression);
+    filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+
+    gtk_list_box_bind_model (self->user_list_box, G_LIST_MODEL (filtered_model),
+                             (GtkListBoxCreateWidgetFunc) widget_factory,
+                             self, NULL);
+
+    is_user_filter = gtk_bool_filter_new (expression);
+    gtk_bool_filter_set_invert (is_user_filter, TRUE);
+    filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+
+    gtk_list_box_bind_model (self->system_list_box, G_LIST_MODEL (filtered_model),
+                             (GtkListBoxCreateWidgetFunc) widget_factory,
+                             self, NULL);
+
+    window = EXM_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), EXM_TYPE_WINDOW));
+    search_entry = GTK_SEARCH_ENTRY (gtk_search_bar_get_child (exm_window_get_search_bar (window)));
+    search_text = gtk_editable_get_text (GTK_EDITABLE (search_entry));
+
+    // Refilter when sort-enabled-first changes and there is an ongoing search
+    if (search_text)
+      gtk_string_filter_set_search (search_filter, search_text);
+
+    g_signal_connect (search_entry,
+                      "search-changed",
+                      G_CALLBACK (on_search_changed),
+                      search_filter);
+
+    g_signal_connect (self->search_list_model,
+                      "notify::n-items",
+                      G_CALLBACK (on_visible_stack_changed),
+                      self);
 }
 
 static guint
@@ -226,28 +310,17 @@ on_updates_available (ExmManager       *manager,
 static void
 invalidate_model_bindings (ExmInstalledPage *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
 
     if (!self->manager)
         return;
 
     g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
+                  "extensions", &ext_model,
                   NULL);
 
-    if (user_ext_model)
-        bind_list_box (self->user_list_box,
-                       user_ext_model,
-                       self->sort_enabled_first,
-                       self);
-
-    if (system_ext_model)
-        bind_list_box (self->system_list_box,
-                       system_ext_model,
-                       self->sort_enabled_first,
-                       self);
+    if (ext_model)
+        bind_list_box (ext_model, self);
 }
 
 static void
@@ -301,10 +374,13 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-installed-page.ui", RESOURCE_PATH));
+
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_banner);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, search_list_box);
 
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
 

@@ -4,60 +4,110 @@ using Adw 1;
 template $ExmInstalledPage: Gtk.Widget {
   notify::manager => $on_bind_manager();
 
-  Gtk.Box {
-    orientation: vertical;
+  Gtk.Stack stack {
+    transition-type: crossfade;
+    vexpand: true;
 
-    Adw.Banner updates_banner {
-      button-label: _("_Log Out…");
-      action-name: "app.logout";
+    Gtk.StackPage page_list {
+      name: "page_list";
+
+      child: Gtk.Box {
+        orientation: vertical;
+
+        Adw.Banner updates_banner {
+          button-label: _("_Log Out…");
+          action-name: "app.logout";
+        }
+
+        Adw.PreferencesPage {
+          Adw.PreferencesGroup {
+            Adw.SwitchRow global_toggle {
+              [prefix]
+              Gtk.Image {
+                icon-name: 'puzzle-piece-symbolic';
+              }
+
+              title: _("Use Extensions");
+              subtitle: _("Extensions can cause performance and stability issues");
+            }
+          }
+
+          Adw.PreferencesGroup user_list {
+            title: _("User-Installed Extensions");
+
+            Gtk.ListBox user_list_box {
+              styles [
+                "boxed-list",
+                "boxed-list-placeholder"
+              ]
+
+              selection-mode: none;
+
+              accessibility {
+                labelled-by: user_list;
+              }
+            }
+          }
+
+          Adw.PreferencesGroup system_list {
+            title: _("System Extensions");
+
+            Gtk.ListBox system_list_box {
+              styles [
+                "boxed-list",
+                "boxed-list-placeholder"
+              ]
+
+              selection-mode: none;
+
+              accessibility {
+                labelled-by: system_list;
+              }
+            }
+          }
+        }
+      };
     }
 
-    Adw.PreferencesPage {
-      Adw.PreferencesGroup {
-        Adw.SwitchRow global_toggle {
-          [prefix]
-          Gtk.Image {
-            icon-name: 'puzzle-piece-symbolic';
+    Gtk.StackPage {
+      name: "page_results";
+
+      child: Adw.PreferencesPage {
+        Adw.PreferencesGroup {
+          Gtk.ListBox search_list_box {
+            styles [
+              "boxed-list"
+            ]
+
+            selection-mode: none;
+
+            accessibility {
+              label: _("Search Results");
+            }
           }
-
-          title: _("Use Extensions");
-          subtitle: _("Extensions can cause performance and stability issues");
         }
-      }
+      };
+    }
 
-      Adw.PreferencesGroup user_list {
-        title: _("User-Installed Extensions");
+    Gtk.StackPage {
+      name: "page_empty";
 
-        Gtk.ListBox user_list_box {
+      child: Adw.StatusPage {
+        icon-name: "edit-find-symbolic";
+        title: _("No Results Found");
+        description: _("Try a different search or search online");
+
+        child: Gtk.Button {
           styles [
-            "boxed-list",
-            "boxed-list-placeholder"
+            "pill"
           ]
 
-          selection-mode: none;
-
-          accessibility {
-            labelled-by: user_list;
-          }
-        }
-      }
-
-      Adw.PreferencesGroup system_list {
-        title: _("System Extensions");
-
-        Gtk.ListBox system_list_box {
-          styles [
-            "boxed-list",
-            "boxed-list-placeholder"
-          ]
-
-          selection-mode: none;
-
-          accessibility {
-            labelled-by: system_list;
-          }
-        }
-      }
+          label: _("_Search Online");
+          use-underline: true;
+          halign: center;
+          action-name: "win.search-online";
+        };
+      };
     }
   }
 }

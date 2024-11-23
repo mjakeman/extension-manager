@@ -20,17 +20,13 @@
 
 #include "exm-browse-page.h"
 
-#include "exm-search-row.h"
-
-#include "local/exm-manager.h"
-
-#include "web/exm-search-provider.h"
-#include "web/exm-image-resolver.h"
-
-#include "web/model/exm-search-result.h"
-
 #include "exm-config.h"
+#include "exm-search-row.h"
 #include "exm-utils.h"
+#include "local/exm-manager.h"
+#include "web/exm-image-resolver.h"
+#include "web/exm-search-provider.h"
+#include "web/model/exm-search-result.h"
 
 #include <glib/gi18n.h>
 
@@ -123,6 +119,12 @@ exm_browse_page_set_property (GObject      *object,
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
+}
+
+GtkSearchEntry *
+exm_browse_page_get_search_entry (ExmBrowsePage *self)
+{
+  return self->search_entry;
 }
 
 static GtkWidget *
@@ -318,21 +320,14 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
 static void
 on_bind_manager (ExmBrowsePage *self)
 {
-    GListModel *user_ext_model;
-    GListModel *system_ext_model;
+    GListModel *ext_model;
     gchar *shell_version;
 
     g_object_get (self->manager,
-                  "user-extensions", &user_ext_model,
-                  "system-extensions", &system_ext_model,
+                  "extensions", &ext_model,
                   NULL);
 
-    g_signal_connect_swapped (user_ext_model,
-                              "items-changed",
-                              G_CALLBACK (refresh_search),
-                              self);
-
-    g_signal_connect_swapped (system_ext_model,
+    g_signal_connect_swapped (ext_model,
                               "items-changed",
                               G_CALLBACK (refresh_search),
                               self);
