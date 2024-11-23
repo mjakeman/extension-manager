@@ -1,6 +1,6 @@
 /* exm-browse-page.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -356,7 +356,7 @@ load_suggestions (ExmBrowsePage *self)
     char **suggest_array;
     gsize length;
 
-    contents = exm_utils_read_resource ("/com/mattjakeman/ExtensionManager/suggestions.txt", &length);
+    contents = exm_utils_read_resource (g_strdup_printf ("%s/suggestions.txt", RESOURCE_PATH), &length);
     self->suggestions = gtk_string_list_new (NULL);
 
     if (contents)
@@ -402,7 +402,7 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-browse-page.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-browse-page.ui", RESOURCE_PATH));
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);

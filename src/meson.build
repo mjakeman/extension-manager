@@ -81,6 +81,7 @@ exm_sources += gnome.mkenums_simple('exm-enums',
 
 gresourceconf = configuration_data()
 gresourceconf.set('appstream_file', '@0@.metainfo.xml'.format(app_id))
+gresourceconf.set('resource_path', '/' + app_id.replace('.', '/'))
 
 gresource_file = configure_file(
   input: 'exm.gresource.xml.in',

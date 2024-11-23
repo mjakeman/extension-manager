@@ -1,7 +1,6 @@
-/*
- * exm-upgrade-assistant.c
+/* exm-upgrade-assistant.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +22,8 @@
 
 #include "web/exm-data-provider.h"
 #include "exm-upgrade-result.h"
+
+#include "exm-config.h"
 
 #include <glib/gi18n.h>
 
@@ -634,7 +635,7 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-upgrade-assistant.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-upgrade-assistant.ui", RESOURCE_PATH));
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, user_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, system_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, run_button);
@@ -681,3 +682,4 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 
     populate_drop_down (self);
 }
+

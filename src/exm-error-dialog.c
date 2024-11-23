@@ -1,6 +1,6 @@
 /* exm-error-dialog.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -50,14 +50,6 @@ exm_error_dialog_new (const char *text)
     return g_object_new (EXM_TYPE_ERROR_DIALOG,
                          "error-string", text,
                          NULL);
-}
-
-static void
-exm_error_dialog_finalize (GObject *object)
-{
-    ExmErrorDialog *self = (ExmErrorDialog *)object;
-
-    G_OBJECT_CLASS (exm_error_dialog_parent_class)->finalize (object);
 }
 
 static void
@@ -146,7 +138,6 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_error_dialog_finalize;
     object_class->get_property = exm_error_dialog_get_property;
     object_class->set_property = exm_error_dialog_set_property;
 
@@ -161,7 +152,7 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-    gtk_widget_class_set_template_from_resource (widget_class, "/com/mattjakeman/ExtensionManager/exm-error-dialog.ui");
+    gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-error-dialog.ui", RESOURCE_PATH));
 
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, text_view);
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, instructions);
