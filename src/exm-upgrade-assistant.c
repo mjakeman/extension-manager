@@ -58,6 +58,9 @@ struct _ExmUpgradeAssistant
     // Waiting Page
     GtkLabel *counter;
 
+    // Error Page
+    AdwStatusPage *error_status;
+
     // Results Page
     GtkListBox *user_list_box;
     GtkListBox *system_list_box;
@@ -82,14 +85,6 @@ exm_upgrade_assistant_new (ExmManager *manager)
     return g_object_new (EXM_TYPE_UPGRADE_ASSISTANT,
                          "manager", manager,
                          NULL);
-}
-
-static void
-exm_upgrade_assistant_finalize (GObject *object)
-{
-    ExmUpgradeAssistant *self = (ExmUpgradeAssistant *)object;
-
-    G_OBJECT_CLASS (exm_upgrade_assistant_parent_class)->finalize (object);
 }
 
 static void
@@ -250,7 +245,7 @@ print_list_model (GListModel  *model,
     num_extensions = g_list_model_get_n_items (model);
     for (i = 0; i < num_extensions; i++) {
         ExmUpgradeResult *result;
-        const gchar *name, *creator, *uuid, *url, *supported_text;
+        const gchar *name, *creator, *uuid, *supported_text;
         SupportStatus supported;
 
         result = g_list_model_get_item (model, i);
@@ -344,15 +339,13 @@ display_extension_result (ExmUpgradeAssistant *self,
                           ExmUpgradeResult    *result,
                           gboolean             is_user)
 {
-    if (get_support_status (result, self->target_shell_version) == STATUS_SUPPORTED) {
+    if (get_support_status (result, self->target_shell_version) == STATUS_SUPPORTED)
         self->number_supported++;
-    }
 
     g_list_store_append (is_user ? self->user_results_store : self->system_results_store, result);
 
-    if (self->waiting_on_tasks && self->number_checked == self->total_extensions) {
+    if (self->waiting_on_tasks && self->number_checked == self->total_extensions)
         display_results (self);
-    }
 }
 
 static void
@@ -362,14 +355,31 @@ on_extension_processed (GObject      *source,
 {
     ExmSearchResult *web_info;
     GError *error = NULL;
-    ExmUpgradeAssistant *self;
     ExtensionCheckData *data;
+    ExmUpgradeAssistant *self;
     ExmUpgradeResult *result;
 
     g_return_if_fail (user_data != NULL);
 
+    web_info = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), async_result, &error);
     data = (ExtensionCheckData *) user_data;
     self = EXM_UPGRADE_ASSISTANT (data->assistant);
+
+    if (error)
+    {
+        // Filter 5xx status codes (server errors)
+        if (error->code / 100 == 5)
+            adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
+        else
+            adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
+
+        gtk_stack_set_visible_child_name (self->stack, "error");
+
+        g_clear_error (&error);
+        free_check_data (data);
+
+        return;
+    }
 
     self->number_checked++;
     update_checked_count (self);
@@ -377,10 +387,8 @@ on_extension_processed (GObject      *source,
     result = exm_upgrade_result_new ();
     exm_upgrade_result_set_local_data (result, data->local_data);
 
-    if ((web_info = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), async_result, &error)) != FALSE)
-    {
+    if (EXM_IS_SEARCH_RESULT (web_info))
         exm_upgrade_result_set_web_data (result, web_info);
-    }
 
     display_extension_result (self, result, data->is_user);
     free_check_data (data);
@@ -612,7 +620,6 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_upgrade_assistant_finalize;
     object_class->get_property = exm_upgrade_assistant_get_property;
     object_class->set_property = exm_upgrade_assistant_set_property;
 
@@ -635,6 +642,7 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, description);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, counter);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, error_status);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, progress_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, copy_details);

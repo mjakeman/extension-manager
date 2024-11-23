@@ -1,9 +1,30 @@
+/* exm-comment-dialog.c
+ *
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include "exm-comment-dialog.h"
 
+#include "exm-comment-tile.h"
 #include "web/exm-comment-provider.h"
 #include "web/model/exm-comment.h"
 
-#include "exm-comment-tile.h"
+#include <glib/gi18n.h>
 
 struct _ExmCommentDialog
 {
@@ -15,6 +36,7 @@ struct _ExmCommentDialog
 
     GtkListBox *list_box;
     GtkStack *stack;
+    AdwStatusPage *error_status;
 
     int web_id;
 };
@@ -106,6 +128,7 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, error_status);
 }
 
 static GtkWidget *
@@ -132,10 +155,16 @@ on_get_comments (GObject          *source,
 
     GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
 
-    if (error != NULL)
+    if (error)
     {
+        // Filter 5xx status codes (server errors)
+        if (error->code / 100 == 5)
+            adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
+        else
+            adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
+
         gtk_stack_set_visible_child_name (self->stack, "page_error");
-        g_critical ("An issue occurred while loading comments: %s", error->message);
+
         return;
     }
 

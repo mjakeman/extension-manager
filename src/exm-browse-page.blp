@@ -98,10 +98,82 @@ template $ExmBrowsePage: Gtk.Widget {
             Gtk.StackPage {
               name: "page_empty";
 
-              child: Gtk.Label {
-                label: _("No Results Found");
-                valign: start;
-                halign: center;
+              child: Gtk.Box {
+                orientation: vertical;
+                margin-start: 12;
+                margin-end: 12;
+                margin-top: 36;
+                margin-bottom: 24;
+
+                Gtk.Image {
+                  styles [
+                    "dim-label"
+                  ]
+
+                  icon-name: "edit-find-symbolic";
+                  halign: center;
+                  margin-bottom: 24;
+                  pixel-size: 128;
+                }
+
+                Gtk.Label {
+                  styles [
+                    "title-1"
+                  ]
+
+                  label: _("No Results Found");
+                  margin-bottom: 12;
+                  wrap: true;
+                  wrap-mode: word_char;
+                }
+
+                Gtk.Label {
+                  label: _("Try a different search");
+                  margin-bottom: 12;
+                  wrap: true;
+                  wrap-mode: word_char;
+                }
+              };
+            }
+
+            Gtk.StackPage {
+              name: "page_error";
+
+              child: Gtk.Box {
+                orientation: vertical;
+                margin-start: 12;
+                margin-end: 12;
+                margin-top: 36;
+                margin-bottom: 24;
+
+                Gtk.Image {
+                  styles [
+                    "dim-label"
+                  ]
+
+                  icon-name: "offline-symbolic";
+                  halign: center;
+                  margin-bottom: 24;
+                  pixel-size: 128;
+                }
+
+                Gtk.Label {
+                  styles [
+                    "title-1"
+                  ]
+
+                  label: _("Connection Error");
+                  margin-bottom: 12;
+                  wrap: true;
+                  wrap-mode: word_char;
+                }
+
+                Gtk.Label error_label {
+                  use-markup: true;
+                  margin-bottom: 12;
+                  wrap: true;
+                  wrap-mode: word_char;
+                }
               };
             }
           }
