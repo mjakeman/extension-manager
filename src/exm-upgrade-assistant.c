@@ -366,7 +366,7 @@ on_extension_processed (GObject      *source,
     data = (ExtensionCheckData *) user_data;
     self = EXM_UPGRADE_ASSISTANT (data->assistant);
 
-    if (error)
+    if (error && error->code != 404)
     {
         // Filter 5xx status codes (server errors)
         if (error->code / 100 == 5)

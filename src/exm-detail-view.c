@@ -367,7 +367,7 @@ on_data_loaded (GObject      *source,
     data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error);
     self = EXM_DETAIL_VIEW (user_data);
 
-    if (error)
+    if (error && error->code != 404)
     {
         // Filter 5xx status codes (server errors)
         if (error->code / 100 == 5)
