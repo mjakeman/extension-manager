@@ -41,7 +41,7 @@ exm_deps = [
   dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),
-  dependency('text-engine-0.1')
+  dependency('libxml-2.0'),
 ]
 
 if libbacktrace_dep.found()

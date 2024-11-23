@@ -1,4 +1,26 @@
+/* exm-comment.c
+ *
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include "exm-comment.h"
+
+#include "exm-utils.h"
 
 #include <json-glib/json-glib.h>
 
@@ -40,14 +62,6 @@ exm_comment_new (void)
 }
 
 static void
-exm_comment_finalize (GObject *object)
-{
-    ExmComment *self = (ExmComment *)object;
-
-    G_OBJECT_CLASS (exm_comment_parent_class)->finalize (object);
-}
-
-static void
 exm_comment_get_property (GObject    *object,
                           guint       prop_id,
                           GValue     *value,
@@ -61,7 +75,7 @@ exm_comment_get_property (GObject    *object,
         g_value_set_boolean (value, self->is_extension_creator);
         break;
     case PROP_COMMENT:
-        g_value_set_string (value, self->comment);
+        g_value_set_string (value, exm_utils_convert_html (self->comment));
         break;
     case PROP_AUTHOR:
         g_value_set_string (value, self->author);
@@ -112,7 +126,6 @@ exm_comment_class_init (ExmCommentClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_comment_finalize;
     object_class->get_property = exm_comment_get_property;
     object_class->set_property = exm_comment_set_property;
 

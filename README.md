@@ -107,17 +107,17 @@ Extension Manager depends on the following libraries:
  - libadwaita
  - libjson-glib
  - libsoup
+ - libxml2
  - [blueprint](https://gitlab.gnome.org/jwestman/blueprint-compiler)
- - [text-engine](https://github.com/mjakeman/text-engine/)
 
 On Debian-based distributions, the required dependencies can be installed with the following command:
 ```shell
-sudo apt install blueprint-compiler gettext libadwaita-1-dev libgtk-4-dev libjson-glib-dev libsoup-3.0-dev libtext-engine-dev meson
+sudo apt install blueprint-compiler gettext libadwaita-1-dev libgtk-4-dev libjson-glib-dev libsoup-3.0-dev libxml2-dev meson
 ```
 
 ### Building From Source
 ```shell
 meson setup _build
-ninja -C _build
-ninja install -C _build
+meson compile -C _build
+meson install -C _build
 ```

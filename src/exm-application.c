@@ -1,6 +1,6 @@
 /* exm-application.c
  *
- * Copyright 2022 Matthew Jakeman
+ * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "exm-config.h"
@@ -40,14 +42,6 @@ exm_application_new (gchar *application_id,
                        "application-id", application_id,
                        "flags", flags,
                        NULL);
-}
-
-static void
-exm_application_finalize (GObject *object)
-{
-    ExmApplication *self = (ExmApplication *)object;
-
-    G_OBJECT_CLASS (exm_application_parent_class)->finalize (object);
 }
 
 static ExmWindow *
@@ -156,8 +150,6 @@ exm_application_class_init (ExmApplicationClass *klass)
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
     GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
 
-    object_class->finalize = exm_application_finalize;
-
     /*
     * We connect to the activate callback to create a window when the application
     * has been launched. Additionally, this callback notifies us when the user
@@ -190,26 +182,19 @@ exm_application_show_about (GSimpleAction *action,
     adw_about_dialog_set_comments (ADW_ABOUT_DIALOG (about_dialog), _("Browse, install, and manage GNOME Shell Extensions."));
     adw_about_dialog_set_developers (ADW_ABOUT_DIALOG (about_dialog), authors);
     adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about_dialog), _("translator-credits"));
-    adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022 Matthew Jakeman");
-
-    // Dependency Attribution
-    adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
-                                        "text-engine",
-                                        "Copyright (C) 2022 Matthew Jakeman",
-                                        GTK_LICENSE_MPL_2_0,
-                                        NULL);
+    adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022-2024 Matthew Jakeman");
 
 #if WITH_BACKTRACE
     adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
                                         "libbacktrace",
-                                        "Copyright (C) 2012-2016 Free Software Foundation, Inc.",
+                                        "© 2012-2016 Free Software Foundation, Inc.",
                                         GTK_LICENSE_BSD_3,
                                         NULL);
 #endif
 
     adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
                                         "blueprint",
-                                        "Copyright (C) 2021 James Westman",
+                                        "© 2021 James Westman",
                                         GTK_LICENSE_LGPL_3_0,
                                         NULL);
 

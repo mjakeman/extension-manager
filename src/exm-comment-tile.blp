@@ -37,7 +37,18 @@ template $ExmCommentTile: Gtk.Widget {
       }
     }
 
-    $TextDisplay display {}
+    Gtk.Label {
+      styles [
+        "multiline"
+      ]
+
+      label: bind template.comment as <$ExmComment>.comment;
+      margin-top: 6;
+      use-markup: true;
+      wrap: true;
+      wrap-mode: word_char;
+      xalign: 0;
+    }
 
     Gtk.Label date {
       styles [
