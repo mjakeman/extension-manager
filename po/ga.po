@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-09-21 13:47+0000\n"
+"PO-Revision-Date: 2024-11-25 17:00+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/extension-manager/"
 "app/ga/>\n"
@@ -15,9 +15,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :"
-"(n>6 && n<11) ? 3 : 4;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :("
+"n>6 && n<11) ? 3 : 4;\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -117,12 +117,12 @@ msgstr "Níor aimsíodh aon torthaí"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "Bain triail as cuardach eile"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "Earráid Ceangail"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -130,11 +130,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Seiceáil <a href='https://status.gnome.org/'>stádas bonneagair GNOME</a> "
+"agus bain triail eile as ar ball"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Seiceáil stádas do líonra agus bain triail eile as"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -305,7 +307,7 @@ msgstr "Taispeáin Leathanach Brabhsála"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Scoránaigh Cuardach"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -387,18 +389,16 @@ msgid "System Extensions"
 msgstr "Síntí Córais"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Torthaí cuardaigh a shórtáil"
+msgstr "Torthaí Cuardaigh"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Bain triail as cuardach eile nó cuardach ar líne"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_Cuardaigh Ar Líne"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -501,20 +501,16 @@ msgstr ""
 "agus seiceáil an leanfaidh do shíneadh ar fáil."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Síntí Suiteáilte ag an Úsáideoir"
+msgstr "Cuardaigh Eisínteachtaí Suiteáilte"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Príomh Roghchlár"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Cuardaigh síntí"
+msgstr "Cuardaigh le haghaidh síntí suiteáilte"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
