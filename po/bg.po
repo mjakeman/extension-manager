@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-10-24 11:15+0000\n"
+"PO-Revision-Date: 2024-11-24 13:59+0000\n"
 "Last-Translator: trunars <trunars@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/extension-"
-"manager/app/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/"
+"extension-manager/app/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -116,12 +116,12 @@ msgstr "Няма намерени резултати"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "Опитайте различно търсене"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "Грешка при свързване"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -129,11 +129,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Проверете <a href='https://status.gnome.org/'>състоянието на "
+"инфраструктурата на GNOME</a> и опитайте отново по-късно"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Проверете състоянието на мрежата си и опитайте отново"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -302,7 +304,7 @@ msgstr "Покажи страница за разглеждане"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Превключване на търсенето"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -383,18 +385,16 @@ msgid "System Extensions"
 msgstr "Системни разширения"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Сортирай резултатите от търсенето"
+msgstr "Резултати от търсенето"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Опитайте различно търсене или потърсете онлайн"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_Онлайн търсене"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -491,20 +491,16 @@ msgstr ""
 "проверете дали вашите разширения ще продължат да бъдат налични."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Разширения, инсталирани от потребителя"
+msgstr "Търсене на инсталирани разширения"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Главно меню"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Търсене на разширения"
+msgstr "Търсене за инсталирани разширения"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
