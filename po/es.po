@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-11-24 13:59+0000\n"
+"PO-Revision-Date: 2024-11-25 17:00+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "extension-manager/app/es/>\n"
@@ -112,7 +112,7 @@ msgstr "_Cargar más resultados"
 
 #: src/exm-browse-page.blp:124 src/exm-installed-page.blp:97
 msgid "No Results Found"
-msgstr "No se han encontrado resultados"
+msgstr "No se encontraron resultados"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
