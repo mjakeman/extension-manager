@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # John Erling Blad <jeblad@gmail.com>, 2022.
 # Brage Fuglseth <brage.fuglseth@gmail.com>, 2024.
+# Daniel Fossum <dannyfossum@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-10-03 11:15+0000\n"
-"Last-Translator: Brage Fuglseth <brage.fuglseth@gmail.com>\n"
+"PO-Revision-Date: 2024-11-28 20:06+0000\n"
+"Last-Translator: Daniel Fossum <dannyfossum@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "extension-manager/app/nb_NO/>\n"
 "Language: nb\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -27,7 +28,7 @@ msgstr "Extension Manager"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
-msgstr "Installer og administrer utvidelser"
+msgstr "Administrer GNOME Shell utvidelser"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
@@ -39,7 +40,7 @@ msgstr ""
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "Installer og administrer utvidelser"
+msgstr "Søk, installer og administrer GNOME Shell utvidelser"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -71,7 +72,7 @@ msgstr "Sjekk om utvidelsene dine er kompatible med neste GNOME-versjon"
 
 #: src/exm-application.c:170
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "Installer og administrer utvidelser"
+msgstr "Søk, installer og administrer GNOME Shell utvidelser."
 
 #: src/exm-application.c:172
 msgid "translator-credits"
@@ -117,12 +118,12 @@ msgstr "Ingen treff"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "Prøv et annet søk"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "Tilkoblingsfeil"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -130,15 +131,17 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Sjekk <a href='https://status.gnome.org/'>GNOME-infrastrukturens status</a> "
+"og prøv igjen senere"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Sjekk nettverkstilkoblingen din og prøv igjen"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
-msgstr "Anmeldelser"
+msgstr "Kommentarer"
 
 #: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
@@ -150,11 +153,11 @@ msgstr "Utvikler"
 
 #: src/exm-detail-view.blp:58
 msgid "Loading Details"
-msgstr "Laster inn informasjon"
+msgstr "Laster informasjon"
 
 #: src/exm-detail-view.blp:78 src/exm-detail-view.blp:295 src/exm-window.c:304
 msgid "An Error Occurred"
-msgstr "Noe gikk galt"
+msgstr "Det oppstod et problem"
 
 #: src/exm-detail-view.blp:79
 msgid "No extension details available"
@@ -303,7 +306,7 @@ msgstr "Vis utforskningsside"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Søk"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -338,7 +341,7 @@ msgstr "Forminsk"
 #: src/exm-help-overlay.blp:58
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr "Tilbakestill skalering"
+msgstr "Tilbakestill zoom"
 
 #: src/exm-info-bar.blp:24
 msgctxt "Number of downloads"
@@ -376,11 +379,11 @@ msgstr "Utvidelser kan skape problemer med ytelse og stabilitet"
 
 #: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
-msgstr "Installert"
+msgstr "Brukerinstallert utvidelser"
 
 #: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:151
 msgid "System Extensions"
-msgstr "System"
+msgstr "Systeminstallerte utvidelser"
 
 #: src/exm-installed-page.blp:85
 #, fuzzy
@@ -390,11 +393,11 @@ msgstr "Sorter søkeresultatene"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Prøv et annet søk på nettet"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "Søk på nettet"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -410,11 +413,11 @@ msgstr "Utforsk"
 
 #: src/exm-installed-page.c:407 src/exm-upgrade-assistant.c:659
 msgid "No User Extensions Installed"
-msgstr "Ingen egne utvidelser"
+msgstr "Ingen brukerutvidelser er installert"
 
 #: src/exm-installed-page.c:422 src/exm-upgrade-assistant.c:665
 msgid "No System Extensions Installed"
-msgstr "Ingen systemutvidelser"
+msgstr "Ingen systemutvidelser er installert"
 
 #: src/exm-rating.c:136
 #, c-format
@@ -546,8 +549,8 @@ msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
-"Utvidelsens funksjoner kommer til å fjernes fra systemet, og vil ikke være "
-"tilgjengelige lenger"
+"Utvidelsens funksjoner kommer til å fjernes fra systemet. Er du sikker på at "
+"du vil avinstallere?"
 
 #: src/exm-window.blp:128
 msgid "_No"
@@ -575,7 +578,7 @@ msgstr "_Installer"
 
 #: src/exm-window.blp:142
 msgid "_Go Back"
-msgstr "_Avbryt"
+msgstr "_Gå tilbake"
 
 #: src/exm-window.c:305
 msgid "_Details"
