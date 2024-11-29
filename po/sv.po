@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-09-17 09:44+0000\n"
+"PO-Revision-Date: 2024-11-29 16:14+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/extension-"
-"manager/app/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"extension-manager/app/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -114,12 +114,12 @@ msgstr "Hittade inga resultat"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "Prova en annan sökning"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "Anslutningsfel"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -127,11 +127,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Kontrollera <a href='https://status.gnome.org/'>GNOME-infrastrukturstatus</"
+"a> och försök igen senare"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Kontrollera din nätverksstatus och försök igen"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -301,7 +303,7 @@ msgstr "Visa bläddra sida"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Växla sök"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -381,18 +383,16 @@ msgid "System Extensions"
 msgstr "Systemtillägg"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Sortering av sökresultat"
+msgstr "Sökresultat"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Prova en annan sökning eller sök online"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_Sök online"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -489,20 +489,16 @@ msgstr ""
 "kontrollera om dina tillägg kommer att fortsätta att vara tillgängliga."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Användarinstallerade tillägg"
+msgstr "Sök bland installerade tillägg"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Huvudmenyn"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Sök efter tillägg"
+msgstr "Sök efter installerade tillägg"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
