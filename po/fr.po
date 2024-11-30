@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-11-01 11:49+0000\n"
+"PO-Revision-Date: 2024-11-30 07:52+0000\n"
 "Last-Translator: Vincent Chatelain <vinchatl@users.noreply.hosted.weblate."
 "org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/extension-manager/"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -123,12 +123,12 @@ msgstr "Aucun résultat trouvé"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "Essayer une recherche différente"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "Erreur de connexion"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -136,11 +136,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Vérifier <a href='https://status.gnome.org/'>le statut de l’infrastructure "
+"GNOME</a> et réessayer plus tard"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Vérifiez l’état de votre réseau et réessayez"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -312,7 +314,7 @@ msgstr "Afficher la page « Parcourir »"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Basculer la recherche"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -393,18 +395,16 @@ msgid "System Extensions"
 msgstr "Extensions intégrées"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Tri des résultats de recherche"
+msgstr "Résultats de recherche"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Essayez une recherche différente ou cherchez en ligne"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_Chercher en ligne"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -501,20 +501,16 @@ msgstr ""
 "GNOME ci-dessous et vérifiez si vos extensions seront toujours disponibles."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Installées par l’utilisateur"
+msgstr "Rechercher des extensions installées"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Menu principal"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Recherche d’extensions"
+msgstr "Recherche d’extensions installées"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
