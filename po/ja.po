@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-09-28 08:34+0000\n"
+"PO-Revision-Date: 2024-11-30 00:33+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
-"manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"extension-manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -27,21 +27,21 @@ msgstr "Extension Manager"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
-msgstr "GNOME Shell 拡張機能 を管理します"
+msgstr "GNOME Shell 拡張機能を管理します"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
-msgstr "extension;manager;shell;拡張機能;"
+msgstr "extension;manager;shell;拡張機能;マネージャー;シェル;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "GNOME Shell 拡張機能 を検索、インストール、管理します"
+msgstr "GNOME Shell 拡張機能を検索、インストール、管理します"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "GNOME Shell 拡張機能 を探せてインストールできるユーティリティです。"
+msgstr "GNOME Shell 拡張機能を探せてインストールできるユーティリティです。"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -67,7 +67,7 @@ msgstr "GNOME の次期バージョンとの互換性を確認できます"
 
 #: src/exm-application.c:170
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "GNOME Shell 拡張機能 を検索、インストール、管理します。"
+msgstr "GNOME Shell 拡張機能を検索、インストール、管理します。"
 
 #: src/exm-application.c:172
 msgid "translator-credits"
@@ -113,16 +113,16 @@ msgstr "結果をさらに表示(_L)"
 
 #: src/exm-browse-page.blp:124 src/exm-installed-page.blp:97
 msgid "No Results Found"
-msgstr "結果はありません"
+msgstr "見つかりませんでした"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "他のキーワードを試してください"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "接続エラー"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -130,11 +130,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"<a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
+"を確認してから、後ほど再度お試しください"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "ネットワークの状態を確認してから、再度お試しください"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -303,7 +305,7 @@ msgstr "“探す”ページを表示する"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "検索する/検索をやめる"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -368,7 +370,7 @@ msgstr "ログアウト(_L)…"
 
 #: src/exm-installed-page.blp:30
 msgid "Use Extensions"
-msgstr "GNOME Shell 拡張機能 を使う"
+msgstr "GNOME Shell 拡張機能を使う"
 
 #: src/exm-installed-page.blp:31
 msgid "Extensions can cause performance and stability issues"
@@ -383,18 +385,16 @@ msgid "System Extensions"
 msgstr "システムの拡張機能"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "検索結果の並べ替えが、できるようになりました"
+msgstr "検索結果"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "他のキーワードを試すか、オンラインで検索してください"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "オンラインで検索(_S)"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -488,20 +488,16 @@ msgstr ""
 "を確認できます。"
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "ユーザーがインストールした拡張機能"
+msgstr "インストール済みの拡張機能を検索"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "メインメニュー"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "拡張機能を検索"
+msgstr "インストール済みの拡張機能を検索"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
