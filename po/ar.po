@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-11-30 00:33+0000\n"
+"PO-Revision-Date: 2024-11-30 22:34+0000\n"
 "Last-Translator: Omar TS <ots@duck.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
@@ -59,16 +59,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "أدِر الامتدادات التي نصَّبتها"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "See all the details of your extensions"
-msgstr "ابحث عن امتدادات"
+msgstr "اطلع على كافة تفاصيل امتداداتك"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "هذا الامتداد غير مُتوافِق مع إصدار جنوم لديك"
+msgstr "تحقق من توافق امتداداتك مع الإصدار التالي من جنوم"
 
 #: src/exm-application.c:170
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -81,19 +77,13 @@ msgstr ""
 "علي جلال <AleuqabAli@gmail.com>"
 
 #: src/exm-browse-page.blp:9
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
 msgstr "ابحث عن امتدادات"
 
 #: src/exm-browse-page.blp:10
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
-msgstr "أدخل كلمة مفتاحية للبحث في «extensions.gnome.org» عن امتدادات."
+msgstr "أدخل كلمة مفتاحية للبحث في «extensions.gnome.org» عن امتدادات جنوم سل"
 
 #: src/exm-browse-page.blp:40
 msgid "Relevance"
@@ -139,11 +129,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"تحقق من <a href='https://status.gnome.org/'>حالة البنية الأساسية لـ جنوم</a> "
+"وحاول مرة أخرى لاحقًا"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "تحقق من حالة الشبكة وحاول مرة أخرى"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -166,14 +158,10 @@ msgid "An Error Occurred"
 msgstr "حدث خطأ"
 
 #: src/exm-detail-view.blp:79
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "يُوجَّد إصدار أحدث لهذا الامتداد"
+msgstr "لا توجد تفاصيل متاحة لهذا الامتداد"
 
 #: src/exm-detail-view.blp:170
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "كبِّر الصورة"
 
@@ -191,7 +179,7 @@ msgstr "الصفحة الرئيسية"
 
 #: src/exm-detail-view.blp:239
 msgid "Donate"
-msgstr ""
+msgstr "تبرّع"
 
 #: src/exm-detail-view.blp:248
 msgid "View on Extensions"
@@ -202,10 +190,8 @@ msgid "User Reviews"
 msgstr "تعليقات المستخدمين"
 
 #: src/exm-detail-view.blp:304
-#, fuzzy
-#| msgid "Comments"
 msgid "No comments yet"
-msgstr "التعليقات"
+msgstr "لا تعليقات حتى الآن"
 
 #: src/exm-detail-view.blp:327
 msgid "_Show All Reviews"
@@ -215,23 +201,21 @@ msgstr "ا_عرض جميع التعليقات"
 #: src/exm-detail-view.c:416
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s أيقونة"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:449
 #, c-format
 msgid "%s Screenshot"
-msgstr ""
+msgstr "%s لقطة شاشة"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "تقرير خطأ"
 
 #: src/exm-error-dialog.blp:39
-#, fuzzy
-#| msgid "An unexpected error occurred in Extension Manager."
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "حدث خطأ غير متوقع في مدير الامتدادات."
+msgstr "حدث خطأ غير متوقع في مدير الامتدادات"
 
 #: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:169
 msgid "_Copy to Clipboard"
@@ -258,9 +242,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"You are using a third-party build of Extension Manager. Please <span "
-"weight=\"bold\">contact the package distributor (%s) first</span> before "
-"filing an issue. Be sure to attach the following information:"
+"أنت تستخدم إصدارًا تابعًا لجهة خارجية من مدير الامتدادات. رجاء <spanweight="
+"\"bold\">اتصل بموزع الحزمة (%s) أولاً</span> قبل تقديم أي مشكلة. تأكد من "
+"إرفاق المعلومات التالية:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -283,6 +267,7 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"يمكن تنشيط هذا الامتداد في أوضاع الجلسة مثل شاشة تسجيل الدخول أو شاشة القفل"
 
 #: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
 msgid "Version"
@@ -297,64 +282,55 @@ msgid "See Details"
 msgstr "اعرض التفاصيل"
 
 #: src/exm-extension-row.blp:225
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "أزِل"
+msgstr "أزِل…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "عام"
 
 #: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "مُنصَّب"
+msgstr "أظهر صفحة المُنصَّب"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "أظهر صفحة التصفح"
 
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "بدّل البحث"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr ""
+msgstr "أظهر اختصارات لوحة المفاتيح"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "أغلق النافذة"
 
 #: src/exm-help-overlay.blp:39
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "غادر"
 
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "اعرض لقطة الشاشة"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom In"
 msgstr "قرِّب"
 
 #: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom Out"
 msgstr "بعِّد"
@@ -362,7 +338,7 @@ msgstr "بعِّد"
 #: src/exm-help-overlay.blp:58
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "أعد ضبط التكبير"
 
 #: src/exm-info-bar.blp:24
 msgctxt "Number of downloads"
@@ -374,10 +350,8 @@ msgid "Unsupported"
 msgstr "غير مُتوافِق"
 
 #: src/exm-install-button.c:115
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "نصِّب"
+msgstr "نصِّب…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
@@ -385,26 +359,20 @@ msgid "Installed"
 msgstr "مُنصَّب"
 
 #: src/exm-install-button.c:124
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "غير مُتوافِق"
+msgstr "غير مُتوافِق…"
 
 #: src/exm-installed-page.blp:18
-#, fuzzy
-#| msgid "Log Out"
 msgid "_Log Out…"
-msgstr "اخرج"
+msgstr "_اخرج…"
 
 #: src/exm-installed-page.blp:30
 msgid "Use Extensions"
 msgstr "فعِّل الامتدادات"
 
 #: src/exm-installed-page.blp:31
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "قد تُسبِّب الامتدادات مشكلات في الأداء وفي الاستقرار."
+msgstr "قد تُسبِّب الامتدادات مشكلات في الأداء وفي الاستقرار"
 
 #: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
@@ -415,59 +383,51 @@ msgid "System Extensions"
 msgstr "الامتدادات المُنصَّبة في النظام"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "فرز نتائج البحث"
+msgstr "نتائج البحث"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "حاول إجراء بحث مختلف أو ابحث عبر الإنترنت"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "ا_بحث على الإنترنت"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "لا امتدادات ستُحدَّث في الولوج التالي."
-msgstr[1] "سيُحدَّث امتداد واحد في الولوج التالي."
-msgstr[2] "سيُحدَّث امتدادان في الولوج التالي."
-msgstr[3] "سيُحدَّث %d امتدادات في الولوج التالي."
-msgstr[4] "سيُحدَّث %d امتدادًا واحد في الولوج التالي."
-msgstr[5] "سيُحدَّث %d امتداد في الولوج التالي."
+msgstr[0] "لا امتدادات ستُحدَّث في الولوج التالي"
+msgstr[1] "سيُحدَّث امتداد واحد في الولوج التالي"
+msgstr[2] "سيُحدَّث امتدادان في الولوج التالي"
+msgstr[3] "سيُحدَّث %d امتدادات في الولوج التالي"
+msgstr[4] "سيُحدَّث %d امتدادًا واحد في الولوج التالي"
+msgstr[5] "سيُحدَّث %d امتداد في الولوج التالي"
 
 #: src/exm-installed-page.c:396
 msgid "Browse"
 msgstr "تصفح"
 
 #: src/exm-installed-page.c:407 src/exm-upgrade-assistant.c:659
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
-msgstr "لا تُوجَد امتدادات نصَّبها المستخدم."
+msgstr "لا امتدادات نصَّبها المستخدم"
 
 #: src/exm-installed-page.c:422 src/exm-upgrade-assistant.c:665
-#, fuzzy
-#| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
-msgstr "لا تُوجَد امتدادات مُنصَّبة في النظام."
+msgstr "لا امتدادات مُنصَّبة في النظام"
 
 #: src/exm-rating.c:136
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا نجمة"
+msgstr[1] "نجمة واحدة"
+msgstr[2] "نجمتان"
+msgstr[3] "%i نجوم"
+msgstr[4] "%i نجمة"
+msgstr[5] "%i نجمة"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -481,7 +441,7 @@ msgstr "قرِّب"
 #: src/exm-search-row.c:164
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s بواسطة %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -503,26 +463,19 @@ msgid "%d%% Compatible"
 msgstr "؜%d%% مُتوافِقة"
 
 #: src/exm-upgrade-assistant.c:211
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system."
+#, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
-msgstr "يتوافق مع <b>جنوم%s</b> ؜<b>%d من أصل %d</b> من الامتدادات المُنصَّبة."
+msgstr "يتوافق مع <b>جنوم%s</b> ؜<b>%d من أصل %d</b> من الامتدادات المُنصَّبة"
 
 #: src/exm-upgrade-assistant.c:493
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
-msgstr "يُوجَد إصدار مُتوافِق من هذا الامتداد."
+msgstr "يُوجَد إصدار مُتوافِق من هذا الامتداد"
 
 #: src/exm-upgrade-assistant.c:497
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
-msgstr "لا يُوجَد إصدار مُتوافِق من هذا الامتداد."
+msgstr "لا يُوجَد إصدار مُتوافِق من هذا الامتداد"
 
 #: src/exm-upgrade-assistant.c:501
 msgid ""
@@ -541,20 +494,16 @@ msgstr ""
 "امتداداتك معه."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "الامتدادات التي نصَّبها المستخدم"
+msgstr "ابحث في الامتدادات المنصَّبة"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "القائمة الرئيسية"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for installed extensions"
-msgstr "ابحث عن امتدادات"
+msgstr "ابحث عن امتدادات مُنصَّبة"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
@@ -582,7 +531,7 @@ msgstr "_مساعد الترقية"
 
 #: src/exm-window.blp:116
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "اختصارات _لوحة المفاتيح"
 
 #: src/exm-window.blp:117
 msgid "_About Extension Manager"
@@ -627,10 +576,8 @@ msgid "_Go Back"
 msgstr "ا_رجع"
 
 #: src/exm-window.c:305
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "التفاصيل"
+msgstr "ا_لتفاصيل"
 
 #, fuzzy
 #~| msgid "Updates are available"
