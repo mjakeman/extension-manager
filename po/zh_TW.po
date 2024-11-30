@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-10-31 06:00+0000\n"
-"Last-Translator: hugoalh <hugoalh@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2024-11-30 22:34+0000\n"
+"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -116,24 +116,24 @@ msgstr "無搜尋結果"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "試試不同的搜尋方式"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "連線錯誤"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
-msgstr ""
+msgstr "請檢查<a href='https://status.gnome.org/'>GNOME 基礎設施狀態</a>並稍後再試"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "請檢查您的網路狀態然後再試一次"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -299,7 +299,7 @@ msgstr "顯示瀏覽頁面"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "切換搜尋"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -359,8 +359,6 @@ msgid "Unsupported…"
 msgstr "不支援…"
 
 #: src/exm-installed-page.blp:18
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
 msgstr "登出…"
 
@@ -381,18 +379,16 @@ msgid "System Extensions"
 msgstr "系統擴充功能"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "排序搜尋結果"
+msgstr "搜尋結果"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "試試不同的搜尋或是在線上搜尋看看"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "線上搜尋"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -483,20 +479,16 @@ msgstr ""
 "會在該版本中繼續運作。"
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "使用者安裝的擴充功能"
+msgstr "搜尋已安裝的擴充功能"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "主選單"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "搜尋擴充功能"
+msgstr "搜尋已安裝的擴充功能"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
