@@ -4,13 +4,14 @@
 # Rafał Baran <>, 2022.
 # Oskar Kąklewski <oskarkaklewski@gmail.com>, 2024.
 # adiee5 <adikrab@gmail.com>, 2024.
+# Eryk Michalak <gnu.ewm@protonmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-10-13 22:03+0000\n"
-"Last-Translator: adiee5 <adikrab@gmail.com>\n"
+"PO-Revision-Date: 2024-11-30 22:34+0000\n"
+"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -120,12 +121,12 @@ msgstr "Brak wyników"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "Wypróbuj innego zapytania"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "Błąd połączenia"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -133,11 +134,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Sprawdź <a href='https://status.gnome.org/'>stan serwerów GNOME</a> i "
+"spróbuj ponownie później"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Sprawdź swoje połączenie z Internetem i spróbuj ponownie"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -244,9 +247,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Korzystasz z wersji z nieoficjalnej wersji Menedżera rozszerzeń. <span "
-"weight=\"bold\">Skontaktuj się najpierw z dostawcą tej wersji (%s)</span> "
-"przed otwarciem problemu. Upewnij się, że dołączasz następujące informacje:"
+"Korzystasz z nieoficjalnej wersji Menedżera rozszerzeń. <span weight=\"bold\""
+">Skontaktuj się z dystrybutorem pakietu(%s)</span> przed zgłoszeniem awarii. "
+"Dołącz następujące informacje:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -306,7 +309,7 @@ msgstr "Otwórz stronę"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Przełącz wyszukiwanie"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -386,18 +389,16 @@ msgid "System Extensions"
 msgstr "Systemowe rozszerzenia"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Sortowanie wyników wyszukiwania"
+msgstr "Wyniki wyszukiwania"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Wypróbuj innego zapytania lub wyszukaj w sieci"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_Szukaj w sieci"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -453,13 +454,13 @@ msgstr "_Sprawdź zgodność"
 #: src/exm-upgrade-assistant.c:172
 #, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "Sprawdzono %d/%d rozszerzeń"
+msgstr "Sprawdzono %d z %d rozszerzeń"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:191
 #, c-format
 msgid "%d%% Compatible"
-msgstr "%d%% kompatybilnych"
+msgstr "%d%% zgodnych rozszerzeń"
 
 #: src/exm-upgrade-assistant.c:211
 #, c-format
@@ -495,20 +496,16 @@ msgstr ""
 "dostępną wersję."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Ręcznie zainstalowane"
+msgstr "Wyszukaj zainstalowanych rozszerzeń"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Menu główne"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Wyszukaj rozszerzenie"
+msgstr "Wyszukaj zainstalowane rozszerzenia"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
