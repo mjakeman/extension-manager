@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # volkov <volkovissocool@gmail.com>, 2023.
 # Володимир Давибіда <mrvovavova17@gmail.com>, 2024.
+# volkov <volkov@users.noreply.hosted.weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-11-25 17:00+0000\n"
-"Last-Translator: Володимир Давибіда <mrvovavova17@gmail.com>\n"
+"PO-Revision-Date: 2024-11-30 22:34+0000\n"
+"Last-Translator: volkov <volkov@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "extension-manager/app/uk/>\n"
 "Language: uk\n"
@@ -24,7 +25,7 @@ msgstr ""
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
-msgstr "Менеджер Розширень"
+msgstr "Менеджер розширень"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
@@ -75,8 +76,8 @@ msgstr "Шукайте, встановлюйте та керуйте розши�
 #: src/exm-application.c:172
 msgid "translator-credits"
 msgstr ""
-"onatari <onatari.mail@gmail.com>\n"
-"volkov <volkovissocool@gmail.com>"
+"volkov <volkovissocool@gmail.com>\n"
+"onatari <onatari.mail@gmail.com>"
 
 #: src/exm-browse-page.blp:9
 msgid "Search for Extensions"
@@ -116,7 +117,7 @@ msgstr "_Завантажити більше результатів"
 
 #: src/exm-browse-page.blp:124 src/exm-installed-page.blp:97
 msgid "No Results Found"
-msgstr "Нічого Не Знайдено"
+msgstr "Нічого не знайдено"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
@@ -125,7 +126,7 @@ msgstr "Спробуйте інший пошуковий запит"
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr "Помилка Підключення"
+msgstr "Помилка підключення"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -147,7 +148,7 @@ msgstr "Коментарі"
 
 #: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
-msgstr "Завантажуємо Коментарі"
+msgstr "Завантажуємо коментарі"
 
 #: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:143
 msgid "Author"
@@ -155,11 +156,11 @@ msgstr "Автор"
 
 #: src/exm-detail-view.blp:58
 msgid "Loading Details"
-msgstr "Завантажуємо Подробиці"
+msgstr "Завантажуємо подробиці"
 
 #: src/exm-detail-view.blp:78 src/exm-detail-view.blp:295 src/exm-window.c:304
 msgid "An Error Occurred"
-msgstr "Сталася Помилка"
+msgstr "Сталася помилка"
 
 #: src/exm-detail-view.blp:79
 msgid "No extension details available"
@@ -205,7 +206,7 @@ msgstr "_Показати усі відгуки"
 #: src/exm-detail-view.c:416
 #, c-format
 msgid "%s Icon"
-msgstr "Значок розширення %s"
+msgstr "Піктограмма розширення %s"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:449
@@ -215,15 +216,15 @@ msgstr "Скриншоти розширення %s"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr "Звіт Про Помилку"
+msgstr "Звітувати про помилку"
 
 #: src/exm-error-dialog.blp:39
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Неочікувана помилка сталася у Менеджері Розширень"
+msgstr "Неочікувана помилка сталася у Менеджері розширень"
 
 #: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:169
 msgid "_Copy to Clipboard"
-msgstr "_Скопіювати У Буфер Обміну"
+msgstr "_Скопіювати у буфер обміну"
 
 #: src/exm-error-dialog.blp:76
 msgid "_New Issue"
@@ -248,7 +249,7 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Ви використовуєте сторонню збірку Менеджера Розширень. Будь ласка, перед тим "
+"Ви використовуєте сторонню збірку Менеджера розширень. Будь ласка, перед тим "
 "як звітувати, <span weight=\"bold\">спочатку, зверніться до постачальника "
 "(%s) </span>. Не забудьте додати наступну інформацію:"
 
@@ -335,12 +336,12 @@ msgstr "Перегляд скриншотів"
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
 msgctxt "shortcut window"
 msgid "Zoom In"
-msgstr "Приблизити"
+msgstr "Збільшити"
 
 #: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
 msgctxt "shortcut window"
 msgid "Zoom Out"
-msgstr "Віддалити"
+msgstr "Зменшити"
 
 #: src/exm-help-overlay.blp:58
 msgctxt "shortcut window"
@@ -399,7 +400,7 @@ msgstr "Спробуйте інший пошуковий запит або шу�
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr "_Онлайн Пошук"
+msgstr "_Онлайн пошук"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -426,9 +427,9 @@ msgstr "Немає встановлених системних розширен�
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] "%i Зірка"
-msgstr[1] "%i Зірки"
-msgstr[2] "%i Зірок"
+msgstr[0] "%i зірка"
+msgstr[1] "%i зірки"
+msgstr[2] "%i зірок"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -455,13 +456,13 @@ msgstr "_Перевірити сумісність"
 #: src/exm-upgrade-assistant.c:172
 #, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "Перевірено %d із %d Розширень"
+msgstr "Перевірено %d із %d розширень"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:191
 #, c-format
 msgid "%d%% Compatible"
-msgstr "%d%% Сумісно"
+msgstr "%d%% сумісно"
 
 #: src/exm-upgrade-assistant.c:211
 #, c-format
@@ -499,11 +500,11 @@ msgstr ""
 
 #: src/exm-window.blp:38
 msgid "Search Installed Extensions"
-msgstr "Пошук Серед Встановлених Розширень"
+msgstr "Пошук серед встановлених розширень"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
-msgstr "Головне Меню"
+msgstr "Головне меню"
 
 #: src/exm-window.blp:58
 msgid "Search for installed extensions"
@@ -531,19 +532,19 @@ msgstr "_Показувати непідтримувані"
 
 #: src/exm-window.blp:115
 msgid "_Upgrade Assistant"
-msgstr "_Помічник З Оновлення"
+msgstr "_Помічник з оновлення"
 
 #: src/exm-window.blp:116
 msgid "_Keyboard Shortcuts"
-msgstr "_Сполучення клавіш"
+msgstr "_Клавіатурні скорочення"
 
 #: src/exm-window.blp:117
 msgid "_About Extension Manager"
-msgstr "_Про Менеджер Розширень"
+msgstr "_Про Менеджер розширень"
 
 #: src/exm-window.blp:122
 msgid "Uninstall Extension?"
-msgstr "Видалити Розширення?"
+msgstr "Видалити розширення?"
 
 #: src/exm-window.blp:123
 msgid ""
@@ -563,7 +564,7 @@ msgstr "_Так"
 
 #: src/exm-window.blp:134
 msgid "Unsupported Extension"
-msgstr "Непідтримуване Розширення"
+msgstr "Непідтримуване розширення"
 
 #: src/exm-window.blp:135
 msgid ""
