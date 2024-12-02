@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-11-30 22:34+0000\n"
-"Last-Translator: volkov <volkov@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2024-12-02 12:00+0000\n"
+"Last-Translator: Володимир Давибіда <mrvovavova17@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "extension-manager/app/uk/>\n"
 "Language: uk\n"
@@ -216,7 +216,7 @@ msgstr "Скриншоти розширення %s"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr "Звітувати про помилку"
+msgstr "Звіт про помилку"
 
 #: src/exm-error-dialog.blp:39
 msgid "An unexpected error occurred in Extension Manager"
