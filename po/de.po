@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-12-02 12:00+0000\n"
+"PO-Revision-Date: 2024-12-03 09:02+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -313,9 +313,10 @@ msgid "Show Browse Page"
 msgstr "»Suchen«-Seite anzeigen"
 
 #: src/exm-help-overlay.blp:24
+#, fuzzy
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Suche umschalten"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -400,11 +401,11 @@ msgstr "Suchergebnisse"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Versuchen Sie eine andere Suche oder suchen Sie online"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "Online _suchen"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
@@ -501,20 +502,16 @@ msgstr ""
 "aus und prüfen Sie, ob Ihre Erweiterungen weiterhin verfügbar sein werden."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Benutzerinstallierte Erweiterungen"
+msgstr "Installierte Erweiterungen suchen"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Hauptmenü"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Suchen Sie nach Erweiterungen"
+msgstr "Suchen Sie nach installierten Erweiterungen"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
