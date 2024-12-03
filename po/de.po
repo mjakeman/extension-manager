@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-12-03 09:02+0000\n"
+"PO-Revision-Date: 2024-12-04 06:16+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -313,7 +313,6 @@ msgid "Show Browse Page"
 msgstr "»Suchen«-Seite anzeigen"
 
 #: src/exm-help-overlay.blp:24
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Toggle Search"
 msgstr "Suche umschalten"
@@ -401,11 +400,11 @@ msgstr "Suchergebnisse"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr "Versuchen Sie eine andere Suche oder suchen Sie online"
+msgstr "Probieren Sie eine andere Suche oder suchen Sie online"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr "Online _suchen"
+msgstr "_Online suchen"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
