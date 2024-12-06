@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-12-04 06:16+0000\n"
+"PO-Revision-Date: 2024-12-07 09:00+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -85,7 +85,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:9
 msgid "Search for Extensions"
-msgstr "Suchen Sie nach Erweiterungen"
+msgstr "Nach Erweiterungen suchen"
 
 #: src/exm-browse-page.blp:10
 msgid ""
@@ -411,7 +411,7 @@ msgstr "_Online suchen"
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "Eine Erweiterung wird bei der nächsten Anmeldung aktualisiert"
+msgstr[0] "%d Erweiterung wird bei der nächsten Anmeldung aktualisiert"
 msgstr[1] "%d Erweiterungen werden bei der nächsten Anmeldung aktualisiert"
 
 #: src/exm-installed-page.c:396
@@ -502,7 +502,7 @@ msgstr ""
 
 #: src/exm-window.blp:38
 msgid "Search Installed Extensions"
-msgstr "Installierte Erweiterungen suchen"
+msgstr "Installierte Erweiterungen durchsuchen"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
@@ -510,7 +510,7 @@ msgstr "Hauptmenü"
 
 #: src/exm-window.blp:58
 msgid "Search for installed extensions"
-msgstr "Suchen Sie nach installierten Erweiterungen"
+msgstr "Nach installierten Erweiterungen suchen"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
