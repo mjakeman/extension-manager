@@ -57,6 +57,18 @@
     <color type="primary" scheme_preference="dark">#005edf</color>
   </branding>
   <releases>
+    <release version="0.6.0" date="2024-12-06">
+      <description translate="no">
+        <p>The 'Accessible &amp; Refined' release</p>
+        <ul>
+          <li>Accessibility improvements</li>
+          <li>Search installed extensions</li>
+          <li>More extension details</li>
+          <li>Latest platform updates</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.5.1" date="2024-04-29">
       <description translate="no">
         <ul>
