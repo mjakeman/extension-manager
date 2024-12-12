@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2024.
+# Ricky Tigg <ricky.tigg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-12-02 12:00+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2024-12-13 10:00+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/"
 "extension-manager/app/fi/>\n"
 "Language: fi\n"
@@ -240,6 +241,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
+"Käytät kolmannen osapuolen Extension Managerin koontiversiota. <span weight="
+"\"bold\">ota ensin yhteyttä paketin jakelijaan (%s)</span> ennen kuin "
+"ilmoitat ongelmasta. Muista liittää mukaan seuraavat tiedot:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -262,6 +266,8 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"Tämä laajennus voidaan aktivoida istuntotiloissa, kuten "
+"sisäänkirjautumisnäytössä tai lukitusnäytössä"
 
 #: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
 msgid "Version"
@@ -492,7 +498,7 @@ msgstr "Päävalikko"
 
 #: src/exm-window.blp:58
 msgid "Search for installed extensions"
-msgstr "Etsi asennettuja laajennuksia"
+msgstr "Hae asennetut laajennukset"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
