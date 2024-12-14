@@ -48,6 +48,7 @@ struct _ExmBrowsePage
     GCancellable *cancellable;
 
     // Template Widgets
+    AdwStatusPage       *status_page;
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
     GtkStack            *search_stack;
@@ -228,6 +229,19 @@ on_next_page_result (GObject       *source,
 
     if (G_IS_LIST_MODEL (to_append))
     {
+        GtkWidget *child;
+        GtkAdjustment *adjustment;
+        double scroll_pos;
+
+        // Save scrolled window position
+        child = gtk_widget_get_first_child (GTK_WIDGET (self->status_page));
+        if (child != NULL && GTK_IS_SCROLLED_WINDOW (child))
+        {
+            adjustment = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (child));
+            if (adjustment != NULL)
+                scroll_pos = gtk_adjustment_get_value (adjustment);
+        }
+
         n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
 
         // Append to list model
@@ -240,6 +254,10 @@ on_next_page_result (GObject       *source,
             if (i == 0)
                gtk_widget_grab_focus (gtk_widget_get_last_child (GTK_WIDGET (self->search_results)));
         }
+
+        // Restore scrolled window position
+        if (adjustment != NULL)
+            gtk_adjustment_set_value (adjustment, scroll_pos);
 
         // Remove unnecessary model
         g_list_store_remove_all (G_LIST_STORE (to_append));
@@ -398,6 +416,7 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-browse-page.ui", RESOURCE_PATH));
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, status_page);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
