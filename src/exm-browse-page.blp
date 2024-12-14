@@ -4,181 +4,179 @@ using Adw 1;
 template $ExmBrowsePage: Gtk.Widget {
   notify::manager => $on_bind_manager();
 
-  Gtk.ScrolledWindow {
-    Adw.StatusPage status_page {
-      title: _("Search for Extensions");
-      description: _("Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions");
-      valign: start;
-      vexpand: true;
+  Adw.StatusPage status_page {
+    title: _("Search for Extensions");
+    description: _("Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions");
+    valign: start;
+    vexpand: true;
 
-      child: Adw.Clamp {
+    child: Adw.Clamp {
+      Gtk.Box {
+        orientation: vertical;
+
         Gtk.Box {
-          orientation: vertical;
+          styles [
+            "linked"
+          ]
 
-          Gtk.Box {
-            styles [
-              "linked"
-            ]
+          Gtk.SearchEntry search_entry {
+            hexpand: true;
+            search-delay: 750;
+            realize => $on_search_entry_realize();
+            search-changed => $on_search_changed() swapped;
+            changed => $gtk_widget_grab_focus();
 
-            Gtk.SearchEntry search_entry {
-              hexpand: true;
-              search-delay: 750;
-              realize => $on_search_entry_realize();
-              search-changed => $on_search_changed() swapped;
-              changed => $gtk_widget_grab_focus();
-
-              accessibility {
-                labelled-by: status_page;
-              }
-            }
-
-            // Keep the same order as the ExmSearchSort enum
-            Gtk.DropDown search_dropdown {
-              model: StringList {
-                // Translators: dropdown items for sorting search results
-                strings [
-                  _("Relevance"),
-                  C_("Sort search results", "Downloads"),
-                  _("Recent"),
-                  _("Name")
-                ]
-              };
-
-              notify::selected => $on_search_changed() swapped;
-
-              accessibility {
-                description: _("Sort search results");
-              }
+            accessibility {
+              labelled-by: status_page;
             }
           }
 
-          Gtk.Stack search_stack {
-            Gtk.StackPage {
-              name: "page_spinner";
+          // Keep the same order as the ExmSearchSort enum
+          Gtk.DropDown search_dropdown {
+            model: StringList {
+              // Translators: dropdown items for sorting search results
+              strings [
+                _("Relevance"),
+                C_("Sort search results", "Downloads"),
+                _("Recent"),
+                _("Name")
+              ]
+            };
 
-              child: Adw.Spinner {
-                valign: center;
-                halign: center;
-                height-request: 32;
-                width-request: 32;
-              };
-            }
+            notify::selected => $on_search_changed() swapped;
 
-            Gtk.StackPage {
-              name: "page_results";
-
-              child: Gtk.Box {
-                orientation: vertical;
-                spacing: 12;
-
-                Gtk.ListBox search_results {
-                  styles [
-                    "boxed-list"
-                  ]
-
-                  selection-mode: none;
-                }
-
-                Gtk.ListBox more_results_list {
-                  styles [
-                    "boxed-list"
-                  ]
-
-                  selection-mode: none;
-
-                  Adw.ButtonRow more_results_btn {
-                    title: _("_Load More Results");
-                    use-underline: true;
-                    activated => $on_load_more_results();
-                  }
-                }
-              };
-            }
-
-            Gtk.StackPage {
-              name: "page_empty";
-
-              child: Gtk.Box {
-                orientation: vertical;
-                margin-start: 12;
-                margin-end: 12;
-                margin-top: 36;
-                margin-bottom: 24;
-
-                Gtk.Image {
-                  styles [
-                    "dim-label"
-                  ]
-
-                  icon-name: "edit-find-symbolic";
-                  halign: center;
-                  margin-bottom: 24;
-                  pixel-size: 128;
-                }
-
-                Gtk.Label {
-                  styles [
-                    "title-1"
-                  ]
-
-                  label: _("No Results Found");
-                  margin-bottom: 12;
-                  wrap: true;
-                  wrap-mode: word_char;
-                }
-
-                Gtk.Label {
-                  label: _("Try a different search");
-                  margin-bottom: 12;
-                  wrap: true;
-                  wrap-mode: word_char;
-                }
-              };
-            }
-
-            Gtk.StackPage {
-              name: "page_error";
-
-              child: Gtk.Box {
-                orientation: vertical;
-                margin-start: 12;
-                margin-end: 12;
-                margin-top: 36;
-                margin-bottom: 24;
-
-                Gtk.Image {
-                  styles [
-                    "dim-label"
-                  ]
-
-                  icon-name: "offline-symbolic";
-                  halign: center;
-                  margin-bottom: 24;
-                  pixel-size: 128;
-                }
-
-                Gtk.Label {
-                  styles [
-                    "title-1"
-                  ]
-
-                  label: _("Connection Error");
-                  margin-bottom: 12;
-                  wrap: true;
-                  wrap-mode: word_char;
-                }
-
-                Gtk.Label error_label {
-                  use-markup: true;
-                  margin-bottom: 12;
-                  wrap: true;
-                  wrap-mode: word_char;
-                }
-              };
+            accessibility {
+              description: _("Sort search results");
             }
           }
         }
-      };
-    }
+
+        Gtk.Stack search_stack {
+          Gtk.StackPage {
+            name: "page_spinner";
+
+            child: Adw.Spinner {
+              valign: center;
+              halign: center;
+              height-request: 32;
+              width-request: 32;
+            };
+          }
+
+          Gtk.StackPage {
+            name: "page_results";
+
+            child: Gtk.Box {
+              orientation: vertical;
+              spacing: 12;
+
+              Gtk.ListBox search_results {
+                styles [
+                  "boxed-list"
+                ]
+
+                selection-mode: none;
+              }
+
+              Gtk.ListBox more_results_list {
+                styles [
+                  "boxed-list"
+                ]
+
+                selection-mode: none;
+
+                Adw.ButtonRow more_results_btn {
+                  title: _("_Load More Results");
+                  use-underline: true;
+                  activated => $on_load_more_results();
+                }
+              }
+            };
+          }
+
+          Gtk.StackPage {
+            name: "page_empty";
+
+            child: Gtk.Box {
+              orientation: vertical;
+              margin-start: 12;
+              margin-end: 12;
+              margin-top: 36;
+              margin-bottom: 24;
+
+              Gtk.Image {
+                styles [
+                  "dim-label"
+                ]
+
+                icon-name: "edit-find-symbolic";
+                halign: center;
+                margin-bottom: 24;
+                pixel-size: 128;
+              }
+
+              Gtk.Label {
+                styles [
+                  "title-1"
+                ]
+
+                label: _("No Results Found");
+                margin-bottom: 12;
+                wrap: true;
+                wrap-mode: word_char;
+              }
+
+              Gtk.Label {
+                label: _("Try a different search");
+                margin-bottom: 12;
+                wrap: true;
+                wrap-mode: word_char;
+              }
+            };
+          }
+
+          Gtk.StackPage {
+            name: "page_error";
+
+            child: Gtk.Box {
+              orientation: vertical;
+              margin-start: 12;
+              margin-end: 12;
+              margin-top: 36;
+              margin-bottom: 24;
+
+              Gtk.Image {
+                styles [
+                  "dim-label"
+                ]
+
+                icon-name: "offline-symbolic";
+                halign: center;
+                margin-bottom: 24;
+                pixel-size: 128;
+              }
+
+              Gtk.Label {
+                styles [
+                  "title-1"
+                ]
+
+                label: _("Connection Error");
+                margin-bottom: 12;
+                wrap: true;
+                wrap-mode: word_char;
+              }
+
+              Gtk.Label error_label {
+                use-markup: true;
+                margin-bottom: 12;
+                wrap: true;
+                wrap-mode: word_char;
+              }
+            };
+          }
+        }
+      }
+    };
   }
 }
