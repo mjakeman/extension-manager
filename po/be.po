@@ -7,17 +7,17 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-09-05 10:39+0000\n"
+"PO-Revision-Date: 2024-12-15 17:01+0000\n"
 "Last-Translator: Troja <d.iwowi.b@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/extension-"
-"manager/app/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
+"extension-manager/app/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7.2-rc\n"
+"X-Generator: Weblate 5.9-rc\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -103,7 +103,7 @@ msgstr "Па назве"
 
 #: src/exm-browse-page.blp:50
 msgid "Sort search results"
-msgstr ""
+msgstr "Сартаваць вынікі пошуку"
 
 #: src/exm-browse-page.blp:90
 msgid "_Load More Results"
@@ -115,12 +115,12 @@ msgstr "Нічога не знойдзена"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "Паспрабуйце іншы пошук"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "Памылка злучэння"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -128,11 +128,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Праверце <a href='https://status.gnome.org/'>стан інфраструктуры GNOME</a> і "
+"паўтарыце спробу пазней"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Праверце стан сеткі і паўтарыце спробу"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
@@ -155,10 +157,8 @@ msgid "An Error Occurred"
 msgstr "Адбылася памылка"
 
 #: src/exm-detail-view.blp:79
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Даступная больш новая версія гэтага пашырэння"
+msgstr "Няма звестак аб пашырэнні"
 
 #: src/exm-detail-view.blp:170
 msgid "Enlarge Image"
@@ -200,15 +200,13 @@ msgstr "_Паказаць усе водгукі"
 #: src/exm-detail-view.c:416
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s Значок"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:449
-#, fuzzy, c-format
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
+#, c-format
 msgid "%s Screenshot"
-msgstr "Прагляд скрыншотаў"
+msgstr "%s Скрыншот"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -306,7 +304,7 @@ msgstr "Паказаць старонку \"Пошук\""
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Пераключыць пошук"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -366,10 +364,8 @@ msgid "Unsupported…"
 msgstr "Не падтрымліваецца…"
 
 #: src/exm-installed-page.blp:18
-#, fuzzy
-#| msgid "Log Out…"
 msgid "_Log Out…"
-msgstr "Выйсці…"
+msgstr "_Выйсці…"
 
 #: src/exm-installed-page.blp:30
 msgid "Use Extensions"
@@ -388,24 +384,20 @@ msgid "System Extensions"
 msgstr "Сістэмныя пашырэнні"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "_Load More Results"
 msgid "Search Results"
-msgstr "_Загрузіць больш вынікаў"
+msgstr "Вынікі пошуку"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Паспрабуйце іншы пошук або пошук у інтэрнэце"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_Пошук у Інтэрнэце"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
 msgstr[0] "%d пашырэнне будзе абноўлена пры наступным уваходзе"
@@ -428,9 +420,9 @@ msgstr "Сістэмныя пашырэнні не ўсталяваны"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i Зорка"
+msgstr[1] "%i Зоркі"
+msgstr[2] "%i Зорак"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -444,7 +436,7 @@ msgstr "Павялічыць"
 #: src/exm-search-row.c:164
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s ад %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
@@ -500,20 +492,16 @@ msgstr ""
 "праверце, ці застануцца даступнымі вашы пашырэнні."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Пашырэнні, устаноўленыя карыстальнікам"
+msgstr "Пошук сярод усталяваных пашырэнняў"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Галоўнае меню"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Пошук пашырэнняў"
+msgstr "Пошук усталяваных пашырэнняў"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
@@ -588,10 +576,8 @@ msgid "_Go Back"
 msgstr "_Павярнуцца назад"
 
 #: src/exm-window.c:305
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Падрабязнасці"
+msgstr "_Падрабязнасці"
 
 #~ msgid "Updates Available"
 #~ msgstr "Даступныя абнаўленні"
