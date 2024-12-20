@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-23 18:47+0000\n"
+"POT-Creation-Date: 2024-12-20 22:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,61 +72,61 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: src/exm-browse-page.blp:9
+#: src/exm-browse-page.blp:8
 msgid "Search for Extensions"
 msgstr ""
 
-#: src/exm-browse-page.blp:10
+#: src/exm-browse-page.blp:9
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
 
-#: src/exm-browse-page.blp:40
+#: src/exm-browse-page.blp:39
 msgid "Relevance"
 msgstr ""
 
-#: src/exm-browse-page.blp:41
+#: src/exm-browse-page.blp:40
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr ""
 
-#: src/exm-browse-page.blp:42
+#: src/exm-browse-page.blp:41
 msgid "Recent"
 msgstr ""
 
-#: src/exm-browse-page.blp:43 src/exm-detail-view.blp:129
+#: src/exm-browse-page.blp:42 src/exm-detail-view.blp:129
 msgid "Name"
 msgstr ""
 
-#: src/exm-browse-page.blp:50
+#: src/exm-browse-page.blp:49
 msgid "Sort search results"
 msgstr ""
 
-#: src/exm-browse-page.blp:90
+#: src/exm-browse-page.blp:89
 msgid "_Load More Results"
 msgstr ""
 
-#: src/exm-browse-page.blp:124 src/exm-installed-page.blp:97
+#: src/exm-browse-page.blp:123 src/exm-installed-page.blp:97
 msgid "No Results Found"
 msgstr ""
 
-#: src/exm-browse-page.blp:131
+#: src/exm-browse-page.blp:130
 msgid "Try a different search"
 msgstr ""
 
-#: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
+#: src/exm-browse-page.blp:164 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
 msgstr ""
 
-#: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
+#: src/exm-browse-page.c:195 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
 
-#: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
+#: src/exm-browse-page.c:197 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
 msgstr ""
