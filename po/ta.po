@@ -2,21 +2,22 @@
 # Copyright (C) 2023 THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # K.B.Dharun Krishna <kbdharunkrishna@gmail.com>, 2022, 2023.
-#
+# தமிழ்நேரம் <anishprabu.t@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2023-06-19 19:50+0530\n"
-"Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-12-26 10:00+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/extension-manager/"
+"app/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -25,24 +26,18 @@ msgid "Extension Manager"
 msgstr "நீட்டிப்பு மேலாளர்"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
-#, fuzzy
-#| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Manage GNOME Shell Extensions"
-msgstr "GNOME ஷெல் நீட்டிப்புகளை நிர்வகிப்பதற்கான ஒரு பயன்பாடு"
+msgstr "க்னோம் செல் நீட்டிப்புகளை நிர்வகிக்கவும்"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "extension;manager;shell;"
-msgstr "நீட்டிப்பு மேலாளர்"
+msgstr "நீட்டிப்பு; மேலாளர்; செல்;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "GNOME ஷெல் நீட்டிப்புகளை நிர்வகிப்பதற்கான ஒரு பயன்பாடு."
+msgstr "சினோம் செல் நீட்டிப்புகளை உலாவவும், நிறுவவும் மற்றும் நிர்வகிக்கவும்"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -63,16 +58,13 @@ msgid "Manage the extensions you already have installed"
 msgstr "நீங்கள் ஏற்கனவே நிறுவிய நீட்டிப்புகளை நிர்வகிக்கவும்"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "See all the details of your extensions"
-msgstr "நீட்டிப்புகளைத் தேடுங்கள்"
+msgstr "உங்கள் நீட்டிப்புகளின் அனைத்து விவரங்களையும் காண்க"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "இந்த நீட்டிப்பு உங்கள் தற்போதைய GNOME பதிப்போடு பொருந்தாது"
+msgstr ""
+"க்னோமின் அடுத்த பதிப்போடு உங்கள் நீட்டிப்புகள் பொருந்தக்கூடிய தன்மையை சரிபார்க்கவும்"
 
 #: src/exm-application.c:170
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -83,29 +75,21 @@ msgid "translator-credits"
 msgstr "க.பா.தருண் கிருஷ்ணா <kbdharunkrishna@gmail.com>"
 
 #: src/exm-browse-page.blp:9
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
 msgstr "நீட்டிப்புகளைத் தேடுங்கள்"
 
 #: src/exm-browse-page.blp:10
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"க்னோம் ஷெல் நீட்டிப்புகளுக்கு 'extensions.gnome.org' ஐ தேட ஒரு முக்கிய சொல்லை "
-"உள்ளிடவும்."
+"க்னோம் செல் நீட்டிப்புகளுக்கு 'extensions.gnome.org' ஐத் தேட ஒரு முக்கிய சொல்லை "
+"உள்ளிடவும்"
 
 #: src/exm-browse-page.blp:40
 msgid "Relevance"
-msgstr ""
+msgstr "பொருத்தமானது"
 
 #: src/exm-browse-page.blp:41
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "பதிவிறக்கங்கள்"
@@ -123,10 +107,8 @@ msgid "Sort search results"
 msgstr "தேடல் முடிவுகளை வரிசைப்படுத்தவும்"
 
 #: src/exm-browse-page.blp:90
-#, fuzzy
-#| msgid "Load More Results"
 msgid "_Load More Results"
-msgstr "மேலும் முடிவுகளை ஏற்றவும்"
+msgstr "_ மேலும் முடிவுகளை ஏற்றவும்"
 
 #: src/exm-browse-page.blp:124 src/exm-installed-page.blp:97
 msgid "No Results Found"
@@ -134,12 +116,12 @@ msgstr "முடிவுகள் எதுவும் இல்லை"
 
 #: src/exm-browse-page.blp:131
 msgid "Try a different search"
-msgstr ""
+msgstr "வேறு தேடலை முயற்சிக்கவும்"
 
 #: src/exm-browse-page.blp:165 src/exm-comment-dialog.blp:50
 #: src/exm-detail-view.blp:68 src/exm-upgrade-assistant.blp:96
 msgid "Connection Error"
-msgstr ""
+msgstr "இணைப்பு பிழை"
 
 #: src/exm-browse-page.c:194 src/exm-comment-dialog.c:164
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:373
@@ -147,47 +129,41 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"<A href = 'https: //status.gnome.org/'> க்னோம் உள்கட்டமைப்பு நிலை </a> ஐ சரிபார்த்து"
+" மீண்டும் முயற்சிக்கவும்"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:166
 #: src/exm-detail-view.c:376 src/exm-upgrade-assistant.c:375
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "உங்கள் பிணைய நிலையை சரிபார்த்து மீண்டும் முயற்சிக்கவும்"
 
 #: src/exm-comment-dialog.blp:9
 msgid "Comments"
 msgstr "கருத்துகள்"
 
 #: src/exm-comment-dialog.blp:40
-#, fuzzy
-#| msgid "Comments"
 msgid "Loading Comments"
-msgstr "கருத்துகள்"
+msgstr "கருத்துகளை ஏற்றுகிறது"
 
 #: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:143
 msgid "Author"
-msgstr ""
+msgstr "நூலாசிரியர்"
 
 #: src/exm-detail-view.blp:58
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "விவரங்கள்"
+msgstr "விவரங்களை ஏற்றுகிறது"
 
 #: src/exm-detail-view.blp:78 src/exm-detail-view.blp:295 src/exm-window.c:304
 msgid "An Error Occurred"
 msgstr "ஒரு பிழை ஏற்பட்டது"
 
 #: src/exm-detail-view.blp:79
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "இந்த நீட்டிப்பின் புதிய பதிப்பு கிடைக்கிறது"
+msgstr "நீட்டிப்பு விவரங்கள் எதுவும் கிடைக்கவில்லை"
 
 #: src/exm-detail-view.blp:170
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
-msgstr "படத்தை பெரிதாக்கவும்"
+msgstr "படத்தை பெரிதாக்குங்கள்"
 
 #: src/exm-detail-view.blp:188 src/exm-extension-row.blp:109
 msgid "Description"
@@ -195,17 +171,15 @@ msgstr "விளக்கம்"
 
 #: src/exm-detail-view.blp:211
 msgid "Links"
-msgstr ""
+msgstr "இணைப்புகள்"
 
 #: src/exm-detail-view.blp:219
-#, fuzzy
-#| msgid "Project Homepage"
 msgid "Homepage"
-msgstr "திட்ட முகப்புப்பக்கம்"
+msgstr "முகப்புப்பக்கம்"
 
 #: src/exm-detail-view.blp:239
 msgid "Donate"
-msgstr ""
+msgstr "நன்கொடை"
 
 #: src/exm-detail-view.blp:248
 msgid "View on Extensions"
@@ -216,54 +190,40 @@ msgid "User Reviews"
 msgstr "பயனர் மதிப்புரைகள்"
 
 #: src/exm-detail-view.blp:304
-#, fuzzy
-#| msgid "Comments"
 msgid "No comments yet"
-msgstr "கருத்துகள்"
+msgstr "இன்னும் கருத்துகள் இல்லை"
 
 #: src/exm-detail-view.blp:327
-#, fuzzy
-#| msgid "Show All Reviews"
 msgid "_Show All Reviews"
-msgstr "அனைத்து மதிப்புரைகளையும் காட்டு"
+msgstr "_ எல்லா மதிப்புரைகளையும் மாற்றவும்"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:416
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s படவுரு"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:449
 #, c-format
 msgid "%s Screenshot"
-msgstr ""
+msgstr "%s திரை காட்சி"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
 msgstr "பிழை அறிக்கை"
 
 #: src/exm-error-dialog.blp:39
-#, fuzzy
-#| msgid ""
-#| "An unexpected error occurred in Extension Manager. Please open a new "
-#| "issue and attach the following information:"
 msgid "An unexpected error occurred in Extension Manager"
-msgstr ""
-"நீட்டிப்பு மேலாளரில் எதிர்பாராத பிழை ஏற்பட்டது. புதிய சிக்கலைத் திறந்து பின்வரும் தகவலை "
-"இணைக்கவும்:"
+msgstr "நீட்டிப்பு மேலாளரில் எதிர்பாராத பிழை ஏற்பட்டது"
 
 #: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:169
-#, fuzzy
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
-msgstr "கிளிப்போர்டுக்கு நகலெடுக்கவும்"
+msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
 #: src/exm-error-dialog.blp:76
-#, fuzzy
-#| msgid "New Issue"
 msgid "_New Issue"
-msgstr "புதிய சிக்கல்"
+msgstr "_ புதிய சிக்கல்"
 
 #. Success indicator
 #: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:334
@@ -271,14 +231,8 @@ msgid "Copied"
 msgstr "நகலெடுக்கப்பட்டது"
 
 #: src/exm-error-dialog.c:173
-#, fuzzy
-#| msgid ""
-#| "An unexpected error occurred in Extension Manager. Please open a new "
-#| "issue and attach the following information:"
 msgid "Please open a new issue and attach the following information:"
-msgstr ""
-"நீட்டிப்பு மேலாளரில் எதிர்பாராத பிழை ஏற்பட்டது. புதிய சிக்கலைத் திறந்து பின்வரும் தகவலை "
-"இணைக்கவும்:"
+msgstr "தயவுசெய்து ஒரு புதிய சிக்கலைத் திறந்து பின்வரும் தகவல்களை இணைக்கவும்:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:177
@@ -288,6 +242,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
+"நீட்டிப்பு மேலாளரின் மூன்றாம் தரப்பு கட்டமைப்பைப் பயன்படுத்துகிறீர்கள். தயவுசெய்து <ச்பான் எடை "
+"= \"தைரியமான\"> ஒரு சிக்கலைத் தாக்கல் செய்வதற்கு முன் தொகுப்பு விநியோகச்தரை (%s) "
+"முதலில் </span> ஐ தொடர்பு கொள்ளவும். பின்வரும் தகவல்களை இணைக்க மறக்காதீர்கள்:"
 
 #: src/exm-extension-row.blp:26
 msgid "Open extension preferences"
@@ -310,6 +267,8 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"இந்த நீட்டிப்பு உள்நுழைவு திரை அல்லது பூட்டுத் திரை போன்ற அமர்வு முறைகளில் "
+"செயல்படுத்தப்படலாம்"
 
 #: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
 msgid "Version"
@@ -324,64 +283,55 @@ msgid "See Details"
 msgstr "விவரங்களைப் பார்க்கவும்"
 
 #: src/exm-extension-row.blp:225
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "Remove"
+msgstr "அகற்று…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "பொது"
 
 #: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "நிறுவப்பட்டுள்ளது"
+msgstr "நிறுவப்பட்ட பக்கத்தைக் காட்டு"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "உலாவு பக்கத்தைக் காட்டு"
 
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "தேடலை மாற்றவும்"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr ""
+msgstr "விசைப்பலகை குறுக்குவழிகளைக் காட்டு"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "சாளரத்தை மூடு"
 
 #: src/exm-help-overlay.blp:39
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "வெளியேறு"
 
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "திரைக்காட்சி பார்வை"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom In"
 msgstr "பெரிதாக்கு"
 
 #: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom Out"
 msgstr "சிறிதாக்கு"
@@ -389,11 +339,9 @@ msgstr "சிறிதாக்கு"
 #: src/exm-help-overlay.blp:58
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "பெரிதாக்கு மீட்டமைக்கவும்"
 
 #: src/exm-info-bar.blp:24
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "பதிவிறக்கங்கள்"
@@ -403,10 +351,8 @@ msgid "Unsupported"
 msgstr "ஆதரவற்றது"
 
 #: src/exm-install-button.c:115
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "நிறுவு"
+msgstr "நிறுவு…"
 
 #: src/exm-install-button.c:120
 msgctxt "State"
@@ -414,26 +360,20 @@ msgid "Installed"
 msgstr "நிறுவப்பட்டுள்ளது"
 
 #: src/exm-install-button.c:124
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "ஆதரவற்றது"
+msgstr "ஆதரிக்கப்படாத…"
 
 #: src/exm-installed-page.blp:18
-#, fuzzy
-#| msgid "Log Out"
 msgid "_Log Out…"
-msgstr "வெளியேறு"
+msgstr "_ லாக் அவுட்…"
 
 #: src/exm-installed-page.blp:30
 msgid "Use Extensions"
 msgstr "நீட்டிப்புகளைப் பயன்படுத்தவும்"
 
 #: src/exm-installed-page.blp:31
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "நீட்டிப்புகள் செயல்திறன் மற்றும் நிலைத்தன்மை சிக்கல்களை ஏற்படுத்தும்."
+msgstr "நீட்டிப்புகள் செயல்திறன் மற்றும் ச்திரத்தன்மை சிக்கல்களை ஏற்படுத்தும்"
 
 #: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
@@ -444,51 +384,43 @@ msgid "System Extensions"
 msgstr "கணினி நீட்டிப்புகள்"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "தேடல் முடிவுகளை வரிசைப்படுத்தவும்"
+msgstr "தேடல் முடிவுகள்"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "வேறு தேடலை முயற்சிக்கவும் அல்லது ஆன்லைனில் தேடவும்"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_ தேடல் ஆன்லைனில்"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:299
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "அடுத்த உள்நுழைவில் ஒரு நீட்டிப்பு புதுப்பிக்கப்படும்."
-msgstr[1] "அடுத்த உள்நுழைவில் %d நீட்டிப்புகள் புதுப்பிக்கப்படும்."
+msgstr[0] "அடுத்த உள்நுழைவில் %d நீட்டிப்பு புதுப்பிக்கப்படும்"
+msgstr[1] "அடுத்த உள்நுழைவில் %d நீட்டிப்புகள் புதுப்பிக்கப்படும்"
 
 #: src/exm-installed-page.c:396
 msgid "Browse"
 msgstr "உலாவுக"
 
 #: src/exm-installed-page.c:407 src/exm-upgrade-assistant.c:659
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
-msgstr "பயனர் நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை."
+msgstr "பயனர் நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
 
 #: src/exm-installed-page.c:422 src/exm-upgrade-assistant.c:665
-#, fuzzy
-#| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
-msgstr "கணினி நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை."
+msgstr "கணினி நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
 
 #: src/exm-rating.c:136
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%நான் விண்மீன்"
+msgstr[1] "%நான் நட்சத்திரங்கள்"
 
 #: src/exm-screenshot-view.blp:36
 msgid "Zoom Out"
@@ -502,53 +434,43 @@ msgstr "பெரிதாக்கு"
 #: src/exm-search-row.c:164
 #, c-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s %s"
 
 #: src/exm-upgrade-assistant.blp:7
 msgid "Upgrade Assistant"
 msgstr "மேம்படுத்தல் உதவியாளர்"
 
 #: src/exm-upgrade-assistant.blp:57
-#, fuzzy
-#| msgid "Check Compatibility"
 msgid "_Check Compatibility"
-msgstr "இணக்கத்தன்மையை சரிபார்க்கவும்"
+msgstr "_ இணக்கத்தன்மையை சரிபார்க்கவும்"
 
 #: src/exm-upgrade-assistant.c:172
-#, fuzzy, c-format
-#| msgid "Search for extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "நீட்டிப்புகளைத் தேடுங்கள்"
+msgstr "சரிபார்க்கப்பட்ட %d/ %d நீட்டிப்புகள்"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:191
 #, c-format
 msgid "%d%% Compatible"
-msgstr ""
+msgstr "%d %% இணக்கமானது"
 
 #: src/exm-upgrade-assistant.c:211
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system."
+#, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
 msgstr ""
-"<b>GNOME %s</b> கணினியில் தற்போது நிறுவப்பட்டுள்ள நீட்டிப்புகளில் <b>%d இல் %d</b>ஐ "
-"ஆதரிக்கிறது."
+"<b> க்னோம் %s </b> தற்போது கணினியில் நிறுவப்பட்ட நீட்டிப்புகளில் %d </b> இல் இருந்து <b> "
+"%d"
 
 #: src/exm-upgrade-assistant.c:493
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
-msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு உள்ளது."
+msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு உள்ளது"
 
 #: src/exm-upgrade-assistant.c:497
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
-msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு எதுவும் இல்லை."
+msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு எதுவும் இல்லை"
 
 #: src/exm-upgrade-assistant.c:501
 msgid ""
@@ -568,119 +490,92 @@ msgstr ""
 "தேர்ந்தெடுத்து, உங்கள் நீட்டிப்புகள் தொடர்ந்து கிடைக்குமா என்பதைச் சரிபார்க்கவும்."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "பயனர் நிறுவிய நீட்டிப்புகள்"
+msgstr "நிறுவப்பட்ட நீட்டிப்புகளைத் தேடுங்கள்"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
-msgstr ""
+msgstr "பட்டியல் விளையாடுங்கள்"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for installed extensions"
-msgstr "நீட்டிப்புகளைத் தேடுங்கள்"
+msgstr "நிறுவப்பட்ட நீட்டிப்புகளைத் தேடுங்கள்"
 
 #: src/exm-window.blp:73
-#, fuzzy
-#| msgctxt "Navigation"
-#| msgid "Installed"
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "நிறுவப்பட்டுள்ளது"
+msgstr "_ நிறுவப்பட்டது"
 
 #: src/exm-window.blp:82
-#, fuzzy
-#| msgid "Browse"
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "உலாவுக"
+msgstr "_ ப்ரோவ்ச்"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
 #: src/exm-window.blp:110
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
-msgstr "முதலில் வரிசைப்படுத்து இயக்கப்பட்டது"
+msgstr "முதலில் வரிசைப்படுத்தப்பட்டது"
 
 #: src/exm-window.blp:111
-#, fuzzy
-#| msgid "Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "ஆதரிக்கப்படாததைக் காட்டு"
+msgstr "_ ஆதரிக்கப்படாதது"
 
 #: src/exm-window.blp:115
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "மேம்படுத்தல் உதவியாளர்"
+msgstr "_அப்பிரேட் உதவியாளர்"
 
 #: src/exm-window.blp:116
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
 #: src/exm-window.blp:117
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "நீட்டிப்பு மேலாளர் பற்றி"
+msgstr "நீட்டிப்பு மேலாளர்"
 
 #: src/exm-window.blp:122
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
-msgstr "பயனர் நிறுவிய நீட்டிப்புகள்"
+msgstr "நீட்டிப்பு நிறுவல்?"
 
 #: src/exm-window.blp:123
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
+"நீட்டிப்பின் நற்பொருத்தங்கள் மற்றும் செயல்பாடு இனி அணுக முடியாது. நீங்கள் நிச்சயமாக நிறுவல் "
+"நீக்க விரும்புகிறீர்களா?"
 
 #: src/exm-window.blp:128
 msgid "_No"
-msgstr ""
+msgstr "_ இல்லை"
 
 #: src/exm-window.blp:129
 msgid "_Yes"
-msgstr ""
+msgstr "_Yes"
 
 #: src/exm-window.blp:134
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Unsupported Extension"
-msgstr "நீட்டிப்புகளைப் பயன்படுத்தவும்"
+msgstr "ஆதரிக்கப்படாத நீட்டிப்பு"
 
 #: src/exm-window.blp:135
-#, fuzzy
-#| msgid ""
-#| "This extension does not support your GNOME Shell version.\n"
-#| "Would you like to install anyway?"
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
-"இந்த நீட்டிப்பு உங்கள் க்னோம் ஷெல் பதிப்பை ஆதரிக்காது.\n"
-"எப்படியும் நிறுவ விரும்புகிறீர்களா?"
+"இந்த நீட்டிப்பு உங்கள் சினோம் செல் பதிப்பை ஆதரிக்காது. நிறுவப்பட்டால் அது பிழைகளை "
+"ஏற்படுத்தக்கூடும்."
 
 #: src/exm-window.blp:141
-#, fuzzy
-#| msgid "Install"
 msgid "_Install Anyway"
-msgstr "நிறுவு"
+msgstr "_ எப்படியும் நிறுவவும்"
 
 #: src/exm-window.blp:142
 msgid "_Go Back"
-msgstr ""
+msgstr "திரும்பிச் செல்லுங்கள்"
 
 #: src/exm-window.c:305
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "விவரங்கள்"
+msgstr "_ டெயில்ச்"
 
 #, fuzzy
 #~| msgid "Updates are available"
