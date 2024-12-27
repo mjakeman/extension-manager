@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-23 18:47+0000\n"
-"PO-Revision-Date: 2024-11-28 20:06+0000\n"
-"Last-Translator: Daniel Fossum <dannyfossum@gmail.com>\n"
+"PO-Revision-Date: 2024-12-28 16:00+0000\n"
+"Last-Translator: Brage Fuglseth <brage.fuglseth@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "extension-manager/app/nb_NO/>\n"
 "Language: nb\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -145,7 +145,7 @@ msgstr "Kommentarer"
 
 #: src/exm-comment-dialog.blp:40
 msgid "Loading Comments"
-msgstr "Laster inn anmeldelser"
+msgstr "Laster inn kommentarer"
 
 #: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:143
 msgid "Author"
@@ -386,10 +386,8 @@ msgid "System Extensions"
 msgstr "Systeminstallerte utvidelser"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Sorter søkeresultatene"
+msgstr "Søketreff"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
@@ -493,20 +491,16 @@ msgstr ""
 "utvidelsene dine fortsatt er tilgjengelige."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Installert"
+msgstr "Søk etter installerte utvidelser"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Hovedmeny"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Søk etter utvidelser"
+msgstr "Søk etter installerte utvidelser"
 
 #: src/exm-window.blp:73
 msgctxt "Navigation"
