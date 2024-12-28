@@ -1,5 +1,5 @@
 /*
- * exm-search-result.h
+ * exm-versions-result.h
  *
  * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -19,20 +19,19 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-
 #pragma once
 
 #include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_SEARCH_RESULT (exm_search_result_get_type())
+#define EXM_TYPE_VERSIONS_RESULT (exm_versions_result_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmSearchResult, exm_search_result, EXM, SEARCH_RESULT, GObject)
+G_DECLARE_FINAL_TYPE (ExmVersionsResult, exm_versions_result, EXM, VERSIONS_RESULT, GObject)
 
-ExmSearchResult *exm_search_result_new (void);
+ExmVersionsResult *exm_versions_result_new (void);
 
-gboolean exm_search_result_supports_shell_version (ExmSearchResult *self,
-                                                   const gchar     *shell_version);
+gboolean exm_versions_result_supports_shell_version (ExmVersionsResult *self,
+                                                     const gchar       *shell_version);
 
 G_END_DECLS
