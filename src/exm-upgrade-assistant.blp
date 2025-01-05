@@ -1,6 +1,10 @@
 using Gtk 4.0;
 using Adw 1;
 
+Adw.SpinnerPaintable spinner {
+  widget: counter;
+}
+
 template $ExmUpgradeAssistant: Adw.Dialog {
   content-width: 400;
   content-height: 600;
@@ -67,24 +71,8 @@ template $ExmUpgradeAssistant: Adw.Dialog {
       Gtk.StackPage waiting {
         name: "waiting";
 
-        child: Gtk.Box {
-          orientation: vertical;
-          spacing: 12;
-          valign: center;
-
-          Adw.Spinner {
-            focusable: true;
-            halign: center;
-            valign: center;
-            height-request: 32;
-            width-request: 32;
-          }
-
-          Gtk.Label counter {
-            styles [
-              "title-2"
-            ]
-          }
+        child: Adw.StatusPage counter {
+          paintable: spinner;
         };
       }
 

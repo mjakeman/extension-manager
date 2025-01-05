@@ -1,6 +1,10 @@
 using Gtk 4.0;
 using Adw 1;
 
+Adw.SpinnerPaintable spinner {
+  widget: loading_status;
+}
+
 template $ExmDetailView: Adw.NavigationPage {
   Adw.ToolbarView {
     [top]
@@ -33,30 +37,9 @@ template $ExmDetailView: Adw.NavigationPage {
         Gtk.StackPage {
           name: "page_spinner";
 
-          child: Gtk.Box {
-            orientation: vertical;
-            spacing: 24;
-            valign: center;
-
-            Adw.Spinner {
-              focusable: true;
-              halign: center;
-              valign: center;
-              height-request: 32;
-              width-request: 32;
-
-              accessibility {
-                labelled-by: loading_details;
-              }
-            }
-
-            Gtk.Label loading_details {
-              styles [
-                "title-1"
-              ]
-
-              label: _("Loading Details");
-            }
+          child: Adw.StatusPage loading_status {
+            paintable: spinner;
+            title: _("Loading Details");
           };
         }
 

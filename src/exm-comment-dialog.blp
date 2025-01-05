@@ -1,6 +1,10 @@
 using Gtk 4.0;
 using Adw 1;
 
+Adw.SpinnerPaintable spinner {
+  widget: loading_status;
+}
+
 template $ExmCommentDialog: Adw.Dialog {
   content-width: 600;
   content-height: 600;
@@ -12,59 +16,39 @@ template $ExmCommentDialog: Adw.Dialog {
     [top]
     Adw.HeaderBar {}
 
-    content: Gtk.ScrolledWindow {
-      Adw.Clamp {
-        Gtk.Stack stack {
-          vexpand: true;
+    content: Gtk.Stack stack {
+      Gtk.StackPage {
+        name: "page_spinner";
 
-          Gtk.StackPage {
-            name: "page_spinner";
+        child: Adw.StatusPage loading_status {
+          paintable: spinner;
+          title: _("Loading Comments");
+        };
+      }
 
-            child: Gtk.Box {
-              orientation: vertical;
-              spacing: 12;
-              valign: center;
+      Gtk.StackPage {
+        name: "page_error";
 
-              Adw.Spinner {
-                halign: center;
-                valign: center;
-                height-request: 32;
-                width-request: 32;
-              }
+        child: Adw.StatusPage error_status {
+          icon-name: "offline-symbolic";
+          title: _("Connection Error");
+        };
+      }
 
-              Gtk.Label {
-                styles [
-                  "title-2"
-                ]
+      Gtk.StackPage {
+        name: "page_comments";
 
-                label: _("Loading Comments");
-              }
-            };
-          }
-
-          Gtk.StackPage {
-            name: "page_error";
-
-            child: Adw.StatusPage error_status {
-              icon-name: "offline-symbolic";
-              title: _("Connection Error");
-            };
-          }
-
-          Gtk.StackPage {
-            name: "page_comments";
-
-            child: Gtk.ListBox list_box {
+        child: Adw.PreferencesPage {
+          Adw.PreferencesGroup {
+            Gtk.ListBox list_box {
               styles [
-                "content",
                 "boxed-list"
               ]
 
-              valign: start;
               selection-mode: none;
-            };
+            }
           }
-        }
+        };
       }
     };
   };

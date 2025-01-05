@@ -1,6 +1,7 @@
-/* exm-upgrade-assistant.c
+/*
+ * exm-upgrade-assistant.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -57,7 +58,7 @@ struct _ExmUpgradeAssistant
     GtkLabel *description;
 
     // Waiting Page
-    GtkLabel *counter;
+    AdwStatusPage *counter;
 
     // Error Page
     AdwStatusPage *error_status;
@@ -173,7 +174,7 @@ update_checked_count (ExmUpgradeAssistant *self)
                             self->number_checked,
                             self->total_extensions);
 
-    gtk_label_set_text (self->counter, text);
+    adw_status_page_set_title (self->counter, text);
     g_free (text);
 }
 
