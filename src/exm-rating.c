@@ -1,6 +1,7 @@
-/* exm-rating.c
+/*
+ * exm-rating.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,14 +120,19 @@ void update_rating (ExmRating *self)
     {
     case 5:
         gtk_image_set_from_icon_name (self->star_five, FILLED_ICON_NAME);
+        // fall through
     case 4:
         gtk_image_set_from_icon_name (self->star_four, FILLED_ICON_NAME);
+        // fall through
     case 3:
         gtk_image_set_from_icon_name (self->star_three, FILLED_ICON_NAME);
+        // fall through
     case 2:
         gtk_image_set_from_icon_name (self->star_two, FILLED_ICON_NAME);
+        // fall through
     case 1:
         gtk_image_set_from_icon_name (self->star_one, FILLED_ICON_NAME);
+        // fall through
     case 0:
     default:
         break;
