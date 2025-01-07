@@ -1,6 +1,7 @@
-/* exm-browse-page.c
+/*
+ * exm-browse-page.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -230,8 +231,8 @@ on_next_page_result (GObject       *source,
     if (G_IS_LIST_MODEL (to_append))
     {
         GtkWidget *child;
-        GtkAdjustment *adjustment;
-        double scroll_pos;
+        GtkAdjustment *adjustment = NULL;
+        double scroll_pos = 0.0;
 
         // Save scrolled window position
         child = gtk_widget_get_first_child (GTK_WIDGET (self->status_page));

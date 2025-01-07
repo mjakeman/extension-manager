@@ -1,6 +1,7 @@
-/* exm-manager.c
+/*
+ * exm-manager.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -542,8 +543,8 @@ parse_single_extension (ExmExtension **extension,
     gboolean has_prefs = FALSE;
     gboolean has_update = FALSE;
     gboolean can_change = TRUE;
-    ExmExtensionState state;
-    ExmExtensionType type;
+    ExmExtensionState state = EXM_EXTENSION_STATE_ACTIVE;
+    ExmExtensionType type = EXM_EXTENSION_TYPE_SYSTEM;
     gchar *version = NULL;
     gchar *version_name = NULL;
     gchar *error_msg = NULL;
@@ -795,9 +796,7 @@ exm_manager_init (ExmManager *self)
 
     if (error != NULL)
     {
-        char *error_text;
-        error_text = g_strdup_printf ("Could not create proxy: %s\n", error->message);
-        notify_error (self, "%s", error_text);
+        notify_error (self, "Could not create proxy: %s\n", error->message);
         return;
     }
 
