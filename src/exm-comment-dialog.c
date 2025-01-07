@@ -1,6 +1,7 @@
-/* exm-comment-dialog.c
+/*
+ * exm-comment-dialog.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -134,7 +135,8 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 }
 
 static GtkWidget *
-comment_factory (ExmComment *comment)
+comment_factory (ExmComment *comment,
+                 gpointer    user_data)
 {
     GtkWidget *row;
 

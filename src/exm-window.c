@@ -1,6 +1,7 @@
-/* exm-window.c
+/*
+ * exm-window.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -154,7 +155,8 @@ extension_remove (GtkWidget  *widget,
 
 static void
 on_install_done (GObject       *source,
-                 GAsyncResult  *res)
+                 GAsyncResult  *res,
+                 gpointer       user_data)
 {
     GError *error = NULL;
     if (!exm_manager_install_finish (EXM_MANAGER (source), res, &error) && error)

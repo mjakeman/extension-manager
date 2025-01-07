@@ -1,6 +1,7 @@
-/* exm-installed-page.c
+/*
+ * exm-installed-page.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -147,7 +148,9 @@ widget_factory (ExmExtension     *extension,
 }
 
 static int
-compare_enabled (ExmExtension *this, ExmExtension *other)
+compare_enabled (ExmExtension *this,
+                 ExmExtension *other,
+                 gpointer      user_data)
 {
     g_return_val_if_fail (EXM_IS_EXTENSION (this), 2);
     g_return_val_if_fail (EXM_IS_EXTENSION (other), 2); // Crash
