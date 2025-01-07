@@ -273,6 +273,6 @@ exm_extension_class_init (ExmExtensionClass *klass)
 }
 
 static void
-exm_extension_init (ExmExtension *self)
+exm_extension_init (ExmExtension *self G_GNUC_UNUSED)
 {
 }

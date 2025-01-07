@@ -43,11 +43,7 @@ struct _ExmSearchResult
     ExmShellVersionMap *shell_version_map;
 };
 
-static void json_serializable_iface_init (JsonSerializableIface *iface);
-
-G_DEFINE_FINAL_TYPE_WITH_CODE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT,
-                               G_IMPLEMENT_INTERFACE (JSON_TYPE_SERIALIZABLE,
-                                                      json_serializable_iface_init))
+G_DEFINE_FINAL_TYPE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT)
 
 enum {
     PROP_0,
@@ -200,7 +196,7 @@ exm_search_result_supports_shell_version (ExmSearchResult *self,
 }
 
 static void
-deserialize_version (JsonObject         *object,
+deserialize_version (JsonObject         *object G_GNUC_UNUSED,
                      const gchar        *shell_version,
                      JsonNode           *member_node,
                      ExmShellVersionMap *version_map)
@@ -334,11 +330,6 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
 }
 
 static void
-exm_search_result_init (ExmSearchResult *self)
-{
-}
-
-static void
-json_serializable_iface_init (JsonSerializableIface *iface)
+exm_search_result_init (ExmSearchResult *self G_GNUC_UNUSED)
 {
 }

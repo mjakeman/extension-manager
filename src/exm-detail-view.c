@@ -211,7 +211,7 @@ queue_resolve_image (ExmDetailView    *self,
 
 static GtkWidget *
 comment_factory (ExmComment *comment,
-                 gpointer    user_data)
+                 gpointer    user_data G_GNUC_UNUSED)
 {
     GtkWidget *tile;
 
@@ -260,7 +260,7 @@ queue_resolve_comments (ExmDetailView *self,
 }
 
 static void
-show_more_comments (GtkButton *button,
+show_more_comments (GtkButton *button G_GNUC_UNUSED,
                     ExmDetailView *self)
 {
     GtkRoot *toplevel;

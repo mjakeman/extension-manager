@@ -1,6 +1,7 @@
-/* exm-extension-row.c
+/*
+ * exm-extension-row.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -142,10 +143,10 @@ set_error_label_visible (ExmExtensionRow *self,
 }
 
 static gboolean
-transform_to_state (GBinding     *binding,
+transform_to_state (GBinding     *binding G_GNUC_UNUSED,
                     const GValue *from_value,
                     GValue       *to_value,
-                    gpointer      user_data)
+                    gpointer      user_data G_GNUC_UNUSED)
 {
     g_value_set_boolean (to_value, g_value_get_enum (from_value) == EXM_EXTENSION_STATE_ACTIVE);
 
@@ -332,8 +333,8 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
 }
 
 static void
-open_prefs (GSimpleAction   *action,
-            GVariant        *new_value,
+open_prefs (GSimpleAction   *action G_GNUC_UNUSED,
+            GVariant        *new_value G_GNUC_UNUSED,
             ExmExtensionRow *self)
 {
     g_return_if_fail (self->extension);
@@ -344,8 +345,8 @@ open_prefs (GSimpleAction   *action,
 }
 
 static void
-uninstall (GSimpleAction   *action,
-           GVariant        *new_value,
+uninstall (GSimpleAction   *action G_GNUC_UNUSED,
+           GVariant        *new_value G_GNUC_UNUSED,
            ExmExtensionRow *self)
 {
     g_return_if_fail (self->extension);

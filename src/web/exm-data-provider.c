@@ -113,6 +113,6 @@ exm_data_provider_class_init (ExmDataProviderClass *klass)
 }
 
 static void
-exm_data_provider_init (ExmDataProvider *self)
+exm_data_provider_init (ExmDataProvider *self G_GNUC_UNUSED)
 {
 }

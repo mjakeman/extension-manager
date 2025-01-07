@@ -723,7 +723,7 @@ is_extension_equal (ExmExtension *a, ExmExtension *b)
 }
 
 static void
-on_state_changed (ShellExtensions *object,
+on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
                   const gchar     *arg_uuid,
                   GVariant        *arg_state,
                   ExmManager      *self)

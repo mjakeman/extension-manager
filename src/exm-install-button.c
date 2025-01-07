@@ -142,6 +142,6 @@ exm_install_button_class_init (ExmInstallButtonClass *klass)
 }
 
 static void
-exm_install_button_init (ExmInstallButton *self)
+exm_install_button_init (ExmInstallButton *self G_GNUC_UNUSED)
 {
 }

@@ -1,6 +1,7 @@
-/* exm-screenshot.c
+/*
+ * exm-screenshot.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -99,7 +100,7 @@ exm_screenshot_measure (GtkWidget      *widget,
 }
 
 static GtkSizeRequestMode
-exm_screenshot_get_request_mode (GtkWidget *widget)
+exm_screenshot_get_request_mode (GtkWidget *widget G_GNUC_UNUSED)
 {
     return GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH;
 }

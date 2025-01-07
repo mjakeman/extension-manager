@@ -129,6 +129,6 @@ exm_comment_provider_class_init (ExmCommentProviderClass *klass)
 }
 
 static void
-exm_comment_provider_init (ExmCommentProvider *self)
+exm_comment_provider_init (ExmCommentProvider *self G_GNUC_UNUSED)
 {
 }

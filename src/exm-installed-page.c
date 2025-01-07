@@ -150,7 +150,7 @@ widget_factory (ExmExtension     *extension,
 static int
 compare_enabled (ExmExtension *this,
                  ExmExtension *other,
-                 gpointer      user_data)
+                 gpointer      user_data G_GNUC_UNUSED)
 {
     g_return_val_if_fail (EXM_IS_EXTENSION (this), 2);
     g_return_val_if_fail (EXM_IS_EXTENSION (other), 2); // Crash
@@ -184,8 +184,8 @@ on_search_changed (GtkSearchEntry *search_entry,
 }
 
 static void
-on_visible_stack_changed (GObject    *object,
-                          GParamSpec *pspec,
+on_visible_stack_changed (GObject    *object G_GNUC_UNUSED,
+                          GParamSpec *pspec G_GNUC_UNUSED,
                           gpointer    user_data)
 {
     ExmInstalledPage *self = (ExmInstalledPage *) user_data;
@@ -294,7 +294,7 @@ show_updates_banner (ExmInstalledPage *self)
 }
 
 static void
-on_updates_available (ExmManager       *manager,
+on_updates_available (ExmManager       *manager G_GNUC_UNUSED,
                       int               n_updates,
                       ExmInstalledPage *self)
 {

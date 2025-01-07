@@ -269,7 +269,7 @@ on_next_page_result (GObject       *source,
 }
 
 static void
-on_load_more_results (AdwButtonRow  *row,
+on_load_more_results (AdwButtonRow  *row G_GNUC_UNUSED,
                       ExmBrowsePage *self)
 {
     const char *query;

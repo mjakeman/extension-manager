@@ -65,12 +65,6 @@ exm_comment_dialog_new (int web_id)
 }
 
 static void
-exm_comment_dialog_finalize (GObject *object)
-{
-    G_OBJECT_CLASS (exm_comment_dialog_parent_class)->finalize (object);
-}
-
-static void
 exm_comment_dialog_get_property (GObject    *object,
                                  guint       prop_id,
                                  GValue     *value,
@@ -111,7 +105,6 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_comment_dialog_finalize;
     object_class->get_property = exm_comment_dialog_get_property;
     object_class->set_property = exm_comment_dialog_set_property;
     object_class->constructed = exm_comment_dialog_constructed;
@@ -136,7 +129,7 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 
 static GtkWidget *
 comment_factory (ExmComment *comment,
-                 gpointer    user_data)
+                 gpointer    user_data G_GNUC_UNUSED)
 {
     GtkWidget *row;
 
