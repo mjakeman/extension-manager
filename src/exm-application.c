@@ -1,6 +1,7 @@
-/* exm-application.c
+/*
+ * exm-application.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -135,7 +136,6 @@ exm_application_open (GApplication  *app,
 static void
 exm_application_class_init (ExmApplicationClass *klass)
 {
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
     GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
 
     /*

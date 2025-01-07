@@ -1,6 +1,7 @@
-/* exm-install-button.c
+/*
+ * exm-install-button.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,14 +50,6 @@ ExmInstallButton *
 exm_install_button_new (void)
 {
     return g_object_new (EXM_TYPE_INSTALL_BUTTON, NULL);
-}
-
-static void
-exm_install_button_finalize (GObject *object)
-{
-    ExmInstallButton *self = (ExmInstallButton *)object;
-
-    G_OBJECT_CLASS (exm_install_button_parent_class)->finalize (object);
 }
 
 static void
@@ -134,7 +127,6 @@ exm_install_button_class_init (ExmInstallButtonClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_install_button_finalize;
     object_class->get_property = exm_install_button_get_property;
     object_class->set_property = exm_install_button_set_property;
 

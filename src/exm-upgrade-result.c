@@ -1,6 +1,7 @@
-/* exm-upgrade-result.c
+/*
+ * exm-upgrade-result.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -74,21 +75,6 @@ exm_upgrade_result_get_property (GObject    *object,
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
-}
-
-static void
-exm_upgrade_result_set_property (GObject      *object,
-                                 guint         prop_id,
-                                 const GValue *value,
-                                 GParamSpec   *pspec)
-{
-    ExmUpgradeResult *self = EXM_UPGRADE_RESULT (object);
-
-    switch (prop_id)
-      {
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      }
 }
 
 ExmExtension *
@@ -178,7 +164,6 @@ exm_upgrade_result_class_init (ExmUpgradeResultClass *klass)
 
     object_class->finalize = exm_upgrade_result_finalize;
     object_class->get_property = exm_upgrade_result_get_property;
-    object_class->set_property = exm_upgrade_result_set_property;
 
     properties [PROP_NAME] =
         g_param_spec_string ("name", "Name", "Name", NULL, G_PARAM_READABLE);

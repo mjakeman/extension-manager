@@ -1,7 +1,7 @@
 /*
  * exm-zoom-picture.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,14 +66,6 @@ ExmZoomPicture *
 exm_zoom_picture_new (void)
 {
 	return g_object_new (EXM_TYPE_ZOOM_PICTURE, NULL);
-}
-
-static void
-exm_zoom_picture_finalize (GObject *object)
-{
-	ExmZoomPicture *self = (ExmZoomPicture *)object;
-
-	G_OBJECT_CLASS (exm_zoom_picture_parent_class)->finalize (object);
 }
 
 static void
@@ -243,7 +235,6 @@ exm_zoom_picture_class_init (ExmZoomPictureClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->finalize = exm_zoom_picture_finalize;
 	object_class->get_property = exm_zoom_picture_get_property;
 	object_class->set_property = exm_zoom_picture_set_property;
 
