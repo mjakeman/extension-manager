@@ -170,6 +170,8 @@ compare_enabled (ExmExtension *this,
         return -1;
     else if (!this_enabled && other_enabled)
         return 1;
+
+    return 0; // Never reached
 }
 
 static void
