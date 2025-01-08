@@ -8,47 +8,35 @@ template $ExmSearchRow: Gtk.ListBoxRow {
   activatable: true;
   action-name: "win.show-detail";
 
-  Gtk.Box header {
+  Gtk.Box {
     styles [
       "header"
     ]
 
-    hexpand: true;
-    spacing: 10;
+    spacing: 12;
 
-    Gtk.Grid {
+    Gtk.Box {
       hexpand: true;
-      column-spacing: 10;
+      orientation: vertical;
 
-      Gtk.Box {
-        hexpand: true;
-        orientation: vertical;
-        valign: center;
+      Gtk.Label title {
+        styles [
+          "title"
+        ]
 
-        Gtk.Label title {
-          styles [
-            "title"
-          ]
+        ellipsize: end;
+        xalign: 0;
+        label: bind template.search-result as <$ExmSearchResult>.name;
+      }
 
-          ellipsize: end;
-          xalign: 0;
-          label: bind template.search-result as <$ExmSearchResult>.name;
-        }
+      Gtk.Label subtitle {
+        styles [
+          "subtitle"
+        ]
 
-        Gtk.Label subtitle {
-          styles [
-            "subtitle"
-          ]
-
-          ellipsize: end;
-          xalign: 0;
-          label: bind template.search-result as <$ExmSearchResult>.creator;
-        }
-
-        layout {
-          row: 0;
-          column: 1;
-        }
+        ellipsize: end;
+        xalign: 0;
+        label: bind template.search-result as <$ExmSearchResult>.creator;
       }
 
       Gtk.Label description_label {
@@ -56,7 +44,7 @@ template $ExmSearchRow: Gtk.ListBoxRow {
           "dim-label"
         ]
 
-        margin-top: 5;
+        margin-top: 6;
         single-line-mode: true;
         xalign: 0;
         wrap: true;
@@ -64,27 +52,16 @@ template $ExmSearchRow: Gtk.ListBoxRow {
         ellipsize: end;
         lines: 2;
         label: bind template.search-result as <$ExmSearchResult>.description;
-
-        layout {
-          row: 1;
-          column: 1;
-        }
       }
     }
 
     $ExmInstallButton install_btn {
       valign: center;
-      halign: end;
       clicked => $install_remote();
     }
 
     Gtk.Image {
-      styles [
-        "expander-row-arrow"
-      ]
-
       valign: center;
-      halign: end;
       icon-name: "go-next-symbolic";
     }
   }
