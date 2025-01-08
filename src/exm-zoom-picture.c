@@ -1,7 +1,7 @@
 /*
  * exm-zoom-picture.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -69,14 +69,6 @@ exm_zoom_picture_new (void)
 }
 
 static void
-exm_zoom_picture_finalize (GObject *object)
-{
-	ExmZoomPicture *self = (ExmZoomPicture *)object;
-
-	G_OBJECT_CLASS (exm_zoom_picture_parent_class)->finalize (object);
-}
-
-static void
 exm_zoom_picture_get_property (GObject    *object,
                                guint       prop_id,
                                GValue     *value,
@@ -133,7 +125,7 @@ exm_zoom_picture_get_paintable (ExmZoomPicture *self)
 
 void
 exm_zoom_picture_set_zoom_level (ExmZoomPicture *self,
-								 float           zoom_level)
+                                 float           zoom_level)
 {
 	self->zoom_level = CLAMP (zoom_level, ZOOM_MIN, ZOOM_MAX);
 
@@ -148,19 +140,19 @@ exm_zoom_picture_get_zoom_level (ExmZoomPicture *self)
 }
 
 float
-exm_zoom_picture_get_zoom_level_max (ExmZoomPicture *self)
+exm_zoom_picture_get_zoom_level_max (ExmZoomPicture *self G_GNUC_UNUSED)
 {
 	return ZOOM_MAX;
 }
 
 float
-exm_zoom_picture_get_zoom_level_min (ExmZoomPicture *self)
+exm_zoom_picture_get_zoom_level_min (ExmZoomPicture *self G_GNUC_UNUSED)
 {
 	return ZOOM_MIN;
 }
 
 float
-exm_zoom_picture_get_zoom_level_step (ExmZoomPicture *self)
+exm_zoom_picture_get_zoom_level_step (ExmZoomPicture *self G_GNUC_UNUSED)
 {
 	return ZOOM_STEP;
 }
@@ -243,7 +235,6 @@ exm_zoom_picture_class_init (ExmZoomPictureClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->finalize = exm_zoom_picture_finalize;
 	object_class->get_property = exm_zoom_picture_get_property;
 	object_class->set_property = exm_zoom_picture_set_property;
 
@@ -263,8 +254,8 @@ exm_zoom_picture_class_init (ExmZoomPictureClass *klass)
 
 void
 on_gesture_begin (GtkGesture       *gesture,
-				  GdkEventSequence *sequence,
-				  ExmZoomPicture   *self)
+                  GdkEventSequence *sequence G_GNUC_UNUSED,
+                  ExmZoomPicture   *self)
 {
 	gtk_gesture_set_state (gesture, GTK_EVENT_SEQUENCE_CLAIMED);
 	self->gesture_start_zoom = self->zoom_level;
@@ -278,8 +269,8 @@ on_gesture_begin (GtkGesture       *gesture,
 
 void
 on_scale_changed (GtkGestureZoom *gesture,
-				  gdouble         scale,
-				  ExmZoomPicture *self)
+                  gdouble         scale,
+                  ExmZoomPicture *self)
 {
 	double gesture_touch_offset_x;
 	double gesture_touch_offset_y;
@@ -301,7 +292,7 @@ on_scale_changed (GtkGestureZoom *gesture,
 }
 
 void
-on_drag_update (GtkGestureDrag *gesture,
+on_drag_update (GtkGestureDrag *gesture G_GNUC_UNUSED,
                 gdouble         offset_x,
                 gdouble         offset_y,
                 ExmZoomPicture *self)

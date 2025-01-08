@@ -1,6 +1,7 @@
-/* exm-backtrace.c
+/*
+ * exm-backtrace.c
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +36,7 @@ static struct backtrace_state *state = NULL;
 static int frames_omitted_count = 0;
 
 static void
-exm_backtrace_error_cb (void       *data,
+exm_backtrace_error_cb (void       *data G_GNUC_UNUSED,
                         const char *msg,
                         int         errnum)
 {
@@ -44,7 +45,7 @@ exm_backtrace_error_cb (void       *data,
 
 static int
 exm_backtrace_full_cb (void       *data,
-                       uintptr_t   pc,
+                       uintptr_t   pc G_GNUC_UNUSED,
                        const char *filename,
                        int         lineno,
                        const char *function)

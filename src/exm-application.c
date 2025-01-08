@@ -1,6 +1,7 @@
-/* exm-application.c
+/*
+ * exm-application.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -95,7 +96,7 @@ static void
 exm_application_open (GApplication  *app,
                       GFile        **files,
                       gint           n_files,
-                      const gchar   *hint)
+                      const gchar   *hint G_GNUC_UNUSED)
 {
     ExmWindow *window;
     const char *scheme;
@@ -135,7 +136,6 @@ exm_application_open (GApplication  *app,
 static void
 exm_application_class_init (ExmApplicationClass *klass)
 {
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
     GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
 
     /*
@@ -149,8 +149,8 @@ exm_application_class_init (ExmApplicationClass *klass)
 }
 
 static void
-exm_application_show_about (GSimpleAction *action,
-                            GVariant      *parameter,
+exm_application_show_about (GSimpleAction *action G_GNUC_UNUSED,
+                            GVariant      *parameter G_GNUC_UNUSED,
                             gpointer       user_data)
 {
     ExmApplication *self = EXM_APPLICATION (user_data);
@@ -170,7 +170,7 @@ exm_application_show_about (GSimpleAction *action,
     adw_about_dialog_set_comments (ADW_ABOUT_DIALOG (about_dialog), _("Browse, install, and manage GNOME Shell Extensions."));
     adw_about_dialog_set_developers (ADW_ABOUT_DIALOG (about_dialog), authors);
     adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about_dialog), _("translator-credits"));
-    adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022-2024 Matthew Jakeman");
+    adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022-2025 Matthew Jakeman");
 
 #if WITH_BACKTRACE
     adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),

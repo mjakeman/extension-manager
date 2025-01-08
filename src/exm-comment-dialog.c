@@ -1,6 +1,7 @@
-/* exm-comment-dialog.c
+/*
+ * exm-comment-dialog.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -64,12 +65,6 @@ exm_comment_dialog_new (int web_id)
 }
 
 static void
-exm_comment_dialog_finalize (GObject *object)
-{
-    G_OBJECT_CLASS (exm_comment_dialog_parent_class)->finalize (object);
-}
-
-static void
 exm_comment_dialog_get_property (GObject    *object,
                                  guint       prop_id,
                                  GValue     *value,
@@ -110,7 +105,6 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_comment_dialog_finalize;
     object_class->get_property = exm_comment_dialog_get_property;
     object_class->set_property = exm_comment_dialog_set_property;
     object_class->constructed = exm_comment_dialog_constructed;
@@ -134,7 +128,8 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 }
 
 static GtkWidget *
-comment_factory (ExmComment *comment)
+comment_factory (ExmComment *comment,
+                 gpointer    user_data G_GNUC_UNUSED)
 {
     GtkWidget *row;
 

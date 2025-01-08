@@ -1,6 +1,7 @@
-/* exm-installed-page.c
+/*
+ * exm-installed-page.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -147,7 +148,9 @@ widget_factory (ExmExtension     *extension,
 }
 
 static int
-compare_enabled (ExmExtension *this, ExmExtension *other)
+compare_enabled (ExmExtension *this,
+                 ExmExtension *other,
+                 gpointer      user_data G_GNUC_UNUSED)
 {
     g_return_val_if_fail (EXM_IS_EXTENSION (this), 2);
     g_return_val_if_fail (EXM_IS_EXTENSION (other), 2); // Crash
@@ -167,6 +170,8 @@ compare_enabled (ExmExtension *this, ExmExtension *other)
         return -1;
     else if (!this_enabled && other_enabled)
         return 1;
+
+    return 0; // Never reached
 }
 
 static void
@@ -179,8 +184,8 @@ on_search_changed (GtkSearchEntry *search_entry,
 }
 
 static void
-on_visible_stack_changed (GObject    *object,
-                          GParamSpec *pspec,
+on_visible_stack_changed (GObject    *object G_GNUC_UNUSED,
+                          GParamSpec *pspec G_GNUC_UNUSED,
                           gpointer    user_data)
 {
     ExmInstalledPage *self = (ExmInstalledPage *) user_data;
@@ -289,7 +294,7 @@ show_updates_banner (ExmInstalledPage *self)
 }
 
 static void
-on_updates_available (ExmManager       *manager,
+on_updates_available (ExmManager       *manager G_GNUC_UNUSED,
                       int               n_updates,
                       ExmInstalledPage *self)
 {

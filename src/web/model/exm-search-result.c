@@ -1,3 +1,24 @@
+/*
+ * exm-search-result.c
+ *
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include "exm-search-result.h"
 
 #include "exm-shell-version-map.h"
@@ -22,11 +43,7 @@ struct _ExmSearchResult
     ExmShellVersionMap *shell_version_map;
 };
 
-static void json_serializable_iface_init (JsonSerializableIface *iface);
-
-G_DEFINE_FINAL_TYPE_WITH_CODE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT,
-                               G_IMPLEMENT_INTERFACE (JSON_TYPE_SERIALIZABLE,
-                                                      json_serializable_iface_init))
+G_DEFINE_FINAL_TYPE (ExmSearchResult, exm_search_result, G_TYPE_OBJECT)
 
 enum {
     PROP_0,
@@ -122,8 +139,6 @@ exm_search_result_set_property (GObject      *object,
 {
     ExmSearchResult *self = EXM_SEARCH_RESULT (object);
 
-    const ExmShellVersionMap *map;
-
     switch (prop_id)
     {
     case PROP_UUID:
@@ -181,7 +196,7 @@ exm_search_result_supports_shell_version (ExmSearchResult *self,
 }
 
 static void
-deserialize_version (JsonObject         *object,
+deserialize_version (JsonObject         *object G_GNUC_UNUSED,
                      const gchar        *shell_version,
                      JsonNode           *member_node,
                      ExmShellVersionMap *version_map)
@@ -315,11 +330,6 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
 }
 
 static void
-exm_search_result_init (ExmSearchResult *self)
-{
-}
-
-static void
-json_serializable_iface_init (JsonSerializableIface *iface)
+exm_search_result_init (ExmSearchResult *self G_GNUC_UNUSED)
 {
 }

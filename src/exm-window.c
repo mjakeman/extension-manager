@@ -1,6 +1,7 @@
-/* exm-window.c
+/*
+ * exm-window.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -92,7 +93,7 @@ exm_window_get_search_bar (ExmWindow *self)
 
 static void
 extension_open_prefs (GtkWidget  *widget,
-                      const char *action_name,
+                      const char *action_name G_GNUC_UNUSED,
                       GVariant   *param)
 {
     ExmWindow *self;
@@ -132,7 +133,7 @@ extension_remove_dialog_response (AdwAlertDialog   *dialog,
 
 static void
 extension_remove (GtkWidget  *widget,
-                  const char *action_name,
+                  const char *action_name G_GNUC_UNUSED,
                   GVariant   *param)
 {
     ExmWindow *self;
@@ -154,7 +155,8 @@ extension_remove (GtkWidget  *widget,
 
 static void
 on_install_done (GObject       *source,
-                 GAsyncResult  *res)
+                 GAsyncResult  *res,
+                 gpointer       user_data G_GNUC_UNUSED)
 {
     GError *error = NULL;
     if (!exm_manager_install_finish (EXM_MANAGER (source), res, &error) && error)
@@ -191,7 +193,7 @@ extension_unsupported_dialog_response (AdwAlertDialog        *dialog,
 
 static void
 extension_install (GtkWidget  *widget,
-                   const char *action_name,
+                   const char *action_name G_GNUC_UNUSED,
                    GVariant   *param)
 {
     ExmWindow *self;
@@ -220,7 +222,7 @@ extension_install (GtkWidget  *widget,
 
 static void
 show_page (GtkWidget  *widget,
-           const char *action_name,
+           const char *action_name G_GNUC_UNUSED,
            GVariant   *param)
 {
     ExmWindow *self;
@@ -260,8 +262,8 @@ show_view (GtkWidget  *widget,
 
 static void
 show_upgrade_assistant (GtkWidget  *widget,
-                        const char *action_name,
-                        GVariant   *param)
+                        const char *action_name G_GNUC_UNUSED,
+                        GVariant   *param G_GNUC_UNUSED)
 {
     ExmWindow *self;
 
@@ -273,7 +275,7 @@ show_upgrade_assistant (GtkWidget  *widget,
 
 static void
 show_error_dialog (GtkWidget  *widget,
-                   const char *action_name,
+                   const char *action_name G_GNUC_UNUSED,
                    GVariant   *param)
 {
     ExmErrorDialog *err_dialog;
@@ -290,7 +292,7 @@ show_error_dialog (GtkWidget  *widget,
 
 static void
 show_error (GtkWidget  *widget,
-            const char *action_name,
+            const char *action_name G_GNUC_UNUSED,
             GVariant   *param)
 {
     ExmWindow *self;
@@ -312,8 +314,8 @@ show_error (GtkWidget  *widget,
 
 static void
 search_online (GtkWidget  *widget,
-               const char *action_name,
-               GVariant   *param)
+               const char *action_name G_GNUC_UNUSED,
+               GVariant   *param G_GNUC_UNUSED)
 {
     ExmWindow *self;
     GtkSearchEntry *search_entry;
@@ -330,7 +332,7 @@ search_online (GtkWidget  *widget,
 
 
 static void
-on_error (ExmManager *manager,
+on_error (ExmManager *manager G_GNUC_UNUSED,
           char       *error_text,
           ExmWindow  *self)
 {
@@ -338,7 +340,7 @@ on_error (ExmManager *manager,
 }
 
 static void
-on_updates_available (ExmManager *manager,
+on_updates_available (ExmManager *manager G_GNUC_UNUSED,
                       int         n_updates,
                       ExmWindow  *self)
 {
@@ -347,7 +349,7 @@ on_updates_available (ExmManager *manager,
 
 static void
 on_visible_page_changed (AdwViewStack *view_stack,
-                         GtkWidget    *widget,
+                         GtkWidget    *widget G_GNUC_UNUSED,
                          ExmWindow    *self)
 {
     gboolean is_installed_page = EXM_IS_INSTALLED_PAGE (adw_view_stack_get_visible_child (view_stack));
@@ -364,8 +366,8 @@ on_visible_page_changed (AdwViewStack *view_stack,
 }
 
 void
-on_visible_installed_stack_changed (GObject    *object,
-                                    GParamSpec *pspec,
+on_visible_installed_stack_changed (GObject    *object G_GNUC_UNUSED,
+                                    GParamSpec *pspec G_GNUC_UNUSED,
                                     gpointer    user_data)
 {
     ExmWindow *self = (ExmWindow *) user_data;
@@ -387,8 +389,8 @@ on_visible_installed_stack_changed (GObject    *object,
 
 static gboolean
 search_open_cb (GtkWidget *widget,
-                GVariant  *args,
-                gpointer   user_data)
+                GVariant  *args G_GNUC_UNUSED,
+                gpointer   user_data G_GNUC_UNUSED)
 {
   ExmWindow *self = EXM_WINDOW (widget);
   AdwNavigationPage *visible_page;
@@ -420,7 +422,7 @@ search_open_cb (GtkWidget *widget,
 static void
 screenshot_zoom (GtkWidget  *widget,
                  const char *action_name,
-                 GVariant   *parameter)
+                 GVariant   *parameter G_GNUC_UNUSED)
 {
   ExmWindow *self = (ExmWindow *)widget;
 

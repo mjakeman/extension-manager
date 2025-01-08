@@ -1,6 +1,7 @@
-/* exm-detail-view.c
+/*
+ * exm-detail-view.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -209,7 +210,8 @@ queue_resolve_image (ExmDetailView    *self,
 }
 
 static GtkWidget *
-comment_factory (ExmComment *comment)
+comment_factory (ExmComment *comment,
+                 gpointer    user_data G_GNUC_UNUSED)
 {
     GtkWidget *tile;
 
@@ -237,16 +239,12 @@ on_get_comments (GObject       *source,
     }
 
     if (g_list_model_get_n_items (model) == 0)
-    {
         gtk_stack_set_visible_child_name (self->comment_stack, "page_empty");
-    }
     else
-    {
         gtk_stack_set_visible_child_name (self->comment_stack, "page_comments");
-    }
 
     gtk_flow_box_bind_model (self->comment_box, model,
-                             (GtkListBoxCreateWidgetFunc) comment_factory,
+                             (GtkFlowBoxCreateWidgetFunc) comment_factory,
                              g_object_ref (self), g_object_unref);
 }
 
@@ -262,7 +260,7 @@ queue_resolve_comments (ExmDetailView *self,
 }
 
 static void
-show_more_comments (GtkButton *button,
+show_more_comments (GtkButton *button G_GNUC_UNUSED,
                     ExmDetailView *self)
 {
     GtkRoot *toplevel;
