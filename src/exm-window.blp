@@ -22,7 +22,7 @@ template $ExmWindow: Adw.ApplicationWindow {
         title: bind template.title;
         tag: "main";
 
-        Adw.ToolbarView {
+        child: Adw.ToolbarView {
           [top]
           Adw.HeaderBar header_bar {
             show-back-button: false;
@@ -60,38 +60,33 @@ template $ExmWindow: Adw.ApplicationWindow {
             };
           }
 
-          content: Gtk.Box {
-            orientation: vertical;
+          content: Adw.ViewStack view_stack {
+            notify::visible-child => $on_visible_page_changed();
 
-            Adw.ViewStack view_stack {
-              vexpand: true;
-              hexpand: true;
-              notify::visible-child => $on_visible_page_changed();
+            Adw.ViewStackPage installed_stack {
+              name: "installed";
+              title: C_("Navigation", "_Installed");
+              icon-name: "puzzle-piece-symbolic";
+              use-underline: true;
 
-              Adw.ViewStackPage installed_stack {
-                name: "installed";
-                title: C_("Navigation", "_Installed");
-                icon-name: "puzzle-piece-symbolic";
-                use-underline: true;
-
-                child: $ExmInstalledPage installed_page {};
-              }
-
-              Adw.ViewStackPage {
-                name: "browse";
-                title: C_("Navigation", "_Browse");
-                icon-name: "globe-symbolic";
-                use-underline: true;
-
-                child: $ExmBrowsePage browse_page {};
-              }
+              child: $ExmInstalledPage installed_page {};
             }
 
-            Adw.ViewSwitcherBar switcher_bar {
-              stack: view_stack;
+            Adw.ViewStackPage {
+              name: "browse";
+              title: C_("Navigation", "_Browse");
+              icon-name: "globe-symbolic";
+              use-underline: true;
+
+              child: $ExmBrowsePage browse_page {};
             }
           };
-        }
+
+          [bottom]
+          Adw.ViewSwitcherBar switcher_bar {
+            stack: view_stack;
+          }
+        };
       }
 
       $ExmDetailView detail_view {}
