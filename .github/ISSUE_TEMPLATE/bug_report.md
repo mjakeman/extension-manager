@@ -12,7 +12,7 @@ A description of the bug goes here.
 
 **System Information:**
  - Distro (e.g. Fedora, Ubuntu)
- - Extension Manager version (e.g. 0.6.0)
+ - Extension Manager version (e.g. 0.6.1)
  - Package format (Flatpak, Snap, other)
 
 **Additional context**
