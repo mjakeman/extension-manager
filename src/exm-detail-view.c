@@ -72,7 +72,7 @@ struct _ExmDetailView
     ExmInfoBar *ext_info_bar;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
-    GtkFlowBox *comment_box;
+    AdwWrapBox *comment_box;
     GtkButton *show_more_btn;
 
     AdwActionRow *link_homepage;
@@ -211,17 +211,13 @@ queue_resolve_image (ExmDetailView    *self,
                                       g_object_ref (self));
 }
 
-static GtkWidget *
-comment_factory (ExmComment *comment,
-                 gpointer    user_data G_GNUC_UNUSED)
+static void
+delete_comment_tiles (ExmDetailView *self)
 {
-    GtkWidget *tile;
+  GtkWidget *child;
 
-    tile = gtk_flow_box_child_new ();
-    gtk_widget_add_css_class (tile, "card");
-    gtk_flow_box_child_set_child (GTK_FLOW_BOX_CHILD (tile), GTK_WIDGET (exm_comment_tile_new (comment)));
-
-    return tile;
+  while ((child = gtk_widget_get_first_child (GTK_WIDGET (self->comment_box))) != NULL)
+    adw_wrap_box_remove (self->comment_box, child);
 }
 
 static void
@@ -260,9 +256,16 @@ on_get_comments (GObject       *source,
         gtk_stack_set_visible_child_name (self->comment_stack, "page_comments");
     }
 
-    gtk_flow_box_bind_model (self->comment_box, model,
-                             (GtkFlowBoxCreateWidgetFunc) comment_factory,
-                             g_object_ref (self), g_object_unref);
+    delete_comment_tiles (self);
+
+    for (guint i = 0; i < g_list_model_get_n_items (model); i++)
+    {
+        ExmComment *comment = g_list_model_get_item (model, i);
+        GtkWidget *tile = GTK_WIDGET (exm_comment_tile_new (comment));
+        gtk_widget_add_css_class (tile, "card");
+        adw_wrap_box_append (self->comment_box, tile);
+        g_object_unref (comment);
+    }
 }
 
 static void
@@ -319,20 +322,6 @@ install_remote (GtkButton     *button,
 }
 
 static void
-delete_donation_rows (ExmDetailView *self)
-{
-    GtkWidget *row;
-
-    for (GList *iter = self->donation_rows_list; iter != NULL; iter = g_list_next (iter)) {
-        row = GTK_WIDGET (iter->data);
-        adw_expander_row_remove (self->links_donations, row);
-    }
-
-    g_list_free (self->donation_rows_list);
-    self->donation_rows_list = NULL;
-}
-
-static void
 new_donation_row (ExmDetailView *self,
                   int            num_donation)
 {
@@ -353,6 +342,16 @@ new_donation_row (ExmDetailView *self,
     adw_expander_row_add_row (self->links_donations, row);
 
     self->donation_rows_list = g_list_append (self->donation_rows_list, row);
+}
+
+static void
+delete_donation_rows (ExmDetailView *self)
+{
+  for (GList *iter = self->donation_rows_list; iter != NULL; iter = g_list_next (iter))
+    adw_expander_row_remove (self->links_donations, GTK_WIDGET (iter->data));
+
+  g_list_free (self->donation_rows_list);
+  self->donation_rows_list = NULL;
 }
 
 static void

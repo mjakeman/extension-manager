@@ -23,7 +23,6 @@ template $ExmDetailView: Adw.NavigationPage {
           header_suffix.orientation: vertical;
           header_suffix.spacing: 12;
           ext_install.halign: start;
-          comment_box.min-children-per-line: 1;
         }
 
         apply => $breakpoint_apply_cb() swapped;
@@ -327,13 +326,11 @@ template $ExmDetailView: Adw.NavigationPage {
                         orientation: vertical;
                         spacing: 12;
 
-                        Gtk.FlowBox comment_box {
-                          min-children-per-line: 2;
-                          max-children-per-line: 2;
-                          homogeneous: true;
-                          selection-mode: none;
-                          row-spacing: 12;
-                          column-spacing: 12;
+                        Adw.WrapBox comment_box {
+                          orientation: vertical;
+                          child-spacing: 12;
+                          line-homogeneous: true;
+                          line-spacing: 12;
                         }
 
                         Gtk.Button show_more_btn {
