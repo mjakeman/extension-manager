@@ -4,13 +4,14 @@
 # Oliver Tzeng(曾嘉禾)<olivertzengolivertzeng@gmail.com>, 2022.
 # Peter Dave Hello <hsu@peterdavehello.org>, 2024.
 # hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024.
+# pan93412 <pan93412@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-08 16:40+0000\n"
-"PO-Revision-Date: 2024-11-30 22:34+0000\n"
-"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
+"PO-Revision-Date: 2025-01-12 15:53+0000\n"
+"Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -494,12 +495,12 @@ msgstr "搜尋已安裝的擴充功能"
 #: src/exm-window.blp:68
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "已安裝 (&I)"
+msgstr "已安裝 (_I)"
 
 #: src/exm-window.blp:77
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "瀏覽 (&B)"
+msgstr "瀏覽 (_B)"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
