@@ -183,5 +183,5 @@ static void
 exm_request_handler_init (ExmRequestHandler *self)
 {
     ExmRequestHandlerPrivate *priv = exm_request_handler_get_instance_private (self);
-    priv->session = soup_session_new ();
+    priv->session = soup_session_new_with_options ("timeout", 30, NULL);
 }

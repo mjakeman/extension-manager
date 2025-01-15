@@ -146,6 +146,6 @@ exm_image_resolver_class_init (ExmImageResolverClass *klass)
 static void
 exm_image_resolver_init (ExmImageResolver *self)
 {
-    self->session = soup_session_new ();
+    self->session = soup_session_new_with_options ("timeout", 30, NULL);
     g_mutex_init (&self->mutex);
 }
