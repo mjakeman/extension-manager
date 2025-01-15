@@ -22,6 +22,7 @@
 #include "exm-request-handler.h"
 
 #include <gio/gio.h>
+#include <glib/gi18n.h>
 #include <libsoup/soup.h>
 
 typedef struct
@@ -89,10 +90,14 @@ request_callback (GObject      *source,
     {
         g_task_return_error (data->task, error);
     }
-    else if (status_code != SOUP_STATUS_OK)
+    else if (status_code >= SOUP_STATUS_BAD_REQUEST)
     {
-        g_task_return_new_error (data->task, g_quark_from_string ("exm-request-handler"), status_code,
-                                 "HTTP error: %d", status_code);
+        g_task_return_new_error (data->task,
+                                 g_quark_from_string ("request-error-quark"),
+                                 status_code,
+                                 status_code >= SOUP_STATUS_INTERNAL_SERVER_ERROR
+                                    ? _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later")
+                                    : _("Check your network status and try again"));
     }
     else
     {

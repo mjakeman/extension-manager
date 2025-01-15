@@ -191,12 +191,7 @@ on_first_page_result (GObject       *source,
 
     if (error)
     {
-        // Filter 5xx status codes (server errors)
-        if (error->code / 100 == 5)
-            gtk_label_set_markup (self->error_label, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
-        else
-            gtk_label_set_text (self->error_label, _("Check your network status and try again"));
-
+        gtk_label_set_text (self->error_label, error->message);
         gtk_stack_set_visible_child_name (self->search_stack, "page_error");
 
         g_clear_error (&error);

@@ -164,7 +164,7 @@ on_get_comments (GObject          *source,
     model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
     self = (ExmCommentDialog *) user_data;
 
-    if (error && error->code != 404)
+    if (error)
     {
         if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
         {
@@ -172,12 +172,7 @@ on_get_comments (GObject          *source,
             return;
         }
 
-        // Filter 5xx status codes (server errors)
-        if (error->code / 100 == 5)
-            adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
-        else
-            adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
-
+        adw_status_page_set_description (self->error_status, error->message);
         gtk_stack_set_visible_child_name (self->stack, "page_error");
 
         g_clear_error (&error);

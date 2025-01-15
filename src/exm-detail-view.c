@@ -365,15 +365,17 @@ on_data_loaded (GObject      *source,
     data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error);
     self = EXM_DETAIL_VIEW (user_data);
 
-    if (error && error->code != 404)
+    if (error)
     {
-        // Filter 5xx status codes (server errors)
-        if (error->code / 100 == 5)
-            adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
+        if (error->domain == g_quark_try_string ("request-error-quark") && error->code == 404)
+        {
+            gtk_stack_set_visible_child_name (self->stack, "page_empty");
+        }
         else
-            adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
-
-        gtk_stack_set_visible_child_name (self->stack, "page_error");
+        {
+            adw_status_page_set_description (self->error_status, error->message);
+            gtk_stack_set_visible_child_name (self->stack, "page_error");
+        }
 
         g_clear_error (&error);
 
@@ -517,8 +519,6 @@ on_data_loaded (GObject      *source,
 
         return;
     }
-
-    gtk_stack_set_visible_child_name (self->stack, "page_empty");
 }
 
 void
