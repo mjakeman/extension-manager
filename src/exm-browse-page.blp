@@ -56,10 +56,15 @@ template $ExmBrowsePage: Gtk.Widget {
             name: "page_spinner";
 
             child: Adw.Spinner {
-              valign: center;
+              styles [
+                "dim-label"
+              ]
+
+              margin-top: 30;
               halign: center;
-              height-request: 32;
-              width-request: 32;
+              valign: start;
+              height-request: 64;
+              width-request: 64;
             };
           }
 
