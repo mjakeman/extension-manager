@@ -36,8 +36,8 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "commit" : "8e10fcf8692108b9d4ab78f41086c5d7773ef864",
-                    "tag" : "v0.14.0"
+                    "commit" : "04ef0944db56ab01307a29aaa7303df6067cb3c0",
+                    "tag" : "v0.16.0"
                 }
             ]
         },
@@ -70,8 +70,8 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/mjakeman/extension-manager",
-                    "commit" : "62f3759e10cfd21014c805dc75645947569d48a9",
-                    "tag" : "v0.6.0"
+                    "commit" : "54585fc15c3fe4939f2ba22ebc8808e6ef46c8f4",
+                    "tag" : "v0.6.1"
                 }
             ]
         }
