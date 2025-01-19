@@ -35,7 +35,6 @@ struct _ExmCommentDialog
 
     ExmCommentProvider *comment_provider;
     GCancellable *cancellable;
-    gboolean closed;
 
     GtkListBox *list_box;
     GtkStack *stack;
@@ -62,6 +61,16 @@ exm_comment_dialog_new (int web_id)
     return g_object_new (EXM_TYPE_COMMENT_DIALOG,
                          "web-id", web_id,
                          NULL);
+}
+
+static void
+exm_comment_dialog_dispose (GObject *object)
+{
+    ExmCommentDialog *self = (ExmCommentDialog *)object;
+
+    g_cancellable_cancel (self->cancellable);
+
+    G_OBJECT_CLASS (exm_comment_dialog_parent_class)->dispose (object);
 }
 
 static void
@@ -105,6 +114,7 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->dispose = exm_comment_dialog_dispose;
     object_class->get_property = exm_comment_dialog_get_property;
     object_class->set_property = exm_comment_dialog_set_property;
     object_class->constructed = exm_comment_dialog_constructed;
@@ -143,17 +153,25 @@ comment_factory (ExmComment *comment,
 static void
 on_get_comments (GObject          *source,
                  GAsyncResult     *res,
-                 ExmCommentDialog *self)
+                 gpointer          user_data)
 {
+    GListModel *model;
     GError *error = NULL;
+    ExmCommentDialog *self;
 
-    if (self->closed)
-      return;
+    g_return_if_fail (user_data != NULL);
 
-    GListModel *model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
+    model = exm_comment_provider_get_comments_finish (EXM_COMMENT_PROVIDER (source), res, &error);
+    self = (ExmCommentDialog *) user_data;
 
     if (error && error->code != 404)
     {
+        if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+        {
+            g_clear_error (&error);
+            return;
+        }
+
         // Filter 5xx status codes (server errors)
         if (error->code / 100 == 5)
             adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
@@ -161,6 +179,8 @@ on_get_comments (GObject          *source,
             adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
 
         gtk_stack_set_visible_child_name (self->stack, "page_error");
+
+        g_clear_error (&error);
 
         return;
     }
@@ -173,19 +193,11 @@ on_get_comments (GObject          *source,
 }
 
 static void
-on_dialog_closed (ExmCommentDialog *self)
-{
-  self->closed = TRUE;
-}
-
-static void
 exm_comment_dialog_constructed (GObject *object)
 {
     ExmCommentDialog *self = EXM_COMMENT_DIALOG (object);
 
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
-
-    g_cancellable_cancel (self->cancellable);
     self->cancellable = g_cancellable_new ();
 
     exm_comment_provider_get_comments_async (self->comment_provider,
@@ -204,9 +216,5 @@ exm_comment_dialog_init (ExmCommentDialog *self)
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->comment_provider = exm_comment_provider_new ();
-
-    self->closed = FALSE;
-
-    g_signal_connect (self, "closed", G_CALLBACK (on_dialog_closed), NULL);
 }
 
