@@ -90,110 +90,29 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     tooltip-text: _("This extension could be activated in session modes such as the login screen or the lock screen");
   }
 
-  Gtk.ListBoxRow {
-    activatable: false;
+  Adw.ActionRow description_row {
+    styles [
+      "multiline",
+      "property"
+    ]
 
-    Gtk.Grid {
-      styles [
-        "row-content"
-      ]
+    title: _("Description");
+  }
 
-      row-spacing: 15;
-      column-spacing: 15;
+  Adw.ActionRow version_row {
+    styles [
+      "property"
+    ]
 
-      Gtk.Label description_title {
-        styles [
-          "dim-label"
-        ]
+    title: _("Version");
+  }
 
-        label: _("Description");
-        xalign: 0;
-        yalign: 0;
+  Adw.ActionRow error_row {
+    styles [
+      "property"
+    ]
 
-        layout {
-          row: 0;
-          column: 0;
-        }
-      }
-
-      Gtk.Label description_label {
-        styles [
-          "multiline"
-        ]
-
-        xalign: 0;
-        wrap-mode: word;
-        wrap: true;
-        selectable: true;
-
-        layout {
-          row: 0;
-          column: 1;
-        }
-
-        accessibility {
-          labelled-by: description_title;
-        }
-      }
-
-      Gtk.Label version_title {
-        styles [
-          "dim-label"
-        ]
-
-        label: _("Version");
-        xalign: 0;
-        yalign: 0;
-
-        layout {
-          row: 1;
-          column: 0;
-        }
-      }
-
-      Gtk.Label version_label {
-        xalign: 0;
-        wrap-mode: word;
-        wrap: true;
-        selectable: true;
-
-        layout {
-          row: 1;
-          column: 1;
-        }
-
-        accessibility {
-          labelled-by: version_title;
-        }
-      }
-
-      Gtk.Label error_label_tag {
-        styles [
-          "dim-label"
-        ]
-
-        label: _("Error");
-        xalign: 0;
-        yalign: 0;
-
-        layout {
-          row: 2;
-          column: 0;
-        }
-      }
-
-      Gtk.Label error_label {
-        xalign: 0;
-        wrap-mode: word_char;
-        wrap: true;
-        selectable: true;
-
-        layout {
-          row: 2;
-          column: 1;
-        }
-      }
-    }
+    title: _("Error");
   }
 
   Gtk.ListBoxRow {
