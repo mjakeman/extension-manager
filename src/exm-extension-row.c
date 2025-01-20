@@ -42,11 +42,9 @@ struct _ExmExtensionRow
     GtkButton *details_btn;
     GtkSwitch *ext_toggle;
 
-    GtkLabel *description_label;
-    GtkLabel *version_title;
-    GtkLabel *version_label;
-    GtkLabel *error_label;
-    GtkLabel *error_label_tag;
+    AdwActionRow *description_row;
+    AdwActionRow *version_row;
+    AdwActionRow *error_row;
 
     GtkImage *update_icon;
     GtkImage *error_icon;
@@ -134,14 +132,6 @@ exm_extension_row_set_property (GObject      *object,
     }
 }
 
-static void
-set_error_label_visible (ExmExtensionRow *self,
-                         gboolean         visible)
-{
-    gtk_widget_set_visible (GTK_WIDGET (self->error_label), visible);
-    gtk_widget_set_visible (GTK_WIDGET (self->error_label_tag), visible);
-}
-
 static gboolean
 transform_to_state (GBinding     *binding G_GNUC_UNUSED,
                     const GValue *from_value,
@@ -206,18 +196,18 @@ bind_extension (ExmExtensionRow *self,
     g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
     g_object_set (self->remove_btn, "visible", is_user, NULL);
     g_object_set (self->update_icon, "visible", has_update, NULL);
-    g_object_set (self->version_label, "label", version_name ? g_strdup_printf ("%s (%s)", version_name, version)
-                                                             : version, NULL);
+    g_object_set (self->version_row, "subtitle", version_name ? g_strdup_printf ("%s (%s)", version_name, version)
+                                                              : version, NULL);
 
     // Trim description label's leading and trailing whitespace
     char *description_trimmed = g_strchomp (g_strstrip (description));
-    g_object_set (self->description_label, "label", description_trimmed, NULL);
+    g_object_set (self->description_row, "subtitle", description_trimmed, NULL);
     g_free (description_trimmed);
 
     // Only show if error_msg exists and is not empty
-    g_object_set (self->error_label, "label", error_msg, NULL);
+    g_object_set (self->error_row, "subtitle", error_msg, NULL);
     gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
-    set_error_label_visible (self, has_error);
+    gtk_widget_set_visible (GTK_WIDGET (self->error_row), has_error);
 
     gtk_widget_set_visible (GTK_WIDGET (self->error_icon), state == EXM_EXTENSION_STATE_ERROR);
     gtk_widget_set_visible (GTK_WIDGET (self->out_of_date_icon), state == EXM_EXTENSION_STATE_OUT_OF_DATE);
@@ -227,8 +217,7 @@ bind_extension (ExmExtensionRow *self,
                              || state == EXM_EXTENSION_STATE_INACTIVE)
                              && enabled);
 
-    gtk_widget_set_visible (GTK_WIDGET (self->version_title), version != NULL);
-    gtk_widget_set_visible (GTK_WIDGET (self->version_label), version != NULL);
+    gtk_widget_set_visible (GTK_WIDGET (self->version_row), version != NULL);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
@@ -314,11 +303,9 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-extension-row.ui", RESOURCE_PATH));
 
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_label);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_title);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_label);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_label_tag);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_row);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_row);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_row);
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, remove_btn);
