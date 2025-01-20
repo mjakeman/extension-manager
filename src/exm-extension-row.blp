@@ -4,8 +4,9 @@ using Adw 1;
 template $ExmExtensionRow: Adw.ExpanderRow {
   title-lines: 1;
   subtitle-lines: 1;
+  subtitle: bind template.extension as <$ExmExtension>.uuid;
 
-  [action]
+  [suffix]
   Gtk.Switch ext_toggle {
     valign: center;
     active: bind template.extension as <$ExmExtension>.enabled;
@@ -13,7 +14,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     state-set => $on_state_changed();
   }
 
-  [action]
+  [suffix]
   Gtk.Button prefs_btn {
     styles [
       "flat"
@@ -24,9 +25,10 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     halign: center;
     action-name: 'row.open-prefs';
     tooltip-text: _("Open extension preferences");
+    visible: bind template.extension as <$ExmExtension>.has-prefs;
   }
 
-  [action]
+  [suffix]
   Gtk.Image error_icon {
     styles [
       "error"
@@ -42,7 +44,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     tooltip-text: _("An error occurred while loading this extension");
   }
 
-  [action]
+  [suffix]
   Gtk.Image out_of_date_icon {
     styles [
       "error"
@@ -58,7 +60,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     tooltip-text: _("This extension is incompatible with your current version of GNOME");
   }
 
-  [action]
+  [suffix]
   Gtk.Image update_icon {
     styles [
       "update"
@@ -70,11 +72,11 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     focusable: true;
     margin-start: 9;
     margin-end: 9;
-    visible: false;
+    visible: bind template.extension as <$ExmExtension>.has-update;
     tooltip-text: _("A newer version of this extension is available");
   }
 
-  [action]
+  [suffix]
   Gtk.Image info_icon {
     styles [
       "warning"
@@ -115,6 +117,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     ]
 
     title: _("Error");
+    subtitle: bind template.extension as <$ExmExtension>.error_msg;
     subtitle-selectable: true;
   }
 
@@ -147,6 +150,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
         label: _("Remove…");
         valign: center;
         action-name: 'row.remove';
+        visible: bind template.extension as <$ExmExtension>.is-user;
       }
     }
   }

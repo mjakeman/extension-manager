@@ -174,7 +174,7 @@ bind_extension (ExmExtensionRow *self,
         return;
 
     gchar *name, *uuid, *description, *version, *version_name, *error_msg;
-    gboolean enabled, has_prefs, has_update, is_user;
+    gboolean enabled, has_prefs, is_user;
     ExmExtensionState state;
     g_object_get (self->extension,
                   "display-name", &name,
@@ -183,7 +183,6 @@ bind_extension (ExmExtensionRow *self,
                   "state", &state,
                   "enabled", &enabled,
                   "has-prefs", &has_prefs,
-                  "has-update", &has_update,
                   "is-user", &is_user,
                   "version", &version,
                   "version-name", &version_name,
@@ -192,20 +191,16 @@ bind_extension (ExmExtensionRow *self,
 
     self->uuid = g_strdup (uuid);
 
-    g_object_set (self, "title", g_markup_escape_text(name, -1), "subtitle", uuid, NULL);
-    g_object_set (self->prefs_btn, "visible", has_prefs, NULL);
-    g_object_set (self->remove_btn, "visible", is_user, NULL);
-    g_object_set (self->update_icon, "visible", has_update, NULL);
-    g_object_set (self->version_row, "subtitle", version_name ? g_strdup_printf ("%s (%s)", version_name, version)
-                                                              : version, NULL);
+    g_object_set (self, "title", g_markup_escape_text(name, -1), NULL);
+    adw_action_row_set_subtitle (self->version_row, version_name ? g_strdup_printf ("%s (%s)", version_name, version)
+                                                                 : version);
 
     // Trim description label's leading and trailing whitespace
     char *description_trimmed = g_strchomp (g_strstrip (description));
-    g_object_set (self->description_row, "subtitle", description_trimmed, NULL);
+    adw_action_row_set_subtitle (self->description_row, description_trimmed);
     g_free (description_trimmed);
 
     // Only show if error_msg exists and is not empty
-    g_object_set (self->error_row, "subtitle", error_msg, NULL);
     gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
     gtk_widget_set_visible (GTK_WIDGET (self->error_row), has_error);
 
