@@ -109,10 +109,13 @@ template $ExmExtensionRow: Adw.ExpanderRow {
 
   Adw.ActionRow error_row {
     styles [
+      "monospace",
+      "multiline",
       "property"
     ]
 
     title: _("Error");
+    subtitle-selectable: true;
   }
 
   Gtk.ListBoxRow {
