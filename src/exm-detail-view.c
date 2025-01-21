@@ -317,7 +317,6 @@ new_donation_row (ExmDetailView *self,
     gtk_actionable_set_action_target_value (GTK_ACTIONABLE (row), g_variant_new_int32 (num_donation));
 
     external_link_icon = gtk_image_new_from_icon_name ("external-link-symbolic");
-    gtk_widget_add_css_class (external_link_icon, "dim-label");
     adw_action_row_add_suffix (ADW_ACTION_ROW (row), external_link_icon);
 
     adw_expander_row_add_row (self->links_donations, row);
