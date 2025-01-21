@@ -198,16 +198,12 @@ display_results (ExmUpgradeAssistant *self)
     gtk_widget_remove_css_class (GTK_WIDGET (self->progress_bar), "warning");
     gtk_widget_remove_css_class (GTK_WIDGET (self->progress_bar), "error");
 
-    if (fraction == 1.0f) {
-        // make green
+    if (fraction == 1.0f)
         gtk_widget_add_css_class (GTK_WIDGET (self->progress_bar), "success");
-    } else if (fraction <= 1.0f && fraction > 0.3f) {
-        // make orange
+    else if (fraction <= 1.0f && fraction > 0.3f)
         gtk_widget_add_css_class (GTK_WIDGET (self->progress_bar), "warning");
-    } else if (fraction <= 0.3f) {
-        // make red
+    else if (fraction <= 0.3f)
         gtk_widget_add_css_class (GTK_WIDGET (self->progress_bar), "error");
-    }
 
     text = _("<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently installed on the system");
     text = g_strdup_printf (text, self->target_shell_version, self->number_supported, self->total_extensions);
@@ -245,7 +241,8 @@ print_list_model (GListModel  *model,
     int i;
 
     num_extensions = g_list_model_get_n_items (model);
-    for (i = 0; i < num_extensions; i++) {
+    for (i = 0; i < num_extensions; i++)
+    {
         ExmUpgradeResult *result;
         const gchar *name, *creator, *uuid, *supported_text;
         SupportStatus supported;
@@ -440,7 +437,8 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     g_list_store_remove_all (self->system_results_store);
 
     num_items = g_list_model_get_n_items (ext_model);
-    for (i = 0; i < num_items; i++) {
+    for (i = 0; i < num_items; i++)
+    {
         char *uuid;
         gboolean is_user;
         ExmExtension *extension;
@@ -484,15 +482,20 @@ widget_factory (ExmUpgradeResult    *result,
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row) , name);
     adw_action_row_set_subtitle (ADW_ACTION_ROW (row), creator);
 
-    if (supported == STATUS_SUPPORTED) {
+    if (supported == STATUS_SUPPORTED)
+    {
         status = gtk_image_new_from_icon_name ("supported-symbolic");
         gtk_widget_add_css_class (status, "success");
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("A compatible version of the extension exists"));
-    } else if (supported == STATUS_UNSUPPORTED) {
+    }
+    else if (supported == STATUS_UNSUPPORTED)
+    {
         status = gtk_image_new_from_icon_name ("unsupported-symbolic");
         gtk_widget_add_css_class (status, "error");
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("No compatible version of the extension exists"));
-    } else {
+    }
+    else
+    {
         status = gtk_image_new_from_icon_name ("unknown-symbolic");
         gtk_widget_add_css_class (status, "warning");
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("This extension is not hosted on extensions.gnome.org. Its compatibility cannot be determined."));
@@ -567,7 +570,8 @@ populate_drop_down (ExmUpgradeAssistant *self)
     string_list = gtk_string_list_new (NULL);
     hash_table = g_hash_table_new (g_str_hash, g_str_equal);
 
-    for (index = 40; index <= current_gnome_version; index++) {
+    for (index = 40; index <= current_gnome_version; index++)
+    {
         gchar *key;
 
         key = g_strdup_printf ("GNOME %d", index);
@@ -638,8 +642,6 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
 static void
 exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 {
-    GtkWidget *placeholder, *icon;
-
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->data_provider = exm_data_provider_new ();
@@ -649,18 +651,6 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     self->system_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
     bind_list_box (self, self->user_list_box, G_LIST_MODEL (self->user_results_store));
     bind_list_box (self, self->system_list_box, G_LIST_MODEL (self->system_results_store));
-
-    placeholder = adw_action_row_new ();
-    icon = gtk_image_new_from_icon_name ("puzzle-piece-symbolic");
-    adw_action_row_add_prefix (ADW_ACTION_ROW (placeholder), icon);
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("No User Extensions Installed"));
-    gtk_list_box_set_placeholder (self->user_list_box, placeholder);
-
-    placeholder = adw_action_row_new ();
-    icon = gtk_image_new_from_icon_name ("settings-symbolic");
-    adw_action_row_add_prefix (ADW_ACTION_ROW (placeholder), icon);
-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (placeholder), _("No System Extensions Installed"));
-    gtk_list_box_set_placeholder (self->system_list_box, placeholder);
 
     populate_drop_down (self);
 }

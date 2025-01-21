@@ -126,8 +126,17 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                     "boxed-list-placeholder"
                   ]
 
-                  valign: start;
                   selection-mode: none;
+
+                  [placeholder]
+                  Adw.ActionRow {
+                    [prefix]
+                    Gtk.Image {
+                      icon-name: "puzzle-piece-symbolic";
+                    }
+
+                    title: _("No User Extensions Installed");
+                  }
 
                   accessibility {
                     labelled-by: user_list_title;
@@ -144,8 +153,17 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                     "boxed-list-placeholder"
                   ]
 
-                  valign: start;
                   selection-mode: none;
+
+                  [placeholder]
+                  Adw.ActionRow {
+                    [prefix]
+                    Gtk.Image {
+                      icon-name: "settings-symbolic";
+                    }
+
+                    title: _("No System Extensions Installed");
+                  }
 
                   accessibility {
                     labelled-by: system_list_title;
