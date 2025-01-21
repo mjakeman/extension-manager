@@ -2,22 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2024.
-# Ricky Tigg <ricky.tigg@gmail.com>, 2024.
+# Ricky Tigg <ricky.tigg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-08 16:40+0000\n"
-"PO-Revision-Date: 2024-12-13 10:00+0000\n"
+"PO-Revision-Date: 2025-01-22 13:02+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/extension-"
-"manager/app/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"extension-manager/app/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -452,7 +452,7 @@ msgstr "Tarkistettu %d/%d laajennusta"
 #: src/exm-upgrade-assistant.c:192
 #, c-format
 msgid "%d%% Compatible"
-msgstr "%d%% yhteensopiva"
+msgstr "%d %% yhteensopiva"
 
 #: src/exm-upgrade-assistant.c:212
 #, c-format
