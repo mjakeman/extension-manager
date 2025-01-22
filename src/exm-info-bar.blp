@@ -2,10 +2,6 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmInfoBar: Gtk.Box {
-  styles [
-    "info-bar"
-  ]
-
   homogeneous: true;
 
   Gtk.ListBox {
@@ -15,13 +11,14 @@ template $ExmInfoBar: Gtk.Box {
 
     selection-mode: none;
 
-    Adw.ActionRow downloads_item {
+    Adw.ActionRow {
       [prefix]
       Gtk.Image {
         icon-name: "folder-download-symbolic";
       }
 
       title: C_("Number of downloads", "Downloads");
+      subtitle: bind $format_downloads(template.downloads) as <string>;
     }
   }
 
@@ -32,14 +29,14 @@ template $ExmInfoBar: Gtk.Box {
 
     selection-mode: none;
 
-    Adw.ActionRow version_item {
+    Adw.ActionRow {
       [prefix]
       Gtk.Image {
         icon-name: "system-software-install-symbolic";
       }
 
       title: _("Version");
-      subtitle: _("Unsupported");
+      subtitle: bind $format_version(template.version) as <string>;
     }
   }
 }

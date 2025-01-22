@@ -416,7 +416,7 @@ on_data_loaded (GObject      *source,
         gtk_label_set_label (self->ext_title, name);
         gtk_label_set_label (self->ext_author, creator);
         gtk_label_set_label (self->ext_description, description);
-        exm_info_bar_set_downloads (self->ext_info_bar, downloads);
+        g_object_set (self->ext_info_bar, "downloads", downloads, NULL);
 
         if (self->resolver_cancel)
         {
@@ -475,7 +475,7 @@ on_data_loaded (GObject      *source,
         adw_action_row_set_subtitle (self->link_homepage, self->uri_homepage);
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
-        exm_info_bar_set_version (self->ext_info_bar, -1);
+        g_object_set (self->ext_info_bar, "version", 0.0, NULL);
 
         for (version_iter = version_map->map;
              version_iter != NULL;
@@ -494,7 +494,7 @@ on_data_loaded (GObject      *source,
               if (version != NULL && self->shell_version != NULL &&
                   (strcmp (version, self->shell_version) == 0 ||
                    strncmp(version, self->shell_version, strchr(version, '.') - version) == 0))
-                  exm_info_bar_set_version (self->ext_info_bar, entry->extension_version);
+                  g_object_set (self->ext_info_bar, "version", entry->extension_version, NULL);
 
             g_free (version);
         }
