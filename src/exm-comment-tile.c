@@ -156,6 +156,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, rating);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentTile, date);
 
+    gtk_widget_class_set_css_name (widget_class, "comment-tile");
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }
 

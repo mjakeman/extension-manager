@@ -137,6 +137,8 @@ exm_info_bar_class_init (ExmInfoBarClass *klass)
 
     gtk_widget_class_bind_template_callback (widget_class, format_downloads);
     gtk_widget_class_bind_template_callback (widget_class, format_version);
+
+    gtk_widget_class_set_css_name (widget_class, "info-bar");
 }
 
 static void
