@@ -159,10 +159,12 @@ on_install_done (GObject       *source,
                  gpointer       user_data G_GNUC_UNUSED)
 {
     GError *error = NULL;
-    if (!exm_manager_install_finish (EXM_MANAGER (source), res, &error) && error)
+
+    if (!exm_manager_install_finish (source, res, &error) && error)
     {
         // TODO: Properly log this
         g_critical ("%s\n", error->message);
+        g_clear_error (&error);
     }
 }
 
