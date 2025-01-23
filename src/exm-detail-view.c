@@ -511,7 +511,8 @@ on_data_loaded (GObject      *source,
 
         queue_resolve_comments (self, pk, self->resolver_cancel);
 
-        // Reset scroll position
+        // Reset focus and scroll position
+        gtk_widget_grab_focus (GTK_WIDGET (self->ext_icon));
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
 
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
@@ -524,8 +525,6 @@ void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
                                gchar         *uuid)
 {
-    // g_assert (gtk_widget_is_constructed)
-
     self->uuid = uuid;
 
     adw_window_title_set_title (self->title, NULL);
@@ -545,9 +544,7 @@ exm_detail_view_update (ExmDetailView *self)
     // Check if the newly installed extension is the
     // one being displayed in this detail view
     if (exm_manager_is_installed_uuid (self->manager, self->uuid))
-    {
         g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_INSTALLED, NULL);
-    }
 }
 
 static void
