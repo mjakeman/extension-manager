@@ -55,6 +55,7 @@ enum {
     SIGNAL_0,
     SIGNAL_UPDATES_AVAILABLE,
     SIGNAL_ERROR_OCCURRED,
+    SIGNAL_INSTALL_STATUS,
     N_SIGNALS
 };
 
@@ -371,12 +372,23 @@ exm_manager_install_finish (GObject       *self,
                             GAsyncResult  *result,
                             GError       **error)
 {
+    gchar *out_result = NULL;
+    gboolean success;
+
     g_return_val_if_fail (SHELL_IS_EXTENSIONS (self), FALSE);
 
-    return shell_extensions_call_install_remote_extension_finish (SHELL_EXTENSIONS (self),
-                                                                  NULL,
-                                                                  result,
-                                                                  error);
+    success = shell_extensions_call_install_remote_extension_finish (SHELL_EXTENSIONS (self),
+                                                                     &out_result,
+                                                                     result,
+                                                                     error);
+
+    if (g_str_equal (out_result, "cancelled"))
+    {
+        success = FALSE;
+        g_free (out_result);
+    }
+
+    return success;
 }
 
 static int
@@ -501,6 +513,14 @@ exm_manager_class_init (ExmManagerClass *klass)
                         0, NULL, NULL, NULL,
                         G_TYPE_NONE, 1,
                         G_TYPE_STRING);
+
+    signals [SIGNAL_INSTALL_STATUS]
+        = g_signal_new ("install-status",
+                        G_TYPE_FROM_CLASS (object_class),
+                        G_SIGNAL_RUN_LAST|G_SIGNAL_NO_RECURSE|G_SIGNAL_NO_HOOKS,
+                        0, NULL, NULL, NULL,
+                        G_TYPE_NONE, 1,
+                        EXM_TYPE_INSTALL_BUTTON_STATE);
 }
 
 static void

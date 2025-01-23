@@ -128,6 +128,10 @@ update_state (ExmInstallButton *button)
         gtk_widget_set_sensitive (GTK_WIDGET (button), TRUE);
         gtk_widget_add_css_class (GTK_WIDGET (button), "suggested-action");
         break;
+    case EXM_INSTALL_BUTTON_STATE_INSTALLING:
+        gtk_label_set_label (button->label, _("Installing"));
+        gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
+        break;
     case EXM_INSTALL_BUTTON_STATE_INSTALLED:
         gtk_label_set_label (button->label, C_("State", "Installed"));
         gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
