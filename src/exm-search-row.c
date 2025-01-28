@@ -38,6 +38,7 @@ struct _ExmSearchRow
     gboolean is_supported;
     gchar *uuid;
 
+    GtkLabel *description_label;
     ExmInstallButton *install_btn;
 };
 
@@ -142,11 +143,12 @@ exm_search_row_constructed (GObject *object)
 
     ExmInstallButtonState install_state;
 
-    gchar *uuid, *name, *creator;
+    gchar *uuid, *name, *creator, *description;
     g_object_get (self->search_result,
                   "uuid", &uuid,
                   "name", &name,
                   "creator", &creator,
+                  "description", &description,
                   NULL);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
@@ -163,6 +165,19 @@ exm_search_row_constructed (GObject *object)
                                     // Translators: '%s' = extension name, '%s' = extension creator
                                     GTK_ACCESSIBLE_PROPERTY_LABEL, g_strdup_printf (_("%s by %s"), name, creator),
                                     -1);
+
+    const gchar *newline_pos = g_strstr_len (description, -1, "\n");
+
+    if (newline_pos != NULL)
+    {
+        gchar *truncated_text = g_strndup (description, newline_pos - description);
+        gtk_label_set_label (self->description_label, truncated_text);
+        g_free (truncated_text);
+    }
+    else
+    {
+        gtk_label_set_label (self->description_label, description);
+    }
 
     G_OBJECT_CLASS (exm_search_row_parent_class)->constructed (object);
 }
@@ -203,6 +218,7 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-search-row.ui", RESOURCE_PATH));
 
+    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, description_label);
     gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, install_btn);
 
     gtk_widget_class_bind_template_callback (widget_class, install_remote);

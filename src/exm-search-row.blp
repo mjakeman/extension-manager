@@ -49,13 +49,11 @@ template $ExmSearchRow: Gtk.ListBoxRow {
         ]
 
         margin-top: 6;
-        single-line-mode: true;
         xalign: 0;
         wrap: true;
         wrap-mode: word_char;
         ellipsize: end;
         lines: 2;
-        label: bind template.search-result as <$ExmSearchResult>.description;
       }
     }
 
