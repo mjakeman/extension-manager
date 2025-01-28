@@ -2,11 +2,15 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmInfoBar: Gtk.Box {
+  styles [
+    "card"
+  ]
+
   homogeneous: true;
 
   Gtk.ListBox {
     styles [
-      "card"
+      "info-bar-item"
     ]
 
     selection-mode: none;
@@ -24,7 +28,7 @@ template $ExmInfoBar: Gtk.Box {
 
   Gtk.ListBox {
     styles [
-      "card"
+      "info-bar-item"
     ]
 
     selection-mode: none;
