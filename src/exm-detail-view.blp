@@ -104,9 +104,12 @@ template $ExmDetailView: Adw.NavigationPage {
                           "title-1"
                         ]
 
-                        xalign: 0;
                         ellipsize: end;
+                        lines: 2;
                         selectable: true;
+                        wrap: true;
+                        wrap-mode: word_char;
+                        xalign: 0;
 
                         accessibility {
                           description: _("Name");
