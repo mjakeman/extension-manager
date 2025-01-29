@@ -29,8 +29,11 @@ template $ExmSearchRow: Gtk.ListBoxRow {
         ]
 
         ellipsize: end;
-        xalign: 0;
         label: bind template.search-result as <$ExmSearchResult>.name;
+        lines: 2;
+        wrap: true;
+        wrap-mode: word_char;
+        xalign: 0;
       }
 
       Gtk.Label subtitle {
@@ -48,12 +51,12 @@ template $ExmSearchRow: Gtk.ListBoxRow {
           "dim-label"
         ]
 
-        margin-top: 6;
-        xalign: 0;
-        wrap: true;
-        wrap-mode: word_char;
         ellipsize: end;
         lines: 2;
+        margin-top: 6;
+        wrap: true;
+        wrap-mode: word_char;
+        xalign: 0;
       }
     }
 
