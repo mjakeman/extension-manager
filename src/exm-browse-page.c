@@ -326,9 +326,6 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
 
     // Set placeholder value
     gtk_search_entry_set_placeholder_text (search_entry, suggestion);
-
-    // Fire off a default search
-    search (self, "", EXM_SEARCH_SORT_RELEVANCE);
 }
 
 static void
