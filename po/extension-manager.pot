@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 16:40+0000\n"
+"POT-Creation-Date: 2025-01-31 12:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
 msgstr ""
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
 msgstr ""
 
@@ -119,18 +119,6 @@ msgstr ""
 msgid "Connection Error"
 msgstr ""
 
-#: src/exm-browse-page.c:196 src/exm-comment-dialog.c:159
-#: src/exm-detail-view.c:372 src/exm-upgrade-assistant.c:374
-msgid ""
-"Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
-"and try again later"
-msgstr ""
-
-#: src/exm-browse-page.c:198 src/exm-comment-dialog.c:161
-#: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:376
-msgid "Check your network status and try again"
-msgstr ""
-
 #: src/exm-comment-dialog.blp:13
 msgid "Comments"
 msgstr ""
@@ -159,7 +147,7 @@ msgstr ""
 msgid "Enlarge Image"
 msgstr ""
 
-#: src/exm-detail-view.blp:171 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:171 src/exm-extension-row.blp:99
 msgid "Description"
 msgstr ""
 
@@ -192,13 +180,13 @@ msgid "_Show All Reviews"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:414
+#: src/exm-detail-view.c:416
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:447
+#: src/exm-detail-view.c:449
 #, c-format
 msgid "%s Screenshot"
 msgstr ""
@@ -259,19 +247,19 @@ msgid ""
 "or the lock screen"
 msgstr ""
 
-#: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
+#: src/exm-extension-row.blp:107 src/exm-info-bar.blp:41
 msgid "Version"
 msgstr ""
 
-#: src/exm-extension-row.blp:175
+#: src/exm-extension-row.blp:115
 msgid "Error"
 msgstr ""
 
-#: src/exm-extension-row.blp:215
+#: src/exm-extension-row.blp:134
 msgid "See Details"
 msgstr ""
 
-#: src/exm-extension-row.blp:225
+#: src/exm-extension-row.blp:144
 msgid "Remove…"
 msgstr ""
 
@@ -396,11 +384,11 @@ msgstr[1] ""
 msgid "Browse"
 msgstr ""
 
-#: src/exm-installed-page.c:412 src/exm-upgrade-assistant.c:660
+#: src/exm-installed-page.c:412 src/exm-upgrade-assistant.c:656
 msgid "No User Extensions Installed"
 msgstr ""
 
-#: src/exm-installed-page.c:427 src/exm-upgrade-assistant.c:666
+#: src/exm-installed-page.c:427 src/exm-upgrade-assistant.c:662
 msgid "No System Extensions Installed"
 msgstr ""
 
@@ -451,21 +439,21 @@ msgid ""
 "installed on the system"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:494
+#: src/exm-upgrade-assistant.c:490
 msgid "A compatible version of the extension exists"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:498
+#: src/exm-upgrade-assistant.c:494
 msgid "No compatible version of the extension exists"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:502
+#: src/exm-upgrade-assistant.c:498
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:597
+#: src/exm-upgrade-assistant.c:593
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -554,4 +542,14 @@ msgstr ""
 
 #: src/exm-window.c:307
 msgid "_Details"
+msgstr ""
+
+#: src/web/exm-request-handler.c:99
+msgid ""
+"Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
+"and try again later"
+msgstr ""
+
+#: src/web/exm-request-handler.c:100
+msgid "Check your network status and try again"
 msgstr ""
