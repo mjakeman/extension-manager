@@ -367,14 +367,10 @@ on_extension_processed (GObject      *source,
     data = (ExtensionCheckData *) user_data;
     self = EXM_UPGRADE_ASSISTANT (data->assistant);
 
-    if (error && error->code != 404)
+    if (error &&
+        (error->domain != g_quark_try_string ("request-error-quark") || error->code != 404))
     {
-        // Filter 5xx status codes (server errors)
-        if (error->code / 100 == 5)
-            adw_status_page_set_description (self->error_status, _("Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> and try again later"));
-        else
-            adw_status_page_set_description (self->error_status, _("Check your network status and try again"));
-
+        adw_status_page_set_description (self->error_status, error->message);
         gtk_stack_set_visible_child_name (self->stack, "error");
 
         g_clear_error (&error);
