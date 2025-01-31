@@ -5,6 +5,8 @@ template $ExmCommentTile: Gtk.Widget {
     "comment-tile"
   ]
 
+  focusable: true;
+
   Gtk.Box {
     orientation: vertical;
 
@@ -16,8 +18,11 @@ template $ExmCommentTile: Gtk.Widget {
           "heading"
         ]
 
-        xalign: 0;
         label: bind template.comment as <$ExmComment>.author;
+        max-width-chars: 20;
+        wrap: true;
+        wrap-mode: word;
+        xalign: 0;
       }
 
       Gtk.Label author_badge {
@@ -26,6 +31,7 @@ template $ExmCommentTile: Gtk.Widget {
         ]
 
         label: _("Author");
+        valign: center;
         visible: bind template.comment as <$ExmComment>.is_extension_creator;
       }
 
@@ -48,11 +54,12 @@ template $ExmCommentTile: Gtk.Widget {
       wrap: true;
       wrap-mode: word_char;
       xalign: 0;
+      max-width-chars: 30;
     }
 
     Gtk.Label date {
       styles [
-        "dim-label"
+        "dimmed"
       ]
 
       margin-top: 6;
