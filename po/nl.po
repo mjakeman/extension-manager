@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# Philip Goto <philip.goto@gmail.com>, 2024.
+# Philip Goto <philip.goto@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-08 16:40+0000\n"
-"PO-Revision-Date: 2024-09-19 11:40+0000\n"
+"PO-Revision-Date: 2025-01-31 12:41+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -120,12 +120,12 @@ msgstr "Geen resultaten gevonden"
 
 #: src/exm-browse-page.blp:130
 msgid "Try a different search"
-msgstr ""
+msgstr "Probeer een andere zoek­opdracht"
 
 #: src/exm-browse-page.blp:164 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:51 src/exm-upgrade-assistant.blp:84
 msgid "Connection Error"
-msgstr ""
+msgstr "Verbindings­fout"
 
 #: src/exm-browse-page.c:196 src/exm-comment-dialog.c:159
 #: src/exm-detail-view.c:372 src/exm-upgrade-assistant.c:374
@@ -133,11 +133,13 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Controleer de <a href='https://status.gnome.org/'>GNOME-"
+"infrastructuur­status</a> en probeer het later opnieuw"
 
 #: src/exm-browse-page.c:198 src/exm-comment-dialog.c:161
 #: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:376
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Controleer uw netwerk­verbinding en probeer opnieuw"
 
 #: src/exm-comment-dialog.blp:13
 msgid "Comments"
@@ -307,7 +309,7 @@ msgstr "Pagina bladeren tonen"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Zoeken omschakelen"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -389,18 +391,16 @@ msgid "System Extensions"
 msgstr "Systeem­uitbreidingen"
 
 #: src/exm-installed-page.blp:85
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Zoekresultaten kunnen worden gesorteerd"
+msgstr "Zoek­resultaten"
 
 #: src/exm-installed-page.blp:98
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Probeer een andere zoek­opdracht of zoek online"
 
 #: src/exm-installed-page.blp:105
 msgid "_Search Online"
-msgstr ""
+msgstr "_Online zoeken"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:304
@@ -497,20 +497,16 @@ msgstr ""
 "controleer of uw uitbreidingen nog beschikbaar zĳn."
 
 #: src/exm-window.blp:38
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Zelf-geïnstalleerde uitbreidingen"
+msgstr "Zoeken in geïnstalleerde uit­breidingen"
 
 #: src/exm-window.blp:47
 msgid "Main Menu"
 msgstr "Hoofd­menu"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Zoeken naar uitbreidingen"
+msgstr "Zoeken naar geïnstalleerde uit­breidingen"
 
 #: src/exm-window.blp:68
 msgctxt "Navigation"
