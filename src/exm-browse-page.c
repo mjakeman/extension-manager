@@ -198,6 +198,7 @@ on_first_page_result (GObject       *source,
     if (error)
     {
         gtk_label_set_text (self->error_label, error->message);
+        gtk_label_set_use_markup (self->error_label, TRUE);
         gtk_stack_set_visible_child_name (self->search_stack, "page_error");
 
         g_clear_error (&error);
