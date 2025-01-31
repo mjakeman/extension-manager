@@ -505,9 +505,8 @@ exm_window_init (ExmWindow *self)
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
-    if (strstr (APP_ID, ".Devel") != NULL) {
+    if (strstr (APP_ID, ".Devel") != NULL)
         gtk_widget_add_css_class (GTK_WIDGET (self), "devel");
-    }
 
     self->manager = exm_manager_new ();
     g_signal_connect (self->manager, "error-occurred", G_CALLBACK (on_error), self);
