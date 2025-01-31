@@ -149,11 +149,9 @@ exm_search_row_constructed (GObject *object)
 
     ExmInstallButtonState install_state;
 
-    gchar *uuid, *name, *creator, *description;
+    gchar *uuid, *description;
     g_object_get (self->search_result,
                   "uuid", &uuid,
-                  "name", &name,
-                  "creator", &creator,
                   "description", &description,
                   NULL);
 
@@ -166,11 +164,6 @@ exm_search_row_constructed (GObject *object)
            : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
     g_object_set (self->install_btn, "state", install_state, NULL);
-
-    gtk_accessible_update_property (GTK_ACCESSIBLE (self),
-                                    // Translators: '%s' = extension name, '%s' = extension creator
-                                    GTK_ACCESSIBLE_PROPERTY_LABEL, g_strdup_printf (_("%s by %s"), name, creator),
-                                    -1);
 
     const gchar *newline_pos = g_strstr_len (description, -1, "\n");
 
