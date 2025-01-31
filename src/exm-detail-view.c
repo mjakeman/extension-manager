@@ -674,6 +674,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_apply_cb);
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_unapply_cb);
     gtk_widget_class_bind_template_callback (widget_class, screenshot_view_cb);
+    gtk_widget_class_bind_template_callback (widget_class, install_remote);
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, (GtkWidgetActionActivateFunc) open_link);
@@ -694,11 +695,6 @@ exm_detail_view_init (ExmDetailView *self)
     self->provider = exm_data_provider_new ();
     self->resolver = exm_image_resolver_new ();
     self->comment_provider = exm_comment_provider_new ();
-
-    g_signal_connect (self->ext_install,
-                      "clicked",
-                      G_CALLBACK (install_remote),
-                      self);
 
     adj = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (self->scroll_area));
 

@@ -49,6 +49,7 @@ struct _ExmBrowsePage
     GCancellable *cancellable;
 
     // Template Widgets
+    AdwBreakpoint       *breakpoint;
     AdwStatusPage       *status_page;
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
@@ -137,6 +138,7 @@ search_widget_factory (ExmSearchResult *result,
     gchar *uuid;
     gboolean is_installed;
     gboolean is_supported;
+    GValue value = G_VALUE_INIT;
 
     g_object_get (result, "uuid", &uuid, NULL);
 
@@ -144,6 +146,10 @@ search_widget_factory (ExmSearchResult *result,
     is_supported = exm_search_result_supports_shell_version (result, self->shell_version);
 
     row = exm_search_row_new (result, is_installed, is_supported);
+
+    g_value_init (&value, G_TYPE_BOOLEAN);
+    g_value_set_boolean (&value, TRUE);
+    adw_breakpoint_add_setter (self->breakpoint, G_OBJECT (row), "compact", &value);
 
     return GTK_WIDGET (row);
 }
@@ -409,6 +415,7 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-browse-page.ui", RESOURCE_PATH));
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, breakpoint);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, status_page);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);

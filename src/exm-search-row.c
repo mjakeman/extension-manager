@@ -20,12 +20,10 @@
 
 #include "exm-search-row.h"
 
-#include "exm-install-button.h"
-
-#include "exm-types.h"
-#include "exm-enums.h"
-
 #include "exm-config.h"
+#include "exm-enums.h"
+#include "exm-install-button.h"
+#include "exm-types.h"
 
 #include <glib/gi18n.h>
 
@@ -36,6 +34,7 @@ struct _ExmSearchRow
     ExmSearchResult *search_result;
     gboolean is_installed;
     gboolean is_supported;
+    gboolean compact;
     gchar *uuid;
 
     GtkLabel *description_label;
@@ -49,6 +48,7 @@ enum {
     PROP_SEARCH_RESULT,
     PROP_IS_INSTALLED,
     PROP_IS_SUPPORTED,
+    PROP_COMPACT,
     N_PROPS
 };
 
@@ -85,6 +85,9 @@ exm_search_row_get_property (GObject    *object,
     case PROP_IS_SUPPORTED:
         g_value_set_boolean (value, self->is_supported);
         break;
+    case PROP_COMPACT:
+        g_value_set_boolean (value, self->compact);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -115,6 +118,9 @@ exm_search_row_set_property (GObject      *object,
         break;
     case PROP_IS_SUPPORTED:
         self->is_supported = g_value_get_boolean (value);
+        break;
+    case PROP_COMPACT:
+        self->compact = g_value_get_boolean (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -211,6 +217,13 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
                               "Is Supported",
                               FALSE,
                               G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_COMPACT] =
+        g_param_spec_boolean ("compact",
+                              "Compact",
+                              "Compact",
+                              FALSE,
+                              G_PARAM_READWRITE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
