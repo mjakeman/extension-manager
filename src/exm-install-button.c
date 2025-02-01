@@ -113,6 +113,7 @@ update_state (ExmInstallButton *button)
     const gchar *tooltip;
     ExmInstallButtonState state;
 
+    // Translators: Icon's tooltip when an extension is incompatible
     tooltip = _("This extension is incompatible with your current version of GNOME");
     state = button->state;
 

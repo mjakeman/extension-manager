@@ -195,6 +195,7 @@ exm_application_show_about (GSimpleAction *action G_GNUC_UNUSED,
     adw_about_dialog_set_version (ADW_ABOUT_DIALOG (about_dialog), APP_VERSION);
     adw_about_dialog_set_comments (ADW_ABOUT_DIALOG (about_dialog), _("Browse, install, and manage GNOME Shell Extensions."));
     adw_about_dialog_set_developers (ADW_ABOUT_DIALOG (about_dialog), authors);
+    // Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
     adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about_dialog), _("translator-credits"));
     adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022-2025 Matthew Jakeman");
 

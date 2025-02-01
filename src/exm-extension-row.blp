@@ -24,6 +24,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     valign: center;
     halign: center;
     action-name: 'row.open-prefs';
+    // Translators: Button's tooltip to open extension's preferences dialog
     tooltip-text: _("Open extension preferences");
     visible: bind template.extension as <$ExmExtension>.has-prefs;
   }
@@ -41,6 +42,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     margin-start: 9;
     margin-end: 9;
     visible: false;
+    // Translators: Icon's tooltip when an extension has an error
     tooltip-text: _("An error occurred while loading this extension");
   }
 
@@ -57,6 +59,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     margin-start: 9;
     margin-end: 9;
     visible: false;
+    // Translators: Icon's tooltip when an extension is incompatible
     tooltip-text: _("This extension is incompatible with your current version of GNOME");
   }
 
@@ -73,6 +76,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     margin-start: 9;
     margin-end: 9;
     visible: bind template.extension as <$ExmExtension>.has-update;
+    // Translators: Icon's tooltip when an extension update is available
     tooltip-text: _("A newer version of this extension is available");
   }
 
@@ -89,6 +93,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     margin-start: 9;
     margin-end: 9;
     visible: false;
+    // Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
     tooltip-text: _("This extension could be activated in session modes such as the login screen or the lock screen");
   }
 

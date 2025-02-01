@@ -486,18 +486,21 @@ widget_factory (ExmUpgradeResult    *result,
     {
         status = gtk_image_new_from_icon_name ("supported-symbolic");
         gtk_widget_add_css_class (status, "success");
+        // Translators: Icon's tooltip when an extension is compatible
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("A compatible version of the extension exists"));
     }
     else if (supported == STATUS_UNSUPPORTED)
     {
         status = gtk_image_new_from_icon_name ("unsupported-symbolic");
         gtk_widget_add_css_class (status, "error");
+        // Translators: Icon's tooltip when an extension is not compatible
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("No compatible version of the extension exists"));
     }
     else
     {
         status = gtk_image_new_from_icon_name ("unknown-symbolic");
         gtk_widget_add_css_class (status, "warning");
+        // Translators: Icon's tooltip when an extension compatibility is unknown
         gtk_widget_set_tooltip_text (GTK_WIDGET (status), _("This extension is not hosted on extensions.gnome.org. Its compatibility cannot be determined."));
     }
 
