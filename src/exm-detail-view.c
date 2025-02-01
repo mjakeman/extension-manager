@@ -59,6 +59,7 @@ struct _ExmDetailView
     AdwHeaderBar *header_bar;
     AdwWindowTitle *title;
     GtkStack *stack;
+    GtkLabel *error_label;
     AdwStatusPage *error_status;
     GtkButton *ext_install;
     GtkLabel *ext_description;
@@ -66,8 +67,8 @@ struct _ExmDetailView
     GtkLabel *ext_title;
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
-	GtkOverlay *ext_screenshot_container;
-	GtkButton *ext_screenshot_popout_button;
+    GtkOverlay *ext_screenshot_container;
+    GtkButton *ext_screenshot_popout_button;
     ExmInfoBar *ext_info_bar;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
@@ -233,8 +234,16 @@ on_get_comments (GObject       *source,
 
     if (error != NULL)
     {
-        gtk_stack_set_visible_child_name (self->comment_stack, "page_error");
-        g_critical ("An issue occurred while loading comments: %s", error->message);
+        if (error->domain == g_quark_try_string ("request-error-quark") && error->code == 403)
+        {
+            gtk_stack_set_visible_child_name (self->comment_stack, "page_disabled");
+        }
+        else
+        {
+            gtk_stack_set_visible_child_name (self->comment_stack, "page_error");
+            gtk_label_set_label (self->error_label, error->message);
+        }
+
         return;
     }
 
@@ -317,7 +326,6 @@ new_donation_row (ExmDetailView *self,
     gtk_actionable_set_action_target_value (GTK_ACTIONABLE (row), g_variant_new_int32 (num_donation));
 
     external_link_icon = gtk_image_new_from_icon_name ("external-link-symbolic");
-    gtk_widget_add_css_class (external_link_icon, "dim-label");
     adw_action_row_add_suffix (ADW_ACTION_ROW (row), external_link_icon);
 
     adw_expander_row_add_row (self->links_donations, row);
@@ -417,7 +425,7 @@ on_data_loaded (GObject      *source,
         gtk_label_set_label (self->ext_title, name);
         gtk_label_set_label (self->ext_author, creator);
         gtk_label_set_label (self->ext_description, description);
-        exm_info_bar_set_downloads (self->ext_info_bar, downloads);
+        g_object_set (self->ext_info_bar, "downloads", downloads, NULL);
 
         if (self->resolver_cancel)
         {
@@ -476,7 +484,7 @@ on_data_loaded (GObject      *source,
         adw_action_row_set_subtitle (self->link_homepage, self->uri_homepage);
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
-        exm_info_bar_set_version (self->ext_info_bar, -1);
+        g_object_set (self->ext_info_bar, "version", 0.0, NULL);
 
         for (version_iter = version_map->map;
              version_iter != NULL;
@@ -495,7 +503,7 @@ on_data_loaded (GObject      *source,
               if (version != NULL && self->shell_version != NULL &&
                   (strcmp (version, self->shell_version) == 0 ||
                    strncmp(version, self->shell_version, strchr(version, '.') - version) == 0))
-                  exm_info_bar_set_version (self->ext_info_bar, entry->extension_version);
+                  g_object_set (self->ext_info_bar, "version", entry->extension_version, NULL);
 
             g_free (version);
         }
@@ -512,7 +520,8 @@ on_data_loaded (GObject      *source,
 
         queue_resolve_comments (self, pk, self->resolver_cancel);
 
-        // Reset scroll position
+        // Reset focus and scroll position
+        gtk_widget_grab_focus (GTK_WIDGET (self->ext_icon));
         gtk_adjustment_set_value (gtk_scrolled_window_get_vadjustment (self->scroll_area), 0);
 
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
@@ -525,8 +534,6 @@ void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
                                gchar         *uuid)
 {
-    // g_assert (gtk_widget_is_constructed)
-
     self->uuid = uuid;
 
     adw_window_title_set_title (self->title, NULL);
@@ -546,9 +553,7 @@ exm_detail_view_update (ExmDetailView *self)
     // Check if the newly installed extension is the
     // one being displayed in this detail view
     if (exm_manager_is_installed_uuid (self->manager, self->uuid))
-    {
         g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_INSTALLED, NULL);
-    }
 }
 
 static void
@@ -657,6 +662,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, title);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, error_label);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, error_status);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_title);
@@ -664,8 +670,8 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_description);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_info_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, links_donations);
@@ -678,6 +684,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_apply_cb);
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_unapply_cb);
     gtk_widget_class_bind_template_callback (widget_class, screenshot_view_cb);
+    gtk_widget_class_bind_template_callback (widget_class, install_remote);
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, (GtkWidgetActionActivateFunc) open_link);
@@ -698,11 +705,6 @@ exm_detail_view_init (ExmDetailView *self)
     self->provider = exm_data_provider_new ();
     self->resolver = exm_image_resolver_new ();
     self->comment_provider = exm_comment_provider_new ();
-
-    g_signal_connect (self->ext_install,
-                      "clicked",
-                      G_CALLBACK (install_remote),
-                      self);
 
     adj = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (self->scroll_area));
 

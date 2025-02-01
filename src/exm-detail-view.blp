@@ -104,9 +104,12 @@ template $ExmDetailView: Adw.NavigationPage {
                           "title-1"
                         ]
 
-                        xalign: 0;
                         ellipsize: end;
+                        lines: 2;
                         selectable: true;
+                        wrap: true;
+                        wrap-mode: word_char;
+                        xalign: 0;
 
                         accessibility {
                           description: _("Name");
@@ -129,8 +132,7 @@ template $ExmDetailView: Adw.NavigationPage {
                     }
 
                     $ExmInstallButton ext_install {
-                      valign: center;
-                      halign: center;
+                      clicked => $install_remote();
                     }
                   }
                 }
@@ -205,10 +207,6 @@ template $ExmDetailView: Adw.NavigationPage {
 
                     [suffix]
                     Gtk.Image {
-                      styles [
-                        "dim-label"
-                      ]
-
                       icon-name: "external-link-symbolic";
                     }
                   }
@@ -234,10 +232,6 @@ template $ExmDetailView: Adw.NavigationPage {
 
                     [suffix]
                     Gtk.Image {
-                      styles [
-                        "dim-label"
-                      ]
-
                       icon-name: "external-link-symbolic";
                     }
                   }
@@ -272,11 +266,44 @@ template $ExmDetailView: Adw.NavigationPage {
                     }
 
                     Gtk.StackPage {
+                      name: "page_disabled";
+
+                      child: Gtk.Label {
+                        label: _("Comments are disabled for this extension");
+                        valign: start;
+                        xalign: 0;
+                        selectable: true;
+                      };
+                    }
+
+                    Gtk.StackPage {
                       name: "page_error";
 
-                      child: Adw.StatusPage {
-                        title: _("An Error Occurred");
-                        icon-name: "dialog-question-symbolic";
+                      child: Gtk.Box {
+                        orientation: vertical;
+                        spacing: 6;
+
+                        Gtk.Label {
+                          styles [
+                            "heading"
+                          ]
+
+                          label: _("Connection Error");
+                          selectable: true;
+                          valign: start;
+                          xalign: 0;
+                        }
+
+                        Gtk.Label error_label {
+                          styles [
+                            "body"
+                          ]
+
+                          selectable: true;
+                          use-markup: true;
+                          valign: start;
+                          xalign: 0;
+                        }
                       };
                     }
 

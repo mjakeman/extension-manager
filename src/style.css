@@ -17,16 +17,15 @@
 }
 
 .search-row {
-  padding: 10px 5px;
+  padding: 2px;
 }
 
 .update {
   color: #ff7800;
 }
 
-.comment-tile {
+comment-tile {
   padding: 16px;
-  padding-bottom: 24px;
 }
 
 .detail-heading {
@@ -37,24 +36,40 @@ rating {
   color: var(--yellow-4);
 }
 
-.info-bar.horizontal > :not(:first-child),
-.info-bar.horizontal > :not(:first-child) > row {
+info-bar.horizontal > :not(:first-child),
+info-bar.horizontal > :not(:first-child) > row {
   border-radius: 0 12px 12px 0;
 }
 
-.info-bar.horizontal > :not(:last-child),
-.info-bar.horizontal > :not(:last-child) > row {
+info-bar.horizontal > :not(:last-child),
+info-bar.horizontal > :not(:last-child) > row {
   border-radius: 12px 0 0 12px;
 }
 
-.info-bar.vertical > :not(:first-child),
-.info-bar.vertical > :not(:first-child) > row {
+info-bar.vertical > :not(:first-child),
+info-bar.vertical > :not(:first-child) > row {
   border-radius: 0 0 12px 12px;
 }
 
-.info-bar.vertical > :not(:last-child),
-.info-bar.vertical > :not(:last-child) > row {
+info-bar.vertical > :not(:last-child),
+info-bar.vertical > :not(:last-child) > row {
   border-radius: 12px 12px 0 0;
+}
+
+info-bar > :not(:first-child):not(:last-child),
+info-bar > :not(:first-child):not(:last-child) > row {
+  border-radius: 0;
+}
+
+.card-separator {
+  background: var(--card-shade-color);
+}
+
+.info-bar-item {
+  background: transparent;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--card-shade-color), transparent);
+  border-radius: 0;
+  padding: 0;
 }
 
 .author-badge {

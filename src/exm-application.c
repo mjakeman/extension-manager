@@ -36,39 +36,57 @@ struct _ExmApplication
 G_DEFINE_TYPE (ExmApplication, exm_application, ADW_TYPE_APPLICATION)
 
 ExmApplication *
-exm_application_new (gchar *application_id,
+exm_application_new (gchar             *application_id,
                      GApplicationFlags  flags)
 {
     return g_object_new (EXM_TYPE_APPLICATION,
-                       "application-id", application_id,
-                       "flags", flags,
-                       NULL);
+                         "application-id", application_id,
+                         "flags", flags,
+                         NULL);
+}
+
+static void
+save_window_state (GtkWindow *self,
+                   gpointer   user_data G_GNUC_UNUSED)
+{
+    GSettings *settings;
+    gint default_width, default_height;
+    gboolean maximized;
+
+    settings = g_settings_new (APP_ID);
+
+    g_object_get (self, "default-width", &default_width, NULL);
+    g_object_get (self, "default-height", &default_height, NULL);
+    g_object_get (self, "maximized", &maximized, NULL);
+
+    g_settings_set_int (settings, "width", default_width);
+    g_settings_set_int (settings, "height", default_height);
+    g_settings_set_boolean (settings, "is-maximized", maximized);
+
+    g_object_unref (settings);
 }
 
 static ExmWindow *
 get_current_window (GApplication *app)
 {
-    GtkWindow *window;
     GSettings *settings;
+    GtkWindow *window;
+
+    settings = g_settings_new (APP_ID);
 
     /* Get the current window or create one if necessary. */
     window = gtk_application_get_active_window (GTK_APPLICATION (app));
     if (window == NULL)
+    {
         window = g_object_new (EXM_TYPE_WINDOW,
                                "application", app,
+                               "default-width", g_settings_get_int (settings, "width"),
+                               "default-height", g_settings_get_int (settings, "height"),
+                               "maximized", g_settings_get_boolean (settings, "is-maximized"),
                                NULL);
 
-    settings = g_settings_new (APP_ID);
-
-    g_settings_bind (settings, "width",
-                     window, "default-width",
-                     G_SETTINGS_BIND_DEFAULT);
-    g_settings_bind (settings, "height",
-                     window, "default-height",
-                     G_SETTINGS_BIND_DEFAULT);
-    g_settings_bind (settings, "is-maximized",
-                     window, "maximized",
-                     G_SETTINGS_BIND_DEFAULT);
+        g_signal_connect (window, "close-request", G_CALLBACK (save_window_state), NULL);
+    }
 
     g_object_unref (settings);
 
@@ -132,6 +150,13 @@ exm_application_open (GApplication  *app,
     gtk_widget_activate_action (GTK_WIDGET (window), "win.show-detail", "s", uuid);
 }
 
+static void
+exm_application_shutdown (GApplication *app)
+{
+    save_window_state (GTK_WINDOW (get_current_window (app)), NULL);
+
+    G_APPLICATION_CLASS (exm_application_parent_class)->shutdown (app);
+}
 
 static void
 exm_application_class_init (ExmApplicationClass *klass)
@@ -146,6 +171,7 @@ exm_application_class_init (ExmApplicationClass *klass)
     */
     app_class->activate = exm_application_activate;
     app_class->open = exm_application_open;
+    app_class->shutdown = exm_application_shutdown;
 }
 
 static void
@@ -169,6 +195,7 @@ exm_application_show_about (GSimpleAction *action G_GNUC_UNUSED,
     adw_about_dialog_set_version (ADW_ABOUT_DIALOG (about_dialog), APP_VERSION);
     adw_about_dialog_set_comments (ADW_ABOUT_DIALOG (about_dialog), _("Browse, install, and manage GNOME Shell Extensions."));
     adw_about_dialog_set_developers (ADW_ABOUT_DIALOG (about_dialog), authors);
+    // Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
     adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about_dialog), _("translator-credits"));
     adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022-2025 Matthew Jakeman");
 
