@@ -266,11 +266,44 @@ template $ExmDetailView: Adw.NavigationPage {
                     }
 
                     Gtk.StackPage {
+                      name: "page_disabled";
+
+                      child: Gtk.Label {
+                        label: _("Comments are disabled for this extension");
+                        valign: start;
+                        xalign: 0;
+                        selectable: true;
+                      };
+                    }
+
+                    Gtk.StackPage {
                       name: "page_error";
 
-                      child: Adw.StatusPage {
-                        title: _("An Error Occurred");
-                        icon-name: "dialog-question-symbolic";
+                      child: Gtk.Box {
+                        orientation: vertical;
+                        spacing: 6;
+
+                        Gtk.Label {
+                          styles [
+                            "heading"
+                          ]
+
+                          label: _("Connection Error");
+                          selectable: true;
+                          valign: start;
+                          xalign: 0;
+                        }
+
+                        Gtk.Label error_label {
+                          styles [
+                            "body"
+                          ]
+
+                          selectable: true;
+                          use-markup: true;
+                          valign: start;
+                          xalign: 0;
+                        }
                       };
                     }
 

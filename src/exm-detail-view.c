@@ -59,6 +59,7 @@ struct _ExmDetailView
     AdwHeaderBar *header_bar;
     AdwWindowTitle *title;
     GtkStack *stack;
+    GtkLabel *error_label;
     AdwStatusPage *error_status;
     GtkButton *ext_install;
     GtkLabel *ext_description;
@@ -66,8 +67,8 @@ struct _ExmDetailView
     GtkLabel *ext_title;
     GtkLabel *ext_author;
     ExmScreenshot *ext_screenshot;
-	GtkOverlay *ext_screenshot_container;
-	GtkButton *ext_screenshot_popout_button;
+    GtkOverlay *ext_screenshot_container;
+    GtkButton *ext_screenshot_popout_button;
     ExmInfoBar *ext_info_bar;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
@@ -233,8 +234,16 @@ on_get_comments (GObject       *source,
 
     if (error != NULL)
     {
-        gtk_stack_set_visible_child_name (self->comment_stack, "page_error");
-        g_critical ("An issue occurred while loading comments: %s", error->message);
+        if (error->domain == g_quark_try_string ("request-error-quark") && error->code == 403)
+        {
+            gtk_stack_set_visible_child_name (self->comment_stack, "page_disabled");
+        }
+        else
+        {
+            gtk_stack_set_visible_child_name (self->comment_stack, "page_error");
+            gtk_label_set_label (self->error_label, error->message);
+        }
+
         return;
     }
 
@@ -653,6 +662,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, header_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, title);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, error_label);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, error_status);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_title);
@@ -660,8 +670,8 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_description);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_install);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
-	gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_info_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, links_donations);
