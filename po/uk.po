@@ -4,22 +4,23 @@
 # volkov <volkovissocool@gmail.com>, 2023.
 # Володимир Давибіда <mrvovavova17@gmail.com>, 2024.
 # volkov <volkov@users.noreply.hosted.weblate.org>, 2024.
+# Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-01 11:32+0000\n"
-"PO-Revision-Date: 2024-12-07 09:00+0000\n"
-"Last-Translator: volkov <volkov@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
-"manager/app/uk/>\n"
+"PO-Revision-Date: 2025-02-01 15:08+0000\n"
+"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"extension-manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -184,7 +185,7 @@ msgstr "Відгуки користувачів"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Коментарі вимкнено для цього розширення"
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
