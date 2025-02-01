@@ -1,6 +1,7 @@
-/* main.c
+/*
+ * main.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,7 +49,10 @@ handler (int sig)
     if (backtrace)
     {
         // Send backtrace string over pipe
-        write (pipe_fd[1], backtrace, strlen (backtrace));
+        ssize_t bytes_written = write (pipe_fd[1], backtrace, strlen (backtrace));
+
+        if (bytes_written < 0)
+            g_warning ("Failed to write backtrace to pipe: %s", g_strerror (errno));
     }
 
     close (pipe_fd[1]);

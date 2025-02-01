@@ -1,6 +1,7 @@
-/* exm-application.h
+/*
+ * exm-application.h
  *
- * Copyright 2022 Matthew Jakeman
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,11 +15,12 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #pragma once
 
-#include <gtk/gtk.h>
 #include <adwaita.h>
 
 G_BEGIN_DECLS
@@ -27,7 +29,7 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmApplication, exm_application, EXM, APPLICATION, AdwApplication)
 
-ExmApplication *exm_application_new (gchar *application_id,
+ExmApplication *exm_application_new (gchar             *application_id,
                                      GApplicationFlags  flags);
 
 G_END_DECLS

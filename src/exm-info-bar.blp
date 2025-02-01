@@ -3,43 +3,44 @@ using Adw 1;
 
 template $ExmInfoBar: Gtk.Box {
   styles [
-    "info-bar"
+    "card"
   ]
 
   homogeneous: true;
 
   Gtk.ListBox {
     styles [
-      "card"
+      "info-bar-item"
     ]
 
     selection-mode: none;
 
-    Adw.ActionRow downloads_item {
+    Adw.ActionRow {
       [prefix]
       Gtk.Image {
         icon-name: "folder-download-symbolic";
       }
 
       title: C_("Number of downloads", "Downloads");
+      subtitle: bind $format_downloads(template.downloads) as <string>;
     }
   }
 
   Gtk.ListBox {
     styles [
-      "card"
+      "info-bar-item"
     ]
 
     selection-mode: none;
 
-    Adw.ActionRow version_item {
+    Adw.ActionRow {
       [prefix]
       Gtk.Image {
         icon-name: "system-software-install-symbolic";
       }
 
       title: _("Version");
-      subtitle: _("Unsupported");
+      subtitle: bind $format_version(template.version) as <string>;
     }
   }
 }

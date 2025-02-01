@@ -69,6 +69,7 @@ exm_comment_dialog_dispose (GObject *object)
     ExmCommentDialog *self = (ExmCommentDialog *)object;
 
     g_cancellable_cancel (self->cancellable);
+    g_clear_object (&self->cancellable);
 
     G_OBJECT_CLASS (exm_comment_dialog_parent_class)->dispose (object);
 }

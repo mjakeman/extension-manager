@@ -20,12 +20,10 @@
 
 #include "exm-search-row.h"
 
-#include "exm-install-button.h"
-
-#include "exm-types.h"
-#include "exm-enums.h"
-
 #include "exm-config.h"
+#include "exm-enums.h"
+#include "exm-install-button.h"
+#include "exm-types.h"
 
 #include <glib/gi18n.h>
 
@@ -36,8 +34,10 @@ struct _ExmSearchRow
     ExmSearchResult *search_result;
     gboolean is_installed;
     gboolean is_supported;
+    gboolean compact;
     gchar *uuid;
 
+    GtkLabel *description_label;
     ExmInstallButton *install_btn;
 };
 
@@ -48,6 +48,7 @@ enum {
     PROP_SEARCH_RESULT,
     PROP_IS_INSTALLED,
     PROP_IS_SUPPORTED,
+    PROP_COMPACT,
     N_PROPS
 };
 
@@ -84,6 +85,9 @@ exm_search_row_get_property (GObject    *object,
     case PROP_IS_SUPPORTED:
         g_value_set_boolean (value, self->is_supported);
         break;
+    case PROP_COMPACT:
+        g_value_set_boolean (value, self->compact);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -115,6 +119,9 @@ exm_search_row_set_property (GObject      *object,
     case PROP_IS_SUPPORTED:
         self->is_supported = g_value_get_boolean (value);
         break;
+    case PROP_COMPACT:
+        self->compact = g_value_get_boolean (value);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -142,11 +149,10 @@ exm_search_row_constructed (GObject *object)
 
     ExmInstallButtonState install_state;
 
-    gchar *uuid, *name, *creator;
+    gchar *uuid, *description;
     g_object_get (self->search_result,
                   "uuid", &uuid,
-                  "name", &name,
-                  "creator", &creator,
+                  "description", &description,
                   NULL);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
@@ -159,10 +165,18 @@ exm_search_row_constructed (GObject *object)
 
     g_object_set (self->install_btn, "state", install_state, NULL);
 
-    gtk_accessible_update_property (GTK_ACCESSIBLE (self),
-                                    // Translators: '%s' = extension name, '%s' = extension creator
-                                    GTK_ACCESSIBLE_PROPERTY_LABEL, g_strdup_printf (_("%s by %s"), name, creator),
-                                    -1);
+    const gchar *newline_pos = g_strstr_len (description, -1, "\n");
+
+    if (newline_pos != NULL)
+    {
+        gchar *truncated_text = g_strndup (description, newline_pos - description);
+        gtk_label_set_label (self->description_label, truncated_text);
+        g_free (truncated_text);
+    }
+    else
+    {
+        gtk_label_set_label (self->description_label, description);
+    }
 
     G_OBJECT_CLASS (exm_search_row_parent_class)->constructed (object);
 }
@@ -197,12 +211,20 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
                               FALSE,
                               G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
+    properties [PROP_COMPACT] =
+        g_param_spec_boolean ("compact",
+                              "Compact",
+                              "Compact",
+                              FALSE,
+                              G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-search-row.ui", RESOURCE_PATH));
 
+    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, description_label);
     gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, install_btn);
 
     gtk_widget_class_bind_template_callback (widget_class, install_remote);

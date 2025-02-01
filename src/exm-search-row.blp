@@ -8,7 +8,7 @@ template $ExmSearchRow: Gtk.ListBoxRow {
   activatable: true;
   action-name: "win.show-detail";
 
-  Gtk.Box {
+  child: Gtk.Box {
     styles [
       "header"
     ]
@@ -16,6 +16,10 @@ template $ExmSearchRow: Gtk.ListBoxRow {
     spacing: 12;
 
     Gtk.Box {
+      styles [
+        "title"
+      ]
+
       hexpand: true;
       orientation: vertical;
 
@@ -25,8 +29,11 @@ template $ExmSearchRow: Gtk.ListBoxRow {
         ]
 
         ellipsize: end;
-        xalign: 0;
         label: bind template.search-result as <$ExmSearchResult>.name;
+        lines: 2;
+        wrap: true;
+        wrap-mode: word_char;
+        xalign: 0;
       }
 
       Gtk.Label subtitle {
@@ -35,8 +42,10 @@ template $ExmSearchRow: Gtk.ListBoxRow {
         ]
 
         ellipsize: end;
-        xalign: 0;
         label: bind template.search-result as <$ExmSearchResult>.creator;
+        wrap: true;
+        wrap-mode: word_char;
+        xalign: 0;
       }
 
       Gtk.Label description_label {
@@ -44,27 +53,25 @@ template $ExmSearchRow: Gtk.ListBoxRow {
           "dim-label"
         ]
 
-        margin-top: 6;
-        single-line-mode: true;
-        xalign: 0;
-        wrap: true;
-        wrap-mode: word_char;
         ellipsize: end;
         lines: 2;
-        label: bind template.search-result as <$ExmSearchResult>.description;
+        margin-top: 6;
+        wrap: true;
+        wrap-mode: word_char;
+        xalign: 0;
       }
     }
 
     $ExmInstallButton install_btn {
-      valign: center;
+      icon-only: bind template.compact;
       clicked => $install_remote();
     }
 
     Gtk.Image {
-      valign: center;
       icon-name: "go-next-symbolic";
+      valign: center;
     }
-  }
+  };
 
   accessibility {
     described-by: description_label;

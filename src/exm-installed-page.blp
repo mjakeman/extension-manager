@@ -43,6 +43,24 @@ template $ExmInstalledPage: Gtk.Widget {
 
               selection-mode: none;
 
+              [placeholder]
+              Adw.ActionRow {
+                [prefix]
+                Gtk.Image {
+                  icon-name: "globe-symbolic";
+                }
+
+                title: _("No User Extensions Installed");
+
+                [suffix]
+                Gtk.Button {
+                  label: _("Browse");
+                  action-name: "win.show-page";
+                  action-target: "\"browse\"";
+                  valign: center;
+                }
+              }
+
               accessibility {
                 labelled-by: user_list;
               }
@@ -59,6 +77,16 @@ template $ExmInstalledPage: Gtk.Widget {
               ]
 
               selection-mode: none;
+
+              [placeholder]
+              Adw.ActionRow {
+                [prefix]
+                Gtk.Image {
+                  icon-name: "settings-symbolic";
+                }
+
+                title: _("No System Extensions Installed");
+              }
 
               accessibility {
                 labelled-by: system_list;

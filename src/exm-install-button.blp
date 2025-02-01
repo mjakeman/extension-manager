@@ -1,0 +1,21 @@
+using Gtk 4.0;
+
+template $ExmInstallButton: Gtk.Button {
+  valign: center;
+
+  Gtk.Stack stack {
+    hhomogeneous: false;
+    interpolate-size: true;
+    transition-type: crossfade;
+
+    Gtk.StackPage {
+      child: Gtk.Label label {};
+    }
+
+    Gtk.StackPage {
+      child: Gtk.Image icon {
+        icon-name: "folder-download-symbolic";
+      };
+    }
+  }
+}
