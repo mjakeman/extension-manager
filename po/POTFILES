@@ -17,6 +17,7 @@ src/exm-extension-row.c
 src/exm-help-overlay.blp
 src/exm-info-bar.blp
 src/exm-info-bar.c
+src/exm-install-button.blp
 src/exm-install-button.c
 src/exm-installed-page.blp
 src/exm-installed-page.c
