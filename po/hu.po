@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 16:40+0000\n"
+"POT-Creation-Date: 2025-02-01 11:32+0000\n"
 "PO-Revision-Date: 2024-12-08 10:00+0000\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/extension-"
@@ -18,19 +18,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.9-dev\n"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:3
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
 msgstr "Kiterjesztéskezelő"
 
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
 msgstr "GNOME Shell kiterjesztések kezelése"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
-#: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
+#: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
 msgstr "extension;manager;gnome;shell;bővítmény;"
 
@@ -64,76 +64,64 @@ msgstr "További információk megtekintése a kiterjesztésről"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "Kiterjesztések kompatibilitásának ellenőrzése a GNOME egyes verzióival"
 
-#: src/exm-application.c:170
+#: src/exm-application.c:196
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "GNOME Shell kiterjesztések kezelése egy helyen."
 
-#: src/exm-application.c:172
+#. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
+#: src/exm-application.c:199
 msgid "translator-credits"
 msgstr "ViBE <vibe@protonmail.com>"
 
-#: src/exm-browse-page.blp:8
+#: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
 msgstr "Kiterjesztések keresése"
 
-#: src/exm-browse-page.blp:9
+#: src/exm-browse-page.blp:17
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
 "Írjon be kulcsszavakat az 'extensions.gnome.org' gyűjteményében való GNOME "
 "Shell kiterjesztések kereséséhez"
 
-#: src/exm-browse-page.blp:39
+#: src/exm-browse-page.blp:47
 msgid "Relevance"
 msgstr "Fontosság"
 
-#: src/exm-browse-page.blp:40
+#: src/exm-browse-page.blp:48
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Letöltések"
 
-#: src/exm-browse-page.blp:41
+#: src/exm-browse-page.blp:49
 msgid "Recent"
 msgstr "Legutóbbi"
 
-#: src/exm-browse-page.blp:42 src/exm-detail-view.blp:112
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:115
 msgid "Name"
 msgstr "Név"
 
-#: src/exm-browse-page.blp:49
+#: src/exm-browse-page.blp:57
 msgid "Sort search results"
 msgstr "Találatok rendezése"
 
-#: src/exm-browse-page.blp:89
+#: src/exm-browse-page.blp:102
 msgid "_Load More Results"
 msgstr "További találatok _betöltése"
 
-#: src/exm-browse-page.blp:123 src/exm-installed-page.blp:97
+#: src/exm-browse-page.blp:136 src/exm-installed-page.blp:126
 msgid "No Results Found"
 msgstr "Nincs találat"
 
-#: src/exm-browse-page.blp:130
+#: src/exm-browse-page.blp:143
 msgid "Try a different search"
 msgstr "Próbálja meg újra"
 
-#: src/exm-browse-page.blp:164 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:51 src/exm-upgrade-assistant.blp:84
+#: src/exm-browse-page.blp:177 src/exm-comment-dialog.blp:34
+#: src/exm-detail-view.blp:51 src/exm-detail-view.blp:291
+#: src/exm-upgrade-assistant.blp:84
 msgid "Connection Error"
 msgstr "Kapcsolódási hiba"
-
-#: src/exm-browse-page.c:196 src/exm-comment-dialog.c:159
-#: src/exm-detail-view.c:372 src/exm-upgrade-assistant.c:374
-msgid ""
-"Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
-"and try again later"
-msgstr ""
-"Ellenőrizze a <a href='https://status.gnome.org/'>GNOME infrastructure "
-"status</a> felületét, majd próbálja újra később"
-
-#: src/exm-browse-page.c:198 src/exm-comment-dialog.c:161
-#: src/exm-detail-view.c:374 src/exm-upgrade-assistant.c:376
-msgid "Check your network status and try again"
-msgstr "Ellenőrizze a hálózat állapotát, majd próbálja újra"
 
 #: src/exm-comment-dialog.blp:13
 msgid "Comments"
@@ -143,7 +131,7 @@ msgstr "Visszajelzések"
 msgid "Loading Comments"
 msgstr "Visszajelzések betöltése"
 
-#: src/exm-comment-tile.blp:28 src/exm-detail-view.blp:126
+#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:129
 msgid "Author"
 msgstr "Készítő"
 
@@ -151,7 +139,7 @@ msgstr "Készítő"
 msgid "Loading Details"
 msgstr "Részletek betöltése"
 
-#: src/exm-detail-view.blp:61 src/exm-detail-view.blp:278 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:306
 msgid "An Error Occurred"
 msgstr "Hiba történt"
 
@@ -159,50 +147,54 @@ msgstr "Hiba történt"
 msgid "No extension details available"
 msgstr "Nincsenek elérhető részletek"
 
-#: src/exm-detail-view.blp:153
+#: src/exm-detail-view.blp:155
 msgid "Enlarge Image"
 msgstr "Kép nagyítása"
 
-#: src/exm-detail-view.blp:171 src/exm-extension-row.blp:109
+#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:106
 msgid "Description"
 msgstr "Leírás"
 
-#: src/exm-detail-view.blp:194
+#: src/exm-detail-view.blp:196
 msgid "Links"
 msgstr "Hivatkozások"
 
-#: src/exm-detail-view.blp:202
+#: src/exm-detail-view.blp:204
 msgid "Homepage"
 msgstr "Honlap"
 
-#: src/exm-detail-view.blp:222
+#: src/exm-detail-view.blp:220
 msgid "Donate"
 msgstr "Adományozás"
 
-#: src/exm-detail-view.blp:231
+#: src/exm-detail-view.blp:229
 msgid "View on Extensions"
 msgstr "Megtekintés böngészőben"
 
-#: src/exm-detail-view.blp:255
+#: src/exm-detail-view.blp:249
 msgid "User Reviews"
 msgstr "Felhasználói értékelések"
 
-#: src/exm-detail-view.blp:287
+#: src/exm-detail-view.blp:272
+msgid "Comments are disabled for this extension"
+msgstr ""
+
+#: src/exm-detail-view.blp:314
 msgid "No comments yet"
 msgstr "Nincsenek értékelések"
 
-#: src/exm-detail-view.blp:310
+#: src/exm-detail-view.blp:337
 msgid "_Show All Reviews"
 msgstr "_Minden visszajelzés megtekintése"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:414
+#: src/exm-detail-view.c:424
 #, c-format
 msgid "%s Icon"
 msgstr "%s ikonja"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:447
+#: src/exm-detail-view.c:457
 #, c-format
 msgid "%s Screenshot"
 msgstr "Pillanatkép a(z) %s kiterjesztésről"
@@ -211,20 +203,20 @@ msgstr "Pillanatkép a(z) %s kiterjesztésről"
 msgid "Error Report"
 msgstr "Hiba jelentése"
 
-#: src/exm-error-dialog.blp:39
+#: src/exm-error-dialog.blp:37
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Nem várt kivétel történt a Kiterjesztéskezelőben"
 
-#: src/exm-error-dialog.blp:66 src/exm-upgrade-assistant.blp:157
+#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:175
 msgid "_Copy to Clipboard"
 msgstr "_Másolás vágólapra"
 
-#: src/exm-error-dialog.blp:76
+#: src/exm-error-dialog.blp:85
 msgid "_New Issue"
 msgstr "_Új hiba"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:335
+#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:332
 msgid "Copied"
 msgstr "Vágólapra másolva"
 
@@ -245,23 +237,28 @@ msgstr ""
 "fel a kapcsolatot</span> mielőtt hibajegyet küldene! Az alábbi részletek "
 "mellékelése szükséges:"
 
-#: src/exm-extension-row.blp:26
+#. Translators: Button's tooltip to open extension's preferences dialog
+#: src/exm-extension-row.blp:28
 msgid "Open extension preferences"
 msgstr "Kiterjesztés beállításainak megnyitása"
 
-#: src/exm-extension-row.blp:42
+#. Translators: Icon's tooltip when an extension has an error
+#: src/exm-extension-row.blp:46
 msgid "An error occurred while loading this extension"
 msgstr "Hiba történt a kiterjesztés betöltése során"
 
-#: src/exm-extension-row.blp:58 src/exm-install-button.c:98
+#. Translators: Icon's tooltip when an extension is incompatible
+#: src/exm-extension-row.blp:63 src/exm-install-button.c:117
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Ez a kiterjesztés nem kompatibilis a telepített GNOME verzióval"
 
-#: src/exm-extension-row.blp:74
+#. Translators: Icon's tooltip when an extension update is available
+#: src/exm-extension-row.blp:80
 msgid "A newer version of this extension is available"
 msgstr "Elérhető frissítés a kiterjesztéshez"
 
-#: src/exm-extension-row.blp:90
+#. Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
+#: src/exm-extension-row.blp:97
 msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
@@ -269,19 +266,19 @@ msgstr ""
 "Ez a kiterjesztés a bejelentkező képernyőre vagy a zároló képernyőre van "
 "hatással"
 
-#: src/exm-extension-row.blp:144 src/exm-info-bar.blp:41
+#: src/exm-extension-row.blp:114 src/exm-info-bar.blp:42
 msgid "Version"
 msgstr "Verzió"
 
-#: src/exm-extension-row.blp:175
+#: src/exm-extension-row.blp:124
 msgid "Error"
 msgstr "Hiba"
 
-#: src/exm-extension-row.blp:215
+#: src/exm-extension-row.blp:145
 msgid "See Details"
 msgstr "Részletek megtekintése"
 
-#: src/exm-extension-row.blp:225
+#: src/exm-extension-row.blp:155
 msgid "Remove…"
 msgstr "Eltávolítás…"
 
@@ -345,20 +342,20 @@ msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Letöltve"
 
-#: src/exm-info-bar.blp:42 src/exm-info-bar.c:56
+#: src/exm-info-bar.c:107
 msgid "Unsupported"
 msgstr "Nem támogatott"
 
-#: src/exm-install-button.c:108
+#: src/exm-install-button.c:127
 msgid "Install…"
 msgstr "Telepítés…"
 
-#: src/exm-install-button.c:113
+#: src/exm-install-button.c:132
 msgctxt "State"
 msgid "Installed"
 msgstr "Telepített"
 
-#: src/exm-install-button.c:117
+#: src/exm-install-button.c:136
 msgid "Unsupported…"
 msgstr "Nem támogatott…"
 
@@ -378,19 +375,32 @@ msgstr "Egyes kiterjesztések használata teljesítmény-csökkenést okozhat"
 msgid "User-Installed Extensions"
 msgstr "Felhasználó által telepített kiterjesztések"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:138
+msgid "No User Extensions Installed"
+msgstr "Nincsenek felhasználó által telepített kiterjesztések"
+
+#: src/exm-installed-page.blp:57
+msgid "Browse"
+msgstr "Böngészés"
+
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:148
 msgid "System Extensions"
 msgstr "Előtelepített kiterjesztések"
 
-#: src/exm-installed-page.blp:85
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:165
+msgid "No System Extensions Installed"
+msgstr "Nincsenek előtelepített kiterjesztések"
+
+#. Translators: Text announced by screen readers when interacting with the list of search results
+#: src/exm-installed-page.blp:114
 msgid "Search Results"
 msgstr "Találatok"
 
-#: src/exm-installed-page.blp:98
+#: src/exm-installed-page.blp:127
 msgid "Try a different search or search online"
 msgstr "Próbálja meg újra vagy böngésszen a gyűjteményben"
 
-#: src/exm-installed-page.blp:105
+#: src/exm-installed-page.blp:134
 msgid "_Search Online"
 msgstr "_Böngészés"
 
@@ -404,18 +414,6 @@ msgstr[0] ""
 msgstr[1] ""
 "%d kiterjesztés frissítése ütemezve van a következő bejelentkezéskor"
 
-#: src/exm-installed-page.c:401
-msgid "Browse"
-msgstr "Böngészés"
-
-#: src/exm-installed-page.c:412 src/exm-upgrade-assistant.c:660
-msgid "No User Extensions Installed"
-msgstr "Nincsenek felhasználó által telepített kiterjesztések"
-
-#: src/exm-installed-page.c:427 src/exm-upgrade-assistant.c:666
-msgid "No System Extensions Installed"
-msgstr "Nincsenek előtelepített kiterjesztések"
-
 #: src/exm-rating.c:142
 #, c-format
 msgid "%i Star"
@@ -423,19 +421,15 @@ msgid_plural "%i Stars"
 msgstr[0] "%i csillag"
 msgstr[1] "%i csillag"
 
-#: src/exm-screenshot-view.blp:36
+#. Translators: Button's tooltip to zoom out screenshots
+#: src/exm-screenshot-view.blp:37
 msgid "Zoom Out"
 msgstr "Kicsinyítés"
 
-#: src/exm-screenshot-view.blp:49
+#. Translators: Button's tooltip to zoom in screenshots
+#: src/exm-screenshot-view.blp:51
 msgid "Zoom In"
 msgstr "Nagyítás"
-
-#. Translators: '%s' = extension name, '%s' = extension creator
-#: src/exm-search-row.c:164
-#, c-format
-msgid "%s by %s"
-msgstr "%s %s jóvoltából"
 
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
@@ -456,7 +450,7 @@ msgstr "%d/%d kiterjesztés ellenőrizve"
 msgid "%d%% Compatible"
 msgstr "%d%% kompatibilis"
 
-#: src/exm-upgrade-assistant.c:212
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
@@ -465,15 +459,18 @@ msgstr ""
 "A <b>GNOME %s</b> jelenleg <b>%d</b> kiterjesztést támogat a jelen "
 "rendszerre telepített <b>%d</b> kiterjesztésből"
 
-#: src/exm-upgrade-assistant.c:494
+#. Translators: Icon's tooltip when an extension is compatible
+#: src/exm-upgrade-assistant.c:490
 msgid "A compatible version of the extension exists"
 msgstr "Elérhető kompatibilis változat"
 
-#: src/exm-upgrade-assistant.c:498
+#. Translators: Icon's tooltip when an extension is not compatible
+#: src/exm-upgrade-assistant.c:497
 msgid "No compatible version of the extension exists"
 msgstr "Jelenleg nem elérhető kompatibilis változat"
 
-#: src/exm-upgrade-assistant.c:502
+#. Translators: Icon's tooltip when an extension compatibility is unknown
+#: src/exm-upgrade-assistant.c:504
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -481,7 +478,7 @@ msgstr ""
 "A kiterjesztés nem az extensions.gnome.org-ról származik. A kompatibilitás "
 "megállapítása nem lehetséges."
 
-#: src/exm-upgrade-assistant.c:597
+#: src/exm-upgrade-assistant.c:600
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -491,55 +488,56 @@ msgstr ""
 "kiválaszthatja és ellenőrizheti, hogy az egyes kiterjesztések mely "
 "verziókkal kompatibilisek."
 
-#: src/exm-window.blp:38
+#. Translators: Tooltip of the search icon in the header bar
+#: src/exm-window.blp:39
 msgid "Search Installed Extensions"
 msgstr "Keresés telepítettek között"
 
-#: src/exm-window.blp:47
+#: src/exm-window.blp:48
 msgid "Main Menu"
 msgstr "Menü"
 
-#: src/exm-window.blp:58
+#: src/exm-window.blp:59
 msgid "Search for installed extensions"
 msgstr "Keresés telepített kiterjesztések között"
 
-#: src/exm-window.blp:68
+#: src/exm-window.blp:69
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Telepített"
 
-#: src/exm-window.blp:77
+#: src/exm-window.blp:78
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Böngészés"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:105
+#: src/exm-window.blp:106
 msgid "Sort _Enabled First"
 msgstr "_Rendezés állapot szerint"
 
-#: src/exm-window.blp:106
+#: src/exm-window.blp:107
 msgid "_Show Unsupported"
 msgstr "Nem támogatotta_k megjelenítése"
 
-#: src/exm-window.blp:110
+#: src/exm-window.blp:111
 msgid "_Upgrade Assistant"
 msgstr "_Frissítési segéd"
 
-#: src/exm-window.blp:111
+#: src/exm-window.blp:112
 msgid "_Keyboard Shortcuts"
 msgstr "_Gyorsbillentyűk"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 msgid "_About Extension Manager"
 msgstr "_Névjegy"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:118
 msgid "Uninstall Extension?"
 msgstr "Eltávolítja a kiterjesztést?"
 
-#: src/exm-window.blp:118
+#: src/exm-window.blp:119
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -547,19 +545,19 @@ msgstr ""
 "Az eltávolítást követően a kiterjesztés funkciói nem lesznek a továbbiakban "
 "elérhetőek. Folytatja?"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:124
 msgid "_No"
 msgstr "_Nem"
 
-#: src/exm-window.blp:124
+#: src/exm-window.blp:125
 msgid "_Yes"
 msgstr "_Igen"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:130
 msgid "Unsupported Extension"
 msgstr "Nem támogatott kiterjesztés"
 
-#: src/exm-window.blp:130
+#: src/exm-window.blp:131
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -567,17 +565,33 @@ msgstr ""
 "Ez a kiterjesztés nem kompatibilis a telepített GNOME verzióval. Használata "
 "hibákat okozhat."
 
-#: src/exm-window.blp:136
+#: src/exm-window.blp:137
 msgid "_Install Anyway"
 msgstr "_Telepítés mindenképp"
 
-#: src/exm-window.blp:137
+#: src/exm-window.blp:138
 msgid "_Go Back"
 msgstr "_Vissza"
 
 #: src/exm-window.c:307
 msgid "_Details"
 msgstr "_Részletek"
+
+#: src/web/exm-request-handler.c:99
+msgid ""
+"Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
+"and try again later"
+msgstr ""
+"Ellenőrizze a <a href='https://status.gnome.org/'>GNOME infrastructure "
+"status</a> felületét, majd próbálja újra később"
+
+#: src/web/exm-request-handler.c:100
+msgid "Check your network status and try again"
+msgstr "Ellenőrizze a hálózat állapotát, majd próbálja újra"
+
+#, c-format
+#~ msgid "%s by %s"
+#~ msgstr "%s %s jóvoltából"
 
 #, fuzzy
 #~| msgid "Updates are available"
