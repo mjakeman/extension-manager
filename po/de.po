@@ -4,14 +4,14 @@
 #
 # Antifallobst <antifallobst@riseup.net>, 2022.
 # Lauri Jouaux <lauri.jouaux@outlook.com>, 2022.
-# Gabriel Brand <gabr.brand@gmail.com>, 2022-2024.
+# Gabriel Brand <gabr.brand@gmail.com>, 2022-2024, 2025.
 # Robert Winzer <weissnicht000099@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-01 11:32+0000\n"
-"PO-Revision-Date: 2024-12-07 09:00+0000\n"
+"PO-Revision-Date: 2025-02-01 15:08+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -188,7 +188,7 @@ msgstr "Benutzerrezensionen"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Kommentare sind für diese Erweiterung deaktiviert"
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
