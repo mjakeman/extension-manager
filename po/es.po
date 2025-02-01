@@ -1,22 +1,22 @@
 # Spanish translations for extension-manager package.
 # Copyright (C) 2022 THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2022-2023, 2024.
+# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2022-2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-01 11:32+0000\n"
-"PO-Revision-Date: 2024-11-25 17:00+0000\n"
+"PO-Revision-Date: 2025-02-01 15:08+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/extension-"
-"manager/app/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"extension-manager/app/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -179,7 +179,7 @@ msgstr "Opiniones de usuarios"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Los comentarios están desactivados para esta extensión"
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
