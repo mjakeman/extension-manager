@@ -2,8 +2,8 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmExtensionRow: Adw.ExpanderRow {
-  title-lines: 1;
-  subtitle-lines: 1;
+  title-lines: 2;
+  subtitle-lines: 2;
   subtitle: bind template.extension as <$ExmExtension>.uuid;
 
   [suffix]
