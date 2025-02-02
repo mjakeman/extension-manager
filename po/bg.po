@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# trunars <trunars@gmail.com>, 2024.
+# trunars <trunars@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-01 11:32+0000\n"
-"PO-Revision-Date: 2024-12-11 12:00+0000\n"
+"PO-Revision-Date: 2025-02-02 14:55+0000\n"
 "Last-Translator: trunars <trunars@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/extension-"
-"manager/app/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/"
+"extension-manager/app/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -179,7 +179,7 @@ msgstr "Потребителски отзиви"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Коментарите са изключени за това разширение"
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
