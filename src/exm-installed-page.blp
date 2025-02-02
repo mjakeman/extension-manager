@@ -38,7 +38,7 @@ template $ExmInstalledPage: Gtk.Widget {
             Gtk.ListBox user_list_box {
               styles [
                 "boxed-list",
-                "boxed-list-placeholder"
+                "boxed-list-placeholder",
               ]
 
               selection-mode: none;
@@ -73,7 +73,7 @@ template $ExmInstalledPage: Gtk.Widget {
             Gtk.ListBox system_list_box {
               styles [
                 "boxed-list",
-                "boxed-list-placeholder"
+                "boxed-list-placeholder",
               ]
 
               selection-mode: none;
@@ -104,7 +104,7 @@ template $ExmInstalledPage: Gtk.Widget {
         Adw.PreferencesGroup {
           Gtk.ListBox search_list_box {
             styles [
-              "boxed-list"
+              "boxed-list",
             ]
 
             selection-mode: none;
@@ -128,7 +128,7 @@ template $ExmInstalledPage: Gtk.Widget {
 
         child: Gtk.Button {
           styles [
-            "pill"
+            "pill",
           ]
 
           label: _("_Search Online");

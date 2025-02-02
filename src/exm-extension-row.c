@@ -323,6 +323,12 @@ on_state_changed (GtkSwitch        *toggle,
     return TRUE;
 }
 
+void
+exm_search_row_focus_toggle (ExmExtensionRow *self)
+{
+    gtk_widget_grab_focus (GTK_WIDGET (self->ext_toggle));
+}
+
 static void
 exm_extension_row_class_init (ExmExtensionRowClass *klass)
 {

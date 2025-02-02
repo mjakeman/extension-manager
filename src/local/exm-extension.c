@@ -199,6 +199,25 @@ exm_extension_set_property (GObject      *object,
     }
 }
 
+gint
+compare_extension (ExmExtension *a,
+                   ExmExtension *b,
+                   gpointer      user_data G_GNUC_UNUSED)
+{
+    const gchar *uuid_a, *uuid_b;
+    g_object_get (a, "uuid", &uuid_a, NULL);
+    g_object_get (b, "uuid", &uuid_b, NULL);
+
+    return g_strcmp0 (uuid_a, uuid_b);
+}
+
+gboolean
+is_extension_equal (ExmExtension *a,
+                    ExmExtension *b)
+{
+    return compare_extension (a, b, NULL) == 0;
+}
+
 static void
 exm_extension_class_init (ExmExtensionClass *klass)
 {
