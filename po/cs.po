@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # Vojtěch Perník <translations@pervoj.cz>, 2022.
 # vikdevelop https://github.com/vikdevelop
-#
+# Fjuro <fjuro@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-01 11:32+0000\n"
-"PO-Revision-Date: 2024-09-02 15:16+0000\n"
-"Last-Translator: Jan Kalabza <jan.kalabza@gmail.com>\n"
+"PO-Revision-Date: 2025-02-03 12:31+0000\n"
+"Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -123,13 +123,13 @@ msgstr "Nebyly Nalezeny Žádné Výsledky"
 
 #: src/exm-browse-page.blp:143
 msgid "Try a different search"
-msgstr ""
+msgstr "Zkuste vyhledat něco jiného"
 
 #: src/exm-browse-page.blp:177 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:51 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:84
 msgid "Connection Error"
-msgstr ""
+msgstr "Chyba připojení"
 
 #: src/exm-comment-dialog.blp:13
 msgid "Comments"
@@ -152,10 +152,8 @@ msgid "An Error Occurred"
 msgstr "Vyskytla se Chyba"
 
 #: src/exm-detail-view.blp:62
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Je dostupná novější verze tohoto rozšíření"
+msgstr "Nejsou dostupné žádné podrobnosti o rozšíření"
 
 #: src/exm-detail-view.blp:155
 msgid "Enlarge Image"
