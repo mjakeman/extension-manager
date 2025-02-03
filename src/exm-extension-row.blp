@@ -144,6 +144,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
         ]
 
         label: _("See Details");
+        can-shrink: true;
         valign: center;
         action-name: 'win.show-detail';
       }
@@ -154,6 +155,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
         ]
 
         label: _("Remove…");
+        can-shrink: true;
         valign: center;
         action-name: 'row.remove';
         visible: bind template.extension as <$ExmExtension>.is-user;
