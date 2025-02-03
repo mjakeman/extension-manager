@@ -4,13 +4,14 @@
 # Vojtěch Perník <translations@pervoj.cz>, 2022.
 # vikdevelop https://github.com/vikdevelop
 # Fjuro <fjuro@users.noreply.hosted.weblate.org>, 2025.
+# lorduskordus <lorduskordus@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-01 11:32+0000\n"
 "PO-Revision-Date: 2025-02-03 12:31+0000\n"
-"Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
+"Last-Translator: lorduskordus <lorduskordus@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
 "Language: cs\n"
@@ -184,8 +185,9 @@ msgid "User Reviews"
 msgstr "Uživatelské Recenze"
 
 #: src/exm-detail-view.blp:272
+#, fuzzy
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Komentáře pro toto rozšíření jsou vypnuty"
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
@@ -309,7 +311,7 @@ msgstr "Zobrazit Stránku Procházet"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Přepnout Vyhledávání"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -429,12 +431,12 @@ msgstr[1] "%d rozšíření budou aktualizována při příštím přihlášení
 msgstr[2] "%d rozšíření bude aktualizováno při příštím přihlášení"
 
 #: src/exm-rating.c:142
-#, c-format
+#, c-format, fuzzy
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%i Hvězda"
+msgstr[1] "%i Hvězdy"
+msgstr[2] "%i Hvězd"
 
 #. Translators: Button's tooltip to zoom out screenshots
 #: src/exm-screenshot-view.blp:37
@@ -604,8 +606,9 @@ msgid ""
 msgstr ""
 
 #: src/web/exm-request-handler.c:100
+#, fuzzy
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Zkontrolujte svůj stav sítě a zkuste znovu"
 
 #~ msgid "Updates Available"
 #~ msgstr "Dostupné Aktualizace"
