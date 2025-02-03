@@ -270,7 +270,7 @@ queue_resolve_comments (ExmDetailView *self,
 }
 
 static void
-show_more_comments (GtkButton *button G_GNUC_UNUSED,
+show_more_comments (GtkButton     *button G_GNUC_UNUSED,
                     ExmDetailView *self)
 {
     GtkRoot *toplevel;

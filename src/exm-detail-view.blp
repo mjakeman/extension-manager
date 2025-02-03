@@ -20,7 +20,6 @@ template $ExmDetailView: Adw.NavigationPage {
         condition ("max-width: 400sp")
 
         setters {
-          ext_info_bar.orientation: vertical;
           header_suffix.orientation: vertical;
           header_suffix.spacing: 12;
           ext_install.halign: start;
@@ -132,6 +131,7 @@ template $ExmDetailView: Adw.NavigationPage {
                     }
 
                     $ExmInstallButton ext_install {
+                      can-shrink: true;
                       clicked => $install_remote();
                     }
                   }
@@ -323,6 +323,7 @@ template $ExmDetailView: Adw.NavigationPage {
 
                       child: Gtk.Box {
                         orientation: vertical;
+                        spacing: 12;
 
                         Gtk.FlowBox comment_box {
                           min-children-per-line: 2;
@@ -335,8 +336,8 @@ template $ExmDetailView: Adw.NavigationPage {
 
                         Gtk.Button show_more_btn {
                           label: _("_Show All Reviews");
+                          can-shrink: true;
                           halign: center;
-                          margin-top: 10;
                           use-underline: true;
                         }
                       };
