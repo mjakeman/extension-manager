@@ -1,22 +1,22 @@
 # LANGUAGE translations for extension-manager package.
 # Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# bittin1ddc447d824349b2 <bittin@reimu.nl>, 2024.
+# bittin1ddc447d824349b2 <bittin@reimu.nl>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-01 11:32+0000\n"
-"PO-Revision-Date: 2024-11-29 16:14+0000\n"
+"PO-Revision-Date: 2025-02-03 12:31+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/extension-"
-"manager/app/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"extension-manager/app/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -177,7 +177,7 @@ msgstr "Användarrecensioner"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Kommentarer är inaktiverade för detta tillägg"
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
