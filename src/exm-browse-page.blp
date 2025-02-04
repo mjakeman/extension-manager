@@ -99,6 +99,7 @@ template $ExmBrowsePage: Gtk.Widget {
                   selection-mode: none;
 
                   Adw.ButtonRow more_results_btn {
+                    start-icon-name: "view-more-symbolic";
                     title: _("_Load More Results");
                     use-underline: true;
                     activated => $on_load_more_results();
