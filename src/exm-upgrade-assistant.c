@@ -36,9 +36,10 @@ struct _ExmUpgradeAssistant
     ExmManager *manager;
     ExmDataProvider *data_provider;
 
+    GCancellable *cancellable;
+
     // Version Data
     gchar *target_shell_version;
-    GHashTable *version_map;
 
     // Results Data
     gchar *current_shell_version;
@@ -50,12 +51,14 @@ struct _ExmUpgradeAssistant
     GListStore *system_results_store;
 
     // Template Widgets
+    AdwToastOverlay *toast_overlay;
+    AdwNavigationView *navigation_view;
     GtkStack *stack;
 
     // Version Select Page
-    GtkDropDown *drop_down;
-    GtkButton *run_button;
     GtkLabel *description;
+    AdwComboRow *drop_down;
+    GtkButton *run_button;
 
     // Waiting Page
     AdwStatusPage *counter;
@@ -64,11 +67,12 @@ struct _ExmUpgradeAssistant
     AdwStatusPage *error_status;
 
     // Results Page
+    AdwPreferencesPage *prefs_page;
+    GtkLabel *summary;
+    GtkProgressBar *progress_bar;
     GtkListBox *user_list_box;
     GtkListBox *system_list_box;
-    GtkProgressBar *progress_bar;
-    GtkLabel *summary;
-    GtkButton *copy_details;
+    AdwButtonRow *copy_details;
 };
 
 G_DEFINE_FINAL_TYPE (ExmUpgradeAssistant, exm_upgrade_assistant, ADW_TYPE_DIALOG)
@@ -87,6 +91,17 @@ exm_upgrade_assistant_new (ExmManager *manager)
     return g_object_new (EXM_TYPE_UPGRADE_ASSISTANT,
                          "manager", manager,
                          NULL);
+}
+
+static void
+exm_upgrade_assistant_dispose (GObject *object)
+{
+    ExmUpgradeAssistant *self = (ExmUpgradeAssistant *)object;
+
+    g_cancellable_cancel (self->cancellable);
+    g_clear_object (&self->cancellable);
+
+    G_OBJECT_CLASS (exm_upgrade_assistant_parent_class)->dispose (object);
 }
 
 static void
@@ -210,11 +225,13 @@ display_results (ExmUpgradeAssistant *self)
     gtk_label_set_markup (self->summary, text);
     g_free (text);
 
+    adw_preferences_page_scroll_to_top (self->prefs_page);
     gtk_stack_set_visible_child_name (self->stack, "results");
 }
 
 static SupportStatus
-get_support_status (ExmUpgradeResult *result, const char *target_version)
+get_support_status (ExmUpgradeResult *result,
+                    const char       *target_version)
 {
     SupportStatus supported;
     ExmSearchResult *web_data;
@@ -232,9 +249,9 @@ get_support_status (ExmUpgradeResult *result, const char *target_version)
 }
 
 static void
-print_list_model (GListModel  *model,
-                  GString     *string_builder,
-                  gchar       *target_shell_version)
+print_list_model (GListModel *model,
+                  GString    *string_builder,
+                  gchar      *target_shell_version)
 {
     int num_extensions;
     gchar *text;
@@ -318,7 +335,6 @@ copy_to_clipboard (ExmUpgradeAssistant *self)
 
     print_list_model (G_LIST_MODEL (self->system_results_store), string_builder, self->target_shell_version);
 
-
     // Add to clipboard
     display = gdk_display_get_default ();
     clipboard = gdk_display_get_clipboard (display);
@@ -327,10 +343,8 @@ copy_to_clipboard (ExmUpgradeAssistant *self)
     gdk_clipboard_set_text (clipboard, text);
     g_free (text);
 
-
     // Success indicator
-    gtk_button_set_label (self->copy_details, _("Copied"));
-    gtk_widget_set_sensitive (GTK_WIDGET (self->copy_details), FALSE);
+    adw_toast_overlay_add_toast (self->toast_overlay, adw_toast_new (_("Copied")));
 }
 
 static void
@@ -396,24 +410,21 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     int num_items;
     int i;
 
-    int selected;
-    const char *key;
+    gint selected;
     GListModel *model;
-    int target_version;
+    const char *target_version;
 
-    selected = gtk_drop_down_get_selected (self->drop_down);
-    model = gtk_drop_down_get_model (self->drop_down);
-    key = gtk_string_list_get_string (GTK_STRING_LIST (model), selected);
+    selected = adw_combo_row_get_selected (self->drop_down);
+    model = adw_combo_row_get_model (self->drop_down);
+    target_version = gtk_string_list_get_string (GTK_STRING_LIST (model), selected);
 
-    if (!key)
+    if (!target_version)
         return;
-
-    target_version = GPOINTER_TO_INT (g_hash_table_lookup (self->version_map, key));
 
     if (self->target_shell_version)
         g_free (self->target_shell_version);
 
-    self->target_shell_version = g_strdup_printf ("%d", target_version);
+    self->target_shell_version = g_strdup_printf ("%s", target_version);
 
     if (!self->manager)
         return;
@@ -424,6 +435,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
 
     // Display spinner
     gtk_stack_set_visible_child_name (self->stack, "waiting");
+    adw_navigation_view_push_by_tag (self->navigation_view, "results");
 
     // Reset variables
     self->total_extensions = 0;
@@ -455,7 +467,8 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         data = create_check_data (extension, self, is_user);
 
         self->total_extensions++;
-        exm_data_provider_get_async (self->data_provider, uuid, NULL, on_extension_processed, data);
+        exm_data_provider_get_async (self->data_provider, uuid, self->cancellable,
+                                     on_extension_processed, data);
     }
 
     // Set this flag after all tasks have been dispatched
@@ -539,7 +552,6 @@ populate_drop_down (ExmUpgradeAssistant *self)
 {
     GDateTime *date_time;
     GtkStringList *string_list;
-    GHashTable *hash_table;
     int year, month;
     int current_gnome_version;
     int index;
@@ -571,20 +583,16 @@ populate_drop_down (ExmUpgradeAssistant *self)
 
     // Populate dropdown and version map
     string_list = gtk_string_list_new (NULL);
-    hash_table = g_hash_table_new (g_str_hash, g_str_equal);
 
     for (index = 40; index <= current_gnome_version; index++)
     {
-        gchar *key;
-
-        key = g_strdup_printf ("GNOME %d", index);
-        g_hash_table_insert (hash_table, key, GINT_TO_POINTER (index));
+        gchar *key = g_strdup_printf ("%d", index);
         gtk_string_list_append (string_list, key);
+        g_free (key);
     }
 
-    self->version_map = hash_table;
-    gtk_drop_down_set_model (self->drop_down, G_LIST_MODEL (string_list));
-    gtk_drop_down_set_selected (self->drop_down, g_list_model_get_n_items (G_LIST_MODEL (string_list)) - 1);
+    adw_combo_row_set_model (self->drop_down, G_LIST_MODEL (string_list));
+    adw_combo_row_set_selected (self->drop_down, g_list_model_get_n_items (G_LIST_MODEL (string_list)) - 1);
 }
 
 static void
@@ -606,10 +614,20 @@ on_bind_manager (ExmUpgradeAssistant *self)
 }
 
 static void
+on_hidden_results (AdwNavigationPage   *page G_GNUC_UNUSED,
+                   ExmUpgradeAssistant *self)
+{
+    g_cancellable_cancel (self->cancellable);
+    g_clear_object (&self->cancellable);
+    self->cancellable = g_cancellable_new ();
+}
+
+static void
 exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->dispose = exm_upgrade_assistant_dispose;
     object_class->get_property = exm_upgrade_assistant_get_property;
     object_class->set_property = exm_upgrade_assistant_set_property;
 
@@ -625,21 +643,25 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-upgrade-assistant.ui", RESOURCE_PATH));
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, user_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, system_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, run_button);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, drop_down);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, description);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, toast_overlay);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, navigation_view);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, description);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, drop_down);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, run_button);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, counter);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, error_status);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, progress_bar);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, prefs_page);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, progress_bar);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, user_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, system_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, copy_details);
 
-    gtk_widget_class_bind_template_callback (widget_class, do_compatibility_check);
-    gtk_widget_class_bind_template_callback (widget_class, copy_to_clipboard);
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
+    gtk_widget_class_bind_template_callback (widget_class, do_compatibility_check);
+    gtk_widget_class_bind_template_callback (widget_class, on_hidden_results);
+    gtk_widget_class_bind_template_callback (widget_class, copy_to_clipboard);
 }
 
 static void
@@ -649,6 +671,7 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 
     self->data_provider = exm_data_provider_new ();
     self->target_shell_version = NULL;
+    self->cancellable = g_cancellable_new ();
 
     self->user_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
     self->system_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
@@ -657,4 +680,3 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 
     populate_drop_down (self);
 }
-
