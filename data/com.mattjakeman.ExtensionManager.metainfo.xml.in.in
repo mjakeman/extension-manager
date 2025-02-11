@@ -18,19 +18,19 @@
     </ul>
 	</description>
   <screenshots>
-    <screenshot type="default">
+    <screenshot environment="gnome" type="default">
       <caption>Manage the extensions you already have installed</caption>
       <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-installed-light.png</image>
     </screenshot>
-    <screenshot type="default">
+    <screenshot environment="gnome:dark" type="default">
       <caption>Browse extensions.gnome.org right inside the app</caption>
       <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-browse-dark.png</image>
     </screenshot>
-    <screenshot type="default">
+    <screenshot environment="gnome" type="default">
       <caption>See all the details of your extensions</caption>
       <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-details-light.png</image>
     </screenshot>
-    <screenshot type="default">
+    <screenshot environment="gnome:dark" type="default">
       <caption>Check your extensions compatibility with the next version of GNOME</caption>
       <image>https://raw.githubusercontent.com/mjakeman/extension-manager/master/data/screenshot-upgrade-assistant-dark.png</image>
     </screenshot>
