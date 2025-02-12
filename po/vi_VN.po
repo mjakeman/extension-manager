@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-01 11:32+0000\n"
+"POT-Creation-Date: 2025-02-12 22:05+0000\n"
 "PO-Revision-Date: 2023-11-09 22:59+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Loading Details"
 msgstr "Chi tiết"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:345
 msgid "An Error Occurred"
 msgstr "Đã xảy ra lỗi"
 
@@ -213,13 +213,13 @@ msgid "_Show All Reviews"
 msgstr "_Hiển thị tất cả đánh giá"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:424
+#: src/exm-detail-view.c:439
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:457
+#: src/exm-detail-view.c:472
 #, c-format
 msgid "%s Screenshot"
 msgstr ""
@@ -389,11 +389,18 @@ msgid "Install…"
 msgstr "Cài đặt"
 
 #: src/exm-install-button.c:132
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgid "Installing"
+msgstr "Đã cài đặt"
+
+#: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
 msgstr "Đã cài đặt"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:140
 #, fuzzy
 #| msgid "Unsupported"
 msgid "Unsupported…"
@@ -641,7 +648,7 @@ msgstr "_Vẫn cài đặt"
 msgid "_Go Back"
 msgstr "_Quay lại"
 
-#: src/exm-window.c:307
+#: src/exm-window.c:346
 #, fuzzy
 #| msgid "Details"
 msgid "_Details"

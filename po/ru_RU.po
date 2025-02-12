@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-01 11:32+0000\n"
+"POT-Creation-Date: 2025-02-12 22:05+0000\n"
 "PO-Revision-Date: 2025-02-07 13:02+0000\n"
 "Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"extension-manager/app/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
+"manager/app/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,7 +142,7 @@ msgstr "Автор"
 msgid "Loading Details"
 msgstr "Загрузка подробностей"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:345
 msgid "An Error Occurred"
 msgstr "Произошла ошибка"
 
@@ -191,13 +191,13 @@ msgid "_Show All Reviews"
 msgstr "_Показать все отзывы"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:424
+#: src/exm-detail-view.c:439
 #, c-format
 msgid "%s Icon"
 msgstr "Значок '%s'"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:457
+#: src/exm-detail-view.c:472
 #, c-format
 msgid "%s Screenshot"
 msgstr "Cкриншот '%s'"
@@ -354,11 +354,18 @@ msgid "Install…"
 msgstr "Установить…"
 
 #: src/exm-install-button.c:132
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgid "Installing"
+msgstr "Установлено"
+
+#: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
 msgstr "Установлено"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:140
 msgid "Unsupported…"
 msgstr "Не поддерживается…"
 
@@ -576,7 +583,7 @@ msgstr "_Установить все равно"
 msgid "_Go Back"
 msgstr "Н_азад"
 
-#: src/exm-window.c:307
+#: src/exm-window.c:346
 msgid "_Details"
 msgstr "_Подробности"
 

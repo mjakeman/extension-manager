@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-01 11:32+0000\n"
+"POT-Creation-Date: 2025-02-12 22:05+0000\n"
 "PO-Revision-Date: 2024-12-22 09:09+0000\n"
 "Last-Translator: unsigned char <ZhangYaoan2008@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -138,7 +138,7 @@ msgstr "作者"
 msgid "Loading Details"
 msgstr "加载详情中"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:345
 msgid "An Error Occurred"
 msgstr "发生了一个错误"
 
@@ -187,13 +187,13 @@ msgid "_Show All Reviews"
 msgstr "显示所有评论 (_S)"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:424
+#: src/exm-detail-view.c:439
 #, c-format
 msgid "%s Icon"
 msgstr "%s 图标"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:457
+#: src/exm-detail-view.c:472
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s 屏幕截图"
@@ -346,11 +346,18 @@ msgid "Install…"
 msgstr "安装…"
 
 #: src/exm-install-button.c:132
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgid "Installing"
+msgstr "已安装"
+
+#: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
 msgstr "已安装"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:140
 msgid "Unsupported…"
 msgstr "不受支持…"
 
@@ -555,7 +562,7 @@ msgstr "依然安装 (_I)"
 msgid "_Go Back"
 msgstr "返回 (_G)"
 
-#: src/exm-window.c:307
+#: src/exm-window.c:346
 msgid "_Details"
 msgstr "细节 (_D)"
 

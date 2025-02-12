@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-01 11:32+0000\n"
+"POT-Creation-Date: 2025-02-12 22:05+0000\n"
 "PO-Revision-Date: 2024-12-26 10:00+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/extension-manager/"
@@ -140,7 +140,7 @@ msgstr "நூலாசிரியர்"
 msgid "Loading Details"
 msgstr "விவரங்களை ஏற்றுகிறது"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:345
 msgid "An Error Occurred"
 msgstr "ஒரு பிழை ஏற்பட்டது"
 
@@ -189,13 +189,13 @@ msgid "_Show All Reviews"
 msgstr "_ எல்லா மதிப்புரைகளையும் மாற்றவும்"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:424
+#: src/exm-detail-view.c:439
 #, c-format
 msgid "%s Icon"
 msgstr "%s படவுரு"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:457
+#: src/exm-detail-view.c:472
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s திரை காட்சி"
@@ -351,11 +351,18 @@ msgid "Install…"
 msgstr "நிறுவு…"
 
 #: src/exm-install-button.c:132
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgid "Installing"
+msgstr "நிறுவப்பட்டுள்ளது"
+
+#: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
 msgstr "நிறுவப்பட்டுள்ளது"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:140
 msgid "Unsupported…"
 msgstr "ஆதரிக்கப்படாத…"
 
@@ -570,7 +577,7 @@ msgstr "_ எப்படியும் நிறுவவும்"
 msgid "_Go Back"
 msgstr "திரும்பிச் செல்லுங்கள்"
 
-#: src/exm-window.c:307
+#: src/exm-window.c:346
 msgid "_Details"
 msgstr "_ டெயில்ச்"
 

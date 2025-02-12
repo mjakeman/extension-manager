@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-01 11:32+0000\n"
+"POT-Creation-Date: 2025-02-12 22:05+0000\n"
 "PO-Revision-Date: 2024-05-27 12:09+0000\n"
 "Last-Translator: tabby <tabby4442@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/extension-manager/"
@@ -151,7 +151,7 @@ msgstr "저자"
 msgid "Loading Details"
 msgstr "세부 사항 불러오는 중"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:345
 msgid "An Error Occurred"
 msgstr "오류가 발생했습니다"
 
@@ -206,13 +206,13 @@ msgid "_Show All Reviews"
 msgstr "_모든 리뷰 보기"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:424
+#: src/exm-detail-view.c:439
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:457
+#: src/exm-detail-view.c:472
 #, c-format
 msgid "%s Screenshot"
 msgstr ""
@@ -379,11 +379,18 @@ msgid "Install…"
 msgstr "설치"
 
 #: src/exm-install-button.c:132
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgid "Installing"
+msgstr "설치됨"
+
+#: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
 msgstr "설치됨"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:140
 #, fuzzy
 #| msgid "Unsupported"
 msgid "Unsupported…"
@@ -630,7 +637,7 @@ msgstr "_아무튼 설치"
 msgid "_Go Back"
 msgstr "_돌아가기"
 
-#: src/exm-window.c:307
+#: src/exm-window.c:346
 #, fuzzy
 #| msgid "Details"
 msgid "_Details"

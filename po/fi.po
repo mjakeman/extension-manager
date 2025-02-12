@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-01 11:32+0000\n"
+"POT-Creation-Date: 2025-02-12 22:05+0000\n"
 "PO-Revision-Date: 2025-02-01 11:31+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/extension-"
@@ -141,7 +141,7 @@ msgstr "Tekijä"
 msgid "Loading Details"
 msgstr "Ladataan tietoja"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:345
 msgid "An Error Occurred"
 msgstr "Tapahtui virhe"
 
@@ -190,13 +190,13 @@ msgid "_Show All Reviews"
 msgstr "_Näytä kaikki arvostelut"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:424
+#: src/exm-detail-view.c:439
 #, c-format
 msgid "%s Icon"
 msgstr "Laajennuksen %s kuvake"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:457
+#: src/exm-detail-view.c:472
 #, c-format
 msgid "%s Screenshot"
 msgstr "Laajennuksen %s kuvakaappaus"
@@ -352,11 +352,18 @@ msgid "Install…"
 msgstr "Asenna…"
 
 #: src/exm-install-button.c:132
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgid "Installing"
+msgstr "Asennettu"
+
+#: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
 msgstr "Asennettu"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:140
 msgid "Unsupported…"
 msgstr "Ei tuettu…"
 
@@ -571,7 +578,7 @@ msgstr "_Asenna silti"
 msgid "_Go Back"
 msgstr "_Takaisin"
 
-#: src/exm-window.c:307
+#: src/exm-window.c:346
 msgid "_Details"
 msgstr "_Tiedot"
 

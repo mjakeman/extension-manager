@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-01 11:32+0000\n"
+"POT-Creation-Date: 2025-02-12 22:05+0000\n"
 "PO-Revision-Date: 2024-08-16 15:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
@@ -138,7 +138,7 @@ msgstr "लेखक"
 msgid "Loading Details"
 msgstr "विवरण लोड हो रहा है"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:306
+#: src/exm-detail-view.blp:61 src/exm-window.c:345
 msgid "An Error Occurred"
 msgstr "एक त्रुटि हुई"
 
@@ -189,13 +189,13 @@ msgid "_Show All Reviews"
 msgstr "सभी समीक्षाएं दिखाएं (_S)"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:424
+#: src/exm-detail-view.c:439
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:457
+#: src/exm-detail-view.c:472
 #, fuzzy, c-format
 #| msgctxt "shortcut window"
 #| msgid "Screenshot View"
@@ -352,11 +352,18 @@ msgid "Install…"
 msgstr "स्थापित करें…"
 
 #: src/exm-install-button.c:132
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgid "Installing"
+msgstr "स्थापित"
+
+#: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
 msgstr "स्थापित"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:140
 msgid "Unsupported…"
 msgstr "असमर्थित…"
 
@@ -581,7 +588,7 @@ msgstr "फिर भी स्थापित करें (_I)"
 msgid "_Go Back"
 msgstr "पीछे जाएं (_G)"
 
-#: src/exm-window.c:307
+#: src/exm-window.c:346
 #, fuzzy
 #| msgid "Details"
 msgid "_Details"
