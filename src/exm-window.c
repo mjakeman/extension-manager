@@ -27,6 +27,7 @@
 #include "exm-error-dialog.h"
 #include "exm-installed-page.h"
 #include "exm-screenshot-view.h"
+#include "exm-types.h"
 #include "exm-upgrade-assistant.h"
 #include "local/exm-extension.h"
 #include "local/exm-manager.h"
@@ -121,10 +122,8 @@ extension_remove_dialog_response (AdwAlertDialog   *dialog,
 {
     const char *response = adw_alert_dialog_choose_finish (dialog, result);
 
-    if (strcmp(response, "yes") == 0)
-    {
+    if (g_str_equal (response, "yes"))
         exm_manager_remove_extension (data->manager, data->extension);
-    }
 
     g_clear_pointer (&data->manager, g_object_unref);
     g_clear_pointer (&data->extension, g_object_unref);
@@ -153,24 +152,59 @@ extension_remove (GtkWidget  *widget,
                              (GAsyncReadyCallback) extension_remove_dialog_response, data);
 }
 
-static void
-on_install_done (GObject       *source,
-                 GAsyncResult  *res,
-                 gpointer       user_data G_GNUC_UNUSED)
-{
-    GError *error = NULL;
-    if (!exm_manager_install_finish (EXM_MANAGER (source), res, &error) && error)
-    {
-        // TODO: Properly log this
-        g_critical ("%s\n", error->message);
-    }
-}
-
 typedef struct
 {
     ExmManager *manager;
     gchar *uuid;
 } UnsupportedDialogData;
+
+static void
+on_install_done (GObject      *source,
+                 GAsyncResult *res,
+                 gpointer      user_data)
+{
+    ExmWindow *self = NULL;
+    UnsupportedDialogData *data = NULL;
+    ExmManager *manager = NULL;
+    ExmInstallButtonState state;
+    GError *error = NULL;
+
+    if (G_IS_OBJECT (user_data))
+    {
+        self = (ExmWindow *)user_data;
+        manager = self->manager;
+        state = EXM_INSTALL_BUTTON_STATE_DEFAULT;
+    }
+    else
+    {
+        data = (UnsupportedDialogData *)user_data;
+        manager = data->manager;
+        state = EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
+    }
+
+    if (!exm_manager_install_finish (source, res, &error))
+    {
+        // TODO: Properly log this
+        if (error)
+        {
+            g_critical ("%s\n", error->message);
+            g_clear_error (&error);
+        }
+
+        g_signal_emit_by_name (manager, "install-status", state);
+    }
+    else
+    {
+        g_signal_emit_by_name (manager, "install-status", EXM_INSTALL_BUTTON_STATE_INSTALLED);
+    }
+
+    if (data)
+    {
+        g_clear_pointer (&data->manager, g_object_unref);
+        g_clear_pointer (&data->uuid, g_free);
+        g_free (data);
+    }
+}
 
 static void
 extension_unsupported_dialog_response (AdwAlertDialog        *dialog,
@@ -179,16 +213,20 @@ extension_unsupported_dialog_response (AdwAlertDialog        *dialog,
 {
     const char *response = adw_alert_dialog_choose_finish (dialog, result);
 
-    if (strcmp(response, "install") == 0)
+    if (g_str_equal (response, "install"))
     {
         exm_manager_install_async (data->manager, data->uuid, NULL,
                                    (GAsyncReadyCallback) on_install_done,
-                                   NULL);
+                                   data);
     }
+    else
+    {
+        g_signal_emit_by_name (data->manager, "install-status", EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
-    g_clear_pointer (&data->manager, g_object_unref);
-    g_clear_pointer (&data->uuid, g_free);
-    g_free (data);
+        g_clear_pointer (&data->manager, g_object_unref);
+        g_clear_pointer (&data->uuid, g_free);
+        g_free (data);
+    }
 }
 
 static void
@@ -208,6 +246,7 @@ extension_install (GtkWidget  *widget,
         UnsupportedDialogData *data = g_new0 (UnsupportedDialogData, 1);
         data->manager = g_object_ref (self->manager);
         data->uuid = g_strdup (uuid);
+        g_free (uuid);
 
         adw_alert_dialog_choose (self->unsupported_dialog, widget, NULL,
                                  (GAsyncReadyCallback) extension_unsupported_dialog_response, data);
@@ -326,7 +365,7 @@ search_online (GtkWidget  *widget,
     search_entry = exm_browse_page_get_search_entry (self->browse_page);
     search_text = gtk_editable_get_text (GTK_EDITABLE (gtk_search_bar_get_child (self->search_bar)));
     adw_view_stack_set_visible_child_name (self->view_stack, "browse");
-    gtk_editable_set_text (GTK_EDITABLE (search_entry) , search_text);
+    gtk_editable_set_text (GTK_EDITABLE (search_entry), search_text);
     gtk_toggle_button_set_active (self->search_button, FALSE);
 }
 

@@ -21,7 +21,6 @@
 
 #include "exm-manager.h"
 
-#include "exm-extension.h"
 #include "shell-dbus-interface.h"
 
 #include "../exm-types.h"
@@ -56,6 +55,7 @@ enum {
     SIGNAL_0,
     SIGNAL_UPDATES_AVAILABLE,
     SIGNAL_ERROR_OCCURRED,
+    SIGNAL_INSTALL_STATUS,
     N_SIGNALS
 };
 
@@ -353,29 +353,6 @@ exm_manager_is_installed_uuid (ExmManager  *self,
     return FALSE;
 }
 
-static void
-do_install_thread (GTask        *task,
-                   ExmManager   *self,
-                   const char   *uuid,
-                   GCancellable *cancellable)
-{
-    GError *error = NULL;
-
-    g_dbus_proxy_call_sync (G_DBUS_PROXY (self->proxy),
-                            "InstallRemoteExtension",
-                            g_variant_new ("(s)", uuid, NULL),
-                            G_DBUS_CALL_FLAGS_NONE,
-                            -1, cancellable, &error);
-
-    if (error != NULL)
-    {
-        g_task_return_error (task, error);
-        return;
-    }
-
-    g_task_return_boolean (task, TRUE);
-}
-
 void
 exm_manager_install_async (ExmManager          *self,
                            const gchar         *uuid,
@@ -383,22 +360,35 @@ exm_manager_install_async (ExmManager          *self,
                            GAsyncReadyCallback  callback,
                            gpointer             user_data)
 {
-    GTask *task;
-
-    task = g_task_new (self, cancellable, callback, user_data);
-    g_task_set_task_data (task, g_strdup (uuid), (GDestroyNotify) g_free);
-    g_task_run_in_thread (task, (GTaskThreadFunc)do_install_thread);
-    g_object_unref (task);
+    shell_extensions_call_install_remote_extension (self->proxy,
+                                                    uuid,
+                                                    cancellable,
+                                                    callback,
+                                                    user_data);
 }
 
 gboolean
-exm_manager_install_finish (ExmManager    *self,
+exm_manager_install_finish (GObject       *self,
                             GAsyncResult  *result,
                             GError       **error)
 {
-    g_return_val_if_fail (g_task_is_valid (result, self), FALSE);
+    gchar *out_result = NULL;
+    gboolean success;
 
-    return g_task_propagate_boolean (G_TASK (result), error);
+    g_return_val_if_fail (SHELL_IS_EXTENSIONS (self), FALSE);
+
+    success = shell_extensions_call_install_remote_extension_finish (SHELL_EXTENSIONS (self),
+                                                                     &out_result,
+                                                                     result,
+                                                                     error);
+
+    if (g_str_equal (out_result, "cancelled"))
+    {
+        success = FALSE;
+        g_free (out_result);
+    }
+
+    return success;
 }
 
 static int
@@ -523,6 +513,14 @@ exm_manager_class_init (ExmManagerClass *klass)
                         0, NULL, NULL, NULL,
                         G_TYPE_NONE, 1,
                         G_TYPE_STRING);
+
+    signals [SIGNAL_INSTALL_STATUS]
+        = g_signal_new ("install-status",
+                        G_TYPE_FROM_CLASS (object_class),
+                        G_SIGNAL_RUN_LAST|G_SIGNAL_NO_RECURSE|G_SIGNAL_NO_HOOKS,
+                        0, NULL, NULL, NULL,
+                        G_TYPE_NONE, 1,
+                        EXM_TYPE_INSTALL_BUTTON_STATE);
 }
 
 static void

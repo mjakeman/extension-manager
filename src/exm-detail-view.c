@@ -83,7 +83,8 @@ struct _ExmDetailView
     AdwActionRow *link_extensions;
     gchar *uri_extensions;
     int pk;
-    guint signal_id;
+    guint comments_signal_id;
+    guint install_signal_id;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, ADW_TYPE_NAVIGATION_PAGE)
@@ -282,6 +283,14 @@ show_more_comments (GtkButton *button G_GNUC_UNUSED,
 }
 
 static void
+on_install_status (ExmManager            *manager G_GNUC_UNUSED,
+                   ExmInstallButtonState  state,
+                   ExmDetailView         *self)
+{
+    g_object_set (self->ext_install, "state", state, NULL);
+}
+
+static void
 install_remote (GtkButton     *button,
                 ExmDetailView *self)
 {
@@ -291,6 +300,12 @@ install_remote (GtkButton     *button,
     g_object_get (self->ext_install, "state", &state, NULL);
 
     warn = (state == EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
+
+    g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_INSTALLING, NULL);
+
+    // Move focus to previous widget to avoid losing it after the button becomes insensitive
+    gtk_widget_grab_focus (GTK_WIDGET (self->ext_author));
+
     gtk_widget_activate_action (GTK_WIDGET (button),
                                 "ext.install",
                                 "(sb)", self->uuid, warn);
@@ -510,13 +525,13 @@ on_data_loaded (GObject      *source,
 
         self->pk = pk;
 
-        if (self->signal_id > 0)
-            g_signal_handler_disconnect (self->show_more_btn, self->signal_id);
+        if (self->comments_signal_id > 0)
+            g_signal_handler_disconnect (self->show_more_btn, self->comments_signal_id);
 
-        self->signal_id = g_signal_connect (self->show_more_btn,
-                                            "clicked",
-                                            G_CALLBACK (show_more_comments),
-                                            self);
+        self->comments_signal_id = g_signal_connect (self->show_more_btn,
+                                                     "clicked",
+                                                     G_CALLBACK (show_more_comments),
+                                                     self);
 
         queue_resolve_comments (self, pk, self->resolver_cancel);
 
@@ -567,9 +582,13 @@ open_link (ExmDetailView *self,
     toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
 
     if (strcmp (action_name, "detail.open-extensions") == 0)
+    {
         uri = gtk_uri_launcher_new (self->uri_extensions);
+    }
     else if (strcmp (action_name, "detail.open-homepage") == 0)
+    {
         uri = gtk_uri_launcher_new (self->uri_homepage);
+    }
     else if (strcmp (action_name, "detail.open-donation") == 0)
     {
         guint val;
@@ -577,7 +596,9 @@ open_link (ExmDetailView *self,
         uri = gtk_uri_launcher_new (self->uri_donations[val]);
     }
     else
+    {
         g_critical ("open_link() invalid action: %s", action_name);
+    }
 
     gtk_uri_launcher_launch (uri, GTK_WINDOW (toplevel), NULL, NULL, NULL);
 }
@@ -590,6 +611,14 @@ on_bind_manager (ExmDetailView *self)
     g_object_get (self->manager,
                   "extensions", &ext_model,
                   NULL);
+
+    if (self->install_signal_id > 0)
+        g_signal_handler_disconnect (self->ext_install, self->install_signal_id);
+
+    self->install_signal_id = g_signal_connect (self->manager,
+                                                "install-status",
+                                                G_CALLBACK (on_install_status),
+                                                self);
 
     g_signal_connect_swapped (ext_model,
                               "items-changed",

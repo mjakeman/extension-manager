@@ -41,7 +41,6 @@ struct _ExmBrowsePage
 
     GtkStringList *suggestions;
     GListModel *search_results_model;
-    gchar *shell_version;
 
     int current_page;
     int max_pages;
@@ -135,17 +134,9 @@ search_widget_factory (ExmSearchResult *result,
                        ExmBrowsePage   *self)
 {
     ExmSearchRow *row;
-    gchar *uuid;
-    gboolean is_installed;
-    gboolean is_supported;
     GValue value = G_VALUE_INIT;
 
-    g_object_get (result, "uuid", &uuid, NULL);
-
-    is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
-    is_supported = exm_search_result_supports_shell_version (result, self->shell_version);
-
-    row = exm_search_row_new (result, is_installed, is_supported);
+    row = exm_search_row_new (self->manager, result);
 
     g_value_init (&value, G_TYPE_BOOLEAN);
     g_value_set_boolean (&value, TRUE);
@@ -355,7 +346,6 @@ on_bind_manager (ExmBrowsePage *self)
                   &shell_version,
                   NULL);
 
-    self->shell_version = shell_version;
     g_object_set (self->search, "shell-version", shell_version, NULL);
 
     refresh_search (self);
