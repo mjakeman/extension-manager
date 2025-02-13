@@ -2,22 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Quentin PAGÈS <EMAIL@ADDRESS>, 2022.
-# Quentin PAGÈS <quentinantonin@free.fr>, 2024.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2024-12-22 05:31+0000\n"
+"PO-Revision-Date: 2025-02-13 23:02+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
-"manager/app/oc/>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/"
+"extension-manager/app/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10-rc\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -79,8 +79,6 @@ msgid "translator-credits"
 msgstr "Quentin PAGÈS"
 
 #: src/exm-browse-page.blp:16
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
 msgstr "Cercar d’extensions"
 
@@ -161,8 +159,6 @@ msgid "No extension details available"
 msgstr "Una version mai novèla d’aquesta extension es disponibla"
 
 #: src/exm-detail-view.blp:155
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "Agrandir l'imatge"
 
@@ -192,7 +188,7 @@ msgstr "Avises dels utilizaires"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Los comentaris son desactivats per aquesta extension."
 
 #: src/exm-detail-view.blp:314
 #, fuzzy
@@ -284,6 +280,8 @@ msgid ""
 "This extension could be activated in session modes such as the login screen "
 "or the lock screen"
 msgstr ""
+"Aquesta extension se poiriá activar en mòde session per l'ecran de connexion "
+"o d'ecran de verrolhatge"
 
 #: src/exm-extension-row.blp:114 src/exm-info-bar.blp:42
 msgid "Version"
@@ -298,10 +296,8 @@ msgid "See Details"
 msgstr "Veire los detalhs"
 
 #: src/exm-extension-row.blp:155
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "Suprimir"
+msgstr "Suprimir…"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -309,12 +305,9 @@ msgid "General"
 msgstr "General"
 
 #: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "Installada"
+msgstr "Mostrar la pagina Installada"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
@@ -327,11 +320,9 @@ msgid "Toggle Search"
 msgstr "Alternat la recèrca"
 
 #: src/exm-help-overlay.blp:29
-#, fuzzy
-#| msgid "Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr "Acorchis de clavièr"
+msgstr "Mostrar los acorchis de clavièr"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
@@ -346,18 +337,14 @@ msgstr "Quitar"
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "Vista de la captura d'ecran"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom In"
-msgstr "Zoom Avant"
+msgstr "Zoom avant"
 
 #: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom Out"
 msgstr "Zoom arrièr"
@@ -377,17 +364,12 @@ msgid "Unsupported"
 msgstr "Pas presa en carga"
 
 #: src/exm-install-button.c:127
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "Installar"
+msgstr "Installar…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Installada"
+msgstr "Installacion"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -401,10 +383,8 @@ msgid "Unsupported…"
 msgstr "Pas presa en carga"
 
 #: src/exm-installed-page.blp:18
-#, fuzzy
-#| msgid "Log Out"
 msgid "_Log Out…"
-msgstr "Se desconnectar"
+msgstr "Se _desconnectar…"
 
 #: src/exm-installed-page.blp:30
 msgid "Use Extensions"
@@ -442,18 +422,16 @@ msgstr "I a pas cap d’aplicacion sistèma pas installada."
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
 #: src/exm-installed-page.blp:114
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Triar los resultats de recèrca"
+msgstr "Resultats de recèrca"
 
 #: src/exm-installed-page.blp:127
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Ensajatz una recèrca diferenta o cercatz en linha"
 
 #: src/exm-installed-page.blp:134
 msgid "_Search Online"
-msgstr ""
+msgstr "_Cercar en linha"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:304
@@ -469,8 +447,8 @@ msgstr[1] "%d extensions seràn mesas a jorn a la connexion venenta."
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i estela"
+msgstr[1] "%i estelas"
 
 #. Translators: Button's tooltip to zoom out screenshots
 #: src/exm-screenshot-view.blp:37
@@ -587,10 +565,8 @@ msgid "_Upgrade Assistant"
 msgstr "_Assistent de mesa a nivèl"
 
 #: src/exm-window.blp:112
-#, fuzzy
-#| msgid "Keyboard Shortcuts"
 msgid "_Keyboard Shortcuts"
-msgstr "Acorchis de clavièr"
+msgstr "_Acorchis de clavièr"
 
 #: src/exm-window.blp:113
 msgid "_About Extension Manager"
@@ -637,16 +613,16 @@ msgid "_Go Back"
 msgstr "_Retorn"
 
 #: src/exm-window.c:346
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Detalhs"
+msgstr "_Detalhs"
 
 #: src/web/exm-request-handler.c:99
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Verificatz <a href='https://status.gnome.org/'>l'estat de las "
+"infrastructuras de GNOME</a> e tornatz ensajar mai tard"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
