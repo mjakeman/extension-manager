@@ -62,6 +62,7 @@ template $ExmWindow: Adw.ApplicationWindow {
           }
 
           content: Adw.ViewStack view_stack {
+            enable-transitions: true;
             notify::visible-child => $on_visible_page_changed();
 
             Adw.ViewStackPage installed_stack {
