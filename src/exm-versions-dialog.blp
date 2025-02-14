@@ -1,0 +1,20 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ExmVersionsDialog: Adw.Dialog {
+  content-width: 500;
+  width-request: 360;
+  height-request: 294;
+  title: _("Supported Versions");
+
+  child: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {}
+
+    content: Adw.PreferencesPage {
+      Adw.PreferencesGroup {
+        Gtk.FlowBox flow_box {}
+      }
+    };
+  };
+}

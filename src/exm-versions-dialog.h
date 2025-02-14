@@ -1,5 +1,5 @@
 /*
- * exm-comment-dialog.h
+ * exm-versions-dialog.h
  *
  * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -25,10 +25,13 @@
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_COMMENT_DIALOG (exm_comment_dialog_get_type())
+#define EXM_TYPE_VERSIONS_DIALOG (exm_versions_dialog_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmCommentDialog, exm_comment_dialog, EXM, COMMENT_DIALOG, AdwDialog)
+G_DECLARE_FINAL_TYPE (ExmVersionsDialog, exm_versions_dialog, EXM, VERSIONS_DIALOG, AdwDialog)
 
-ExmCommentDialog *exm_comment_dialog_new (int web_id);
+ExmVersionsDialog *exm_versions_dialog_new         ();
+
+void               exm_versions_dialog_add_version (ExmVersionsDialog *self,
+                                                    gchar *version);
 
 G_END_DECLS
