@@ -39,6 +39,7 @@ struct _ExmInstalledPage
     // Template Widgets
     GtkStack *stack;
     AdwBanner *updates_banner;
+    AdwPreferencesPage *prefs_page;
     AdwSwitchRow *global_toggle;
     GtkListBox *user_list_box;
     GtkListBox *system_list_box;
@@ -46,6 +47,7 @@ struct _ExmInstalledPage
     GtkFilterListModel *search_list_model;
 
     gboolean sort_enabled_first;
+    guint signal_id;
 };
 
 G_DEFINE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, GTK_TYPE_WIDGET)
@@ -312,6 +314,72 @@ on_updates_available (ExmManager       *manager G_GNUC_UNUSED,
     g_timeout_add (500, G_SOURCE_FUNC (show_updates_banner), self);
 }
 
+static gboolean
+focus_matching_extension (GtkListBox   *list_box,
+                          ExmExtension *extension)
+{
+    int index = 0;
+    ExmExtensionRow *row;
+
+    while ((row = EXM_EXTENSION_ROW (gtk_list_box_get_row_at_index (list_box, index))))
+    {
+        ExmExtension *row_extension;
+
+        g_object_get (row, "extension", &row_extension, NULL);
+
+        if (is_extension_equal (extension, row_extension))
+        {
+            exm_search_row_focus_toggle (row);
+            g_object_unref (row_extension);
+
+            return TRUE;
+        }
+
+        g_object_unref (row_extension);
+        index++;
+    }
+
+    return FALSE;
+}
+
+static void
+on_extensions_changed (GListModel       *model,
+                       guint             position,
+                       guint             removed,
+                       guint             added,
+                       ExmInstalledPage *self)
+{
+    if (!self->sort_enabled_first || (removed > 0 && added > 0))
+        return;
+
+    ExmExtension *extension = EXM_EXTENSION (g_list_model_get_object (model, position));
+
+    if (!extension)
+        return;
+
+    GtkRoot *toplevel = gtk_widget_get_root (GTK_WIDGET (self));
+    GtkWidget *focused_widget = gtk_window_get_focus (GTK_WINDOW (toplevel));
+
+    if (g_list_store_find_with_equal_func (G_LIST_STORE (model), extension, (GEqualFunc)is_extension_equal, &position))
+        g_list_model_items_changed (model, position, 1, 1);
+
+    if (focused_widget && gtk_widget_has_focus (focused_widget) &&
+        gtk_widget_get_child_visible (GTK_WIDGET (self)))
+    {
+        if (g_str_equal (gtk_stack_get_visible_child_name (self->stack), "page_results"))
+        {
+            focus_matching_extension (self->search_list_box, extension);
+        }
+        else
+        {
+            if (!focus_matching_extension (self->user_list_box, extension))
+                focus_matching_extension (self->system_list_box, extension);
+        }
+    }
+
+    g_object_unref (extension);
+}
+
 static void
 invalidate_model_bindings (ExmInstalledPage *self)
 {
@@ -325,7 +393,17 @@ invalidate_model_bindings (ExmInstalledPage *self)
                   NULL);
 
     if (ext_model)
+    {
         bind_list_box (ext_model, self);
+
+        if (self->signal_id > 0)
+            g_signal_handler_disconnect (ext_model, self->signal_id);
+
+        self->signal_id = g_signal_connect (ext_model,
+                                            "items-changed",
+                                            G_CALLBACK (on_extensions_changed),
+                                            self);
+    }
 }
 
 static void
@@ -382,6 +460,7 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_banner);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, prefs_page);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_list_box);
