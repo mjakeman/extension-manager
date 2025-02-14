@@ -1,5 +1,5 @@
 /*
- * exm-info-bar.h
+ * exm-versions-dialog.h
  *
  * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -21,14 +21,17 @@
 
 #pragma once
 
-#include <gtk/gtk.h>
+#include <adwaita.h>
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_INFO_BAR (exm_info_bar_get_type())
+#define EXM_TYPE_VERSIONS_DIALOG (exm_versions_dialog_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmInfoBar, exm_info_bar, EXM, INFO_BAR, GtkBox)
+G_DECLARE_FINAL_TYPE (ExmVersionsDialog, exm_versions_dialog, EXM, VERSIONS_DIALOG, AdwDialog)
 
-ExmInfoBar *exm_info_bar_new (void);
+ExmVersionsDialog *exm_versions_dialog_new         ();
+
+void               exm_versions_dialog_add_version (ExmVersionsDialog *self,
+                                                    gchar *version);
 
 G_END_DECLS

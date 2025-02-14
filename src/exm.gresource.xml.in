@@ -8,7 +8,6 @@
     <file>exm-error-dialog.ui</file>
     <file>exm-extension-row.ui</file>
     <file alias="gtk/help-overlay.ui">exm-help-overlay.ui</file>
-    <file>exm-info-bar.ui</file>
     <file>exm-installed-page.ui</file>
     <file>exm-install-button.ui</file>
     <file>exm-rating.ui</file>
@@ -16,6 +15,7 @@
     <file>exm-screenshot.ui</file>
     <file>exm-search-row.ui</file>
     <file>exm-upgrade-assistant.ui</file>
+    <file>exm-versions-dialog.ui</file>
     <file>exm-window.ui</file>
     <file alias="suggestions.txt">res/suggestions.txt</file>
     <file preprocess="xml-stripblanks" alias="com.mattjakeman.ExtensionManager.metainfo.xml">../data/@appstream_file@</file>

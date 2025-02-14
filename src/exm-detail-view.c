@@ -21,25 +21,21 @@
 
 #include "exm-detail-view.h"
 
-#include "exm-screenshot.h"
-#include "exm-screenshot-view.h"
-#include "exm-info-bar.h"
-#include "exm-comment-tile.h"
+#include "exm-config.h"
 #include "exm-comment-dialog.h"
+#include "exm-comment-tile.h"
+#include "exm-enums.h"
 #include "exm-install-button.h"
 #include "exm-screenshot.h"
-
+#include "exm-screenshot-view.h"
+#include "exm-types.h"
+#include "exm-versions-dialog.h"
+#include "local/exm-manager.h"
+#include "web/exm-comment-provider.h"
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
-#include "web/exm-comment-provider.h"
-#include "web/model/exm-shell-version-map.h"
 #include "web/model/exm-comment.h"
-#include "local/exm-manager.h"
-
-#include "exm-types.h"
-#include "exm-enums.h"
-
-#include "exm-config.h"
+#include "web/model/exm-shell-version-map.h"
 
 #include <glib/gi18n.h>
 
@@ -69,7 +65,9 @@ struct _ExmDetailView
     ExmScreenshot *ext_screenshot;
     GtkOverlay *ext_screenshot_container;
     GtkButton *ext_screenshot_popout_button;
-    ExmInfoBar *ext_info_bar;
+    GtkLabel *downloads_label;
+    GtkLabel *version_label;
+    ExmVersionsDialog *ext_versions_dialog;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
     GtkFlowBox *comment_box;
@@ -447,7 +445,7 @@ on_data_loaded (GObject      *source,
         gtk_label_set_label (self->ext_title, name);
         gtk_label_set_label (self->ext_author, creator);
         gtk_label_set_label (self->ext_description, description);
-        g_object_set (self->ext_info_bar, "downloads", downloads, NULL);
+        gtk_label_set_label (self->downloads_label, g_strdup_printf ("%'d", downloads));
 
         if (self->resolver_cancel)
         {
@@ -506,7 +504,14 @@ on_data_loaded (GObject      *source,
         adw_action_row_set_subtitle (self->link_homepage, self->uri_homepage);
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
-        g_object_set (self->ext_info_bar, "version", 0.0, NULL);
+        gtk_label_set_label (self->version_label, _("Unsupported"));
+
+        if (self->ext_versions_dialog)
+        {
+            g_object_unref (self->ext_versions_dialog);
+            self->ext_versions_dialog = NULL;
+        }
+        self->ext_versions_dialog = exm_versions_dialog_new ();
 
         for (version_iter = version_map->map;
              version_iter != NULL;
@@ -522,10 +527,17 @@ on_data_loaded (GObject      *source,
             else
                 version = g_strdup_printf ("%s.0", entry->shell_major_version);
 
-              if (version != NULL && self->shell_version != NULL &&
-                  (strcmp (version, self->shell_version) == 0 ||
-                   strncmp(version, self->shell_version, strchr(version, '.') - version) == 0))
-                  g_object_set (self->ext_info_bar, "version", entry->extension_version, NULL);
+              if (version != NULL && self->shell_version != NULL)
+              {
+                  exm_versions_dialog_add_version (self->ext_versions_dialog, entry->shell_minor_version
+                                                                              ? version
+                                                                              : entry->shell_major_version);
+
+                  if (strcmp (version, self->shell_version) == 0 ||
+                     strncmp(version, self->shell_version, strchr(version, '.') - version) == 0)
+                      gtk_label_set_label (self->version_label,
+                                           g_strdup_printf ("%.f", entry->extension_version));
+              }
 
             g_free (version);
         }
@@ -576,6 +588,20 @@ exm_detail_view_update (ExmDetailView *self)
     // one being displayed in this detail view
     if (exm_manager_is_installed_uuid (self->manager, self->uuid))
         g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_INSTALLED, NULL);
+}
+
+static void
+show_versions (GtkWidget  *widget,
+               const char *action_name G_GNUC_UNUSED,
+               GVariant   *parameter G_GNUC_UNUSED)
+{
+    ExmDetailView *self;
+    GtkWidget *toplevel;
+
+    self = EXM_DETAIL_VIEW (widget);
+    toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
+
+    adw_dialog_present (ADW_DIALOG (g_object_ref (self->ext_versions_dialog)), toplevel);
 }
 
 static void
@@ -708,7 +734,8 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_container);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_screenshot_popout_button);
-    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, ext_info_bar);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, downloads_label);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, version_label);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, links_donations);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
@@ -722,6 +749,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_callback (widget_class, screenshot_view_cb);
     gtk_widget_class_bind_template_callback (widget_class, install_remote);
 
+    gtk_widget_class_install_action (widget_class, "detail.show-versions", NULL, show_versions);
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-donation", "i", (GtkWidgetActionActivateFunc) open_link);
@@ -734,7 +762,6 @@ exm_detail_view_init (ExmDetailView *self)
 
     g_type_ensure (EXM_TYPE_INSTALL_BUTTON);
     g_type_ensure (EXM_TYPE_SCREENSHOT);
-    g_type_ensure (EXM_TYPE_INFO_BAR);
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
