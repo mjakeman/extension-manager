@@ -4,21 +4,22 @@
 # Automatically generated as es, copied and adapted as ca, 2022.
 #
 # Joan Aymà <joanayma@gmail.com>, 2024.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2024-11-15 22:10+0000\n"
-"Last-Translator: Joan Aymà <joanayma@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
-"manager/app/ca/>\n"
+"PO-Revision-Date: 2025-02-16 12:17+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/"
+"extension-manager/app/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -185,7 +186,7 @@ msgstr ""
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
-msgstr "Sense comentaris encara"
+msgstr "Cap comentaris encara"
 
 #: src/exm-detail-view.blp:337
 msgid "_Show All Reviews"
