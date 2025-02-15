@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2025-02-13 23:02+0000\n"
+"PO-Revision-Date: 2025-02-16 12:17+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/"
 "extension-manager/app/oc/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10-rc\n"
+"X-Generator: Weblate 5.10\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -58,16 +58,13 @@ msgid "Manage the extensions you already have installed"
 msgstr "Gerissètz las extensions qu’avètz ja installadas"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "See all the details of your extensions"
-msgstr "Cercar d’extensions"
+msgstr "Afichar totes los detalhs de las extensions"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Aquesta extension es incompatibla amb vòstra version actuala de GNOME"
+msgstr ""
+"Verificatz la compatibilitat de l'extension ambé la version de GNOME venenta"
 
 #: src/exm-application.c:196
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -83,15 +80,11 @@ msgid "Search for Extensions"
 msgstr "Cercar d’extensions"
 
 #: src/exm-browse-page.blp:17
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Picatz un mot clau per cercar per « extensions.gnome.org » e trobar "
-"d’extensions GNOME Shell."
+"Picatz un mot clau per cercar per « extensions.gnome.org » e trobar d’"
+"extensions GNOME Shell"
 
 #: src/exm-browse-page.blp:47
 msgid "Relevance"
@@ -153,10 +146,8 @@ msgid "An Error Occurred"
 msgstr "Una error s'es producha"
 
 #: src/exm-detail-view.blp:62
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Una version mai novèla d’aquesta extension es disponibla"
+msgstr "Cap de detalh de l'extension pas disponible"
 
 #: src/exm-detail-view.blp:155
 msgid "Enlarge Image"
@@ -188,13 +179,11 @@ msgstr "Avises dels utilizaires"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr "Los comentaris son desactivats per aquesta extension."
+msgstr "Los comentaris son desactivats per aquesta extension"
 
 #: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "Comments"
 msgid "No comments yet"
-msgstr "Comentaris"
+msgstr "Pas encara de comentari"
 
 #: src/exm-detail-view.blp:337
 msgid "_Show All Reviews"
@@ -217,10 +206,8 @@ msgid "Error Report"
 msgstr "Rapòrt d’error"
 
 #: src/exm-error-dialog.blp:37
-#, fuzzy
-#| msgid "An unexpected error occurred in Extension Manager."
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Una error inesperada se's producha dins lo Gestionari d’extensions."
+msgstr "Una error inesperada se's producha dins lo Gestionari d’extensions"
 
 #: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:175
 msgid "_Copy to Clipboard"
@@ -377,10 +364,8 @@ msgid "Installed"
 msgstr "Installada"
 
 #: src/exm-install-button.c:140
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "Pas presa en carga"
+msgstr "Pas presa en carga…"
 
 #: src/exm-installed-page.blp:18
 msgid "_Log Out…"
@@ -391,20 +376,16 @@ msgid "Use Extensions"
 msgstr "Utilizar las extensions"
 
 #: src/exm-installed-page.blp:31
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "Las extensions pòdon causar problèmas de performança e d’estabilitat."
+msgstr "Las extensions pòdon causar problèmas de performança e d’estabilitat"
 
 #: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:121
 msgid "User-Installed Extensions"
 msgstr "Extensions installadas per l’utilizaire"
 
 #: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:138
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
-msgstr "I a pas cap d’aplicacion utilizaire pas installada."
+msgstr "Cap d’aplicacion utilizaire pas installada"
 
 #: src/exm-installed-page.blp:57
 msgid "Browse"
@@ -415,10 +396,8 @@ msgid "System Extensions"
 msgstr "Extensions sistèma"
 
 #: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:165
-#, fuzzy
-#| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
-msgstr "I a pas cap d’aplicacion sistèma pas installada."
+msgstr "Cap d’aplicacion sistèma pas installada"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
 #: src/exm-installed-page.blp:114
@@ -435,13 +414,11 @@ msgstr "_Cercar en linha"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:304
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "Una extension serà mesa a jorn a la connexion venenta."
-msgstr[1] "%d extensions seràn mesas a jorn a la connexion venenta."
+msgstr[0] "%d extension serà mesa a jorn a la connexion venenta"
+msgstr[1] "%d extensions seràn mesas a jorn a la connexion venenta"
 
 #: src/exm-rating.c:142
 #, c-format
@@ -480,30 +457,23 @@ msgid "%d%% Compatible"
 msgstr "Compatibla %d%%"
 
 #: src/exm-upgrade-assistant.c:208
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system."
+#, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
 msgstr ""
 "<b>GNOME %s</b> pren en carga <b>%d de %d</b> de las extensions actualament "
-"installadas sul sistèma."
+"installadas sul sistèma"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:490
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
-msgstr "Una version compatibla de l’extension existís."
+msgstr "Una version compatibla de l’extension existís"
 
 #. Translators: Icon's tooltip when an extension is not compatible
 #: src/exm-upgrade-assistant.c:497
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
-msgstr "Cap de version compatibla de l’extension existís pas."
+msgstr "Cap de version compatibla de l’extension existís pas"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
 #: src/exm-upgrade-assistant.c:504
@@ -525,30 +495,26 @@ msgstr ""
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Extensions installadas per l’utilizaire"
+msgstr "Cercar demest las extensions installadas"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
 msgstr "Menú principal"
 
 #: src/exm-window.blp:59
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for installed extensions"
-msgstr "Cercar d’extensions"
+msgstr "Cercar d’extensions installadas"
 
 #: src/exm-window.blp:69
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "Installada"
+msgstr "_Installadas"
 
 #: src/exm-window.blp:78
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "Percórrer"
+msgstr "_Percórrer"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
