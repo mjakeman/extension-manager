@@ -2,29 +2,29 @@
 # Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # gogo <trebelnik2@gmail.com>, 2022.
-# Milo Ivir <mail@milotype.de>, 2024.
+# Milo Ivir <mail@milotype.de>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2024-09-18 09:28+0000\n"
+"PO-Revision-Date: 2025-02-18 00:42+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/extension-"
-"manager/app/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"extension-manager/app/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
-msgstr "Upravitelj proširenja"
+msgstr "Upravljač proširenja"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
@@ -34,7 +34,7 @@ msgstr "Upravljajte proširenjima GNOME ljuske"
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
-msgstr "extension;manager;shell;"
+msgstr "extension;manager;shell;proširenja;upravljač;ljuska;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -115,17 +115,17 @@ msgstr "_Učitaj više rezultata"
 
 #: src/exm-browse-page.blp:136 src/exm-installed-page.blp:126
 msgid "No Results Found"
-msgstr "Nema pronađenih rezultata"
+msgstr "Ništa nije pronađeno"
 
 #: src/exm-browse-page.blp:143
 msgid "Try a different search"
-msgstr ""
+msgstr "Probaj drugačiju pretragu"
 
 #: src/exm-browse-page.blp:177 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:51 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:84
 msgid "Connection Error"
-msgstr ""
+msgstr "Greška u vezi"
 
 #: src/exm-comment-dialog.blp:13
 msgid "Comments"
@@ -181,7 +181,7 @@ msgstr "Korisničke recenzije"
 
 #: src/exm-detail-view.blp:272
 msgid "Comments are disabled for this extension"
-msgstr ""
+msgstr "Komentari su isključeni za ovo proširenje"
 
 #: src/exm-detail-view.blp:314
 msgid "No comments yet"
@@ -209,7 +209,7 @@ msgstr "Prijava o grešci"
 
 #: src/exm-error-dialog.blp:37
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Dogodila se neočekivana greška u upravitelju proširenja"
+msgstr "Dogodila se neočekivana greška u upravljaču proširenja"
 
 #: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:175
 msgid "_Copy to Clipboard"
@@ -236,8 +236,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Koristite verziju upravitelja proširenja treće strane. Najprije <span "
-"weight=\"bold\">kontaktirajte distributera paketa (%s)</span> prije "
+"Koristite verziju aplikacije „Upravljač proširenja” treće strane. Najprije "
+"<span weight=\"bold\">kontaktirajte distributera paketa (%s)</span> prije "
 "prijavljivanja problema. Priložite sljedeće podatke:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -303,7 +303,7 @@ msgstr "Prikaži stranicu pregledavanja"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Uključi/Isključi pretragu"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -354,11 +354,8 @@ msgid "Install…"
 msgstr "Instaliraj…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Instalirano"
+msgstr "Instaliranje"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -403,18 +400,16 @@ msgstr "Nema instaliranih sustavskih proširenja"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
 #: src/exm-installed-page.blp:114
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Razvrstavanje rezultata pretrage"
+msgstr "Rezultati pretrage"
 
 #: src/exm-installed-page.blp:127
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Probaj drugačiju pretragu ili traži online"
 
 #: src/exm-installed-page.blp:134
 msgid "_Search Online"
-msgstr ""
+msgstr "_Traži online"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:304
@@ -501,20 +496,16 @@ msgstr ""
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Korisnički instalirana proširenja"
+msgstr "Pretraži instalirana proširenja"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
 msgstr "Glavni izbornik"
 
 #: src/exm-window.blp:59
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Pretraga proširenja"
+msgstr "Pretraga za instalirana proširenja"
 
 #: src/exm-window.blp:69
 msgctxt "Navigation"
@@ -546,7 +537,7 @@ msgstr "_Tipkovni prečaci"
 
 #: src/exm-window.blp:113
 msgid "_About Extension Manager"
-msgstr "_O Upravitelju proširenja"
+msgstr "_Informacije o „Upravljač proširenja”"
 
 #: src/exm-window.blp:118
 msgid "Uninstall Extension?"
@@ -597,10 +588,12 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Provjerite <a href='https://status.gnome.org/'>stanje GNOME infrastrukture</"
+"a> i pokušajte kasnije ponovo"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Provjerite stanje mreže i pokušajte ponovo"
 
 #, c-format
 #~ msgid "%s by %s"
