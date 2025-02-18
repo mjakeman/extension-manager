@@ -116,7 +116,7 @@ exm_upgrade_result_get_name (ExmUpgradeResult *self)
 
     if (self->local_data)
     {
-        g_object_get (self->local_data, "display-name", &name, NULL);
+        g_object_get (self->local_data, "name", &name, NULL);
         return name;
     }
 

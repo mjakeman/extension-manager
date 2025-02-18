@@ -173,35 +173,32 @@ bind_extension (ExmExtensionRow *self,
     if (self->extension == NULL)
         return;
 
-    gchar *name, *uuid, *description, *version, *version_name, *error_msg;
+    gchar *name, *uuid, *description, *version, *error;
     gboolean enabled, has_prefs, is_user;
     ExmExtensionState state;
     g_object_get (self->extension,
-                  "display-name", &name,
+                  "name", &name,
                   "uuid", &uuid,
                   "description", &description,
                   "state", &state,
                   "enabled", &enabled,
+                  "version", &version,
+                  "error", &error,
                   "has-prefs", &has_prefs,
                   "is-user", &is_user,
-                  "version", &version,
-                  "version-name", &version_name,
-                  "error-msg", &error_msg,
                   NULL);
 
     self->uuid = g_strdup (uuid);
 
-    g_object_set (self, "title", g_markup_escape_text(name, -1), NULL);
-    adw_action_row_set_subtitle (self->version_row, version_name ? g_strdup_printf ("%s (%s)", version_name, version)
-                                                                 : version);
+    g_object_set (self, "title", g_markup_escape_text (name, -1), NULL);
 
     // Trim description label's leading and trailing whitespace
     char *description_trimmed = g_strchomp (g_strstrip (description));
     adw_action_row_set_subtitle (self->description_row, description_trimmed);
     g_free (description_trimmed);
 
-    // Only show if error_msg exists and is not empty
-    gboolean has_error = (error_msg != NULL) && (strlen(error_msg) != 0);
+    // Only show if error exists and is not empty
+    gboolean has_error = (error != NULL) && (strlen (error) != 0);
     gtk_widget_set_visible (GTK_WIDGET (self->error_row), has_error);
 
     gtk_widget_set_visible (GTK_WIDGET (self->error_icon), state == EXM_EXTENSION_STATE_ERROR);

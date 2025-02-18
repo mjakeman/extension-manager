@@ -534,18 +534,21 @@ parse_single_extension (ExmExtension **extension,
 
     // Well-Defined Properties
     gchar *uuid = NULL;
-    gchar *display_name = NULL;
+    gchar *name = NULL;
     gchar *description = NULL;
+    ExmExtensionState state = EXM_EXTENSION_STATE_INITIALIZED;
     gboolean enabled = FALSE;
-    gboolean is_user = FALSE;
+    gchar *url = NULL;
+    gchar *version = NULL;
+    gchar *version_name = NULL;
+    gchar *error = NULL;
     gboolean has_prefs = FALSE;
     gboolean has_update = FALSE;
     gboolean can_change = TRUE;
-    ExmExtensionState state = EXM_EXTENSION_STATE_ACTIVE;
+    gboolean is_user = FALSE;
     ExmExtensionType type = EXM_EXTENSION_TYPE_SYSTEM;
-    gchar *version = NULL;
-    gchar *version_name = NULL;
-    gchar *error_msg = NULL;
+    GPtrArray *session_modes = g_ptr_array_new_with_free_func (g_free);
+    GHashTable *donations = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
     if (extension && *extension)
     {
@@ -565,88 +568,121 @@ parse_single_extension (ExmExtension **extension,
         g_debug (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
 
         // Compare with DBus property names
-        if (strcmp (prop_name, "uuid") == 0)
+        if (g_strcmp0 (prop_name, "uuid") == 0)
         {
             g_variant_get (prop_value, "s", &uuid);
 
             // Assert that this is the same as the extension uuid
-            g_assert (strcmp(extension_uuid, uuid) == 0);
+            g_assert (g_strcmp0 (extension_uuid, uuid) == 0);
         }
-        else if (strcmp (prop_name, "type") == 0)
+        else if (g_strcmp0 (prop_name, "name") == 0)
         {
-            gdouble val;
-            g_variant_get (prop_value, "d", &val);
-            type = (ExmExtensionType)val;
+            g_variant_get (prop_value, "s", &name);
         }
-        else if (strcmp (prop_name, "state") == 0)
+        else if (g_strcmp0 (prop_name, "description") == 0)
+        {
+            g_variant_get (prop_value, "s", &description);
+        }
+        else if (g_strcmp0 (prop_name, "state") == 0)
         {
             gdouble val;
             g_variant_get (prop_value, "d", &val);
             state = (ExmExtensionState)val;
         }
-        else if (strcmp (prop_name, "enabled") == 0)
+        else if (g_strcmp0 (prop_name, "enabled") == 0)
         {
             g_variant_get (prop_value, "b", &enabled);
         }
-        else if (strcmp (prop_name, "name") == 0)
+        else if (g_strcmp0 (prop_name, "url") == 0)
         {
-            g_variant_get (prop_value, "s", &display_name);
+            g_variant_get (prop_value, "s", &url);
         }
-        else if (strcmp (prop_name, "description") == 0)
-        {
-            g_variant_get (prop_value, "s", &description);
-        }
-        else if (strcmp (prop_name, "hasPrefs") == 0)
-        {
-            g_variant_get (prop_value, "b", &has_prefs);
-        }
-        else if (strcmp (prop_name, "hasUpdate") == 0)
-        {
-            g_variant_get (prop_value, "b", &has_update);
-        }
-        else if (strcmp (prop_name, "canChange") == 0)
-        {
-            g_variant_get (prop_value, "b", &can_change);
-        }
-        else if (strcmp (prop_name, "version") == 0)
+        else if (g_strcmp0 (prop_name, "version") == 0)
         {
             gdouble val;
             g_variant_get (prop_value, "d", &val);
             version = g_strdup_printf ("%d", (gint)val);
         }
-        else if (strcmp (prop_name, "version-name") == 0)
+        else if (g_strcmp0 (prop_name, "version-name") == 0)
         {
             g_variant_get (prop_value, "s", &version_name);
         }
-        else if (strcmp (prop_name, "error") == 0)
+        else if (g_strcmp0 (prop_name, "error") == 0)
         {
-            g_variant_get (prop_value, "s", &error_msg);
+            g_variant_get (prop_value, "s", &error);
+        }
+        else if (g_strcmp0 (prop_name, "hasPrefs") == 0)
+        {
+            g_variant_get (prop_value, "b", &has_prefs);
+        }
+        else if (g_strcmp0 (prop_name, "hasUpdate") == 0)
+        {
+            g_variant_get (prop_value, "b", &has_update);
+        }
+        else if (g_strcmp0 (prop_name, "canChange") == 0)
+        {
+            g_variant_get (prop_value, "b", &can_change);
+        }
+        else if (g_strcmp0 (prop_name, "type") == 0)
+        {
+            gdouble val;
+            g_variant_get (prop_value, "d", &val);
+            type = (ExmExtensionType)val;
+        }
+        else if (g_strcmp0 (prop_name, "sessionModes") == 0)
+        {
+            GVariantIter iter;
+            GVariant *variant;
+            gchar *mode;
+            g_variant_iter_init (&iter, prop_value);
+            while (g_variant_iter_loop (&iter, "v", &variant))
+            {
+                mode = g_variant_dup_string (variant, NULL);
+                g_ptr_array_add (session_modes, g_strdup (mode));
+            }
+        }
+        else if (g_strcmp0 (prop_name, "donations") == 0)
+        {
+            GVariantIter iter;
+            gchar *key;
+            g_variant_iter_init (&iter, prop_value);
+            while (g_variant_iter_loop (&iter, "{sv}", &key, &prop_value))
+            {
+                const gchar *donation_value = g_variant_get_string (prop_value, NULL);
+                g_hash_table_insert (donations, g_strdup (key), g_strdup (donation_value));
+            }
         }
     }
 
+    // TODO: Show only version name when available in GNOME Extensions API
+    if (version_name)
+        version = g_strdup_printf ("%s (%s)", version, version_name);
     is_user = (type == EXM_EXTENSION_TYPE_PER_USER);
     *is_uninstall_operation = (state == EXM_EXTENSION_STATE_UNINSTALLED);
 
     g_object_set (*extension,
-                  "display-name", display_name,
+                  "name", name,
                   "description", description,
                   "state", state,
                   "enabled", enabled,
-                  "is-user", is_user,
+                  "url", url,
+                  "version", version,
+                  "error", error,
                   "has-prefs", has_prefs,
                   "has-update", has_update,
                   "can-change", can_change,
-                  "version", version,
-                  "version_name", version_name,
-                  "error-msg", error_msg,
+                  "is-user", is_user,
+                  "session-modes", session_modes,
+                  "donations", donations,
                   NULL);
 
     g_free (uuid);
-    g_free (display_name);
+    g_free (name);
     g_free (description);
+    g_free (url);
     g_free (version);
     g_free (version_name);
-    g_free (error_msg);
+    g_free (error);
 }
 
 static void
@@ -711,13 +747,14 @@ update_extension_list (ExmManager *self)
 }
 
 static gboolean
-is_extension_equal (ExmExtension *a, ExmExtension *b)
+is_extension_equal (ExmExtension *a,
+                    ExmExtension *b)
 {
     const gchar *uuid_a, *uuid_b;
     g_object_get (a, "uuid", &uuid_a, NULL);
     g_object_get (b, "uuid", &uuid_b, NULL);
 
-    return strcmp (uuid_a, uuid_b) == 0;
+    return g_strcmp0 (uuid_a, uuid_b) == 0;
 }
 
 static void
