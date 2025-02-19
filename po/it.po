@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # musiclover <musiclover382@protonmail.com>, 2022.
 # albanobattistella <albano_battistella@hotmail.com>, 2024, 2025.
+# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2025-02-16 12:17+0000\n"
-"Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
+"PO-Revision-Date: 2025-02-19 15:12+0000\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "extension-manager/app/it/>\n"
 "Language: it\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -398,6 +399,7 @@ msgstr "Nessuna estensione di sistema installata"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
 #: src/exm-installed-page.blp:114
+#, fuzzy
 msgid "Search Results"
 msgstr ""
 "Testo annunciato dagli screen reader quando si interagisce con l'elenco dei "
@@ -494,6 +496,7 @@ msgstr ""
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
+#, fuzzy
 msgid "Search Installed Extensions"
 msgstr ""
 "Suggerimento dell'icona di ricerca nella barra dell'intestazione della vista "
