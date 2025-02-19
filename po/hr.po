@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2025-02-19 12:17+0000\n"
+"PO-Revision-Date: 2025-02-19 14:32+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/"
 "extension-manager/app/hr/>\n"
@@ -79,13 +79,13 @@ msgstr ""
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
-msgstr "Pretraga proširenja"
+msgstr "Pretraga za proširenja"
 
 #: src/exm-browse-page.blp:17
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Upišite ključnu riječ za pretraživanje proširenja GNOME ljuske na "
+"Upišite ključnu riječ za pretraživanje proširenja za GNOME ljusku na "
 "'extensions.gnome.org'"
 
 #: src/exm-browse-page.blp:47
@@ -497,7 +497,7 @@ msgstr ""
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
 msgid "Search Installed Extensions"
-msgstr "Pretraži instalirana proširenja"
+msgstr "Pretražite instalirana proširenja"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
