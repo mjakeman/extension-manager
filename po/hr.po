@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2025-02-18 00:42+0000\n"
+"PO-Revision-Date: 2025-02-19 12:17+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/"
 "extension-manager/app/hr/>\n"
@@ -85,8 +85,8 @@ msgstr "Pretraga proširenja"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Upišite ključnu riječ 'extensions.gnome.org' pretrage za proširenja GNOME "
-"ljuske"
+"Upišite ključnu riječ za pretraživanje proširenja GNOME ljuske na "
+"'extensions.gnome.org'"
 
 #: src/exm-browse-page.blp:47
 msgid "Relevance"
@@ -107,7 +107,7 @@ msgstr "Naziv"
 
 #: src/exm-browse-page.blp:57
 msgid "Sort search results"
-msgstr "Razvrstavanje rezultata pretrage"
+msgstr "Razvrstaj rezultate pretrage"
 
 #: src/exm-browse-page.blp:102
 msgid "_Load More Results"
@@ -293,7 +293,7 @@ msgstr "Općenito"
 #: src/exm-help-overlay.blp:14
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "Prikaži instaliranu stranicu"
+msgstr "Prikaži stranicu instaliranih"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
@@ -318,7 +318,7 @@ msgstr "Zatvori prozor"
 #: src/exm-help-overlay.blp:39
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Prekini"
+msgstr "Zatvori aplikaciju"
 
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
@@ -372,7 +372,7 @@ msgstr "_Odjava…"
 
 #: src/exm-installed-page.blp:30
 msgid "Use Extensions"
-msgstr "Proširenja u upotrebi"
+msgstr "Koristi proširenja"
 
 #: src/exm-installed-page.blp:31
 msgid "Extensions can cause performance and stability issues"
@@ -405,7 +405,7 @@ msgstr "Rezultati pretrage"
 
 #: src/exm-installed-page.blp:127
 msgid "Try a different search or search online"
-msgstr "Probaj drugačiju pretragu ili traži online"
+msgstr "Probajte drugačiju pretragu ili tražite online"
 
 #: src/exm-installed-page.blp:134
 msgid "_Search Online"
