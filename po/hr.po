@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2025-02-19 14:32+0000\n"
+"PO-Revision-Date: 2025-02-19 18:10+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/"
 "extension-manager/app/hr/>\n"
@@ -376,7 +376,7 @@ msgstr "Koristi proširenja"
 
 #: src/exm-installed-page.blp:31
 msgid "Extensions can cause performance and stability issues"
-msgstr "Proširenja mogu uzrokovati probleme s performansama i stabilnosti"
+msgstr "Proširenja mogu prouzročiti probleme s performansama i stabilnosti"
 
 #: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:121
 msgid "User-Installed Extensions"
@@ -569,7 +569,7 @@ msgid ""
 "errors if installed."
 msgstr ""
 "Ovo proširenje ne podržava vašu inačicu GNOME ljuske. Može prouzročiti "
-"greške ako je instalirano."
+"greške ako se instalira."
 
 #: src/exm-window.blp:137
 msgid "_Install Anyway"
