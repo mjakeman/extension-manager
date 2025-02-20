@@ -11,173 +11,194 @@ template $ExmUpgradeAssistant: Adw.Dialog {
   title: _("Upgrade Assistant");
   notify::manager => $on_bind_manager();
 
-  child: Adw.ToolbarView {
-    [top]
-    Adw.HeaderBar {}
+  child: Adw.ToastOverlay toast_overlay {
+    child: Adw.NavigationView navigation_view {
+      Adw.NavigationPage {
+        title: bind template.title;
 
-    content: Gtk.Stack stack {
-      Gtk.StackPage version_select {
-        name: "version-select";
+        child: Adw.ToolbarView {
+          [top]
+          Adw.HeaderBar {}
 
-        child: Adw.Clamp {
-          Gtk.Box {
-            styles [
-              "detail"
-            ]
-
-            orientation: vertical;
-            spacing: 15;
-            vexpand: true;
-
-            Gtk.Image {
-              icon-name: "software-update-available-symbolic";
-              icon-size: large;
-              focusable: true;
-
-              accessibility {
-                labelled-by: description;
-              }
-            }
-
-            Gtk.Box {
-              vexpand: true;
-              orientation: vertical;
-
-              Gtk.Label description {
-                wrap: true;
-              }
-
-              Gtk.DropDown drop_down {
-                halign: center;
-                margin-top: 24;
-              }
-            }
-
-            Gtk.Button run_button {
-              styles [
-                "pill"
-              ]
-
-              label: _("_Check Compatibility");
-              halign: center;
-              valign: end;
-              use-underline: true;
-              clicked => $do_compatibility_check() swapped;
-            }
-          }
-        };
-      }
-
-      Gtk.StackPage waiting {
-        name: "waiting";
-
-        child: Adw.StatusPage counter {
-          paintable: spinner;
-        };
-      }
-
-      Gtk.StackPage error {
-        name: "error";
-
-        child: Adw.StatusPage error_status {
-          icon-name: "offline-symbolic";
-          title: _("Connection Error");
-        };
-      }
-
-      Gtk.StackPage results {
-        name: "results";
-
-        child: Gtk.ScrolledWindow {
-          hscrollbar-policy: never;
-
-          child: Adw.Clamp {
+          content: Adw.Clamp {
             child: Gtk.Box {
               styles [
-                "content"
+                "detail"
               ]
 
               orientation: vertical;
+              spacing: 18;
               vexpand: true;
-              spacing: 24;
 
-              Gtk.Label summary {
-                wrap: true;
-              }
-
-              Gtk.ProgressBar progress_bar {
-                show-text: true;
-                margin-start: 24;
-                margin-end: 24;
+              Gtk.Image {
+                icon-name: "software-update-available-symbolic";
+                icon-size: large;
                 focusable: true;
 
                 accessibility {
-                  labelled-by: summary;
-                  described-by: progress_bar;
+                  labelled-by: description;
                 }
               }
 
-              Adw.PreferencesGroup user_list_title {
-                title: _("User-Installed Extensions");
+              Gtk.Box {
+                orientation: vertical;
+                spacing: 24;
+                vexpand: true;
 
-                Gtk.ListBox user_list_box {
+                Gtk.Label description {
+                  justify: center;
+                  wrap: true;
+                }
+
+                Gtk.ListBox {
                   styles [
-                    "boxed-list",
-                    "boxed-list-placeholder"
+                    "boxed-list"
                   ]
 
                   selection-mode: none;
 
-                  [placeholder]
-                  Adw.ActionRow {
-                    [prefix]
-                    Gtk.Image {
-                      icon-name: "puzzle-piece-symbolic";
-                    }
-
-                    title: _("No User Extensions Installed");
-                  }
-
-                  accessibility {
-                    labelled-by: user_list_title;
+                  Adw.ComboRow drop_down {
+                    title: "GNOME";
                   }
                 }
               }
 
-              Adw.PreferencesGroup system_list_title {
-                title: _("System Extensions");
+              Gtk.Button run_button {
+                styles [
+                  "pill",
+                  "suggested-action"
+                ]
 
-                Gtk.ListBox system_list_box {
-                  styles [
-                    "boxed-list",
-                    "boxed-list-placeholder"
-                  ]
-
-                  selection-mode: none;
-
-                  [placeholder]
-                  Adw.ActionRow {
-                    [prefix]
-                    Gtk.Image {
-                      icon-name: "settings-symbolic";
-                    }
-
-                    title: _("No System Extensions Installed");
-                  }
-
-                  accessibility {
-                    labelled-by: system_list_title;
-                  }
-                }
-              }
-
-              Gtk.Button copy_details {
-                label: _("_Copy to Clipboard");
+                label: _("_Check Compatibility");
                 halign: center;
+                valign: end;
                 use-underline: true;
-                clicked => $copy_to_clipboard() swapped;
+                clicked => $do_compatibility_check() swapped;
               }
             };
+          };
+        };
+      }
+
+      Adw.NavigationPage {
+        title: bind template.title;
+        tag: "results";
+        hidden => $on_hidden_results();
+
+        child: Adw.ToolbarView {
+          [top]
+          Adw.HeaderBar {}
+
+          content: Gtk.Stack stack {
+            Gtk.StackPage waiting {
+              name: "waiting";
+
+              child: Adw.StatusPage counter {
+                paintable: spinner;
+              };
+            }
+
+            Gtk.StackPage error {
+              name: "error";
+
+              child: Adw.StatusPage error_status {
+                icon-name: "offline-symbolic";
+                title: _("Connection Error");
+              };
+            }
+
+            Gtk.StackPage results {
+              name: "results";
+
+              child: Adw.PreferencesPage prefs_page {
+                Adw.PreferencesGroup {
+                  Gtk.Box {
+                    orientation: vertical;
+                    spacing: 24;
+
+                    Gtk.Label summary {
+                      justify: center;
+                      wrap: true;
+                    }
+
+                    Gtk.ProgressBar progress_bar {
+                      show-text: true;
+                      margin-start: 24;
+                      margin-end: 24;
+                      focusable: true;
+
+                      accessibility {
+                        labelled-by: summary;
+                        described-by: progress_bar;
+                      }
+                    }
+                  }
+                }
+
+                Adw.PreferencesGroup user_list_title {
+                  title: _("User-Installed Extensions");
+
+                  Gtk.ListBox user_list_box {
+                    styles [
+                      "boxed-list",
+                      "boxed-list-placeholder"
+                    ]
+
+                    selection-mode: none;
+
+                    [placeholder]
+                    Adw.ActionRow {
+                      [prefix]
+                      Gtk.Image {
+                        icon-name: "puzzle-piece-symbolic";
+                      }
+
+                      title: _("No User Extensions Installed");
+                    }
+
+                    accessibility {
+                      labelled-by: user_list_title;
+                    }
+                  }
+                }
+
+                Adw.PreferencesGroup system_list_title {
+                  title: _("System Extensions");
+
+                  Gtk.ListBox system_list_box {
+                    styles [
+                      "boxed-list",
+                      "boxed-list-placeholder"
+                    ]
+
+                    selection-mode: none;
+
+                    [placeholder]
+                    Adw.ActionRow {
+                      [prefix]
+                      Gtk.Image {
+                        icon-name: "settings-symbolic";
+                      }
+
+                      title: _("No System Extensions Installed");
+                    }
+
+                    accessibility {
+                      labelled-by: system_list_title;
+                    }
+                  }
+                }
+
+                Adw.PreferencesGroup {
+                  Adw.ButtonRow copy_details {
+                    start-icon-name: "edit-copy-symbolic";
+                    title: _("_Copy to Clipboard");
+                    use-underline: true;
+                    activated => $copy_to_clipboard() swapped;
+                  }
+                }
+              };
+            }
           };
         };
       }
