@@ -1,6 +1,7 @@
-/* exm-window.h
+/*
+ * exm-window.h
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +29,8 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmWindow, exm_window, EXM, WINDOW, AdwApplicationWindow)
 
-GtkSearchBar *
-exm_window_get_search_bar (ExmWindow *self);
+const char *exm_window_get_search_query (ExmWindow *self);
+
+gboolean    exm_window_get_search_mode  (ExmWindow *self);
 
 G_END_DECLS

@@ -53,11 +53,12 @@ template $ExmWindow: Adw.ApplicationWindow {
           Gtk.SearchBar search_bar {
             key-capture-widget: template;
             search-mode-enabled: bind search_button.active bidirectional;
-            notify::search-mode-enabled => $on_visible_installed_stack_changed();
+            notify::search-mode-enabled => $on_search_mode_enabled();
 
             child: Gtk.SearchEntry {
               placeholder-text: _("Search for installed extensions");
               max-width-chars: 35;
+              search-changed => $on_search_changed();
             };
           }
 
@@ -122,7 +123,7 @@ Adw.AlertDialog remove_dialog {
 
   responses [
     no: _("_No"),
-    yes: _("_Yes") destructive
+    yes: _("_Yes") destructive,
   ]
 }
 
@@ -135,6 +136,6 @@ Adw.AlertDialog unsupported_dialog {
 
   responses [
     install: _("_Install Anyway") destructive,
-    back: _("_Go Back") suggested
+    back: _("_Go Back") suggested,
   ]
 }

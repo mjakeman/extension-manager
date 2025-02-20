@@ -1,6 +1,7 @@
-/* exm-browse-page.h
+/*
+ * exm-browse-page.h
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +22,6 @@
 #pragma once
 
 #include <gtk/gtk.h>
-#include <adwaita.h>
 
 G_BEGIN_DECLS
 
@@ -29,10 +29,11 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmBrowsePage, exm_browse_page, EXM, BROWSE_PAGE, GtkWidget)
 
-ExmBrowsePage *
-exm_browse_page_new (void);
+ExmBrowsePage *exm_browse_page_new         (void);
 
-GtkSearchEntry *
-exm_browse_page_get_search_entry (ExmBrowsePage *self);
+void           exm_browse_page_search      (ExmBrowsePage *self,
+                                            const gchar   *query);
+
+void           exm_browse_page_focus_entry (ExmBrowsePage *self);
 
 G_END_DECLS
