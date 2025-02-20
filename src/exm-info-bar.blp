@@ -3,44 +3,74 @@ using Adw 1;
 
 template $ExmInfoBar: Gtk.Box {
   styles [
-    "card"
+    "linked"
   ]
 
-  homogeneous: true;
+  height-request: 54;
 
-  Gtk.ListBox {
+  Adw.Bin {
     styles [
-      "info-bar-item"
+      "card"
     ]
 
-    selection-mode: none;
-
-    Adw.ActionRow {
-      [prefix]
+    Gtk.Box {
       Gtk.Image {
         icon-name: "folder-download-symbolic";
       }
 
-      title: C_("Number of downloads", "Downloads");
-      subtitle: bind $format_downloads(template.downloads) as <string>;
+      Gtk.Box {
+        hexpand: true;
+        orientation: vertical;
+        valign: center;
+
+        Gtk.Label downloads_title {
+          styles [
+            "dim-label"
+          ]
+
+          label: C_("Number of downloads", "Downloads");
+          xalign: 0;
+        }
+
+        Gtk.Label {
+          label: bind $format_downloads(template.downloads) as <string>;
+          xalign: 0;
+        }
+      }
     }
   }
 
-  Gtk.ListBox {
+  Gtk.Button {
     styles [
-      "info-bar-item"
+      "card"
     ]
 
-    selection-mode: none;
+    clicked => $show_versions();
 
-    Adw.ActionRow {
-      [prefix]
+    Gtk.Box {
       Gtk.Image {
         icon-name: "system-software-install-symbolic";
       }
 
-      title: _("Version");
-      subtitle: bind $format_version(template.version) as <string>;
+      Gtk.Box {
+        hexpand: true;
+        orientation: vertical;
+        valign: center;
+
+        Gtk.Label version_title {
+          styles [
+            "dim-label"
+          ]
+
+          label: _("Version");
+          xalign: 0;
+        }
+
+        Gtk.Label {
+          label: bind $format_version(template.version) as <string>;
+          xalign: 0;
+        }
+      }
     }
   }
 }

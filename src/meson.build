@@ -11,6 +11,7 @@ exm_sources = [
   'exm-comment-dialog.c',
   'exm-rating.c',
   'exm-info-bar.c',
+  'exm-versions-dialog.c',
 
   # Screenshot View
   'exm-screenshot-view.c',
@@ -70,6 +71,7 @@ blueprints = custom_target('blueprints',
     'exm-screenshot.blp',
     'exm-search-row.blp',
     'exm-upgrade-assistant.blp',
+    'exm-versions-dialog.blp',
     'exm-window.blp'
   ),
   output: '.',

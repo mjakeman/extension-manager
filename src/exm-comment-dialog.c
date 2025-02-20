@@ -21,13 +21,12 @@
 
 #include "exm-comment-dialog.h"
 
+#include "exm-config.h"
 #include "exm-comment-tile.h"
 #include "web/exm-comment-provider.h"
 #include "web/model/exm-comment.h"
 
 #include <glib/gi18n.h>
-
-#include "exm-config.h"
 
 struct _ExmCommentDialog
 {

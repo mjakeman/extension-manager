@@ -21,25 +21,22 @@
 
 #include "exm-detail-view.h"
 
-#include "exm-screenshot.h"
-#include "exm-screenshot-view.h"
-#include "exm-info-bar.h"
-#include "exm-comment-tile.h"
+#include "exm-config.h"
 #include "exm-comment-dialog.h"
+#include "exm-comment-tile.h"
+#include "exm-enums.h"
+#include "exm-info-bar.h"
 #include "exm-install-button.h"
 #include "exm-screenshot.h"
-
+#include "exm-screenshot-view.h"
+#include "exm-types.h"
+#include "exm-versions-dialog.h"
+#include "local/exm-manager.h"
+#include "web/exm-comment-provider.h"
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
-#include "web/exm-comment-provider.h"
-#include "web/model/exm-shell-version-map.h"
 #include "web/model/exm-comment.h"
-#include "local/exm-manager.h"
-
-#include "exm-types.h"
-#include "exm-enums.h"
-
-#include "exm-config.h"
+#include "web/model/exm-shell-version-map.h"
 
 #include <glib/gi18n.h>
 
@@ -70,6 +67,7 @@ struct _ExmDetailView
     GtkOverlay *ext_screenshot_container;
     GtkButton *ext_screenshot_popout_button;
     ExmInfoBar *ext_info_bar;
+    ExmVersionsDialog *ext_versions_dialog;
     GtkScrolledWindow *scroll_area;
     GtkStack *comment_stack;
     GtkFlowBox *comment_box;
@@ -270,7 +268,7 @@ queue_resolve_comments (ExmDetailView *self,
 }
 
 static void
-show_more_comments (GtkButton *button G_GNUC_UNUSED,
+show_more_comments (GtkButton     *button G_GNUC_UNUSED,
                     ExmDetailView *self)
 {
     GtkRoot *toplevel;
@@ -501,6 +499,8 @@ on_data_loaded (GObject      *source,
 
         g_object_set (self->ext_info_bar, "version", 0.0, NULL);
 
+        self->ext_versions_dialog = exm_versions_dialog_new ();
+
         for (version_iter = version_map->map;
              version_iter != NULL;
              version_iter = version_iter->next)
@@ -515,10 +515,16 @@ on_data_loaded (GObject      *source,
             else
                 version = g_strdup_printf ("%s.0", entry->shell_major_version);
 
-              if (version != NULL && self->shell_version != NULL &&
-                  (strcmp (version, self->shell_version) == 0 ||
-                   strncmp(version, self->shell_version, strchr(version, '.') - version) == 0))
-                  g_object_set (self->ext_info_bar, "version", entry->extension_version, NULL);
+              if (version != NULL && self->shell_version != NULL)
+              {
+                  exm_versions_dialog_add_version (self->ext_versions_dialog, entry->shell_minor_version
+                                                                              ? version
+                                                                              : entry->shell_major_version);
+
+                  if (strcmp (version, self->shell_version) == 0 ||
+                     strncmp(version, self->shell_version, strchr(version, '.') - version) == 0)
+                      g_object_set (self->ext_info_bar, "version", entry->extension_version, NULL);
+              }
 
             g_free (version);
         }
@@ -601,6 +607,20 @@ open_link (ExmDetailView *self,
     }
 
     gtk_uri_launcher_launch (uri, GTK_WINDOW (toplevel), NULL, NULL, NULL);
+}
+
+static void
+show_versions (GtkWidget  *widget,
+               const char *action_name G_GNUC_UNUSED,
+               GVariant   *parameter G_GNUC_UNUSED)
+{
+    ExmDetailView *self;
+    GtkWidget *toplevel;
+
+    self = EXM_DETAIL_VIEW (widget);
+    toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
+
+    adw_dialog_present (ADW_DIALOG (g_object_ref (self->ext_versions_dialog)), toplevel);
 }
 
 static void
@@ -718,6 +738,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-donation", "i", (GtkWidgetActionActivateFunc) open_link);
+    gtk_widget_class_install_action (widget_class, "detail.show-versions", NULL, show_versions);
 }
 
 static void

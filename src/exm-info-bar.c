@@ -108,6 +108,15 @@ format_version (GObject *object G_GNUC_UNUSED,
 }
 
 static void
+show_versions (GtkButton  *button,
+               ExmInfoBar *self G_GNUC_UNUSED)
+{
+    gtk_widget_activate_action (GTK_WIDGET (button),
+                                "detail.show-versions",
+                                NULL);
+}
+
+static void
 exm_info_bar_class_init (ExmInfoBarClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -137,6 +146,7 @@ exm_info_bar_class_init (ExmInfoBarClass *klass)
 
     gtk_widget_class_bind_template_callback (widget_class, format_downloads);
     gtk_widget_class_bind_template_callback (widget_class, format_version);
+    gtk_widget_class_bind_template_callback (widget_class, show_versions);
 
     gtk_widget_class_set_css_name (widget_class, "info-bar");
 }
