@@ -21,10 +21,11 @@
 
 #include "exm-extension-row.h"
 
+#include "exm-config.h"
 #include "exm-enums.h"
 #include "exm-types.h"
 
-#include "exm-config.h"
+#include <glib/gi18n.h>
 
 struct _ExmExtensionRow
 {
@@ -44,12 +45,13 @@ struct _ExmExtensionRow
 
     AdwActionRow *description_row;
     AdwActionRow *version_row;
+    AdwActionRow *session_modes_row;
+    GtkImage *info_icon;
     AdwActionRow *error_row;
 
     GtkImage *update_icon;
     GtkImage *error_icon;
     GtkImage *out_of_date_icon;
-    GtkImage *info_icon;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtensionRow, exm_extension_row, ADW_TYPE_EXPANDER_ROW)
@@ -154,6 +156,62 @@ unbind_extension (ExmExtensionRow *self)
 }
 
 static void
+add_session_modes (GPtrArray       *session_modes,
+                   ExmExtensionRow *self)
+{
+    if (!session_modes || session_modes->len == 0)
+        return;
+
+    GPtrArray *subtitles = g_ptr_array_new_with_free_func (g_free);
+    gboolean has_unlock_dialog = FALSE;
+    gboolean has_gdm = FALSE;
+
+    for (guint i = 0; i < session_modes->len; i++)
+    {
+        gchar *mode = g_ptr_array_index (session_modes, i);
+
+        if (g_strcmp0 (mode, "unlock-dialog") == 0)
+        {
+            g_ptr_array_add (subtitles, g_strdup (_("Unlock Dialog")));
+            has_unlock_dialog = TRUE;
+        }
+        else if (g_strcmp0 (mode, "gdm") == 0)
+        {
+            // Translators: GNOME Display Manager
+            g_ptr_array_add (subtitles, g_strdup (_("GDM")));
+            has_gdm = TRUE;
+        }
+    }
+
+    if (has_unlock_dialog && has_gdm)
+    {
+        // Translators: Icon's tooltip when an extension runs on both, login and lock screens
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->info_icon), _("This extension will run while the screen is locked and no user is logged in"));
+    }
+    else if (has_unlock_dialog)
+    {
+        // Translators: Icon's tooltip when an extension runs on the lock screen
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->info_icon), _("This extension will run while the screen is locked"));
+    }
+    else if (has_gdm)
+    {
+        // Translators: Icon's tooltip when an extension runs on the login screen
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->info_icon), _("This extension will run while no user is logged in"));
+    }
+
+    if (subtitles->len > 0)
+    {
+        g_ptr_array_add (subtitles, NULL);
+        gchar *subtitle = g_strjoinv (" / ", (gchar **)subtitles->pdata);
+        adw_action_row_set_subtitle (self->session_modes_row, subtitle);
+        gtk_widget_set_visible (GTK_WIDGET (self->session_modes_row), TRUE);
+        g_free (subtitle);
+    }
+
+    g_ptr_array_free (subtitles, TRUE);
+}
+
+static void
 bind_extension (ExmExtensionRow *self,
                 ExmExtension    *extension)
 {
@@ -176,6 +234,7 @@ bind_extension (ExmExtensionRow *self,
     gchar *name, *uuid, *description, *version, *error;
     gboolean enabled, has_prefs, is_user;
     ExmExtensionState state;
+    GPtrArray *session_modes;
     g_object_get (self->extension,
                   "name", &name,
                   "uuid", &uuid,
@@ -186,6 +245,7 @@ bind_extension (ExmExtensionRow *self,
                   "error", &error,
                   "has-prefs", &has_prefs,
                   "is-user", &is_user,
+                  "session-modes", &session_modes,
                   NULL);
 
     self->uuid = g_strdup (uuid);
@@ -204,14 +264,11 @@ bind_extension (ExmExtensionRow *self,
     gtk_widget_set_visible (GTK_WIDGET (self->error_icon), state == EXM_EXTENSION_STATE_ERROR);
     gtk_widget_set_visible (GTK_WIDGET (self->out_of_date_icon), state == EXM_EXTENSION_STATE_OUT_OF_DATE);
 
-    gtk_widget_set_visible (GTK_WIDGET (self->info_icon),
-                            (state == EXM_EXTENSION_STATE_INITIALIZED
-                             || state == EXM_EXTENSION_STATE_INACTIVE)
-                             && enabled);
-
     gtk_widget_set_visible (GTK_WIDGET (self->version_row), version != NULL);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
+
+    add_session_modes (session_modes, self);
 
     GAction *action;
 
@@ -297,6 +354,8 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_row);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_row);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, session_modes_row);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, info_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_row);
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
@@ -306,7 +365,6 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, update_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_icon);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, out_of_date_icon);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, info_icon);
 
     gtk_widget_class_bind_template_callback (widget_class, on_state_changed);
 }

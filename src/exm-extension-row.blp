@@ -80,23 +80,6 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     tooltip-text: _("A newer version of this extension is available");
   }
 
-  [suffix]
-  Gtk.Image info_icon {
-    styles [
-      "warning",
-    ]
-
-    icon-name: "dialog-information-symbolic";
-    valign: center;
-    halign: center;
-    focusable: true;
-    margin-start: 9;
-    margin-end: 9;
-    visible: false;
-    // Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
-    tooltip-text: _("This extension could be activated in session modes such as the login screen or the lock screen");
-  }
-
   Adw.ActionRow description_row {
     styles [
       "multiline",
@@ -114,6 +97,21 @@ template $ExmExtensionRow: Adw.ExpanderRow {
 
     title: _("Version");
     subtitle: bind template.extension as <$ExmExtension>.version;
+  }
+
+  Adw.ActionRow session_modes_row {
+    styles [
+      "property",
+    ]
+
+    title: _("Session Modes");
+    visible: false;
+
+    [suffix]
+    Gtk.Image info_icon {
+      focusable: true;
+      icon-name: "dialog-information-symbolic";
+    }
   }
 
   Adw.ActionRow error_row {
