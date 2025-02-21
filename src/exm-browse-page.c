@@ -312,6 +312,9 @@ exm_browse_page_focus_entry (ExmBrowsePage *self)
 static void
 on_search_changed (ExmBrowsePage *self)
 {
+    if (!gtk_widget_get_realized (GTK_WIDGET (self->search_entry)))
+        return;
+
     const char *query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
     ExmSearchSort sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
     search (self, query, sort);
@@ -332,6 +335,9 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
 
     // Set placeholder value
     gtk_search_entry_set_placeholder_text (search_entry, suggestion);
+
+    // Fire off a default search
+    search (self, "", EXM_SEARCH_SORT_RELEVANCE);
 }
 
 static void
