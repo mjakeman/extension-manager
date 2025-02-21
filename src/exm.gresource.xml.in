@@ -16,6 +16,7 @@
     <file>exm-screenshot.ui</file>
     <file>exm-search-row.ui</file>
     <file>exm-upgrade-assistant.ui</file>
+    <file>exm-versions-dialog.ui</file>
     <file>exm-window.ui</file>
     <file alias="suggestions.txt">res/suggestions.txt</file>
     <file preprocess="xml-stripblanks" alias="com.mattjakeman.ExtensionManager.metainfo.xml">../data/@appstream_file@</file>
