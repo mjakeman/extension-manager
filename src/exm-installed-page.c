@@ -123,18 +123,6 @@ exm_installed_page_set_property (GObject      *object,
     }
 }
 
-GtkStack *
-exm_installed_page_get_stack (ExmInstalledPage *self)
-{
-    return self->stack;
-}
-
-GtkFilterListModel *
-exm_installed_page_get_search_list_model (ExmInstalledPage *self)
-{
-    return self->search_list_model;
-}
-
 static GtkWidget *
 widget_factory (ExmExtension     *extension,
                 ExmInstalledPage *self)
@@ -175,12 +163,12 @@ compare_enabled (ExmExtension *this,
 }
 
 static void
-on_search_changed (GtkSearchEntry *search_entry,
-                   gpointer        user_data)
+on_search_changed (ExmWindow *window,
+                   gpointer   user_data)
 {
     GtkStringFilter *search_filter = (GtkStringFilter *)user_data;
 
-    gtk_string_filter_set_search (search_filter, gtk_editable_get_text (GTK_EDITABLE (search_entry)));
+    gtk_string_filter_set_search (search_filter, exm_window_get_search_query (window));
 }
 
 static void
@@ -188,13 +176,20 @@ on_visible_stack_changed (GObject    *object G_GNUC_UNUSED,
                           GParamSpec *pspec G_GNUC_UNUSED,
                           gpointer    user_data)
 {
-    ExmInstalledPage *self = (ExmInstalledPage *) user_data;
+    ExmInstalledPage *self = (ExmInstalledPage *)user_data;
     ExmWindow *window;
     gboolean search_mode;
 
     window = EXM_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), EXM_TYPE_WINDOW));
-    search_mode = gtk_search_bar_get_search_mode (exm_window_get_search_bar (window));
+    search_mode = exm_window_get_search_mode (window);
 
+    exm_installed_page_show_page (search_mode, self);
+}
+
+void
+exm_installed_page_show_page (gboolean          search_mode,
+                              ExmInstalledPage *self)
+{
     if (search_mode && g_list_model_get_n_items (G_LIST_MODEL (self->search_list_model)) > 0)
         gtk_stack_set_visible_child_name (self->stack , "page_results");
     else if (search_mode)
@@ -214,8 +209,7 @@ bind_list_box (GListModel       *model,
     GtkBoolFilter *is_user_filter;
     GtkFilterListModel *filtered_model;
     ExmWindow *window;
-    GtkSearchEntry *search_entry;
-    const gchar *search_text = NULL;
+    const char *query;
 
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
@@ -267,14 +261,13 @@ bind_list_box (GListModel       *model,
                              self, NULL);
 
     window = EXM_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), EXM_TYPE_WINDOW));
-    search_entry = GTK_SEARCH_ENTRY (gtk_search_bar_get_child (exm_window_get_search_bar (window)));
-    search_text = gtk_editable_get_text (GTK_EDITABLE (search_entry));
+    query = exm_window_get_search_query (window);
 
     // Refilter when sort-enabled-first changes and there is an ongoing search
-    if (search_text)
-      gtk_string_filter_set_search (search_filter, search_text);
+    if (query)
+        gtk_string_filter_set_search (search_filter, query);
 
-    g_signal_connect (search_entry,
+    g_signal_connect (window,
                       "search-changed",
                       G_CALLBACK (on_search_changed),
                       search_filter);

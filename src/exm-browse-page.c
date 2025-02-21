@@ -29,6 +29,7 @@
 #include "web/exm-search-provider.h"
 #include "web/model/exm-search-result.h"
 
+#include <adwaita.h>
 #include <glib/gi18n.h>
 
 struct _ExmBrowsePage
@@ -121,12 +122,6 @@ exm_browse_page_set_property (GObject      *object,
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
-}
-
-GtkSearchEntry *
-exm_browse_page_get_search_entry (ExmBrowsePage *self)
-{
-  return self->search_entry;
 }
 
 static GtkWidget *
@@ -301,9 +296,25 @@ search (ExmBrowsePage *self,
                                      self);
 }
 
-static void
-on_search_changed (ExmBrowsePage  *self)
+void
+exm_browse_page_search (ExmBrowsePage *self,
+                        const gchar   *query)
 {
+    gtk_editable_set_text (GTK_EDITABLE (self->search_entry), query);
+}
+
+void
+exm_browse_page_focus_entry (ExmBrowsePage *self)
+{
+    gtk_widget_grab_focus (GTK_WIDGET (self->search_entry));
+}
+
+static void
+on_search_changed (ExmBrowsePage *self)
+{
+    if (!gtk_widget_get_realized (GTK_WIDGET (self->search_entry)))
+        return;
+
     const char *query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
     ExmSearchSort sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
     search (self, query, sort);
@@ -324,6 +335,9 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
 
     // Set placeholder value
     gtk_search_entry_set_placeholder_text (search_entry, suggestion);
+
+    // Fire off a default search
+    search (self, "", EXM_SEARCH_SORT_RELEVANCE);
 }
 
 static void
@@ -438,13 +452,13 @@ exm_browse_page_init (ExmBrowsePage *self)
                      self->search, "show-unsupported",
                      G_SETTINGS_BIND_GET);
 
+    g_object_unref (settings);
+
     // Rerun search when show unsupported is toggled
     g_signal_connect_swapped (self->search,
                               "notify::show-unsupported",
                               G_CALLBACK (on_search_changed),
                               self);
-
-    g_object_unref (settings);
 
     load_suggestions (self);
 
