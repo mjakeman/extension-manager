@@ -746,17 +746,6 @@ update_extension_list (ExmManager *self)
     queue_notify_extension_updates (self);
 }
 
-static gboolean
-is_extension_equal (ExmExtension *a,
-                    ExmExtension *b)
-{
-    const gchar *uuid_a, *uuid_b;
-    g_object_get (a, "uuid", &uuid_a, NULL);
-    g_object_get (b, "uuid", &uuid_b, NULL);
-
-    return g_strcmp0 (uuid_a, uuid_b) == 0;
-}
-
 static void
 on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
                   const gchar     *arg_uuid,
@@ -787,13 +776,14 @@ on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
 
     if (is_new)
     {
-        g_list_store_append (list_store, extension);
+        g_list_store_insert_sorted (list_store, extension, (GCompareDataFunc)compare_extension, NULL);
         return;
     }
 
+    guint position;
+
     if (is_uninstall_operation)
     {
-        guint position;
         if (g_list_store_find_with_equal_func (list_store, extension, (GEqualFunc)is_extension_equal, &position))
             g_list_store_remove (list_store, position);
 
@@ -801,11 +791,8 @@ on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
     }
 
     // Emit items-changed signal to re-sort extension list
-    {
-        guint position;
-        if (g_list_store_find_with_equal_func (list_store, extension, (GEqualFunc)is_extension_equal, &position))
-            g_list_model_items_changed (G_LIST_MODEL (list_store), position, 1, 1);
-    }
+    if (g_list_store_find_with_equal_func (list_store, extension, (GEqualFunc)is_extension_equal, &position))
+        g_list_model_items_changed (G_LIST_MODEL (list_store), position, 0, 0);
 
     // If the extension that has changed has an update, then
     // one or more extensions have updates available. Lazily
