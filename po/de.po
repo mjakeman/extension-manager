@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-22 11:31+0000\n"
-"PO-Revision-Date: 2025-02-01 15:08+0000\n"
+"PO-Revision-Date: 2025-02-22 15:50+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -275,7 +275,7 @@ msgstr "Version"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Sitzungsmodi"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -291,31 +291,30 @@ msgstr "Entfernen …"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Entsperren-Dialog"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Diese Erweiterung wird ausgeführt, während der Bildschirm gesperrt ist und "
+"kein Benutzer angemeldet ist"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Diese Erweiterung wird ausgeführt, während der Bildschirm gesperrt ist"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d Erweiterung wird bei der nächsten Anmeldung aktualisiert"
+msgstr "Diese Erweiterung wird ausgeführt, während kein Benutzer angemeldet ist"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -386,11 +385,8 @@ msgid "Install…"
 msgstr "Installieren …"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Installiert"
+msgstr "Wird installiert"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
