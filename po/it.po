@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2025-02-19 15:12+0000\n"
-"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
+"PO-Revision-Date: 2025-02-22 11:30+0000\n"
+"Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "extension-manager/app/it/>\n"
 "Language: it\n"
@@ -399,11 +399,8 @@ msgstr "Nessuna estensione di sistema installata"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
 #: src/exm-installed-page.blp:114
-#, fuzzy
 msgid "Search Results"
-msgstr ""
-"Testo annunciato dagli screen reader quando si interagisce con l'elenco dei "
-"risultati di ricerca"
+msgstr "Risultati della ricerca"
 
 #: src/exm-installed-page.blp:127
 msgid "Try a different search or search online"
@@ -496,11 +493,8 @@ msgstr ""
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
-#, fuzzy
 msgid "Search Installed Extensions"
-msgstr ""
-"Suggerimento dell'icona di ricerca nella barra dell'intestazione della vista "
-"installata"
+msgstr "Cerca estensioni installate"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
