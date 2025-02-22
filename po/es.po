@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-22 11:31+0000\n"
-"PO-Revision-Date: 2025-02-13 23:02+0000\n"
+"PO-Revision-Date: 2025-02-22 15:50+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/extension-"
-"manager/app/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"extension-manager/app/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-rc\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -266,7 +266,7 @@ msgstr "Versión"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Modos de sesión"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -282,31 +282,30 @@ msgstr "Quitar…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Diálogo de desbloqueo"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Esta extensión se ejecutará mientras la pantalla esté bloqueada y no haya "
+"ningún usuario conectado"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Esta extensión se ejecutará mientras la pantalla esté bloqueada"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d extensión se actualizará en el próximo inicio de sesión"
+msgstr "Esta extensión se ejecutará mientras no haya ningún usuario conectado"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
