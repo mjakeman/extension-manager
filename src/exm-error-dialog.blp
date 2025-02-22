@@ -2,91 +2,84 @@ using Gtk 4.0;
 using Adw 1;
 
 template $ExmErrorDialog: Adw.Window {
-  default-width: 450;
-  default-height: 450;
+  default-width: 500;
+  default-height: 500;
   title: _("Error Report");
 
   Adw.ToolbarView {
     [top]
     Adw.HeaderBar {}
 
-    content: Gtk.Box {
-      styles [
-        "content"
-      ]
+    content: Adw.ToastOverlay toast_overlay {
+      child: Adw.PreferencesPage {
+        Adw.PreferencesGroup {
+          Gtk.Label {
+            styles [
+              "title-4",
+            ]
 
-      orientation: vertical;
-      spacing: 12;
-
-      Gtk.Image {
-        icon-name: "dialog-error-symbolic";
-        icon-size: large;
-        focusable: true;
-
-        accessibility {
-          labelled-by: title;
-          described-by: instructions;
-        }
-      }
-
-      Gtk.Label title {
-        styles [
-          "heading"
-        ]
-
-        label: _("An unexpected error occurred in Extension Manager");
-        wrap: true;
-      }
-
-      Gtk.Label instructions {
-        xalign: 0;
-        wrap: true;
-      }
-
-      Gtk.ScrolledWindow {
-        styles [
-          "card"
-        ]
-
-        overflow: hidden;
-        vexpand: true;
-
-        child: Gtk.TextView text_view {
-          wrap-mode: word_char;
-          editable: false;
-          vexpand: true;
-          top-margin: 12;
-          left-margin: 12;
-          right-margin: 12;
-          bottom-margin: 12;
-          monospace: true;
-        };
-      }
-
-      Gtk.Box {
-        orientation: horizontal;
-        homogeneous: true;
-        halign: center;
-        spacing: 6;
-
-        Gtk.Button copy_button {
-          can-shrink: true;
-          label: _("_Copy to Clipboard");
-          use-underline: true;
-          clicked => $on_copy_button_clicked();
+            justify: center;
+            label: _("An unexpected error occurred in Extension Manager");
+            selectable: true;
+            wrap: true;
+          }
         }
 
-        Gtk.Button new_issue_button {
-          styles [
-            "suggested-action"
-          ]
+        Adw.PreferencesGroup instructions {
+          header-suffix: Gtk.Button copy_button {
+            styles [
+              "flat",
+            ]
 
-          can-shrink: true;
-          label: _("_New Issue");
-          use-underline: true;
-          clicked => $on_new_issue_button_clicked() swapped;
+            clicked => $on_copy_button_clicked();
+            icon-name: "edit-copy-symbolic";
+            tooltip-text: _("Copy to Clipboard");
+            valign: center;
+          };
+
+          Gtk.ScrolledWindow {
+            styles [
+              "card",
+            ]
+
+            overflow: hidden;
+            vexpand: true;
+
+            child: Gtk.TextView text_view {
+              styles [
+                "inline",
+              ]
+
+              bottom-margin: 12;
+              editable: false;
+              left-margin: 12;
+              monospace: true;
+              right-margin: 12;
+              top-margin: 12;
+              vexpand: true;
+              wrap-mode: word_char;
+
+              accessibility {
+                labelled-by: instructions;
+              }
+            };
+          }
+
+          Gtk.Button new_issue_button {
+            styles [
+              "pill",
+              "suggested-action",
+            ]
+
+            can-shrink: true;
+            clicked => $on_new_issue_button_clicked() swapped;
+            halign: center;
+            label: _("_New Issue");
+            margin-top: 12;
+            use-underline: true;
+          }
         }
-      }
+      };
     };
   }
 }

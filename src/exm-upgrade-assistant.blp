@@ -23,7 +23,7 @@ template $ExmUpgradeAssistant: Adw.Dialog {
           content: Adw.Clamp {
             child: Gtk.Box {
               styles [
-                "detail"
+                "detail",
               ]
 
               orientation: vertical;
@@ -50,13 +50,7 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                   wrap: true;
                 }
 
-                Gtk.ListBox {
-                  styles [
-                    "boxed-list"
-                  ]
-
-                  selection-mode: none;
-
+                Adw.PreferencesGroup {
                   Adw.ComboRow drop_down {
                     title: "GNOME";
                   }
@@ -66,7 +60,7 @@ template $ExmUpgradeAssistant: Adw.Dialog {
               Gtk.Button run_button {
                 styles [
                   "pill",
-                  "suggested-action"
+                  "suggested-action",
                 ]
 
                 label: _("_Check Compatibility");
@@ -141,7 +135,7 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                   Gtk.ListBox user_list_box {
                     styles [
                       "boxed-list",
-                      "boxed-list-placeholder"
+                      "boxed-list-placeholder",
                     ]
 
                     selection-mode: none;
@@ -168,7 +162,7 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                   Gtk.ListBox system_list_box {
                     styles [
                       "boxed-list",
-                      "boxed-list-placeholder"
+                      "boxed-list-placeholder",
                     ]
 
                     selection-mode: none;

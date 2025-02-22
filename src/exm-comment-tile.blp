@@ -3,22 +3,23 @@ using Gtk 4.0;
 template $ExmCommentTile: Gtk.Widget {
   Gtk.Box {
     orientation: vertical;
+    spacing: 6;
 
     Gtk.Box {
       orientation: horizontal;
 
       Gtk.Label author {
         styles [
-          "heading"
+          "heading",
         ]
 
-        xalign: 0;
         label: bind template.comment as <$ExmComment>.author;
+        xalign: 0;
       }
 
       Gtk.Label author_badge {
         styles [
-          "author-badge"
+          "author-badge",
         ]
 
         label: _("Author");
@@ -35,11 +36,10 @@ template $ExmCommentTile: Gtk.Widget {
 
     Gtk.Label {
       styles [
-        "multiline"
+        "multiline",
       ]
 
       label: bind template.comment as <$ExmComment>.comment;
-      margin-top: 6;
       use-markup: true;
       wrap: true;
       wrap-mode: word_char;
@@ -48,10 +48,9 @@ template $ExmCommentTile: Gtk.Widget {
 
     Gtk.Label date {
       styles [
-        "dim-label"
+        "dim-label",
       ]
 
-      margin-top: 6;
       xalign: 0;
     }
   }
