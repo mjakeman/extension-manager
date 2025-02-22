@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-12 22:05+0000\n"
+"POT-Creation-Date: 2025-02-22 11:31+0000\n"
 "PO-Revision-Date: 2025-02-16 12:17+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/extension-manager/"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :("
-"n>6 && n<11) ? 3 : 4;\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :"
+"(n>6 && n<11) ? 3 : 4;\n"
 "X-Generator: Weblate 5.10\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
@@ -100,7 +100,7 @@ msgstr "Íoslódáil"
 msgid "Recent"
 msgstr "Le déanaí"
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:115
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:114
 msgid "Name"
 msgstr "Ainmnigh"
 
@@ -108,21 +108,21 @@ msgstr "Ainmnigh"
 msgid "Sort search results"
 msgstr "Torthaí cuardaigh a shórtáil"
 
-#: src/exm-browse-page.blp:102
+#: src/exm-browse-page.blp:103
 msgid "_Load More Results"
 msgstr "_ Déan níos mó torthaí"
 
-#: src/exm-browse-page.blp:136 src/exm-installed-page.blp:126
+#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:126
 msgid "No Results Found"
 msgstr "Níor aimsíodh aon torthaí"
 
-#: src/exm-browse-page.blp:143
+#: src/exm-browse-page.blp:144
 msgid "Try a different search"
 msgstr "Bain triail as cuardach eile"
 
-#: src/exm-browse-page.blp:177 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:51 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:84
+#: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
+#: src/exm-upgrade-assistant.blp:106
 msgid "Connection Error"
 msgstr "Earráid Ceangail"
 
@@ -134,19 +134,19 @@ msgstr "Tráchtanna"
 msgid "Loading Comments"
 msgstr "Tráchtanna a luchtú"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:129
+#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Údar"
 
-#: src/exm-detail-view.blp:42
+#: src/exm-detail-view.blp:41
 msgid "Loading Details"
 msgstr "Sonraí luchtaithe"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:345
+#: src/exm-detail-view.blp:60 src/exm-window.c:347
 msgid "An Error Occurred"
 msgstr "Tharla earráid"
 
-#: src/exm-detail-view.blp:62
+#: src/exm-detail-view.blp:61
 msgid "No extension details available"
 msgstr "Níl aon sonraí sínte ar fáil"
 
@@ -154,7 +154,7 @@ msgstr "Níl aon sonraí sínte ar fáil"
 msgid "Enlarge Image"
 msgstr "Íomhá a mhéadú"
 
-#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:106
+#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Cur síos"
 
@@ -186,7 +186,7 @@ msgstr "Tá nótaí tráchta díchumasaithe don bhreiseán seo"
 msgid "No comments yet"
 msgstr "Gan aon trácht fós"
 
-#: src/exm-detail-view.blp:337
+#: src/exm-detail-view.blp:338
 msgid "_Show All Reviews"
 msgstr "_Taispeáin gach athbhreithniú"
 
@@ -210,7 +210,7 @@ msgstr "Tuarascáil Earráide"
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Tharla earráid gan choinne i mBainisteoir Síneadh"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:175
+#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
 msgid "_Copy to Clipboard"
 msgstr "_Cóip chuig Gearrthaisce"
 
@@ -219,7 +219,7 @@ msgid "_New Issue"
 msgstr "_Saincheist Nua"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:332
+#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Cóipeáil"
 
@@ -261,18 +261,13 @@ msgstr "Tá an síneadh seo neamh -chomhoiriúnach le do leagan reatha de gnome"
 msgid "A newer version of this extension is available"
 msgstr "Tá leagan níos nuaí den síneadh seo ar fáil"
 
-#. Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
-#: src/exm-extension-row.blp:97
-msgid ""
-"This extension could be activated in session modes such as the login screen "
-"or the lock screen"
-msgstr ""
-"D'fhéadfaí an síneadh seo a ghníomhachtú i modhanna seisiúin mar an scáileán "
-"logála isteach nó an scáileán glas"
-
-#: src/exm-extension-row.blp:114 src/exm-info-bar.blp:42
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
 msgid "Version"
 msgstr "Leagan"
+
+#: src/exm-extension-row.blp:107
+msgid "Session Modes"
+msgstr ""
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -282,9 +277,37 @@ msgstr "Earráid"
 msgid "See Details"
 msgstr "Féach na sonraí"
 
-#: src/exm-extension-row.blp:155
+#: src/exm-extension-row.blp:156
 msgid "Remove…"
 msgstr "Bain…"
+
+#: src/exm-extension-row.c:175
+msgid "Unlock Dialog"
+msgstr ""
+
+#. Translators: GNOME Display Manager
+#: src/exm-extension-row.c:181
+msgid "GDM"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on both, login and lock screens
+#: src/exm-extension-row.c:189
+msgid ""
+"This extension will run while the screen is locked and no user is logged in"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the lock screen
+#: src/exm-extension-row.c:194
+msgid "This extension will run while the screen is locked"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the login screen
+#: src/exm-extension-row.c:199
+#, fuzzy
+#| msgid "%d extension will be updated on next login"
+#| msgid_plural "%d extensions will be updated on next login"
+msgid "This extension will run while no user is logged in"
+msgstr "%d déanfar síneadh a nuashonrú ar an gcéad logáil isteach eile"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -341,7 +364,7 @@ msgctxt "shortcut window"
 msgid "Reset Zoom"
 msgstr "Athshocraigh Súmáil"
 
-#: src/exm-info-bar.blp:24
+#: src/exm-info-bar.blp:28
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Íoslódáil"
@@ -381,11 +404,11 @@ msgstr ""
 "Is féidir le síntí a bheith ina gcúis le saincheisteanna feidhmíochta agus "
 "cobhsaíochta"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:121
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
 msgid "User-Installed Extensions"
 msgstr "Síntí Suiteáilte ag an Úsáideoir"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:138
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
 msgid "No User Extensions Installed"
 msgstr "Níor suiteáladh aon síntí úsáideora"
 
@@ -393,11 +416,11 @@ msgstr "Níor suiteáladh aon síntí úsáideora"
 msgid "Browse"
 msgstr "Brabhsáil"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:148
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
 msgid "System Extensions"
 msgstr "Síntí Córais"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:165
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
 msgid "No System Extensions Installed"
 msgstr "Níor suiteáladh aon síntí córais"
 
@@ -415,7 +438,7 @@ msgid "_Search Online"
 msgstr "_Cuardaigh Ar Líne"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:304
+#: src/exm-installed-page.c:298
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -449,22 +472,22 @@ msgstr "Súmáil Isteach"
 msgid "Upgrade Assistant"
 msgstr "Cúntóir Uasghrádaithe"
 
-#: src/exm-upgrade-assistant.blp:61
+#: src/exm-upgrade-assistant.blp:72
 msgid "_Check Compatibility"
 msgstr "_Seiceáil Comhoiriúnacht"
 
-#: src/exm-upgrade-assistant.c:173
+#: src/exm-upgrade-assistant.c:188
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Seiceáil %d/%d Síntí"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:192
+#: src/exm-upgrade-assistant.c:207
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% Comhoiriúnach"
 
-#: src/exm-upgrade-assistant.c:208
+#: src/exm-upgrade-assistant.c:223
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
@@ -474,17 +497,17 @@ msgstr ""
 "suiteáilte faoi láthair ar an gcóras"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:490
+#: src/exm-upgrade-assistant.c:503
 msgid "A compatible version of the extension exists"
 msgstr "Tá leagan comhoiriúnach den síneadh ann"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:497
+#: src/exm-upgrade-assistant.c:510
 msgid "No compatible version of the extension exists"
 msgstr "Níl aon leagan comhoiriúnach den síneadh ann"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:504
+#: src/exm-upgrade-assistant.c:517
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -492,7 +515,7 @@ msgstr ""
 "Ní dhéantar an síneadh seo a óstáil ar extensions.gnome.org. Ní féidir a "
 "chomhoiriúnacht a chinneadh."
 
-#: src/exm-upgrade-assistant.c:600
+#: src/exm-upgrade-assistant.c:608
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -514,43 +537,43 @@ msgstr "Príomh Roghchlár"
 msgid "Search for installed extensions"
 msgstr "Cuardaigh le haghaidh síntí suiteáilte"
 
-#: src/exm-window.blp:69
+#: src/exm-window.blp:70
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Sucusidh"
 
-#: src/exm-window.blp:78
+#: src/exm-window.blp:79
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Brabhsáil"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:106
+#: src/exm-window.blp:107
 msgid "Sort _Enabled First"
 msgstr "Sórtáil _Cumasaithe ar Dtús"
 
-#: src/exm-window.blp:107
+#: src/exm-window.blp:108
 msgid "_Show Unsupported"
 msgstr "_Taispeáin gan Tacaíocht"
 
-#: src/exm-window.blp:111
+#: src/exm-window.blp:112
 msgid "_Upgrade Assistant"
 msgstr "_Cúntóir Uasghrádaithe"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 msgid "_Keyboard Shortcuts"
 msgstr "_Aicearraí Méarchláir"
 
-#: src/exm-window.blp:113
+#: src/exm-window.blp:114
 msgid "_About Extension Manager"
 msgstr "_Maidir le Bainisteoir Sínte"
 
-#: src/exm-window.blp:118
+#: src/exm-window.blp:119
 msgid "Uninstall Extension?"
 msgstr "Síneadh Díshuiteáil?"
 
-#: src/exm-window.blp:119
+#: src/exm-window.blp:120
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -558,19 +581,19 @@ msgstr ""
 "Ní bheidh rochtain a thuilleadh ar ghnéithe agus ar fheidhmiúlacht an "
 "tsíneadh. An bhfuil tú cinnte gur mhaith leat a dhíshuiteáil?"
 
-#: src/exm-window.blp:124
+#: src/exm-window.blp:125
 msgid "_No"
 msgstr "_Níl"
 
-#: src/exm-window.blp:125
+#: src/exm-window.blp:126
 msgid "_Yes"
 msgstr "_Tá"
 
-#: src/exm-window.blp:130
+#: src/exm-window.blp:131
 msgid "Unsupported Extension"
 msgstr "Síneadh gan Tacaíocht"
 
-#: src/exm-window.blp:131
+#: src/exm-window.blp:132
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -578,15 +601,15 @@ msgstr ""
 "Ní thacaíonn an síneadh seo le do leagan GNOME Shell. D'fhéadfadh sé a "
 "bheith ina chúis le hearráidí má tá sé suiteáilte."
 
-#: src/exm-window.blp:137
+#: src/exm-window.blp:138
 msgid "_Install Anyway"
 msgstr "_Suiteáil ar Aon Nós"
 
-#: src/exm-window.blp:138
+#: src/exm-window.blp:139
 msgid "_Go Back"
 msgstr "_Téigh ar Ais"
 
-#: src/exm-window.c:346
+#: src/exm-window.c:348
 msgid "_Details"
 msgstr "_Sonraí"
 
@@ -601,6 +624,13 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Seiceáil stádas do líonra agus bain triail eile as"
+
+#~ msgid ""
+#~ "This extension could be activated in session modes such as the login "
+#~ "screen or the lock screen"
+#~ msgstr ""
+#~ "D'fhéadfaí an síneadh seo a ghníomhachtú i modhanna seisiúin mar an "
+#~ "scáileán logála isteach nó an scáileán glas"
 
 #, c-format
 #~ msgid "%s by %s"

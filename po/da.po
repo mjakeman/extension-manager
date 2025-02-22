@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-12 22:05+0000\n"
+"POT-Creation-Date: 2025-02-22 11:31+0000\n"
 "PO-Revision-Date: 2022-04-06 08:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -117,7 +117,7 @@ msgstr "Hentninger"
 msgid "Recent"
 msgstr "Nylig"
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:115
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:114
 msgid "Name"
 msgstr "Navn"
 
@@ -125,21 +125,21 @@ msgstr "Navn"
 msgid "Sort search results"
 msgstr "Sortér søgeresultater"
 
-#: src/exm-browse-page.blp:102
+#: src/exm-browse-page.blp:103
 msgid "_Load More Results"
 msgstr ""
 
-#: src/exm-browse-page.blp:136 src/exm-installed-page.blp:126
+#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:126
 msgid "No Results Found"
 msgstr "Ingen Resultater Fundet"
 
-#: src/exm-browse-page.blp:143
+#: src/exm-browse-page.blp:144
 msgid "Try a different search"
 msgstr ""
 
-#: src/exm-browse-page.blp:177 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:51 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:84
+#: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
+#: src/exm-upgrade-assistant.blp:106
 msgid "Connection Error"
 msgstr ""
 
@@ -151,21 +151,21 @@ msgstr ""
 msgid "Loading Comments"
 msgstr ""
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:129
+#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr ""
 
-#: src/exm-detail-view.blp:42
+#: src/exm-detail-view.blp:41
 #, fuzzy
 #| msgid "See Details"
 msgid "Loading Details"
 msgstr "Se Detaljer"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:345
+#: src/exm-detail-view.blp:60 src/exm-window.c:347
 msgid "An Error Occurred"
 msgstr "En Fejl Opstod"
 
-#: src/exm-detail-view.blp:62
+#: src/exm-detail-view.blp:61
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No extension details available"
@@ -175,7 +175,7 @@ msgstr "En nyere version af denne udvidelse er tilgængelig"
 msgid "Enlarge Image"
 msgstr ""
 
-#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:106
+#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -209,7 +209,7 @@ msgstr ""
 msgid "No comments yet"
 msgstr ""
 
-#: src/exm-detail-view.blp:337
+#: src/exm-detail-view.blp:338
 #, fuzzy
 #| msgid "Show All Reviews"
 msgid "_Show All Reviews"
@@ -237,7 +237,7 @@ msgstr ""
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Der opstod en fejl mens udvidelsen blev indlæst"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:175
+#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
 msgid "_Copy to Clipboard"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgid "_New Issue"
 msgstr ""
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:332
+#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr ""
 
@@ -285,16 +285,13 @@ msgstr "Denne udvidelse er inkompatibel med din nuværende version af GNOME."
 msgid "A newer version of this extension is available"
 msgstr "En nyere version af denne udvidelse er tilgængelig"
 
-#. Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
-#: src/exm-extension-row.blp:97
-msgid ""
-"This extension could be activated in session modes such as the login screen "
-"or the lock screen"
-msgstr ""
-
-#: src/exm-extension-row.blp:114 src/exm-info-bar.blp:42
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
 msgid "Version"
 msgstr "Version"
+
+#: src/exm-extension-row.blp:107
+msgid "Session Modes"
+msgstr ""
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -304,11 +301,39 @@ msgstr "Fejl"
 msgid "See Details"
 msgstr "Se Detaljer"
 
-#: src/exm-extension-row.blp:155
+#: src/exm-extension-row.blp:156
 #, fuzzy
 #| msgid "Remove"
 msgid "Remove…"
 msgstr "Fjern"
+
+#: src/exm-extension-row.c:175
+msgid "Unlock Dialog"
+msgstr ""
+
+#. Translators: GNOME Display Manager
+#: src/exm-extension-row.c:181
+msgid "GDM"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on both, login and lock screens
+#: src/exm-extension-row.c:189
+msgid ""
+"This extension will run while the screen is locked and no user is logged in"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the lock screen
+#: src/exm-extension-row.c:194
+msgid "This extension will run while the screen is locked"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the login screen
+#: src/exm-extension-row.c:199
+#, fuzzy
+#| msgid "One extension will be updated on next login."
+#| msgid_plural "%d extensions will be updated on next login."
+msgid "This extension will run while no user is logged in"
+msgstr "En udvidelse vil blive opdateret når du logger ind igen."
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -374,7 +399,7 @@ msgctxt "shortcut window"
 msgid "Reset Zoom"
 msgstr ""
 
-#: src/exm-info-bar.blp:24
+#: src/exm-info-bar.blp:28
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Number of downloads"
@@ -427,11 +452,11 @@ msgstr "Systeminstallerede Udvidelser"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Ydelse og stabilitet"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:121
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
 msgid "User-Installed Extensions"
 msgstr "Brugerinstallerede Udvidelser"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:138
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
 #, fuzzy
 #| msgid "Displays user and system extensions separately"
 msgid "No User Extensions Installed"
@@ -444,11 +469,11 @@ msgstr "Vis bruger- og systemudvidelser seperat"
 msgid "Browse"
 msgstr "Gennemse"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:148
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
 msgid "System Extensions"
 msgstr "Systeminstallerede Udvidelser"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:165
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
 #, fuzzy
 #| msgid "Displays user and system extensions separately"
 msgid "No System Extensions Installed"
@@ -470,7 +495,7 @@ msgid "_Search Online"
 msgstr ""
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:304
+#: src/exm-installed-page.c:298
 #, fuzzy, c-format
 #| msgid "One extension will be updated on next login."
 #| msgid_plural "%d extensions will be updated on next login."
@@ -502,23 +527,23 @@ msgstr ""
 msgid "Upgrade Assistant"
 msgstr ""
 
-#: src/exm-upgrade-assistant.blp:61
+#: src/exm-upgrade-assistant.blp:72
 msgid "_Check Compatibility"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:173
+#: src/exm-upgrade-assistant.c:188
 #, fuzzy, c-format
 #| msgid "Search for extensions"
 msgid "Checked %d/%d Extensions"
 msgstr "Søg efter udvidelser"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:192
+#: src/exm-upgrade-assistant.c:207
 #, c-format
 msgid "%d%% Compatible"
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:208
+#: src/exm-upgrade-assistant.c:223
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
@@ -526,27 +551,27 @@ msgid ""
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:490
+#: src/exm-upgrade-assistant.c:503
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "A compatible version of the extension exists"
 msgstr "En nyere version af denne udvidelse er tilgængelig"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:497
+#: src/exm-upgrade-assistant.c:510
 #, fuzzy
 #| msgid "A newer version of this extension is available"
 msgid "No compatible version of the extension exists"
 msgstr "En nyere version af denne udvidelse er tilgængelig"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:504
+#: src/exm-upgrade-assistant.c:517
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:600
+#: src/exm-upgrade-assistant.c:608
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -570,7 +595,7 @@ msgstr ""
 msgid "Search for installed extensions"
 msgstr "Søg efter udvidelser"
 
-#: src/exm-window.blp:69
+#: src/exm-window.blp:70
 #, fuzzy
 #| msgctxt "Navigation"
 #| msgid "Installed"
@@ -578,7 +603,7 @@ msgctxt "Navigation"
 msgid "_Installed"
 msgstr "Installeret"
 
-#: src/exm-window.blp:78
+#: src/exm-window.blp:79
 #, fuzzy
 #| msgctxt "Navigation"
 #| msgid "Browse"
@@ -588,61 +613,61 @@ msgstr "Gennemse"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:106
+#: src/exm-window.blp:107
 #, fuzzy
 #| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
 msgstr "Sortér først efter aktiverede"
 
-#: src/exm-window.blp:107
+#: src/exm-window.blp:108
 #, fuzzy
 #| msgid "Unsupported"
 msgid "_Show Unsupported"
 msgstr "Ikke Understøttet"
 
-#: src/exm-window.blp:111
+#: src/exm-window.blp:112
 msgid "_Upgrade Assistant"
 msgstr ""
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 #, fuzzy
 #| msgid "Keyboard Shortcuts"
 msgid "_Keyboard Shortcuts"
 msgstr "Tastatur Genveje"
 
-#: src/exm-window.blp:113
+#: src/exm-window.blp:114
 #, fuzzy
 #| msgid "About Extension Manager"
 msgid "_About Extension Manager"
 msgstr "Om Udvidelsesadministrering"
 
-#: src/exm-window.blp:118
+#: src/exm-window.blp:119
 #, fuzzy
 #| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
 msgstr "Brugerinstallerede Udvidelser"
 
-#: src/exm-window.blp:119
+#: src/exm-window.blp:120
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
 
-#: src/exm-window.blp:124
+#: src/exm-window.blp:125
 msgid "_No"
 msgstr ""
 
-#: src/exm-window.blp:125
+#: src/exm-window.blp:126
 msgid "_Yes"
 msgstr ""
 
-#: src/exm-window.blp:130
+#: src/exm-window.blp:131
 #, fuzzy
 #| msgid "Supported Versions"
 msgid "Unsupported Extension"
 msgstr "Understøttede Versioner"
 
-#: src/exm-window.blp:131
+#: src/exm-window.blp:132
 #, fuzzy
 #| msgid ""
 #| "This extension does not support your GNOME Shell version.\n"
@@ -654,17 +679,17 @@ msgstr ""
 "Denne udvidelse understøtter ikke din GNOME Skalversion.\n"
 "Vil du installerer den alligevel?"
 
-#: src/exm-window.blp:137
+#: src/exm-window.blp:138
 #, fuzzy
 #| msgid "Install"
 msgid "_Install Anyway"
 msgstr "Installér"
 
-#: src/exm-window.blp:138
+#: src/exm-window.blp:139
 msgid "_Go Back"
 msgstr ""
 
-#: src/exm-window.c:346
+#: src/exm-window.c:348
 #, fuzzy
 #| msgid "See Details"
 msgid "_Details"
