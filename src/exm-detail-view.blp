@@ -72,7 +72,7 @@ template $ExmDetailView: Adw.NavigationPage {
 
               Gtk.Box {
                 styles [
-                  "detail"
+                  "detail",
                 ]
 
                 orientation: vertical;
@@ -100,7 +100,7 @@ template $ExmDetailView: Adw.NavigationPage {
 
                       Gtk.Label ext_title {
                         styles [
-                          "title-1"
+                          "title-1",
                         ]
 
                         ellipsize: end;
@@ -117,7 +117,7 @@ template $ExmDetailView: Adw.NavigationPage {
 
                       Gtk.Label ext_author {
                         styles [
-                          "dim-label"
+                          "dim-label",
                         ]
 
                         xalign: 0;
@@ -142,7 +142,7 @@ template $ExmDetailView: Adw.NavigationPage {
                   Gtk.Button ext_screenshot_popout_button {
                     styles [
                       "osd",
-                      "circular"
+                      "circular",
                     ]
 
                     icon-name: "pip-out-symbolic";
@@ -167,7 +167,7 @@ template $ExmDetailView: Adw.NavigationPage {
                   Gtk.Label description {
                     styles [
                       "title-4",
-                      "detail-heading"
+                      "detail-heading",
                     ]
 
                     label: _("Description");
@@ -176,7 +176,7 @@ template $ExmDetailView: Adw.NavigationPage {
 
                   Gtk.Label ext_description {
                     styles [
-                      "multiline"
+                      "multiline",
                     ]
 
                     xalign: 0;
@@ -243,10 +243,10 @@ template $ExmDetailView: Adw.NavigationPage {
                   Gtk.Label {
                     styles [
                       "title-4",
-                      "detail-heading"
+                      "detail-heading",
                     ]
 
-                    label: _("User Reviews");
+                    label: _("Reviews and Comments");
                     xalign: 0;
                     selectable: true;
                   }
@@ -269,10 +269,11 @@ template $ExmDetailView: Adw.NavigationPage {
                       name: "page_disabled";
 
                       child: Gtk.Label {
-                        label: _("Comments are disabled for this extension");
-                        valign: start;
-                        xalign: 0;
+                        label: _("Reviews and comments are disabled for this extension");
                         selectable: true;
+                        valign: start;
+                        wrap: true;
+                        xalign: 0;
                       };
                     }
 
@@ -285,7 +286,7 @@ template $ExmDetailView: Adw.NavigationPage {
 
                         Gtk.Label {
                           styles [
-                            "heading"
+                            "heading",
                           ]
 
                           label: _("Connection Error");
@@ -296,7 +297,7 @@ template $ExmDetailView: Adw.NavigationPage {
 
                         Gtk.Label error_label {
                           styles [
-                            "body"
+                            "body",
                           ]
 
                           selectable: true;
@@ -311,10 +312,11 @@ template $ExmDetailView: Adw.NavigationPage {
                       name: "page_empty";
 
                       child: Gtk.Label {
-                        label: _("No comments yet");
-                        valign: start;
-                        xalign: 0;
+                        label: _("There are no reviews or comments");
                         selectable: true;
+                        valign: start;
+                        wrap: true;
+                        xalign: 0;
                       };
                     }
 
@@ -335,9 +337,13 @@ template $ExmDetailView: Adw.NavigationPage {
                         }
 
                         Gtk.Button show_more_btn {
-                          label: _("_Show All Reviews");
+                          styles [
+                            "pill",
+                          ]
+
                           can-shrink: true;
                           halign: center;
+                          label: _("_Show All");
                           use-underline: true;
                         }
                       };
