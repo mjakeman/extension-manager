@@ -28,9 +28,10 @@ struct _ExmErrorDialog
 {
     AdwWindow parent_instance;
 
+    AdwToastOverlay *toast_overlay;
+    AdwPreferencesGroup *instructions;
     char *error_string;
     GtkTextView *text_view;
-    GtkLabel *instructions;
     GtkButton *new_issue_button;
 };
 
@@ -108,8 +109,8 @@ exm_error_dialog_set_property (GObject      *object,
 }
 
 static void
-on_copy_button_clicked (GtkButton      *button,
-                        ExmErrorDialog *window)
+on_copy_button_clicked (GtkButton      *button G_GNUC_UNUSED,
+                        ExmErrorDialog *self)
 {
     GdkDisplay *display;
     GdkClipboard *clipboard;
@@ -118,19 +119,19 @@ on_copy_button_clicked (GtkButton      *button,
     display = gdk_display_get_default ();
     clipboard = gdk_display_get_clipboard (display);
 
-    gdk_clipboard_set_text (clipboard, window->error_string);
+    gdk_clipboard_set_text (clipboard, self->error_string);
 
     // Success indicator
-    gtk_button_set_label (button, _("Copied"));
-    gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
+    adw_toast_overlay_add_toast (self->toast_overlay, adw_toast_new (_("Copied")));
 }
 
 static void
-on_new_issue_button_clicked (ExmErrorDialog *window)
+on_new_issue_button_clicked (GtkButton      *button G_GNUC_UNUSED,
+                             ExmErrorDialog *self)
 {
     GtkUriLauncher *uri = gtk_uri_launcher_new ("https://github.com/mjakeman/extension-manager/issues");
 
-    gtk_uri_launcher_launch (uri, GTK_WINDOW (window), NULL, NULL, NULL);
+    gtk_uri_launcher_launch (uri, GTK_WINDOW (self), NULL, NULL, NULL);
 }
 
 static void
@@ -154,8 +155,9 @@ exm_error_dialog_class_init (ExmErrorDialogClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-error-dialog.ui", RESOURCE_PATH));
 
-    gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, text_view);
+    gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, toast_overlay);
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, instructions);
+    gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, text_view);
     gtk_widget_class_bind_template_child (widget_class, ExmErrorDialog, new_issue_button);
 
     gtk_widget_class_bind_template_callback (widget_class, on_copy_button_clicked);
@@ -167,15 +169,13 @@ exm_error_dialog_init (ExmErrorDialog *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
 
-    gtk_label_set_use_markup (self->instructions, TRUE);
-
 #if IS_OFFICIAL
-    gtk_label_set_text (self->instructions, _("Please open a new issue and attach the following information:"));
+    adw_preferences_group_set_description (self->instructions, _("Please open a new issue and attach the following information:"));
     gtk_widget_set_visible (GTK_WIDGET (self->new_issue_button), TRUE);
 #else
     // Translators: '%s' = Name of Distributor (e.g. "Packager123")
     char *text = g_markup_printf_escaped (_("You are using a third-party build of Extension Manager. Please <span weight=\"bold\">contact the package distributor (%s) first</span> before filing an issue. Be sure to attach the following information:"), PKG_DISTRIBUTOR);
-    gtk_label_set_markup (self->instructions, text);
+    adw_preferences_group_set_description (self->instructions, text);
     gtk_widget_set_visible (GTK_WIDGET (self->new_issue_button), FALSE);
     g_free (text);
 #endif
