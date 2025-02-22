@@ -27,18 +27,21 @@
 struct _ExmExtension
 {
     GObject parent_instance;
+
     gchar *uuid;
-    gchar *display_name;
+    gchar *name;
     gchar *description;
     ExmExtensionState state;
     gboolean enabled;
-    gboolean is_user;
+    gchar *url;
+    gchar *version;
+    gchar *error;
     gboolean has_prefs;
     gboolean has_update;
     gboolean can_change;
-    gchar *version;
-    gchar *version_name;
-    gchar *error_msg;
+    gboolean is_user;
+    GPtrArray *session_modes;
+    GHashTable *donations;
 };
 
 G_DEFINE_FINAL_TYPE (ExmExtension, exm_extension, G_TYPE_OBJECT)
@@ -46,17 +49,19 @@ G_DEFINE_FINAL_TYPE (ExmExtension, exm_extension, G_TYPE_OBJECT)
 enum {
     PROP_0,
     PROP_UUID,
-    PROP_DISPLAY_NAME,
+    PROP_NAME,
+    PROP_DESCRIPTION,
     PROP_STATE,
     PROP_ENABLED,
-    PROP_IS_USER,
-    PROP_DESCRIPTION,
+    PROP_URL,
+    PROP_VERSION,
+    PROP_ERROR,
     PROP_HAS_PREFS,
     PROP_HAS_UPDATE,
     PROP_CAN_CHANGE,
-    PROP_VERSION,
-    PROP_VERSION_NAME,
-    PROP_ERROR_MSG,
+    PROP_IS_USER,
+    PROP_SESSION_MODES,
+    PROP_DONATIONS,
     N_PROPS
 };
 
@@ -83,8 +88,8 @@ exm_extension_get_property (GObject    *object,
     case PROP_UUID:
         g_value_set_string (value, self->uuid);
         break;
-    case PROP_DISPLAY_NAME:
-        g_value_set_string (value, self->display_name);
+    case PROP_NAME:
+        g_value_set_string (value, self->name);
         break;
     case PROP_DESCRIPTION:
         g_value_set_string (value, self->description);
@@ -95,8 +100,14 @@ exm_extension_get_property (GObject    *object,
     case PROP_ENABLED:
         g_value_set_boolean (value, self->enabled);
         break;
-    case PROP_IS_USER:
-        g_value_set_boolean (value, self->is_user);
+    case PROP_URL:
+        g_value_set_string (value, self->url);
+        break;
+    case PROP_VERSION:
+        g_value_set_string (value, self->version);
+        break;
+    case PROP_ERROR:
+        g_value_set_string (value, self->error);
         break;
     case PROP_HAS_PREFS:
         g_value_set_boolean (value, self->has_prefs);
@@ -107,14 +118,14 @@ exm_extension_get_property (GObject    *object,
     case PROP_CAN_CHANGE:
         g_value_set_boolean (value, self->can_change);
         break;
-    case PROP_VERSION:
-        g_value_set_string (value, self->version);
+    case PROP_IS_USER:
+        g_value_set_boolean (value, self->is_user);
         break;
-    case PROP_VERSION_NAME:
-        g_value_set_string (value, self->version_name);
+    case PROP_SESSION_MODES:
+        g_value_set_boxed (value, self->session_modes);
         break;
-    case PROP_ERROR_MSG:
-        g_value_set_string (value, self->error_msg);
+    case PROP_DONATIONS:
+        g_value_set_pointer (value, self->donations);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -132,16 +143,15 @@ exm_extension_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_UUID:
+        g_free (self->uuid);
         self->uuid = g_value_dup_string (value);
         break;
-    case PROP_DISPLAY_NAME:
-        if (self->display_name)
-            g_free (self->display_name);
-        self->display_name = g_value_dup_string (value);
+    case PROP_NAME:
+        g_free (self->name);
+        self->name = g_value_dup_string (value);
         break;
     case PROP_DESCRIPTION:
-        if (self->description)
-            g_free (self->description);
+        g_free (self->description);
         self->description = g_value_dup_string (value);
         break;
     case PROP_STATE:
@@ -150,8 +160,17 @@ exm_extension_set_property (GObject      *object,
     case PROP_ENABLED:
         self->enabled = g_value_get_boolean (value);
         break;
-    case PROP_IS_USER:
-        self->is_user = g_value_get_boolean (value);
+    case PROP_URL:
+        g_free (self->url);
+        self->url = g_value_dup_string (value);
+        break;
+    case PROP_VERSION:
+        g_free (self->version);
+        self->version = g_value_dup_string (value);
+        break;
+    case PROP_ERROR:
+        g_free (self->error);
+        self->error = g_value_dup_string (value);
         break;
     case PROP_HAS_PREFS:
         self->has_prefs = g_value_get_boolean (value);
@@ -162,14 +181,18 @@ exm_extension_set_property (GObject      *object,
     case PROP_CAN_CHANGE:
         self->can_change = g_value_get_boolean (value);
         break;
-    case PROP_VERSION:
-        self->version = g_value_dup_string (value);
+    case PROP_IS_USER:
+        self->is_user = g_value_get_boolean (value);
         break;
-    case PROP_VERSION_NAME:
-        self->version_name = g_value_dup_string (value);
+    case PROP_SESSION_MODES:
+        if (self->session_modes)
+            g_ptr_array_unref (self->session_modes);
+        self->session_modes = g_value_get_boxed (value);
         break;
-    case PROP_ERROR_MSG:
-        self->error_msg = g_value_dup_string (value);
+    case PROP_DONATIONS:
+        if (self->donations)
+            g_hash_table_unref (self->donations);
+        self->donations = g_value_get_pointer (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -191,10 +214,10 @@ exm_extension_class_init (ExmExtensionClass *klass)
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
 
-    properties [PROP_DISPLAY_NAME] =
-        g_param_spec_string ("display-name",
-                             "Display Name",
-                             "Display Name",
+    properties [PROP_NAME] =
+        g_param_spec_string ("name",
+                             "Name",
+                             "Name",
                              NULL,
                              G_PARAM_READWRITE);
 
@@ -210,7 +233,7 @@ exm_extension_class_init (ExmExtensionClass *klass)
                            "State",
                            "State",
                            EXM_TYPE_EXTENSION_STATE,
-                           EXM_EXTENSION_STATE_ACTIVE,
+                           EXM_EXTENSION_STATE_INITIALIZED,
                            G_PARAM_READWRITE);
 
     properties [PROP_ENABLED] =
@@ -220,12 +243,26 @@ exm_extension_class_init (ExmExtensionClass *klass)
                               FALSE,
                               G_PARAM_READWRITE);
 
-    properties [PROP_IS_USER] =
-        g_param_spec_boolean ("is-user",
-                              "Is User",
-                              "Is User",
-                              FALSE,
-                              G_PARAM_READWRITE);
+    properties [PROP_URL] =
+        g_param_spec_string ("url",
+                             "URL",
+                             "URL",
+                             NULL,
+                             G_PARAM_READWRITE);
+
+    properties [PROP_VERSION] =
+        g_param_spec_string ("version",
+                             "Version",
+                             "Version",
+                             NULL,
+                             G_PARAM_READWRITE);
+
+    properties [PROP_ERROR] =
+        g_param_spec_string ("error",
+                             "Error",
+                             "Error",
+                             NULL,
+                             G_PARAM_READWRITE);
 
     properties [PROP_HAS_PREFS] =
         g_param_spec_boolean ("has-prefs",
@@ -248,26 +285,25 @@ exm_extension_class_init (ExmExtensionClass *klass)
                               FALSE,
                               G_PARAM_READWRITE);
 
-    properties [PROP_VERSION] =
-        g_param_spec_string ("version",
-                             "Version",
-                             "Version",
-                             NULL,
-                             G_PARAM_READWRITE);
+    properties [PROP_IS_USER] =
+        g_param_spec_boolean ("is-user",
+                              "Is User",
+                              "Is User",
+                              FALSE,
+                              G_PARAM_READWRITE);
 
-    properties [PROP_VERSION_NAME] =
-        g_param_spec_string ("version-name",
-                             "Version Name",
-                             "Version Name",
-                             NULL,
-                             G_PARAM_READWRITE);
+    properties [PROP_SESSION_MODES] =
+        g_param_spec_boxed ("session-modes",
+                            "Session Modes",
+                            "Session Modes",
+                            G_TYPE_PTR_ARRAY,
+                            G_PARAM_READWRITE);
 
-    properties [PROP_ERROR_MSG] =
-        g_param_spec_string ("error-msg",
-                             "Error Message",
-                             "Error Message",
-                             NULL,
-                             G_PARAM_READWRITE);
+    properties [PROP_DONATIONS] =
+        g_param_spec_pointer ("donations",
+                              "Donations",
+                              "Donations",
+                              G_PARAM_READWRITE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }

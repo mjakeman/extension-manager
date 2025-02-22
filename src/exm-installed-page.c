@@ -214,7 +214,7 @@ bind_list_box (GListModel       *model,
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
     // Sort alphabetically
-    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "display-name");
+    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "name");
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
     if (self->sort_enabled_first)

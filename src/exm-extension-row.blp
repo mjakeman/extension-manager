@@ -17,7 +17,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
   [suffix]
   Gtk.Button prefs_btn {
     styles [
-      "flat"
+      "flat",
     ]
 
     icon-name: "settings-symbolic";
@@ -32,7 +32,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
   [suffix]
   Gtk.Image error_icon {
     styles [
-      "error"
+      "error",
     ]
 
     icon-name: "dialog-error-symbolic";
@@ -49,7 +49,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
   [suffix]
   Gtk.Image out_of_date_icon {
     styles [
-      "error"
+      "error",
     ]
 
     icon-name: "clock-alt-symbolic";
@@ -66,7 +66,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
   [suffix]
   Gtk.Image update_icon {
     styles [
-      "update"
+      "update",
     ]
 
     icon-name: "software-update-available-symbolic";
@@ -80,27 +80,10 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     tooltip-text: _("A newer version of this extension is available");
   }
 
-  [suffix]
-  Gtk.Image info_icon {
-    styles [
-      "warning"
-    ]
-
-    icon-name: "dialog-information-symbolic";
-    valign: center;
-    halign: center;
-    focusable: true;
-    margin-start: 9;
-    margin-end: 9;
-    visible: false;
-    // Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
-    tooltip-text: _("This extension could be activated in session modes such as the login screen or the lock screen");
-  }
-
   Adw.ActionRow description_row {
     styles [
       "multiline",
-      "property"
+      "property",
     ]
 
     title: _("Description");
@@ -109,21 +92,37 @@ template $ExmExtensionRow: Adw.ExpanderRow {
 
   Adw.ActionRow version_row {
     styles [
-      "property"
+      "property",
     ]
 
     title: _("Version");
+    subtitle: bind template.extension as <$ExmExtension>.version;
+  }
+
+  Adw.ActionRow session_modes_row {
+    styles [
+      "property",
+    ]
+
+    title: _("Session Modes");
+    visible: false;
+
+    [suffix]
+    Gtk.Image info_icon {
+      focusable: true;
+      icon-name: "dialog-information-symbolic";
+    }
   }
 
   Adw.ActionRow error_row {
     styles [
       "monospace",
       "multiline",
-      "property"
+      "property",
     ]
 
     title: _("Error");
-    subtitle: bind template.extension as <$ExmExtension>.error_msg;
+    subtitle: bind template.extension as <$ExmExtension>.error;
     subtitle-selectable: true;
   }
 
@@ -140,7 +139,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
 
       Gtk.Button details_btn {
         styles [
-          "flat"
+          "flat",
         ]
 
         label: _("See Details");
@@ -151,7 +150,7 @@ template $ExmExtensionRow: Adw.ExpanderRow {
 
       Gtk.Button remove_btn {
         styles [
-          "destructive-action"
+          "destructive-action",
         ]
 
         label: _("Remove…");
