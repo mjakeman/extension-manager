@@ -11,10 +11,10 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-22 11:31+0000\n"
-"PO-Revision-Date: 2025-02-22 10:28+0000\n"
-"Last-Translator: Volodymyr Davybida <mrvovavova17@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
-"manager/app/uk/>\n"
+"PO-Revision-Date: 2025-02-22 15:50+0000\n"
+"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"extension-manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,7 +273,7 @@ msgstr "Версія"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Режими сесії"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -289,31 +289,30 @@ msgstr "Видалити…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Діалог розблокування"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Це розширення працюватиме, коли екран заблоковано, а користувачі не ввійшли "
+"в систему"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Це розширення працюватиме, коли екран заблоковано"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d розширення буде оновлено при наступному вході в систему"
+msgstr "Це розширення працюватиме, поки жоден користувач не ввійшов у систему"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
