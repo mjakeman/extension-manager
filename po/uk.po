@@ -5,13 +5,14 @@
 # Володимир Давибіда <mrvovavova17@gmail.com>, 2024.
 # volkov <volkov@users.noreply.hosted.weblate.org>, 2024.
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
+# Volodymyr Davybida <mrvovavova17@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2025-02-13 23:02+0000\n"
-"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
+"PO-Revision-Date: 2025-02-22 10:28+0000\n"
+"Last-Translator: Volodymyr Davybida <mrvovavova17@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "extension-manager/app/uk/>\n"
 "Language: uk\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-rc\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -79,7 +80,7 @@ msgstr "Шукайте, встановлюйте та керуйте розши�
 msgid "translator-credits"
 msgstr ""
 "volkov <volkovissocool@gmail.com>\n"
-"onatari <onatari.mail@gmail.com>"
+"Onatari <onatari.mail@gmail.com>"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
