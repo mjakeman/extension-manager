@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-22 11:31+0000\n"
-"PO-Revision-Date: 2025-02-13 23:02+0000\n"
+"PO-Revision-Date: 2025-02-22 23:51+0000\n"
 "Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-rc\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -271,7 +271,7 @@ msgstr "Verze"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Režimy relací"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -287,31 +287,30 @@ msgstr "Odstranit…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Dialog odemčení"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Toto rozšíření bude spuštěno, když je obrazovka uzamčena a není přihlášen "
+"žádný uživatel"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Toto rozšíření bude spuštěno, když je obrazovka uzamčena"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d rozšíření bude aktualizováno při příštím přihlášení"
+msgstr "Toto rozšíření bude spuštěno, když není přihlášen žádný uživatel"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
