@@ -10,7 +10,7 @@ template $ExmCommentDialog: Adw.Dialog {
   content-height: 600;
   width-request: 360;
   height-request: 294;
-  title: _("Comments");
+  title: _("Reviews and Comments");
 
   child: Adw.ToolbarView {
     [top]
@@ -22,7 +22,7 @@ template $ExmCommentDialog: Adw.Dialog {
 
         child: Adw.StatusPage loading_status {
           paintable: spinner;
-          title: _("Loading Comments");
+          title: _("Loading");
         };
       }
 
@@ -42,7 +42,7 @@ template $ExmCommentDialog: Adw.Dialog {
           Adw.PreferencesGroup {
             Gtk.ListBox list_box {
               styles [
-                "boxed-list"
+                "boxed-list",
               ]
 
               selection-mode: none;

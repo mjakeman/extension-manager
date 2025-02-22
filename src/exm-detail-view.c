@@ -248,10 +248,17 @@ on_get_comments (GObject       *source,
         return;
     }
 
-    if (g_list_model_get_n_items (model) == 0)
+    guint n_comments = g_list_model_get_n_items (model);
+
+    if (!n_comments)
+    {
         gtk_stack_set_visible_child_name (self->comment_stack, "page_empty");
+    }
     else
+    {
+        gtk_widget_set_visible (GTK_WIDGET (self->show_more_btn), n_comments >= 5);
         gtk_stack_set_visible_child_name (self->comment_stack, "page_comments");
+    }
 
     gtk_flow_box_bind_model (self->comment_box, model,
                              (GtkFlowBoxCreateWidgetFunc) comment_factory,
