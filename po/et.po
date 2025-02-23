@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2025-02-13 23:02+0000\n"
 "Last-Translator: Indrek Haav <IndrekHaav@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/extension-"
@@ -119,20 +119,24 @@ msgid "Try a different search"
 msgstr "Proovi teistsugust otsingut"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Ühenduse viga"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Kommentaarid"
-
-#: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "Loading Comments"
+msgid "Reviews and Comments"
 msgstr "Kommentaaride laadimine"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-dialog.blp:25
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Laadimine…"
+
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Autor"
 
@@ -172,30 +176,30 @@ msgstr "Anneta"
 msgid "View on Extensions"
 msgstr "Vaata veebileheküljel"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Kasutajate arvustused"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+#, fuzzy
+#| msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr "Selle laienduse kommentaarid on keelatud"
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Kommentaare pole"
+#: src/exm-detail-view.blp:315
+msgid "There are no reviews or comments"
+msgstr ""
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Näita kõiki arvustusi"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s ikoon"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s ekraanipilt"
@@ -204,20 +208,22 @@ msgstr "%s ekraanipilt"
 msgid "Error Report"
 msgstr "Vearaport"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Laiendushalduris tekkis ootamatu viga"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Kopeeri lõikelauale"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Uus teema"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Kopeeritud"
 
@@ -398,11 +404,11 @@ msgstr "Kasuta laiendusi"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Laiendused võivad tekitada jõudluse ja stabiilsuse probleeme"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Kasutaja paigaldatud laiendused"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Kasutaja laiendused puuduvad"
 
@@ -410,11 +416,11 @@ msgstr "Kasutaja laiendused puuduvad"
 msgid "Browse"
 msgstr "Sirvi"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Süsteemsed laiendused"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Süsteemsed laiendused puuduvad"
 
@@ -460,9 +466,13 @@ msgstr "Suumi sisse"
 msgid "Upgrade Assistant"
 msgstr "Uuenduste abiline"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Kontrolli ühilduvust"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Kopeeri lõikelauale"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -611,6 +621,15 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "Kontrolli oma võrguühendust ja proovi uuesti"
 
+#~ msgid "Comments"
+#~ msgstr "Kommentaarid"
+
+#~ msgid "User Reviews"
+#~ msgstr "Kasutajate arvustused"
+
+#~ msgid "No comments yet"
+#~ msgstr "Kommentaare pole"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -646,9 +665,6 @@ msgstr "Kontrolli oma võrguühendust ja proovi uuesti"
 
 #~ msgid "Return to view"
 #~ msgstr "Tagasi"
-
-#~ msgid "Loading…"
-#~ msgstr "Laadimine…"
 
 #~ msgid "@app_title@"
 #~ msgstr "Laiendushaldur"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2025-02-13 23:02+0000\n"
 "Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
@@ -121,20 +121,24 @@ msgid "Try a different search"
 msgstr "Попробуйте другой поисковый запрос"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Ошибка соединения"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Комментарии"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "Комментариев нет."
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "Загрузка комментариев"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Загрузка…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Автор"
 
@@ -174,30 +178,32 @@ msgstr "Пожертвовать"
 msgid "View on Extensions"
 msgstr "Посмотреть в Расширениях"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Отзывы пользователей"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+#, fuzzy
+#| msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr "Комментарии отключены для этого расширения"
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Комментариев пока нет"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "Комментариев нет."
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Показать все отзывы"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "Значок '%s'"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "Cкриншот '%s'"
@@ -206,20 +212,22 @@ msgstr "Cкриншот '%s'"
 msgid "Error Report"
 msgstr "Отчет об ошибке"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "В менеджере расширений произошла непредвиденная ошибка"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Копировать в буфер обмена"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Новая проблема"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Скопировано"
 
@@ -402,11 +410,11 @@ msgid "Extensions can cause performance and stability issues"
 msgstr ""
 "Расширения могут вызывать проблемы с производительностью и стабильностью"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Расширения, установленные пользователем"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Пользовательские расширения не установлены"
 
@@ -414,11 +422,11 @@ msgstr "Пользовательские расширения не устано�
 msgid "Browse"
 msgstr "Обзор"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Системные расширения"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Системные расширения не установлены"
 
@@ -466,9 +474,13 @@ msgstr "Увеличить"
 msgid "Upgrade Assistant"
 msgstr "Помощник по обновлению"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Проверка совместимости"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Копировать в буфер обмена"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -619,6 +631,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "Проверьте состояние сети и повторите попытку"
 
+#~ msgid "Comments"
+#~ msgstr "Комментарии"
+
+#~ msgid "Loading Comments"
+#~ msgstr "Загрузка комментариев"
+
+#~ msgid "User Reviews"
+#~ msgstr "Отзывы пользователей"
+
+#~ msgid "No comments yet"
+#~ msgstr "Комментариев пока нет"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -646,9 +670,6 @@ msgstr "Проверьте состояние сети и повторите п�
 #~ msgid "e.g. “%s”"
 #~ msgstr "например, “%s”"
 
-#~ msgid "There are no comments."
-#~ msgstr "Комментариев нет."
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr "Это расширение несовместимо с вашей текущей версией GNOME."
 
@@ -657,9 +678,6 @@ msgstr "Проверьте состояние сети и повторите п�
 
 #~ msgid "Return to view"
 #~ msgstr "Вернуться к просмотру"
-
-#~ msgid "Loading…"
-#~ msgstr "Загрузка…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2024-11-30 22:34+0000\n"
 "Last-Translator: Omar TS <ots@duck.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
@@ -120,20 +120,24 @@ msgid "Try a different search"
 msgstr "جرّب بحثا مختلفا"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "خطأ في الاتصال"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "التعليقات"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "لا تُوجَد تعليقات."
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "يُحمِّل التعليقات"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "جار التحميل…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "المطوِّر"
 
@@ -173,30 +177,30 @@ msgstr "تبرّع"
 msgid "View on Extensions"
 msgstr "اعرض على موقع الامتدادات"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "تعليقات المستخدمين"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "لا تعليقات حتى الآن"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "لا تُوجَد تعليقات."
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "ا_عرض جميع التعليقات"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s أيقونة"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s لقطة شاشة"
@@ -205,20 +209,22 @@ msgstr "%s لقطة شاشة"
 msgid "Error Report"
 msgstr "تقرير خطأ"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "حدث خطأ غير متوقع في مدير الامتدادات"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "ا_نسخ إلى الحافظة"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_بلِّغ عن العلة"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "نُسخَت"
 
@@ -402,11 +408,11 @@ msgstr "فعِّل الامتدادات"
 msgid "Extensions can cause performance and stability issues"
 msgstr "قد تُسبِّب الامتدادات مشكلات في الأداء وفي الاستقرار"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "الامتدادات التي نصَّبها المستخدم"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "لا امتدادات نصَّبها المستخدم"
 
@@ -414,11 +420,11 @@ msgstr "لا امتدادات نصَّبها المستخدم"
 msgid "Browse"
 msgstr "تصفح"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "الامتدادات المُنصَّبة في النظام"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "لا امتدادات مُنصَّبة في النظام"
 
@@ -472,9 +478,13 @@ msgstr "قرِّب"
 msgid "Upgrade Assistant"
 msgstr "مساعد الترقية"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "ا_فحص التوافق"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "ا_نسخ إلى الحافظة"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -620,6 +630,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "تحقق من حالة الشبكة وحاول مرة أخرى"
 
+#~ msgid "Comments"
+#~ msgstr "التعليقات"
+
+#~ msgid "Loading Comments"
+#~ msgstr "يُحمِّل التعليقات"
+
+#~ msgid "User Reviews"
+#~ msgstr "تعليقات المستخدمين"
+
+#~ msgid "No comments yet"
+#~ msgstr "لا تعليقات حتى الآن"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -649,9 +671,6 @@ msgstr "تحقق من حالة الشبكة وحاول مرة أخرى"
 #~ msgid "e.g. “%s”"
 #~ msgstr "مثال «%s»"
 
-#~ msgid "There are no comments."
-#~ msgstr "لا تُوجَد تعليقات."
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr "هذا الامتداد غير مُتوافِق مع إصدار جنوم لديك."
 
@@ -660,9 +679,6 @@ msgstr "تحقق من حالة الشبكة وحاول مرة أخرى"
 
 #~ msgid "Return to view"
 #~ msgstr "رجوع إلى العرض"
-
-#~ msgid "Loading…"
-#~ msgstr "جار التحميل…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

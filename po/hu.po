@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2024-12-08 10:00+0000\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/extension-"
@@ -118,20 +118,24 @@ msgid "Try a different search"
 msgstr "Próbálja meg újra"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Kapcsolódási hiba"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Visszajelzések"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "Nincsenek értékelések."
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "Visszajelzések betöltése"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Betöltés…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Készítő"
 
@@ -171,30 +175,30 @@ msgstr "Adományozás"
 msgid "View on Extensions"
 msgstr "Megtekintés böngészőben"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Felhasználói értékelések"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Nincsenek értékelések"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "Nincsenek értékelések."
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Minden visszajelzés megtekintése"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s ikonja"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "Pillanatkép a(z) %s kiterjesztésről"
@@ -203,20 +207,22 @@ msgstr "Pillanatkép a(z) %s kiterjesztésről"
 msgid "Error Report"
 msgstr "Hiba jelentése"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Nem várt kivétel történt a Kiterjesztéskezelőben"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Másolás vágólapra"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Új hiba"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Vágólapra másolva"
 
@@ -401,11 +407,11 @@ msgstr "Kiterjesztések engedélyezése"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Egyes kiterjesztések használata teljesítmény-csökkenést okozhat"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Felhasználó által telepített kiterjesztések"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Nincsenek felhasználó által telepített kiterjesztések"
 
@@ -413,11 +419,11 @@ msgstr "Nincsenek felhasználó által telepített kiterjesztések"
 msgid "Browse"
 msgstr "Böngészés"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Előtelepített kiterjesztések"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Nincsenek előtelepített kiterjesztések"
 
@@ -465,9 +471,13 @@ msgstr "Nagyítás"
 msgid "Upgrade Assistant"
 msgstr "Frissítési segéd"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Kompatibilitás ellenőrzése"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Másolás vágólapra"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -619,6 +629,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "Ellenőrizze a hálózat állapotát, majd próbálja újra"
 
+#~ msgid "Comments"
+#~ msgstr "Visszajelzések"
+
+#~ msgid "Loading Comments"
+#~ msgstr "Visszajelzések betöltése"
+
+#~ msgid "User Reviews"
+#~ msgstr "Felhasználói értékelések"
+
+#~ msgid "No comments yet"
+#~ msgstr "Nincsenek értékelések"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -648,9 +670,6 @@ msgstr "Ellenőrizze a hálózat állapotát, majd próbálja újra"
 #~ msgid "e.g. “%s”"
 #~ msgstr "például „%s”"
 
-#~ msgid "There are no comments."
-#~ msgstr "Nincsenek értékelések."
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr "Ez a kiterjesztés nem kompatibilis a telepített GNOME verzióval."
 
@@ -659,6 +678,3 @@ msgstr "Ellenőrizze a hálózat állapotát, majd próbálja újra"
 
 #~ msgid "Return to view"
 #~ msgstr "Visszatérés a részletekhez"
-
-#~ msgid "Loading…"
-#~ msgstr "Betöltés…"

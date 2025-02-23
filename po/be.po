@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2024-12-15 17:01+0000\n"
 "Last-Translator: Troja <d.iwowi.b@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/extension-"
@@ -119,20 +119,24 @@ msgid "Try a different search"
 msgstr "Паспрабуйце іншы пошук"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Памылка злучэння"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Каментарыі"
-
-#: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "Loading Comments"
+msgid "Reviews and Comments"
 msgstr "Загрузка каментарыяў"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-dialog.blp:25
+#, fuzzy
+#| msgid "Loading Details"
+msgid "Loading"
+msgstr "Загрузка дэталяў"
+
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Аўтар"
 
@@ -172,30 +176,28 @@ msgstr "Ахвяраваць"
 msgid "View on Extensions"
 msgstr "Праглядзець гэтае пашырэнне на сайце Extensions"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Водгукі карыстальнікаў"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Каментароў пакуль няма"
+#: src/exm-detail-view.blp:315
+msgid "There are no reviews or comments"
+msgstr ""
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Паказаць усе водгукі"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s Значок"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s Скрыншот"
@@ -204,20 +206,22 @@ msgstr "%s Скрыншот"
 msgid "Error Report"
 msgstr "Справаздача пра памылку"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Адбылася нечаканая памылка ў Менеджэра пашырэнняў"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Капіяваць у буфер абмену"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Новая праблема"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Скапіравана"
 
@@ -402,11 +406,11 @@ msgstr "Выкарыстоўваць пашырэння"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Пашырэнні могуць выклікаць праблемы з прадукцыйнасцю і стабільнасцю"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Пашырэнні, устаноўленыя карыстальнікам"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Карыстальніцкія пашырэнні не ўсталяваны"
 
@@ -414,11 +418,11 @@ msgstr "Карыстальніцкія пашырэнні не ўсталява�
 msgid "Browse"
 msgstr "Пошук"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Сістэмныя пашырэнні"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Сістэмныя пашырэнні не ўсталяваны"
 
@@ -466,9 +470,13 @@ msgstr "Павялічыць"
 msgid "Upgrade Assistant"
 msgstr "Памочнік па абнаўленні"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Праверыць сумяшчальнасць"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Капіяваць у буфер абмену"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -618,6 +626,15 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Праверце стан сеткі і паўтарыце спробу"
+
+#~ msgid "Comments"
+#~ msgstr "Каментарыі"
+
+#~ msgid "User Reviews"
+#~ msgstr "Водгукі карыстальнікаў"
+
+#~ msgid "No comments yet"
+#~ msgstr "Каментароў пакуль няма"
 
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "

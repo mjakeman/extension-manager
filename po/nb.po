@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2024-12-28 16:00+0000\n"
 "Last-Translator: Brage Fuglseth <brage.fuglseth@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -122,20 +122,24 @@ msgid "Try a different search"
 msgstr "Prøv et annet søk"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Tilkoblingsfeil"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Kommentarer"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "Det er ingen anmeldelser ennå."
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "Laster inn kommentarer"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Laster inn…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Utvikler"
 
@@ -175,30 +179,30 @@ msgstr "Doner"
 msgid "View on Extensions"
 msgstr "Side på extensions.gnome.org"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Anmeldelser"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Ingen anmeldelser"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "Det er ingen anmeldelser ennå."
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Vis alle anmeldelser"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "Ikon til %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "Skjermbilde av %s"
@@ -207,20 +211,22 @@ msgstr "Skjermbilde av %s"
 msgid "Error Report"
 msgstr "Feilmelding"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Noe gikk galt med Extension Manager"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Kopier"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Ny sak"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Kopiert"
 
@@ -404,11 +410,11 @@ msgstr "Bruk utvidelser"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Utvidelser kan skape problemer med ytelse og stabilitet"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Brukerinstallert utvidelser"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Ingen brukerutvidelser er installert"
 
@@ -416,11 +422,11 @@ msgstr "Ingen brukerutvidelser er installert"
 msgid "Browse"
 msgstr "Utforsk"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Systeminstallerte utvidelser"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Ingen systemutvidelser er installert"
 
@@ -466,9 +472,13 @@ msgstr "Forstørr"
 msgid "Upgrade Assistant"
 msgstr "Oppdateringssjekk"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Sjekk kompatibilitet"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Kopier"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -618,6 +628,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "Sjekk nettverkstilkoblingen din og prøv igjen"
 
+#~ msgid "Comments"
+#~ msgstr "Kommentarer"
+
+#~ msgid "Loading Comments"
+#~ msgstr "Laster inn kommentarer"
+
+#~ msgid "User Reviews"
+#~ msgstr "Anmeldelser"
+
+#~ msgid "No comments yet"
+#~ msgstr "Ingen anmeldelser"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -647,9 +669,6 @@ msgstr "Sjekk nettverkstilkoblingen din og prøv igjen"
 #~ msgid "e.g. “%s”"
 #~ msgstr "F.eks. «%s»"
 
-#~ msgid "There are no comments."
-#~ msgstr "Det er ingen anmeldelser ennå."
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr "Denne utvidelsen er inkompatibel med GNOME-versjonen din"
 
@@ -658,9 +677,6 @@ msgstr "Sjekk nettverkstilkoblingen din og prøv igjen"
 
 #~ msgid "Return to view"
 #~ msgstr "Gå tilbake"
-
-#~ msgid "Loading…"
-#~ msgstr "Laster inn…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

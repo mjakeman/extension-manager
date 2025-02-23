@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2024-08-16 15:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
@@ -117,20 +117,24 @@ msgid "Try a different search"
 msgstr ""
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "टिप्पणियां"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "कोई टिप्पणियां नहीं हैं।"
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "टिप्पणियां लोड हो रही हैं"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "लोड हो रहा है…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "लेखक"
 
@@ -172,30 +176,30 @@ msgstr "दान करें"
 msgid "View on Extensions"
 msgstr "एक्सटेंशन पर देखें"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "उपयोक्ता समीक्षा"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "अभी कोई टिप्पणी नहीं"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "कोई टिप्पणियां नहीं हैं।"
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "सभी समीक्षाएं दिखाएं (_S)"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, fuzzy, c-format
 #| msgctxt "shortcut window"
 #| msgid "Screenshot View"
@@ -206,20 +210,22 @@ msgstr "स्क्रीनशॉट दृश्य"
 msgid "Error Report"
 msgstr "त्रुटि रिपोर्ट"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "एक्सटेंशन मैनेजर में एक अप्रत्याशित त्रुटि हुई"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "क्लिपबोर्ड पर कॉपी करें (_C)"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "नया मुद्दा (_N)"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "कॉपी किया गया"
 
@@ -405,11 +411,11 @@ msgstr "एक्सटेंशन का उपयोग करें"
 msgid "Extensions can cause performance and stability issues"
 msgstr "एक्सटेंशन प्रदर्शन और स्थिरता संबंधी समस्याएं पैदा कर सकते हैं"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "उपयोक्ता-स्थापित एक्सटेंशन"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "कोई उपयोक्ता एक्सटेंशन स्थापित नहीं हैं"
 
@@ -417,11 +423,11 @@ msgstr "कोई उपयोक्ता एक्सटेंशन स्थ
 msgid "Browse"
 msgstr "देखें"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "सिस्टम एक्सटेंशन"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "कोई सिस्टम एक्सटेंशन स्थापित नहीं हैं"
 
@@ -471,9 +477,13 @@ msgstr "बड़ा करें"
 msgid "Upgrade Assistant"
 msgstr "उन्नयन सहायक"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "संगतता जांचें (_C)"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "क्लिपबोर्ड पर कॉपी करें (_C)"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -628,6 +638,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr ""
 
+#~ msgid "Comments"
+#~ msgstr "टिप्पणियां"
+
+#~ msgid "Loading Comments"
+#~ msgstr "टिप्पणियां लोड हो रही हैं"
+
+#~ msgid "User Reviews"
+#~ msgstr "उपयोक्ता समीक्षा"
+
+#~ msgid "No comments yet"
+#~ msgstr "अभी कोई टिप्पणी नहीं"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -650,9 +672,6 @@ msgstr ""
 #~ msgid "e.g. “%s”"
 #~ msgstr "जैसे “%s”"
 
-#~ msgid "There are no comments."
-#~ msgstr "कोई टिप्पणियां नहीं हैं।"
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है।"
 
@@ -661,6 +680,3 @@ msgstr ""
 
 #~ msgid "Return to view"
 #~ msgstr "दृश्य पर वापस जाएँ"
-
-#~ msgid "Loading…"
-#~ msgstr "लोड हो रहा है…"

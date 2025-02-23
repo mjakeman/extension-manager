@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2025-02-19 18:10+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/extension-"
@@ -122,20 +122,24 @@ msgid "Try a different search"
 msgstr "Probaj drugačiju pretragu"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Greška u vezi"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Komentari"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "Nema komentara."
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "Učitavanje komentara"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Učitavanje…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Autor"
 
@@ -175,30 +179,32 @@ msgstr "Doniraj"
 msgid "View on Extensions"
 msgstr "Pogledaj na stranici „Proširenja”"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Korisničke recenzije"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+#, fuzzy
+#| msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr "Komentari su isključeni za ovo proširenje"
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Još nema komentara"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "Nema komentara."
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Prikaži sve recenzije"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "Ikona za %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "Snimka ekrana za %s"
@@ -207,20 +213,22 @@ msgstr "Snimka ekrana za %s"
 msgid "Error Report"
 msgstr "Prijava o grešci"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Dogodila se neočekivana greška u upravljaču proširenja"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Kopiraj u međuspremnik"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Novi problem"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Kopirano"
 
@@ -401,11 +409,11 @@ msgstr "Koristi proširenja"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Proširenja mogu prouzročiti probleme s performansama i stabilnosti"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Korisnički instalirana proširenja"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Nema instaliranih korisničkih proširenja"
 
@@ -413,11 +421,11 @@ msgstr "Nema instaliranih korisničkih proširenja"
 msgid "Browse"
 msgstr "Pregledaj"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Proširenja sustava"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Nema instaliranih sustavskih proširenja"
 
@@ -465,9 +473,13 @@ msgstr "Uvećaj"
 msgid "Upgrade Assistant"
 msgstr "Pomoćnik nadogradnje"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Provjeri kompatibilnost"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Kopiraj u međuspremnik"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -618,6 +630,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "Provjerite stanje mreže i pokušajte ponovo"
 
+#~ msgid "Comments"
+#~ msgstr "Komentari"
+
+#~ msgid "Loading Comments"
+#~ msgstr "Učitavanje komentara"
+
+#~ msgid "User Reviews"
+#~ msgstr "Korisničke recenzije"
+
+#~ msgid "No comments yet"
+#~ msgstr "Još nema komentara"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -645,9 +669,6 @@ msgstr "Provjerite stanje mreže i pokušajte ponovo"
 #~ msgid "e.g. “%s”"
 #~ msgstr "npr. „%s”"
 
-#~ msgid "There are no comments."
-#~ msgstr "Nema komentara."
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr ""
 #~ "Ovo je proširenje nekompatibilno s vašom trenutačnom GNOME inačicom."
@@ -657,9 +678,6 @@ msgstr "Provjerite stanje mreže i pokušajte ponovo"
 
 #~ msgid "Return to view"
 #~ msgstr "Vrati u prikaz"
-
-#~ msgid "Loading…"
-#~ msgstr "Učitavanje…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

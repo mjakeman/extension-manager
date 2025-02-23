@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2022-10-17 13:19+0330\n"
 "Last-Translator: eshagh <eshagh094@gmail.com>\n"
 "Language-Team: https://matrix.to/#/#persian_translation:tchncs.de\n"
@@ -142,22 +142,24 @@ msgid "Try a different search"
 msgstr ""
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "Comments"
+msgid "Reviews and Comments"
 msgstr "بازبینی‌ها"
 
 #: src/exm-comment-dialog.blp:25
 #, fuzzy
-#| msgid "Comments"
-msgid "Loading Comments"
-msgstr "بازبینی‌ها"
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "در حال بار کردن…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr ""
 
@@ -205,34 +207,28 @@ msgstr ""
 msgid "View on Extensions"
 msgstr "دیدن در افزونه‌ها"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "بازبینی‌های کاربران"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "Comments"
-msgid "No comments yet"
-msgstr "بازبینی‌ها"
+#: src/exm-detail-view.blp:315
+msgid "There are no reviews or comments"
+msgstr ""
 
-#: src/exm-detail-view.blp:338
+#: src/exm-detail-view.blp:346
 #, fuzzy
 #| msgid "Show All Reviews"
-msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "نمایش همهٔ بازبینی‌ها"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr ""
@@ -241,7 +237,7 @@ msgstr ""
 msgid "Error Report"
 msgstr "گزارش مشکل"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 #, fuzzy
 #| msgid ""
 #| "An unexpected error occurred in Extension Manager. Please open a new "
@@ -251,20 +247,20 @@ msgstr ""
 "یک خطای غیرمنتظره در مدیر افزونه‌ها رخ داد. لطفاً یک اشکال جدید باز کنید و "
 "اطلاعات زیر را پیوست کنید:"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
+#: src/exm-error-dialog.blp:36
 #, fuzzy
 #| msgid "Copy to Clipboard"
-msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "رونوشت به تخته‌گیره"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 #, fuzzy
 #| msgid "New Issue"
 msgid "_New Issue"
 msgstr "اشکال جدید"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "رونوشت شد"
 
@@ -470,11 +466,11 @@ msgstr "استفاده از افزونه‌ها"
 msgid "Extensions can cause performance and stability issues"
 msgstr "افزونه‌ها می‌توانند باعث مشکلات عملکرد و پایداری شوند."
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "افزونه‌های نصب شده توسط کاربر"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 #, fuzzy
 #| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
@@ -484,11 +480,11 @@ msgstr "هیچ افزونه‌ای توسط کاربر نصب نشده است."
 msgid "Browse"
 msgstr "مرور"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "افزونه‌های سامانه"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 #, fuzzy
 #| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
@@ -540,11 +536,17 @@ msgstr "بزرگ‌نمایی"
 msgid "Upgrade Assistant"
 msgstr "دستیار ارتقاء"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 #, fuzzy
 #| msgid "Check Compatibility"
 msgid "_Check Compatibility"
 msgstr "بررسی سازگاری"
+
+#: src/exm-upgrade-assistant.blp:189
+#, fuzzy
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
+msgstr "رونوشت به تخته‌گیره"
 
 #: src/exm-upgrade-assistant.c:188
 #, fuzzy, c-format
@@ -728,6 +730,17 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr ""
 
+#~ msgid "Comments"
+#~ msgstr "بازبینی‌ها"
+
+#~ msgid "User Reviews"
+#~ msgstr "بازبینی‌های کاربران"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "No comments yet"
+#~ msgstr "بازبینی‌ها"
+
 #, fuzzy
 #~| msgid "Updates are available"
 #~ msgid "Updates Available"
@@ -754,9 +767,6 @@ msgstr ""
 
 #~ msgid "Return to view"
 #~ msgstr "بازگشت به نمایش"
-
-#~ msgid "Loading…"
-#~ msgstr "در حال بار کردن…"
 
 #~ msgid "@app_title@"
 #~ msgstr "مدیر افزونه‌ها"

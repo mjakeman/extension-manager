@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2024-11-30 22:34+0000\n"
 "Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
@@ -125,20 +125,24 @@ msgid "Try a different search"
 msgstr "Wypróbuj innego zapytania"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Błąd połączenia"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Komentarze"
-
-#: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "Loading Comments"
+msgid "Reviews and Comments"
 msgstr "Ładowanie komentarzy"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-dialog.blp:25
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Ładowanie…"
+
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Autor"
 
@@ -178,30 +182,28 @@ msgstr "Przekaż darowiznę"
 msgid "View on Extensions"
 msgstr "Zobacz na stronie"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Recenzje użytkowników"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Brak komentarzy"
+#: src/exm-detail-view.blp:315
+msgid "There are no reviews or comments"
+msgstr ""
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Pokaż wszystkie recenzje"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "Ikona %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "Zrzut ekranu %s"
@@ -210,20 +212,22 @@ msgstr "Zrzut ekranu %s"
 msgid "Error Report"
 msgstr "Zgłoszenie błędu"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Pojawił się nieoczekiwany błąd w Menedżerze Rozszerzeń"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Skopiuj do schowka"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Nowe zgłoszenie"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Skopiowano"
 
@@ -407,11 +411,11 @@ msgstr "Użyj rozszerzeń"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Rozszerzenie może wpłynąć na wydajność i stabilność"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Ręcznie zainstalowane"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Brak ręcznie zainstalowanych rozszerzeń"
 
@@ -419,11 +423,11 @@ msgstr "Brak ręcznie zainstalowanych rozszerzeń"
 msgid "Browse"
 msgstr "Przeglądaj"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Systemowe rozszerzenia"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Nie zainstalowano rozszerzeń systemowych"
 
@@ -471,9 +475,13 @@ msgstr "Powiększ"
 msgid "Upgrade Assistant"
 msgstr "Asystent aktualizacji"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Sprawdź zgodność"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Skopiuj do schowka"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -622,6 +630,15 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "Sprawdź swoje połączenie z Internetem i spróbuj ponownie"
 
+#~ msgid "Comments"
+#~ msgstr "Komentarze"
+
+#~ msgid "User Reviews"
+#~ msgstr "Recenzje użytkowników"
+
+#~ msgid "No comments yet"
+#~ msgstr "Brak komentarzy"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -656,9 +673,6 @@ msgstr "Sprawdź swoje połączenie z Internetem i spróbuj ponownie"
 #~| msgid "An Error Occurred"
 #~ msgid "An error occurred."
 #~ msgstr "Wystąpił Błąd"
-
-#~ msgid "Loading…"
-#~ msgstr "Ładowanie…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2025-02-16 12:17+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/extension-manager/"
@@ -121,20 +121,24 @@ msgid "Try a different search"
 msgstr "Bain triail as cuardach eile"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Earráid Ceangail"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Tráchtanna"
-
-#: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "Loading Comments"
+msgid "Reviews and Comments"
 msgstr "Tráchtanna a luchtú"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-dialog.blp:25
+#, fuzzy
+#| msgid "Loading Details"
+msgid "Loading"
+msgstr "Sonraí luchtaithe"
+
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Údar"
 
@@ -174,30 +178,30 @@ msgstr "Síntigh"
 msgid "View on Extensions"
 msgstr "Féach ar shíntí"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Athbhreithnithe Úsáideoirí"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+#, fuzzy
+#| msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr "Tá nótaí tráchta díchumasaithe don bhreiseán seo"
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Gan aon trácht fós"
+#: src/exm-detail-view.blp:315
+msgid "There are no reviews or comments"
+msgstr ""
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Taispeáin gach athbhreithniú"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s deilbhín"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s Scáileán"
@@ -206,20 +210,22 @@ msgstr "%s Scáileán"
 msgid "Error Report"
 msgstr "Tuarascáil Earráide"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Tharla earráid gan choinne i mBainisteoir Síneadh"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Cóip chuig Gearrthaisce"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Saincheist Nua"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Cóipeáil"
 
@@ -404,11 +410,11 @@ msgstr ""
 "Is féidir le síntí a bheith ina gcúis le saincheisteanna feidhmíochta agus "
 "cobhsaíochta"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Síntí Suiteáilte ag an Úsáideoir"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Níor suiteáladh aon síntí úsáideora"
 
@@ -416,11 +422,11 @@ msgstr "Níor suiteáladh aon síntí úsáideora"
 msgid "Browse"
 msgstr "Brabhsáil"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Síntí Córais"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Níor suiteáladh aon síntí córais"
 
@@ -472,9 +478,13 @@ msgstr "Súmáil Isteach"
 msgid "Upgrade Assistant"
 msgstr "Cúntóir Uasghrádaithe"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Seiceáil Comhoiriúnacht"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Cóip chuig Gearrthaisce"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -624,6 +634,15 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Seiceáil stádas do líonra agus bain triail eile as"
+
+#~ msgid "Comments"
+#~ msgstr "Tráchtanna"
+
+#~ msgid "User Reviews"
+#~ msgstr "Athbhreithnithe Úsáideoirí"
+
+#~ msgid "No comments yet"
+#~ msgstr "Gan aon trácht fós"
 
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "

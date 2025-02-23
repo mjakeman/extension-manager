@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2025-01-12 15:53+0000\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -121,20 +121,24 @@ msgid "Try a different search"
 msgstr "試試不同的搜尋方式"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "連線錯誤"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "評論"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "沒有評論。"
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "正在載入評論"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "載入中…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "作者"
 
@@ -174,30 +178,30 @@ msgstr "贊助"
 msgid "View on Extensions"
 msgstr "在 Extensions 上查看"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "使用者評論"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "暫無評論"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "沒有評論。"
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "顯示所有評論 (&S)"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s 圖示"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s 螢幕截圖"
@@ -206,20 +210,22 @@ msgstr "%s 螢幕截圖"
 msgid "Error Report"
 msgstr "錯誤報告"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "擴充功能管理員發生意外錯誤"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "複製至剪貼簿 (&C)"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "新問題 (&N)"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "已複製"
 
@@ -402,11 +408,11 @@ msgstr "使用擴充功能"
 msgid "Extensions can cause performance and stability issues"
 msgstr "擴充功能可能造成效能和穩定性問題"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "使用者安裝的擴充功能"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "沒有已安裝的使用者擴充功能"
 
@@ -414,11 +420,11 @@ msgstr "沒有已安裝的使用者擴充功能"
 msgid "Browse"
 msgstr "瀏覽"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "系統擴充功能"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "沒有已安裝的系統擴充功能"
 
@@ -462,9 +468,13 @@ msgstr "放大"
 msgid "Upgrade Assistant"
 msgstr "更新助理"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "檢測相容性 (&C)"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "複製至剪貼簿 (&C)"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -606,6 +616,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "請檢查您的網路狀態然後再試一次"
 
+#~ msgid "Comments"
+#~ msgstr "評論"
+
+#~ msgid "Loading Comments"
+#~ msgstr "正在載入評論"
+
+#~ msgid "User Reviews"
+#~ msgstr "使用者評論"
+
+#~ msgid "No comments yet"
+#~ msgstr "暫無評論"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -631,9 +653,6 @@ msgstr "請檢查您的網路狀態然後再試一次"
 #~ msgid "e.g. “%s”"
 #~ msgstr "例如「%s」"
 
-#~ msgid "There are no comments."
-#~ msgstr "沒有評論。"
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr "此擴充功能不支援你目前使用的 GNOME 版本。"
 
@@ -642,9 +661,6 @@ msgstr "請檢查您的網路狀態然後再試一次"
 
 #~ msgid "Return to view"
 #~ msgstr "返回至檢視畫面"
-
-#~ msgid "Loading…"
-#~ msgstr "載入中…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

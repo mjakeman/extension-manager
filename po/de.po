@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2025-02-22 15:50+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
@@ -129,20 +129,24 @@ msgid "Try a different search"
 msgstr "Probieren Sie eine andere Suche"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Verbindungsfehler"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Kommentare"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "Es sind keine Kommentare vorhanden."
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "Kommentare werden geladen"
+#, fuzzy
+#| msgid "Loading Details"
+msgid "Loading"
+msgstr "Details werden geladen"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Autor"
 
@@ -182,30 +186,32 @@ msgstr "Spenden"
 msgid "View on Extensions"
 msgstr "Auf »GNOME Extensions« anzeigen"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Benutzerrezensionen"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+#, fuzzy
+#| msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr "Kommentare sind für diese Erweiterung deaktiviert"
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Noch keine Kommentare"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "Es sind keine Kommentare vorhanden."
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Alle Rezensionen anzeigen"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s Symbol"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s Bildschirmfoto"
@@ -214,20 +220,22 @@ msgstr "%s Bildschirmfoto"
 msgid "Error Report"
 msgstr "Fehlerbericht"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "Ein unerwarteter Fehler ist im Erweiterungs-Manager aufgetreten"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "In die Zwischenablage _kopieren"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Neues »Issue«"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Kopiert"
 
@@ -314,7 +322,8 @@ msgstr "Diese Erweiterung wird ausgeführt, während der Bildschirm gesperrt ist
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
 msgid "This extension will run while no user is logged in"
-msgstr "Diese Erweiterung wird ausgeführt, während kein Benutzer angemeldet ist"
+msgstr ""
+"Diese Erweiterung wird ausgeführt, während kein Benutzer angemeldet ist"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -409,11 +418,11 @@ msgstr "Erweiterungen verwenden"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Erweiterungen können Leistungs- und Stabilitätsprobleme verursachen"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Benutzerinstallierte Erweiterungen"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Keine Benutzererweiterungen installiert"
 
@@ -421,11 +430,11 @@ msgstr "Keine Benutzererweiterungen installiert"
 msgid "Browse"
 msgstr "Suchen"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Systemerweiterungen"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Keine Systemerweiterungen installiert"
 
@@ -471,9 +480,13 @@ msgstr "Vergrößern"
 msgid "Upgrade Assistant"
 msgstr "Upgrade-Assistent"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Kompatibilität überprüfen"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "In die Zwischenablage _kopieren"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -624,6 +637,18 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "Prüfen Sie Ihren Netzwerkstatus und versuchen Sie es erneut"
 
+#~ msgid "Comments"
+#~ msgstr "Kommentare"
+
+#~ msgid "Loading Comments"
+#~ msgstr "Kommentare werden geladen"
+
+#~ msgid "User Reviews"
+#~ msgstr "Benutzerrezensionen"
+
+#~ msgid "No comments yet"
+#~ msgstr "Noch keine Kommentare"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -650,9 +675,6 @@ msgstr "Prüfen Sie Ihren Netzwerkstatus und versuchen Sie es erneut"
 #, c-format
 #~ msgid "e.g. “%s”"
 #~ msgstr "z.B. »%s«"
-
-#~ msgid "There are no comments."
-#~ msgstr "Es sind keine Kommentare vorhanden."
 
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 11:31+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2024-12-26 10:00+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/extension-manager/"
@@ -119,20 +119,24 @@ msgid "Try a different search"
 msgstr "வேறு தேடலை முயற்சிக்கவும்"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:106
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "இணைப்பு பிழை"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "கருத்துகள்"
-
-#: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "Loading Comments"
+msgid "Reviews and Comments"
 msgstr "கருத்துகளை ஏற்றுகிறது"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:128
+#: src/exm-comment-dialog.blp:25
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "ஏற்றுகிறது…"
+
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "நூலாசிரியர்"
 
@@ -172,30 +176,28 @@ msgstr "நன்கொடை"
 msgid "View on Extensions"
 msgstr "நீட்டிப்புகளில் காண்க"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "பயனர் மதிப்புரைகள்"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "இன்னும் கருத்துகள் இல்லை"
+#: src/exm-detail-view.blp:315
+msgid "There are no reviews or comments"
+msgstr ""
 
-#: src/exm-detail-view.blp:338
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_ எல்லா மதிப்புரைகளையும் மாற்றவும்"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s படவுரு"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s திரை காட்சி"
@@ -204,20 +206,22 @@ msgstr "%s திரை காட்சி"
 msgid "Error Report"
 msgstr "பிழை அறிக்கை"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "நீட்டிப்பு மேலாளரில் எதிர்பாராத பிழை ஏற்பட்டது"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:195
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_ புதிய சிக்கல்"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "நகலெடுக்கப்பட்டது"
 
@@ -401,11 +405,11 @@ msgstr "நீட்டிப்புகளைப் பயன்படுத�
 msgid "Extensions can cause performance and stability issues"
 msgstr "நீட்டிப்புகள் செயல்திறன் மற்றும் ச்திரத்தன்மை சிக்கல்களை ஏற்படுத்தும்"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "பயனர் நிறுவிய நீட்டிப்புகள்"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:156
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "பயனர் நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
 
@@ -413,11 +417,11 @@ msgstr "பயனர் நீட்டிப்புகள் எதுவு�
 msgid "Browse"
 msgstr "உலாவுக"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:166
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "கணினி நீட்டிப்புகள்"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:183
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "கணினி நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
 
@@ -463,9 +467,13 @@ msgstr "பெரிதாக்கு"
 msgid "Upgrade Assistant"
 msgstr "மேம்படுத்தல் உதவியாளர்"
 
-#: src/exm-upgrade-assistant.blp:72
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_ இணக்கத்தன்மையை சரிபார்க்கவும்"
+
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
 #: src/exm-upgrade-assistant.c:188
 #, c-format
@@ -616,6 +624,15 @@ msgstr ""
 msgid "Check your network status and try again"
 msgstr "உங்கள் பிணைய நிலையை சரிபார்த்து மீண்டும் முயற்சிக்கவும்"
 
+#~ msgid "Comments"
+#~ msgstr "கருத்துகள்"
+
+#~ msgid "User Reviews"
+#~ msgstr "பயனர் மதிப்புரைகள்"
+
+#~ msgid "No comments yet"
+#~ msgstr "இன்னும் கருத்துகள் இல்லை"
+
 #~ msgid ""
 #~ "This extension could be activated in session modes such as the login "
 #~ "screen or the lock screen"
@@ -653,9 +670,6 @@ msgstr "உங்கள் பிணைய நிலையை சரிபார
 
 #~ msgid "Return to view"
 #~ msgstr "பார்வைக்குத் திரும்பு"
-
-#~ msgid "Loading…"
-#~ msgstr "ஏற்றுகிறது…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"
