@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-22 15:50+0000\n"
+"PO-Revision-Date: 2025-02-24 10:03+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -135,16 +135,12 @@ msgid "Connection Error"
 msgstr "Verbindungsfehler"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "Es sind keine Kommentare vorhanden."
+msgstr "Rezensionen und Kommentare"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading"
-msgstr "Details werden geladen"
+msgstr "Werden geladen"
 
 #: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
@@ -187,22 +183,16 @@ msgid "View on Extensions"
 msgstr "Auf »GNOME Extensions« anzeigen"
 
 #: src/exm-detail-view.blp:272
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Kommentare sind für diese Erweiterung deaktiviert"
+msgstr "Rezensionen und Kommentare sind für diese Erweiterung deaktiviert"
 
 #: src/exm-detail-view.blp:315
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "Es sind keine Kommentare vorhanden."
+msgstr "Es sind keine Rezensionen oder Kommentare vorhanden"
 
 #: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Alle Rezensionen anzeigen"
+msgstr "_Alle anzeigen"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:446
@@ -225,10 +215,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Ein unerwarteter Fehler ist im Erweiterungs-Manager aufgetreten"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "In die Zwischenablage _kopieren"
+msgstr "In die Zwischenablage kopieren"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
