@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-22 23:51+0000\n"
+"PO-Revision-Date: 2025-02-24 10:03+0000\n"
 "Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
@@ -133,16 +133,12 @@ msgid "Connection Error"
 msgstr "Chyba připojení"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "Loading Comments"
 msgid "Reviews and Comments"
-msgstr "Načítání komentářů"
+msgstr "Recenze a komentáře"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Načítání…"
+msgstr "Načítání"
 
 #: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
@@ -185,20 +181,16 @@ msgid "View on Extensions"
 msgstr "Zobrazit na webu"
 
 #: src/exm-detail-view.blp:272
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Komentáře jsou u tohoto rozšíření vypnuty"
+msgstr "Recenze a komentáře jsou u tohoto rozšíření vypnuty"
 
 #: src/exm-detail-view.blp:315
 msgid "There are no reviews or comments"
-msgstr ""
+msgstr "Toto rozšíření nemá žádné recenze ani komentáře"
 
 #: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Zobrazit všechny recenze"
+msgstr "_Zobrazit vše"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:446
@@ -221,10 +213,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Ve Správci rozšíření došlo k neočekávané chybě"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Zkopírovat do schránky"
+msgstr "Kopírovat do schránky"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
