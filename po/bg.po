@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-23 09:46+0000\n"
+"PO-Revision-Date: 2025-02-24 10:03+0000\n"
 "Last-Translator: trunars <trunars@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/extension-"
-"manager/app/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/"
+"extension-manager/app/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,16 +126,12 @@ msgid "Connection Error"
 msgstr "Грешка при свързване"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "Loading Comments"
 msgid "Reviews and Comments"
-msgstr "Зареждане на коментари"
+msgstr "Отзиви и коментари"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading"
-msgstr "Зареждане на подробности"
+msgstr "Зареждане"
 
 #: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
@@ -178,20 +174,16 @@ msgid "View on Extensions"
 msgstr "Преглед на разширения"
 
 #: src/exm-detail-view.blp:272
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Коментарите са изключени за това разширение"
+msgstr "Отзивите и коментарите са деактивирани за това разширение"
 
 #: src/exm-detail-view.blp:315
 msgid "There are no reviews or comments"
-msgstr ""
+msgstr "Няма отзиви или коментари"
 
 #: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Покажи всички отзиви"
+msgstr "_Покажи всички"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:446
@@ -214,10 +206,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Възникна неочаквана грешка в Мениджър на разширения"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Копирай в клипборда"
+msgstr "Копирай в клипборда"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -286,31 +276,32 @@ msgstr "Премахване…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Отключване на диалог"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Това разширение ще се изпълнява, когато екранът е заключен и никой "
+"потребител не е влязъл в системата"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Това разширение ще се изпълнява, докато екранът е заключен"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d разширение ще бъде актуализирано при следващо влизане"
+msgstr ""
+"Това разширение ще се изпълнява, докато никой потребител не е влязъл в "
+"системата"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
