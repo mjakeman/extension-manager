@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # gogo <trebelnik2@gmail.com>, 2022.
-# Milo Ivir <mail@milotype.de>, 2024.
+# Milo Ivir <mail@milotype.de>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-12 22:05+0000\n"
-"PO-Revision-Date: 2024-09-18 09:28+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
+"PO-Revision-Date: 2025-02-19 18:10+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/extension-"
 "manager/app/hr/>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
-msgstr "Upravitelj proširenja"
+msgstr "Upravljač proširenja"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
@@ -34,7 +34,7 @@ msgstr "Upravljajte proširenjima GNOME ljuske"
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
-msgstr "extension;manager;shell;"
+msgstr "extension;manager;shell;proširenja;upravljač;ljuska;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Browse, install, and manage GNOME Shell Extensions"
@@ -79,14 +79,14 @@ msgstr ""
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
-msgstr "Pretraga proširenja"
+msgstr "Pretraga za proširenja"
 
 #: src/exm-browse-page.blp:17
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Upišite ključnu riječ 'extensions.gnome.org' pretrage za proširenja GNOME "
-"ljuske"
+"Upišite ključnu riječ za pretraživanje proširenja za GNOME ljusku na "
+"'extensions.gnome.org'"
 
 #: src/exm-browse-page.blp:47
 msgid "Relevance"
@@ -101,53 +101,57 @@ msgstr "Preuzimanja"
 msgid "Recent"
 msgstr "Nedavno"
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:115
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:114
 msgid "Name"
 msgstr "Naziv"
 
 #: src/exm-browse-page.blp:57
 msgid "Sort search results"
-msgstr "Razvrstavanje rezultata pretrage"
+msgstr "Razvrstaj rezultate pretrage"
 
-#: src/exm-browse-page.blp:102
+#: src/exm-browse-page.blp:103
 msgid "_Load More Results"
 msgstr "_Učitaj više rezultata"
 
-#: src/exm-browse-page.blp:136 src/exm-installed-page.blp:126
+#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:126
 msgid "No Results Found"
-msgstr "Nema pronađenih rezultata"
+msgstr "Ništa nije pronađeno"
 
-#: src/exm-browse-page.blp:143
+#: src/exm-browse-page.blp:144
 msgid "Try a different search"
-msgstr ""
+msgstr "Probaj drugačiju pretragu"
 
-#: src/exm-browse-page.blp:177 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:51 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:84
+#: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
-msgstr ""
+msgstr "Greška u vezi"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "Komentari"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "Nema komentara."
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "Učitavanje komentara"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Učitavanje…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:129
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Autor"
 
-#: src/exm-detail-view.blp:42
+#: src/exm-detail-view.blp:41
 msgid "Loading Details"
 msgstr "Pojedinosti učitavanja"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:345
+#: src/exm-detail-view.blp:60 src/exm-window.c:347
 msgid "An Error Occurred"
 msgstr "Dogodila se greška"
 
-#: src/exm-detail-view.blp:62
+#: src/exm-detail-view.blp:61
 msgid "No extension details available"
 msgstr "Nema detalja o proširenju"
 
@@ -155,7 +159,7 @@ msgstr "Nema detalja o proširenju"
 msgid "Enlarge Image"
 msgstr "Uvećaj sliku"
 
-#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:106
+#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Opis"
 
@@ -175,30 +179,32 @@ msgstr "Doniraj"
 msgid "View on Extensions"
 msgstr "Pogledaj na stranici „Proširenja”"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "Korisničke recenzije"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
-msgstr ""
+#, fuzzy
+#| msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
+msgstr "Komentari su isključeni za ovo proširenje"
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "Još nema komentara"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "Nema komentara."
 
-#: src/exm-detail-view.blp:337
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "_Prikaži sve recenzije"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "Ikona za %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "Snimka ekrana za %s"
@@ -207,20 +213,22 @@ msgstr "Snimka ekrana za %s"
 msgid "Error Report"
 msgstr "Prijava o grešci"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Dogodila se neočekivana greška u upravitelju proširenja"
+msgstr "Dogodila se neočekivana greška u upravljaču proširenja"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:175
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "_Kopiraj u međuspremnik"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_Novi problem"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:332
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "Kopirano"
 
@@ -236,8 +244,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Koristite verziju upravitelja proširenja treće strane. Najprije <span "
-"weight=\"bold\">kontaktirajte distributera paketa (%s)</span> prije "
+"Koristite verziju aplikacije „Upravljač proširenja” treće strane. Najprije "
+"<span weight=\"bold\">kontaktirajte distributera paketa (%s)</span> prije "
 "prijavljivanja problema. Priložite sljedeće podatke:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -260,18 +268,13 @@ msgstr "Ovo je proširenje nekompatibilno s trenutačnom GNOME inačicom"
 msgid "A newer version of this extension is available"
 msgstr "Dostupna je nova inačica ovog proširenja"
 
-#. Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
-#: src/exm-extension-row.blp:97
-msgid ""
-"This extension could be activated in session modes such as the login screen "
-"or the lock screen"
-msgstr ""
-"Ovo se proširenje može aktivirati u načinima sesije kao što su ekran za "
-"prijavu ili ekran za zaključavanje"
-
-#: src/exm-extension-row.blp:114 src/exm-info-bar.blp:42
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
 msgid "Version"
 msgstr "Inačica"
+
+#: src/exm-extension-row.blp:107
+msgid "Session Modes"
+msgstr ""
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -281,9 +284,37 @@ msgstr "Greška"
 msgid "See Details"
 msgstr "Pogledajte pojedinosti"
 
-#: src/exm-extension-row.blp:155
+#: src/exm-extension-row.blp:156
 msgid "Remove…"
 msgstr "Ukloni…"
+
+#: src/exm-extension-row.c:175
+msgid "Unlock Dialog"
+msgstr ""
+
+#. Translators: GNOME Display Manager
+#: src/exm-extension-row.c:181
+msgid "GDM"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on both, login and lock screens
+#: src/exm-extension-row.c:189
+msgid ""
+"This extension will run while the screen is locked and no user is logged in"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the lock screen
+#: src/exm-extension-row.c:194
+msgid "This extension will run while the screen is locked"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the login screen
+#: src/exm-extension-row.c:199
+#, fuzzy
+#| msgid "%d extension will be updated on next login"
+#| msgid_plural "%d extensions will be updated on next login"
+msgid "This extension will run while no user is logged in"
+msgstr "%d proširenje će se nadopuniti pri sljedećoj prijavi"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -293,7 +324,7 @@ msgstr "Općenito"
 #: src/exm-help-overlay.blp:14
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "Prikaži instaliranu stranicu"
+msgstr "Prikaži stranicu instaliranih"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
@@ -303,7 +334,7 @@ msgstr "Prikaži stranicu pregledavanja"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Uključi/Isključi pretragu"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -318,7 +349,7 @@ msgstr "Zatvori prozor"
 #: src/exm-help-overlay.blp:39
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Prekini"
+msgstr "Zatvori aplikaciju"
 
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
@@ -340,7 +371,7 @@ msgctxt "shortcut window"
 msgid "Reset Zoom"
 msgstr "Resetiraj zumiranje"
 
-#: src/exm-info-bar.blp:24
+#: src/exm-info-bar.blp:28
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Preuzimanja"
@@ -354,11 +385,8 @@ msgid "Install…"
 msgstr "Instaliraj…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Instalirano"
+msgstr "Instaliranje"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -375,17 +403,17 @@ msgstr "_Odjava…"
 
 #: src/exm-installed-page.blp:30
 msgid "Use Extensions"
-msgstr "Proširenja u upotrebi"
+msgstr "Koristi proširenja"
 
 #: src/exm-installed-page.blp:31
 msgid "Extensions can cause performance and stability issues"
-msgstr "Proširenja mogu uzrokovati probleme s performansama i stabilnosti"
+msgstr "Proširenja mogu prouzročiti probleme s performansama i stabilnosti"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:121
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Korisnički instalirana proširenja"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:138
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Nema instaliranih korisničkih proširenja"
 
@@ -393,31 +421,29 @@ msgstr "Nema instaliranih korisničkih proširenja"
 msgid "Browse"
 msgstr "Pregledaj"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:148
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Proširenja sustava"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:165
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Nema instaliranih sustavskih proširenja"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
 #: src/exm-installed-page.blp:114
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Razvrstavanje rezultata pretrage"
+msgstr "Rezultati pretrage"
 
 #: src/exm-installed-page.blp:127
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Probajte drugačiju pretragu ili tražite online"
 
 #: src/exm-installed-page.blp:134
 msgid "_Search Online"
-msgstr ""
+msgstr "_Traži online"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:304
+#: src/exm-installed-page.c:298
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -447,22 +473,26 @@ msgstr "Uvećaj"
 msgid "Upgrade Assistant"
 msgstr "Pomoćnik nadogradnje"
 
-#: src/exm-upgrade-assistant.blp:61
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "_Provjeri kompatibilnost"
 
-#: src/exm-upgrade-assistant.c:173
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "_Kopiraj u međuspremnik"
+
+#: src/exm-upgrade-assistant.c:188
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Provjereno %d/%d proširenja"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:192
+#: src/exm-upgrade-assistant.c:207
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d% % kompatibilno"
 
-#: src/exm-upgrade-assistant.c:208
+#: src/exm-upgrade-assistant.c:223
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
@@ -472,17 +502,17 @@ msgstr ""
 "sustavu"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:490
+#: src/exm-upgrade-assistant.c:503
 msgid "A compatible version of the extension exists"
 msgstr "Postoji kompatibilna inačica proširenja"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:497
+#: src/exm-upgrade-assistant.c:510
 msgid "No compatible version of the extension exists"
 msgstr "Ne postoji kompatibilna inačica proširenja"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:504
+#: src/exm-upgrade-assistant.c:517
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -490,7 +520,7 @@ msgstr ""
 "Ovo proširenje nije objavljeno na extensions.gnome.org. Njegova "
 "kompatibilnost se ne može odrediti."
 
-#: src/exm-upgrade-assistant.c:600
+#: src/exm-upgrade-assistant.c:608
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -501,58 +531,54 @@ msgstr ""
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Korisnički instalirana proširenja"
+msgstr "Pretražite instalirana proširenja"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
 msgstr "Glavni izbornik"
 
 #: src/exm-window.blp:59
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Pretraga proširenja"
+msgstr "Pretraga za instalirana proširenja"
 
-#: src/exm-window.blp:69
+#: src/exm-window.blp:70
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Instalirano"
 
-#: src/exm-window.blp:78
+#: src/exm-window.blp:79
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Pretraga"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:106
+#: src/exm-window.blp:107
 msgid "Sort _Enabled First"
 msgstr "_Razvrstaj najprije omogućena"
 
-#: src/exm-window.blp:107
+#: src/exm-window.blp:108
 msgid "_Show Unsupported"
 msgstr "_Prikaži nepodržana"
 
-#: src/exm-window.blp:111
+#: src/exm-window.blp:112
 msgid "_Upgrade Assistant"
 msgstr "Po_moćnik nadogradnje"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 msgid "_Keyboard Shortcuts"
 msgstr "_Tipkovni prečaci"
 
-#: src/exm-window.blp:113
+#: src/exm-window.blp:114
 msgid "_About Extension Manager"
-msgstr "_O Upravitelju proširenja"
+msgstr "_Informacije o „Upravljač proširenja”"
 
-#: src/exm-window.blp:118
+#: src/exm-window.blp:119
 msgid "Uninstall Extension?"
 msgstr "Deinstalirati proširenje?"
 
-#: src/exm-window.blp:119
+#: src/exm-window.blp:120
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -560,35 +586,35 @@ msgstr ""
 "Značajke i funkcije proširenja više neće biti dostupne. Jeste li sigurni da "
 "želite deinstalirati proširenje?"
 
-#: src/exm-window.blp:124
+#: src/exm-window.blp:125
 msgid "_No"
 msgstr "_Ne"
 
-#: src/exm-window.blp:125
+#: src/exm-window.blp:126
 msgid "_Yes"
 msgstr "_Da"
 
-#: src/exm-window.blp:130
+#: src/exm-window.blp:131
 msgid "Unsupported Extension"
 msgstr "Nepodržana proširenja"
 
-#: src/exm-window.blp:131
+#: src/exm-window.blp:132
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
 "Ovo proširenje ne podržava vašu inačicu GNOME ljuske. Može prouzročiti "
-"greške ako je instalirano."
+"greške ako se instalira."
 
-#: src/exm-window.blp:137
+#: src/exm-window.blp:138
 msgid "_Install Anyway"
 msgstr "_Svejedno instaliraj"
 
-#: src/exm-window.blp:138
+#: src/exm-window.blp:139
 msgid "_Go Back"
 msgstr "_Idi natrag"
 
-#: src/exm-window.c:346
+#: src/exm-window.c:348
 msgid "_Details"
 msgstr "_Pojedinosti"
 
@@ -597,10 +623,31 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Provjerite <a href='https://status.gnome.org/'>stanje GNOME infrastrukture</"
+"a> i pokušajte kasnije ponovo"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Provjerite stanje mreže i pokušajte ponovo"
+
+#~ msgid "Comments"
+#~ msgstr "Komentari"
+
+#~ msgid "Loading Comments"
+#~ msgstr "Učitavanje komentara"
+
+#~ msgid "User Reviews"
+#~ msgstr "Korisničke recenzije"
+
+#~ msgid "No comments yet"
+#~ msgstr "Još nema komentara"
+
+#~ msgid ""
+#~ "This extension could be activated in session modes such as the login "
+#~ "screen or the lock screen"
+#~ msgstr ""
+#~ "Ovo se proširenje može aktivirati u načinima sesije kao što su ekran za "
+#~ "prijavu ili ekran za zaključavanje"
 
 #, c-format
 #~ msgid "%s by %s"
@@ -622,9 +669,6 @@ msgstr ""
 #~ msgid "e.g. “%s”"
 #~ msgstr "npr. „%s”"
 
-#~ msgid "There are no comments."
-#~ msgstr "Nema komentara."
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr ""
 #~ "Ovo je proširenje nekompatibilno s vašom trenutačnom GNOME inačicom."
@@ -634,9 +678,6 @@ msgstr ""
 
 #~ msgid "Return to view"
 #~ msgstr "Vrati u prikaz"
-
-#~ msgid "Loading…"
-#~ msgstr "Učitavanje…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"

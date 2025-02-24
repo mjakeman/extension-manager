@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-12 22:05+0000\n"
+"POT-Creation-Date: 2025-02-23 08:19+0000\n"
 "PO-Revision-Date: 2025-01-12 15:53+0000\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -100,7 +100,7 @@ msgstr "下載次數"
 msgid "Recent"
 msgstr "最近"
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:115
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:114
 msgid "Name"
 msgstr "名稱"
 
@@ -108,45 +108,49 @@ msgstr "名稱"
 msgid "Sort search results"
 msgstr "排序搜尋結果"
 
-#: src/exm-browse-page.blp:102
+#: src/exm-browse-page.blp:103
 msgid "_Load More Results"
 msgstr "載入更多搜尋結果 (&L)"
 
-#: src/exm-browse-page.blp:136 src/exm-installed-page.blp:126
+#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:126
 msgid "No Results Found"
 msgstr "無搜尋結果"
 
-#: src/exm-browse-page.blp:143
+#: src/exm-browse-page.blp:144
 msgid "Try a different search"
 msgstr "試試不同的搜尋方式"
 
-#: src/exm-browse-page.blp:177 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:51 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:84
+#: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "連線錯誤"
 
-#: src/exm-comment-dialog.blp:13
-msgid "Comments"
-msgstr "評論"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#, fuzzy
+#| msgid "There are no comments."
+msgid "Reviews and Comments"
+msgstr "沒有評論。"
 
 #: src/exm-comment-dialog.blp:25
-msgid "Loading Comments"
-msgstr "正在載入評論"
+#, fuzzy
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "載入中…"
 
-#: src/exm-comment-tile.blp:24 src/exm-detail-view.blp:129
+#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "作者"
 
-#: src/exm-detail-view.blp:42
+#: src/exm-detail-view.blp:41
 msgid "Loading Details"
 msgstr "正在載入詳細資訊"
 
-#: src/exm-detail-view.blp:61 src/exm-window.c:345
+#: src/exm-detail-view.blp:60 src/exm-window.c:347
 msgid "An Error Occurred"
 msgstr "發生錯誤"
 
-#: src/exm-detail-view.blp:62
+#: src/exm-detail-view.blp:61
 msgid "No extension details available"
 msgstr "無擴充功能詳細資訊"
 
@@ -154,7 +158,7 @@ msgstr "無擴充功能詳細資訊"
 msgid "Enlarge Image"
 msgstr "放大圖片"
 
-#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:106
+#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "描述"
 
@@ -174,30 +178,30 @@ msgstr "贊助"
 msgid "View on Extensions"
 msgstr "在 Extensions 上查看"
 
-#: src/exm-detail-view.blp:249
-msgid "User Reviews"
-msgstr "使用者評論"
-
 #: src/exm-detail-view.blp:272
-msgid "Comments are disabled for this extension"
+msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:314
-msgid "No comments yet"
-msgstr "暫無評論"
+#: src/exm-detail-view.blp:315
+#, fuzzy
+#| msgid "There are no comments."
+msgid "There are no reviews or comments"
+msgstr "沒有評論。"
 
-#: src/exm-detail-view.blp:337
-msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:346
+#, fuzzy
+#| msgid "_Show All Reviews"
+msgid "_Show All"
 msgstr "顯示所有評論 (&S)"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:439
+#: src/exm-detail-view.c:446
 #, c-format
 msgid "%s Icon"
 msgstr "%s 圖示"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:472
+#: src/exm-detail-view.c:479
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s 螢幕截圖"
@@ -206,20 +210,22 @@ msgstr "%s 螢幕截圖"
 msgid "Error Report"
 msgstr "錯誤報告"
 
-#: src/exm-error-dialog.blp:37
+#: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
 msgstr "擴充功能管理員發生意外錯誤"
 
-#: src/exm-error-dialog.blp:74 src/exm-upgrade-assistant.blp:175
-msgid "_Copy to Clipboard"
+#: src/exm-error-dialog.blp:36
+#, fuzzy
+#| msgid "_Copy to Clipboard"
+msgid "Copy to Clipboard"
 msgstr "複製至剪貼簿 (&C)"
 
-#: src/exm-error-dialog.blp:85
+#: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "新問題 (&N)"
 
 #. Success indicator
-#: src/exm-error-dialog.c:124 src/exm-upgrade-assistant.c:332
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
 msgid "Copied"
 msgstr "已複製"
 
@@ -258,16 +264,13 @@ msgstr "此擴充功能不支援你目前使用的 GNOME 版本"
 msgid "A newer version of this extension is available"
 msgstr "此擴充功能有可用的新版本"
 
-#. Translators: Icon's tooltip when an extension works in login and/or lock screen session modes
-#: src/exm-extension-row.blp:97
-msgid ""
-"This extension could be activated in session modes such as the login screen "
-"or the lock screen"
-msgstr "此擴充功能可以在登入畫面或鎖定畫面等工作階段模式中啟用"
-
-#: src/exm-extension-row.blp:114 src/exm-info-bar.blp:42
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
 msgid "Version"
 msgstr "版本"
+
+#: src/exm-extension-row.blp:107
+msgid "Session Modes"
+msgstr ""
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -277,9 +280,37 @@ msgstr "錯誤"
 msgid "See Details"
 msgstr "檢視詳細資訊"
 
-#: src/exm-extension-row.blp:155
+#: src/exm-extension-row.blp:156
 msgid "Remove…"
 msgstr "移除…"
+
+#: src/exm-extension-row.c:175
+msgid "Unlock Dialog"
+msgstr ""
+
+#. Translators: GNOME Display Manager
+#: src/exm-extension-row.c:181
+msgid "GDM"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on both, login and lock screens
+#: src/exm-extension-row.c:189
+msgid ""
+"This extension will run while the screen is locked and no user is logged in"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the lock screen
+#: src/exm-extension-row.c:194
+msgid "This extension will run while the screen is locked"
+msgstr ""
+
+#. Translators: Icon's tooltip when an extension runs on the login screen
+#: src/exm-extension-row.c:199
+#, fuzzy
+#| msgid "%d extension will be updated on next login"
+#| msgid_plural "%d extensions will be updated on next login"
+msgid "This extension will run while no user is logged in"
+msgstr "%d 個擴充功能將會在下次登入時更新"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -336,7 +367,7 @@ msgctxt "shortcut window"
 msgid "Reset Zoom"
 msgstr "重設縮放比例"
 
-#: src/exm-info-bar.blp:24
+#: src/exm-info-bar.blp:28
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "下載次數"
@@ -377,11 +408,11 @@ msgstr "使用擴充功能"
 msgid "Extensions can cause performance and stability issues"
 msgstr "擴充功能可能造成效能和穩定性問題"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:121
+#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "使用者安裝的擴充功能"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:138
+#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "沒有已安裝的使用者擴充功能"
 
@@ -389,11 +420,11 @@ msgstr "沒有已安裝的使用者擴充功能"
 msgid "Browse"
 msgstr "瀏覽"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:148
+#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "系統擴充功能"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:165
+#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "沒有已安裝的系統擴充功能"
 
@@ -411,7 +442,7 @@ msgid "_Search Online"
 msgstr "線上搜尋"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:304
+#: src/exm-installed-page.c:298
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -437,22 +468,26 @@ msgstr "放大"
 msgid "Upgrade Assistant"
 msgstr "更新助理"
 
-#: src/exm-upgrade-assistant.blp:61
+#: src/exm-upgrade-assistant.blp:66
 msgid "_Check Compatibility"
 msgstr "檢測相容性 (&C)"
 
-#: src/exm-upgrade-assistant.c:173
+#: src/exm-upgrade-assistant.blp:189
+msgid "_Copy to Clipboard"
+msgstr "複製至剪貼簿 (&C)"
+
+#: src/exm-upgrade-assistant.c:188
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "已檢查 %d／%d 個擴充功能"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:192
+#: src/exm-upgrade-assistant.c:207
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% 相容"
 
-#: src/exm-upgrade-assistant.c:208
+#: src/exm-upgrade-assistant.c:223
 #, c-format
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
@@ -460,23 +495,23 @@ msgid ""
 msgstr "<b>GNOME %s</b> 支援目前安裝在系統上的 <b>%d／%d 個</b>擴充功能"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:490
+#: src/exm-upgrade-assistant.c:503
 msgid "A compatible version of the extension exists"
 msgstr "此擴充功能有相容的版本"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:497
+#: src/exm-upgrade-assistant.c:510
 msgid "No compatible version of the extension exists"
 msgstr "此擴充功能無相容的版本"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:504
+#: src/exm-upgrade-assistant.c:517
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr "此擴充功能並非來自 extensions.gnome.org。無法確認相容性。"
 
-#: src/exm-upgrade-assistant.c:600
+#: src/exm-upgrade-assistant.c:608
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -498,75 +533,75 @@ msgstr "主選單"
 msgid "Search for installed extensions"
 msgstr "搜尋已安裝的擴充功能"
 
-#: src/exm-window.blp:69
+#: src/exm-window.blp:70
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "已安裝 (_I)"
 
-#: src/exm-window.blp:78
+#: src/exm-window.blp:79
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "瀏覽 (_B)"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:106
+#: src/exm-window.blp:107
 msgid "Sort _Enabled First"
 msgstr "已啟用的優先 (&E)"
 
-#: src/exm-window.blp:107
+#: src/exm-window.blp:108
 msgid "_Show Unsupported"
 msgstr "顯示不支援的 (&S)"
 
-#: src/exm-window.blp:111
+#: src/exm-window.blp:112
 msgid "_Upgrade Assistant"
 msgstr "更新助理 (&U)"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 msgid "_Keyboard Shortcuts"
 msgstr "鍵盤快捷鍵(_K)"
 
-#: src/exm-window.blp:113
+#: src/exm-window.blp:114
 msgid "_About Extension Manager"
 msgstr "關於擴充功能管理員 (&A)"
 
-#: src/exm-window.blp:118
+#: src/exm-window.blp:119
 msgid "Uninstall Extension?"
 msgstr "解除安裝擴充功能？"
 
-#: src/exm-window.blp:119
+#: src/exm-window.blp:120
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr "此擴充功能的功能將不再可以存取。你確定要解除安裝嗎？"
 
-#: src/exm-window.blp:124
+#: src/exm-window.blp:125
 msgid "_No"
 msgstr "否 (&N)"
 
-#: src/exm-window.blp:125
+#: src/exm-window.blp:126
 msgid "_Yes"
 msgstr "是 (&Y)"
 
-#: src/exm-window.blp:130
+#: src/exm-window.blp:131
 msgid "Unsupported Extension"
 msgstr "不支援的擴充功能"
 
-#: src/exm-window.blp:131
+#: src/exm-window.blp:132
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr "此擴充功能不支援你的 GNOME Shell 版本。如果安裝的話可能會導致錯誤。"
 
-#: src/exm-window.blp:137
+#: src/exm-window.blp:138
 msgid "_Install Anyway"
 msgstr "仍要安裝 (&I)"
 
-#: src/exm-window.blp:138
+#: src/exm-window.blp:139
 msgid "_Go Back"
 msgstr "返回 (&G)"
 
-#: src/exm-window.c:346
+#: src/exm-window.c:348
 msgid "_Details"
 msgstr "詳細資訊 (&D)"
 
@@ -580,6 +615,23 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "請檢查您的網路狀態然後再試一次"
+
+#~ msgid "Comments"
+#~ msgstr "評論"
+
+#~ msgid "Loading Comments"
+#~ msgstr "正在載入評論"
+
+#~ msgid "User Reviews"
+#~ msgstr "使用者評論"
+
+#~ msgid "No comments yet"
+#~ msgstr "暫無評論"
+
+#~ msgid ""
+#~ "This extension could be activated in session modes such as the login "
+#~ "screen or the lock screen"
+#~ msgstr "此擴充功能可以在登入畫面或鎖定畫面等工作階段模式中啟用"
 
 #, c-format
 #~ msgid "%s by %s"
@@ -601,9 +653,6 @@ msgstr "請檢查您的網路狀態然後再試一次"
 #~ msgid "e.g. “%s”"
 #~ msgstr "例如「%s」"
 
-#~ msgid "There are no comments."
-#~ msgstr "沒有評論。"
-
 #~ msgid "This extension is incompatible with your current version of GNOME."
 #~ msgstr "此擴充功能不支援你目前使用的 GNOME 版本。"
 
@@ -612,9 +661,6 @@ msgstr "請檢查您的網路狀態然後再試一次"
 
 #~ msgid "Return to view"
 #~ msgstr "返回至檢視畫面"
-
-#~ msgid "Loading…"
-#~ msgstr "載入中…"
 
 #~ msgid "@app_title@"
 #~ msgstr "@app_title@"
