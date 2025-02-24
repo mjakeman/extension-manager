@@ -1,6 +1,7 @@
-/* exm-comment-tile.c
+/*
+ * exm-comment-tile.c
  *
- * Copyright 2022-2024 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -158,6 +159,7 @@ exm_comment_tile_class_init (ExmCommentTileClass *klass)
 
     gtk_widget_class_set_css_name (widget_class, "comment-tile");
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
+    gtk_widget_class_set_accessible_role (widget_class, GTK_ACCESSIBLE_ROLE_COMMENT);
 }
 
 static void
