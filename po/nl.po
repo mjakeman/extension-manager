@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-15 12:02+0000\n"
+"PO-Revision-Date: 2025-02-25 21:05+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.10.2-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -130,16 +130,12 @@ msgid "Connection Error"
 msgstr "Verbindings­fout"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "Er zĳn geen opmerkingen."
+msgstr "Beoordelingen en opmerkingen"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Bezig met laden…"
+msgstr "Bezig met laden"
 
 #: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
@@ -182,22 +178,16 @@ msgid "View on Extensions"
 msgstr "Uitbreidings­pagina openen"
 
 #: src/exm-detail-view.blp:272
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Opmerkingen zĳn uitgeschakeld voor deze uitbreiding"
+msgstr "Beoordelingen en opmerkingen zĳn uitgeschakeld voor deze uitbreiding"
 
 #: src/exm-detail-view.blp:315
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "Er zĳn geen opmerkingen."
+msgstr "Er zĳn geen beoordelingen of opmerkingen"
 
 #: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Alle beoordelingen tonen"
+msgstr "_Alles tonen"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:446
@@ -220,10 +210,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Er is een onverwachte fout opgetreden in Uitbreidings­beheer"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Kopiëren naar klem­bord"
+msgstr "Kopiëren naar klem­bord"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -298,7 +286,7 @@ msgstr ""
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
