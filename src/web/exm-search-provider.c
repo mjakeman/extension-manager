@@ -104,11 +104,13 @@ parse_search_results (GBytes  *bytes,
     JsonParser *parser;
     gconstpointer data;
     gsize length;
+    int count;
     int num_pages;
     SearchRequestData *result;
 
     GError *error = NULL;
     *out_error = NULL;
+    count = 0;
     num_pages = 0;
 
     data = g_bytes_get_data (bytes, &length);
@@ -129,13 +131,16 @@ parse_search_results (GBytes  *bytes,
         g_assert (JSON_NODE_HOLDS_OBJECT (root));
 
         JsonObject *root_object = json_node_get_object (root);
-        g_assert (json_object_has_member (root_object, "extensions"));
-        g_assert (json_object_has_member (root_object, "numpages"));
+        g_assert (json_object_has_member (root_object, "count"));
+        g_assert (json_object_has_member (root_object, "results"));
 
-        num_pages = json_object_get_int_member (root_object, "numpages");
+        count = json_object_get_int_member (root_object, "count");
+        // Compute the total number of pages, assuming a page size of 10 items
+        // per page without using floating values
+        num_pages = (count + 9) / 10;
         g_info ("Num Pages: %d\n", num_pages);
 
-        JsonArray *array = json_object_get_array_member (root_object, "extensions");
+        JsonArray *array = json_object_get_array_member (root_object, "results");
         GList *search_results = json_array_get_elements (array);
 
         GList *l;
@@ -156,8 +161,7 @@ parse_search_results (GBytes  *bytes,
 
     if (out_error)
         *out_error = error;
-    //if (out_num_pages)
-    //    *out_num_pages = num_pages;
+
     return NULL;
 }
 
@@ -187,17 +191,17 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
                                  GAsyncReadyCallback  callback,
                                  gpointer             user_data)
 {
-    // Query https://extensions.gnome.org/extension-query/?search={%s}&sort={%s}
+    // Query https://extensions.gnome.org/api/v1/extensions/search/{%s}/?ordering={%s}
 
     const gchar *url;
     const gchar *sort;
 
     sort = get_sort_string (sort_type);
 
-    if (self->show_unsupported)
-        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s&page=%d", query, sort, page);
+    if (g_strcmp0 (query, "") == 0)
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?ordering=%s&page=%d&page_size=10&status=3", sort, page);
     else
-        url = g_strdup_printf ("https://extensions.gnome.org/extension-query/?search=%s&sort=%s&shell_version=%s&page=%d", query, sort, self->shell_version, page);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?ordering=%s&page=%d&page_size=10", query, sort, page);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
@@ -219,9 +223,8 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
     // Check whether the task has been cancelled and if so, return null
     // This prevents a race condition in the search logic
     GCancellable *cancellable = g_task_get_cancellable (G_TASK (result));
-    if (g_cancellable_is_cancelled (cancellable)) {
-      return NULL;
-    }
+    if (g_cancellable_is_cancelled (cancellable))
+        return NULL;
 
 
     ret = exm_request_handler_request_finish (EXM_REQUEST_HANDLER (self),
