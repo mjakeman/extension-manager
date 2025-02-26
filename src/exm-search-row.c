@@ -178,7 +178,7 @@ exm_search_row_constructed (GObject *object)
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
     is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
-    is_supported = exm_search_result_supports_shell_version (self->search_result, shell_version);
+    is_supported = TRUE; //exm_search_result_supports_shell_version (self->search_result, shell_version);
 
     install_state = is_installed
         ? EXM_INSTALL_BUTTON_STATE_INSTALLED

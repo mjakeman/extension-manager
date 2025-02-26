@@ -170,15 +170,23 @@ get_sort_string (ExmSearchSort sort_type)
 {
     switch (sort_type)
     {
-    case EXM_SEARCH_SORT_DOWNLOADS:
-        return "downloads";
-    case EXM_SEARCH_SORT_RECENT:
+    case EXM_SEARCH_SORT_CREATED_DES:
+        return "-created";
+    case EXM_SEARCH_SORT_CREATED_ASC:
         return "created";
-    case EXM_SEARCH_SORT_NAME:
-        return "name";
-    case EXM_SEARCH_SORT_RELEVANCE:
+    case EXM_SEARCH_SORT_DOWNLOADS_DES:
+        return "-downloads";
+    case EXM_SEARCH_SORT_DOWNLOADS_ASC:
+        return "downloads";
+    case EXM_SEARCH_SORT_UPDATED_DES:
+        return "-updated";
+    case EXM_SEARCH_SORT_UPDATED_ASC:
+        return "updated";
+    case EXM_SEARCH_SORT_POPULARITY_DES:
+        return "-popularity";
+    case EXM_SEARCH_SORT_POPULARITY_ASC:
     default:
-        return "relevance";
+        return "popularity";
     }
 }
 
