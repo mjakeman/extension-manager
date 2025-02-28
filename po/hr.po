@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-19 18:10+0000\n"
+"PO-Revision-Date: 2025-02-28 23:42+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/extension-"
-"manager/app/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"extension-manager/app/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -128,16 +128,12 @@ msgid "Connection Error"
 msgstr "Greška u vezi"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "Nema komentara."
+msgstr "Recenzije i komentari"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Učitavanje…"
+msgstr "Učitavanje"
 
 #: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
@@ -180,22 +176,16 @@ msgid "View on Extensions"
 msgstr "Pogledaj na stranici „Proširenja”"
 
 #: src/exm-detail-view.blp:272
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Komentari su isključeni za ovo proširenje"
+msgstr "Recenzije i komentari su isključeni za ovo proširenje"
 
 #: src/exm-detail-view.blp:315
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "Nema komentara."
+msgstr "Nema recenzija ili komentara"
 
 #: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Prikaži sve recenzije"
+msgstr "_Prikaži sve"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:446
@@ -218,10 +208,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Dogodila se neočekivana greška u upravljaču proširenja"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Kopiraj u međuspremnik"
+msgstr "Kopiraj u međuspremnik"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -274,7 +262,7 @@ msgstr "Inačica"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Modusi sesija"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -290,31 +278,30 @@ msgstr "Ukloni…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Dijalog za otključavanje"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Ovo će se proširenje pokrenuti kada je ekran zaključan i kada nijedan "
+"korisnik nije prijavljen"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Ovo će se proširenje pokrenuti kada je ekran zaključan"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d proširenje će se nadopuniti pri sljedećoj prijavi"
+msgstr "Ovo će se proširenje pokrenuti kada nijedan korisnik nije prijavljen"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
