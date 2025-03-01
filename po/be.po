@@ -2,22 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Troja <d.iwowi.b@gmail.com>, 2024.
+# "Troj@" <d.iwowi.b@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2024-12-15 17:01+0000\n"
-"Last-Translator: Troja <d.iwowi.b@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/extension-"
-"manager/app/be/>\n"
+"PO-Revision-Date: 2025-03-01 18:46+0000\n"
+"Last-Translator: \"Troj@\" <d.iwowi.b@gmail.com>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
+"extension-manager/app/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-rc\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -125,16 +126,12 @@ msgid "Connection Error"
 msgstr "Памылка злучэння"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "Loading Comments"
 msgid "Reviews and Comments"
-msgstr "Загрузка каментарыяў"
+msgstr "Водгукі і каментары"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading"
-msgstr "Загрузка дэталяў"
+msgstr "Загрузка"
 
 #: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
@@ -178,17 +175,15 @@ msgstr "Праглядзець гэтае пашырэнне на сайце Ext
 
 #: src/exm-detail-view.blp:272
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "Водгукі і каментарыі для гэтага пашырэння адключаны"
 
 #: src/exm-detail-view.blp:315
 msgid "There are no reviews or comments"
-msgstr ""
+msgstr "Няма водгукаў і каментароў"
 
 #: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Паказаць усе водгукі"
+msgstr "_Паказаць усе"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:446
@@ -211,10 +206,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Адбылася нечаканая памылка ў Менеджэра пашырэнняў"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Капіяваць у буфер абмену"
+msgstr "Капіяваць у буфер абмену"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -268,7 +261,7 @@ msgstr "Версія"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Рэжымы сесіі"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -284,31 +277,31 @@ msgstr "Выдаліць…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Акно разблакіроўкі"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Гэта пашырэнне будзе працаваць нават пры заблакіраваным экране і без ўваходу "
+"карыстальніка"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Гэта пашырэнне будзе працаваць, нават калі экран заблакіраваны"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d пашырэнне будзе абноўлена пры наступным уваходзе"
+msgstr ""
+"Гэта пашырэнне будзе працаваць, нават калі карыстальнік не ўвайшоў у сістэму"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -379,11 +372,8 @@ msgid "Install…"
 msgstr "Усталяваць…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Усталявана"
+msgstr "Усталяванне"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
