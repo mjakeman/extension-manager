@@ -108,9 +108,22 @@ template $ExmExtensionRow: Adw.ExpanderRow {
     visible: false;
 
     [suffix]
-    Gtk.Image info_icon {
-      focusable: true;
-      icon-name: "dialog-information-symbolic";
+    Gtk.MenuButton {
+      has-frame: false;
+      icon-name: "info-symbolic";
+      valign: center;
+
+      popover: Gtk.Popover info_popover {
+        child: Adw.Clamp {
+          maximum-size: 300;
+          tightening-threshold: 300;
+
+          child: Gtk.Label info_label {
+            selectable: bind info_popover.visible inverted;
+            wrap: true;
+          };
+        };
+      };
     }
   }
 
