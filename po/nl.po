@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-25 21:05+0000\n"
+"PO-Revision-Date: 2025-03-01 18:46+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -265,7 +265,7 @@ msgstr "Versie"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Sessie­modi"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -281,7 +281,7 @@ msgstr "Verwĳderen…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Ontgrendel­dialoog"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
@@ -293,19 +293,18 @@ msgstr "GDM"
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Deze uitbreiding wordt uitgevoerd terwĳl het scherm vergrendeld is en er "
+"geen gebruiker is ingelogd"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Deze uitbreiding wordt uitgevoerd terwĳl het scherm vergrendeld is"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "Na de volgende keer inloggen wordt er %d uitbreiding bĳgewerkt"
+msgstr "Deze uitbreiding wordt uitgevoerd terwĳl er geen gebruiker is ingelogd"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
