@@ -46,7 +46,7 @@ struct _ExmExtensionRow
     AdwActionRow *description_row;
     AdwActionRow *version_row;
     AdwActionRow *session_modes_row;
-    GtkImage *info_icon;
+    GtkLabel *info_label;
     AdwActionRow *error_row;
 
     GtkImage *update_icon;
@@ -185,18 +185,18 @@ add_session_modes (GPtrArray       *session_modes,
 
     if (has_unlock_dialog && has_gdm)
     {
-        // Translators: Icon's tooltip when an extension runs on both, login and lock screens
-        gtk_widget_set_tooltip_text (GTK_WIDGET (self->info_icon), _("This extension will run while the screen is locked and no user is logged in"));
+        // Translators: Label when an extension runs on both, login and lock screens
+        gtk_label_set_label (self->info_label, _("This extension will run while the screen is locked and no user is logged in"));
     }
     else if (has_unlock_dialog)
     {
-        // Translators: Icon's tooltip when an extension runs on the lock screen
-        gtk_widget_set_tooltip_text (GTK_WIDGET (self->info_icon), _("This extension will run while the screen is locked"));
+        // Translators: Label when an extension runs on the lock screen
+        gtk_label_set_label (self->info_label, _("This extension will run while the screen is locked"));
     }
     else if (has_gdm)
     {
-        // Translators: Icon's tooltip when an extension runs on the login screen
-        gtk_widget_set_tooltip_text (GTK_WIDGET (self->info_icon), _("This extension will run while no user is logged in"));
+        // Translators: Label when an extension runs on the login screen
+        gtk_label_set_label (self->info_label, _("This extension will run while no user is logged in"));
     }
 
     if (subtitles->len > 0)
@@ -361,7 +361,7 @@ exm_extension_row_class_init (ExmExtensionRowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, description_row);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, version_row);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, session_modes_row);
-    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, info_icon);
+    gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, info_label);
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, error_row);
 
     gtk_widget_class_bind_template_child (widget_class, ExmExtensionRow, prefs_btn);
