@@ -2,15 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Irénée THIRION <irenee.thirion@e.email>, 2022-2023.
-# Vincent Chatelain <vinchatl@users.noreply.hosted.weblate.org>, 2024.
+# Vincent Chatelain <vinchatl@users.noreply.hosted.weblate.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2024-11-30 07:52+0000\n"
-"Last-Translator: Vincent Chatelain <vinchatl@users.noreply.hosted.weblate."
-"org>\n"
+"PO-Revision-Date: 2025-03-01 18:46+0000\n"
+"Last-Translator: Vincent Chatelain "
+"<vinchatl@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/extension-manager/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -133,16 +133,12 @@ msgid "Connection Error"
 msgstr "Erreur de connexion"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "Aucun commentaire."
+msgstr "Notes et commentaires"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Chargement…"
+msgstr "Chargement"
 
 #: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
 msgid "Author"
@@ -186,19 +182,15 @@ msgstr "Voir sur Extensions"
 
 #: src/exm-detail-view.blp:272
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "Les notes et commentaires sont désactivés pour cette extension"
 
 #: src/exm-detail-view.blp:315
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "Aucun commentaire."
+msgstr "Aucune note ou commentaire"
 
 #: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Montrer tous les avis"
+msgstr "_Tout afficher"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:446
@@ -221,10 +213,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Une erreur inattendue s’est produite dans Gestionnaire d’Extensions"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Copier vers le presse-papiers"
+msgstr "Copier vers le presse-papiers"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -280,7 +270,7 @@ msgstr "Version"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Modes de session"
 
 #: src/exm-extension-row.blp:124
 msgid "Error"
@@ -296,31 +286,30 @@ msgstr "Supprimer…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Déverrouiller la fenêtre de dialogue"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "Gestionnaire de fenêtres de GNOME (GDM)"
 
 #. Translators: Icon's tooltip when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Cette extension fonctionnera lorsque l’écran est verrouillé et qu’aucun "
+"utilisateur n’est connecté"
 
 #. Translators: Icon's tooltip when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Cette extension fonctionnera lorsque l’écran est verrouillé"
 
 #. Translators: Icon's tooltip when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d extension sera mise à jour à la prochaine connexion"
+msgstr "Cette extension fonctionnera lorsqu’aucun utilisateur n’est connecté"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -391,11 +380,8 @@ msgid "Install…"
 msgstr "Installer…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Installée"
+msgstr "Installation"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
