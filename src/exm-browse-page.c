@@ -54,6 +54,7 @@ struct _ExmBrowsePage
     GtkSearchEntry      *search_entry;
     GtkListBox          *search_results;
     GtkStack            *search_stack;
+    GtkButton           *order_btn;
     GtkDropDown         *search_dropdown;
     GtkListBox          *more_results_list;
     AdwButtonRow        *more_results_btn;
@@ -317,7 +318,46 @@ on_search_changed (ExmBrowsePage *self)
 
     const char *query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
     ExmSearchSort sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
+    const char *icon_name = gtk_button_get_icon_name (self->order_btn);
+    if (g_strcmp0 (icon_name, "view-sort-ascending-symbolic") == 0)
+    {
+        switch (sort)
+        {
+        case EXM_SEARCH_SORT_CREATED_DES:
+            sort = EXM_SEARCH_SORT_CREATED_ASC;
+            break;
+        case EXM_SEARCH_SORT_DOWNLOADS_DES:
+            sort = EXM_SEARCH_SORT_DOWNLOADS_ASC;
+            break;
+        case EXM_SEARCH_SORT_UPDATED_DES:
+            sort = EXM_SEARCH_SORT_UPDATED_ASC;
+            break;
+        case EXM_SEARCH_SORT_POPULARITY_DES:
+        default:
+            sort = EXM_SEARCH_SORT_POPULARITY_ASC;
+        }
+    }
     search (self, query, sort);
+}
+
+static void
+on_order_button_clicked (GtkButton     *button,
+                         ExmBrowsePage *self)
+{
+    const char *icon_name = gtk_button_get_icon_name (button);
+
+    if (g_strcmp0 (icon_name, "view-sort-descending-symbolic") == 0)
+    {
+        gtk_button_set_icon_name (button, "view-sort-ascending-symbolic");
+        gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Ascending order"));
+    }
+    else
+    {
+        gtk_button_set_icon_name (button, "view-sort-descending-symbolic");
+        gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Descending order"));
+    }
+
+    on_search_changed (self);
 }
 
 static void
@@ -337,7 +377,7 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
     gtk_search_entry_set_placeholder_text (search_entry, suggestion);
 
     // Fire off a default search
-    search (self, "", EXM_SEARCH_SORT_RELEVANCE);
+    search (self, "", EXM_SEARCH_SORT_POPULARITY_DES);
 }
 
 static void
@@ -425,12 +465,14 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_entry);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_results);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_stack);
+    gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, order_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, search_dropdown);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_list);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, more_results_btn);
     gtk_widget_class_bind_template_child (widget_class, ExmBrowsePage, error_label);
 
     gtk_widget_class_bind_template_callback (widget_class, on_search_entry_realize);
+    gtk_widget_class_bind_template_callback (widget_class, on_order_button_clicked);
     gtk_widget_class_bind_template_callback (widget_class, on_search_changed);
     gtk_widget_class_bind_template_callback (widget_class, on_load_more_results);
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);

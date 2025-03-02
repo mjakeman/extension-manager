@@ -287,13 +287,13 @@ show_view (GtkWidget  *widget,
 
     if (g_strcmp0 (action_name, "win.show-detail") == 0)
     {
-        gchar *uuid;
+        gchar *uuid, *version;
 
-        g_variant_get (param, "s", &uuid);
+        g_variant_get (param, "(ss)", &uuid, &version);
         adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self->detail_view), uuid);
         adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (self->detail_view));
 
-        exm_detail_view_load_for_uuid (self->detail_view, uuid);
+        exm_detail_view_load_for_uuid (self->detail_view, uuid, version);
 
         return;
     }
@@ -538,7 +538,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.install", "(sb)", extension_install);
     gtk_widget_class_install_action (widget_class, "ext.remove", "s", extension_remove);
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
-    gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-detail", "(ss)", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-upgrade-assistant", NULL, show_upgrade_assistant);
     gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);

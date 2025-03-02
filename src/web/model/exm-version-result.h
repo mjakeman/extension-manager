@@ -1,5 +1,5 @@
 /*
- * exm-detail-view.h
+ * exm-version-result.h
  *
  * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -21,20 +21,14 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_DETAIL_VIEW (exm_detail_view_get_type())
+#define EXM_TYPE_VERSION_RESULT (exm_version_result_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmDetailView, exm_detail_view, EXM, DETAIL_VIEW, AdwNavigationPage)
+G_DECLARE_FINAL_TYPE (ExmVersionResult, exm_version_result, EXM, VERSION_RESULT, GObject)
 
-ExmDetailView *exm_detail_view_new           (void);
-
-void           exm_detail_view_load_for_uuid (ExmDetailView *self,
-                                              gchar         *uuid,
-                                              gchar         *version);
-
-void           exm_detail_view_update        (ExmDetailView *self);
+ExmVersionResult *exm_version_result_new (void);
 
 G_END_DECLS

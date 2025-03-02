@@ -21,25 +21,22 @@
 
 #include "exm-detail-view.h"
 
-#include "exm-screenshot.h"
-#include "exm-screenshot-view.h"
-#include "exm-info-bar.h"
-#include "exm-comment-tile.h"
 #include "exm-comment-dialog.h"
+#include "exm-comment-tile.h"
+#include "exm-config.h"
+#include "exm-enums.h"
+#include "exm-info-bar.h"
 #include "exm-install-button.h"
 #include "exm-screenshot.h"
-
+#include "exm-screenshot-view.h"
+#include "exm-types.h"
+#include "local/exm-manager.h"
+#include "web/exm-comment-provider.h"
 #include "web/exm-data-provider.h"
 #include "web/exm-image-resolver.h"
-#include "web/exm-comment-provider.h"
-#include "web/model/exm-shell-version-map.h"
+#include "web/exm-version-provider.h"
+#include "web/model/exm-shell-versions.h"
 #include "web/model/exm-comment.h"
-#include "local/exm-manager.h"
-
-#include "exm-types.h"
-#include "exm-enums.h"
-
-#include "exm-config.h"
 
 #include <glib/gi18n.h>
 
@@ -50,6 +47,7 @@ struct _ExmDetailView
     ExmManager *manager;
     ExmDataProvider *provider;
     ExmImageResolver *resolver;
+    ExmVersionProvider *version_provider;
     ExmCommentProvider *comment_provider;
     GCancellable *resolver_cancel;
 
@@ -82,7 +80,7 @@ struct _ExmDetailView
     GList *donation_rows_list;
     AdwActionRow *link_extensions;
     gchar *uri_extensions;
-    int pk;
+    guint id;
     guint comments_signal_id;
     guint install_signal_id;
 };
@@ -197,7 +195,7 @@ on_image_loaded (GObject       *source,
     g_object_unref (texture);
     g_object_unref (self);
 
-	gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), TRUE);
+    gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), TRUE);
 }
 
 static void
@@ -286,7 +284,7 @@ show_more_comments (GtkButton     *button G_GNUC_UNUSED,
     GtkRoot *toplevel;
     ExmCommentDialog *dlg;
 
-    dlg = exm_comment_dialog_new (self->pk);
+    dlg = exm_comment_dialog_new (self->id);
     toplevel = gtk_widget_get_root (GTK_WIDGET (self));
 
     adw_dialog_present (ADW_DIALOG (dlg), GTK_WIDGET (toplevel));
@@ -388,8 +386,6 @@ on_data_loaded (GObject      *source,
     GError *error = NULL;
     ExmDetailView *self;
     ExmInstallButtonState install_state;
-    GList *version_iter;
-    ExmShellVersionMap *version_map;
 
     data = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), result, &error);
     self = EXM_DETAIL_VIEW (user_data);
@@ -413,23 +409,22 @@ on_data_loaded (GObject      *source,
 
     if (EXM_IS_SEARCH_RESULT (data))
     {
-        gint pk, downloads;
+        guint id, downloads;
         gboolean is_installed, is_supported;
-        gchar *uuid, *name, *creator, *icon_uri, *screenshot_uri, *link, *description, *url;
+        gchar *uuid, *name, *creator, *description, *screenshot_uri, *icon_uri, *url, *link;
         gchar **donation_urls;
         g_object_get (data,
+                      "id", &id,
                       "uuid", &uuid,
                       "name", &name,
                       "creator", &creator,
-                      "icon", &icon_uri,
-                      "screenshot", &screenshot_uri,
-                      "link", &link,
                       "description", &description,
-                      "shell_version_map", &version_map,
-                      "pk", &pk,
-                      "url", &url,
                       "downloads", &downloads,
+                      "screenshot", &screenshot_uri,
+                      "icon", &icon_uri,
+                      "url", &url,
                       "donation_urls", &donation_urls,
+                      "link", &link,
                       NULL);
 
         adw_window_title_set_title (self->title, name);
@@ -437,7 +432,7 @@ on_data_loaded (GObject      *source,
         adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self), name);
 
         is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
-        is_supported = exm_search_result_supports_shell_version (data, self->shell_version);
+        is_supported = TRUE; //exm_search_result_supports_shell_version (data, self->shell_version);
 
         gtk_image_set_from_icon_name (self->ext_icon, "puzzle-piece-symbolic");
         gtk_widget_set_tooltip_text (GTK_WIDGET (self->ext_icon),
@@ -454,7 +449,7 @@ on_data_loaded (GObject      *source,
             g_clear_object (&self->resolver_cancel);
         }
 
-        if (strcmp (icon_uri, "/static/images/plugin.png") != 0)
+        if (icon_uri != NULL)
         {
             self->resolver_cancel = g_cancellable_new ();
 
@@ -468,8 +463,8 @@ on_data_loaded (GObject      *source,
             exm_screenshot_set_paintable (self->ext_screenshot, NULL);
             exm_screenshot_reset (self->ext_screenshot);
 
-			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
-			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
 
             queue_resolve_image (self, screenshot_uri, self->resolver_cancel, FALSE);
 
@@ -505,31 +500,7 @@ on_data_loaded (GObject      *source,
         adw_action_row_set_subtitle (self->link_homepage, self->uri_homepage);
         adw_action_row_set_subtitle (self->link_extensions, self->uri_extensions);
 
-        g_object_set (self->ext_info_bar, "version", 0.0, NULL);
-
-        for (version_iter = version_map->map;
-             version_iter != NULL;
-             version_iter = version_iter->next)
-        {
-            gchar *version;
-            MapEntry *entry;
-
-            entry = version_iter->data;
-
-            if (entry->shell_minor_version)
-                version = g_strdup_printf ("%s.%s", entry->shell_major_version, entry->shell_minor_version);
-            else
-                version = g_strdup_printf ("%s.0", entry->shell_major_version);
-
-              if (version != NULL && self->shell_version != NULL &&
-                  (strcmp (version, self->shell_version) == 0 ||
-                   strncmp(version, self->shell_version, strchr(version, '.') - version) == 0))
-                  g_object_set (self->ext_info_bar, "version", entry->extension_version, NULL);
-
-            g_free (version);
-        }
-
-        self->pk = pk;
+        self->id = id;
 
         if (self->comments_signal_id > 0)
             g_signal_handler_disconnect (self->show_more_btn, self->comments_signal_id);
@@ -539,7 +510,7 @@ on_data_loaded (GObject      *source,
                                                      G_CALLBACK (show_more_comments),
                                                      self);
 
-        queue_resolve_comments (self, pk, self->resolver_cancel);
+        queue_resolve_comments (self, id, self->resolver_cancel);
 
         // Reset focus and scroll position
         gtk_widget_grab_focus (GTK_WIDGET (self->ext_icon));
@@ -551,9 +522,45 @@ on_data_loaded (GObject      *source,
     }
 }
 
+static void
+on_version_loaded (GObject      *source,
+                   GAsyncResult *result,
+                   gpointer      user_data)
+{
+    ExmVersionResult *data;
+    GError *error = NULL;
+    ExmDetailView *self;
+
+    data = exm_version_provider_get_finish (EXM_VERSION_PROVIDER (source), result, &error);
+    self = EXM_DETAIL_VIEW (user_data);
+
+    if (error)
+    {
+        g_object_set (self->ext_info_bar, "version", _("Unsupported"), NULL);
+
+        g_clear_error (&error);
+
+        return;
+    }
+
+    if (EXM_IS_VERSION_RESULT (data))
+    {
+        gchar *version, *version_name;
+        g_object_get (data,
+                      "version", &version,
+                      "version_name", &version_name,
+                      NULL);
+
+        g_object_set (self->ext_info_bar, "version", version_name ? version_name : version, NULL);
+
+        return;
+    }
+}
+
 void
 exm_detail_view_load_for_uuid (ExmDetailView *self,
-                               gchar         *uuid)
+                               gchar         *uuid,
+                               gchar         *version)
 {
     self->uuid = uuid;
 
@@ -563,6 +570,8 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     gtk_stack_set_visible_child_name (self->stack, "page_spinner");
 
     exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
+    // FIXME: Freezes the whole app
+    // exm_version_provider_get_async (self->version_provider, uuid, version, NULL, on_version_loaded, self);
 }
 
 void
@@ -739,6 +748,7 @@ exm_detail_view_init (ExmDetailView *self)
 
     self->provider = exm_data_provider_new ();
     self->resolver = exm_image_resolver_new ();
+    self->version_provider = exm_version_provider_new ();
     self->comment_provider = exm_comment_provider_new ();
 
     adj = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (self->scroll_area));
