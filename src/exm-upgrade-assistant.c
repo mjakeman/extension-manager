@@ -253,7 +253,7 @@ get_support_status (ExmUpgradeResult *result,
 
     web_data = exm_upgrade_result_get_web_data (result);
 
-    if (web_data && exm_search_result_supports_shell_version (web_data, target_version))
+    if (web_data && TRUE) //exm_search_result_supports_shell_version (web_data, target_version))
         supported = STATUS_SUPPORTED;
     else if (web_data)
         supported = STATUS_UNSUPPORTED;

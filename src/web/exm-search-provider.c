@@ -28,20 +28,9 @@
 struct _ExmSearchProvider
 {
     ExmRequestHandler parent_instance;
-    const gchar *shell_version;
-    gboolean show_unsupported;
 };
 
 G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM_TYPE_REQUEST_HANDLER)
-
-enum {
-    PROP_0,
-    PROP_SHOW_UNSUPPORTED,
-    PROP_SHELL_VERSION,
-    N_PROPS
-};
-
-static GParamSpec *properties [N_PROPS];
 
 typedef struct
 {
@@ -55,54 +44,12 @@ exm_search_provider_new (void)
     return g_object_new (EXM_TYPE_SEARCH_PROVIDER, NULL);
 }
 
-static void
-exm_search_provider_get_property (GObject    *object,
-                                  guint       prop_id,
-                                  GValue     *value,
-                                  GParamSpec *pspec)
-{
-    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
-
-    switch (prop_id)
-    {
-    case PROP_SHOW_UNSUPPORTED:
-        g_value_set_boolean (value, self->show_unsupported);
-        break;
-    case PROP_SHELL_VERSION:
-        g_value_set_string (value, self->shell_version);
-        break;
-    default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
-static void
-exm_search_provider_set_property (GObject      *object,
-                                  guint         prop_id,
-                                  const GValue *value,
-                                  GParamSpec   *pspec)
-{
-    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
-
-    switch (prop_id)
-    {
-    case PROP_SHOW_UNSUPPORTED:
-        self->show_unsupported = g_value_get_boolean (value);
-        break;
-    case PROP_SHELL_VERSION:
-        self->shell_version = g_value_get_string (value);
-        break;
-    default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
 static SearchRequestData *
 parse_search_results (GBytes  *bytes,
                       GError **out_error)
 {
     JsonParser *parser;
-    gconstpointer data;
+    const gchar *data;
     gsize length;
     int count;
     int num_pages;
@@ -116,7 +63,7 @@ parse_search_results (GBytes  *bytes,
     data = g_bytes_get_data (bytes, &length);
 
     g_debug ("Received JSON search results:\n");
-    g_debug ("%s\n", (gchar *)data);
+    g_debug ("%s\n", data);
 
     parser = json_parser_new ();
     if (json_parser_load_from_data (parser, data, length, &error))
@@ -170,15 +117,23 @@ get_sort_string (ExmSearchSort sort_type)
 {
     switch (sort_type)
     {
-    case EXM_SEARCH_SORT_DOWNLOADS:
-        return "downloads";
-    case EXM_SEARCH_SORT_RECENT:
+    case EXM_SEARCH_SORT_CREATED_DES:
+        return "-created";
+    case EXM_SEARCH_SORT_CREATED_ASC:
         return "created";
-    case EXM_SEARCH_SORT_NAME:
-        return "name";
-    case EXM_SEARCH_SORT_RELEVANCE:
+    case EXM_SEARCH_SORT_DOWNLOADS_DES:
+        return "-downloads";
+    case EXM_SEARCH_SORT_DOWNLOADS_ASC:
+        return "downloads";
+    case EXM_SEARCH_SORT_UPDATED_DES:
+        return "-updated";
+    case EXM_SEARCH_SORT_UPDATED_ASC:
+        return "updated";
+    case EXM_SEARCH_SORT_POPULARITY_DES:
+        return "-popularity";
+    case EXM_SEARCH_SORT_POPULARITY_ASC:
     default:
-        return "relevance";
+        return "popularity";
     }
 }
 
@@ -191,7 +146,8 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
                                  GAsyncReadyCallback  callback,
                                  gpointer             user_data)
 {
-    // Query https://extensions.gnome.org/api/v1/extensions/search/{%s}/?ordering={%s}
+    // Query https://extensions.gnome.org/api/v1/extensions/?ordering={%s}&page={%d}&status=3
+    // Query https://extensions.gnome.org/api/v1/extensions/search/{%s}/?ordering={%s}&page={%d}
 
     const gchar *url;
     const gchar *sort;
@@ -249,34 +205,12 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
 static void
 exm_search_provider_class_init (ExmSearchProviderClass *klass)
 {
-    GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-    object_class->get_property = exm_search_provider_get_property;
-    object_class->set_property = exm_search_provider_set_property;
-
     ExmRequestHandlerClass *request_handler_class = EXM_REQUEST_HANDLER_CLASS (klass);
 
     request_handler_class->handle_response = (ResponseHandler) parse_search_results;
-
-    properties [PROP_SHOW_UNSUPPORTED]
-        = g_param_spec_boolean ("show-unsupported",
-                                "Show Unsupported",
-                                "Show Unsupported",
-                                FALSE, G_PARAM_READWRITE);
-
-    properties [PROP_SHELL_VERSION]
-        = g_param_spec_string ("shell-version",
-                               "Shell Version",
-                               "Shell Version",
-                               NULL,
-                               G_PARAM_READWRITE);
-
-    g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
 static void
-exm_search_provider_init (ExmSearchProvider *self)
+exm_search_provider_init (ExmSearchProvider *self G_GNUC_UNUSED)
 {
-    // TODO: Get current GNOME Shell Version
-    self->shell_version = "42";
 }
