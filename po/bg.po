@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-23 08:19+0000\n"
+"POT-Creation-Date: 2025-03-06 16:36+0000\n"
 "PO-Revision-Date: 2025-03-02 13:35+0000\n"
 "Last-Translator: trunars <trunars@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/"
-"extension-manager/app/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/extension-"
+"manager/app/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,12 +66,12 @@ msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr ""
 "Провери съвместимостта на разширенията си със следващата версия на GNOME"
 
-#: src/exm-application.c:196
+#: src/exm-application.c:201
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Разглеждане, инсталиране и управление на разширенията на GNOME Shell."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:199
+#: src/exm-application.c:204
 msgid "translator-credits"
 msgstr "trunars"
 
@@ -99,7 +99,7 @@ msgstr "Изтегляния"
 msgid "Recent"
 msgstr "Скорошни"
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:114
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:113
 msgid "Name"
 msgstr "Име"
 
@@ -111,7 +111,7 @@ msgstr "Сортирай резултатите от търсенето"
 msgid "_Load More Results"
 msgstr "_Зареди още резултати"
 
-#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:126
+#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:123
 msgid "No Results Found"
 msgstr "Няма намерени резултати"
 
@@ -120,12 +120,12 @@ msgid "Try a different search"
 msgstr "Опитайте различно търсене"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Грешка при свързване"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
 msgid "Reviews and Comments"
 msgstr "Отзиви и коментари"
 
@@ -133,66 +133,66 @@ msgstr "Отзиви и коментари"
 msgid "Loading"
 msgstr "Зареждане"
 
-#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
 msgstr "Автор"
 
-#: src/exm-detail-view.blp:41
+#: src/exm-detail-view.blp:40
 msgid "Loading Details"
 msgstr "Зареждане на подробности"
 
-#: src/exm-detail-view.blp:60 src/exm-window.c:347
+#: src/exm-detail-view.blp:59 src/exm-window.c:347
 msgid "An Error Occurred"
 msgstr "Възникна грешка"
 
-#: src/exm-detail-view.blp:61
+#: src/exm-detail-view.blp:60
 msgid "No extension details available"
 msgstr "Няма налични подробности за разширението"
 
-#: src/exm-detail-view.blp:155
+#: src/exm-detail-view.blp:154
 msgid "Enlarge Image"
 msgstr "Увеличи изображението"
 
-#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:172 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Описание"
 
-#: src/exm-detail-view.blp:196
+#: src/exm-detail-view.blp:195
 msgid "Links"
 msgstr "Връзки"
 
-#: src/exm-detail-view.blp:204
+#: src/exm-detail-view.blp:203
 msgid "Homepage"
 msgstr "Домашна страница"
 
-#: src/exm-detail-view.blp:220
+#: src/exm-detail-view.blp:219
 msgid "Donate"
 msgstr "Дарение"
 
-#: src/exm-detail-view.blp:229
+#: src/exm-detail-view.blp:228
 msgid "View on Extensions"
 msgstr "Преглед на разширения"
 
-#: src/exm-detail-view.blp:272
+#: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Отзивите и коментарите са деактивирани за това разширение"
 
-#: src/exm-detail-view.blp:315
+#: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
 msgstr "Няма отзиви или коментари"
 
-#: src/exm-detail-view.blp:346
+#: src/exm-detail-view.blp:343
 msgid "_Show All"
 msgstr "_Покажи всички"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:446
+#: src/exm-detail-view.c:445
 #, c-format
 msgid "%s Icon"
 msgstr "%s Икона"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:479
+#: src/exm-detail-view.c:478
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s Екранна снимка"
@@ -262,15 +262,15 @@ msgstr "Версия"
 msgid "Session Modes"
 msgstr "Режими на сесия"
 
-#: src/exm-extension-row.blp:124
+#: src/exm-extension-row.blp:137
 msgid "Error"
 msgstr "Грешка"
 
-#: src/exm-extension-row.blp:145
+#: src/exm-extension-row.blp:158
 msgid "See Details"
 msgstr "Виж подробности"
 
-#: src/exm-extension-row.blp:156
+#: src/exm-extension-row.blp:169
 msgid "Remove…"
 msgstr "Премахване…"
 
@@ -283,7 +283,7 @@ msgstr "Отключване на диалог"
 msgid "GDM"
 msgstr "GDM"
 
-#. Translators: Icon's tooltip when an extension runs on both, login and lock screens
+#. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
@@ -291,12 +291,12 @@ msgstr ""
 "Това разширение ще се изпълнява, когато екранът е заключен и никой "
 "потребител не е влязъл в системата"
 
-#. Translators: Icon's tooltip when an extension runs on the lock screen
+#. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
 msgstr "Това разширение ще се изпълнява, докато екранът е заключен"
 
-#. Translators: Icon's tooltip when an extension runs on the login screen
+#. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
 msgid "This extension will run while no user is logged in"
 msgstr ""
@@ -384,49 +384,49 @@ msgstr "Инсталирано"
 msgid "Unsupported…"
 msgstr "Не се поддържа…"
 
-#: src/exm-installed-page.blp:18
+#: src/exm-installed-page.blp:16
 msgid "_Log Out…"
 msgstr "_Изход…"
 
-#: src/exm-installed-page.blp:30
+#: src/exm-installed-page.blp:28
 msgid "Use Extensions"
 msgstr "Използвай разширения"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:29
 msgid "Extensions can cause performance and stability issues"
 msgstr ""
 "Разширенията могат да причинят проблеми с производителността и стабилността"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Разширения, инсталирани от потребителя"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Няма инсталирани потребителски разширения"
 
-#: src/exm-installed-page.blp:57
+#: src/exm-installed-page.blp:55
 msgid "Browse"
 msgstr "Разгледай"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Системни разширения"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Няма инсталирани системни разширения"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:114
+#: src/exm-installed-page.blp:111
 msgid "Search Results"
 msgstr "Резултати от търсенето"
 
-#: src/exm-installed-page.blp:127
+#: src/exm-installed-page.blp:124
 msgid "Try a different search or search online"
 msgstr "Опитайте различно търсене или потърсете онлайн"
 
-#: src/exm-installed-page.blp:134
+#: src/exm-installed-page.blp:131
 msgid "_Search Online"
 msgstr "_Онлайн търсене"
 
@@ -528,43 +528,43 @@ msgstr "Главно меню"
 msgid "Search for installed extensions"
 msgstr "Търсене за инсталирани разширения"
 
-#: src/exm-window.blp:70
+#: src/exm-window.blp:71
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Инсталирани"
 
-#: src/exm-window.blp:79
+#: src/exm-window.blp:80
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Разгледай"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:107
+#: src/exm-window.blp:108
 msgid "Sort _Enabled First"
 msgstr "Сортирай _Първо активирани"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:109
 msgid "_Show Unsupported"
 msgstr "_Покажи неподдържани"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 msgid "_Upgrade Assistant"
 msgstr "_Помощник за надграждане"
 
-#: src/exm-window.blp:113
+#: src/exm-window.blp:114
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавишни комбинации"
 
-#: src/exm-window.blp:114
+#: src/exm-window.blp:115
 msgid "_About Extension Manager"
 msgstr "_Относно мениджъра на разширения"
 
-#: src/exm-window.blp:119
+#: src/exm-window.blp:120
 msgid "Uninstall Extension?"
 msgstr "Деинсталирай разширение?"
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -572,19 +572,19 @@ msgstr ""
 "Характеристиките и функционалността на разширението вече няма да бъдат "
 "достъпни. Сигурни ли сте, че искате да деинсталирате?"
 
-#: src/exm-window.blp:125
+#: src/exm-window.blp:126
 msgid "_No"
 msgstr "_Не"
 
-#: src/exm-window.blp:126
+#: src/exm-window.blp:127
 msgid "_Yes"
 msgstr "_Да"
 
-#: src/exm-window.blp:131
+#: src/exm-window.blp:132
 msgid "Unsupported Extension"
 msgstr "Неподдържано разширение"
 
-#: src/exm-window.blp:132
+#: src/exm-window.blp:133
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -592,11 +592,11 @@ msgstr ""
 "Това разширение не поддържа вашата версия на GNOME Shell. Може да причини "
 "грешки, ако е инсталирано."
 
-#: src/exm-window.blp:138
+#: src/exm-window.blp:139
 msgid "_Install Anyway"
 msgstr "_Инсталирай въпреки това"
 
-#: src/exm-window.blp:139
+#: src/exm-window.blp:140
 msgid "_Go Back"
 msgstr "_Върни се назад"
 
