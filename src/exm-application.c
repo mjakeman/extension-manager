@@ -117,10 +117,11 @@ exm_application_open (GApplication  *app,
                       const gchar   *hint G_GNUC_UNUSED)
 {
     ExmWindow *window;
-    const char *scheme;
-    const char *uuid;
     GUri *uri;
     GError *error = NULL;
+    const char *scheme;
+    AdwDialog *dialog;
+    const char *uuid;
 
     // Activate the application first
     exm_application_activate (app);
@@ -144,6 +145,10 @@ exm_application_open (GApplication  *app,
         g_critical ("Invalid URI scheme: '%s'\n", scheme);
         return;
     }
+
+    dialog = adw_application_window_get_visible_dialog (ADW_APPLICATION_WINDOW (window));
+    if (dialog)
+        adw_dialog_close (dialog);
 
     uuid = g_uri_get_host (uri);
     g_info ("Opening extension with UUID: '%s'\n", uuid);
