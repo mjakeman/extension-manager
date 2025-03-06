@@ -57,6 +57,18 @@
     <color type="primary" scheme_preference="dark">#005edf</color>
   </branding>
   <releases>
+    <release version="0.6.2" date="2025-03-19">
+      <description translate="no">
+        <ul>
+          <li>Improve adaptability</li>
+          <li>Refresh design of various elements</li>
+          <li>Extension row now shows session modes if any</li>
+          <li>Latest platform updates</li>
+          <li>Fix various bugs and crashes</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.6.1" date="2025-01-10">
       <description translate="no">
         <ul>
