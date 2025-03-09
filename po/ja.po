@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-02-15 12:02+0000\n"
+"PO-Revision-Date: 2025-03-09 14:42+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
-"manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"extension-manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -127,16 +127,12 @@ msgid "Connection Error"
 msgstr "接続エラー"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "コメントはありません。"
+msgstr "レビューとコメント"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "読み込み中…"
+msgstr "読み込み中"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -179,22 +175,16 @@ msgid "View on Extensions"
 msgstr "この拡張機能を extensions.gnome.org で表示"
 
 #: src/exm-detail-view.blp:271
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
 msgid "Reviews and comments are disabled for this extension"
-msgstr "この拡張機能へのコメントは無効になっています"
+msgstr "この拡張機能へのレビューとコメントは無効になっています"
 
 #: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "コメントはありません。"
+msgstr "レビューとコメントなし"
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "すべてのレビューを表示(_S)"
+msgstr "すべて表示(_S)"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:445
@@ -217,10 +207,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Extension Manager で予期しないエラーが発生しました"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "クリップボードにコピー(_C)"
+msgstr "クリップボードにコピー"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -273,7 +261,7 @@ msgstr "バージョン"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "セッションモード"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -289,31 +277,28 @@ msgstr "削除…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "ロック解除ダイアログ"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
-msgstr ""
+msgstr "この拡張機能は画面ロック中やログインユーザーがいない状態でも実行されます"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "この拡張機能は画面ロック中でも実行されます"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d個の拡張機能が次回ログイン時にアップデートされます"
+msgstr "この拡張機能はログインユーザーがいない状態でも実行されます"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
