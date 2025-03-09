@@ -2,13 +2,13 @@
 # Copyright (C) 2022 extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Luke Luo <njlyf2011@hotmail.com>, 2022.
-# unsigned char <ZhangYaoan2008@outlook.com>, 2024.
+# unsigned char <ZhangYaoan2008@outlook.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2024-12-22 09:09+0000\n"
+"PO-Revision-Date: 2025-03-09 03:46+0000\n"
 "Last-Translator: unsigned char <ZhangYaoan2008@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -123,16 +123,12 @@ msgid "Connection Error"
 msgstr "网络连接错误"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "没有评论。"
+msgstr "评论"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "正在加载…"
+msgstr "正在加载"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -176,19 +172,15 @@ msgstr "在 Extensions 网站中查看"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "该扩展的评论已被禁用"
 
 #: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "没有评论。"
+msgstr "没有评论"
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "显示所有评论 (_S)"
+msgstr "显示所有 (_S)"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:445
@@ -211,10 +203,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "扩展管理器发生了意外错误"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "复制到剪贴板 (_C)"
+msgstr "复制到剪贴板"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -266,7 +256,7 @@ msgstr "版本"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "会话模式"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -282,31 +272,28 @@ msgstr "移除…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "解锁对话框"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
-msgstr ""
+msgstr "此扩展将会在锁屏时和无用户登录时运行"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "此扩展将在锁屏时运行"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d 个扩展将在下次登录时更新。"
+msgstr "此扩展将在无用户登录时运行"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -377,11 +364,8 @@ msgid "Install…"
 msgstr "安装…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "已安装"
+msgstr "安装中"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
