@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # Luke Luo <njlyf2011@hotmail.com>, 2022.
 # unsigned char <ZhangYaoan2008@outlook.com>, 2024, 2025.
+# taijuin Lee <taijuin@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-09 03:46+0000\n"
-"Last-Translator: unsigned char <ZhangYaoan2008@outlook.com>\n"
+"PO-Revision-Date: 2025-03-11 15:48+0000\n"
+"Last-Translator: taijuin Lee <taijuin@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -426,7 +427,7 @@ msgstr "在线搜索 (_S)"
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "%d 个扩展将在下次登录时更新。"
+msgstr[0] "%d 个扩展将在下次登录时更新"
 
 #: src/exm-rating.c:142
 #, c-format
