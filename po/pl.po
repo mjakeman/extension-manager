@@ -4,13 +4,13 @@
 # Rafał Baran <>, 2022.
 # Oskar Kąklewski <oskarkaklewski@gmail.com>, 2024.
 # adiee5 <adikrab@gmail.com>, 2024.
-# Eryk Michalak <gnu.ewm@protonmail.com>, 2024.
+# Eryk Michalak <gnu.ewm@protonmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2024-11-30 22:34+0000\n"
+"PO-Revision-Date: 2025-03-12 14:43+0000\n"
 "Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -131,16 +131,12 @@ msgid "Connection Error"
 msgstr "Błąd połączenia"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "Loading Comments"
 msgid "Reviews and Comments"
-msgstr "Ładowanie komentarzy"
+msgstr "Recenzje i komentarze"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Ładowanie…"
+msgstr "Ładowanie"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -184,17 +180,15 @@ msgstr "Zobacz na stronie"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "Recenzje i komentarze są wyłączone dla tego rozszerzenia"
 
 #: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
-msgstr ""
+msgstr "Nie ma żadnych recenzji ani komentarzy"
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Pokaż wszystkie recenzje"
+msgstr "_Pokaż wszystkie"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:445
@@ -217,10 +211,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Pojawił się nieoczekiwany błąd w Menedżerze Rozszerzeń"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Skopiuj do schowka"
+msgstr "Skopiuj do schowka"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -273,7 +265,7 @@ msgstr "Wersja"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Tryby sesji"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -294,26 +286,26 @@ msgstr ""
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"To rozszerzenie działa również kiedy ekran jest zablokowany i żaden "
+"użytkownik nie jest zalogowany"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "To rozszerzenie działa również kiedy ekran jest zablokowany"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d rozszerzenie zostanie zaktualizowane przy następnym logowaniu"
+msgstr ""
+"To rozszerzenie działa również kiedy żaden użytkownik nie jest zalogowany"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -384,11 +376,8 @@ msgid "Install…"
 msgstr "Zainstaluj…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Zainstalowane"
+msgstr "Instalowanie"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
