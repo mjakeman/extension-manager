@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-11 15:48+0000\n"
+"PO-Revision-Date: 2025-03-12 07:04+0000\n"
 "Last-Translator: taijuin Lee <taijuin@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hant/>\n"
@@ -44,7 +44,7 @@ msgstr "瀏覽、安裝和管理 GNOME Shell 擴充功能"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "用於瀏覽和安裝 GNOME Shell 擴充功能的實用程式。"
+msgstr "用於瀏覽和安裝 GNOME Shell 擴充功能的工具程式。"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -66,7 +66,7 @@ msgstr "查看所有擴充功能的詳細資訊"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "檢查您的擴充功能是否與下一版本的 GNOME 相容"
+msgstr "檢查您的擴充功能與下一版本 GNOME 的相容性"
 
 #: src/exm-application.c:201
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -77,7 +77,8 @@ msgstr "瀏覽、安裝和管理 GNOME Shell 擴充功能。"
 msgid "translator-credits"
 msgstr ""
 "Sean Wang <sn1128231220jd@yahoo.com>\n"
-"Oliver Tzeng(曾嘉禾) <olivertzengolivertzeng@gmail.com>"
+"Oliver Tzeng(曾嘉禾) <olivertzengolivertzeng@gmail.com>\n"
+"taijuin <taijuin@gmail.com>"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
@@ -165,7 +166,7 @@ msgstr "連結"
 
 #: src/exm-detail-view.blp:203
 msgid "Homepage"
-msgstr "主頁"
+msgstr "首頁"
 
 #: src/exm-detail-view.blp:219
 msgid "Donate"
@@ -173,7 +174,7 @@ msgstr "贊助"
 
 #: src/exm-detail-view.blp:228
 msgid "View on Extensions"
-msgstr "在 Extensions 上查看"
+msgstr "在 Extensions 網站上查看"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
@@ -232,8 +233,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"你正在使用第三方版本的擴充功能管理員。在提交問題之前，請先<span "
-"weight=\"bold\">聯絡軟體包分發者（%s）</span>。請務必附上以下資訊："
+"您正在使用第三方版本的擴充功能管理員。在提交問題之前，請先<span weight="
+"\"bold\">聯絡軟體包分發者（%s）</span>。請務必附上以下資訊："
 
 #. Translators: Button's tooltip to open extension's preferences dialog
 #: src/exm-extension-row.blp:28
@@ -248,7 +249,7 @@ msgstr "載入此擴充功能時發生錯誤"
 #. Translators: Icon's tooltip when an extension is incompatible
 #: src/exm-extension-row.blp:63 src/exm-install-button.c:117
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr "此擴充功能不支援你目前使用的 GNOME 版本"
+msgstr "此擴充功能與您目前的 GNOME 版本不相容"
 
 #. Translators: Icon's tooltip when an extension update is available
 #: src/exm-extension-row.blp:80
@@ -338,7 +339,7 @@ msgstr "結束"
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr "螢幕截圖檢視"
+msgstr "螢幕快照檢視"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
 msgctxt "shortcut window"
@@ -420,11 +421,11 @@ msgstr "搜尋結果"
 
 #: src/exm-installed-page.blp:124
 msgid "Try a different search or search online"
-msgstr "試試不同的搜尋或是在線上搜尋看看"
+msgstr "嘗試不同的搜尋或線上搜尋"
 
 #: src/exm-installed-page.blp:131
 msgid "_Search Online"
-msgstr "線上搜尋"
+msgstr "線上搜尋(_S)"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:298
@@ -501,9 +502,8 @@ msgstr "此擴充功能並非來自 extensions.gnome.org。無法確認相容性
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
-msgstr ""
-"你正在執行 <b>GNOME %s</b>。於下方選擇一個 GNOME 版本即可檢測你的擴充功能是否"
-"會在該版本中繼續運作。"
+msgstr "您正在執行 <b>GNOME %s</b>。請在下方選擇一個 GNOME "
+"版本，並檢查您的擴充功能是否可以繼續使用。"
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
@@ -558,7 +558,7 @@ msgstr "解除安裝擴充功能？"
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
-msgstr "此擴充功能的功能將不再可以存取。你確定要解除安裝嗎？"
+msgstr "此擴充功能的特性和功能將不再可用。您確定要解除安裝嗎？"
 
 #: src/exm-window.blp:126
 msgid "_No"
@@ -576,7 +576,7 @@ msgstr "不支援的擴充功能"
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
-msgstr "此擴充功能不支援你的 GNOME Shell 版本。如果安裝的話可能會導致錯誤。"
+msgstr "此擴充功能不支援您的 GNOME Shell 版本。如果安裝的話可能會導致錯誤。"
 
 #: src/exm-window.blp:139
 msgid "_Install Anyway"
