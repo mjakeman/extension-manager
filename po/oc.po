@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-12 12:01+0000\n"
+"PO-Revision-Date: 2025-03-13 05:26+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/"
 "extension-manager/app/oc/>\n"
@@ -179,7 +179,7 @@ msgstr "Los avises e comentaris son desactivats per aquesta extension"
 
 #: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
-msgstr "Cap de nòta nimai comentari."
+msgstr "Cap de nòta nimai comentari"
 
 #: src/exm-detail-view.blp:343
 msgid "_Show All"
@@ -291,19 +291,18 @@ msgstr "GDM"
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Aquesta extension foncionarà quand l’ecran es verrolhat e que cap d’"
+"utilizaire es pas connectat"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Aquesta extension foncionarà quand l’ecran es verrolhat"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d extension serà mesa a jorn a la connexion venenta"
+msgstr "Aquesta extension foncionarà quand cap d’utilizaire es pas connectat"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
