@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-02-16 12:17+0000\n"
+"PO-Revision-Date: 2025-03-12 12:01+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
-"manager/app/oc/>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/"
+"extension-manager/app/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -126,16 +126,12 @@ msgid "Connection Error"
 msgstr "Error de connexion"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "Cap de comentari."
+msgstr "Avises e comentaris"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Cargament…"
+msgstr "Cargament"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -178,22 +174,16 @@ msgid "View on Extensions"
 msgstr "Veire sus Extensions"
 
 #: src/exm-detail-view.blp:271
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Los comentaris son desactivats per aquesta extension"
+msgstr "Los avises e comentaris son desactivats per aquesta extension"
 
 #: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "Cap de comentari."
+msgstr "Cap de nòta nimai comentari."
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Afichar totes los avises"
+msgstr "_Tot afichar"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:445
@@ -216,10 +206,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Una error inesperada se's producha dins lo Gestionari d’extensions"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Copiar al quichapapièrs"
+msgstr "Copiar al quichapapièrs"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -275,7 +263,7 @@ msgstr "Version"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Mòdes de session"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -291,12 +279,12 @@ msgstr "Suprimir…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Desverrolhar la fenèstra de dialòg"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
