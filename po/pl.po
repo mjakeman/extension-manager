@@ -5,13 +5,14 @@
 # Oskar Kąklewski <oskarkaklewski@gmail.com>, 2024.
 # adiee5 <adikrab@gmail.com>, 2024.
 # Eryk Michalak <gnu.ewm@protonmail.com>, 2024, 2025.
+# Adam Lewicki <a.lewicki95@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-12 14:43+0000\n"
-"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
+"PO-Revision-Date: 2025-03-13 11:00+0000\n"
+"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.10.3\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -281,7 +282,7 @@ msgstr "Usuń…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Odblokuj wyskakujące okno"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
