@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-16 13:10+0000\n"
+"PO-Revision-Date: 2025-03-16 15:58+0000\n"
 "Last-Translator: Henri Aunin <contact@hen.ee>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/"
 "extension-manager/app/et/>\n"
@@ -84,7 +84,7 @@ msgstr "Otsi laiendusi"
 #: src/exm-browse-page.blp:17
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
-msgstr "Sisesta märksõna, et extensions.gnome.org-ist laiendusi otsida"
+msgstr "Sisesta märksõna, et \"extensions.gnome.org-ist\" laiendusi otsida."
 
 #: src/exm-browse-page.blp:47
 msgid "Relevance"
