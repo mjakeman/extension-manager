@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-16 15:58+0000\n"
-"Last-Translator: Henri Aunin <contact@hen.ee>\n"
+"PO-Revision-Date: 2025-03-17 14:50+0000\n"
+"Last-Translator: Indrek Haav <IndrekHaav@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/"
 "extension-manager/app/et/>\n"
 "Language: et\n"
@@ -84,11 +84,11 @@ msgstr "Otsi laiendusi"
 #: src/exm-browse-page.blp:17
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
-msgstr "Sisesta märksõna, et \"extensions.gnome.org-ist\" laiendusi otsida."
+msgstr "Sisesta märksõna, et \"extensions.gnome.org\" lehelt laiendusi otsida"
 
 #: src/exm-browse-page.blp:47
 msgid "Relevance"
-msgstr "Asjakohane"
+msgstr "Asjakohasus"
 
 #: src/exm-browse-page.blp:48
 msgctxt "Sort search results"
@@ -97,11 +97,11 @@ msgstr "Allalaadimiste arv"
 
 #: src/exm-browse-page.blp:49
 msgid "Recent"
-msgstr "Hiljuti väljatulnud"
+msgstr "Hiljutised"
 
 #: src/exm-browse-page.blp:50 src/exm-detail-view.blp:113
 msgid "Name"
-msgstr "Tähestiku järjekorras"
+msgstr "Nimi"
 
 #: src/exm-browse-page.blp:57
 msgid "Sort search results"
@@ -276,7 +276,7 @@ msgstr "Eemalda…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr "Lukusta avaaken lahti"
+msgstr "Lukustusdialoog"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
@@ -480,7 +480,7 @@ msgstr "%d%% ühilduv"
 msgid ""
 "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 "installed on the system"
-msgstr "<b>GNOME %s</b> toetab <b>%d/%d</b> hetkel paigaldatud laiendusest."
+msgstr "<b>GNOME %s</b> toetab <b>%d %d-st</b> hetkel paigaldatud laiendusest"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:503
