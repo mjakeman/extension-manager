@@ -1,22 +1,22 @@
 # Hungarian translation for extension-manager package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# ViBE <vibe@protonmail.com>, 2023-2024.
+# ViBE <vibe@protonmail.com>, 2023-2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2024-12-08 10:00+0000\n"
+"PO-Revision-Date: 2025-03-18 16:27+0000\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/extension-"
-"manager/app/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
+"extension-manager/app/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -124,14 +124,10 @@ msgid "Connection Error"
 msgstr "Kapcsolódási hiba"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "Nincsenek értékelések."
+msgstr "Felhasználói értékelések"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
 msgstr "Betöltés…"
 
@@ -177,17 +173,13 @@ msgstr "Megtekintés böngészőben"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "Ez a kiterjesztés nem fogad visszajelzéseket"
 
 #: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "Nincsenek értékelések."
+msgstr "Nincsenek értékelések"
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
 msgstr "_Minden visszajelzés megtekintése"
 
@@ -212,10 +204,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Nem várt kivétel történt a Kiterjesztéskezelőben"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Másolás vágólapra"
+msgstr "Másolás vágólapra"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -297,19 +287,18 @@ msgstr ""
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Ez a kiterjesztés a zárolási képernyő működését befolyásolja akkor is, ha "
+"nincs bejelentkezve felhasználó"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Ez a kiterjesztés a zárolási képernyő működését befolyásolja"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d kiterjesztés frissítése ütemezve van a következő bejelentkezéskor"
+msgstr "Ez a kiterjesztés akkor is működik, ha nincs bejelentkezve felhasználó"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -380,11 +369,8 @@ msgid "Install…"
 msgstr "Telepítés…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Telepített"
+msgstr "Telepítés"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
