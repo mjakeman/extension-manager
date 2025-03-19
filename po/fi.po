@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2024.
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2024, 2025.
 # Ricky Tigg <ricky.tigg@gmail.com>, 2024, 2025.
 # Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-01 11:31+0000\n"
-"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/extension-"
-"manager/app/fi/>\n"
+"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"PO-Revision-Date: 2025-03-13 05:26+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"extension-manager/app/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -66,12 +66,12 @@ msgstr "Näe kaikki laajennusten yksityiskohdat"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "Tarkista laajennustesi yhteensopivuus seuraavan Gnome-version kanssa"
 
-#: src/exm-application.c:196
+#: src/exm-application.c:201
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Selaa, asenna ja hallitse Gnome Shell -laajennuksia."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:199
+#: src/exm-application.c:204
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
@@ -99,7 +99,7 @@ msgstr "Lataukset"
 msgid "Recent"
 msgstr "Viimeisimmät"
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:114
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:113
 msgid "Name"
 msgstr "Nimi"
 
@@ -111,7 +111,7 @@ msgstr "Järjestä hakutulokset"
 msgid "_Load More Results"
 msgstr "_Lataa lisää tuloksia"
 
-#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:126
+#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:123
 msgid "No Results Found"
 msgstr "Tuloksia ei löytynyt"
 
@@ -120,85 +120,79 @@ msgid "Try a different search"
 msgstr "Kokeile eri hakuehtoja"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Yhteysvirhe"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "Loading Comments"
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
 msgid "Reviews and Comments"
-msgstr "Ladataan kommentteja"
+msgstr "Arviot ja kommentit"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading"
-msgstr "Ladataan tietoja"
+msgstr "Ladataan"
 
-#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
 msgstr "Tekijä"
 
-#: src/exm-detail-view.blp:41
+#: src/exm-detail-view.blp:40
 msgid "Loading Details"
 msgstr "Ladataan tietoja"
 
-#: src/exm-detail-view.blp:60 src/exm-window.c:347
+#: src/exm-detail-view.blp:59 src/exm-window.c:347
 msgid "An Error Occurred"
 msgstr "Tapahtui virhe"
 
-#: src/exm-detail-view.blp:61
+#: src/exm-detail-view.blp:60
 msgid "No extension details available"
 msgstr "Laajennuksen tietoja ei ole saatavilla"
 
-#: src/exm-detail-view.blp:155
+#: src/exm-detail-view.blp:154
 msgid "Enlarge Image"
 msgstr "Suurenna kuva"
 
-#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:172 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Kuvaus"
 
-#: src/exm-detail-view.blp:196
+#: src/exm-detail-view.blp:195
 msgid "Links"
 msgstr "Linkit"
 
-#: src/exm-detail-view.blp:204
+#: src/exm-detail-view.blp:203
 msgid "Homepage"
 msgstr "Verkkosivu"
 
-#: src/exm-detail-view.blp:220
+#: src/exm-detail-view.blp:219
 msgid "Donate"
 msgstr "Lahjoita"
 
-#: src/exm-detail-view.blp:229
+#: src/exm-detail-view.blp:228
 msgid "View on Extensions"
 msgstr "Näytä sivustolla"
 
-#: src/exm-detail-view.blp:272
+#: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "Arviot ja kommentit eivät ole käytössä tämän laajennuksen kohdalla"
 
-#: src/exm-detail-view.blp:315
+#: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
-msgstr ""
+msgstr "Ei arvioita tai kommentteja"
 
-#: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:343
 msgid "_Show All"
-msgstr "_Näytä kaikki arvostelut"
+msgstr "_Näytä kaikki"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:446
+#: src/exm-detail-view.c:445
 #, c-format
 msgid "%s Icon"
 msgstr "Laajennuksen %s kuvake"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:479
+#: src/exm-detail-view.c:478
 #, c-format
 msgid "%s Screenshot"
 msgstr "Laajennuksen %s kuvakaappaus"
@@ -212,10 +206,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Laajennusten hallinta -sovelluksessa tapahtui odottamaton virhe"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Kopioi leikepöydälle"
+msgstr "Kopioi leikepöydälle"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -268,47 +260,48 @@ msgstr "Versio"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Istuntotilat"
 
-#: src/exm-extension-row.blp:124
+#: src/exm-extension-row.blp:137
 msgid "Error"
 msgstr "Virhe"
 
-#: src/exm-extension-row.blp:145
+#: src/exm-extension-row.blp:158
 msgid "See Details"
 msgstr "Näytä tiedot"
 
-#: src/exm-extension-row.blp:156
+#: src/exm-extension-row.blp:169
 msgid "Remove…"
 msgstr "Poista…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Lukituksen avauksen ikkuna"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
-#. Translators: Icon's tooltip when an extension runs on both, login and lock screens
+#. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Tämä laajennus pysyy käynnissä, kun näyttö on lukittu ja yksikään käyttäjä "
+"ei ole sisäänkirjautunut"
 
-#. Translators: Icon's tooltip when an extension runs on the lock screen
+#. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Tämä laajennus pysyy käynnissä, kun näyttö on lukittu"
 
-#. Translators: Icon's tooltip when an extension runs on the login screen
+#. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d laajennus päivitetään seuraavan sisäänkirjautumisen yhteydessä"
+msgstr ""
+"Tämä laajennus pysyy käynnissä vaikka yksikään käyttäjä ei olisi "
+"sisäänkirjautunut"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -379,11 +372,8 @@ msgid "Install…"
 msgstr "Asenna…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Asennettu"
+msgstr "Asennetaan"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -394,48 +384,48 @@ msgstr "Asennettu"
 msgid "Unsupported…"
 msgstr "Ei tuettu…"
 
-#: src/exm-installed-page.blp:18
+#: src/exm-installed-page.blp:16
 msgid "_Log Out…"
 msgstr "_Kirjaudu ulos…"
 
-#: src/exm-installed-page.blp:30
+#: src/exm-installed-page.blp:28
 msgid "Use Extensions"
 msgstr "Käytä laajennuksia"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:29
 msgid "Extensions can cause performance and stability issues"
 msgstr "Laajennukset voivat aiheuttaa suorituskyky- ja vakausongelmia"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Käyttäjän asentamat laajennukset"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "EI käyttäjän asentamia laajennuksia"
 
-#: src/exm-installed-page.blp:57
+#: src/exm-installed-page.blp:55
 msgid "Browse"
 msgstr "Selaa"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Järjestelmän laajennukset"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Ei järjestelmän asetamia laajennuksia"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:114
+#: src/exm-installed-page.blp:111
 msgid "Search Results"
 msgstr "Hakutulokset"
 
-#: src/exm-installed-page.blp:127
+#: src/exm-installed-page.blp:124
 msgid "Try a different search or search online"
 msgstr "Kokeile eri hakuehtoja tai etsi verkosta"
 
-#: src/exm-installed-page.blp:134
+#: src/exm-installed-page.blp:131
 msgid "_Search Online"
 msgstr "_Etsi verkosta"
 
@@ -537,43 +527,43 @@ msgstr "Päävalikko"
 msgid "Search for installed extensions"
 msgstr "Hae asennetut laajennukset"
 
-#: src/exm-window.blp:70
+#: src/exm-window.blp:71
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Asennettu"
 
-#: src/exm-window.blp:79
+#: src/exm-window.blp:80
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Selaa"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:107
+#: src/exm-window.blp:108
 msgid "Sort _Enabled First"
 msgstr "_Järjestä käytössä olevat ensin"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:109
 msgid "_Show Unsupported"
 msgstr "_Näytä ilman tukea olevat"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 msgid "_Upgrade Assistant"
 msgstr "_Päivitysavustaja"
 
-#: src/exm-window.blp:113
+#: src/exm-window.blp:114
 msgid "_Keyboard Shortcuts"
 msgstr "_Pikanäppäimet"
 
-#: src/exm-window.blp:114
+#: src/exm-window.blp:115
 msgid "_About Extension Manager"
 msgstr "_Tietoja - Laajennusten hallinta"
 
-#: src/exm-window.blp:119
+#: src/exm-window.blp:120
 msgid "Uninstall Extension?"
 msgstr "Poistetaanko laajennus?"
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -581,19 +571,19 @@ msgstr ""
 "Laajennuksen ominaisuudet ja toiminnallisuudet eivät ole enää käytettävissä. "
 "Haluatko varmasti poistaa laajennuksen?"
 
-#: src/exm-window.blp:125
+#: src/exm-window.blp:126
 msgid "_No"
 msgstr "_Ei"
 
-#: src/exm-window.blp:126
+#: src/exm-window.blp:127
 msgid "_Yes"
 msgstr "_Kyllä"
 
-#: src/exm-window.blp:131
+#: src/exm-window.blp:132
 msgid "Unsupported Extension"
 msgstr "Laajennus ei ole tuettu"
 
-#: src/exm-window.blp:132
+#: src/exm-window.blp:133
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -601,11 +591,11 @@ msgstr ""
 "Tämä laajennus ei tue käyttämääsi Gnome Shell -versiota. Se saattaa "
 "aiheuttaa ongelmia, jos se asennetaan."
 
-#: src/exm-window.blp:138
+#: src/exm-window.blp:139
 msgid "_Install Anyway"
 msgstr "_Asenna silti"
 
-#: src/exm-window.blp:139
+#: src/exm-window.blp:140
 msgid "_Go Back"
 msgstr "_Takaisin"
 

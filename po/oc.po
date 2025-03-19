@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-23 08:19+0000\n"
-"PO-Revision-Date: 2025-02-16 12:17+0000\n"
+"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"PO-Revision-Date: 2025-03-13 05:26+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
-"manager/app/oc/>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/"
+"extension-manager/app/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -66,12 +66,12 @@ msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr ""
 "Verificatz la compatibilitat de l'extension ambé la version de GNOME venenta"
 
-#: src/exm-application.c:196
+#: src/exm-application.c:201
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Percórrer, installar e gerir las extensions GNOME Shell."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:199
+#: src/exm-application.c:204
 msgid "translator-credits"
 msgstr "Quentin PAGÈS"
 
@@ -99,7 +99,7 @@ msgstr "Telecargaments"
 msgid "Recent"
 msgstr "Recentas"
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:114
+#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:113
 msgid "Name"
 msgstr "Nom"
 
@@ -111,7 +111,7 @@ msgstr "Triar los resultats de recèrca"
 msgid "_Load More Results"
 msgstr "_Cargar mai de resultats"
 
-#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:126
+#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:123
 msgid "No Results Found"
 msgstr "Cap de resultat pas trobat"
 
@@ -120,89 +120,79 @@ msgid "Try a different search"
 msgstr "Ensajatz una recèrca diferenta"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
+#: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
 msgstr "Error de connexion"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "There are no comments."
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
 msgid "Reviews and Comments"
-msgstr "Cap de comentari."
+msgstr "Avises e comentaris"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Cargament…"
+msgstr "Cargament"
 
-#: src/exm-comment-tile.blp:25 src/exm-detail-view.blp:128
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
 msgstr "Autor"
 
-#: src/exm-detail-view.blp:41
+#: src/exm-detail-view.blp:40
 msgid "Loading Details"
 msgstr "Cargament de las informacions"
 
-#: src/exm-detail-view.blp:60 src/exm-window.c:347
+#: src/exm-detail-view.blp:59 src/exm-window.c:347
 msgid "An Error Occurred"
 msgstr "Una error s'es producha"
 
-#: src/exm-detail-view.blp:61
+#: src/exm-detail-view.blp:60
 msgid "No extension details available"
 msgstr "Cap de detalh de l'extension pas disponible"
 
-#: src/exm-detail-view.blp:155
+#: src/exm-detail-view.blp:154
 msgid "Enlarge Image"
 msgstr "Agrandir l'imatge"
 
-#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:172 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Descripcion"
 
-#: src/exm-detail-view.blp:196
+#: src/exm-detail-view.blp:195
 msgid "Links"
 msgstr "Ligams"
 
-#: src/exm-detail-view.blp:204
+#: src/exm-detail-view.blp:203
 msgid "Homepage"
 msgstr "Pagina d’acuèlh"
 
-#: src/exm-detail-view.blp:220
+#: src/exm-detail-view.blp:219
 msgid "Donate"
 msgstr "Donar"
 
-#: src/exm-detail-view.blp:229
+#: src/exm-detail-view.blp:228
 msgid "View on Extensions"
 msgstr "Veire sus Extensions"
 
-#: src/exm-detail-view.blp:272
-#, fuzzy
-#| msgid "Comments are disabled for this extension"
+#: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Los comentaris son desactivats per aquesta extension"
+msgstr "Los avises e comentaris son desactivats per aquesta extension"
 
-#: src/exm-detail-view.blp:315
-#, fuzzy
-#| msgid "There are no comments."
+#: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
-msgstr "Cap de comentari."
+msgstr "Cap de nòta nimai comentari"
 
-#: src/exm-detail-view.blp:346
-#, fuzzy
-#| msgid "_Show All Reviews"
+#: src/exm-detail-view.blp:343
 msgid "_Show All"
-msgstr "_Afichar totes los avises"
+msgstr "_Tot afichar"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:446
+#: src/exm-detail-view.c:445
 #, c-format
 msgid "%s Icon"
 msgstr "Icòna de %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:479
+#: src/exm-detail-view.c:478
 #, c-format
 msgid "%s Screenshot"
 msgstr "Captura d'ecran de %s"
@@ -216,10 +206,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Una error inesperada se's producha dins lo Gestionari d’extensions"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Copiar al quichapapièrs"
+msgstr "Copiar al quichapapièrs"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -275,47 +263,46 @@ msgstr "Version"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Mòdes de session"
 
-#: src/exm-extension-row.blp:124
+#: src/exm-extension-row.blp:137
 msgid "Error"
 msgstr "Error"
 
-#: src/exm-extension-row.blp:145
+#: src/exm-extension-row.blp:158
 msgid "See Details"
 msgstr "Veire los detalhs"
 
-#: src/exm-extension-row.blp:156
+#: src/exm-extension-row.blp:169
 msgid "Remove…"
 msgstr "Suprimir…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Desverrolhar la fenèstra de dialòg"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
-#. Translators: Icon's tooltip when an extension runs on both, login and lock screens
+#. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Aquesta extension foncionarà quand l’ecran es verrolhat e que cap d’"
+"utilizaire es pas connectat"
 
-#. Translators: Icon's tooltip when an extension runs on the lock screen
+#. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Aquesta extension foncionarà quand l’ecran es verrolhat"
 
-#. Translators: Icon's tooltip when an extension runs on the login screen
+#. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "%d extension serà mesa a jorn a la connexion venenta"
+msgstr "Aquesta extension foncionarà quand cap d’utilizaire es pas connectat"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -398,48 +385,48 @@ msgstr "Installada"
 msgid "Unsupported…"
 msgstr "Pas presa en carga…"
 
-#: src/exm-installed-page.blp:18
+#: src/exm-installed-page.blp:16
 msgid "_Log Out…"
 msgstr "Se _desconnectar…"
 
-#: src/exm-installed-page.blp:30
+#: src/exm-installed-page.blp:28
 msgid "Use Extensions"
 msgstr "Utilizar las extensions"
 
-#: src/exm-installed-page.blp:31
+#: src/exm-installed-page.blp:29
 msgid "Extensions can cause performance and stability issues"
 msgstr "Las extensions pòdon causar problèmas de performança e d’estabilitat"
 
-#: src/exm-installed-page.blp:36 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
 msgid "User-Installed Extensions"
 msgstr "Extensions installadas per l’utilizaire"
 
-#: src/exm-installed-page.blp:53 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
 msgid "No User Extensions Installed"
 msgstr "Cap d’aplicacion utilizaire pas installada"
 
-#: src/exm-installed-page.blp:57
+#: src/exm-installed-page.blp:55
 msgid "Browse"
 msgstr "Percórrer"
 
-#: src/exm-installed-page.blp:71 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
 msgid "System Extensions"
 msgstr "Extensions sistèma"
 
-#: src/exm-installed-page.blp:88 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
 msgid "No System Extensions Installed"
 msgstr "Cap d’aplicacion sistèma pas installada"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:114
+#: src/exm-installed-page.blp:111
 msgid "Search Results"
 msgstr "Resultats de recèrca"
 
-#: src/exm-installed-page.blp:127
+#: src/exm-installed-page.blp:124
 msgid "Try a different search or search online"
 msgstr "Ensajatz una recèrca diferenta o cercatz en linha"
 
-#: src/exm-installed-page.blp:134
+#: src/exm-installed-page.blp:131
 msgid "_Search Online"
 msgstr "_Cercar en linha"
 
@@ -541,43 +528,43 @@ msgstr "Menú principal"
 msgid "Search for installed extensions"
 msgstr "Cercar d’extensions installadas"
 
-#: src/exm-window.blp:70
+#: src/exm-window.blp:71
 msgctxt "Navigation"
 msgid "_Installed"
 msgstr "_Installadas"
 
-#: src/exm-window.blp:79
+#: src/exm-window.blp:80
 msgctxt "Navigation"
 msgid "_Browse"
 msgstr "_Percórrer"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:107
+#: src/exm-window.blp:108
 msgid "Sort _Enabled First"
 msgstr "Las _activadas en primièr"
 
-#: src/exm-window.blp:108
+#: src/exm-window.blp:109
 msgid "_Show Unsupported"
 msgstr "_Afichar çò pas pres en carga"
 
-#: src/exm-window.blp:112
+#: src/exm-window.blp:113
 msgid "_Upgrade Assistant"
 msgstr "_Assistent de mesa a nivèl"
 
-#: src/exm-window.blp:113
+#: src/exm-window.blp:114
 msgid "_Keyboard Shortcuts"
 msgstr "_Acorchis de clavièr"
 
-#: src/exm-window.blp:114
+#: src/exm-window.blp:115
 msgid "_About Extension Manager"
 msgstr "_A prepaus del gestionari d’extensions"
 
-#: src/exm-window.blp:119
+#: src/exm-window.blp:120
 msgid "Uninstall Extension?"
 msgstr "Desinstallar l’extension ?"
 
-#: src/exm-window.blp:120
+#: src/exm-window.blp:121
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -585,19 +572,19 @@ msgstr ""
 "La foncions e foncionalitats d’aquesta extension seràn pas mai accessiblas. "
 "Volètz vertadièrament la desinstallar ?"
 
-#: src/exm-window.blp:125
+#: src/exm-window.blp:126
 msgid "_No"
 msgstr "_Non"
 
-#: src/exm-window.blp:126
+#: src/exm-window.blp:127
 msgid "_Yes"
 msgstr "_Òc"
 
-#: src/exm-window.blp:131
+#: src/exm-window.blp:132
 msgid "Unsupported Extension"
 msgstr "Extension non suportada"
 
-#: src/exm-window.blp:132
+#: src/exm-window.blp:133
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -605,11 +592,11 @@ msgstr ""
 "Aquesta extension es pas presa en carga per vòstre version de GNOME Shell. "
 "Son installacion pòt menar a de problèmas."
 
-#: src/exm-window.blp:138
+#: src/exm-window.blp:139
 msgid "_Install Anyway"
 msgstr "_Installar malgrat tot"
 
-#: src/exm-window.blp:139
+#: src/exm-window.blp:140
 msgid "_Go Back"
 msgstr "_Retorn"
 
