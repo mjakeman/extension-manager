@@ -2,6 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Douglas Silva <douglasilvadev@gmail.com>, 2024.
+# Álvaro Burns, 2025.
 #
 msgid ""
 msgstr ""
@@ -124,13 +125,13 @@ msgstr "Nenhum Resultado Encontrado"
 
 #: src/exm-browse-page.blp:144
 msgid "Try a different search"
-msgstr ""
+msgstr "Tente uma nova pesquisa"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:100
 msgid "Connection Error"
-msgstr ""
+msgstr "Erro na conexão"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
 #, fuzzy
@@ -188,7 +189,7 @@ msgstr "Ver em Extensões"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "Revisões e comentários estão desabilitados para esta extensão"
 
 #: src/exm-detail-view.blp:314
 #, fuzzy
@@ -206,7 +207,7 @@ msgstr "_Mostrar Todas Avaliações"
 #: src/exm-detail-view.c:445
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s Ícone"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:478
@@ -228,7 +229,7 @@ msgstr "Ocorreu um erro inesperado no Gerenciador de Extensões"
 #, fuzzy
 #| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Copiar para a Área de Transferência"
+msgstr "Copiar para a Área de Transferência"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -282,7 +283,7 @@ msgstr "Versão"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Modos da sessão"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -298,12 +299,12 @@ msgstr "Remover…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Desbloquear diálogo"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
@@ -314,7 +315,7 @@ msgstr ""
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Esta extensão vai rodar enquanto a tela estiver bloqueada"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
@@ -342,7 +343,7 @@ msgstr "Mostrar Página de Navegar"
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Aternar pesquisa"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
@@ -451,11 +452,11 @@ msgstr "Ordene resultados de pesquisa"
 
 #: src/exm-installed-page.blp:124
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Tente uma pesquisa diferente ou pesquise online"
 
 #: src/exm-installed-page.blp:131
 msgid "_Search Online"
-msgstr ""
+msgstr "_Pesquise Online"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:298
@@ -471,8 +472,8 @@ msgstr[1] "%d extensões serão atualizadas no próximo login"
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Estrela"
+msgstr[1] "Estrelas"
 
 #. Translators: Button's tooltip to zoom out screenshots
 #: src/exm-screenshot-view.blp:37
@@ -644,10 +645,12 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Cheque <a href='https://status.gnome.org/'>status da infraestrutura do GNOME</a> "
+"e tente novamente mais tarde"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Cheque o status da intenet e tente novamente"
 
 #~ msgid "Comments"
 #~ msgstr "Comentários"
