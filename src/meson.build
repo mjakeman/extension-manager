@@ -37,7 +37,7 @@ libbacktrace_dep = cc.find_library('backtrace', required: get_option('backtrace'
 
 exm_deps = [
   dependency('gtk4'),
-  dependency('libadwaita-1'),
+  dependency('libadwaita-1', version: '>= 1.7.0'),
   dependency('gio-unix-2.0'),
   dependency('json-glib-1.0'),
   dependency('libsoup-3.0'),

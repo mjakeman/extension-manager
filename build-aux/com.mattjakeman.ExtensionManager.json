@@ -25,7 +25,7 @@
         "*.a"
     ],
     "modules" : [
-    	{
+        {
             "name" : "blueprint-compiler",
             "builddir" : true,
             "buildsystem" : "meson",
@@ -70,8 +70,8 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/mjakeman/extension-manager",
-                    "commit" : "54585fc15c3fe4939f2ba22ebc8808e6ef46c8f4",
-                    "tag" : "v0.6.1"
+                    "commit" : "b680e30c659a8c7c04533b01f7b4e3154504cffa",
+                    "tag" : "v0.6.2"
                 }
             ]
         }
