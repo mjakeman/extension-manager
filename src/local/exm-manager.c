@@ -382,11 +382,10 @@ exm_manager_install_finish (GObject       *self,
                                                                      result,
                                                                      error);
 
-    if (g_str_equal (out_result, "cancelled"))
-    {
+    if (g_strcmp0 (out_result, "cancelled") == 0)
         success = FALSE;
-        g_free (out_result);
-    }
+
+    g_free (out_result);
 
     return success;
 }

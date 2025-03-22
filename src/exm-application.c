@@ -140,7 +140,7 @@ exm_application_open (GApplication  *app,
     }
 
     scheme = g_uri_get_scheme (uri);
-    if (!g_str_equal (scheme, "gnome-extensions"))
+    if (g_strcmp0 (scheme, "gnome-extensions") != 0)
     {
         g_critical ("Invalid URI scheme: '%s'\n", scheme);
         return;
