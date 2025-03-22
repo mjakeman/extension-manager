@@ -134,7 +134,7 @@ exm_shell_version_map_supports (ExmShellVersionMap *self,
     {
         MapEntry *entry = element->data;
 
-        if (!g_str_equal (major, entry->shell_major_version))
+        if (g_strcmp0 (major, entry->shell_major_version) != 0)
             continue;
 
         if (!entry->shell_minor_version ||

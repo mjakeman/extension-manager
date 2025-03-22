@@ -124,7 +124,7 @@ extension_remove_dialog_response (AdwAlertDialog   *dialog,
 {
     const char *response = adw_alert_dialog_choose_finish (dialog, result);
 
-    if (g_str_equal (response, "yes"))
+    if (g_strcmp0 (response, "yes") == 0)
         exm_manager_remove_extension (data->manager, data->extension);
 
     g_clear_pointer (&data->manager, g_object_unref);
@@ -215,7 +215,7 @@ extension_unsupported_dialog_response (AdwAlertDialog        *dialog,
 {
     const char *response = adw_alert_dialog_choose_finish (dialog, result);
 
-    if (g_str_equal (response, "install"))
+    if (g_strcmp0 (response, "install") == 0)
     {
         exm_manager_install_async (data->manager, data->uuid, NULL,
                                    (GAsyncReadyCallback) on_install_done,
@@ -285,7 +285,7 @@ show_view (GtkWidget  *widget,
 
     self = EXM_WINDOW (widget);
 
-    if (g_str_equal (action_name, "win.show-detail"))
+    if (g_strcmp0 (action_name, "win.show-detail") == 0)
     {
         gchar *uuid;
 
