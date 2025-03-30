@@ -75,7 +75,7 @@ exm_backtrace_full_cb (void       *data,
 #endif
 
 void
-exm_backtrace_init (char *filename)
+exm_backtrace_init (char *filename G_GNUC_UNUSED)
 {
 #if WITH_BACKTRACE
 
