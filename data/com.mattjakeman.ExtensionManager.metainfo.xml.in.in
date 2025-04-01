@@ -57,6 +57,14 @@
     <color type="primary" scheme_preference="dark">#005edf</color>
   </branding>
   <releases>
+    <release version="0.6.3" date="2025-04-01">
+      <description translate="no">
+        <ul>
+          <li>Fixes a frequent crash when installing an extension</li>
+          <li>Brazilian Portuguese and Korean translations updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.6.2" date="2025-03-19">
       <description translate="no">
         <ul>
