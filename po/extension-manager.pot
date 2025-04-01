@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"POT-Creation-Date: 2025-04-01 17:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,12 +64,12 @@ msgstr ""
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr ""
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr ""
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr ""
 
