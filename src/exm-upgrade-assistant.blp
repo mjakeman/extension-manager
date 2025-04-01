@@ -46,7 +46,6 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                 vexpand: true;
 
                 Gtk.Label description {
-                  justify: center;
                   wrap: true;
                 }
 
@@ -110,8 +109,7 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                     orientation: vertical;
                     spacing: 24;
 
-                    Gtk.Label summary {
-                      justify: center;
+                    Gtk.Label summary_top {
                       wrap: true;
                     }
 
@@ -122,9 +120,13 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                       focusable: true;
 
                       accessibility {
-                        labelled-by: summary;
+                        labelled-by: summary_top;
                         described-by: progress_bar;
                       }
+                    }
+
+                    Gtk.Label summary_bottom {
+                      wrap: true;
                     }
                   }
                 }

@@ -68,8 +68,9 @@ struct _ExmUpgradeAssistant
 
     // Results Page
     AdwPreferencesPage *prefs_page;
-    GtkLabel *summary;
+    GtkLabel *summary_top;
     GtkProgressBar *progress_bar;
+    GtkLabel *summary_bottom;
     GtkListBox *user_list_box;
     GtkListBox *system_list_box;
     AdwButtonRow *copy_details;
@@ -220,9 +221,23 @@ display_results (ExmUpgradeAssistant *self)
     else if (fraction <= 0.3f)
         gtk_widget_add_css_class (GTK_WIDGET (self->progress_bar), "error");
 
-    text = _("<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently installed on the system");
-    text = g_strdup_printf (text, self->target_shell_version, self->number_supported, self->total_extensions);
-    gtk_label_set_markup (self->summary, text);
+    text = _("<b>%d out of %d</b> extensions currently installed on this system have been marked as supporting <b>GNOME %s</b>");
+    text = g_strdup_printf (text, self->number_supported, self->total_extensions, self->target_shell_version);
+    gtk_label_set_markup (self->summary_top, text);
+    g_free (text);
+
+    if (self->total_extensions - self->number_supported == 0)
+    {
+        text = _("If you switch to GNOME %s now, all of your extensions should work");
+        text = g_strdup_printf (text, self->target_shell_version);
+    }
+    else
+    {
+        text = _("If you switch to GNOME %s now, %d of your extensions might not work");
+        text = g_strdup_printf (text, self->target_shell_version, self->total_extensions - self->number_supported);
+    }
+
+    gtk_label_set_markup (self->summary_bottom, text);
     g_free (text);
 
     adw_preferences_page_scroll_to_top (self->prefs_page);
@@ -652,8 +667,9 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, counter);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, error_status);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, prefs_page);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary_top);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, progress_bar);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary_bottom);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, user_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, system_list_box);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, copy_details);
