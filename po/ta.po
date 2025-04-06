@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
 "PO-Revision-Date: 2024-12-26 10:00+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/extension-manager/"
@@ -65,12 +65,12 @@ msgstr "உங்கள் நீட்டிப்புகளின் அன�
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "க்னோமின் அடுத்த பதிப்போடு உங்கள் நீட்டிப்புகள் பொருந்தக்கூடிய தன்மையை சரிபார்க்கவும்"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "GNOME ஷெல் நீட்டிப்புகளை நிர்வகிப்பதற்கான ஒரு பயன்பாடு."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr "க.பா.தருண் கிருஷ்ணா <kbdharunkrishna@gmail.com>"
 
@@ -120,7 +120,7 @@ msgstr "வேறு தேடலை முயற்சிக்கவும்"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "இணைப்பு பிழை"
 
@@ -221,7 +221,7 @@ msgid "_New Issue"
 msgstr "_ புதிய சிக்கல்"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "நகலெடுக்கப்பட்டது"
 
@@ -405,11 +405,11 @@ msgstr "நீட்டிப்புகளைப் பயன்படுத�
 msgid "Extensions can cause performance and stability issues"
 msgstr "நீட்டிப்புகள் செயல்திறன் மற்றும் ச்திரத்தன்மை சிக்கல்களை ஏற்படுத்தும்"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "பயனர் நிறுவிய நீட்டிப்புகள்"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "பயனர் நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
 
@@ -417,11 +417,11 @@ msgstr "பயனர் நீட்டிப்புகள் எதுவு�
 msgid "Browse"
 msgstr "உலாவுக"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "கணினி நீட்டிப்புகள்"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "கணினி நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
 
@@ -467,46 +467,59 @@ msgstr "பெரிதாக்கு"
 msgid "Upgrade Assistant"
 msgstr "மேம்படுத்தல் உதவியாளர்"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_ இணக்கத்தன்மையை சரிபார்க்கவும்"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "சரிபார்க்கப்பட்ட %d/ %d நீட்டிப்புகள்"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d %% இணக்கமானது"
 
-#: src/exm-upgrade-assistant.c:223
-#, c-format
+#: src/exm-upgrade-assistant.c:224
+#, fuzzy, c-format
+#| msgid ""
+#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+#| "installed on the system"
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
 msgstr ""
 "<b> க்னோம் %s </b> தற்போது கணினியில் நிறுவப்பட்ட நீட்டிப்புகளில் %d </b> இல் இருந்து <b> "
 "%d"
 
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு உள்ளது"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு எதுவும் இல்லை"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -514,7 +527,7 @@ msgstr ""
 "இந்த நீட்டிப்பு extensions.gnome.org இல் ஹோஸ்ட் செய்யப்படவில்லை. அதன் பொருந்தக்கூடிய "
 "தன்மையை தீர்மானிக்க முடியாது."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "

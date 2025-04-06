@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
 "PO-Revision-Date: 2024-11-05 12:14+0000\n"
 "Last-Translator: AlphaBeta1 <hsynulassudem200w@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
@@ -72,12 +72,12 @@ msgstr "Uzantı arayın"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "GNOME Shell Uzantılarını keşfedin, kurun ve yönetin."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr ""
 "Onur Ankut <ripsivis@gmail.com>\n"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr ""
 
@@ -243,7 +243,7 @@ msgid "_New Issue"
 msgstr "_Yeni Hata"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "Kopyalandı"
 
@@ -441,11 +441,11 @@ msgstr "Uzantıları Kullan"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Uzantılar başarım ve kararlılık sorunlarına neden olabilir."
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Kurulu Uzantılarınız"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 #, fuzzy
 #| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
@@ -455,11 +455,11 @@ msgstr "Kurulu kullanıcı uzantısı yok."
 msgid "Browse"
 msgstr "Göz At"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "Sistem Uzantıları"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 #, fuzzy
 #| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
@@ -509,52 +509,62 @@ msgstr "Yakınlaştır"
 msgid "Upgrade Assistant"
 msgstr "Yükseltme Yardımcısı"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "Uyumluluğu _Denetle"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "Panoya _Kopyala"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d Uzantı Denetlendi"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%%%d Uyumlu"
 
-#: src/exm-upgrade-assistant.c:223
+#: src/exm-upgrade-assistant.c:224
 #, fuzzy, c-format
 #| msgid ""
 #| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 #| "installed on the system."
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
 msgstr ""
 "<b>GNOME %s</b>, sistemde kurulu olan <b>%d / %d</b> eklentiyi destekliyor."
 
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 #, fuzzy
 #| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
 msgstr "Uzantının uyumlu bir sürümü var."
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 #, fuzzy
 #| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
 msgstr "Uzantının uyumlu bir sürümü yok."
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -562,7 +572,7 @@ msgstr ""
 "Bu uzantı extensions.gnome.org sitesinde barındırılmıyor. Uyumluluğu "
 "belirlenemiyor."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "

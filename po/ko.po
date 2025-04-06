@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
 "PO-Revision-Date: 2025-04-03 14:22+0000\n"
 "Last-Translator: Pete Lee <welikeheon@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/extension-manager/"
@@ -64,12 +64,12 @@ msgstr "확장 프로그램의 모든 세부 정보 보기"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "다음 버전의 GNOME과 확장 프로그램의 호환성을 확인하세요"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "GNOME Shell 확장 프로그램을 검색, 설치, 관리합니다."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr ""
 "Pete Lee <welikeheon@gmail.com>\n"
@@ -119,7 +119,7 @@ msgstr "다른 검색을 시도해보세요"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "연결 오류"
 
@@ -212,7 +212,7 @@ msgid "_New Issue"
 msgstr "_새 이슈"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "복사됨"
 
@@ -228,9 +228,9 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"확장 프로그램 관리자의 타사 빌드를 사용하고 있습니다. 문제를 제기하기 전에 "
-"먼저 <span weight=\"bold\">패키지 배포업체 (%s)에 문의하십시오.</span> 다음 "
-"정보를 첨부해야 합니다:"
+"확장 프로그램 관리자의 타사 빌드를 사용하고 있습니다. 문제를 제기하기 전에 먼"
+"저 <span weight=\"bold\">패키지 배포업체 (%s)에 문의하십시오.</span> 다음 정"
+"보를 첨부해야 합니다:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog
 #: src/exm-extension-row.blp:28
@@ -285,8 +285,9 @@ msgstr "GDM(GNOME Display Manager)"
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
-msgstr "이 확장 프로그램은 화면이 잠겨 있거나 사용자가 로그인하지 않은 상태에서도 "
-"실행됩니다"
+msgstr ""
+"이 확장 프로그램은 화면이 잠겨 있거나 사용자가 로그인하지 않은 상태에서도 실"
+"행됩니다"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
@@ -391,11 +392,11 @@ msgstr "확장 프로그램 사용"
 msgid "Extensions can cause performance and stability issues"
 msgstr "확장 프로그램은 성능과 안정성 문제를 일으킬 수 있습니다"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "사용자 설치 확장 프로그램"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "사용자 확장 프로그램이 설치되지 않았습니다"
 
@@ -403,11 +404,11 @@ msgstr "사용자 확장 프로그램이 설치되지 않았습니다"
 msgid "Browse"
 msgstr "찾아보기"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "시스템 확장 프로그램"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "시스템 확장 프로그램이 설치되지 않았습니다"
 
@@ -451,59 +452,74 @@ msgstr "줌 인"
 msgid "Upgrade Assistant"
 msgstr "업그레이드 도우미"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_호한성 확인"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "_클립보드에 붙여넣기"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d 확장 프로그램 확인 중"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% 호환됨"
 
-#: src/exm-upgrade-assistant.c:223
-#, c-format
+#: src/exm-upgrade-assistant.c:224
+#, fuzzy, c-format
+#| msgid ""
+#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+#| "installed on the system"
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
-msgstr "<b>GNOME %s</b>은(는) 현재 시스템에 설치된 확장 프로그램 <b>%d개 중 %d</"
-"b>개를 지원합니다"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
+msgstr ""
+"<b>GNOME %s</b>은(는) 현재 시스템에 설치된 확장 프로그램 <b>%d개 중 %d</b>개"
+"를 지원합니다"
+
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "호환되는 버전의 확장 프로그램이 있습니다"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "호환되는 버전의 확장 프로그램이 없습니다"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
-msgstr "이 확장 프로그램은 extensions.gnome.org에 호스트 되지 않았습니다. 호환성을 "
-"확인할 수 없습니다."
+msgstr ""
+"이 확장 프로그램은 extensions.gnome.org에 호스트 되지 않았습니다. 호환성을 확"
+"인할 수 없습니다."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"현재 <b>GNOME %s</b>을 사용중 입니다. 아래 GNOME 버전을 선택하고 확장 "
-"프로그램 기능을 계속 사용할 수 있는지 확인합니다."
+"현재 <b>GNOME %s</b>을 사용중 입니다. 아래 GNOME 버전을 선택하고 확장 프로그"
+"램 기능을 계속 사용할 수 있는지 확인합니다."
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
@@ -558,7 +574,8 @@ msgstr "확장 프로그램을 제거할까요?"
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
-msgstr "확장 프로그램 프로그램의 특징과 기능에 더 이상 액세스할 수 없게 됩니다. 정말 "
+msgstr ""
+"확장 프로그램 프로그램의 특징과 기능에 더 이상 액세스할 수 없게 됩니다. 정말 "
 "제거하시겠습니까?"
 
 #: src/exm-window.blp:126
@@ -577,8 +594,9 @@ msgstr "지원하지 않는 확장 프로그램"
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
-msgstr "이 확장 프로그램을 사용 중인 GNOME 셸 버전을 지원하지 않습니다. 설치하면 "
-"오류가 발생할 수 있습니다."
+msgstr ""
+"이 확장 프로그램을 사용 중인 GNOME 셸 버전을 지원하지 않습니다. 설치하면 오류"
+"가 발생할 수 있습니다."
 
 #: src/exm-window.blp:139
 msgid "_Install Anyway"
@@ -597,8 +615,8 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
-"<a href='https://status.gnome.org/'>GNOME 서버 상태 확인s</a> 을 확인하고 "
-"나중에 다시 시도하세요"
+"<a href='https://status.gnome.org/'>GNOME 서버 상태 확인s</a> 을 확인하고 나"
+"중에 다시 시도하세요"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
 "PO-Revision-Date: 2025-02-27 20:23+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/extension-manager/"
@@ -66,13 +66,13 @@ msgstr "Féach sonraí uile do shíntí"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "Seiceáil do chomhoiriúnacht síntí leis an gcéad leagan eile de GNOME"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr ""
 "Brabhsáil, suiteáil, agus bainistiú a dhéanamh ar shíneadh sliogáin GNOME."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr "Aistritheoir-creidmheasanna"
 
@@ -122,7 +122,7 @@ msgstr "Bain triail as cuardach eile"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Earráid Ceangail"
 
@@ -215,7 +215,7 @@ msgid "_New Issue"
 msgstr "_Saincheist Nua"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "Cóipeáil"
 
@@ -399,11 +399,11 @@ msgstr ""
 "Is féidir le síntí a bheith ina gcúis le saincheisteanna feidhmíochta agus "
 "cobhsaíochta"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Síntí Suiteáilte ag an Úsáideoir"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "Níor suiteáladh aon síntí úsáideora"
 
@@ -411,11 +411,11 @@ msgstr "Níor suiteáladh aon síntí úsáideora"
 msgid "Browse"
 msgstr "Brabhsáil"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "Síntí Córais"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "Níor suiteáladh aon síntí córais"
 
@@ -467,46 +467,59 @@ msgstr "Súmáil Isteach"
 msgid "Upgrade Assistant"
 msgstr "Cúntóir Uasghrádaithe"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_Seiceáil Comhoiriúnacht"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "_Cóip chuig Gearrthaisce"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Seiceáil %d/%d Síntí"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% Comhoiriúnach"
 
-#: src/exm-upgrade-assistant.c:223
-#, c-format
+#: src/exm-upgrade-assistant.c:224
+#, fuzzy, c-format
+#| msgid ""
+#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+#| "installed on the system"
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
 msgstr ""
 "<b> GNOME %s </b> Tacaíonn sé le <b> %d as %d </b> de na síntí atá "
 "suiteáilte faoi láthair ar an gcóras"
 
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "Tá leagan comhoiriúnach den síneadh ann"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "Níl aon leagan comhoiriúnach den síneadh ann"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -514,7 +527,7 @@ msgstr ""
 "Ní dhéantar an síneadh seo a óstáil ar extensions.gnome.org. Ní féidir a "
 "chomhoiriúnacht a chinneadh."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "

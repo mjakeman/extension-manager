@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
 "PO-Revision-Date: 2023-11-09 22:59+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -71,12 +71,12 @@ msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr ""
 "Tiện ích mở rộng này không tương thích với phiên bản GNOME hiện tại của bạn"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Duyệt, Cài đặt và Quản lý Tiện ích Mở rộng Gnome Shell."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr "dịch thuật-tín dụng"
 
@@ -134,7 +134,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgid "_New Issue"
 msgstr "_Vấn đề mới"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "Đã sao chép"
 
@@ -449,11 +449,11 @@ msgstr "Sử dụng tiện ích mở rộng"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Tiện ích mở rộng có thể gây ra vấn đề về hiệu suất và độ ổn định."
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Tiện ích mở rộng do người dùng cài đặt"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 #, fuzzy
 #| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
@@ -463,11 +463,11 @@ msgstr "Không có tiện ích mở rộng người dùng nào được cài đ�
 msgid "Browse"
 msgstr "Duyệt qua"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "Tiện ích mở rộng hệ thống"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 #, fuzzy
 #| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
@@ -518,54 +518,64 @@ msgstr "Phóng to"
 msgid "Upgrade Assistant"
 msgstr "Trợ lý Nâng cấp"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_Kiểm tra tính tương thích"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "_Sao chép vào clipboard"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, fuzzy, c-format
 #| msgid "Checked %d/%d extensions"
 msgid "Checked %d/%d Extensions"
 msgstr "Đã kiểm tra %d/%d tiện ích mở rộng"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% Tương thích"
 
-#: src/exm-upgrade-assistant.c:223
+#: src/exm-upgrade-assistant.c:224
 #, fuzzy, c-format
 #| msgid ""
 #| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
 #| "installed on the system."
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
 msgstr ""
 "<b>GNOME %s</b> hỗ trợ <b>%d trong số %d</b> tiện ích mở rộng hiện được cài "
 "đặt trên hệ thống."
 
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 #, fuzzy
 #| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
 msgstr "Đã tồn tại phiên bản tương thích của tiện ích mở rộng."
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 #, fuzzy
 #| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
 msgstr "Không có phiên bản tương thích của tiện ích mở rộng tồn tại."
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -573,7 +583,7 @@ msgstr ""
 "Tiện ích mở rộng này không được lưu trữ trên extensions.gnome.org. Khả năng "
 "tương thích của nó không thể được xác định."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
