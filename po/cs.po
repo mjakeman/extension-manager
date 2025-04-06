@@ -5,13 +5,14 @@
 # vikdevelop https://github.com/vikdevelop
 # Fjuro <fjuro@users.noreply.hosted.weblate.org>, 2025.
 # lorduskordus <lorduskordus@gmail.com>, 2025.
+# Fjuro <fjuro@alius.cz>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-02-24 10:03+0000\n"
-"Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-04-07 15:03+0000\n"
+"Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
 "Language: cs\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -485,26 +486,24 @@ msgid "%d%% Compatible"
 msgstr "%d%% kompatibilních"
 
 #: src/exm-upgrade-assistant.c:224
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system"
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>GNOME %s</b> podporuje <b>%d z %d</b> rozšíření aktuálně nainstalovaných "
-"v systému"
+"<b>%d z %d</b> rozšíření aktuálně nainstalovaných v tomto systému bylo "
+"označeno jako funkční v prostředí <b>GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr ""
+"Pokud nyní přejdete na GNOME %s, měla by všechna vaše rozšíření fungovat"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr ""
+msgstr "Pokud nyní přejdete na GNOME %s, nemusí %d z vašich rozšíření fungovat"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:518
