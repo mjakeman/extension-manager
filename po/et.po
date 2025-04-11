@@ -4,13 +4,14 @@
 # Henri <contact@hen.ee>, 2022.
 # Indrek Haav <IndrekHaav@users.noreply.hosted.weblate.org>, 2024, 2025.
 # Henri Aunin <contact@hen.ee>, 2025.
+# Indrek Haav <indrek.haav@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-17 14:50+0000\n"
-"Last-Translator: Indrek Haav <IndrekHaav@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
+"PO-Revision-Date: 2025-04-07 15:03+0000\n"
+"Last-Translator: Indrek Haav <indrek.haav@hotmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/"
 "extension-manager/app/et/>\n"
 "Language: et\n"
@@ -66,12 +67,12 @@ msgstr "Vaata oma laienduste kõiki üksikasju"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "Kontrolli oma laienduste ühilduvust järgmise GNOME versiooniga"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Sirvi, paigalda ja halda GNOME töölaua laiendusi."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr ""
 "Henri <contact@hen.ee>\n"
@@ -121,7 +122,7 @@ msgstr "Proovi teistsugust otsingut"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Ühenduse viga"
 
@@ -214,7 +215,7 @@ msgid "_New Issue"
 msgstr "_Uus teema"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "Kopeeritud"
 
@@ -394,11 +395,11 @@ msgstr "Kasuta laiendusi"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Laiendused võivad tekitada jõudluse ja stabiilsuse probleeme"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Kasutaja paigaldatud laiendused"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "Kasutaja laiendused puuduvad"
 
@@ -406,11 +407,11 @@ msgstr "Kasutaja laiendused puuduvad"
 msgid "Browse"
 msgstr "Sirvi"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "Süsteemilaiendused"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "Süsteemilaiendused puuduvad"
 
@@ -456,44 +457,56 @@ msgstr "Suumi sisse"
 msgid "Upgrade Assistant"
 msgstr "Uuenduste abiline"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_Kontrolli ühilduvust"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "_Kopeeri lõikelauale"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Kontrollitud %d/%d laiendust"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% ühilduv"
 
-#: src/exm-upgrade-assistant.c:223
+#: src/exm-upgrade-assistant.c:224
 #, c-format
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
-msgstr "<b>GNOME %s</b> toetab <b>%d %d-st</b> hetkel paigaldatud laiendusest"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
+msgstr ""
+"<b>%d %d-st</b> hetkel paigaldatud laiendusest on märgitud <b>Gnome %s</b> "
+"toetavaks"
+
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr "Kui lülitud nüüd Gnome %s peale, peaksid kõik su laiendused töötama"
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr "Kui lülitud nüüd Gnome %s peale, ei pruugi %d su laiendustest töötada"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "Laiendusest on saadaval ühilduv versioon"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "Laiendusest ei ole saadaval ühilduvat versiooni"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -501,7 +514,7 @@ msgstr ""
 "See laiendus ei ole extension.gnome.org-i lehel üleval. Selle ühilduvust ei "
 "ole võimalik tuvastada."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "

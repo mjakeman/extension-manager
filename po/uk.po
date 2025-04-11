@@ -10,18 +10,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-02-24 10:03+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
+"PO-Revision-Date: 2025-04-07 15:03+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
-"manager/app/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"extension-manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -71,12 +71,12 @@ msgstr "Детальна інформація щодо ваших розшире
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "Перевірте сумісність ваших розширень із наступною версією GNOME"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Шукайте, встановлюйте та керуйте розширеннями оболонки GNOME."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr ""
 "volkov <volkovissocool@gmail.com>\n"
@@ -128,7 +128,7 @@ msgstr "Спробуйте інший пошуковий запит"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Помилка підключення"
 
@@ -221,7 +221,7 @@ msgid "_New Issue"
 msgstr "_Новий звіт"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "Скопійовано"
 
@@ -403,11 +403,11 @@ msgstr "Використовувати розширення"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Розширення можуть спричиняти проблеми з швидкодією і стабільністю"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Встановлені користувачем розширення"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "Немає встановлених користувачем розширень"
 
@@ -415,11 +415,11 @@ msgstr "Немає встановлених користувачем розши�
 msgid "Browse"
 msgstr "Пошук"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "Системні розширення"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "Немає встановлених системних розширень"
 
@@ -467,46 +467,58 @@ msgstr "Приблизити"
 msgid "Upgrade Assistant"
 msgstr "Помічник з оновлення"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_Перевірити сумісність"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "_Скопіювати у буфер обміну"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Перевірено %d із %d розширень"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% сумісно"
 
-#: src/exm-upgrade-assistant.c:223
+#: src/exm-upgrade-assistant.c:224
 #, c-format
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>GNOME %s</b> підтримує <b>%d із %d</b> розширень які встановлено у вашій "
-"системі"
+"<b>%d із %d</b> розширень, які зараз встановлено в цій системі, позначено як "
+"такі, що підтримують <b>GNOME %s</b>"
+
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+"Якщо ви перейдете на GNOME %s зараз, усі ваші розширення мають працювати"
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+"Якщо ви перейдете на GNOME %s зараз, %d ваших розширень може не працювати"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "Сумісна версія цього розширення існує"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "Сумісної версії розширення не існує"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -514,7 +526,7 @@ msgstr ""
 "Це розширення не розміщено у extensions.gnome.org. Перевірити сумісність "
 "неможливо."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
