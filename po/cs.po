@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-04-07 15:03+0000\n"
+"PO-Revision-Date: 2025-04-18 20:03+0000\n"
 "Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -612,7 +612,7 @@ msgstr ""
 
 #: src/exm-window.blp:139
 msgid "_Install Anyway"
-msgstr "_Přesto Nainstalovat"
+msgstr "_Přesto nainstalovat"
 
 #: src/exm-window.blp:140
 msgid "_Go Back"
