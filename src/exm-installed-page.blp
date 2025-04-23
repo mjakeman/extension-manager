@@ -30,65 +30,39 @@ template $ExmInstalledPage: Gtk.Widget {
           }
         }
 
-        Adw.PreferencesGroup user_list {
+        Adw.PreferencesGroup user_prefs_group {
           title: _("User-Installed Extensions");
 
-          Gtk.ListBox user_list_box {
-            styles [
-              "boxed-list",
-              "boxed-list-placeholder",
-            ]
-
-            selection-mode: none;
-
-            [placeholder]
-            Adw.ActionRow {
-              [prefix]
-              Gtk.Image {
-                icon-name: "globe-symbolic";
-              }
-
-              title: _("No User Extensions Installed");
-
-              [suffix]
-              Gtk.Button {
-                label: _("Browse");
-                action-name: "win.show-page";
-                action-target: "\"browse\"";
-                valign: center;
-              }
+          [placeholder]
+          Adw.ActionRow {
+            [prefix]
+            Gtk.Image {
+              icon-name: "globe-symbolic";
             }
 
-            accessibility {
-              labelled-by: user_list;
+            title: _("No User Extensions Installed");
+
+            [suffix]
+            Gtk.Button {
+              label: _("Browse");
+              action-name: "win.show-page";
+              action-target: "\"browse\"";
+              valign: center;
             }
           }
         }
 
-        Adw.PreferencesGroup system_list {
+        Adw.PreferencesGroup system_prefs_group {
           title: _("System Extensions");
 
-          Gtk.ListBox system_list_box {
-            styles [
-              "boxed-list",
-              "boxed-list-placeholder",
-            ]
-
-            selection-mode: none;
-
-            [placeholder]
-            Adw.ActionRow {
-              [prefix]
-              Gtk.Image {
-                icon-name: "settings-symbolic";
-              }
-
-              title: _("No System Extensions Installed");
+          [placeholder]
+          Adw.ActionRow {
+            [prefix]
+            Gtk.Image {
+              icon-name: "settings-symbolic";
             }
 
-            accessibility {
-              labelled-by: system_list;
-            }
+            title: _("No System Extensions Installed");
           }
         }
       };
@@ -98,20 +72,7 @@ template $ExmInstalledPage: Gtk.Widget {
       name: "page_results";
 
       child: Adw.PreferencesPage {
-        Adw.PreferencesGroup {
-          Gtk.ListBox search_list_box {
-            styles [
-              "boxed-list",
-            ]
-
-            selection-mode: none;
-
-            accessibility {
-              // Translators: Text announced by screen readers when interacting with the list of search results
-              label: _("Search Results");
-            }
-          }
-        }
+        Adw.PreferencesGroup search_prefs_group {}
       };
     }
 
