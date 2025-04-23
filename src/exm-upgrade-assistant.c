@@ -71,8 +71,8 @@ struct _ExmUpgradeAssistant
     GtkLabel *summary_top;
     GtkProgressBar *progress_bar;
     GtkLabel *summary_bottom;
-    GtkListBox *user_list_box;
-    GtkListBox *system_list_box;
+    AdwPreferencesGroup *user_prefs_group;
+    AdwPreferencesGroup *system_prefs_group;
     AdwButtonRow *copy_details;
 };
 
@@ -575,15 +575,15 @@ widget_factory (ExmUpgradeResult    *result,
 }
 
 static void
-bind_list_box (ExmUpgradeAssistant *self,
-               GtkListBox          *list_box,
-               GListModel          *model)
+bind_prefs_group (ExmUpgradeAssistant *self,
+                  AdwPreferencesGroup *prefs_group,
+                  GListModel          *model)
 {
     GtkExpression *expression;
     GtkStringSorter *alphabetical_sorter;
     GtkSortListModel *sorted_model;
 
-    g_return_if_fail (GTK_IS_LIST_BOX (list_box));
+    g_return_if_fail (ADW_IS_PREFERENCES_GROUP (prefs_group));
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
     // Sort alphabetically
@@ -592,9 +592,9 @@ bind_list_box (ExmUpgradeAssistant *self,
 
     sorted_model = gtk_sort_list_model_new (model, GTK_SORTER (alphabetical_sorter));
 
-    gtk_list_box_bind_model (list_box, G_LIST_MODEL (sorted_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             self, NULL);
+    adw_preferences_group_bind_model (prefs_group, G_LIST_MODEL (sorted_model),
+                                      (GtkListBoxCreateWidgetFunc) widget_factory,
+                                      self, NULL);
 }
 
 static void
@@ -705,8 +705,8 @@ exm_upgrade_assistant_class_init (ExmUpgradeAssistantClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary_top);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, progress_bar);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, summary_bottom);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, user_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, system_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, user_prefs_group);
+    gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, system_prefs_group);
     gtk_widget_class_bind_template_child (widget_class, ExmUpgradeAssistant, copy_details);
 
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
@@ -726,8 +726,8 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 
     self->user_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
     self->system_results_store = g_list_store_new (EXM_TYPE_UPGRADE_RESULT);
-    bind_list_box (self, self->user_list_box, G_LIST_MODEL (self->user_results_store));
-    bind_list_box (self, self->system_list_box, G_LIST_MODEL (self->system_results_store));
+    bind_prefs_group (self, self->user_prefs_group, G_LIST_MODEL (self->user_results_store));
+    bind_prefs_group (self, self->system_prefs_group, G_LIST_MODEL (self->system_results_store));
 
     populate_drop_down (self);
 }
