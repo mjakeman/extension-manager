@@ -80,17 +80,3 @@ progressbar text {
   font-size: 14px;
   font-weight: bold;
 }
-
-/* Workaround for https://gitlab.gnome.org/GNOME/gtk/-/issues/5309 */
-.boxed-list-placeholder > row:nth-last-child(2),
-.boxed-list-placeholder > row.expander:nth-last-child(2):not(:checked) > box > list > row.header,
-.boxed-list-placeholder > row.expander:nth-last-child(2) > box > revealer > list.nested > row:last-child {
-  border-bottom: 0;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-
-.boxed-list-placeholder > row.expander:nth-last-child(2) > box > revealer > list.nested {
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
