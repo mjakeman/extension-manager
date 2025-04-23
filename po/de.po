@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-04-20 14:49+0000\n"
+"PO-Revision-Date: 2025-04-24 18:01+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -488,16 +488,13 @@ msgid "%d%% Compatible"
 msgstr "%d%% Kompatibel"
 
 #: src/exm-upgrade-assistant.c:224
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system"
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>GNOME %s</b> unterstützt <b>%d von %d</b> der derzeit auf dem System "
-"installierten Erweiterungen"
+"<b>%d von %d</b> Erweiterungen, die derzeit auf diesem System installiert "
+"sind, unterstützen <b>GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
