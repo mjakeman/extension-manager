@@ -2,13 +2,13 @@
 # Copyright (C) 2023 THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # K.B.Dharun Krishna <kbdharunkrishna@gmail.com>, 2022, 2023.
-# தமிழ்நேரம் <anishprabu.t@gmail.com>, 2024.
+# தமிழ்நேரம் <anishprabu.t@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2024-12-26 10:00+0000\n"
+"PO-Revision-Date: 2025-05-02 01:01+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/extension-manager/"
 "app/ta/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -41,7 +41,7 @@ msgstr "சினோம் செல் நீட்டிப்புகளை 
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
-msgstr "GNOME  ஷெல் நீட்டிப்புகளை உலாவுவதற்கும் நிறுவுவதற்கும் ஒரு பயன்பாடு."
+msgstr "குனு ஓடு நீட்டிப்புகளை உலாவுவதற்கும் நிறுவுவதற்கும் ஒரு பயன்பாடு."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -125,16 +125,12 @@ msgid "Connection Error"
 msgstr "இணைப்பு பிழை"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "Loading Comments"
 msgid "Reviews and Comments"
-msgstr "கருத்துகளை ஏற்றுகிறது"
+msgstr "கருத்துகள் மற்றும் மதிப்புரைகள்"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "ஏற்றுகிறது…"
+msgstr "ஏற்றுகிறது"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -178,17 +174,15 @@ msgstr "நீட்டிப்புகளில் காண்க"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "இந்த நீட்டிப்புக்கு மதிப்புரைகள் மற்றும் கருத்துகள் முடக்கப்பட்டுள்ளன"
 
 #: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
-msgstr ""
+msgstr "மதிப்புரைகள் அல்லது கருத்துகள் எதுவும் இல்லை"
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_ எல்லா மதிப்புரைகளையும் மாற்றவும்"
+msgstr "எல்லாம் காட்டு"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:445
@@ -211,10 +205,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "நீட்டிப்பு மேலாளரில் எதிர்பாராத பிழை ஏற்பட்டது"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
+msgstr "இடைநிலைப்பலகைக்கு நகலெடு"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -237,8 +229,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"நீட்டிப்பு மேலாளரின் மூன்றாம் தரப்பு கட்டமைப்பைப் பயன்படுத்துகிறீர்கள். தயவுசெய்து <ச்பான் எடை "
-"= \"தைரியமான\"> ஒரு சிக்கலைத் தாக்கல் செய்வதற்கு முன் தொகுப்பு விநியோகச்தரை (%s) "
+"நீட்டிப்பு மேலாளரின் மூன்றாம் தரப்பு கட்டமைப்பைப் பயன்படுத்துகிறீர்கள். தயவுசெய்து <span "
+"weight=\"bold\">ஒரு சிக்கலைத் தாக்கல் செய்வதற்கு முன் தொகுப்பு விநியோகச்தரை (%s) "
 "முதலில் </span> ஐ தொடர்பு கொள்ளவும். பின்வரும் தகவல்களை இணைக்க மறக்காதீர்கள்:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -267,7 +259,7 @@ msgstr "பதிப்பு"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "அமர்வு முறைகள்"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -283,31 +275,29 @@ msgstr "அகற்று…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "உரையாடலைத் திறக்கவும்"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "சி.டி.எம்"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"திரை பூட்டப்பட்டிருக்கும் போது இந்த நீட்டிப்பு இயங்கும் மற்றும் எந்த பயனரும் உள்நுழையவில்லை"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "திரை பூட்டப்படும் போது இந்த நீட்டிப்பு இயங்கும்"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "அடுத்த உள்நுழைவில் %d நீட்டிப்பு புதுப்பிக்கப்படும்"
+msgstr "எந்தப் பயனரும் உள்நுழையாதபோது இந்த நீட்டிப்பு இயங்கும்"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -378,11 +368,8 @@ msgid "Install…"
 msgstr "நிறுவு…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "நிறுவப்பட்டுள்ளது"
+msgstr "நிறுவப்படுகிறது"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -450,8 +437,8 @@ msgstr[1] "அடுத்த உள்நுழைவில் %d நீட்�
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] "%நான் விண்மீன்"
-msgstr[1] "%நான் நட்சத்திரங்கள்"
+msgstr[0] "%i விண்மீன்"
+msgstr[1] "%i விண்மீன்கள்"
 
 #. Translators: Button's tooltip to zoom out screenshots
 #: src/exm-screenshot-view.blp:37
@@ -487,26 +474,25 @@ msgid "%d%% Compatible"
 msgstr "%d %% இணக்கமானது"
 
 #: src/exm-upgrade-assistant.c:224
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system"
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b> க்னோம் %s </b> தற்போது கணினியில் நிறுவப்பட்ட நீட்டிப்புகளில் %d </b> இல் இருந்து <b> "
-"%d"
+"இந்தக் கணினியில் தற்போது நிறுவப்பட்ட <b>%d இல் %d</b> நீட்டிப்புகள் <b>GNOME %s</b> ஐ "
+"ஆதரிப்பதாகக் குறிக்கப்பட்டுள்ளன"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr ""
+"நீங்கள் இப்போது க்னோம் %s -க்கு மாறினால், உங்கள் நீட்டிப்புகள் அனைத்தும் வேலை செய்ய வேண்டும்"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
+"நீங்கள் இப்போது க்னோம் %s க்கு மாறினால், உங்கள் நீட்டிப்புகளின் %d வேலை செய்யாது"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:518
@@ -539,7 +525,7 @@ msgstr ""
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
 msgid "Search Installed Extensions"
-msgstr "நிறுவப்பட்ட நீட்டிப்புகளைத் தேடுங்கள்"
+msgstr "நிறுவப்பட்ட நீட்டிப்புகளைத் தேடு"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
@@ -547,7 +533,7 @@ msgstr "பட்டியல் விளையாடுங்கள்"
 
 #: src/exm-window.blp:59
 msgid "Search for installed extensions"
-msgstr "நிறுவப்பட்ட நீட்டிப்புகளைத் தேடுங்கள்"
+msgstr "நிறுவப்பட்ட நீட்டிப்புகளுக்காகத் தேடு"
 
 #: src/exm-window.blp:71
 msgctxt "Navigation"
@@ -579,7 +565,7 @@ msgstr "விசைப்பலகை குறுக்குவழிகள�
 
 #: src/exm-window.blp:115
 msgid "_About Extension Manager"
-msgstr "நீட்டிப்பு மேலாளர்"
+msgstr "நீட்டிப்பு மேலாளர் பற்றி"
 
 #: src/exm-window.blp:120
 msgid "Uninstall Extension?"
@@ -599,7 +585,7 @@ msgstr "_ இல்லை"
 
 #: src/exm-window.blp:127
 msgid "_Yes"
-msgstr "_Yes"
+msgstr "ஆம்"
 
 #: src/exm-window.blp:132
 msgid "Unsupported Extension"
@@ -630,8 +616,8 @@ msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
-"<A href = 'https: //status.gnome.org/'> க்னோம் உள்கட்டமைப்பு நிலை </a> ஐ "
-"சரிபார்த்து மீண்டும் முயற்சிக்கவும்"
+"<a href='https://status.gnome.org/'> க்னோம் உள்கட்டமைப்பு நிலை </a> ஐ சரிபார்த்து "
+"மீண்டும் முயற்சிக்கவும்"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
