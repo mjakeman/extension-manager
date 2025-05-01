@@ -131,57 +131,31 @@ template $ExmUpgradeAssistant: Adw.Dialog {
                   }
                 }
 
-                Adw.PreferencesGroup user_list_title {
+                Adw.PreferencesGroup user_prefs_group {
                   title: _("User-Installed Extensions");
 
-                  Gtk.ListBox user_list_box {
-                    styles [
-                      "boxed-list",
-                      "boxed-list-placeholder",
-                    ]
-
-                    selection-mode: none;
-
-                    [placeholder]
-                    Adw.ActionRow {
-                      [prefix]
-                      Gtk.Image {
-                        icon-name: "puzzle-piece-symbolic";
-                      }
-
-                      title: _("No User Extensions Installed");
+                  [placeholder]
+                  Adw.ActionRow {
+                    [prefix]
+                    Gtk.Image {
+                      icon-name: "puzzle-piece-symbolic";
                     }
 
-                    accessibility {
-                      labelled-by: user_list_title;
-                    }
+                    title: _("No User Extensions Installed");
                   }
                 }
 
-                Adw.PreferencesGroup system_list_title {
+                Adw.PreferencesGroup system_prefs_group {
                   title: _("System Extensions");
 
-                  Gtk.ListBox system_list_box {
-                    styles [
-                      "boxed-list",
-                      "boxed-list-placeholder",
-                    ]
-
-                    selection-mode: none;
-
-                    [placeholder]
-                    Adw.ActionRow {
-                      [prefix]
-                      Gtk.Image {
-                        icon-name: "settings-symbolic";
-                      }
-
-                      title: _("No System Extensions Installed");
+                  [placeholder]
+                  Adw.ActionRow {
+                    [prefix]
+                    Gtk.Image {
+                      icon-name: "settings-symbolic";
                     }
 
-                    accessibility {
-                      labelled-by: system_list_title;
-                    }
+                    title: _("No System Extensions Installed");
                   }
                 }
 
