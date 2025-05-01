@@ -5,21 +5,22 @@
 # Onur Ankut <ripsivis@gmail.com>, 2022.
 # Sabri Ünal <libreajans@gmail.com>, 2022.
 # AlphaBeta1 <hsynulassudem200w@gmail.com>, 2024.
+# Nuri KÜÇÜKLER <enatsek@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2024-11-05 12:14+0000\n"
-"Last-Translator: AlphaBeta1 <hsynulassudem200w@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
-"manager/app/tr/>\n"
+"PO-Revision-Date: 2025-05-02 01:01+0000\n"
+"Last-Translator: Nuri KÜÇÜKLER <enatsek@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"extension-manager/app/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -61,16 +62,12 @@ msgid "Manage the extensions you already have installed"
 msgstr "Zaten kurmuş olduğunuz uzantıları yönetin"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "See all the details of your extensions"
-msgstr "Uzantı arayın"
+msgstr "Uzantılarınızın ayrıntılarını görün"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz"
+msgstr "Uzantılarınızın bir sonraki GNOME sürümüyle uyumluluğunu kontrol edin"
 
 #: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -85,21 +82,15 @@ msgstr ""
 "Oğuz Ersen <oguz@ersen.moe>"
 
 #: src/exm-browse-page.blp:16
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
-msgstr "Uzantı arayın"
+msgstr "Uzantı Arayın"
 
 #: src/exm-browse-page.blp:17
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
 "'extensions.gnome.org'da GNOME Shell uzantılarını aramak için bir sözcük "
-"girin."
+"girin"
 
 #: src/exm-browse-page.blp:47
 msgid "Relevance"
@@ -132,25 +123,21 @@ msgstr "Sonuç Bulunamadı"
 
 #: src/exm-browse-page.blp:144
 msgid "Try a different search"
-msgstr ""
+msgstr "Başka bir arama deneyin"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
-msgstr ""
+msgstr "Bağlantı Hatası"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "Yorum yok."
+msgstr "Gözden Geçirmeler ve Yorumlar"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Yükleniyor…"
+msgstr "Yükleniyor"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -165,16 +152,12 @@ msgid "An Error Occurred"
 msgstr "Hata Oluştu"
 
 #: src/exm-detail-view.blp:60
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "Uzantının yeni bir sürümü var"
+msgstr "Uzantı ayrıntıları bulunamadı"
 
 #: src/exm-detail-view.blp:154
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
-msgstr "Resmi genişlet"
+msgstr "Resmi Genişlet"
 
 #: src/exm-detail-view.blp:172 src/exm-extension-row.blp:89
 msgid "Description"
@@ -198,31 +181,27 @@ msgstr "Uzantılar Sitesinde Görüntüle"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "Bu uzantı için gözden geçirmeler ve yorumlar etkisizleştirilmiştir"
 
 #: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "Yorum yok."
+msgstr "Gözden geçirme ve yorum yok."
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "Tüm Yorumları _Göster"
+msgstr "_Hepsini Göster"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:445
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s İkonu"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:478
 #, c-format
 msgid "%s Screenshot"
-msgstr ""
+msgstr "%s Ekran Görüntüsü"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -233,10 +212,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Uzantı Yöneticisi'nde beklenmedik bir hata oluştu"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "Panoya _Kopyala"
+msgstr "Panoya Kopyala"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -290,7 +267,7 @@ msgstr "Sürüm"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "Oturum Kipleri"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
