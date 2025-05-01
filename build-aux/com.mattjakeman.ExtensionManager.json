@@ -25,7 +25,7 @@
         "*.a"
     ],
     "modules" : [
-        {
+    	{
             "name" : "blueprint-compiler",
             "builddir" : true,
             "buildsystem" : "meson",

@@ -186,12 +186,6 @@ exm_application_show_about (GSimpleAction *action G_GNUC_UNUSED,
                                         NULL);
 #endif
 
-    adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
-                                        "blueprint",
-                                        "© 2021 James Westman",
-                                        GTK_LICENSE_LGPL_3_0,
-                                        NULL);
-
     adw_dialog_present (about_dialog, GTK_WIDGET (window));
 }
 
