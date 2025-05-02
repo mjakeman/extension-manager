@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-03-12 08:01+0000\n"
+"PO-Revision-Date: 2025-05-02 04:39+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/extension-"
-"manager/app/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"extension-manager/app/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -474,26 +474,23 @@ msgid "%d%% Compatible"
 msgstr "%d%% Kompatibla"
 
 #: src/exm-upgrade-assistant.c:224
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system"
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>GNOME %s</b> stöder <b>%d av %d</b> av de tillägg som för närvarande är "
-"installerade på systemet"
+"<b>%d av %d</b> tillägg som för närvarande är installerade på det här "
+"systemet har markerats som stöder <b>GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr ""
+msgstr "Om du byter till GNOME %s nu, borde alla dina tillägg fungera"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr ""
+msgstr "Om du byter till GNOME %s nu, kanske %d av dina tillägg inte fungerar"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:518
