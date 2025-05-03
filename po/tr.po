@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-05-02 01:01+0000\n"
+"PO-Revision-Date: 2025-05-04 17:03+0000\n"
 "Last-Translator: Nuri KÜÇÜKLER <enatsek@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "extension-manager/app/tr/>\n"
@@ -185,7 +185,7 @@ msgstr "Bu uzantı için gözden geçirmeler ve yorumlar etkisizleştirilmiştir
 
 #: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
-msgstr "Gözden geçirme ve yorum yok."
+msgstr "Gözden geçirme ve yorum yok"
 
 #: src/exm-detail-view.blp:343
 msgid "_Show All"
@@ -283,85 +283,77 @@ msgstr "Kaldır…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Diyalog Kilidini Kaldır"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
+"Bu uzantı ekran kilitlendiğinde ve herhangi bir kullanıcı oturum açmadığında "
+"çalışacaktır"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "Bu uzantı ekran kilitlendiğinde çalışacaktır"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
 msgid "This extension will run while no user is logged in"
-msgstr "%d uzantı sonraki girişte güncellenecek."
+msgstr "Bu uzantı herhangi bir kullanıcı oturum açmadığında çalışacaktır"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcut window"
 msgid "Show Installed Page"
-msgstr "Kurulu"
+msgstr "Kurulu Sayfayı Göster"
 
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "Tarayıcı Sayfasını Göster"
 
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Aramayı Tersine Çevir"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr ""
+msgstr "Klavye Kısayollarını Göster"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "Pencereyi Kapat"
 
 #: src/exm-help-overlay.blp:39
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Çık"
 
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "Ekran Görüntüsü Görünümü"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom In"
 msgstr "Yakınlaştır"
 
 #: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom Out"
 msgstr "Uzaklaştır"
@@ -369,7 +361,7 @@ msgstr "Uzaklaştır"
 #: src/exm-help-overlay.blp:58
 msgctxt "shortcut window"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "Yakınlaştırmayı Sıfırla"
 
 #: src/exm-info-bar.blp:28
 msgctxt "Number of downloads"
@@ -385,11 +377,8 @@ msgid "Install…"
 msgstr "Kur…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Kurulu"
+msgstr "Kuruluyor"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -397,36 +386,28 @@ msgid "Installed"
 msgstr "Kurulu"
 
 #: src/exm-install-button.c:140
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "Desteklenmiyor"
+msgstr "Desteklenmiyor…"
 
 #: src/exm-installed-page.blp:16
-#, fuzzy
-#| msgid "Log Out"
 msgid "_Log Out…"
-msgstr "Oturumu Kapat"
+msgstr "Oturumu Kapat…"
 
 #: src/exm-installed-page.blp:28
 msgid "Use Extensions"
 msgstr "Uzantıları Kullan"
 
 #: src/exm-installed-page.blp:29
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "Uzantılar başarım ve kararlılık sorunlarına neden olabilir."
+msgstr "Uzantılar başarım ve kararlılık sorunlarına neden olabilir"
 
 #: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Kurulu Uzantılarınız"
 
 #: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No User Extensions Installed"
-msgstr "Kurulu kullanıcı uzantısı yok."
+msgstr "Kurulu Kullanıcı Uzantısı Yok"
 
 #: src/exm-installed-page.blp:55
 msgid "Browse"
@@ -437,40 +418,34 @@ msgid "System Extensions"
 msgstr "Sistem Uzantıları"
 
 #: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-#, fuzzy
-#| msgid "There are no system extensions installed."
 msgid "No System Extensions Installed"
-msgstr "Kurulu sistem uzantısı yok."
+msgstr "Kurulu Sistem Uzantısı Yok"
 
 #. Translators: Text announced by screen readers when interacting with the list of search results
 #: src/exm-installed-page.blp:111
-#, fuzzy
-#| msgid "Sort search results"
 msgid "Search Results"
-msgstr "Arama sonuçlarını sıralama"
+msgstr "Arama Sonuçları"
 
 #: src/exm-installed-page.blp:124
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Başka bir arama dene ya da çevrimiçi ara"
 
 #: src/exm-installed-page.blp:131
 msgid "_Search Online"
-msgstr ""
+msgstr "Çevrimiçi Ara"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:298
-#, fuzzy, c-format
-#| msgid "One extension will be updated on next login."
-#| msgid_plural "%d extensions will be updated on next login."
+#, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "%d uzantı sonraki girişte güncellenecek."
+msgstr[0] "%d uzantısı sonraki girişte güncellenecek"
 
 #: src/exm-rating.c:142
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
+msgstr[0] "%i Yıldız"
 
 #. Translators: Button's tooltip to zoom out screenshots
 #: src/exm-screenshot-view.blp:37
@@ -506,39 +481,33 @@ msgid "%d%% Compatible"
 msgstr "%%%d Uyumlu"
 
 #: src/exm-upgrade-assistant.c:224
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system."
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>GNOME %s</b>, sistemde kurulu olan <b>%d / %d</b> eklentiyi destekliyor."
+"Sistemde kurulu olan <b>%d/%d</b> uzantı <b>GNOME %s</b> tarafından "
+"destekleniyor"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr ""
+msgstr "Eğer şimdi GNOME %s'e geçerseniz, bütün uzantılarınız çalışacaktır"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr ""
+msgstr "Eğer şimdi GNOME %s'e geçerseniz, %d uzantınız çalışmayabilir"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:518
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
-msgstr "Uzantının uyumlu bir sürümü var."
+msgstr "Uzantının uyumlu bir sürümü var"
 
 #. Translators: Icon's tooltip when an extension is not compatible
 #: src/exm-upgrade-assistant.c:525
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
-msgstr "Uzantının uyumlu bir sürümü yok."
+msgstr "Uzantının uyumlu bir sürümü yok"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
 #: src/exm-upgrade-assistant.c:532
@@ -560,20 +529,16 @@ msgstr ""
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Kurulu Uzantılarınız"
+msgstr "Kurulu Uzantıları Ara"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
 msgstr "Ana Menü"
 
 #: src/exm-window.blp:59
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for installed extensions"
-msgstr "Uzantı arayın"
+msgstr "Kurulu uzantılarda ara"
 
 #: src/exm-window.blp:71
 msgctxt "Navigation"
@@ -601,7 +566,7 @@ msgstr "_Yükseltme Yardımcısı"
 
 #: src/exm-window.blp:114
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Klavye Kısayolları"
 
 #: src/exm-window.blp:115
 msgid "_About Extension Manager"
@@ -648,20 +613,20 @@ msgid "_Go Back"
 msgstr "Geri _Git"
 
 #: src/exm-window.c:348
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "Ayrıntılar"
+msgstr "_Ayrıntılar"
 
 #: src/web/exm-request-handler.c:99
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"<a href='https://status.gnome.org/'>GNOME altyapı durumununu</a> kontrol "
+"edin ve daha sonra tekrar deneyin"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Ağ durumunuzu kontrol edin ve tekrar deneyin"
 
 #~ msgid "Comments"
 #~ msgstr "Yorumlar"
