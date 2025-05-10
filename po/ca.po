@@ -5,21 +5,22 @@
 #
 # Joan Aymà <joanayma@gmail.com>, 2024.
 # Quentin PAGÈS <quentinantonin@free.fr>, 2025.
+# Esteve Fernandez <esteve@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-02-16 12:17+0000\n"
-"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
-"manager/app/ca/>\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
+"PO-Revision-Date: 2025-05-06 11:03+0000\n"
+"Last-Translator: Esteve Fernandez <esteve@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/"
+"extension-manager/app/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -69,12 +70,12 @@ msgstr ""
 "Comprova la compatibilitat de les teves extensions amb la següent versió del "
 "GNOME"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Navega, instal·la i gestiona extensions del GNOME Shell."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr "Ícar N. S. <personal@icarns.xyz>"
 
@@ -120,25 +121,21 @@ msgstr "No s'ha trobat cap resultat"
 
 #: src/exm-browse-page.blp:144
 msgid "Try a different search"
-msgstr ""
+msgstr "Prova una nova cerca"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
-msgstr ""
+msgstr "Error de connexió"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "No hi ha opinions."
+msgstr "Opinions i comentaris"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Carregant…"
+msgstr "Carregant"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -227,7 +224,7 @@ msgid "_New Issue"
 msgstr "_Nova incidència"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "Copiat"
 
@@ -412,11 +409,11 @@ msgstr "Utilitza les extensions"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Les extensions poden causar problemes de rendiment i estabilitat"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Extensions instal·lades per l'usuari"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "Cap extensió instalada per l'usuari"
 
@@ -424,11 +421,11 @@ msgstr "Cap extensió instalada per l'usuari"
 msgid "Browse"
 msgstr "Navega"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "Extensions del sistema"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "Cap extensió instalada pel sistema"
 
@@ -476,46 +473,59 @@ msgstr "Ampliar"
 msgid "Upgrade Assistant"
 msgstr "Assistent d'actualització"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_Comprovar compatibilitat"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "_Copiar al portaretalls"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d de %d extensions comprovades"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% compatible"
 
-#: src/exm-upgrade-assistant.c:223
-#, c-format
+#: src/exm-upgrade-assistant.c:224
+#, fuzzy, c-format
+#| msgid ""
+#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+#| "installed on the system"
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
 msgstr ""
 "<b>GNOME %s</b> suporta <b>%d de %d</b> de les extensions instalades "
 "actualment al sistema"
 
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "Existeix una versió compatible d'aquesta extensió"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "No existeix cap versió compatible per aquesta extensió"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -523,7 +533,7 @@ msgstr ""
 "Aquesta extensió no està allotjada a extensions.gnome.org. No és possible "
 "determinar la seva compatibilitat."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "

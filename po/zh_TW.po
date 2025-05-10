@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2025-03-12 07:04+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
+"PO-Revision-Date: 2025-05-10 06:01+0000\n"
 "Last-Translator: taijuin Lee <taijuin@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hant/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -68,12 +68,12 @@ msgstr "查看所有擴充功能的詳細資訊"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "檢查您的擴充功能與下一版本 GNOME 的相容性"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "瀏覽、安裝和管理 GNOME Shell 擴充功能。"
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr ""
 "Sean Wang <sn1128231220jd@yahoo.com>\n"
@@ -124,7 +124,7 @@ msgstr "試試不同的搜尋方式"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "連線錯誤"
 
@@ -217,7 +217,7 @@ msgid "_New Issue"
 msgstr "新問題(_N)"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "已複製"
 
@@ -233,8 +233,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"您正在使用第三方版本的擴充功能管理員。在提交問題之前，請先<span weight="
-"\"bold\">聯絡軟體包分發者（%s）</span>。請務必附上以下資訊："
+"您正在使用第三方版本的擴充功能管理員。在提交問題之前，請先<span "
+"weight=\"bold\">聯絡軟體包分發者（%s）</span>。請務必附上以下資訊："
 
 #. Translators: Button's tooltip to open extension's preferences dialog
 #: src/exm-extension-row.blp:28
@@ -394,11 +394,11 @@ msgstr "使用擴充功能"
 msgid "Extensions can cause performance and stability issues"
 msgstr "擴充功能可能造成效能和穩定性問題"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "使用者安裝的擴充功能"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "沒有已安裝的使用者擴充功能"
 
@@ -406,11 +406,11 @@ msgstr "沒有已安裝的使用者擴充功能"
 msgid "Browse"
 msgstr "瀏覽"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "系統擴充功能"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "沒有已安裝的系統擴充功能"
 
@@ -454,56 +454,67 @@ msgstr "放大"
 msgid "Upgrade Assistant"
 msgstr "升級助理"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "檢查相容性(_C)"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "複製到剪貼簿(_C)"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "已檢查 %d／%d 個擴充功能"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% 相容"
 
-#: src/exm-upgrade-assistant.c:223
+#: src/exm-upgrade-assistant.c:224
 #, c-format
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
-msgstr "<b>GNOME %s</b> 支援目前安裝在系統上的 <b>%d／%d 個</b>擴充功能"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
+msgstr "目前安裝在系統上的擴充功能已被標記為<b>%d不%d</b>支援 <b>GNOME %s</b>"
+
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr "如果您現在切換到 GNOME %s，您所有的擴充功能都應該可以運作"
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr "如果您現在切換到 GNOME %s，您的 %d 擴充功能可能無法運作"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "此擴充功能有相容的版本"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "此擴充功能無相容的版本"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr "此擴充功能並非來自 extensions.gnome.org。無法確認相容性。"
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
-msgstr "您正在執行 <b>GNOME %s</b>。請在下方選擇一個 GNOME "
-"版本，並檢查您的擴充功能是否可以繼續使用。"
+msgstr ""
+"您正在執行 <b>GNOME %s</b>。請在下方選擇一個 GNOME 版本，並檢查您的擴充功能是"
+"否可以繼續使用。"
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
