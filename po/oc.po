@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
 "PO-Revision-Date: 2025-03-13 05:26+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/"
-"extension-manager/app/oc/>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
+"manager/app/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,12 +66,12 @@ msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr ""
 "Verificatz la compatibilitat de l'extension ambé la version de GNOME venenta"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Percórrer, installar e gerir las extensions GNOME Shell."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr "Quentin PAGÈS"
 
@@ -121,7 +121,7 @@ msgstr "Ensajatz una recèrca diferenta"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Error de connexion"
 
@@ -214,7 +214,7 @@ msgid "_New Issue"
 msgstr "_Anomalia novèla"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "Copiat"
 
@@ -291,8 +291,8 @@ msgstr "GDM"
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
-"Aquesta extension foncionarà quand l’ecran es verrolhat e que cap d’"
-"utilizaire es pas connectat"
+"Aquesta extension foncionarà quand l’ecran es verrolhat e que cap "
+"d’utilizaire es pas connectat"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
@@ -397,11 +397,11 @@ msgstr "Utilizar las extensions"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Las extensions pòdon causar problèmas de performança e d’estabilitat"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Extensions installadas per l’utilizaire"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "Cap d’aplicacion utilizaire pas installada"
 
@@ -409,11 +409,11 @@ msgstr "Cap d’aplicacion utilizaire pas installada"
 msgid "Browse"
 msgstr "Percórrer"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "Extensions sistèma"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "Cap d’aplicacion sistèma pas installada"
 
@@ -459,46 +459,59 @@ msgstr "Zoom Avant"
 msgid "Upgrade Assistant"
 msgstr "Assistent de mesa a nivèl"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "_Verificar la compatibilitat"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "_Copiar al quichapapièrs"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "%d/%d extensions verificadas"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "Compatibla %d%%"
 
-#: src/exm-upgrade-assistant.c:223
-#, c-format
+#: src/exm-upgrade-assistant.c:224
+#, fuzzy, c-format
+#| msgid ""
+#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
+#| "installed on the system"
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
 msgstr ""
 "<b>GNOME %s</b> pren en carga <b>%d de %d</b> de las extensions actualament "
 "installadas sul sistèma"
 
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr ""
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "Una version compatibla de l’extension existís"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "Cap de version compatibla de l’extension existís pas"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -506,7 +519,7 @@ msgstr ""
 "Aquesta extensions es pas albergada a extensions.gnome.org. Se pòt pas "
 "determinar sa compatibilitat."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "

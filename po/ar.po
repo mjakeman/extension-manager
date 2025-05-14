@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # Omar TS <otd@duck.com>, 2022.
 # Omar TS <ots@duck.com>, 2024.
+# Saggitarius <gdeforge@gmx.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 16:36+0000\n"
-"PO-Revision-Date: 2024-11-30 22:34+0000\n"
-"Last-Translator: Omar TS <ots@duck.com>\n"
+"POT-Creation-Date: 2025-04-06 13:57+0000\n"
+"PO-Revision-Date: 2025-04-11 14:01+0000\n"
+"Last-Translator: Saggitarius <gdeforge@gmx.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -66,12 +67,12 @@ msgstr "اطلع على كافة تفاصيل امتداداتك"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "تحقق من توافق امتداداتك مع الإصدار التالي من جنوم"
 
-#: src/exm-application.c:201
+#: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "تصفح ونصِّب وأدِر امتدادات جنوم شل."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:204
+#: src/exm-application.c:178
 msgid "translator-credits"
 msgstr ""
 "Omar TS <ots@duck.com>\n"
@@ -121,21 +122,17 @@ msgstr "جرّب بحثا مختلفا"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
-#: src/exm-upgrade-assistant.blp:100
+#: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "خطأ في الاتصال"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
-#, fuzzy
-#| msgid "There are no comments."
 msgid "Reviews and Comments"
-msgstr "لا تُوجَد تعليقات."
+msgstr "ليس هناك تقييمات أو تعاليق"
 
 #: src/exm-comment-dialog.blp:25
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "جار التحميل…"
+msgstr "تحميل"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -179,19 +176,15 @@ msgstr "اعرض على موقع الامتدادات"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "لقد تم تعطيل التقييمات والتعاليق لهذا الملحق"
 
 #: src/exm-detail-view.blp:314
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "لا تُوجَد تعليقات."
+msgstr "ليس هناك تقييمات أو تعاليق"
 
 #: src/exm-detail-view.blp:343
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "ا_عرض جميع التعليقات"
+msgstr "_عرض الجميع"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:445
@@ -214,17 +207,15 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "حدث خطأ غير متوقع في مدير الامتدادات"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "ا_نسخ إلى الحافظة"
+msgstr "نسخ إلى الحافظة"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
 msgstr "_بلِّغ عن العلة"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:347
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
 msgid "Copied"
 msgstr "نُسخَت"
 
@@ -270,7 +261,7 @@ msgstr "رقم الإصدار"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr ""
+msgstr "أوضاع الحصة"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -286,31 +277,28 @@ msgstr "أزِل…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "فتح الحوار"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "مدير المكتب غنوم (GDM)"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
-msgstr ""
+msgstr "سيستمر اشتغال هذا الملحق بعد قفل الشاشة وبدون تسجيل دخول أي مستخدم"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "سيستمر اشتغال هذا الملحق بعد قفل الشاشة"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
-#, fuzzy
-#| msgid "%d extension will be updated on next login"
-#| msgid_plural "%d extensions will be updated on next login"
 msgid "This extension will run while no user is logged in"
-msgstr "لا امتدادات ستُحدَّث في الولوج التالي"
+msgstr "سيستمر اشتغال هذا الملحق ولو لم يسجل أي مستخدم دخوله"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -381,11 +369,8 @@ msgid "Install…"
 msgstr "نصِّب…"
 
 #: src/exm-install-button.c:132
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "مُنصَّب"
+msgstr "تنصيب"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -408,11 +393,11 @@ msgstr "فعِّل الامتدادات"
 msgid "Extensions can cause performance and stability issues"
 msgstr "قد تُسبِّب الامتدادات مشكلات في الأداء وفي الاستقرار"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:133
+#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "الامتدادات التي نصَّبها المستخدم"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:150
+#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
 msgid "No User Extensions Installed"
 msgstr "لا امتدادات نصَّبها المستخدم"
 
@@ -420,11 +405,11 @@ msgstr "لا امتدادات نصَّبها المستخدم"
 msgid "Browse"
 msgstr "تصفح"
 
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:160
+#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
 msgid "System Extensions"
 msgstr "الامتدادات المُنصَّبة في النظام"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:177
+#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
 msgid "No System Extensions Installed"
 msgstr "لا امتدادات مُنصَّبة في النظام"
 
@@ -478,51 +463,64 @@ msgstr "قرِّب"
 msgid "Upgrade Assistant"
 msgstr "مساعد الترقية"
 
-#: src/exm-upgrade-assistant.blp:66
+#: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
 msgstr "ا_فحص التوافق"
 
-#: src/exm-upgrade-assistant.blp:189
+#: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
 msgstr "ا_نسخ إلى الحافظة"
 
-#: src/exm-upgrade-assistant.c:188
+#: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "فُحِص %d/%d من الامتدادات"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:207
+#: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
 msgstr "؜%d%% مُتوافِقة"
 
-#: src/exm-upgrade-assistant.c:223
+#: src/exm-upgrade-assistant.c:224
 #, c-format
 msgid ""
-"<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-"installed on the system"
-msgstr "يتوافق مع <b>جنوم%s</b> ؜<b>%d من أصل %d</b> من الامتدادات المُنصَّبة"
+"<b>%d out of %d</b> extensions currently installed on this system have been "
+"marked as supporting <b>GNOME %s</b>"
+msgstr ""
+"تم تمييزd% من أصل d% ملحقات مثبتة حاليًا على هذا النظام على أنها تدعم "
+"<b>GNOME %s</b>"
+
+#: src/exm-upgrade-assistant.c:231
+#, c-format
+msgid "If you switch to GNOME %s now, all of your extensions should work"
+msgstr "إذا قمت بالتحويل إلى Gnome ٪s الآن ، ستشتغل جميع ملحقاتك"
+
+#: src/exm-upgrade-assistant.c:236
+#, c-format
+msgid "If you switch to GNOME %s now, %d of your extensions might not work"
+msgstr ""
+"إذا قمت بالتحويل إلى Gnome ٪s الآن ، من المحتمل تعدر اشتغال d% من ملحقاتك"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:503
+#: src/exm-upgrade-assistant.c:518
 msgid "A compatible version of the extension exists"
 msgstr "يُوجَد إصدار مُتوافِق من هذا الامتداد"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:510
+#: src/exm-upgrade-assistant.c:525
 msgid "No compatible version of the extension exists"
 msgstr "لا يُوجَد إصدار مُتوافِق من هذا الامتداد"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:517
+#: src/exm-upgrade-assistant.c:532
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
 "هذا الامتداد غير مُستضاف على extensions.gnome.org، لذا تعذَّر تحديد توافقه."
 
-#: src/exm-upgrade-assistant.c:608
+#: src/exm-upgrade-assistant.c:623
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
