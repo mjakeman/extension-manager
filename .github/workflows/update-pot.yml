@@ -51,7 +51,7 @@ jobs:
           meson compile -C _build extension-manager-pot
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7.0.5
+        uses: peter-evans/create-pull-request@v7.0.8
         with:
           commit-message: 'po: Update template'
           title: 'po: Update template'
