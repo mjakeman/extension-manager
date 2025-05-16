@@ -189,7 +189,50 @@ template $ExmDetailView: Adw.NavigationPage {
                   }
                 }
 
-                $ExmInfoBar ext_info_bar {}
+                Adw.PreferencesGroup {
+                  Adw.ActionRow {
+                    [prefix]
+                    Gtk.Image {
+                      icon-name: "folder-download-symbolic";
+                    }
+
+                    title: C_("Number of downloads", "Downloads");
+
+                    [suffix]
+                    Gtk.Label downloads_label {
+                      styles [
+                        "numeric",
+                      ]
+                    }
+                  }
+
+                  Adw.ActionRow {
+                    [prefix]
+                    Gtk.Image {
+                      icon-name: "system-software-install-symbolic";
+                    }
+
+                    action-name: "detail.show-versions";
+                    activatable: true;
+                    title: _("Version");
+
+                    [suffix]
+                    Gtk.Box {
+                      spacing: 6;
+
+                      Gtk.Label version_label {
+                        // TODO: Drop when version-label is available
+                        styles [
+                          "numeric",
+                        ]
+                      }
+
+                      Gtk.Image {
+                        icon-name: "go-next-symbolic";
+                      }
+                    }
+                  }
+                }
 
                 Adw.PreferencesGroup {
                   title: _("Links");
@@ -200,9 +243,9 @@ template $ExmDetailView: Adw.NavigationPage {
                       icon-name: "go-home-symbolic";
                     }
 
-                    title: _("Homepage");
-                    activatable: true;
                     action-name: "detail.open-homepage";
+                    activatable: true;
+                    title: _("Homepage");
 
                     [suffix]
                     Gtk.Image {
@@ -225,9 +268,9 @@ template $ExmDetailView: Adw.NavigationPage {
                       icon-name: "web-browser-symbolic";
                     }
 
-                    title: _("View on Extensions");
-                    activatable: true;
                     action-name: "detail.open-extensions";
+                    activatable: true;
+                    title: _("View on Extensions");
 
                     [suffix]
                     Gtk.Image {
@@ -246,8 +289,8 @@ template $ExmDetailView: Adw.NavigationPage {
                     ]
 
                     label: _("Reviews and Comments");
-                    xalign: 0;
                     selectable: true;
+                    xalign: 0;
                   }
 
                   // TODO: Abstract into common class
