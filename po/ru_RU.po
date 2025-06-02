@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # Aleksandr Melman <alexmelman88@gmail.com>, 2024, 2025.
 # Yurt Page <yurtpage@gmail.com>, 2025.
+# Fedorov Alexei <aleksejfedorov963@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-05-28 11:02+0000\n"
-"Last-Translator: Yurt Page <yurtpage@gmail.com>\n"
+"PO-Revision-Date: 2025-06-03 20:04+0000\n"
+"Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "extension-manager/app/ru/>\n"
 "Language: ru_RU\n"
@@ -495,11 +496,15 @@ msgstr ""
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr ""
+"Если вы переключитесь на GNOME %s сейчас, все ваши расширения должны "
+"работать корректно"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
+"Если вы переключитесь на GNOME %s сейчас, возможно, не будет работать %d "
+"расширен."
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:518
