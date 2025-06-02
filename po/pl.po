@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-05-13 18:01+0000\n"
+"PO-Revision-Date: 2025-06-03 20:04+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
@@ -383,7 +383,7 @@ msgstr "Instalowanie"
 #: src/exm-install-button.c:136
 msgctxt "State"
 msgid "Installed"
-msgstr "Zainstalowane"
+msgstr "Zainstalowano"
 
 #: src/exm-install-button.c:140
 msgid "Unsupported…"
@@ -471,7 +471,7 @@ msgstr "Sprawdź zgodność"
 
 #: src/exm-upgrade-assistant.blp:191
 msgid "_Copy to Clipboard"
-msgstr "Skopiuj do schowka"
+msgstr "_Skopiuj do schowka"
 
 #: src/exm-upgrade-assistant.c:189
 #, c-format
@@ -551,12 +551,12 @@ msgstr "Wyszukaj zainstalowane rozszerzenia"
 #: src/exm-window.blp:71
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "Zainstalowane"
+msgstr "_Zainstalowano"
 
 #: src/exm-window.blp:80
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "Przeglądaj"
+msgstr "_Przeglądaj"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
@@ -570,7 +570,7 @@ msgstr "Pokaż niewspierane"
 
 #: src/exm-window.blp:113
 msgid "_Upgrade Assistant"
-msgstr "Asystent aktualizacji"
+msgstr "_Asystent aktualizacji"
 
 #: src/exm-window.blp:114
 msgid "_Keyboard Shortcuts"
