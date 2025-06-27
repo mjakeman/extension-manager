@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2025-06-03 20:04+0000\n"
-"Last-Translator: Fedorov Alexei <aleksejfedorov963@gmail.com>\n"
+"PO-Revision-Date: 2025-06-28 13:04+0000\n"
+"Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "extension-manager/app/ru/>\n"
 "Language: ru_RU\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -489,8 +489,8 @@ msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>GNOME %s</b> поддерживает <b>%d из %d</b> расширений, установленных в "
-"настоящее время в системе"
+"<b>%d из %d</b> расширений, установленных в настоящее время в этой системе, "
+"помечены как поддерживающие <b>GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
@@ -503,8 +503,8 @@ msgstr ""
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
-"Если вы переключитесь на GNOME %s сейчас, возможно, не будет работать %d "
-"расширен."
+"Если вы сейчас переключитесь на GNOME %s, %d из ваших расширений может не "
+"работать"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:518
