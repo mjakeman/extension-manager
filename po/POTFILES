@@ -14,7 +14,6 @@ src/exm-error-dialog.blp
 src/exm-error-dialog.c
 src/exm-extension-row.blp
 src/exm-extension-row.c
-src/exm-help-overlay.blp
 src/exm-info-bar.blp
 src/exm-info-bar.c
 src/exm-install-button.blp
@@ -29,6 +28,7 @@ src/exm-screenshot.blp
 src/exm-screenshot.c
 src/exm-search-row.blp
 src/exm-search-row.c
+src/exm-shortcuts-dialog.blp
 src/exm-upgrade-assistant.blp
 src/exm-upgrade-assistant.c
 src/exm-upgrade-result.c
