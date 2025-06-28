@@ -1,0 +1,61 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ShortcutsDialog shortcuts_dialog {
+  Adw.ShortcutsSection {
+    title: C_("shortcuts dialog", "Views");
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Switch to Installed");
+      accelerator: "<Alt>1";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Switch to Browse");
+      accelerator: "<Alt>2";
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("shortcuts dialog", "Screenshot View");
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Zoom In");
+      accelerator: "<Control>plus";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Zoom Out");
+      accelerator: "<Control>minus";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Reset Zoom");
+      accelerator: "<Control>0";
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("shortcuts dialog", "App");
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Toggle Search");
+      accelerator: "<Control>F";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Keyboard Shortcuts");
+      action-name: "app.shortcuts";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Close Window");
+      action-name: "window.close";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("shortcuts dialog", "Quit");
+      action-name: "app.quit";
+    }
+  }
+}
