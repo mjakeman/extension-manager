@@ -384,7 +384,6 @@ static void
 on_bind_manager (ExmBrowsePage *self)
 {
     GListModel *ext_model;
-    gchar *shell_version;
 
     g_object_get (self->manager,
                   "extensions", &ext_model,
@@ -394,13 +393,6 @@ on_bind_manager (ExmBrowsePage *self)
                               "items-changed",
                               G_CALLBACK (refresh_search),
                               self);
-
-    g_object_get (self->manager,
-                  "shell-version",
-                  &shell_version,
-                  NULL);
-
-    g_object_set (self->search, "shell-version", shell_version, NULL);
 
     refresh_search (self);
 }
@@ -483,24 +475,9 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
 static void
 exm_browse_page_init (ExmBrowsePage *self)
 {
-    GSettings *settings;
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->search = exm_search_provider_new ();
-
-    settings = g_settings_new (APP_ID);
-
-    g_settings_bind (settings, "show-unsupported",
-                     self->search, "show-unsupported",
-                     G_SETTINGS_BIND_GET);
-
-    g_object_unref (settings);
-
-    // Rerun search when show unsupported is toggled
-    g_signal_connect_swapped (self->search,
-                              "notify::show-unsupported",
-                              G_CALLBACK (on_search_changed),
-                              self);
 
     load_suggestions (self);
 

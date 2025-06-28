@@ -19,10 +19,5 @@
       <summary>Sort Enabled First</summary>
       <description>Display enabled extensions first in the installed view.</description>
     </key>
-    <key name="show-unsupported" type="b">
-      <default>false</default>
-      <summary>Show Unsupported</summary>
-      <description>Show extensions which do not support the current version of GNOME.</description>
-    </key>
   </schema>
 </schemalist>

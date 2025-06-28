@@ -29,14 +29,12 @@ struct _ExmVersionsProvider
 {
     ExmRequestHandler parent_instance;
     const gchar *shell_version;
-    gboolean show_unsupported;
 };
 
 G_DEFINE_FINAL_TYPE (ExmVersionsProvider, exm_versions_provider, EXM_TYPE_REQUEST_HANDLER)
 
 enum {
     PROP_0,
-    PROP_SHOW_UNSUPPORTED,
     PROP_SHELL_VERSION,
     N_PROPS
 };
@@ -65,9 +63,6 @@ exm_versions_provider_get_property (GObject    *object,
 
     switch (prop_id)
     {
-    case PROP_SHOW_UNSUPPORTED:
-        g_value_set_boolean (value, self->show_unsupported);
-        break;
     case PROP_SHELL_VERSION:
         g_value_set_string (value, self->shell_version);
         break;
@@ -86,9 +81,6 @@ exm_versions_provider_set_property (GObject      *object,
 
     switch (prop_id)
     {
-    case PROP_SHOW_UNSUPPORTED:
-        self->show_unsupported = g_value_get_boolean (value);
-        break;
     case PROP_SHELL_VERSION:
         self->shell_version = g_value_get_string (value);
         break;
@@ -232,12 +224,6 @@ exm_versions_provider_class_init (ExmVersionsProviderClass *klass)
     ExmRequestHandlerClass *request_handler_class = EXM_REQUEST_HANDLER_CLASS (klass);
 
     request_handler_class->handle_response = (ResponseHandler) parse_versions_results;
-
-    properties [PROP_SHOW_UNSUPPORTED]
-        = g_param_spec_boolean ("show-unsupported",
-                                "Show Unsupported",
-                                "Show Unsupported",
-                                FALSE, G_PARAM_READWRITE);
 
     properties [PROP_SHELL_VERSION]
         = g_param_spec_string ("shell-version",
