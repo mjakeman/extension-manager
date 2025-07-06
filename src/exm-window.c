@@ -297,6 +297,12 @@ show_view (GtkWidget  *widget,
 
         return;
     }
+    else if (g_strcmp0 (action_name, "win.show-screenshot") == 0)
+    {
+        adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (self->screenshot_view));
+
+        return;
+    }
 
     adw_navigation_view_pop_to_page (self->navigation_view, self->main_view);
 }
@@ -404,44 +410,6 @@ on_visible_page_changed (AdwViewStack *view_stack,
                             is_installed_page);
 }
 
-const char *
-exm_window_get_search_query (ExmWindow *self)
-{
-    GtkSearchEntry *search_entry;
-    const char *query;
-
-    search_entry = GTK_SEARCH_ENTRY (gtk_search_bar_get_child (self->search_bar));
-    query = gtk_editable_get_text (GTK_EDITABLE (search_entry));
-
-    return query;
-}
-
-gboolean
-exm_window_get_search_mode (ExmWindow *self)
-{
-    return gtk_search_bar_get_search_mode (self->search_bar);
-}
-
-static void
-on_search_mode_enabled (GObject    *object G_GNUC_UNUSED,
-                        GParamSpec *pspec G_GNUC_UNUSED,
-                        gpointer    user_data)
-{
-    ExmWindow *self = (ExmWindow *)user_data;
-
-    exm_installed_page_show_page (gtk_search_bar_get_search_mode (self->search_bar),
-                                  self->installed_page);
-}
-
-static void
-on_search_changed (GtkSearchEntry *search_entry G_GNUC_UNUSED,
-                   gpointer        user_data)
-{
-    ExmWindow *self = (ExmWindow *)user_data;
-
-    g_signal_emit_by_name (self, "search-changed", NULL);
-}
-
 static gboolean
 search_open_cb (GtkWidget *widget,
                 GVariant  *args G_GNUC_UNUSED,
@@ -529,8 +497,6 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, unsupported_dialog);
 
     gtk_widget_class_bind_template_callback (widget_class, on_visible_page_changed);
-    gtk_widget_class_bind_template_callback (widget_class, on_search_mode_enabled);
-    gtk_widget_class_bind_template_callback (widget_class, on_search_changed);
 
     // TODO: Refactor ExmWindow into a separate ExmController and supply the
     // necessary actions/methods/etc in there. A reference to this new object can
@@ -540,6 +506,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-screenshot", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-upgrade-assistant", NULL, show_upgrade_assistant);
     gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
     gtk_widget_class_install_action (widget_class, "win.show-error", "s", show_error);

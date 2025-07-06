@@ -53,12 +53,10 @@ template $ExmWindow: Adw.ApplicationWindow {
           Gtk.SearchBar search_bar {
             key-capture-widget: template;
             search-mode-enabled: bind search_button.active bidirectional;
-            notify::search-mode-enabled => $on_search_mode_enabled();
 
-            child: Gtk.SearchEntry {
+            child: Gtk.SearchEntry search_entry {
               placeholder-text: _("Search for installed extensions");
               max-width-chars: 35;
-              search-changed => $on_search_changed();
             };
           }
 
@@ -72,7 +70,10 @@ template $ExmWindow: Adw.ApplicationWindow {
               icon-name: "puzzle-piece-symbolic";
               use-underline: true;
 
-              child: $ExmInstalledPage installed_page {};
+              child: $ExmInstalledPage installed_page {
+                search-mode-enabled: bind search_bar.search-mode-enabled;
+                search-query: bind search_entry.text;
+              };
             }
 
             Adw.ViewStackPage {
@@ -96,6 +97,7 @@ template $ExmWindow: Adw.ApplicationWindow {
 
       $ExmScreenshotView screenshot_view {
         title: bind detail_view.title;
+        screenshot: bind detail_view.screenshot;
       }
     };
   }

@@ -30,9 +30,23 @@ struct _ExmScreenshotView
     AdwNavigationPage parent_instance;
 
     ExmZoomPicture *overlay_screenshot;
+
+    GdkPaintable *screenshot;
 };
 
 G_DEFINE_FINAL_TYPE (ExmScreenshotView, exm_screenshot_view, ADW_TYPE_NAVIGATION_PAGE)
+
+enum {
+    PROP_0,
+    PROP_SCREENSHOT,
+    N_PROPS
+};
+
+static GParamSpec *properties [N_PROPS];
+
+void
+set_screenshot (ExmScreenshotView *self,
+                GdkPaintable *paintable);
 
 ExmScreenshotView *
 exm_screenshot_view_new (void)
@@ -40,9 +54,46 @@ exm_screenshot_view_new (void)
     return g_object_new (EXM_TYPE_SCREENSHOT_VIEW, NULL);
 }
 
+static void
+exm_screenshot_view_get_property (GObject    *object,
+                                  guint       prop_id,
+                                  GValue     *value,
+                                  GParamSpec *pspec)
+{
+    ExmScreenshotView *self = EXM_SCREENSHOT_VIEW (object);
+
+    switch (prop_id)
+    {
+    case PROP_SCREENSHOT:
+        g_value_set_object (value, self->screenshot);
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
+exm_screenshot_view_set_property (GObject      *object,
+                                  guint         prop_id,
+                                  const GValue *value,
+                                  GParamSpec   *pspec)
+{
+    ExmScreenshotView *self = EXM_SCREENSHOT_VIEW (object);
+
+    switch (prop_id)
+    {
+    case PROP_SCREENSHOT:
+        self->screenshot = g_value_get_object (value);
+        set_screenshot (self, self->screenshot);
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
 void
-exm_screenshot_view_set_screenshot (ExmScreenshotView *self,
-                                    GdkPaintable *paintable)
+set_screenshot (ExmScreenshotView *self,
+                GdkPaintable *paintable)
 {
     exm_zoom_picture_set_paintable (self->overlay_screenshot, paintable);
     exm_zoom_picture_set_zoom_level (self->overlay_screenshot, 1.0f);
@@ -89,6 +140,20 @@ notify_zoom (ExmZoomPicture    *picture,
 static void
 exm_screenshot_view_class_init (ExmScreenshotViewClass *klass)
 {
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->get_property = exm_screenshot_view_get_property;
+    object_class->set_property = exm_screenshot_view_set_property;
+
+    properties [PROP_SCREENSHOT]
+        = g_param_spec_object ("screenshot",
+                               "Screenshot",
+                               "Screenshot",
+                               GDK_TYPE_PAINTABLE,
+                               G_PARAM_READWRITE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
+
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-screenshot-view.ui", RESOURCE_PATH));

@@ -12,10 +12,6 @@ ExmScreenshotView *
 exm_screenshot_view_new (void);
 
 void
-exm_screenshot_view_set_screenshot (ExmScreenshotView *self,
-                                    GdkPaintable      *paintable);
-
-void
 exm_screenshot_view_zoom (ExmScreenshotView *self,
                           const char        *action_name);
 
