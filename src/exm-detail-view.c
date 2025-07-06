@@ -53,6 +53,7 @@ struct _ExmDetailView
     ExmCommentProvider *comment_provider;
     GCancellable *resolver_cancel;
 
+    GdkPaintable *screenshot;
     gchar *shell_version;
     gchar *uuid;
 
@@ -93,6 +94,7 @@ enum {
     PROP_0,
     PROP_MANAGER,
     PROP_SHELL_VERSION,
+    PROP_SCREENSHOT,
     N_PROPS
 };
 
@@ -120,6 +122,9 @@ exm_detail_view_get_property (GObject    *object,
     case PROP_SHELL_VERSION:
         g_value_set_string (value, self->shell_version);
         break;
+    case PROP_SCREENSHOT:
+        g_value_set_object (value, self->screenshot);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -143,6 +148,9 @@ exm_detail_view_set_property (GObject      *object,
         break;
     case PROP_SHELL_VERSION:
         self->shell_version = g_value_dup_string (value);
+        break;
+    case PROP_SCREENSHOT:
+        self->screenshot = g_value_get_object (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -178,8 +186,6 @@ on_image_loaded (GObject       *source,
     GError *error = NULL;
     GdkTexture *texture = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source),
                                                              res, &error);
-    AdwNavigationView *parent;
-    ExmScreenshotView *screenshot_view;
 
     if (error)
     {
@@ -188,16 +194,13 @@ on_image_loaded (GObject       *source,
         return;
     }
 
-    parent = ADW_NAVIGATION_VIEW (gtk_widget_get_parent (GTK_WIDGET (self)));
-    screenshot_view = EXM_SCREENSHOT_VIEW (adw_navigation_view_find_page (parent, "screenshot-view"));
-
+    g_object_set (self, "screenshot", GDK_PAINTABLE (texture), NULL);
     exm_screenshot_set_paintable (self->ext_screenshot, GDK_PAINTABLE (texture));
-    exm_screenshot_view_set_screenshot (screenshot_view, GDK_PAINTABLE (texture));
     exm_screenshot_display (self->ext_screenshot);
     g_object_unref (texture);
     g_object_unref (self);
 
-	gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), TRUE);
+    gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), TRUE);
 }
 
 static void
@@ -468,8 +471,8 @@ on_data_loaded (GObject      *source,
             exm_screenshot_set_paintable (self->ext_screenshot, NULL);
             exm_screenshot_reset (self->ext_screenshot);
 
-			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
-			gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), TRUE);
+            gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), FALSE);
 
             queue_resolve_image (self, screenshot_uri, self->resolver_cancel, FALSE);
 
@@ -658,15 +661,6 @@ update_headerbar_cb (ExmDetailView *self)
 }
 
 static void
-screenshot_view_cb (ExmDetailView *self)
-{
-    AdwNavigationView *parent;
-
-    parent = ADW_NAVIGATION_VIEW (gtk_widget_get_parent (GTK_WIDGET (self)));
-    adw_navigation_view_push_by_tag (parent, "screenshot-view");
-}
-
-static void
 exm_detail_view_class_init (ExmDetailViewClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -686,6 +680,13 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
                                "Shell Version",
                                "Shell Version",
                                NULL,
+                               G_PARAM_READWRITE);
+
+    properties [PROP_SCREENSHOT]
+        = g_param_spec_object ("screenshot",
+                               "Screenshot",
+                               "Screenshot",
+                               GDK_TYPE_PAINTABLE,
                                G_PARAM_READWRITE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
@@ -718,7 +719,6 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
 
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_apply_cb);
     gtk_widget_class_bind_template_callback (widget_class, breakpoint_unapply_cb);
-    gtk_widget_class_bind_template_callback (widget_class, screenshot_view_cb);
     gtk_widget_class_bind_template_callback (widget_class, install_remote);
 
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);

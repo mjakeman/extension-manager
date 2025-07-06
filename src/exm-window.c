@@ -297,6 +297,12 @@ show_view (GtkWidget  *widget,
 
         return;
     }
+    else if (g_strcmp0 (action_name, "win.show-screenshot") == 0)
+    {
+        adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (self->screenshot_view));
+
+        return;
+    }
 
     adw_navigation_view_pop_to_page (self->navigation_view, self->main_view);
 }
@@ -500,6 +506,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-screenshot", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-upgrade-assistant", NULL, show_upgrade_assistant);
     gtk_widget_class_install_action (widget_class, "win.show-page", "s", show_page);
     gtk_widget_class_install_action (widget_class, "win.show-error", "s", show_error);

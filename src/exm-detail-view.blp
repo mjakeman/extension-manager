@@ -152,7 +152,7 @@ template $ExmDetailView: Adw.NavigationPage {
                     margin-start: 8;
                     margin-end: 8;
                     tooltip-text: _("Enlarge Image");
-                    clicked => $screenshot_view_cb(template);
+                    action-name: "win.show-screenshot";
                   }
 
                   $ExmScreenshot ext_screenshot {
