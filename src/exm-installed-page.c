@@ -46,6 +46,8 @@ struct _ExmInstalledPage
     GtkFilterListModel *search_list_model;
 
     gboolean sort_enabled_first;
+    gboolean search_mode_enabled;
+    const char *search_query;
     guint signal_id;
 };
 
@@ -55,6 +57,8 @@ enum {
     PROP_0,
     PROP_MANAGER,
     PROP_SORT_ENABLED_FIRST,
+    PROP_SEARCH_MODE_ENABLED,
+    PROP_SEARCH_QUERY,
     N_PROPS
 };
 
@@ -62,6 +66,9 @@ static GParamSpec *properties [N_PROPS];
 
 static void
 invalidate_model_bindings (ExmInstalledPage *self);
+
+static void
+on_search_mode_enabled_changed (ExmInstalledPage *self);
 
 ExmInstalledPage *
 exm_installed_page_new (void)
@@ -119,6 +126,13 @@ exm_installed_page_set_property (GObject      *object,
         self->sort_enabled_first = g_value_get_boolean (value);
         invalidate_model_bindings (self);
         break;
+    case PROP_SEARCH_MODE_ENABLED:
+        self->search_mode_enabled = g_value_get_boolean (value);
+        on_search_mode_enabled_changed (self);
+        break;
+    case PROP_SEARCH_QUERY:
+        self->search_query = g_value_dup_string (value);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -160,16 +174,29 @@ compare_enabled (ExmExtension *this,
     else if (!this_enabled && other_enabled)
         return 1;
 
-    return 0; // Never reached
+    g_assert_not_reached ();
 }
 
 static void
-on_search_changed (ExmWindow *window,
-                   gpointer   user_data)
+on_search_changed (ExmInstalledPage *self,
+                   GParamSpec       *pspec G_GNUC_UNUSED,
+                   gpointer          user_data)
 {
-    GtkStringFilter *search_filter = (GtkStringFilter *)user_data;
+    GtkStringFilter *search_filter = GTK_STRING_FILTER (user_data);
 
-    gtk_string_filter_set_search (search_filter, exm_window_get_search_query (window));
+    gtk_string_filter_set_search (search_filter, self->search_query);
+}
+
+static void
+on_search_mode_enabled_changed (ExmInstalledPage *self)
+{
+    if (self->search_mode_enabled
+        && g_list_model_get_n_items (G_LIST_MODEL (self->search_list_model)) > 0)
+        gtk_stack_set_visible_child_name (self->stack , "page_results");
+    else if (self->search_mode_enabled)
+        gtk_stack_set_visible_child_name (self->stack , "page_empty");
+    else
+        gtk_stack_set_visible_child_name (self->stack , "page_list");
 }
 
 static void
@@ -177,26 +204,9 @@ on_visible_stack_changed (GObject    *object G_GNUC_UNUSED,
                           GParamSpec *pspec G_GNUC_UNUSED,
                           gpointer    user_data)
 {
-    ExmInstalledPage *self = (ExmInstalledPage *)user_data;
-    ExmWindow *window;
-    gboolean search_mode;
+    ExmInstalledPage *self = EXM_INSTALLED_PAGE (user_data);
 
-    window = EXM_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), EXM_TYPE_WINDOW));
-    search_mode = exm_window_get_search_mode (window);
-
-    exm_installed_page_show_page (search_mode, self);
-}
-
-void
-exm_installed_page_show_page (gboolean          search_mode,
-                              ExmInstalledPage *self)
-{
-    if (search_mode && g_list_model_get_n_items (G_LIST_MODEL (self->search_list_model)) > 0)
-        gtk_stack_set_visible_child_name (self->stack , "page_results");
-    else if (search_mode)
-        gtk_stack_set_visible_child_name (self->stack , "page_empty");
-    else
-        gtk_stack_set_visible_child_name (self->stack , "page_list");
+    on_search_mode_enabled_changed (self);
 }
 
 static void
@@ -209,8 +219,6 @@ bind_list_box (GListModel       *model,
     GtkStringFilter *search_filter;
     GtkBoolFilter *is_user_filter;
     GtkFilterListModel *filtered_model;
-    ExmWindow *window;
-    const char *query;
 
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
@@ -261,15 +269,12 @@ bind_list_box (GListModel       *model,
                              (GtkListBoxCreateWidgetFunc) widget_factory,
                              self, NULL);
 
-    window = EXM_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), EXM_TYPE_WINDOW));
-    query = exm_window_get_search_query (window);
-
     // Refilter when sort-enabled-first changes and there is an ongoing search
-    if (query)
-        gtk_string_filter_set_search (search_filter, query);
+    if (self->search_query)
+        gtk_string_filter_set_search (search_filter, self->search_query);
 
-    g_signal_connect (window,
-                      "search-changed",
+    g_signal_connect (self,
+                      "notify::search-query",
                       G_CALLBACK (on_search_changed),
                       search_filter);
 
@@ -443,6 +448,20 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
                                 "Sort Enabled First",
                                 FALSE,
                                 G_PARAM_READWRITE);
+
+    properties [PROP_SEARCH_MODE_ENABLED]
+        = g_param_spec_boolean ("search-mode-enabled",
+                                "Search Mode Enabled",
+                                "Search Mode Enabled",
+                                FALSE,
+                                G_PARAM_READWRITE);
+
+    properties [PROP_SEARCH_QUERY] =
+        g_param_spec_string ("search-query",
+                             "Search Query",
+                             "Search Query",
+                             NULL,
+                             G_PARAM_READWRITE);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 

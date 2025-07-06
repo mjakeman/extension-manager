@@ -29,8 +29,4 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmWindow, exm_window, EXM, WINDOW, AdwApplicationWindow)
 
-const char *exm_window_get_search_query (ExmWindow *self);
-
-gboolean    exm_window_get_search_mode  (ExmWindow *self);
-
 G_END_DECLS

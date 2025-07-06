@@ -31,7 +31,4 @@ G_DECLARE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, EXM, INSTALLED_PAGE,
 
 ExmInstalledPage *exm_installed_page_new       (void);
 
-void              exm_installed_page_show_page (gboolean          search_mode,
-                                                ExmInstalledPage *self);
-
 G_END_DECLS
