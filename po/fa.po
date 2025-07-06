@@ -1,24 +1,25 @@
 # LANGUAGE translations for extension-manager package.
 # Copyright (C) YEAR THE extension-manager'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-#  nima fanni asl <nma.fanniasl@gmail.com>, 2022.
-#  Mobin <mobin@mobintestserver.ir>, 2022.
+# nima fanni asl <nma.fanniasl@gmail.com>, 2022.
+# Mobin <mobin@mobintestserver.ir>, 2022.
 # seyed eshagh moghim shahidani <eshagh094@gmail.com>, 2022.
-#
+# Mir Sobhan <mr.sobhan.n@outlook.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-06 13:57+0000\n"
-"PO-Revision-Date: 2022-10-17 13:19+0330\n"
-"Last-Translator: eshagh <eshagh094@gmail.com>\n"
-"Language-Team: https://matrix.to/#/#persian_translation:tchncs.de\n"
+"PO-Revision-Date: 2025-06-12 00:01+0000\n"
+"Last-Translator: Mir Sobhan <mr.sobhan.n@outlook.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"extension-manager/app/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -27,24 +28,18 @@ msgid "Extension Manager"
 msgstr "مدیر افزونه‌ها"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
-#, fuzzy
-#| msgid "A utility for managing GNOME Shell Extensions"
 msgid "Manage GNOME Shell Extensions"
-msgstr "یک ابزار برای مدیریت افزونه‌های گنوم"
+msgstr "مدیریت افزونه های پوسته گنوم"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "extension;manager;shell;"
-msgstr "مدیر افزونه‌ها"
+msgstr "افزونه;مدیر;پوسته"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse, install, and manage GNOME Shell Extensions"
-msgstr "مرور، نصب و مدیریت افزونه‌های گنوم."
+msgstr "مرور، نصب و مدیریت افزونه‌های پوسته گنوم."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "A utility for browsing and installing GNOME Shell Extensions."
@@ -65,10 +60,8 @@ msgid "Manage the extensions you already have installed"
 msgstr "مدیریت افزونه‌های نصب شده"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "See all the details of your extensions"
-msgstr "جست‌وجو برای افزونه‌ها"
+msgstr "دیدن همه جزئیاتِ افزونه شما"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
 #, fuzzy
@@ -106,7 +99,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:47
 msgid "Relevance"
-msgstr ""
+msgstr "مرتبط"
 
 #: src/exm-browse-page.blp:48
 #, fuzzy
@@ -139,13 +132,13 @@ msgstr "هیچ نتیجه‌ای یافت نشد"
 
 #: src/exm-browse-page.blp:144
 msgid "Try a different search"
-msgstr ""
+msgstr "یک جست‌وجو دیگر را امتحان کنید"
 
 #: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
-msgstr ""
+msgstr "خطای ارتباط"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
 #, fuzzy
@@ -161,7 +154,7 @@ msgstr "در حال بار کردن…"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
-msgstr ""
+msgstr "سازنده"
 
 #: src/exm-detail-view.blp:40
 #, fuzzy
@@ -191,7 +184,7 @@ msgstr "توضیحات"
 
 #: src/exm-detail-view.blp:195
 msgid "Links"
-msgstr ""
+msgstr "پیوند ها"
 
 #: src/exm-detail-view.blp:203
 #, fuzzy
@@ -201,7 +194,7 @@ msgstr "صفحه اصلی پروژه"
 
 #: src/exm-detail-view.blp:219
 msgid "Donate"
-msgstr ""
+msgstr "حمایت مالی"
 
 #: src/exm-detail-view.blp:228
 msgid "View on Extensions"
@@ -209,11 +202,11 @@ msgstr "دیدن در افزونه‌ها"
 
 #: src/exm-detail-view.blp:271
 msgid "Reviews and comments are disabled for this extension"
-msgstr ""
+msgstr "بازبینی و نظرات برای این افزونه غیرفعال شده"
 
 #: src/exm-detail-view.blp:314
 msgid "There are no reviews or comments"
-msgstr ""
+msgstr "نظر یا بازبینی وجود ندارد"
 
 #: src/exm-detail-view.blp:343
 #, fuzzy
@@ -225,13 +218,13 @@ msgstr "نمایش همهٔ بازبینی‌ها"
 #: src/exm-detail-view.c:445
 #, c-format
 msgid "%s Icon"
-msgstr ""
+msgstr "%s نقشک"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:478
 #, c-format
 msgid "%s Screenshot"
-msgstr ""
+msgstr "%s نماگرفت"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -332,18 +325,18 @@ msgstr ""
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr ""
+msgstr "جی‌دی‌ام"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
-msgstr ""
+msgstr "هنگامی که صفحه قفل است و کاربری وارد نشده این افزونه اجرا خواهد شد"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr ""
+msgstr "هنگامی که صفحه قفل است این افزونه اجرا خواهد شد"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
@@ -356,7 +349,7 @@ msgstr "تعداد %Id افزونه در ورود بعدی به‌روز رسا�
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "عمومی"
 
 #: src/exm-help-overlay.blp:14
 #, fuzzy
@@ -369,32 +362,32 @@ msgstr "نصب شده"
 #: src/exm-help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Show Browse Page"
-msgstr ""
+msgstr "نمایش صفحه مرور"
 
 #: src/exm-help-overlay.blp:24
 msgctxt "shortcut window"
 msgid "Toggle Search"
-msgstr ""
+msgstr "روشن/خاموش جست‌وجو"
 
 #: src/exm-help-overlay.blp:29
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
-msgstr ""
+msgstr "نمایش میانبر صفحه کلید"
 
 #: src/exm-help-overlay.blp:34
 msgctxt "shortcut window"
 msgid "Close Window"
-msgstr ""
+msgstr "بستن پنجره"
 
 #: src/exm-help-overlay.blp:39
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "خروج"
 
 #: src/exm-help-overlay.blp:45
 msgctxt "shortcut window"
 msgid "Screenshot View"
-msgstr ""
+msgstr "نمایه نماگرفت"
 
 #: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
 #, fuzzy
