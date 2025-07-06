@@ -40,9 +40,9 @@ struct _ExmInstalledPage
     GtkStack *stack;
     AdwBanner *updates_banner;
     AdwSwitchRow *global_toggle;
-    GtkListBox *user_list_box;
-    GtkListBox *system_list_box;
-    GtkListBox *search_list_box;
+    AdwPreferencesGroup *user_prefs_group;
+    AdwPreferencesGroup *system_prefs_group;
+    AdwPreferencesGroup *search_prefs_group;
     GtkFilterListModel *search_list_model;
 
     gboolean sort_enabled_first;
@@ -248,26 +248,26 @@ bind_list_box (GListModel       *model,
     search_filter = gtk_string_filter_new (expression);
     self->search_list_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (search_filter));
 
-    gtk_list_box_bind_model (self->search_list_box, G_LIST_MODEL (self->search_list_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             self, NULL);
+    adw_preferences_group_bind_model (self->search_prefs_group, G_LIST_MODEL (self->search_list_model),
+                                      (GtkListBoxCreateWidgetFunc) widget_factory,
+                                      self, NULL);
 
     // Filter by user/system extension
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user");
     is_user_filter = gtk_bool_filter_new (expression);
     filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
 
-    gtk_list_box_bind_model (self->user_list_box, G_LIST_MODEL (filtered_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             self, NULL);
+    adw_preferences_group_bind_model (self->user_prefs_group, G_LIST_MODEL (filtered_model),
+                                      (GtkListBoxCreateWidgetFunc) widget_factory,
+                                      self, NULL);
 
     is_user_filter = gtk_bool_filter_new (expression);
     gtk_bool_filter_set_invert (is_user_filter, TRUE);
     filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
 
-    gtk_list_box_bind_model (self->system_list_box, G_LIST_MODEL (filtered_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             self, NULL);
+    adw_preferences_group_bind_model (self->system_prefs_group, G_LIST_MODEL (filtered_model),
+                                      (GtkListBoxCreateWidgetFunc) widget_factory,
+                                      self, NULL);
 
     // Refilter when sort-enabled-first changes and there is an ongoing search
     if (self->search_query)
@@ -312,13 +312,13 @@ on_updates_available (ExmManager       *manager G_GNUC_UNUSED,
 }
 
 static gboolean
-focus_matching_extension (GtkListBox   *list_box,
-                          ExmExtension *extension)
+focus_matching_extension (AdwPreferencesGroup *prefs_group,
+                          ExmExtension        *extension)
 {
     int index = 0;
     ExmExtensionRow *row;
 
-    while ((row = EXM_EXTENSION_ROW (gtk_list_box_get_row_at_index (list_box, index))))
+    while ((row = EXM_EXTENSION_ROW (adw_preferences_group_get_row (prefs_group, index))))
     {
         ExmExtension *row_extension;
 
@@ -378,12 +378,12 @@ on_extensions_changed (GListModel       *model,
     {
         if (g_strcmp0 (gtk_stack_get_visible_child_name (self->stack), "page_results") == 0)
         {
-            focus_matching_extension (self->search_list_box, extension);
+            focus_matching_extension (self->search_prefs_group, extension);
         }
         else
         {
-            if (!focus_matching_extension (self->user_list_box, extension))
-                focus_matching_extension (self->system_list_box, extension);
+            if (!focus_matching_extension (self->user_prefs_group, extension))
+                focus_matching_extension (self->system_prefs_group, extension);
         }
     }
 
@@ -485,9 +485,9 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_banner);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, search_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_prefs_group);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_prefs_group);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, search_prefs_group);
 
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
 
