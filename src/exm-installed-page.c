@@ -349,18 +349,31 @@ on_extensions_changed (GListModel       *model,
     if (!self->sort_enabled_first || (removed > 0 && added > 0))
         return;
 
-    ExmExtension *extension = EXM_EXTENSION (g_list_model_get_object (model, position));
+    if (position >= g_list_model_get_n_items (model))
+        return;
 
-    if (!extension)
+    ExmExtension *extension = EXM_EXTENSION (g_list_model_get_object (model, position));
+    if (extension == NULL)
         return;
 
     GtkRoot *toplevel = gtk_widget_get_root (GTK_WIDGET (self));
+    if (toplevel == NULL)
+    {
+        g_object_unref (extension);
+        return;
+    }
+
     GtkWidget *focused_widget = gtk_window_get_focus (GTK_WINDOW (toplevel));
+    if (focused_widget == NULL)
+    {
+        g_object_unref (extension);
+        return;
+    }
 
     if (g_list_store_find_with_equal_func (G_LIST_STORE (model), extension, (GEqualFunc)is_extension_equal, &position))
         g_list_model_items_changed (model, position, 1, 1);
 
-    if (focused_widget && gtk_widget_has_focus (focused_widget)
+    if (gtk_widget_has_focus (focused_widget)
         && gtk_widget_get_child_visible (GTK_WIDGET (self)))
     {
         if (g_strcmp0 (gtk_stack_get_visible_child_name (self->stack), "page_results") == 0)
