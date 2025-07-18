@@ -160,7 +160,7 @@ exm_application_show_about (GSimpleAction *action G_GNUC_UNUSED,
 {
     ExmApplication *self = EXM_APPLICATION (user_data);
     GtkWindow *window = NULL;
-    const gchar *authors[] = {"Matthew Jakeman", NULL};
+    const gchar *authors[] = {"Matthew Jakeman", "Óscar Fernández Díaz", NULL};
 
     AdwDialog *about_dialog;
 
