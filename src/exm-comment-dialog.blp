@@ -39,15 +39,7 @@ template $ExmCommentDialog: Adw.Dialog {
         name: "page_comments";
 
         child: Adw.PreferencesPage {
-          Adw.PreferencesGroup {
-            Gtk.ListBox list_box {
-              styles [
-                "boxed-list",
-              ]
-
-              selection-mode: none;
-            }
-          }
+          Adw.PreferencesGroup prefs_group {}
         };
       }
     };

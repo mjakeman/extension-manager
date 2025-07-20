@@ -36,7 +36,7 @@ struct _ExmCommentDialog
     ExmCommentProvider *comment_provider;
     GCancellable *cancellable;
 
-    GtkListBox *list_box;
+    AdwPreferencesGroup *prefs_group;
     GtkStack *stack;
     AdwStatusPage *error_status;
 
@@ -133,7 +133,7 @@ exm_comment_dialog_class_init (ExmCommentDialogClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-comment-dialog.ui", RESOURCE_PATH));
 
-    gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, prefs_group);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmCommentDialog, error_status);
 }
@@ -183,9 +183,9 @@ on_get_comments (GObject          *source,
 
     gtk_stack_set_visible_child_name (self->stack, "page_comments");
 
-    gtk_list_box_bind_model (self->list_box, model,
-                             (GtkListBoxCreateWidgetFunc) comment_factory,
-                             g_object_ref (self), g_object_unref);
+    adw_preferences_group_bind_model (self->prefs_group, model,
+                                      (GtkListBoxCreateWidgetFunc) comment_factory,
+                                      g_object_ref (self), g_object_unref);
 }
 
 static void
