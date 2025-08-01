@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-18 18:54+0000\n"
-"PO-Revision-Date: 2025-04-13 07:01+0000\n"
+"PO-Revision-Date: 2025-08-02 14:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -35,16 +35,14 @@ msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;uitbreiding;extensie;beheer;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "Zelf-geïnstalleerde uitbreidingen"
+msgstr "Installeer GNOME-uitbreidingen"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "Ontdek, installeer en beheer GNOME Shell-uitbreidingen."
+msgstr ""
+"Ontdek en installeer GNOME Shell-uitbreidingen om uw bureaublad aan te "
+"passen."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
