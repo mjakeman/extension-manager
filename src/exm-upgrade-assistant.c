@@ -21,7 +21,7 @@
 
 #include "exm-upgrade-assistant.h"
 
-#include "web/exm-data-provider.h"
+#include "web/exm-versions-provider.h"
 #include "exm-upgrade-result.h"
 
 #include "exm-config.h"
@@ -34,7 +34,7 @@ struct _ExmUpgradeAssistant
 
     // Auxiliary Classes
     ExmManager *manager;
-    ExmDataProvider *data_provider;
+    ExmVersionsProvider *versions_provider;
 
     GCancellable *cancellable;
 
@@ -249,11 +249,11 @@ get_support_status (ExmUpgradeResult *result,
                     const char       *target_version)
 {
     SupportStatus supported;
-    ExmSearchResult *web_data;
+    ExmVersionResult *web_data;
 
     web_data = exm_upgrade_result_get_web_data (result);
 
-    if (web_data && exm_search_result_supports_shell_version (web_data, target_version))
+    if (web_data && exm_version_result_supports_shell_version (web_data, target_version))
         supported = STATUS_SUPPORTED;
     else if (web_data)
         supported = STATUS_UNSUPPORTED;
@@ -276,18 +276,17 @@ print_list_model (GListModel *model,
     for (i = 0; i < num_extensions; i++)
     {
         ExmUpgradeResult *result;
-        const gchar *name, *creator, *uuid, *supported_text;
+        const gchar *name, *uuid, *supported_text;
         SupportStatus supported;
 
         result = g_list_model_get_item (model, i);
 
         name = exm_upgrade_result_get_name (result);
-        creator = exm_upgrade_result_get_creator (result);
         uuid = exm_upgrade_result_get_uuid (result);
 
         supported = get_support_status (result, target_shell_version);
 
-        text = g_strdup_printf ("'%s' by %s\n", name, creator);
+        text = g_strdup_printf ("%s\n", name);
         g_string_append (string_builder, text);
         g_free (text);
 
@@ -381,15 +380,17 @@ on_extension_processed (GObject      *source,
                         GAsyncResult *async_result,
                         gpointer      user_data)
 {
-    ExmSearchResult *web_info;
+    GListModel *list;
     GError *error = NULL;
     ExtensionCheckData *data;
     ExmUpgradeAssistant *self;
-    ExmUpgradeResult *result;
+    gchar *next = NULL;
+    ExmVersionResult *web_version = NULL;
+    ExmVersionResult *compatible_version = NULL;
 
     g_return_if_fail (user_data != NULL);
 
-    web_info = exm_data_provider_get_finish (EXM_DATA_PROVIDER (source), async_result, &error);
+    list = exm_versions_provider_query_finish (EXM_VERSIONS_PROVIDER (source), async_result, &next, &error);
     data = (ExtensionCheckData *) user_data;
     self = EXM_UPGRADE_ASSISTANT (data->assistant);
 
@@ -401,20 +402,54 @@ on_extension_processed (GObject      *source,
 
         g_clear_error (&error);
         free_check_data (data);
-
+        g_free (next);
         return;
     }
+
+    for (guint i = 0; i < g_list_model_get_n_items (list); i++)
+    {
+        ExmVersionResult *item = EXM_VERSION_RESULT (g_list_model_get_object (list, i));
+
+        if (!web_version)
+            web_version = g_object_ref (item);
+
+        if (!compatible_version &&
+            exm_version_result_supports_shell_version (item, self->target_shell_version))
+            compatible_version = g_object_ref (item);
+
+        g_object_unref (item);
+    }
+
+    g_object_unref (list);
+
+    if (!compatible_version && next != NULL)
+    {
+        exm_versions_provider_query_next_async (self->versions_provider,
+                                                next,
+                                                self->cancellable,
+                                                on_extension_processed,
+                                                data);
+        g_free (next);
+        return;
+    }
+
+    g_free (next);
 
     self->number_checked++;
     update_checked_count (self);
 
-    result = exm_upgrade_result_new ();
+    ExmUpgradeResult *result = exm_upgrade_result_new ();
     exm_upgrade_result_set_local_data (result, data->local_data);
 
-    if (EXM_IS_SEARCH_RESULT (web_info))
-        exm_upgrade_result_set_web_data (result, web_info);
+    if (compatible_version)
+        exm_upgrade_result_set_web_data (result, compatible_version);
+    else if (web_version)
+        exm_upgrade_result_set_web_data (result, web_version);
 
     display_extension_result (self, result, data->is_user);
+
+    g_clear_object (&compatible_version);
+    g_clear_object (&web_version);
     free_check_data (data);
 }
 
@@ -482,8 +517,8 @@ do_compatibility_check (ExmUpgradeAssistant *self)
         data = create_check_data (extension, self, is_user);
 
         self->total_extensions++;
-        exm_data_provider_get_async (self->data_provider, uuid, self->cancellable,
-                                     on_extension_processed, data);
+        exm_versions_provider_query_async (self->versions_provider, uuid, self->cancellable,
+                                           on_extension_processed, data);
     }
 
     // Set this flag after all tasks have been dispatched
@@ -496,19 +531,19 @@ widget_factory (ExmUpgradeResult    *result,
                 ExmUpgradeAssistant *self)
 {
     SupportStatus supported;
-    const gchar *name, *creator;
+    const gchar *name, *uuid;
     GtkWidget *row, *status;
 
     g_return_val_if_fail (EXM_IS_UPGRADE_RESULT (result), NULL);
 
     name = exm_upgrade_result_get_name (result);
-    creator = exm_upgrade_result_get_creator (result);
+    uuid = exm_upgrade_result_get_uuid (result);
 
     supported = get_support_status (result, self->target_shell_version);
 
     row = adw_action_row_new ();
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row) , name);
-    adw_action_row_set_subtitle (ADW_ACTION_ROW (row), creator);
+    adw_action_row_set_subtitle (ADW_ACTION_ROW (row), uuid);
 
     if (supported == STATUS_SUPPORTED)
     {
@@ -685,7 +720,7 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
 
-    self->data_provider = exm_data_provider_new ();
+    self->versions_provider = exm_versions_provider_new ();
     self->target_shell_version = NULL;
     self->cancellable = g_cancellable_new ();
 
