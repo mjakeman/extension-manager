@@ -110,16 +110,14 @@ exm_install_button_set_property (GObject      *object,
 static void
 update_state (ExmInstallButton *button)
 {
-    const gchar *tooltip;
     ExmInstallButtonState state;
 
-    // Translators: Icon's tooltip when an extension is incompatible
-    tooltip = _("This extension is incompatible with your current version of GNOME");
     state = button->state;
 
     gtk_widget_remove_css_class (GTK_WIDGET (button), "warning");
     gtk_widget_remove_css_class (GTK_WIDGET (button), "suggested-action");
     gtk_widget_set_tooltip_text (GTK_WIDGET (button), NULL);
+    gtk_button_set_child (GTK_BUTTON (button), GTK_WIDGET (button->stack));
 
     switch ((int)state)
     {
@@ -139,8 +137,15 @@ update_state (ExmInstallButton *button)
     case EXM_INSTALL_BUTTON_STATE_UNSUPPORTED:
         gtk_label_set_label (button->label, _("Unsupported…"));
         gtk_widget_add_css_class (GTK_WIDGET (button), "warning");
-        gtk_widget_set_tooltip_text (GTK_WIDGET (button), tooltip);
+        gtk_widget_set_tooltip_text (GTK_WIDGET (button),
+                                     // Translators: Icon's tooltip when an extension is incompatible
+                                     _("This extension is incompatible with your current version of GNOME"));
         gtk_widget_set_sensitive (GTK_WIDGET (button), TRUE);
+        break;
+    case EXM_INSTALL_BUTTON_STATE_LOADING:
+        gtk_button_set_child (GTK_BUTTON (button), GTK_WIDGET (adw_spinner_new ()));
+        gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Loading"));
+        gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
         break;
     }
 }

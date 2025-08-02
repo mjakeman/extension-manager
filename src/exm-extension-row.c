@@ -231,7 +231,7 @@ bind_extension (ExmExtensionRow *self,
     if (self->extension == NULL)
         return;
 
-    gchar *name, *uuid, *description, *version, *error;
+    gchar *name, *uuid, *description, *version, *version_name, *error;
     gboolean enabled, has_prefs, is_user;
     ExmExtensionState state;
     GPtrArray *session_modes;
@@ -242,6 +242,7 @@ bind_extension (ExmExtensionRow *self,
                   "state", &state,
                   "enabled", &enabled,
                   "version", &version,
+                  "version-name", &version_name,
                   "error", &error,
                   "has-prefs", &has_prefs,
                   "is-user", &is_user,
@@ -265,6 +266,8 @@ bind_extension (ExmExtensionRow *self,
     gtk_widget_set_visible (GTK_WIDGET (self->out_of_date_icon), state == EXM_EXTENSION_STATE_OUT_OF_DATE);
 
     gtk_widget_set_visible (GTK_WIDGET (self->version_row), version != NULL);
+    adw_action_row_set_subtitle (self->version_row, version_name ? version_name
+                                                                 : version);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self->details_btn), "s", uuid);
 
