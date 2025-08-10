@@ -337,17 +337,23 @@ copy_to_clipboard (ExmUpgradeAssistant *self)
     g_string_append (string_builder, text);
     g_free (text);
 
-    text = g_strdup_printf ("User-Installed Extensions:\n\n");
-    g_string_append (string_builder, text);
-    g_free (text);
+    if (g_list_model_get_n_items (G_LIST_MODEL (self->user_results_store)) > 0)
+    {
+        text = g_strdup_printf ("User-Installed Extensions:\n\n");
+        g_string_append (string_builder, text);
+        g_free (text);
 
-    print_list_model (G_LIST_MODEL (self->user_results_store), string_builder, self->target_shell_version);
+        print_list_model (G_LIST_MODEL (self->user_results_store), string_builder, self->target_shell_version);
+    }
 
-    text = g_strdup_printf ("\nSystem Extensions:\n\n");
-    g_string_append (string_builder, text);
-    g_free (text);
+    if (g_list_model_get_n_items (G_LIST_MODEL (self->system_results_store)) > 0)
+    {
+        text = g_strdup_printf ("\nSystem Extensions:\n\n");
+        g_string_append (string_builder, text);
+        g_free (text);
 
-    print_list_model (G_LIST_MODEL (self->system_results_store), string_builder, self->target_shell_version);
+        print_list_model (G_LIST_MODEL (self->system_results_store), string_builder, self->target_shell_version);
+    }
 
     // Add to clipboard
     display = gdk_display_get_default ();
@@ -483,6 +489,14 @@ do_compatibility_check (ExmUpgradeAssistant *self)
                   "extensions", &ext_model,
                   NULL);
 
+    num_items = g_list_model_get_n_items (ext_model);
+
+    if (num_items == 0)
+    {
+        adw_toast_overlay_add_toast (self->toast_overlay, adw_toast_new (_("No Extensions Installed")));
+        return;
+    }
+
     // Display spinner
     gtk_stack_set_visible_child_name (self->stack, "waiting");
     adw_navigation_view_push_by_tag (self->navigation_view, "results");
@@ -498,7 +512,6 @@ do_compatibility_check (ExmUpgradeAssistant *self)
     g_list_store_remove_all (self->user_results_store);
     g_list_store_remove_all (self->system_results_store);
 
-    num_items = g_list_model_get_n_items (ext_model);
     for (i = 0; i < num_items; i++)
     {
         char *uuid;
@@ -730,4 +743,12 @@ exm_upgrade_assistant_init (ExmUpgradeAssistant *self)
     bind_prefs_group (self, self->system_prefs_group, G_LIST_MODEL (self->system_results_store));
 
     populate_drop_down (self);
+
+    g_object_bind_property (self->user_results_store, "n-items",
+                            self->user_prefs_group, "visible",
+                            G_BINDING_SYNC_CREATE);
+
+    g_object_bind_property (self->system_results_store, "n-items",
+                            self->system_prefs_group, "visible",
+                            G_BINDING_SYNC_CREATE);
 }

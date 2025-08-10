@@ -133,30 +133,10 @@ template $ExmUpgradeAssistant: Adw.Dialog {
 
                 Adw.PreferencesGroup user_prefs_group {
                   title: _("User-Installed Extensions");
-
-                  [placeholder]
-                  Adw.ActionRow {
-                    [prefix]
-                    Gtk.Image {
-                      icon-name: "puzzle-piece-symbolic";
-                    }
-
-                    title: _("No User Extensions Installed");
-                  }
                 }
 
                 Adw.PreferencesGroup system_prefs_group {
                   title: _("System Extensions");
-
-                  [placeholder]
-                  Adw.ActionRow {
-                    [prefix]
-                    Gtk.Image {
-                      icon-name: "settings-symbolic";
-                    }
-
-                    title: _("No System Extensions Installed");
-                  }
                 }
 
                 Adw.PreferencesGroup {
