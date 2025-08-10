@@ -4,13 +4,14 @@
 # Omar TS <otd@duck.com>, 2022.
 # Omar TS <ots@duck.com>, 2024.
 # Saggitarius <gdeforge@gmx.com>, 2025.
+# jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-18 18:54+0000\n"
-"PO-Revision-Date: 2025-04-11 14:01+0000\n"
-"Last-Translator: Saggitarius <gdeforge@gmx.com>\n"
+"PO-Revision-Date: 2025-08-10 09:19+0000\n"
+"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -38,16 +39,12 @@ msgid "extension;manager;shell;"
 msgstr "extension;manager;امتداد;مدير;شل;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "الامتدادات التي نصَّبها المستخدم"
+msgstr "نصَّب امتدادات جنوم"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "تصفح ونصِّب وأدِر امتدادات جنوم شل."
+msgstr "تصفح ونصِّب امتدادات جنوم شل لتخصيص سطح مكتبك."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -132,7 +129,7 @@ msgstr "خطأ في الاتصال"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
 msgid "Reviews and Comments"
-msgstr "ليس هناك تقييمات أو تعاليق"
+msgstr "التقييمات وتعاليق"
 
 #: src/exm-comment-dialog.blp:25
 msgid "Loading"
@@ -188,19 +185,19 @@ msgstr "ليس هناك تقييمات أو تعاليق"
 
 #: src/exm-detail-view.blp:343
 msgid "_Show All"
-msgstr "_عرض الجميع"
+msgstr "_أظهر الكل"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:448
 #, c-format
 msgid "%s Icon"
-msgstr "%s أيقونة"
+msgstr "أيقونة %s"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:481
 #, c-format
 msgid "%s Screenshot"
-msgstr "%s لقطة شاشة"
+msgstr "لقطة شاشة %s"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
@@ -212,7 +209,7 @@ msgstr "حدث خطأ غير متوقع في مدير الامتدادات"
 
 #: src/exm-error-dialog.blp:36
 msgid "Copy to Clipboard"
-msgstr "نسخ إلى الحافظة"
+msgstr "انسخ إلى الحافظة"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -265,7 +262,7 @@ msgstr "رقم الإصدار"
 
 #: src/exm-extension-row.blp:107
 msgid "Session Modes"
-msgstr "أوضاع الحصة"
+msgstr "أوضاع الجلسة"
 
 #: src/exm-extension-row.blp:137
 msgid "Error"
@@ -281,28 +278,28 @@ msgstr "أزِل…"
 
 #: src/exm-extension-row.c:175
 msgid "Unlock Dialog"
-msgstr "فتح الحوار"
+msgstr "افتح الحوار"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
 msgid "GDM"
-msgstr "مدير المكتب غنوم (GDM)"
+msgstr "مدير المكتب جنوم (GDM)"
 
 #. Translators: Label when an extension runs on both, login and lock screens
 #: src/exm-extension-row.c:189
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
-msgstr "سيستمر اشتغال هذا الملحق بعد قفل الشاشة وبدون تسجيل دخول أي مستخدم"
+msgstr "سيشتغل هذا الامتداد أثناء قفل الشاشة ولا يوجد مستخدم والِج"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr "سيستمر اشتغال هذا الملحق بعد قفل الشاشة"
+msgstr "سيشتغل هذا الامتداد أثناء قفل الشاشة"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
 msgid "This extension will run while no user is logged in"
-msgstr "سيستمر اشتغال هذا الملحق ولو لم يسجل أي مستخدم دخوله"
+msgstr "سيشتغل هذا الامتداد بينما لا يوجد مستخدم والِج"
 
 #: src/exm-help-overlay.blp:11
 msgctxt "shortcut window"
@@ -374,7 +371,7 @@ msgstr "نصِّب…"
 
 #: src/exm-install-button.c:132
 msgid "Installing"
-msgstr "تنصيب"
+msgstr "يُنصِّب"
 
 #: src/exm-install-button.c:136
 msgctxt "State"
@@ -492,19 +489,18 @@ msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"تم تمييزd% من أصل d% ملحقات مثبتة حاليًا على هذا النظام على أنها تدعم "
-"<b>GNOME %s</b>"
+"<b>%d من أصل %d</b> امتدادة مثبتة حاليًا على هذا النظام ميّزت على أنها تدعم "
+"<b>جنوم %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr "إذا قمت بالتحويل إلى Gnome ٪s الآن ، ستشتغل جميع ملحقاتك"
+msgstr "إذا انتقلت إلى جنوم %s الآن، فيجب أن تعمل جميع امتداداتك"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr ""
-"إذا قمت بالتحويل إلى Gnome ٪s الآن ، من المحتمل تعدر اشتغال d% من ملحقاتك"
+msgstr "إذا انتقلت إلى جنوم %s الآن، %d من امتداداتك قد لا تعمل"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:518
