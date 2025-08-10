@@ -45,6 +45,8 @@ src/web/exm-data-provider.c
 src/web/exm-image-resolver.c
 src/web/exm-request-handler.c
 src/web/exm-search-provider.c
+src/web/exm-versions-provider.c
 src/web/model/exm-comment.c
 src/web/model/exm-search-result.c
-src/web/model/exm-shell-version-map.c
+src/web/model/exm-shell-versions.c
+src/web/model/exm-version-result.c
