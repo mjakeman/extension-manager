@@ -434,15 +434,21 @@ on_version_loaded (GObject      *source,
     {
         gint version;
         gchar *version_name = NULL;
+        gchar **session_modes;
 
-        g_object_get (compatible_version, "version", &version, "version_name", &version_name, NULL);
+        g_object_get (compatible_version,
+                      "version", &version,
+                      "version_name", &version_name,
+                      "session_modes", &session_modes,
+                      NULL);
 
         install_state = is_installed ? EXM_INSTALL_BUTTON_STATE_INSTALLED
                                      : EXM_INSTALL_BUTTON_STATE_DEFAULT;
 
         g_object_set (self->ext_install, "state", install_state, NULL);
         g_object_set (self->ext_info_bar, "version", version_name ? version_name
-                                                                  : g_strdup_printf("%d", version), NULL);
+                                                                  : g_strdup_printf("%d", version),
+                      "session-modes", session_modes, NULL);
 
         g_free (version_name);
         g_object_unref (compatible_version);
@@ -463,7 +469,8 @@ on_version_loaded (GObject      *source,
                                      : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
 
         g_object_set (self->ext_install, "state", install_state, NULL);
-        g_object_set (self->ext_info_bar, "version", _("Unsupported"), NULL);
+        g_object_set (self->ext_info_bar, "version", _("Unsupported"),
+                      "session-modes", NULL, NULL);
     }
 
     g_object_unref (list);
