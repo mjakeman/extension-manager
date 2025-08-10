@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-18 18:54+0000\n"
-"PO-Revision-Date: 2025-08-10 09:19+0000\n"
+"PO-Revision-Date: 2025-08-10 14:30+0000\n"
 "Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
@@ -133,7 +133,7 @@ msgstr "التقييمات وتعاليق"
 
 #: src/exm-comment-dialog.blp:25
 msgid "Loading"
-msgstr "تحميل"
+msgstr "جارِ التحميل"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
 msgid "Author"
@@ -560,7 +560,7 @@ msgstr "افرز ال_مُفعَّل أولًا"
 
 #: src/exm-window.blp:111
 msgid "_Show Unsupported"
-msgstr "ا_عرض غير المتوافق"
+msgstr "اظ_هر غير المتوافق"
 
 #: src/exm-window.blp:115
 msgid "_Upgrade Assistant"
