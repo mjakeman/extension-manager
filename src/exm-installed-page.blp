@@ -31,39 +31,13 @@ template $ExmInstalledPage: Gtk.Widget {
         }
 
         Adw.PreferencesGroup user_prefs_group {
+          notify::visible => $on_visible_stack_changed();
           title: _("User-Installed Extensions");
-
-          [placeholder]
-          Adw.ActionRow {
-            [prefix]
-            Gtk.Image {
-              icon-name: "globe-symbolic";
-            }
-
-            title: _("No User Extensions Installed");
-
-            [suffix]
-            Gtk.Button {
-              label: _("Browse");
-              action-name: "win.show-page";
-              action-target: "\"browse\"";
-              valign: center;
-            }
-          }
         }
 
         Adw.PreferencesGroup system_prefs_group {
+          notify::visible => $on_visible_stack_changed();
           title: _("System Extensions");
-
-          [placeholder]
-          Adw.ActionRow {
-            [prefix]
-            Gtk.Image {
-              icon-name: "settings-symbolic";
-            }
-
-            title: _("No System Extensions Installed");
-          }
         }
       };
     }
@@ -77,12 +51,33 @@ template $ExmInstalledPage: Gtk.Widget {
     }
 
     Gtk.StackPage {
-      name: "page_empty";
+      name: "page_no_results";
 
       child: Adw.StatusPage {
         icon-name: "edit-find-symbolic";
         title: _("No Results Found");
         description: _("Try a different search or search online");
+
+        child: Gtk.Button {
+          styles [
+            "pill",
+          ]
+
+          label: _("_Search Online");
+          use-underline: true;
+          halign: center;
+          action-name: "win.search-online";
+        };
+      };
+    }
+
+    Gtk.StackPage {
+      name: "page_empty";
+
+      child: Adw.StatusPage {
+        icon-name: "puzzle-piece-symbolic";
+        title: _("No Extensions Installed");
+        description: _("Search online to install extensions");
 
         child: Gtk.Button {
           styles [
