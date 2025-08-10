@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 18:54+0000\n"
+"POT-Creation-Date: 2025-08-10 14:31+0000\n"
 "PO-Revision-Date: 2025-07-20 19:03+0000\n"
 "Last-Translator: Indrek Haav <indrek.haav@hotmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/"
-"extension-manager/app/et/>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/extension-"
+"manager/app/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,113 +87,130 @@ msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr "Sisesta märksõna, et \"extensions.gnome.org\" lehelt laiendusi otsida"
 
-#: src/exm-browse-page.blp:47
-msgid "Relevance"
-msgstr "Asjakohasus"
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+msgid "Descending Order"
+msgstr ""
 
-#: src/exm-browse-page.blp:48
+#: src/exm-browse-page.blp:53
+msgid "Popularity"
+msgstr "Populaarsus"
+
+#: src/exm-browse-page.blp:54
+msgid "Created"
+msgstr ""
+
+#: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Allalaadimiste arv"
 
-#: src/exm-browse-page.blp:49
-msgid "Recent"
-msgstr "Hiljutised"
+#: src/exm-browse-page.blp:56
+msgid "Updated"
+msgstr ""
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:113
-msgid "Name"
-msgstr "Nimi"
-
-#: src/exm-browse-page.blp:57
+#: src/exm-browse-page.blp:63
 msgid "Sort search results"
 msgstr "Otsinguvastuste sorteerimine"
 
-#: src/exm-browse-page.blp:103
+#: src/exm-browse-page.blp:109
 msgid "_Load More Results"
 msgstr "_Laadi rohkem tulemusi"
 
-#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
 msgid "No Results Found"
 msgstr "Tulemusi ei leitud"
 
-#: src/exm-browse-page.blp:144
+#: src/exm-browse-page.blp:150
 msgid "Try a different search"
 msgstr "Proovi teistsugust otsingut"
 
-#: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
+#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Ühenduse viga"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
+#: src/exm-browse-page.c:346
+msgid "Ascending Order"
+msgstr ""
+
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
 msgstr "Ülevaated ja kommentaarid"
 
-#: src/exm-comment-dialog.blp:25
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:622
+#: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Laadimine"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Autor"
 
-#: src/exm-detail-view.blp:40
+#: src/exm-detail-view.blp:41
 msgid "Loading Details"
 msgstr "Üksikasjade laadimine"
 
-#: src/exm-detail-view.blp:59 src/exm-window.c:353
+#: src/exm-detail-view.blp:60 src/exm-window.c:353
 msgid "An Error Occurred"
 msgstr "Tekkis viga"
 
-#: src/exm-detail-view.blp:60
+#: src/exm-detail-view.blp:61
 msgid "No extension details available"
 msgstr "Laienduse üksikasjad pole saadaval"
 
-#: src/exm-detail-view.blp:154
+#: src/exm-detail-view.blp:114
+msgid "Name"
+msgstr "Nimi"
+
+#: src/exm-detail-view.blp:155
 msgid "Enlarge Image"
 msgstr "Suurenda pilt"
 
-#: src/exm-detail-view.blp:172 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Kirjeldus"
 
-#: src/exm-detail-view.blp:195
+#: src/exm-detail-view.blp:196
 msgid "Links"
 msgstr "Lingid"
 
-#: src/exm-detail-view.blp:203
+#: src/exm-detail-view.blp:204
 msgid "Homepage"
 msgstr "Koduleht"
 
-#: src/exm-detail-view.blp:219
+#: src/exm-detail-view.blp:220
 msgid "Donate"
 msgstr "Anneta"
 
-#: src/exm-detail-view.blp:228
+#: src/exm-detail-view.blp:229
 msgid "View on Extensions"
 msgstr "Vaata veebileheküljel"
 
-#: src/exm-detail-view.blp:271
+#: src/exm-detail-view.blp:272
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Selle laienduse ülevaated ja kommentaarid on keelatud"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "There are no reviews or comments"
 msgstr "Ülevaateid ja kommentaare pole"
 
-#: src/exm-detail-view.blp:343
+#: src/exm-detail-view.blp:344
 msgid "_Show All"
 msgstr "_Näita kõiki"
 
+#: src/exm-detail-view.c:408 src/exm-detail-view.c:472
+msgid "Unsupported"
+msgstr "Mittetoetatud"
+
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:448
+#: src/exm-detail-view.c:535
 #, c-format
 msgid "%s Icon"
 msgstr "%s ikoon"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:481
+#: src/exm-detail-view.c:568
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s ekraanipilt"
@@ -215,7 +232,7 @@ msgid "_New Issue"
 msgstr "_Uus teema"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
 msgid "Copied"
 msgstr "Kopeeritud"
 
@@ -246,7 +263,7 @@ msgid "An error occurred while loading this extension"
 msgstr "Laienduse laadimisel tekkis viga"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-extension-row.blp:63 src/exm-install-button.c:117
+#: src/exm-extension-row.blp:63 src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Laiendus ei ühildu sinu praeguse GNOME versiooniga"
 
@@ -259,23 +276,23 @@ msgstr "Uus laienduse versioon on saadaval"
 msgid "Version"
 msgstr "Versioon"
 
-#: src/exm-extension-row.blp:107
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
 msgid "Session Modes"
 msgstr "Sessiooni režiimid"
 
-#: src/exm-extension-row.blp:137
+#: src/exm-extension-row.blp:136
 msgid "Error"
 msgstr "Viga"
 
-#: src/exm-extension-row.blp:158
+#: src/exm-extension-row.blp:157
 msgid "See Details"
 msgstr "Kuva üksikasjad"
 
-#: src/exm-extension-row.blp:169
+#: src/exm-extension-row.blp:168
 msgid "Remove…"
 msgstr "Eemalda…"
 
-#: src/exm-extension-row.c:175
+#: src/exm-extension-row.c:175 src/exm-info-bar.c:129
 msgid "Unlock Dialog"
 msgstr "Lukustusdialoog"
 
@@ -362,24 +379,20 @@ msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Allalaadimisi"
 
-#: src/exm-info-bar.c:107
-msgid "Unsupported"
-msgstr "Mittetoetatud"
-
-#: src/exm-install-button.c:127
+#: src/exm-install-button.c:125
 msgid "Install…"
 msgstr "Paigalda…"
 
-#: src/exm-install-button.c:132
+#: src/exm-install-button.c:130
 msgid "Installing"
 msgstr "Paigaldamine"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:134
 msgctxt "State"
 msgid "Installed"
 msgstr "Paigaldatud"
 
-#: src/exm-install-button.c:140
+#: src/exm-install-button.c:138
 msgid "Unsupported…"
 msgstr "Mittetoetatud…"
 
@@ -496,17 +509,17 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr "Kui lülitud nüüd Gnome %s peale, ei pruugi %d su laiendustest töötada"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:518
+#: src/exm-upgrade-assistant.c:553
 msgid "A compatible version of the extension exists"
 msgstr "Laiendusest on saadaval ühilduv versioon"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:525
+#: src/exm-upgrade-assistant.c:560
 msgid "No compatible version of the extension exists"
 msgstr "Laiendusest ei ole saadaval ühilduvat versiooni"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:532
+#: src/exm-upgrade-assistant.c:567
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -514,7 +527,7 @@ msgstr ""
 "See laiendus ei ole extension.gnome.org-i lehel üleval. Selle ühilduvust ei "
 "ole võimalik tuvastada."
 
-#: src/exm-upgrade-assistant.c:623
+#: src/exm-upgrade-assistant.c:658
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -552,27 +565,23 @@ msgstr "_Sirvi"
 msgid "Sort _Enabled First"
 msgstr "Näita _lubatud laiendused eespool"
 
-#: src/exm-window.blp:111
-msgid "_Show Unsupported"
-msgstr "_Näita toetamata laiendusi"
-
-#: src/exm-window.blp:115
+#: src/exm-window.blp:114
 msgid "_Upgrade Assistant"
 msgstr "_Uuenduste abiline"
 
-#: src/exm-window.blp:116
+#: src/exm-window.blp:115
 msgid "_Keyboard Shortcuts"
 msgstr "_Kiirklahvid"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:116
 msgid "_About Extension Manager"
 msgstr "_Rakenduse teave"
 
-#: src/exm-window.blp:122
+#: src/exm-window.blp:121
 msgid "Uninstall Extension?"
 msgstr "Eemalda laiendus?"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:122
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -580,19 +589,19 @@ msgstr ""
 "Laienduse funktsioonid ei ole edaspidi enam saadaval. Kas oled kindel, et "
 "soovid selle eemaldada?"
 
-#: src/exm-window.blp:128
+#: src/exm-window.blp:127
 msgid "_No"
 msgstr "_Ei"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:128
 msgid "_Yes"
 msgstr "_Jah"
 
-#: src/exm-window.blp:134
+#: src/exm-window.blp:133
 msgid "Unsupported Extension"
 msgstr "Mittetoetatud laiendus"
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:134
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -600,11 +609,11 @@ msgstr ""
 "See laiendus ei toeta sinu GNOME töölaua versiooni. Kui see paigaldada, võib "
 "see vigu põhjustada."
 
-#: src/exm-window.blp:141
+#: src/exm-window.blp:140
 msgid "_Install Anyway"
 msgstr "_Paigalda sellegipoolest"
 
-#: src/exm-window.blp:142
+#: src/exm-window.blp:141
 msgid "_Go Back"
 msgstr "_Tagasi"
 
@@ -623,6 +632,15 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Kontrolli oma võrguühendust ja proovi uuesti"
+
+#~ msgid "Relevance"
+#~ msgstr "Asjakohasus"
+
+#~ msgid "Recent"
+#~ msgstr "Hiljutised"
+
+#~ msgid "_Show Unsupported"
+#~ msgstr "_Näita toetamata laiendusi"
 
 #~ msgid "Browse, install, and manage GNOME Shell Extensions"
 #~ msgstr "Sirvi, paigalda ja halda GNOME töölaua laiendusi"
@@ -746,9 +764,6 @@ msgstr "Kontrolli oma võrguühendust ja proovi uuesti"
 
 #~ msgid "Extension Manager (Development)"
 #~ msgstr "Laiendushaldur (Arendajale)"
-
-#~ msgid "Popularity"
-#~ msgstr "Populaarsus"
 
 #~ msgid "Supported Versions"
 #~ msgstr "Toetatud versioonid"

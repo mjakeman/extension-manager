@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 18:54+0000\n"
+"POT-Creation-Date: 2025-08-10 14:31+0000\n"
 "PO-Revision-Date: 2025-05-30 18:32+0000\n"
 "Last-Translator: Ibai Oihanguren Sala <ibaios@disroot.org>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/extension-manager/"
@@ -90,113 +90,130 @@ msgstr ""
 "Idatzi gako-hitz bat 'extensions.gnome.org' gunean GNOME Shelleko hedapenak "
 "bilatzeko"
 
-#: src/exm-browse-page.blp:47
-msgid "Relevance"
-msgstr "Garrantzia"
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+msgid "Descending Order"
+msgstr ""
 
-#: src/exm-browse-page.blp:48
+#: src/exm-browse-page.blp:53
+msgid "Popularity"
+msgstr ""
+
+#: src/exm-browse-page.blp:54
+msgid "Created"
+msgstr ""
+
+#: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Deskargak"
 
-#: src/exm-browse-page.blp:49
-msgid "Recent"
-msgstr "Berrienak"
+#: src/exm-browse-page.blp:56
+msgid "Updated"
+msgstr ""
 
-#: src/exm-browse-page.blp:50 src/exm-detail-view.blp:113
-msgid "Name"
-msgstr "Izena"
-
-#: src/exm-browse-page.blp:57
+#: src/exm-browse-page.blp:63
 msgid "Sort search results"
 msgstr "Ordenatu bilaketaren emaitzak"
 
-#: src/exm-browse-page.blp:103
+#: src/exm-browse-page.blp:109
 msgid "_Load More Results"
 msgstr "_Kargatu emaitza gehiago"
 
-#: src/exm-browse-page.blp:137 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
 msgid "No Results Found"
 msgstr "Ez da emaitzarik aurkitu"
 
-#: src/exm-browse-page.blp:144
+#: src/exm-browse-page.blp:150
 msgid "Try a different search"
 msgstr "Saiatu beste bilaketa batekin"
 
-#: src/exm-browse-page.blp:178 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:49 src/exm-detail-view.blp:291
+#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Konexio errorea"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:248
+#: src/exm-browse-page.c:346
+msgid "Ascending Order"
+msgstr ""
+
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
 msgstr "Berrikuspenak eta iruzkinak"
 
-#: src/exm-comment-dialog.blp:25
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:622
+#: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Kargatzen"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:127
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "Egilea"
 
-#: src/exm-detail-view.blp:40
+#: src/exm-detail-view.blp:41
 msgid "Loading Details"
 msgstr "Xehetasunak kargatzen"
 
-#: src/exm-detail-view.blp:59 src/exm-window.c:353
+#: src/exm-detail-view.blp:60 src/exm-window.c:353
 msgid "An Error Occurred"
 msgstr "Errore bat gertatu da"
 
-#: src/exm-detail-view.blp:60
+#: src/exm-detail-view.blp:61
 msgid "No extension details available"
 msgstr "Ez dago hedapenaren xehetasunik eskuragarri"
 
-#: src/exm-detail-view.blp:154
+#: src/exm-detail-view.blp:114
+msgid "Name"
+msgstr "Izena"
+
+#: src/exm-detail-view.blp:155
 msgid "Enlarge Image"
 msgstr "Handitu irudia"
 
-#: src/exm-detail-view.blp:172 src/exm-extension-row.blp:89
+#: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
 msgid "Description"
 msgstr "Deskribapena"
 
-#: src/exm-detail-view.blp:195
+#: src/exm-detail-view.blp:196
 msgid "Links"
 msgstr "Estekak"
 
-#: src/exm-detail-view.blp:203
+#: src/exm-detail-view.blp:204
 msgid "Homepage"
 msgstr "Webgunea"
 
-#: src/exm-detail-view.blp:219
+#: src/exm-detail-view.blp:220
 msgid "Donate"
 msgstr "Egin dohaintza"
 
-#: src/exm-detail-view.blp:228
+#: src/exm-detail-view.blp:229
 msgid "View on Extensions"
 msgstr "Ikusi Hedapenak webgunean"
 
-#: src/exm-detail-view.blp:271
+#: src/exm-detail-view.blp:272
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Berrikuspenak eta iruzkinak ezgaituta daude hedapen honentzat"
 
-#: src/exm-detail-view.blp:314
+#: src/exm-detail-view.blp:315
 msgid "There are no reviews or comments"
 msgstr "Ez dago berrikuspen edo iruzkinik"
 
-#: src/exm-detail-view.blp:343
+#: src/exm-detail-view.blp:344
 msgid "_Show All"
 msgstr "_Erakutsi guztiak"
 
+#: src/exm-detail-view.c:408 src/exm-detail-view.c:472
+msgid "Unsupported"
+msgstr "Sostengu gabea"
+
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:448
+#: src/exm-detail-view.c:535
 #, c-format
 msgid "%s Icon"
 msgstr "%s hedapenaren ikonoa"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:481
+#: src/exm-detail-view.c:568
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s hedapenaren pantaila-argazkia"
@@ -218,7 +235,7 @@ msgid "_New Issue"
 msgstr "Intzidentzia _berria"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:362
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
 msgid "Copied"
 msgstr "Kopiatuta"
 
@@ -250,7 +267,7 @@ msgid "An error occurred while loading this extension"
 msgstr "Errore bat gertatu da hedapen hau kargatzean"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-extension-row.blp:63 src/exm-install-button.c:117
+#: src/exm-extension-row.blp:63 src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Hedapen hau ez da zure uneko GNOME bertsioarekin bateragarria"
 
@@ -263,23 +280,23 @@ msgstr "Hedapen honen bertsio berriagoa eskuragarri dago"
 msgid "Version"
 msgstr "Bertsioa"
 
-#: src/exm-extension-row.blp:107
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
 msgid "Session Modes"
 msgstr "Saio moduak"
 
-#: src/exm-extension-row.blp:137
+#: src/exm-extension-row.blp:136
 msgid "Error"
 msgstr "Errorea"
 
-#: src/exm-extension-row.blp:158
+#: src/exm-extension-row.blp:157
 msgid "See Details"
 msgstr "Ikusi xehetasunak"
 
-#: src/exm-extension-row.blp:169
+#: src/exm-extension-row.blp:168
 msgid "Remove…"
 msgstr "Ezabatu…"
 
-#: src/exm-extension-row.c:175
+#: src/exm-extension-row.c:175 src/exm-info-bar.c:129
 msgid "Unlock Dialog"
 msgstr "Desblokeatze leihoa"
 
@@ -368,24 +385,20 @@ msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Deskargak"
 
-#: src/exm-info-bar.c:107
-msgid "Unsupported"
-msgstr "Sostengu gabea"
-
-#: src/exm-install-button.c:127
+#: src/exm-install-button.c:125
 msgid "Install…"
 msgstr "Instalatu…"
 
-#: src/exm-install-button.c:132
+#: src/exm-install-button.c:130
 msgid "Installing"
 msgstr "Instalatzen"
 
-#: src/exm-install-button.c:136
+#: src/exm-install-button.c:134
 msgctxt "State"
 msgid "Installed"
 msgstr "Instalatuta"
 
-#: src/exm-install-button.c:140
+#: src/exm-install-button.c:138
 msgid "Unsupported…"
 msgstr "Sostengu gabea…"
 
@@ -506,17 +519,17 @@ msgstr ""
 "funtzionatzea"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:518
+#: src/exm-upgrade-assistant.c:553
 msgid "A compatible version of the extension exists"
 msgstr "Hedapenaren bertsio bateragarria existitzen da"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:525
+#: src/exm-upgrade-assistant.c:560
 msgid "No compatible version of the extension exists"
 msgstr "Ez da hedapenaren bertsio bateragarririk existitzen"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:532
+#: src/exm-upgrade-assistant.c:567
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -524,7 +537,7 @@ msgstr ""
 "Hedapen hau ez dago extensions.gnome.org gunean ostatatuta. Ezin dugu bere "
 "bateragarritasuna egiaztatu."
 
-#: src/exm-upgrade-assistant.c:623
+#: src/exm-upgrade-assistant.c:658
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -563,27 +576,23 @@ msgstr "_Arakatu"
 msgid "Sort _Enabled First"
 msgstr "Erakutsi _gaitutakoak aurrena"
 
-#: src/exm-window.blp:111
-msgid "_Show Unsupported"
-msgstr "_Erakutsi sostengu gabeak"
-
-#: src/exm-window.blp:115
+#: src/exm-window.blp:114
 msgid "_Upgrade Assistant"
 msgstr "_Bertsio-berritze laguntzailea"
 
-#: src/exm-window.blp:116
+#: src/exm-window.blp:115
 msgid "_Keyboard Shortcuts"
 msgstr "_Laster-teklak"
 
-#: src/exm-window.blp:117
+#: src/exm-window.blp:116
 msgid "_About Extension Manager"
 msgstr "Hedapen kudeatzaileari _buruz"
 
-#: src/exm-window.blp:122
+#: src/exm-window.blp:121
 msgid "Uninstall Extension?"
 msgstr "Hedapena desinstalatu?"
 
-#: src/exm-window.blp:123
+#: src/exm-window.blp:122
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -591,19 +600,19 @@ msgstr ""
 "Hedapen honen eginbideak eta funtzionalitatea ez dira gehiago erabilgarri "
 "egongo. Ziur desinstalatu nahi duzula?"
 
-#: src/exm-window.blp:128
+#: src/exm-window.blp:127
 msgid "_No"
 msgstr "_Ez"
 
-#: src/exm-window.blp:129
+#: src/exm-window.blp:128
 msgid "_Yes"
 msgstr "_Bai"
 
-#: src/exm-window.blp:134
+#: src/exm-window.blp:133
 msgid "Unsupported Extension"
 msgstr "Sostengu gabeko hedapena"
 
-#: src/exm-window.blp:135
+#: src/exm-window.blp:134
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -611,11 +620,11 @@ msgstr ""
 "Hedapena ez da zure GNOME Shell bertsioarekin bateragarria. Instalatuz gero, "
 "baliteke erroreak sorraraztea."
 
-#: src/exm-window.blp:141
+#: src/exm-window.blp:140
 msgid "_Install Anyway"
 msgstr "_Instalatu halere"
 
-#: src/exm-window.blp:142
+#: src/exm-window.blp:141
 msgid "_Go Back"
 msgstr "I_tzuli"
 
@@ -634,6 +643,15 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Egiaztatu sarearen egoera eta saiatu berriz"
+
+#~ msgid "Relevance"
+#~ msgstr "Garrantzia"
+
+#~ msgid "Recent"
+#~ msgstr "Berrienak"
+
+#~ msgid "_Show Unsupported"
+#~ msgstr "_Erakutsi sostengu gabeak"
 
 #~ msgid "Browse, install, and manage GNOME Shell Extensions"
 #~ msgstr "Arakatu, instalatu eta kudeatu GNOME Shelleko hedapenak"
