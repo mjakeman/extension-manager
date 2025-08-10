@@ -39,5 +39,6 @@
     <file preprocess="xml-stripblanks" alias="supported-symbolic.svg">../data/icons/hicolor/scalable/actions/supported-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="unknown-symbolic.svg">../data/icons/hicolor/scalable/actions/unknown-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="unsupported-symbolic.svg">../data/icons/hicolor/scalable/actions/unsupported-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="session-modes-symbolic.svg">../data/icons/hicolor/scalable/actions/session-modes-symbolic.svg</file>
   </gresource>
 </gresources>

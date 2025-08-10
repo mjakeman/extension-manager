@@ -51,4 +51,27 @@ template $ExmInfoBar: Gtk.Box {
       subtitle: bind template.version;
     }
   }
+
+  Gtk.ListBox session_modes_item {
+    styles [
+      "info-bar-item",
+    ]
+
+    selection-mode: none;
+    visible: false;
+
+    Adw.ActionRow {
+      styles [
+        "property",
+      ]
+
+      [prefix]
+      Gtk.Image {
+        icon-name: "session-modes-symbolic";
+      }
+
+      title: _("Session Modes");
+      subtitle: bind $format_session_modes(template.session_modes) as <string>;
+    }
+  }
 }
