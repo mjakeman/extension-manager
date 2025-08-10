@@ -24,7 +24,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
           Gtk.Box {
             styles [
-              "linked"
+              "linked",
             ]
 
             Gtk.SearchEntry search_entry {
@@ -39,15 +39,21 @@ template $ExmBrowsePage: Gtk.Widget {
               }
             }
 
+            Gtk.Button order_btn {
+              clicked => $on_order_button_clicked();
+              icon-name: "view-sort-descending-symbolic";
+              tooltip-text: _("Descending Order");
+            }
+
             // Keep the same order as the ExmSearchSort enum
             Gtk.DropDown search_dropdown {
               model: StringList {
                 // Translators: dropdown items for sorting search results
                 strings [
-                  _("Relevance"),
+                  _("Popularity"),
+                  _("Created"),
                   C_("Sort search results", "Downloads"),
-                  _("Recent"),
-                  _("Name")
+                  _("Updated"),
                 ]
               };
 
@@ -65,7 +71,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
               child: Adw.Spinner {
                 styles [
-                  "dimmed"
+                  "dimmed",
                 ]
 
                 margin-top: 30;
@@ -85,7 +91,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
                 Gtk.ListBox search_results {
                   styles [
-                    "boxed-list"
+                    "boxed-list",
                   ]
 
                   selection-mode: none;
@@ -93,7 +99,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
                 Gtk.ListBox more_results_list {
                   styles [
-                    "boxed-list"
+                    "boxed-list",
                   ]
 
                   selection-mode: none;
@@ -120,7 +126,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
                 Gtk.Image {
                   styles [
-                    "dimmed"
+                    "dimmed",
                   ]
 
                   icon-name: "edit-find-symbolic";
@@ -131,7 +137,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
                 Gtk.Label {
                   styles [
-                    "title-1"
+                    "title-1",
                   ]
 
                   label: _("No Results Found");
@@ -161,7 +167,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
                 Gtk.Image {
                   styles [
-                    "dimmed"
+                    "dimmed",
                   ]
 
                   icon-name: "offline-symbolic";
@@ -172,7 +178,7 @@ template $ExmBrowsePage: Gtk.Widget {
 
                 Gtk.Label {
                   styles [
-                    "title-1"
+                    "title-1",
                   ]
 
                   label: _("Connection Error");

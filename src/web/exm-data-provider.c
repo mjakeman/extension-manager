@@ -21,8 +21,6 @@
 
 #include "exm-data-provider.h"
 
-#include "model/exm-search-result.h"
-
 #include <json-glib/json-glib.h>
 
 struct _ExmDataProvider
@@ -77,11 +75,11 @@ exm_data_provider_get_async (ExmDataProvider     *self,
                              GAsyncReadyCallback  callback,
                              gpointer             user_data)
 {
-    // Query https://extensions.gnome.org/extension-info/?uuid={%s}
+    // Query https://extensions.gnome.org/api/v1/extensions/{%s}/
 
     const gchar *url;
 
-    url = g_strdup_printf ("https://extensions.gnome.org/extension-info/?uuid=%s", uuid);
+    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/", uuid);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,

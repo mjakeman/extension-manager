@@ -25,7 +25,7 @@ struct _ExmUpgradeResult
 {
     GObject parent_instance;
 
-    ExmSearchResult *web_data;
+    ExmVersionResult *web_data;
     ExmExtension *local_data;
 };
 
@@ -90,7 +90,7 @@ exm_upgrade_result_set_local_data (ExmUpgradeResult *self,
     self->local_data = g_object_ref (extension);
 }
 
-ExmSearchResult *
+ExmVersionResult *
 exm_upgrade_result_get_web_data (ExmUpgradeResult *self)
 {
     return self->web_data;
@@ -98,7 +98,7 @@ exm_upgrade_result_get_web_data (ExmUpgradeResult *self)
 
 void
 exm_upgrade_result_set_web_data (ExmUpgradeResult *self,
-                                 ExmSearchResult  *extension)
+                                 ExmVersionResult *extension)
 {
     self->web_data = g_object_ref (extension);
 }
@@ -108,30 +108,10 @@ exm_upgrade_result_get_name (ExmUpgradeResult *self)
 {
     const char *name;
 
-    if (self->web_data)
-    {
-        g_object_get (self->web_data, "name", &name, NULL);
-        return name;
-    }
-
     if (self->local_data)
     {
         g_object_get (self->local_data, "name", &name, NULL);
         return name;
-    }
-
-    return NULL;
-}
-
-const char *
-exm_upgrade_result_get_creator (ExmUpgradeResult *self)
-{
-    const char *creator;
-
-    if (self->web_data)
-    {
-        g_object_get (self->web_data, "creator", &creator, NULL);
-        return creator;
     }
 
     return NULL;
@@ -144,7 +124,7 @@ exm_upgrade_result_get_uuid (ExmUpgradeResult *self)
 
     if (self->web_data)
     {
-        g_object_get (self->web_data, "uuid", &uuid, NULL);
+        g_object_get (self->web_data, "extension", &uuid, NULL);
         return uuid;
     }
 

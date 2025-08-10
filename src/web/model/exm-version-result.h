@@ -1,5 +1,5 @@
 /*
- * exm-search-result.h
+ * exm-version-result.h
  *
  * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
@@ -25,10 +25,13 @@
 
 G_BEGIN_DECLS
 
-#define EXM_TYPE_SEARCH_RESULT (exm_search_result_get_type())
+#define EXM_TYPE_VERSION_RESULT (exm_version_result_get_type())
 
-G_DECLARE_FINAL_TYPE (ExmSearchResult, exm_search_result, EXM, SEARCH_RESULT, GObject)
+G_DECLARE_FINAL_TYPE (ExmVersionResult, exm_version_result, EXM, VERSION_RESULT, GObject)
 
-ExmSearchResult *exm_search_result_new (void);
+ExmVersionResult *exm_version_result_new                    (void);
+
+gboolean          exm_version_result_supports_shell_version (ExmVersionResult *self,
+                                                             const gchar      *shell_version);
 
 G_END_DECLS

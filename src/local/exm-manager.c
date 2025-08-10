@@ -653,9 +653,6 @@ parse_single_extension (ExmExtension **extension,
         }
     }
 
-    // TODO: Show only version name when available in GNOME Extensions API
-    if (version_name)
-        version = g_strdup_printf ("%s (%s)", version, version_name);
     is_user = (type == EXM_EXTENSION_TYPE_PER_USER);
     *is_uninstall_operation = (state == EXM_EXTENSION_STATE_UNINSTALLED);
 
@@ -666,6 +663,7 @@ parse_single_extension (ExmExtension **extension,
                   "enabled", enabled,
                   "url", url,
                   "version", version,
+                  "version-name", version_name,
                   "error", error,
                   "has-prefs", has_prefs,
                   "has-update", has_update,

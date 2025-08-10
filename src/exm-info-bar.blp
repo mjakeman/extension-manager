@@ -3,21 +3,21 @@ using Adw 1;
 
 template $ExmInfoBar: Gtk.Box {
   styles [
-    "card"
+    "card",
   ]
 
   homogeneous: true;
 
   Gtk.ListBox {
     styles [
-      "info-bar-item"
+      "info-bar-item",
     ]
 
     selection-mode: none;
 
     Adw.ActionRow {
       styles [
-        "property"
+        "property",
       ]
 
       [prefix]
@@ -32,14 +32,14 @@ template $ExmInfoBar: Gtk.Box {
 
   Gtk.ListBox {
     styles [
-      "info-bar-item"
+      "info-bar-item",
     ]
 
     selection-mode: none;
 
     Adw.ActionRow {
       styles [
-        "property"
+        "property",
       ]
 
       [prefix]
@@ -48,7 +48,7 @@ template $ExmInfoBar: Gtk.Box {
       }
 
       title: _("Version");
-      subtitle: bind $format_version(template.version) as <string>;
+      subtitle: bind template.version;
     }
   }
 }

@@ -1,6 +1,7 @@
-/* exm-upgrade-result.h
+/*
+ * exm-upgrade-result.h
  *
- * Copyright 2022 Matthew Jakeman <mjakeman26@outlook.co.nz>
+ * Copyright 2022-2025 Matthew Jakeman <mjakeman26@outlook.co.nz>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +23,7 @@
 
 #include <glib-object.h>
 
-#include "web/model/exm-search-result.h"
+#include "web/model/exm-version-result.h"
 #include "local/exm-extension.h"
 
 G_BEGIN_DECLS
@@ -31,29 +32,22 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (ExmUpgradeResult, exm_upgrade_result, EXM, UPGRADE_RESULT, GObject)
 
-ExmUpgradeResult *exm_upgrade_result_new (void);
+ExmUpgradeResult *exm_upgrade_result_new            (void);
 
-ExmExtension *
-exm_upgrade_result_get_local_data (ExmUpgradeResult *self);
+ExmExtension     *exm_upgrade_result_get_local_data (ExmUpgradeResult *self);
 
-void
-exm_upgrade_result_set_local_data (ExmUpgradeResult *self,
-                                   ExmExtension     *extension);
+void              exm_upgrade_result_set_local_data (ExmUpgradeResult *self,
+                                                     ExmExtension     *extension);
 
-ExmSearchResult *
-exm_upgrade_result_get_web_data (ExmUpgradeResult *self);
+ExmVersionResult *exm_upgrade_result_get_web_data   (ExmUpgradeResult *self);
 
-void
-exm_upgrade_result_set_web_data (ExmUpgradeResult *self,
-                                 ExmSearchResult  *extension);
+void              exm_upgrade_result_set_web_data   (ExmUpgradeResult *self,
+                                                     ExmVersionResult *extension);
 
-const char *
-exm_upgrade_result_get_name (ExmUpgradeResult *self);
+const char       *exm_upgrade_result_get_name       (ExmUpgradeResult *self);
 
-const char *
-exm_upgrade_result_get_creator (ExmUpgradeResult *self);
+const char       *exm_upgrade_result_get_creator    (ExmUpgradeResult *self);
 
-const char *
-exm_upgrade_result_get_uuid (ExmUpgradeResult *self);
+const char       *exm_upgrade_result_get_uuid       (ExmUpgradeResult *self);
 
 G_END_DECLS
