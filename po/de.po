@@ -5,14 +5,14 @@
 # Antifallobst <antifallobst@riseup.net>, 2022.
 # Lauri Jouaux <lauri.jouaux@outlook.com>, 2022.
 # Gabriel Brand <gabr.brand@gmail.com>, 2022-2024, 2025.
-# Robert Winzer <weissnicht000099@gmail.com>, 2024.
+# Robert Winzer <weissnicht000099@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-04-24 18:01+0000\n"
-"Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
+"PO-Revision-Date: 2025-08-12 03:01+0000\n"
+"Last-Translator: Robert Winzer <weissnicht000099@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -39,16 +39,14 @@ msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;gnome;erweiterung;verwalten;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "Benutzerinstallierte Erweiterungen"
+msgstr "GNOME-Erweiterungen installieren"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "Suchen, installieren und verwalten Sie GNOME-Shell-Erweiterungen."
+msgstr ""
+"Suchen und installieren Sie GNOME-Shell-Erweiterungen um Ihren Desktop zu "
+"personalisieren."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -100,15 +98,15 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
 msgid "Descending Order"
-msgstr ""
+msgstr "Absteigend"
 
 #: src/exm-browse-page.blp:53
 msgid "Popularity"
-msgstr ""
+msgstr "Beliebtheit"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "Erstellt"
 
 #: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
@@ -117,7 +115,7 @@ msgstr "Downloads"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Aktualisiert"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -143,7 +141,7 @@ msgstr "Verbindungsfehler"
 
 #: src/exm-browse-page.c:346
 msgid "Ascending Order"
-msgstr ""
+msgstr "Aufsteigend"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
