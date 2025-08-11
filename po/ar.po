@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-08-10 14:30+0000\n"
+"PO-Revision-Date: 2025-08-12 03:01+0000\n"
 "Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
@@ -90,15 +90,15 @@ msgstr "أدخل كلمة مفتاحية للبحث في «extensions.gnome.org�
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
 msgid "Descending Order"
-msgstr ""
+msgstr "ترتيب تنازلي"
 
 #: src/exm-browse-page.blp:53
 msgid "Popularity"
-msgstr ""
+msgstr "الشعبية"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "اﻹنشاء"
 
 #: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
@@ -107,7 +107,7 @@ msgstr "التنزيلات"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "التحديث"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -133,7 +133,7 @@ msgstr "خطأ في الاتصال"
 
 #: src/exm-browse-page.c:346
 msgid "Ascending Order"
-msgstr ""
+msgstr "ترتيب تصاعدي"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
