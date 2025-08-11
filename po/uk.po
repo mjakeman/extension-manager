@@ -7,15 +7,16 @@
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
 # Volodymyr Davybida <mrvovavova17@gmail.com>, 2025.
 # Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
+# Максим Горпиніч <gorpinicmaksim0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-07-19 13:30+0000\n"
-"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
-"manager/app/uk/>\n"
+"PO-Revision-Date: 2025-08-12 03:01+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim0@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"extension-manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,7 +99,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
 msgid "Descending Order"
-msgstr ""
+msgstr "У порядку спадання"
 
 #: src/exm-browse-page.blp:53
 msgid "Popularity"
@@ -106,7 +107,7 @@ msgstr "За популярністю"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "Створено"
 
 #: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
@@ -115,7 +116,7 @@ msgstr "За кількістю завантажень"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Оновлено"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -141,7 +142,7 @@ msgstr "Помилка підключення"
 
 #: src/exm-browse-page.c:346
 msgid "Ascending Order"
-msgstr ""
+msgstr "Порядок зростання"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
