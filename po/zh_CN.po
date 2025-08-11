@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-03-11 15:48+0000\n"
-"Last-Translator: taijuin Lee <taijuin@gmail.com>\n"
+"PO-Revision-Date: 2025-08-12 03:01+0000\n"
+"Last-Translator: unsigned char <ZhangYaoan2008@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -37,16 +37,12 @@ msgid "extension;manager;shell;"
 msgstr "扩展;管理器;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "用户安装的扩展"
+msgstr "安装 GNOME 扩展"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "浏览、安装和管理 GNOME Shell 扩展。"
+msgstr "浏览和安装 GNOME Shell 扩展以自定义您的桌面。"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -90,7 +86,7 @@ msgstr "请输入关键字，以便在 “extensions.gnome.org” 中搜索 GNOM
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
 msgid "Descending Order"
-msgstr ""
+msgstr "降序"
 
 #: src/exm-browse-page.blp:53
 msgid "Popularity"
@@ -98,7 +94,7 @@ msgstr "热度"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "已创建"
 
 #: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
@@ -107,7 +103,7 @@ msgstr "下载量"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "已更新"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -133,7 +129,7 @@ msgstr "网络连接错误"
 
 #: src/exm-browse-page.c:346
 msgid "Ascending Order"
-msgstr ""
+msgstr "升序"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -486,24 +482,21 @@ msgid "%d%% Compatible"
 msgstr "%d%% 兼容"
 
 #: src/exm-upgrade-assistant.c:224
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system"
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
-msgstr "<b>GNOME %s</b> 支持的本机扩展数量：<b>%d，一共为 %d 个</b>"
+msgstr "<b>%d 个（共 %d 个）</b>当前安装的扩展被标记为支持 <b> GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr ""
+msgstr "如果您现在切换到 GNOME %s，所有扩展都应可以工作"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr ""
+msgstr "如果您现在切换到 GNOME %s，%d 个您的扩展可能无法工作"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:553
