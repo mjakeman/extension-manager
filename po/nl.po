@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-08-02 14:02+0000\n"
+"PO-Revision-Date: 2025-08-14 06:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
 "app/nl/>\n"
@@ -93,7 +93,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
 msgid "Descending Order"
-msgstr ""
+msgstr "Aflopende volgorde"
 
 #: src/exm-browse-page.blp:53
 msgid "Popularity"
@@ -101,7 +101,7 @@ msgstr "Populariteit"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "Aanmaak­datum"
 
 #: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
@@ -110,7 +110,7 @@ msgstr "Downloads"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Bĳwerk­datum"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -136,7 +136,7 @@ msgstr "Verbindings­fout"
 
 #: src/exm-browse-page.c:346
 msgid "Ascending Order"
-msgstr ""
+msgstr "Oplopende volgorde"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
