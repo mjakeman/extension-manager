@@ -326,15 +326,15 @@ on_search_changed (ExmBrowsePage *self)
         case EXM_SEARCH_SORT_CREATED_DES:
             sort = EXM_SEARCH_SORT_CREATED_ASC;
             break;
-        case EXM_SEARCH_SORT_DOWNLOADS_DES:
-            sort = EXM_SEARCH_SORT_DOWNLOADS_ASC;
+        case EXM_SEARCH_SORT_POPULARITY_DES:
+            sort = EXM_SEARCH_SORT_POPULARITY_ASC;
             break;
         case EXM_SEARCH_SORT_UPDATED_DES:
             sort = EXM_SEARCH_SORT_UPDATED_ASC;
             break;
-        case EXM_SEARCH_SORT_POPULARITY_DES:
+        case EXM_SEARCH_SORT_DOWNLOADS_DES:
         default:
-            sort = EXM_SEARCH_SORT_POPULARITY_ASC;
+            sort = EXM_SEARCH_SORT_DOWNLOADS_ASC;
         }
     }
     search (self, query, sort);

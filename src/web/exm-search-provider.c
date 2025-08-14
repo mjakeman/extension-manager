@@ -115,19 +115,19 @@ get_sort_string (ExmSearchSort sort_type)
         return "-created";
     case EXM_SEARCH_SORT_CREATED_ASC:
         return "created";
-    case EXM_SEARCH_SORT_DOWNLOADS_DES:
-        return "-downloads";
     case EXM_SEARCH_SORT_DOWNLOADS_ASC:
         return "downloads";
+    case EXM_SEARCH_SORT_POPULARITY_DES:
+        return "-popularity";
+    case EXM_SEARCH_SORT_POPULARITY_ASC:
+        return "popularity";
     case EXM_SEARCH_SORT_UPDATED_DES:
         return "-updated";
     case EXM_SEARCH_SORT_UPDATED_ASC:
         return "updated";
-    case EXM_SEARCH_SORT_POPULARITY_DES:
-        return "-popularity";
-    case EXM_SEARCH_SORT_POPULARITY_ASC:
+    case EXM_SEARCH_SORT_DOWNLOADS_DES:
     default:
-        return "popularity";
+        return "-downloads";
     }
 }
 
