@@ -6,13 +6,15 @@
 # hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024.
 # pan93412 <pan93412@gmail.com>, 2025.
 # taijuin Lee <taijuin@gmail.com>, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-05-10 06:01+0000\n"
-"Last-Translator: taijuin Lee <taijuin@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -20,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -429,31 +431,21 @@ msgid "Switch to Browse"
 msgstr "顯示瀏覽頁面"
 
 #: src/exm-shortcuts-dialog.blp:20
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
 msgctxt "shortcuts dialog"
 msgid "Screenshot View"
 msgstr "螢幕快照檢視"
 
 #: src/exm-shortcuts-dialog.blp:23
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcuts dialog"
 msgid "Zoom In"
 msgstr "放大"
 
 #: src/exm-shortcuts-dialog.blp:28
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcuts dialog"
 msgid "Zoom Out"
 msgstr "縮小"
 
 #: src/exm-shortcuts-dialog.blp:33
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Reset Zoom"
 msgctxt "shortcuts dialog"
 msgid "Reset Zoom"
 msgstr "重設縮放比例"
@@ -464,9 +456,6 @@ msgid "App"
 msgstr ""
 
 #: src/exm-shortcuts-dialog.blp:42
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Toggle Search"
 msgctxt "shortcuts dialog"
 msgid "Toggle Search"
 msgstr "切換搜尋"
@@ -479,17 +468,11 @@ msgid "Keyboard Shortcuts"
 msgstr "鍵盤快捷鍵(_K)"
 
 #: src/exm-shortcuts-dialog.blp:52
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Close Window"
 msgctxt "shortcuts dialog"
 msgid "Close Window"
 msgstr "關閉視窗"
 
 #: src/exm-shortcuts-dialog.blp:57
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Quit"
 msgctxt "shortcuts dialog"
 msgid "Quit"
 msgstr "結束"
