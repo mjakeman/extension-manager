@@ -40,9 +40,9 @@ struct _ExmInstalledPage
     GtkStack *stack;
     AdwBanner *updates_banner;
     AdwSwitchRow *global_toggle;
-    GtkListBox *user_list_box;
-    GtkListBox *system_list_box;
-    GtkListBox *search_list_box;
+    AdwPreferencesGroup *user_prefs_group;
+    AdwPreferencesGroup *system_prefs_group;
+    AdwPreferencesGroup *search_prefs_group;
     GtkFilterListModel *search_list_model;
 
     gboolean sort_enabled_first;
@@ -68,7 +68,7 @@ static void
 invalidate_model_bindings (ExmInstalledPage *self);
 
 static void
-on_search_mode_enabled_changed (ExmInstalledPage *self);
+switch_page (ExmInstalledPage *self);
 
 ExmInstalledPage *
 exm_installed_page_new (void)
@@ -128,7 +128,7 @@ exm_installed_page_set_property (GObject      *object,
         break;
     case PROP_SEARCH_MODE_ENABLED:
         self->search_mode_enabled = g_value_get_boolean (value);
-        on_search_mode_enabled_changed (self);
+        switch_page (self);
         break;
     case PROP_SEARCH_QUERY:
         self->search_query = g_value_dup_string (value);
@@ -147,6 +147,7 @@ widget_factory (ExmExtension     *extension,
     g_return_val_if_fail (EXM_IS_INSTALLED_PAGE (self), GTK_WIDGET (NULL));
 
     row = exm_extension_row_new (extension, self->manager);
+
     return GTK_WIDGET (row);
 }
 
@@ -188,15 +189,18 @@ on_search_changed (ExmInstalledPage *self,
 }
 
 static void
-on_search_mode_enabled_changed (ExmInstalledPage *self)
+switch_page (ExmInstalledPage *self)
 {
     if (self->search_mode_enabled
         && g_list_model_get_n_items (G_LIST_MODEL (self->search_list_model)) > 0)
         gtk_stack_set_visible_child_name (self->stack , "page_results");
     else if (self->search_mode_enabled)
-        gtk_stack_set_visible_child_name (self->stack , "page_empty");
+        gtk_stack_set_visible_child_name (self->stack , "page_no_results");
+    else if (gtk_widget_get_visible (GTK_WIDGET (self->user_prefs_group))
+             || gtk_widget_get_visible (GTK_WIDGET (self->system_prefs_group)))
+        gtk_stack_set_visible_child_name (self->stack, "page_list");
     else
-        gtk_stack_set_visible_child_name (self->stack , "page_list");
+        gtk_stack_set_visible_child_name (self->stack , "page_empty");
 }
 
 static void
@@ -206,7 +210,7 @@ on_visible_stack_changed (GObject    *object G_GNUC_UNUSED,
 {
     ExmInstalledPage *self = EXM_INSTALLED_PAGE (user_data);
 
-    on_search_mode_enabled_changed (self);
+    switch_page (self);
 }
 
 static void
@@ -248,26 +252,34 @@ bind_list_box (GListModel       *model,
     search_filter = gtk_string_filter_new (expression);
     self->search_list_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (search_filter));
 
-    gtk_list_box_bind_model (self->search_list_box, G_LIST_MODEL (self->search_list_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             self, NULL);
+    adw_preferences_group_bind_model (self->search_prefs_group, G_LIST_MODEL (self->search_list_model),
+                                      (GtkListBoxCreateWidgetFunc) widget_factory,
+                                      self, NULL);
 
     // Filter by user/system extension
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user");
     is_user_filter = gtk_bool_filter_new (expression);
     filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
 
-    gtk_list_box_bind_model (self->user_list_box, G_LIST_MODEL (filtered_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             self, NULL);
+    g_object_bind_property (filtered_model, "n-items",
+                            self->user_prefs_group, "visible",
+                            G_BINDING_SYNC_CREATE);
+
+    adw_preferences_group_bind_model (self->user_prefs_group, G_LIST_MODEL (filtered_model),
+                                      (GtkListBoxCreateWidgetFunc) widget_factory,
+                                      self, NULL);
 
     is_user_filter = gtk_bool_filter_new (expression);
     gtk_bool_filter_set_invert (is_user_filter, TRUE);
     filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
 
-    gtk_list_box_bind_model (self->system_list_box, G_LIST_MODEL (filtered_model),
-                             (GtkListBoxCreateWidgetFunc) widget_factory,
-                             self, NULL);
+    g_object_bind_property (filtered_model, "n-items",
+                            self->system_prefs_group, "visible",
+                            G_BINDING_SYNC_CREATE);
+
+    adw_preferences_group_bind_model (self->system_prefs_group, G_LIST_MODEL (filtered_model),
+                                      (GtkListBoxCreateWidgetFunc) widget_factory,
+                                      self, NULL);
 
     // Refilter when sort-enabled-first changes and there is an ongoing search
     if (self->search_query)
@@ -312,13 +324,13 @@ on_updates_available (ExmManager       *manager G_GNUC_UNUSED,
 }
 
 static gboolean
-focus_matching_extension (GtkListBox   *list_box,
-                          ExmExtension *extension)
+focus_matching_extension (AdwPreferencesGroup *prefs_group,
+                          ExmExtension        *extension)
 {
     int index = 0;
     ExmExtensionRow *row;
 
-    while ((row = EXM_EXTENSION_ROW (gtk_list_box_get_row_at_index (list_box, index))))
+    while ((row = EXM_EXTENSION_ROW (adw_preferences_group_get_row (prefs_group, index))))
     {
         ExmExtension *row_extension;
 
@@ -378,12 +390,12 @@ on_extensions_changed (GListModel       *model,
     {
         if (g_strcmp0 (gtk_stack_get_visible_child_name (self->stack), "page_results") == 0)
         {
-            focus_matching_extension (self->search_list_box, extension);
+            focus_matching_extension (self->search_prefs_group, extension);
         }
         else
         {
-            if (!focus_matching_extension (self->user_list_box, extension))
-                focus_matching_extension (self->system_list_box, extension);
+            if (!focus_matching_extension (self->user_prefs_group, extension))
+                focus_matching_extension (self->system_prefs_group, extension);
         }
     }
 
@@ -432,6 +444,8 @@ on_bind_manager (ExmInstalledPage *self)
                             self->global_toggle,
                             "active",
                             G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
+
+    switch_page (self);
 
     // Check if updates are available
     // NOTE: We need to do this *after* connecting the signal
@@ -485,11 +499,12 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_banner);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_list_box);
-    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, search_list_box);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_prefs_group);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_prefs_group);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, search_prefs_group);
 
     gtk_widget_class_bind_template_callback (widget_class, on_bind_manager);
+    gtk_widget_class_bind_template_callback (widget_class, on_visible_stack_changed);
 
     gtk_widget_class_set_layout_manager_type (widget_class, GTK_TYPE_BIN_LAYOUT);
 }

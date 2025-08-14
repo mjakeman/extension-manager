@@ -30,66 +30,14 @@ template $ExmInstalledPage: Gtk.Widget {
           }
         }
 
-        Adw.PreferencesGroup user_list {
+        Adw.PreferencesGroup user_prefs_group {
+          notify::visible => $on_visible_stack_changed();
           title: _("User-Installed Extensions");
-
-          Gtk.ListBox user_list_box {
-            styles [
-              "boxed-list",
-              "boxed-list-placeholder",
-            ]
-
-            selection-mode: none;
-
-            [placeholder]
-            Adw.ActionRow {
-              [prefix]
-              Gtk.Image {
-                icon-name: "globe-symbolic";
-              }
-
-              title: _("No User Extensions Installed");
-
-              [suffix]
-              Gtk.Button {
-                label: _("Browse");
-                action-name: "win.show-page";
-                action-target: "\"browse\"";
-                valign: center;
-              }
-            }
-
-            accessibility {
-              labelled-by: user_list;
-            }
-          }
         }
 
-        Adw.PreferencesGroup system_list {
+        Adw.PreferencesGroup system_prefs_group {
+          notify::visible => $on_visible_stack_changed();
           title: _("System Extensions");
-
-          Gtk.ListBox system_list_box {
-            styles [
-              "boxed-list",
-              "boxed-list-placeholder",
-            ]
-
-            selection-mode: none;
-
-            [placeholder]
-            Adw.ActionRow {
-              [prefix]
-              Gtk.Image {
-                icon-name: "settings-symbolic";
-              }
-
-              title: _("No System Extensions Installed");
-            }
-
-            accessibility {
-              labelled-by: system_list;
-            }
-          }
         }
       };
     }
@@ -98,20 +46,28 @@ template $ExmInstalledPage: Gtk.Widget {
       name: "page_results";
 
       child: Adw.PreferencesPage {
-        Adw.PreferencesGroup {
-          Gtk.ListBox search_list_box {
-            styles [
-              "boxed-list",
-            ]
+        Adw.PreferencesGroup search_prefs_group {}
+      };
+    }
 
-            selection-mode: none;
+    Gtk.StackPage {
+      name: "page_no_results";
 
-            accessibility {
-              // Translators: Text announced by screen readers when interacting with the list of search results
-              label: _("Search Results");
-            }
-          }
-        }
+      child: Adw.StatusPage {
+        icon-name: "edit-find-symbolic";
+        title: _("No Results Found");
+        description: _("Try a different search or search online");
+
+        child: Gtk.Button {
+          styles [
+            "pill",
+          ]
+
+          label: _("_Search Online");
+          use-underline: true;
+          halign: center;
+          action-name: "win.search-online";
+        };
       };
     }
 
@@ -119,9 +75,9 @@ template $ExmInstalledPage: Gtk.Widget {
       name: "page_empty";
 
       child: Adw.StatusPage {
-        icon-name: "edit-find-symbolic";
-        title: _("No Results Found");
-        description: _("Try a different search or search online");
+        icon-name: "puzzle-piece-symbolic";
+        title: _("No Extensions Installed");
+        description: _("Search online to install extensions");
 
         child: Gtk.Button {
           styles [
