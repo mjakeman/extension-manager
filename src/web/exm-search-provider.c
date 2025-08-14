@@ -35,7 +35,7 @@ G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM_TYPE_REQUEST_HA
 typedef struct
 {
     GListModel *list_model;
-    gchar *next;
+    int num_pages;
 } SearchRequestData;
 
 ExmSearchProvider *
@@ -51,6 +51,7 @@ parse_search_results (GBytes  *bytes,
     JsonParser *parser;
     const gchar *data;
     gsize length;
+    int count;
     SearchRequestData *result;
 
     GError *error = NULL;
@@ -74,7 +75,11 @@ parse_search_results (GBytes  *bytes,
         g_assert (JSON_NODE_HOLDS_OBJECT (root));
 
         JsonObject *root_object = json_node_get_object (root);
+        g_assert (json_object_has_member (root_object, "count"));
         g_assert (json_object_has_member (root_object, "results"));
+
+        count = json_object_get_int_member (root_object, "count");
+        g_info ("Count: %d\n", count);
 
         JsonArray *array = json_object_get_array_member (root_object, "results");
         GList *search_results = json_array_get_elements (array);
@@ -89,11 +94,9 @@ parse_search_results (GBytes  *bytes,
             g_list_store_append (store, result);
         }
 
-        const gchar *next = json_object_get_string_member_with_default (root_object, "next", NULL);
-
         result = g_slice_new0 (SearchRequestData);
         result->list_model = G_LIST_MODEL (store);
-        result->next = g_strdup (next);
+        result->num_pages = (count + 10 - 1) / 10;
         return result;
     }
 
@@ -112,25 +115,26 @@ get_sort_string (ExmSearchSort sort_type)
         return "-created";
     case EXM_SEARCH_SORT_CREATED_ASC:
         return "created";
-    case EXM_SEARCH_SORT_DOWNLOADS_DES:
-        return "-downloads";
     case EXM_SEARCH_SORT_DOWNLOADS_ASC:
         return "downloads";
+    case EXM_SEARCH_SORT_POPULARITY_DES:
+        return "-popularity";
+    case EXM_SEARCH_SORT_POPULARITY_ASC:
+        return "popularity";
     case EXM_SEARCH_SORT_UPDATED_DES:
         return "-updated";
     case EXM_SEARCH_SORT_UPDATED_ASC:
         return "updated";
-    case EXM_SEARCH_SORT_POPULARITY_DES:
-        return "-popularity";
-    case EXM_SEARCH_SORT_POPULARITY_ASC:
+    case EXM_SEARCH_SORT_DOWNLOADS_DES:
     default:
-        return "popularity";
+        return "-downloads";
     }
 }
 
 void
 exm_search_provider_query_async (ExmSearchProvider   *self,
                                  const gchar         *query,
+                                 int                  page,
                                  ExmSearchSort        sort_type,
                                  GCancellable        *cancellable,
                                  GAsyncReadyCallback  callback,
@@ -145,24 +149,10 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
     sort = get_sort_string (sort_type);
 
     if (g_strcmp0 (query, "") == 0)
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?ordering=%s&page=1&page_size=10&status=3", sort);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?ordering=%s&page=%d&page_size=10&status=3", sort, page);
     else
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?ordering=%s&page=1&page_size=10", query, sort);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?ordering=%s&page=%d&page_size=10", query, sort, page);
 
-    exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
-                                       url,
-                                       cancellable,
-                                       callback,
-                                       user_data);
-}
-
-void
-exm_search_provider_query_next_async (ExmSearchProvider   *self,
-                                      gchar               *url,
-                                      GCancellable        *cancellable,
-                                      GAsyncReadyCallback  callback,
-                                      gpointer             user_data)
-{
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
                                        cancellable,
@@ -173,7 +163,7 @@ exm_search_provider_query_next_async (ExmSearchProvider   *self,
 GListModel *
 exm_search_provider_query_finish (ExmSearchProvider  *self,
                                   GAsyncResult       *result,
-                                  gchar             **next,
+                                  int                *num_pages,
                                   GError            **error)
 {
     gpointer ret;
@@ -196,8 +186,8 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
 
     data = (SearchRequestData *) ret;
 
-    if (next != NULL)
-        *next = g_strdup (data->next);
+    if (num_pages)
+        *num_pages = data->num_pages;
 
     list_model = data->list_model;
 
