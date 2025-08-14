@@ -5,13 +5,15 @@
 # Omar TS <ots@duck.com>, 2024.
 # Saggitarius <gdeforge@gmx.com>, 2025.
 # jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-12 03:01+0000\n"
-"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -435,31 +437,21 @@ msgid "Switch to Browse"
 msgstr "أظهر صفحة التصفح"
 
 #: src/exm-shortcuts-dialog.blp:20
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
 msgctxt "shortcuts dialog"
 msgid "Screenshot View"
 msgstr "اعرض لقطة الشاشة"
 
 #: src/exm-shortcuts-dialog.blp:23
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcuts dialog"
 msgid "Zoom In"
 msgstr "قرِّب"
 
 #: src/exm-shortcuts-dialog.blp:28
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcuts dialog"
 msgid "Zoom Out"
 msgstr "بعِّد"
 
 #: src/exm-shortcuts-dialog.blp:33
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Reset Zoom"
 msgctxt "shortcuts dialog"
 msgid "Reset Zoom"
 msgstr "أعد ضبط التكبير"
@@ -470,9 +462,6 @@ msgid "App"
 msgstr ""
 
 #: src/exm-shortcuts-dialog.blp:42
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Toggle Search"
 msgctxt "shortcuts dialog"
 msgid "Toggle Search"
 msgstr "بدّل البحث"
@@ -485,17 +474,11 @@ msgid "Keyboard Shortcuts"
 msgstr "اختصارات _لوحة المفاتيح"
 
 #: src/exm-shortcuts-dialog.blp:52
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Close Window"
 msgctxt "shortcuts dialog"
 msgid "Close Window"
 msgstr "أغلق النافذة"
 
 #: src/exm-shortcuts-dialog.blp:57
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Quit"
 msgctxt "shortcuts dialog"
 msgid "Quit"
 msgstr "غادر"
