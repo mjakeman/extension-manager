@@ -6,21 +6,23 @@
 # Sabri Ünal <libreajans@gmail.com>, 2022.
 # AlphaBeta1 <hsynulassudem200w@gmail.com>, 2024.
 # Nuri KÜÇÜKLER <enatsek@gmail.com>, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-05-04 17:03+0000\n"
-"Last-Translator: Nuri KÜÇÜKLER <enatsek@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
-"manager/app/tr/>\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"extension-manager/app/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -95,22 +97,22 @@ msgstr ""
 "'extensions.gnome.org'da GNOME Shell uzantılarını aramak için bir sözcük "
 "girin"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "Çok oylananlar"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "İndirilenler"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "İndirilenler"
+msgid "Popularity"
+msgstr "Çok oylananlar"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -124,7 +126,7 @@ msgstr "Arama sonuçlarını sıralama"
 msgid "_Load More Results"
 msgstr "Daha Fazla Sonuç _Yükle"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Sonuç Bulunamadı"
 
@@ -138,7 +140,7 @@ msgstr "Başka bir arama deneyin"
 msgid "Connection Error"
 msgstr "Bağlantı Hatası"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -240,7 +242,7 @@ msgid "_New Issue"
 msgstr "_Yeni Hata"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Kopyalandı"
 
@@ -281,11 +283,11 @@ msgstr "Bu uzantı şu anki GNOME sürümünüz ile uyumsuz"
 msgid "A newer version of this extension is available"
 msgstr "Uzantının yeni bir sürümü var"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "Sürüm"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr "Oturum Kipleri"
 
@@ -328,62 +330,7 @@ msgstr "Bu uzantı ekran kilitlendiğinde çalışacaktır"
 msgid "This extension will run while no user is logged in"
 msgstr "Bu uzantı herhangi bir kullanıcı oturum açmadığında çalışacaktır"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Genel"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "Kurulu Sayfayı Göster"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "Tarayıcı Sayfasını Göster"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "Aramayı Tersine Çevir"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Klavye Kısayollarını Göster"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "Pencereyi Kapat"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Çık"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "Ekran Görüntüsü Görünümü"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "Yakınlaştır"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "Uzaklaştır"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "Yakınlaştırmayı Sıfırla"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "İndirilenler"
@@ -417,41 +364,36 @@ msgstr "Uzantıları Kullan"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Uzantılar başarım ve kararlılık sorunlarına neden olabilir"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Kurulu Uzantılarınız"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "Kurulu Kullanıcı Uzantısı Yok"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Göz At"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Sistem Uzantıları"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "Kurulu Sistem Uzantısı Yok"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-msgid "Search Results"
-msgstr "Arama Sonuçları"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr "Başka bir arama dene ya da çevrimiçi ara"
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr "Çevrimiçi Ara"
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "Kurulu Kullanıcı Uzantısı Yok"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for installed extensions"
+msgid "Search online to install extensions"
+msgstr "Kurulu uzantılarda ara"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -473,6 +415,74 @@ msgstr "Uzaklaştır"
 msgid "Zoom In"
 msgstr "Yakınlaştır"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "Kurulu Sayfayı Göster"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "Tarayıcı Sayfasını Göster"
+
+#: src/exm-shortcuts-dialog.blp:20
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "Ekran Görüntüsü Görünümü"
+
+#: src/exm-shortcuts-dialog.blp:23
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Yakınlaştır"
+
+#: src/exm-shortcuts-dialog.blp:28
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Uzaklaştır"
+
+#: src/exm-shortcuts-dialog.blp:33
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "Yakınlaştırmayı Sıfırla"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "Aramayı Tersine Çevir"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: src/exm-shortcuts-dialog.blp:52
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "Pencereyi Kapat"
+
+#: src/exm-shortcuts-dialog.blp:57
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Çık"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "Yükseltme Yardımcısı"
@@ -481,7 +491,7 @@ msgstr "Yükseltme Yardımcısı"
 msgid "_Check Compatibility"
 msgstr "Uyumluluğu _Denetle"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "Panoya _Kopyala"
 
@@ -516,17 +526,17 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr "Eğer şimdi GNOME %s'e geçerseniz, %d uzantınız çalışmayabilir"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "Uzantının uyumlu bir sürümü var"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "Uzantının uyumlu bir sürümü yok"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -534,7 +544,7 @@ msgstr ""
 "Bu uzantı extensions.gnome.org sitesinde barındırılmıyor. Uyumluluğu "
 "belirlenemiyor."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -639,6 +649,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Ağ durumunuzu kontrol edin ve tekrar deneyin"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Genel"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "Klavye Kısayollarını Göster"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "Yakınlaştır"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "Uzaklaştır"
+
+#~ msgid "Browse"
+#~ msgstr "Göz At"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Kurulu Sistem Uzantısı Yok"
+
+#~ msgid "Search Results"
+#~ msgstr "Arama Sonuçları"
 
 #~ msgid "Relevance"
 #~ msgstr "İlgi"

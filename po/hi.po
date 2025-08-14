@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2024-08-16 15:09+0000\n"
-"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/extension-manager/"
 "app/hi/>\n"
 "Language: hi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -87,22 +87,22 @@ msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr "गनोम शैल एक्सटेंशन के लिए 'extensions.gnome.org' खोजने के लिए खोजशब्द दर्ज करें"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr ""
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "डाउनलोड"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "डाउनलोड"
+msgid "Popularity"
+msgstr ""
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -116,7 +116,7 @@ msgstr ""
 msgid "_Load More Results"
 msgstr "अधिक परिणाम लोड करें (_L)"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "कोई परिणाम नहीं मिला"
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Connection Error"
 msgstr ""
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgid "_New Issue"
 msgstr "नया मुद्दा (_N)"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "कॉपी किया गया"
 
@@ -286,11 +286,11 @@ msgstr "यह एक्सटेंशन आपके गनोम के व�
 msgid "A newer version of this extension is available"
 msgstr "इस एक्सटेंशन का एक नया संस्करण उपलब्ध है"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "संस्करण"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr ""
 
@@ -334,62 +334,7 @@ msgstr ""
 msgid "This extension will run while no user is logged in"
 msgstr "अगले लॉगिन पर एक एक्सटेंशन अद्यतित की जाएगी"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "सामान्य"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "स्थापित पृष्ठ दिखाएं"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "ब्राउज़ पृष्ठ दिखाएं"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr ""
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "कीबोर्ड शॉर्टकट दिखाएं"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "विंडो बंद करें"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "बंद करें"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "स्क्रीनशॉट दृश्य"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "बड़ा करें"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "छोटा करें"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "जूम रीसेट करें"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "डाउनलोड"
@@ -428,43 +373,36 @@ msgstr "एक्सटेंशन का उपयोग करें"
 msgid "Extensions can cause performance and stability issues"
 msgstr "एक्सटेंशन प्रदर्शन और स्थिरता संबंधी समस्याएं पैदा कर सकते हैं"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "उपयोक्ता-स्थापित एक्सटेंशन"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "कोई उपयोक्ता एक्सटेंशन स्थापित नहीं हैं"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "देखें"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "सिस्टम एक्सटेंशन"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "कोई सिस्टम एक्सटेंशन स्थापित नहीं हैं"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-#, fuzzy
-#| msgid "_Load More Results"
-msgid "Search Results"
-msgstr "अधिक परिणाम लोड करें (_L)"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr ""
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr ""
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "कोई उपयोक्ता एक्सटेंशन स्थापित नहीं हैं"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for Extensions"
+msgid "Search online to install extensions"
+msgstr "एक्सटेंशन खोजें"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, fuzzy, c-format
 #| msgid "One extension will be updated on next login"
 #| msgid_plural "%d extensions will be updated on next login"
@@ -490,6 +428,74 @@ msgstr "छोटा करें"
 msgid "Zoom In"
 msgstr "बड़ा करें"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "स्थापित पृष्ठ दिखाएं"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "ब्राउज़ पृष्ठ दिखाएं"
+
+#: src/exm-shortcuts-dialog.blp:20
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "स्क्रीनशॉट दृश्य"
+
+#: src/exm-shortcuts-dialog.blp:23
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "बड़ा करें"
+
+#: src/exm-shortcuts-dialog.blp:28
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "छोटा करें"
+
+#: src/exm-shortcuts-dialog.blp:33
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "जूम रीसेट करें"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट (_K)"
+
+#: src/exm-shortcuts-dialog.blp:52
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "विंडो बंद करें"
+
+#: src/exm-shortcuts-dialog.blp:57
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "बंद करें"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "उन्नयन सहायक"
@@ -498,7 +504,7 @@ msgstr "उन्नयन सहायक"
 msgid "_Check Compatibility"
 msgstr "संगतता जांचें (_C)"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "क्लिपबोर्ड पर कॉपी करें (_C)"
 
@@ -536,17 +542,17 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "एक्सटेंशन का एक संगत संस्करण मौजूद है"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "एक्सटेंशन का कोई संगत संस्करण मौजूद नहीं है"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -554,7 +560,7 @@ msgstr ""
 "यह एक्सटेंशन extensions.gnome.org पर होस्ट नहीं किया गया है। इसकी अनुकूलता निर्धारित "
 "नहीं की जा सकती।"
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -663,6 +669,33 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr ""
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "सामान्य"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "कीबोर्ड शॉर्टकट दिखाएं"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "बड़ा करें"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "छोटा करें"
+
+#~ msgid "Browse"
+#~ msgstr "देखें"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "कोई सिस्टम एक्सटेंशन स्थापित नहीं हैं"
+
+#, fuzzy
+#~| msgid "_Load More Results"
+#~ msgid "Search Results"
+#~ msgstr "अधिक परिणाम लोड करें (_L)"
 
 #~ msgid "Relevance"
 #~ msgstr "प्रासंगिकता"

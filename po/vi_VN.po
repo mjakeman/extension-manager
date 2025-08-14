@@ -1,22 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2023-11-09 22:59+0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
+"extension-manager/app/vi/>\n"
 "Language: vi_VN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -101,24 +102,24 @@ msgstr ""
 "Nhập từ khóa để tìm kiếm 'extensions.gnome.org' cho Tiện ích mở rộng Gnome "
 "Shell."
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "Phổ biến"
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Tải xuống"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-#, fuzzy
-#| msgid "Downloads"
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Tải xuống"
+msgid "Popularity"
+msgstr "Phổ biến"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -132,7 +133,7 @@ msgstr "Sắp xếp kết quả tìm kiếm"
 msgid "_Load More Results"
 msgstr "_Tải thêm kết quả"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Không có kết quả nào được tìm thấy"
 
@@ -146,7 +147,7 @@ msgstr ""
 msgid "Connection Error"
 msgstr ""
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -266,7 +267,7 @@ msgid "_New Issue"
 msgstr "_Vấn đề mới"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Đã sao chép"
 
@@ -307,11 +308,11 @@ msgstr ""
 msgid "A newer version of this extension is available"
 msgstr "Đã có phiên bản mới hơn của tiện ích mở rộng này"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "Phiên bản"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr ""
 
@@ -357,69 +358,7 @@ msgstr ""
 msgid "This extension will run while no user is logged in"
 msgstr "Một tiện ích mở rộng sẽ được cập nhật vào lần đăng nhập tiếp theo."
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr ""
-
-#: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "Đã cài đặt"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr ""
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr ""
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr ""
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr ""
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr ""
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr ""
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom In"
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "Phóng to"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-#, fuzzy
-#| msgid "Zoom Out"
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "Thu nhỏ"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr ""
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Number of downloads"
@@ -466,47 +405,36 @@ msgstr "Sử dụng tiện ích mở rộng"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Tiện ích mở rộng có thể gây ra vấn đề về hiệu suất và độ ổn định."
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Tiện ích mở rộng do người dùng cài đặt"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-#, fuzzy
-#| msgid "There are no user extensions installed."
-msgid "No User Extensions Installed"
-msgstr "Không có tiện ích mở rộng người dùng nào được cài đặt."
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Duyệt qua"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Tiện ích mở rộng hệ thống"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-#, fuzzy
-#| msgid "There are no system extensions installed."
-msgid "No System Extensions Installed"
-msgstr "Không có phần mở rộng hệ thống nào được cài đặt."
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-#, fuzzy
-#| msgid "Sort search results"
-msgid "Search Results"
-msgstr "Sắp xếp kết quả tìm kiếm"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr ""
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr ""
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "There are no user extensions installed."
+msgid "No Extensions Installed"
+msgstr "Không có tiện ích mở rộng người dùng nào được cài đặt."
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "Search online to install extensions"
+msgstr "Tìm kiếm tiện ích mở rộng"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, fuzzy, c-format
 #| msgid "One extension will be updated on next login."
 #| msgid_plural "%d extensions will be updated on next login."
@@ -531,6 +459,69 @@ msgstr "Thu nhỏ"
 msgid "Zoom In"
 msgstr "Phóng to"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "Đã cài đặt"
+
+#: src/exm-shortcuts-dialog.blp:14
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:20
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:23
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Phóng to"
+
+#: src/exm-shortcuts-dialog.blp:28
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Thu nhỏ"
+
+#: src/exm-shortcuts-dialog.blp:33
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:47
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:52
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:57
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr ""
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "Trợ lý Nâng cấp"
@@ -539,7 +530,7 @@ msgstr "Trợ lý Nâng cấp"
 msgid "_Check Compatibility"
 msgstr "_Kiểm tra tính tương thích"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "_Sao chép vào clipboard"
 
@@ -578,21 +569,21 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 #, fuzzy
 #| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
 msgstr "Đã tồn tại phiên bản tương thích của tiện ích mở rộng."
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 #, fuzzy
 #| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
 msgstr "Không có phiên bản tương thích của tiện ích mở rộng tồn tại."
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -600,7 +591,7 @@ msgstr ""
 "Tiện ích mở rộng này không được lưu trữ trên extensions.gnome.org. Khả năng "
 "tương thích của nó không thể được xác định."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -715,6 +706,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Zoom In"
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "Phóng to"
+
+#, fuzzy
+#~| msgid "Zoom Out"
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "Thu nhỏ"
+
+#~ msgid "Browse"
+#~ msgstr "Duyệt qua"
+
+#, fuzzy
+#~| msgid "There are no system extensions installed."
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Không có phần mở rộng hệ thống nào được cài đặt."
+
+#, fuzzy
+#~| msgid "Sort search results"
+#~ msgid "Search Results"
+#~ msgstr "Sắp xếp kết quả tìm kiếm"
 
 #~ msgid "Relevance"
 #~ msgstr "Liên quan"

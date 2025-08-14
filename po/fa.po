@@ -5,21 +5,23 @@
 # Mobin <mobin@mobintestserver.ir>, 2022.
 # seyed eshagh moghim shahidani <eshagh094@gmail.com>, 2022.
 # Mir Sobhan <mr.sobhan.n@outlook.com>, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-06-12 00:01+0000\n"
-"Last-Translator: Mir Sobhan <mr.sobhan.n@outlook.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/extension-"
-"manager/app/fa/>\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"extension-manager/app/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -101,24 +103,24 @@ msgid ""
 msgstr ""
 "یک کلیدواژه برای جست‌وجوی افزونه‌های گنوم در «extensions.gnome.org» وارد کنید."
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "محبوبیت"
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "بارگیری"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-#, fuzzy
-#| msgid "Downloads"
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "بارگیری"
+msgid "Popularity"
+msgstr "محبوبیت"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -134,7 +136,7 @@ msgstr "مرتب‌سازی نتایج جست‌وجو"
 msgid "_Load More Results"
 msgstr "بار کردن نتایج بیشتر"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "هیچ نتیجه‌ای یافت نشد"
 
@@ -148,7 +150,7 @@ msgstr "یک جست‌وجو دیگر را امتحان کنید"
 msgid "Connection Error"
 msgstr "خطای ارتباط"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -274,7 +276,7 @@ msgid "_New Issue"
 msgstr "اشکال جدید"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "رونوشت شد"
 
@@ -317,11 +319,11 @@ msgstr "این افزونه با نگارش کنونی پوستهٔ گنوم ش�
 msgid "A newer version of this extension is available"
 msgstr "نگارش جدیدی از این افزونه موجود است"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "نگارش"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr ""
 
@@ -367,69 +369,7 @@ msgstr "هنگامی که صفحه قفل است این افزونه اجرا خ
 msgid "This extension will run while no user is logged in"
 msgstr "تعداد %Id افزونه در ورود بعدی به‌روز رسانی خواهند شد."
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "عمومی"
-
-#: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "نصب شده"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "نمایش صفحه مرور"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "روشن/خاموش جست‌وجو"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "نمایش میانبر صفحه کلید"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "بستن پنجره"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "خروج"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "نمایه نماگرفت"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-#, fuzzy
-#| msgid "Zoom In"
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "بزرگ‌نمایی"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-#, fuzzy
-#| msgid "Zoom Out"
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "کوچک‌نمایی"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr ""
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Number of downloads"
@@ -476,47 +416,36 @@ msgstr "استفاده از افزونه‌ها"
 msgid "Extensions can cause performance and stability issues"
 msgstr "افزونه‌ها می‌توانند باعث مشکلات عملکرد و پایداری شوند."
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "افزونه‌های نصب شده توسط کاربر"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-#, fuzzy
-#| msgid "There are no user extensions installed."
-msgid "No User Extensions Installed"
-msgstr "هیچ افزونه‌ای توسط کاربر نصب نشده است."
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "مرور"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "افزونه‌های سامانه"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-#, fuzzy
-#| msgid "There are no system extensions installed."
-msgid "No System Extensions Installed"
-msgstr "هیچ افزونه‌ای توسط سامانه نصب نشده است."
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-#, fuzzy
-#| msgid "Sort search results"
-msgid "Search Results"
-msgstr "مرتب‌سازی نتایج جست‌وجو"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr ""
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr ""
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "There are no user extensions installed."
+msgid "No Extensions Installed"
+msgstr "هیچ افزونه‌ای توسط کاربر نصب نشده است."
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "Search online to install extensions"
+msgstr "جست‌وجو برای افزونه‌ها"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, fuzzy, c-format
 #| msgid "One extension will be updated on next login."
 #| msgid_plural "%d extensions will be updated on next login."
@@ -542,6 +471,75 @@ msgstr "کوچک‌نمایی"
 msgid "Zoom In"
 msgstr "بزرگ‌نمایی"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "State"
+#| msgid "Installed"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "نصب شده"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "نمایش صفحه مرور"
+
+#: src/exm-shortcuts-dialog.blp:20
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "نمایه نماگرفت"
+
+#: src/exm-shortcuts-dialog.blp:23
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "بزرگ‌نمایی"
+
+#: src/exm-shortcuts-dialog.blp:28
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "کوچک‌نمایی"
+
+#: src/exm-shortcuts-dialog.blp:33
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "روشن/خاموش جست‌وجو"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "نمایش میانبر صفحه کلید"
+
+#: src/exm-shortcuts-dialog.blp:52
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "بستن پنجره"
+
+#: src/exm-shortcuts-dialog.blp:57
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "خروج"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "دستیار ارتقاء"
@@ -552,7 +550,7 @@ msgstr "دستیار ارتقاء"
 msgid "_Check Compatibility"
 msgstr "بررسی سازگاری"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 #, fuzzy
 #| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
@@ -593,21 +591,21 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 #, fuzzy
 #| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
 msgstr "یک نگارش سازگار از این افزونه موجود است."
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 #, fuzzy
 #| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
 msgstr "هیچ نگارش سازگاری از این افزونه موجود نیست."
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -615,7 +613,7 @@ msgstr ""
 "این افزونه در extensions.gnome.org میزبانی نمی‌شود. سازگاری آن را نمی‌توان "
 "تعیین کرد."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -743,6 +741,35 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr ""
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "عمومی"
+
+#, fuzzy
+#~| msgid "Zoom In"
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "بزرگ‌نمایی"
+
+#, fuzzy
+#~| msgid "Zoom Out"
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "کوچک‌نمایی"
+
+#~ msgid "Browse"
+#~ msgstr "مرور"
+
+#, fuzzy
+#~| msgid "There are no system extensions installed."
+#~ msgid "No System Extensions Installed"
+#~ msgstr "هیچ افزونه‌ای توسط سامانه نصب نشده است."
+
+#, fuzzy
+#~| msgid "Sort search results"
+#~ msgid "Search Results"
+#~ msgstr "مرتب‌سازی نتایج جست‌وجو"
 
 #~ msgid "Relevance"
 #~ msgstr "مرتبط"

@@ -2,21 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
 # Aindriú Mac Giolla Eoin <aindriu80@gmail.com>, 2024, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
-"PO-Revision-Date: 2025-07-24 15:02+0000\n"
-"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/extension-manager/"
 "app/ga/>\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :"
-"(n>6 && n<11) ? 3 : 4;\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :("
+"n>6 && n<11) ? 3 : 4;\n"
 "X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
@@ -87,26 +89,26 @@ msgstr ""
 "Iontráil eochairfhocal chun 'Extensions.gnome.org' a chuardach le haghaidh "
 "síntí bhlaosc gnome"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
-msgstr ""
+msgstr "Ord Íslitheach"
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr ""
-
-#: src/exm-browse-page.blp:54
-msgid "Created"
-msgstr ""
-
-#: src/exm-browse-page.blp:55
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Íoslódáil"
 
+#: src/exm-browse-page.blp:54
+msgid "Created"
+msgstr "Cruthaithe"
+
+#: src/exm-browse-page.blp:55
+msgid "Popularity"
+msgstr "Coitiantacht"
+
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Nuashonraithe"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -116,7 +118,7 @@ msgstr "Torthaí cuardaigh a shórtáil"
 msgid "_Load More Results"
 msgstr "_ Déan níos mó torthaí"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Níor aimsíodh aon torthaí"
 
@@ -130,9 +132,9 @@ msgstr "Bain triail as cuardach eile"
 msgid "Connection Error"
 msgstr "Earráid Ceangail"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
-msgstr ""
+msgstr "Ord Ardaitheach"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -232,7 +234,7 @@ msgid "_New Issue"
 msgstr "_Saincheist Nua"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Cóipeáil"
 
@@ -274,11 +276,11 @@ msgstr "Tá an síneadh seo neamh -chomhoiriúnach le do leagan reatha de gnome"
 msgid "A newer version of this extension is available"
 msgstr "Tá leagan níos nuaí den síneadh seo ar fáil"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "Leagan"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr "Modhanna Seisiúin"
 
@@ -321,62 +323,7 @@ msgstr "Rithfidh an síneadh seo agus an scáileán glasáilte"
 msgid "This extension will run while no user is logged in"
 msgstr "Rithfidh an síneadh seo fad nach bhfuil aon úsáideoir logáilte isteach"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Ginearál"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "Taispeáin leathanach suiteáilte"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "Taispeáin Leathanach Brabhsála"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "Scoránaigh Cuardach"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Taispeáin Aicearraí Méarchláir"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "Dún Fuinneog"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Éirí as"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "Radharc Scáileáin Amharc"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "Súmáil Isteach"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "Súmáil Amach"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "Athshocraigh Súmáil"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Íoslódáil"
@@ -412,41 +359,36 @@ msgstr ""
 "Is féidir le síntí a bheith ina gcúis le saincheisteanna feidhmíochta agus "
 "cobhsaíochta"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Síntí Suiteáilte ag an Úsáideoir"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "Níor suiteáladh aon síntí úsáideora"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Brabhsáil"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Síntí Córais"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "Níor suiteáladh aon síntí córais"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-msgid "Search Results"
-msgstr "Torthaí Cuardaigh"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr "Bain triail as cuardach eile nó cuardach ar líne"
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr "_Cuardaigh Ar Líne"
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "Níor suiteáladh aon síntí úsáideora"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for installed extensions"
+msgid "Search online to install extensions"
+msgstr "Cuardaigh le haghaidh síntí suiteáilte"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -476,6 +418,74 @@ msgstr "Súmáil Amach"
 msgid "Zoom In"
 msgstr "Súmáil Isteach"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "Taispeáin leathanach suiteáilte"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "Taispeáin Leathanach Brabhsála"
+
+#: src/exm-shortcuts-dialog.blp:20
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "Radharc Scáileáin Amharc"
+
+#: src/exm-shortcuts-dialog.blp:23
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Súmáil Isteach"
+
+#: src/exm-shortcuts-dialog.blp:28
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Súmáil Amach"
+
+#: src/exm-shortcuts-dialog.blp:33
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "Athshocraigh Súmáil"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "Scoránaigh Cuardach"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "_Aicearraí Méarchláir"
+
+#: src/exm-shortcuts-dialog.blp:52
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "Dún Fuinneog"
+
+#: src/exm-shortcuts-dialog.blp:57
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Éirí as"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "Cúntóir Uasghrádaithe"
@@ -484,7 +494,7 @@ msgstr "Cúntóir Uasghrádaithe"
 msgid "_Check Compatibility"
 msgstr "_Seiceáil Comhoiriúnacht"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "_Cóip chuig Gearrthaisce"
 
@@ -523,17 +533,17 @@ msgstr ""
 "eisínteachtaí"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "Tá leagan comhoiriúnach den síneadh ann"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "Níl aon leagan comhoiriúnach den síneadh ann"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -541,7 +551,7 @@ msgstr ""
 "Ní dhéantar an síneadh seo a óstáil ar extensions.gnome.org. Ní féidir a "
 "chomhoiriúnacht a chinneadh."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -646,6 +656,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Seiceáil stádas do líonra agus bain triail eile as"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Ginearál"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "Taispeáin Aicearraí Méarchláir"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "Súmáil Isteach"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "Súmáil Amach"
+
+#~ msgid "Browse"
+#~ msgstr "Brabhsáil"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Níor suiteáladh aon síntí córais"
+
+#~ msgid "Search Results"
+#~ msgstr "Torthaí Cuardaigh"
 
 #~ msgid "Relevance"
 #~ msgstr "Tábhacht"
