@@ -43,7 +43,8 @@ struct _ExmBrowsePage
     GtkStringList *suggestions;
     GListModel *search_results_model;
 
-    gchar *next_page;
+    int current_page;
+    int max_pages;
 
     GCancellable *cancellable;
 
@@ -144,7 +145,7 @@ static void
 update_load_more_btn (ExmBrowsePage *self)
 {
     // Hide button if we are the last page
-    gtk_widget_set_visible (GTK_WIDGET (self->more_results_list), self->next_page != NULL);
+    gtk_widget_set_visible (GTK_WIDGET (self->more_results_list), self->current_page != self->max_pages);
 
     // Make it clickable
     gtk_widget_set_sensitive (GTK_WIDGET (self->more_results_btn), TRUE);
@@ -179,7 +180,7 @@ on_first_page_result (GObject       *source,
     GError *error = NULL;
     GListModel *to_append;
 
-    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->next_page, &error);
+    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
 
     if (error)
     {
@@ -214,7 +215,7 @@ on_next_page_result (GObject       *source,
     int n_items;
     int i;
 
-    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->next_page, &error);
+    to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
 
     if (G_IS_LIST_MODEL (to_append))
     {
@@ -260,15 +261,19 @@ static void
 on_load_more_results (AdwButtonRow  *row G_GNUC_UNUSED,
                       ExmBrowsePage *self)
 {
+    const char *query;
+    ExmSearchSort sort;
     gtk_widget_set_sensitive (GTK_WIDGET (self->more_results_btn), FALSE);
 
     // If we have a current operation, cancel it
     g_cancellable_cancel (self->cancellable);
     self->cancellable = g_cancellable_new ();
 
-    exm_search_provider_query_next_async (self->search, self->next_page, self->cancellable,
-                                          (GAsyncReadyCallback) on_next_page_result,
-                                          self);
+    query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
+    sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
+    exm_search_provider_query_async (self->search, query, ++self->current_page, sort, self->cancellable,
+                                     (GAsyncReadyCallback) on_next_page_result,
+                                     self);
 }
 
 static void
@@ -278,6 +283,7 @@ search (ExmBrowsePage *self,
 {
     // Show Loading Indicator
     gtk_stack_set_visible_child_name (self->search_stack, "page_spinner");
+    self->current_page = 1;
 
     if (self->search_results_model)
         g_clear_object (&self->search_results_model);
@@ -286,7 +292,7 @@ search (ExmBrowsePage *self,
     g_cancellable_cancel (self->cancellable);
     self->cancellable = g_cancellable_new ();
 
-    exm_search_provider_query_async (self->search, query, sort, self->cancellable,
+    exm_search_provider_query_async (self->search, query, 1, sort, self->cancellable,
                                      (GAsyncReadyCallback) on_first_page_result,
                                      self);
 }

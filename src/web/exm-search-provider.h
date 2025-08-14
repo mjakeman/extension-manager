@@ -44,24 +44,19 @@ typedef enum
     EXM_SEARCH_SORT_UPDATED_ASC = 7
 } ExmSearchSort;
 
-ExmSearchProvider *exm_search_provider_new              (void);
+ExmSearchProvider *exm_search_provider_new          (void);
 
-void               exm_search_provider_query_async      (ExmSearchProvider   *self,
-                                                         const gchar         *query,
-                                                         ExmSearchSort        sort_type,
-                                                         GCancellable        *cancellable,
-                                                         GAsyncReadyCallback  callback,
-                                                         gpointer             user_data);
+void               exm_search_provider_query_async  (ExmSearchProvider   *self,
+                                                     const gchar         *query,
+                                                     int                  page,
+                                                     ExmSearchSort        sort_type,
+                                                     GCancellable        *cancellable,
+                                                     GAsyncReadyCallback  callback,
+                                                     gpointer             user_data);
 
-void               exm_search_provider_query_next_async (ExmSearchProvider   *self,
-                                                         gchar               *url,
-                                                         GCancellable        *cancellable,
-                                                         GAsyncReadyCallback  callback,
-                                                         gpointer             user_data);
-
-GListModel        *exm_search_provider_query_finish     (ExmSearchProvider  *self,
-                                                         GAsyncResult       *result,
-                                                         gchar             **next,
-                                                         GError            **error);
+GListModel        *exm_search_provider_query_finish (ExmSearchProvider  *self,
+                                                     GAsyncResult       *result,
+                                                     int                *num_pages,
+                                                     GError            **error);
 
 G_END_DECLS
