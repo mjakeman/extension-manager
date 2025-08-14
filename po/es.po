@@ -8,11 +8,11 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-10 21:03+0000\n"
-"Last-Translator: Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply."
-"github.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/extension-"
-"manager/app/es/>\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"extension-manager/app/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -375,16 +375,12 @@ msgid "_Search Online"
 msgstr "_Buscar en línea"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "No hay extensiones de usuario instaladas"
+msgstr "No hay extensiones instaladas"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "Buscar extensiones instaladas"
+msgstr "Buscar en línea para instalar extensiones"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -414,50 +410,34 @@ msgstr "Ampliar"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "Vistas"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Mostrar página Instaladas"
+msgstr "Cambiar a Instaladas"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Mostrar página Explorar"
+msgstr "Cambiar a Explorar"
 
 #: src/exm-shortcuts-dialog.blp:20
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
 msgctxt "shortcuts dialog"
 msgid "Screenshot View"
 msgstr "Vista de captura de pantalla"
 
 #: src/exm-shortcuts-dialog.blp:23
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcuts dialog"
 msgid "Zoom In"
 msgstr "Ampliar"
 
 #: src/exm-shortcuts-dialog.blp:28
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcuts dialog"
 msgid "Zoom Out"
 msgstr "Reducir"
 
 #: src/exm-shortcuts-dialog.blp:33
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Reset Zoom"
 msgctxt "shortcuts dialog"
 msgid "Reset Zoom"
 msgstr "Restablecer ampliación"
@@ -465,35 +445,24 @@ msgstr "Restablecer ampliación"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "Aplicación"
 
 #: src/exm-shortcuts-dialog.blp:42
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Toggle Search"
 msgctxt "shortcuts dialog"
 msgid "Toggle Search"
 msgstr "Conmutar búsqueda"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "Atajos del _teclado"
+msgstr "Atajos del teclado"
 
 #: src/exm-shortcuts-dialog.blp:52
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Close Window"
 msgctxt "shortcuts dialog"
 msgid "Close Window"
 msgstr "Cerrar ventana"
 
 #: src/exm-shortcuts-dialog.blp:57
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Quit"
 msgctxt "shortcuts dialog"
 msgid "Quit"
 msgstr "Salir"
