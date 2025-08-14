@@ -5,21 +5,23 @@
 # Mobin <mobin@mobintestserver.ir>, 2022.
 # seyed eshagh moghim shahidani <eshagh094@gmail.com>, 2022.
 # Mir Sobhan <mr.sobhan.n@outlook.com>, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-06-12 00:01+0000\n"
-"Last-Translator: Mir Sobhan <mr.sobhan.n@outlook.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/extension-"
-"manager/app/fa/>\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"extension-manager/app/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -491,23 +493,16 @@ msgid "Switch to Browse"
 msgstr "نمایش صفحه مرور"
 
 #: src/exm-shortcuts-dialog.blp:20
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
 msgctxt "shortcuts dialog"
 msgid "Screenshot View"
 msgstr "نمایه نماگرفت"
 
 #: src/exm-shortcuts-dialog.blp:23
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcuts dialog"
 msgid "Zoom In"
 msgstr "بزرگ‌نمایی"
 
 #: src/exm-shortcuts-dialog.blp:28
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcuts dialog"
 msgid "Zoom Out"
 msgstr "کوچک‌نمایی"
@@ -523,9 +518,6 @@ msgid "App"
 msgstr ""
 
 #: src/exm-shortcuts-dialog.blp:42
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Toggle Search"
 msgctxt "shortcuts dialog"
 msgid "Toggle Search"
 msgstr "روشن/خاموش جست‌وجو"
@@ -539,17 +531,11 @@ msgid "Keyboard Shortcuts"
 msgstr "نمایش میانبر صفحه کلید"
 
 #: src/exm-shortcuts-dialog.blp:52
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Close Window"
 msgctxt "shortcuts dialog"
 msgid "Close Window"
 msgstr "بستن پنجره"
 
 #: src/exm-shortcuts-dialog.blp:57
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Quit"
 msgctxt "shortcuts dialog"
 msgid "Quit"
 msgstr "خروج"
