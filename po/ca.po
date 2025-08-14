@@ -6,21 +6,23 @@
 # Joan Aymà <joanayma@gmail.com>, 2024.
 # Quentin PAGÈS <quentinantonin@free.fr>, 2025.
 # Esteve Fernandez <esteve@users.noreply.hosted.weblate.org>, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-05-06 11:03+0000\n"
-"Last-Translator: Esteve Fernandez <esteve@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
-"manager/app/ca/>\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/"
+"extension-manager/app/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -446,31 +448,21 @@ msgid "Switch to Browse"
 msgstr "Mostra la pàgina d'explorar"
 
 #: src/exm-shortcuts-dialog.blp:20
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
 msgctxt "shortcuts dialog"
 msgid "Screenshot View"
 msgstr "Visualització de la captura de pantalla"
 
 #: src/exm-shortcuts-dialog.blp:23
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcuts dialog"
 msgid "Zoom In"
 msgstr "Ampliar"
 
 #: src/exm-shortcuts-dialog.blp:28
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcuts dialog"
 msgid "Zoom Out"
 msgstr "Allunyar"
 
 #: src/exm-shortcuts-dialog.blp:33
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Reset Zoom"
 msgctxt "shortcuts dialog"
 msgid "Reset Zoom"
 msgstr "Restableix ampliació"
@@ -493,17 +485,11 @@ msgid "Keyboard Shortcuts"
 msgstr "_Dreceres de teclat"
 
 #: src/exm-shortcuts-dialog.blp:52
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Close Window"
 msgctxt "shortcuts dialog"
 msgid "Close Window"
 msgstr "Tanca la finestra"
 
 #: src/exm-shortcuts-dialog.blp:57
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Quit"
 msgctxt "shortcuts dialog"
 msgid "Quit"
 msgstr "Surt"
