@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
 "PO-Revision-Date: 2025-06-28 13:04+0000\n"
 "Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
@@ -93,22 +93,22 @@ msgstr ""
 "Введите ключевое слово для поиска расширений GNOME Shell из 'extensions."
 "gnome.org'"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "Популярность"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Число загрузок"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Число загрузок"
+msgid "Popularity"
+msgstr "Популярность"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -122,7 +122,7 @@ msgstr "Сортировать результаты поиска"
 msgid "_Load More Results"
 msgstr "_Загрузить больше результатов"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Результаты не найдены"
 
@@ -136,7 +136,7 @@ msgstr "Попробуйте другой поисковый запрос"
 msgid "Connection Error"
 msgstr "Ошибка соединения"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -238,7 +238,7 @@ msgid "_New Issue"
 msgstr "_Новая проблема"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Скопировано"
 
@@ -279,11 +279,11 @@ msgstr "Это расширение несовместимо с вашей те�
 msgid "A newer version of this extension is available"
 msgstr "Доступная новая версия этого расширения"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "Версия"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr "Режимы сеанса"
 
@@ -327,62 +327,7 @@ msgid "This extension will run while no user is logged in"
 msgstr ""
 "Это расширение будет работать, пока ни один пользователь не вошел в систему"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Общие"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "Показать «Установленные»"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "Показать «Обзор»"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "Переключить поиск"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Показать комбинации клавиш"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "Закрыть окно"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Выход"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "Просмотр скриншотов"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "Увеличить"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "Уменьшить"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "Сбросить масштаб"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Загрузки"
@@ -417,41 +362,36 @@ msgid "Extensions can cause performance and stability issues"
 msgstr ""
 "Расширения могут вызывать проблемы с производительностью и стабильностью"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Расширения, установленные пользователем"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "Пользовательские расширения не установлены"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Обзор"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Системные расширения"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "Системные расширения не установлены"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-msgid "Search Results"
-msgstr "Результаты поиска"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr "Попробуйте другой поисковый запрос или поищите в Интернете"
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr "_Поиск в Интернете"
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "Пользовательские расширения не установлены"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for installed extensions"
+msgid "Search online to install extensions"
+msgstr "Поиск по установленным расширениям"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -477,6 +417,93 @@ msgstr "Уменьшить"
 msgid "Zoom In"
 msgstr "Увеличить"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "Показать «Установленные»"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "Показать «Обзор»"
+
+#: src/exm-shortcuts-dialog.blp:20
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Screenshot View"
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "Просмотр скриншотов"
+
+#: src/exm-shortcuts-dialog.blp:23
+#, fuzzy
+#| msgid "Zoom In"
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Увеличить"
+
+#: src/exm-shortcuts-dialog.blp:28
+#, fuzzy
+#| msgid "Zoom Out"
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Уменьшить"
+
+#: src/exm-shortcuts-dialog.blp:33
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Reset Zoom"
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "Сбросить масштаб"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle Search"
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "Переключить поиск"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "_Комбинации клавиш"
+
+#: src/exm-shortcuts-dialog.blp:52
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Close Window"
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "Закрыть окно"
+
+#: src/exm-shortcuts-dialog.blp:57
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Quit"
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Выход"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "Помощник по обновлению"
@@ -485,7 +512,7 @@ msgstr "Помощник по обновлению"
 msgid "_Check Compatibility"
 msgstr "_Проверка совместимости"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "_Копировать в буфер обмена"
 
@@ -524,17 +551,17 @@ msgstr ""
 "работать"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "Существует совместимая версия расширения"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "Совместимой версии расширения не существует"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -542,7 +569,7 @@ msgstr ""
 "Это расширение не размещено на сайте extensions.gnome.org. Его совместимость "
 "не может быть определена."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -647,6 +674,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Проверьте состояние сети и повторите попытку"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Общие"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "Показать комбинации клавиш"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "Увеличить"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "Уменьшить"
+
+#~ msgid "Browse"
+#~ msgstr "Обзор"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Системные расширения не установлены"
+
+#~ msgid "Search Results"
+#~ msgstr "Результаты поиска"
 
 #~ msgid "Relevance"
 #~ msgstr "Релевантность"

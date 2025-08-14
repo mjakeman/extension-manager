@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
 "PO-Revision-Date: 2025-08-12 03:01+0000\n"
 "Last-Translator: Максим Горпиніч <gorpinicmaksim0@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
-"extension-manager/app/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
+"manager/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,22 +97,22 @@ msgstr ""
 "Введіть ключове слово для пошуку розширень з 'extensions.gnome.org' для "
 "оболонки GNOME"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr "У порядку спадання"
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "За популярністю"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "За кількістю завантажень"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr "Створено"
 
 #: src/exm-browse-page.blp:55
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "За кількістю завантажень"
+msgid "Popularity"
+msgstr "За популярністю"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -126,7 +126,7 @@ msgstr "Сортування результатів пошуку"
 msgid "_Load More Results"
 msgstr "_Завантажити більше результатів"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Нічого не знайдено"
 
@@ -140,7 +140,7 @@ msgstr "Спробуйте інший пошуковий запит"
 msgid "Connection Error"
 msgstr "Помилка підключення"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr "Порядок зростання"
 
@@ -242,7 +242,7 @@ msgid "_New Issue"
 msgstr "_Новий звіт"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Скопійовано"
 
@@ -284,11 +284,11 @@ msgstr "Це розширення не сумісне з вашою поточн
 msgid "A newer version of this extension is available"
 msgstr "Доступна нова версія цього розширення"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "Версія"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr "Режими сесії"
 
@@ -331,62 +331,7 @@ msgstr "Це розширення працюватиме, коли екран з
 msgid "This extension will run while no user is logged in"
 msgstr "Це розширення працюватиме, поки жоден користувач не ввійшов у систему"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Загальні"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "Показати сторінку 'Встановлені'"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "Показати сторінку 'Пошук'"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "Перемкнути пошук"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Показати клавіатурні скорочення"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "Закрити вікно"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Вийти"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "Перегляд скриншотів"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "Збільшити"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "Зменшити"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "Скинути маштабування"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Завантажень"
@@ -420,41 +365,36 @@ msgstr "Використовувати розширення"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Розширення можуть спричиняти проблеми з швидкодією і стабільністю"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Встановлені користувачем розширення"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "Немає встановлених користувачем розширень"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Пошук"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Системні розширення"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "Немає встановлених системних розширень"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-msgid "Search Results"
-msgstr "Результати пошуку"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr "Спробуйте інший пошуковий запит або шукайте онлайн"
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr "_Онлайн пошук"
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "Немає встановлених користувачем розширень"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for installed extensions"
+msgid "Search online to install extensions"
+msgstr "Пошук встановлених розширень"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -480,6 +420,93 @@ msgstr "Віддалити"
 msgid "Zoom In"
 msgstr "Приблизити"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "Показати сторінку 'Встановлені'"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "Показати сторінку 'Пошук'"
+
+#: src/exm-shortcuts-dialog.blp:20
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Screenshot View"
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "Перегляд скриншотів"
+
+#: src/exm-shortcuts-dialog.blp:23
+#, fuzzy
+#| msgid "Zoom In"
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Приблизити"
+
+#: src/exm-shortcuts-dialog.blp:28
+#, fuzzy
+#| msgid "Zoom Out"
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Віддалити"
+
+#: src/exm-shortcuts-dialog.blp:33
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Reset Zoom"
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "Скинути маштабування"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle Search"
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "Перемкнути пошук"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#: src/exm-shortcuts-dialog.blp:52
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Close Window"
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "Закрити вікно"
+
+#: src/exm-shortcuts-dialog.blp:57
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Quit"
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Вийти"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "Помічник з оновлення"
@@ -488,7 +515,7 @@ msgstr "Помічник з оновлення"
 msgid "_Check Compatibility"
 msgstr "_Перевірити сумісність"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "_Скопіювати у буфер обміну"
 
@@ -525,17 +552,17 @@ msgstr ""
 "Якщо ви перейдете на GNOME %s зараз, %d ваших розширень може не працювати"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "Сумісна версія цього розширення існує"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "Сумісної версії розширення не існує"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -543,7 +570,7 @@ msgstr ""
 "Це розширення не розміщено у extensions.gnome.org. Перевірити сумісність "
 "неможливо."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -648,6 +675,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Переконайтесь що з'єднання з мережею присутнє та спробуйте ще раз"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Загальні"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "Показати клавіатурні скорочення"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "Збільшити"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "Зменшити"
+
+#~ msgid "Browse"
+#~ msgstr "Пошук"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Немає встановлених системних розширень"
+
+#~ msgid "Search Results"
+#~ msgstr "Результати пошуку"
 
 #~ msgid "Relevance"
 #~ msgstr "За актуальністю"

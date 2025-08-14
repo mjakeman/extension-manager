@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
 "PO-Revision-Date: 2025-03-13 05:26+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
@@ -90,22 +90,22 @@ msgstr ""
 "Picatz un mot clau per cercar per « extensions.gnome.org » e trobar "
 "d’extensions GNOME Shell"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "Popularitat"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Telecargaments"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Telecargaments"
+msgid "Popularity"
+msgstr "Popularitat"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -119,7 +119,7 @@ msgstr "Triar los resultats de recèrca"
 msgid "_Load More Results"
 msgstr "_Cargar mai de resultats"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Cap de resultat pas trobat"
 
@@ -133,7 +133,7 @@ msgstr "Ensajatz una recèrca diferenta"
 msgid "Connection Error"
 msgstr "Error de connexion"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -235,7 +235,7 @@ msgid "_New Issue"
 msgstr "_Anomalia novèla"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Copiat"
 
@@ -278,11 +278,11 @@ msgstr "Aquesta extension es incompatibla amb vòstra version actuala de GNOME"
 msgid "A newer version of this extension is available"
 msgstr "Una version mai novèla d’aquesta extension es disponibla"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "Version"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr "Mòdes de session"
 
@@ -325,62 +325,7 @@ msgstr "Aquesta extension foncionarà quand l’ecran es verrolhat"
 msgid "This extension will run while no user is logged in"
 msgstr "Aquesta extension foncionarà quand cap d’utilizaire es pas connectat"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "General"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "Mostrar la pagina Installada"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "Mostrar la pagina d'explorar"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "Alternat la recèrca"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Mostrar los acorchis de clavièr"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "Tampar la fenèstra"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Quitar"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "Vista de la captura d'ecran"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "Zoom avant"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "Zoom arrièr"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "Reïnicializar lo zoom"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Telecargaments"
@@ -414,41 +359,36 @@ msgstr "Utilizar las extensions"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Las extensions pòdon causar problèmas de performança e d’estabilitat"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Extensions installadas per l’utilizaire"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "Cap d’aplicacion utilizaire pas installada"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Percórrer"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Extensions sistèma"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "Cap d’aplicacion sistèma pas installada"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-msgid "Search Results"
-msgstr "Resultats de recèrca"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr "Ensajatz una recèrca diferenta o cercatz en linha"
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr "_Cercar en linha"
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "Cap d’aplicacion utilizaire pas installada"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for installed extensions"
+msgid "Search online to install extensions"
+msgstr "Cercar d’extensions installadas"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -472,6 +412,93 @@ msgstr "Zoom arrièr"
 msgid "Zoom In"
 msgstr "Zoom Avant"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "Mostrar la pagina Installada"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "Mostrar la pagina d'explorar"
+
+#: src/exm-shortcuts-dialog.blp:20
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Screenshot View"
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "Vista de la captura d'ecran"
+
+#: src/exm-shortcuts-dialog.blp:23
+#, fuzzy
+#| msgid "Zoom In"
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Zoom Avant"
+
+#: src/exm-shortcuts-dialog.blp:28
+#, fuzzy
+#| msgid "Zoom Out"
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Zoom arrièr"
+
+#: src/exm-shortcuts-dialog.blp:33
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Reset Zoom"
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "Reïnicializar lo zoom"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle Search"
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "Alternat la recèrca"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "_Acorchis de clavièr"
+
+#: src/exm-shortcuts-dialog.blp:52
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Close Window"
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "Tampar la fenèstra"
+
+#: src/exm-shortcuts-dialog.blp:57
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Quit"
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Quitar"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "Assistent de mesa a nivèl"
@@ -480,7 +507,7 @@ msgstr "Assistent de mesa a nivèl"
 msgid "_Check Compatibility"
 msgstr "_Verificar la compatibilitat"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "_Copiar al quichapapièrs"
 
@@ -518,17 +545,17 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "Una version compatibla de l’extension existís"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "Cap de version compatibla de l’extension existís pas"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -536,7 +563,7 @@ msgstr ""
 "Aquesta extensions es pas albergada a extensions.gnome.org. Se pòt pas "
 "determinar sa compatibilitat."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -641,6 +668,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Verificatz l'estat de vòstre ret e tornatz ensajar"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "Mostrar los acorchis de clavièr"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "Zoom avant"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "Zoom arrièr"
+
+#~ msgid "Browse"
+#~ msgstr "Percórrer"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Cap d’aplicacion sistèma pas installada"
+
+#~ msgid "Search Results"
+#~ msgstr "Resultats de recèrca"
 
 #~ msgid "Relevance"
 #~ msgstr "Pertinéncia"

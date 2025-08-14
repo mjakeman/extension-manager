@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
 "PO-Revision-Date: 2025-08-12 03:01+0000\n"
 "Last-Translator: Robert Winzer <weissnicht000099@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
@@ -96,22 +96,22 @@ msgstr ""
 "Geben Sie einen Suchbegriff ein, um auf »extensions.gnome.org« nach GNOME-"
 "Shell-Erweiterungen zu suchen"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr "Absteigend"
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "Beliebtheit"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Downloads"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr "Erstellt"
 
 #: src/exm-browse-page.blp:55
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Downloads"
+msgid "Popularity"
+msgstr "Beliebtheit"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -125,7 +125,7 @@ msgstr "Suchergebnisse sortieren"
 msgid "_Load More Results"
 msgstr "_Weitere Ergebnisse laden"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Keine Ergebnisse gefunden"
 
@@ -139,7 +139,7 @@ msgstr "Probieren Sie eine andere Suche"
 msgid "Connection Error"
 msgstr "Verbindungsfehler"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr "Aufsteigend"
 
@@ -241,7 +241,7 @@ msgid "_New Issue"
 msgstr "_Neues »Issue«"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Kopiert"
 
@@ -283,11 +283,11 @@ msgstr "Diese Erweiterung ist inkompatibel mit ihrer aktuellen GNOME-Version"
 msgid "A newer version of this extension is available"
 msgstr "Eine neuere Version dieser Erweiterung ist verfügbar"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "Version"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr "Sitzungsmodi"
 
@@ -331,62 +331,7 @@ msgid "This extension will run while no user is logged in"
 msgstr ""
 "Diese Erweiterung wird ausgeführt, während kein Benutzer angemeldet ist"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Allgemein"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "»Installiert«-Seite anzeigen"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "»Suchen«-Seite anzeigen"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "Suche umschalten"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Tastenkürzel anzeigen"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "Fenster schließen"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Beenden"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "Bildschirmfotoansicht"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "Vergrößern"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "Verkleinern"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "Vergrößerung zurücksetzen"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Downloads"
@@ -420,41 +365,36 @@ msgstr "Erweiterungen verwenden"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Erweiterungen können Leistungs- und Stabilitätsprobleme verursachen"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Benutzerinstallierte Erweiterungen"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "Keine Benutzererweiterungen installiert"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Suchen"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Systemerweiterungen"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "Keine Systemerweiterungen installiert"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-msgid "Search Results"
-msgstr "Suchergebnisse"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr "Probieren Sie eine andere Suche oder suchen Sie online"
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr "_Online suchen"
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "Keine Benutzererweiterungen installiert"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for installed extensions"
+msgid "Search online to install extensions"
+msgstr "Nach installierten Erweiterungen suchen"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -478,6 +418,93 @@ msgstr "Verkleinern"
 msgid "Zoom In"
 msgstr "Vergrößern"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "»Installiert«-Seite anzeigen"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "»Suchen«-Seite anzeigen"
+
+#: src/exm-shortcuts-dialog.blp:20
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Screenshot View"
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "Bildschirmfotoansicht"
+
+#: src/exm-shortcuts-dialog.blp:23
+#, fuzzy
+#| msgid "Zoom In"
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Vergrößern"
+
+#: src/exm-shortcuts-dialog.blp:28
+#, fuzzy
+#| msgid "Zoom Out"
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Verkleinern"
+
+#: src/exm-shortcuts-dialog.blp:33
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Reset Zoom"
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "Vergrößerung zurücksetzen"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle Search"
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "Suche umschalten"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "_Tastenkürzel"
+
+#: src/exm-shortcuts-dialog.blp:52
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Close Window"
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "Fenster schließen"
+
+#: src/exm-shortcuts-dialog.blp:57
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Quit"
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Beenden"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "Upgrade-Assistent"
@@ -486,7 +513,7 @@ msgstr "Upgrade-Assistent"
 msgid "_Check Compatibility"
 msgstr "_Kompatibilität überprüfen"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "In die Zwischenablage _kopieren"
 
@@ -525,17 +552,17 @@ msgstr ""
 "möglicherweise nicht"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "Eine kompatible Version der Erweiterung existiert"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "Keine kompatible Version der Erweiterung existiert"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -543,7 +570,7 @@ msgstr ""
 "Diese Erweiterung wird nicht auf extensions.gnome.org gehostet. Ihre "
 "Kompatibilität kann nicht bestimmt werden."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -648,6 +675,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "Prüfen Sie Ihren Netzwerkstatus und versuchen Sie es erneut"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Allgemein"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "Tastenkürzel anzeigen"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "Vergrößern"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "Verkleinern"
+
+#~ msgid "Browse"
+#~ msgstr "Suchen"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Keine Systemerweiterungen installiert"
+
+#~ msgid "Search Results"
+#~ msgstr "Suchergebnisse"
 
 #~ msgid "Relevance"
 #~ msgstr "Relevanz"

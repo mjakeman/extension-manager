@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
 "PO-Revision-Date: 2025-05-02 01:01+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/extension-manager/"
@@ -89,22 +89,22 @@ msgstr ""
 "க்னோம் செல் நீட்டிப்புகளுக்கு 'extensions.gnome.org' ஐத் தேட ஒரு முக்கிய சொல்லை "
 "உள்ளிடவும்"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "பிரபலம்"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "பதிவிறக்கங்கள்"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "பதிவிறக்கங்கள்"
+msgid "Popularity"
+msgstr "பிரபலம்"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -118,7 +118,7 @@ msgstr "தேடல் முடிவுகளை வரிசைப்பட�
 msgid "_Load More Results"
 msgstr "_ மேலும் முடிவுகளை ஏற்றவும்"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "முடிவுகள் எதுவும் இல்லை"
 
@@ -132,7 +132,7 @@ msgstr "வேறு தேடலை முயற்சிக்கவும்"
 msgid "Connection Error"
 msgstr "இணைப்பு பிழை"
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -234,7 +234,7 @@ msgid "_New Issue"
 msgstr "_ புதிய சிக்கல்"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "நகலெடுக்கப்பட்டது"
 
@@ -274,11 +274,11 @@ msgstr "இந்த நீட்டிப்பு உங்கள் தற்
 msgid "A newer version of this extension is available"
 msgstr "இந்த நீட்டிப்பின் புதிய பதிப்பு கிடைக்கிறது"
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr "பதிப்பு"
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr "அமர்வு முறைகள்"
 
@@ -320,62 +320,7 @@ msgstr "திரை பூட்டப்படும் போது இந்
 msgid "This extension will run while no user is logged in"
 msgstr "எந்தப் பயனரும் உள்நுழையாதபோது இந்த நீட்டிப்பு இயங்கும்"
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "பொது"
-
-#: src/exm-help-overlay.blp:14
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "நிறுவப்பட்ட பக்கத்தைக் காட்டு"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr "உலாவு பக்கத்தைக் காட்டு"
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr "தேடலை மாற்றவும்"
-
-#: src/exm-help-overlay.blp:29
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "விசைப்பலகை குறுக்குவழிகளைக் காட்டு"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr "சாளரத்தை மூடு"
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "வெளியேறு"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr "திரைக்காட்சி பார்வை"
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr "பெரிதாக்கு"
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr "சிறிதாக்கு"
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr "பெரிதாக்கு மீட்டமைக்கவும்"
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "பதிவிறக்கங்கள்"
@@ -409,41 +354,36 @@ msgstr "நீட்டிப்புகளைப் பயன்படுத�
 msgid "Extensions can cause performance and stability issues"
 msgstr "நீட்டிப்புகள் செயல்திறன் மற்றும் ச்திரத்தன்மை சிக்கல்களை ஏற்படுத்தும்"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "பயனர் நிறுவிய நீட்டிப்புகள்"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-msgid "No User Extensions Installed"
-msgstr "பயனர் நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "உலாவுக"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "கணினி நீட்டிப்புகள்"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-msgid "No System Extensions Installed"
-msgstr "கணினி நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-msgid "Search Results"
-msgstr "தேடல் முடிவுகள்"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr "வேறு தேடலை முயற்சிக்கவும் அல்லது ஆன்லைனில் தேடவும்"
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr "_ தேடல் ஆன்லைனில்"
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Installed"
+msgstr "பயனர் நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for installed extensions"
+msgid "Search online to install extensions"
+msgstr "நிறுவப்பட்ட நீட்டிப்புகளுக்காகத் தேடு"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -467,6 +407,93 @@ msgstr "சிறிதாக்கு"
 msgid "Zoom In"
 msgstr "பெரிதாக்கு"
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Installed Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "நிறுவப்பட்ட பக்கத்தைக் காட்டு"
+
+#: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Show Browse Page"
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr "உலாவு பக்கத்தைக் காட்டு"
+
+#: src/exm-shortcuts-dialog.blp:20
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Screenshot View"
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr "திரைக்காட்சி பார்வை"
+
+#: src/exm-shortcuts-dialog.blp:23
+#, fuzzy
+#| msgid "Zoom In"
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "பெரிதாக்கு"
+
+#: src/exm-shortcuts-dialog.blp:28
+#, fuzzy
+#| msgid "Zoom Out"
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "சிறிதாக்கு"
+
+#: src/exm-shortcuts-dialog.blp:33
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Reset Zoom"
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr "பெரிதாக்கு மீட்டமைக்கவும்"
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle Search"
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr "தேடலை மாற்றவும்"
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
+
+#: src/exm-shortcuts-dialog.blp:52
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Close Window"
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr "சாளரத்தை மூடு"
+
+#: src/exm-shortcuts-dialog.blp:57
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Quit"
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "வெளியேறு"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr "மேம்படுத்தல் உதவியாளர்"
@@ -475,7 +502,7 @@ msgstr "மேம்படுத்தல் உதவியாளர்"
 msgid "_Check Compatibility"
 msgstr "_ இணக்கத்தன்மையை சரிபார்க்கவும்"
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
@@ -511,17 +538,17 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr "நீங்கள் இப்போது க்னோம் %s க்கு மாறினால், உங்கள் நீட்டிப்புகளின் %d வேலை செய்யாது"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு உள்ளது"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr "நீட்டிப்பின் இணக்கமான பதிப்பு எதுவும் இல்லை"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -529,7 +556,7 @@ msgstr ""
 "இந்த நீட்டிப்பு extensions.gnome.org இல் ஹோஸ்ட் செய்யப்படவில்லை. அதன் பொருந்தக்கூடிய "
 "தன்மையை தீர்மானிக்க முடியாது."
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -634,6 +661,31 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr "உங்கள் பிணைய நிலையை சரிபார்த்து மீண்டும் முயற்சிக்கவும்"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "பொது"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "விசைப்பலகை குறுக்குவழிகளைக் காட்டு"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom In"
+#~ msgstr "பெரிதாக்கு"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom Out"
+#~ msgstr "சிறிதாக்கு"
+
+#~ msgid "Browse"
+#~ msgstr "உலாவுக"
+
+#~ msgid "No System Extensions Installed"
+#~ msgstr "கணினி நீட்டிப்புகள் எதுவும் நிறுவப்படவில்லை"
+
+#~ msgid "Search Results"
+#~ msgstr "தேடல் முடிவுகள்"
 
 #~ msgid "Relevance"
 #~ msgstr "பொருத்தமானது"

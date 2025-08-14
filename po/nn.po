@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 14:31+0000\n"
+"POT-Creation-Date: 2025-08-14 18:25+0200\n"
 "PO-Revision-Date: 2022-02-23 16:48+0100\n"
 "Last-Translator: John Erling Blad <jeblad@gmail.com>\n"
 "Language-Team: \n"
@@ -105,24 +105,24 @@ msgstr ""
 "Skriv inn eit nøkkelord for å søka på «extensions.gnome.org» etter GNOME "
 "Skalutvidingar."
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:351
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
 msgstr ""
 
 #: src/exm-browse-page.blp:53
-msgid "Popularity"
-msgstr "Popularitet"
+#, fuzzy
+#| msgid "Downloads"
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Nedlastingar"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
-#, fuzzy
-#| msgid "Downloads"
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Nedlastingar"
+msgid "Popularity"
+msgstr "Popularitet"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
@@ -136,7 +136,7 @@ msgstr "Sorter søkeresultatane"
 msgid "_Load More Results"
 msgstr ""
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:123
+#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Fann ingen resultat"
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "Connection Error"
 msgstr ""
 
-#: src/exm-browse-page.c:346
+#: src/exm-browse-page.c:352
 msgid "Ascending Order"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgid "_New Issue"
 msgstr ""
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:361
+#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr ""
 
@@ -300,11 +300,11 @@ msgstr ""
 msgid "A newer version of this extension is available"
 msgstr ""
 
-#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:50
+#: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
 msgstr ""
 
-#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:73
+#: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
 msgstr ""
 
@@ -347,66 +347,7 @@ msgstr ""
 msgid "This extension will run while no user is logged in"
 msgstr ""
 
-#: src/exm-help-overlay.blp:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Allment"
-
-#: src/exm-help-overlay.blp:14
-#, fuzzy
-#| msgid "Installed"
-msgctxt "shortcut window"
-msgid "Show Installed Page"
-msgstr "Installert"
-
-#: src/exm-help-overlay.blp:19
-msgctxt "shortcut window"
-msgid "Show Browse Page"
-msgstr ""
-
-#: src/exm-help-overlay.blp:24
-msgctxt "shortcut window"
-msgid "Toggle Search"
-msgstr ""
-
-#: src/exm-help-overlay.blp:29
-#, fuzzy
-#| msgid "Keyboard Shortcuts"
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Tastatursnarvegar"
-
-#: src/exm-help-overlay.blp:34
-msgctxt "shortcut window"
-msgid "Close Window"
-msgstr ""
-
-#: src/exm-help-overlay.blp:39
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Avslutt"
-
-#: src/exm-help-overlay.blp:45
-msgctxt "shortcut window"
-msgid "Screenshot View"
-msgstr ""
-
-#: src/exm-help-overlay.blp:48 src/exm-help-overlay.blp:63
-msgctxt "shortcut window"
-msgid "Zoom In"
-msgstr ""
-
-#: src/exm-help-overlay.blp:53 src/exm-help-overlay.blp:68
-msgctxt "shortcut window"
-msgid "Zoom Out"
-msgstr ""
-
-#: src/exm-help-overlay.blp:58
-msgctxt "shortcut window"
-msgid "Reset Zoom"
-msgstr ""
-
-#: src/exm-info-bar.blp:28
+#: src/exm-info-bar.blp:30
 #, fuzzy
 #| msgid "Downloads"
 msgctxt "Number of downloads"
@@ -454,47 +395,36 @@ msgstr "Systemutvidingar"
 msgid "Extensions can cause performance and stability issues"
 msgstr "Yting og stabilitet"
 
-#: src/exm-installed-page.blp:34 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr "Brukarinstallerte utvidingar"
 
-#: src/exm-installed-page.blp:51 src/exm-upgrade-assistant.blp:152
-#, fuzzy
-#| msgid "Displays user and system extensions separately"
-msgid "No User Extensions Installed"
-msgstr "Vis brukar- og systemutvidingar separat"
-
-#: src/exm-installed-page.blp:55
-msgid "Browse"
-msgstr "Bla"
-
-#: src/exm-installed-page.blp:69 src/exm-upgrade-assistant.blp:162
+#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr "Systemutvidingar"
 
-#: src/exm-installed-page.blp:86 src/exm-upgrade-assistant.blp:179
-#, fuzzy
-#| msgid "Displays user and system extensions separately"
-msgid "No System Extensions Installed"
-msgstr "Vis brukar- og systemutvidingar separat"
-
-#. Translators: Text announced by screen readers when interacting with the list of search results
-#: src/exm-installed-page.blp:111
-#, fuzzy
-#| msgid "Sort search results"
-msgid "Search Results"
-msgstr "Sorter søkeresultatane"
-
-#: src/exm-installed-page.blp:124
+#: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
 msgstr ""
 
-#: src/exm-installed-page.blp:131
+#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
 msgstr ""
 
+#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#, fuzzy
+#| msgid "Displays user and system extensions separately"
+msgid "No Extensions Installed"
+msgstr "Vis brukar- og systemutvidingar separat"
+
+#: src/exm-installed-page.blp:80
+#, fuzzy
+#| msgid "Search for extensions"
+msgid "Search online to install extensions"
+msgstr "Søk etter utvidingar"
+
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:303
+#: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -518,6 +448,73 @@ msgstr ""
 msgid "Zoom In"
 msgstr ""
 
+#: src/exm-shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Views"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
+#| msgid "Installed"
+msgctxt "shortcuts dialog"
+msgid "Switch to Installed"
+msgstr "Installert"
+
+#: src/exm-shortcuts-dialog.blp:14
+msgctxt "shortcuts dialog"
+msgid "Switch to Browse"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:20
+msgctxt "shortcuts dialog"
+msgid "Screenshot View"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:23
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:28
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:33
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:42
+msgctxt "shortcuts dialog"
+msgid "Toggle Search"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:47
+#, fuzzy
+#| msgid "Keyboard Shortcuts"
+msgctxt "shortcuts dialog"
+msgid "Keyboard Shortcuts"
+msgstr "Tastatursnarvegar"
+
+#: src/exm-shortcuts-dialog.blp:52
+msgctxt "shortcuts dialog"
+msgid "Close Window"
+msgstr ""
+
+#: src/exm-shortcuts-dialog.blp:57
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Quit"
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Avslutt"
+
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
 msgstr ""
@@ -526,7 +523,7 @@ msgstr ""
 msgid "_Check Compatibility"
 msgstr ""
 
-#: src/exm-upgrade-assistant.blp:191
+#: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
 msgstr ""
 
@@ -560,23 +557,23 @@ msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:553
+#: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:560
+#: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:567
+#: src/exm-upgrade-assistant.c:580
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
 
-#: src/exm-upgrade-assistant.c:658
+#: src/exm-upgrade-assistant.c:671
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -693,6 +690,29 @@ msgstr ""
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
 msgstr ""
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Allment"
+
+#, fuzzy
+#~| msgid "Keyboard Shortcuts"
+#~ msgctxt "shortcut window"
+#~ msgid "Show Keyboard Shortcuts"
+#~ msgstr "Tastatursnarvegar"
+
+#~ msgid "Browse"
+#~ msgstr "Bla"
+
+#, fuzzy
+#~| msgid "Displays user and system extensions separately"
+#~ msgid "No System Extensions Installed"
+#~ msgstr "Vis brukar- og systemutvidingar separat"
+
+#, fuzzy
+#~| msgid "Sort search results"
+#~ msgid "Search Results"
+#~ msgstr "Sorter søkeresultatane"
 
 #~ msgid "Recent"
 #~ msgstr "Nyleg"
