@@ -4,13 +4,15 @@
 # Douglas Silva <douglasilvadev@gmail.com>, 2024.
 # Álvaro Burns, 2025.
 # burns <ahoradocafezinho@gmail.com>, 2025.
+# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-06-26 10:15+0000\n"
-"Last-Translator: burns <ahoradocafezinho@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"Last-Translator: Óscar Fernández Díaz "
+"<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "extension-manager/app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -437,31 +439,21 @@ msgid "Switch to Browse"
 msgstr "Mostrar Página de Navegar"
 
 #: src/exm-shortcuts-dialog.blp:20
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Screenshot View"
 msgctxt "shortcuts dialog"
 msgid "Screenshot View"
 msgstr "Visualização de captura de tela"
 
 #: src/exm-shortcuts-dialog.blp:23
-#, fuzzy
-#| msgid "Zoom In"
 msgctxt "shortcuts dialog"
 msgid "Zoom In"
 msgstr "Mais Zoom"
 
 #: src/exm-shortcuts-dialog.blp:28
-#, fuzzy
-#| msgid "Zoom Out"
 msgctxt "shortcuts dialog"
 msgid "Zoom Out"
 msgstr "Menos Zoom"
 
 #: src/exm-shortcuts-dialog.blp:33
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Reset Zoom"
 msgctxt "shortcuts dialog"
 msgid "Reset Zoom"
 msgstr "Redefinir Zoom"
@@ -472,9 +464,6 @@ msgid "App"
 msgstr ""
 
 #: src/exm-shortcuts-dialog.blp:42
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Toggle Search"
 msgctxt "shortcuts dialog"
 msgid "Toggle Search"
 msgstr "Aternar pesquisa"
@@ -487,17 +476,11 @@ msgid "Keyboard Shortcuts"
 msgstr "_Atalhos de Teclado"
 
 #: src/exm-shortcuts-dialog.blp:52
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Close Window"
 msgctxt "shortcuts dialog"
 msgid "Close Window"
 msgstr "Fechar Janela"
 
 #: src/exm-shortcuts-dialog.blp:57
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Quit"
 msgctxt "shortcuts dialog"
 msgid "Quit"
 msgstr "Sair"
