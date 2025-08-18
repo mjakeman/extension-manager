@@ -12,9 +12,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2025-08-19 03:02+0000\n"
+"Last-Translator: Robert Winzer <weissnicht000099@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
 "Language: de\n"
@@ -22,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -319,8 +318,8 @@ msgstr "GDM"
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
-"Diese Erweiterung wird ausgeführt, während der Bildschirm gesperrt ist und "
-"kein Benutzer angemeldet ist"
+"Diese Erweiterung läuft sowohl auf dem Sperr- als auch auf dem "
+"Anmeldebildschirm"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
@@ -384,16 +383,12 @@ msgid "_Search Online"
 msgstr "_Online suchen"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "Keine Benutzererweiterungen installiert"
+msgstr "Keine Erweiterungen installiert"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "Nach installierten Erweiterungen suchen"
+msgstr "Online nach Erweiterungen suchen"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -423,23 +418,17 @@ msgstr "Vergrößern"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "Aufrufe"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "»Installiert«-Seite anzeigen"
+msgstr "Zu installierten wechseln"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "»Suchen«-Seite anzeigen"
+msgstr "Wechsel auf „Durchsuchen“"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -464,7 +453,7 @@ msgstr "Vergrößerung zurücksetzen"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "Anwendung"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -472,11 +461,9 @@ msgid "Toggle Search"
 msgstr "Suche umschalten"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "_Tastenkürzel"
+msgstr "Tastenkürzel"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
@@ -494,7 +481,7 @@ msgstr "Upgrade-Assistent"
 
 #: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
-msgstr "_Kompatibilität überprüfen"
+msgstr "K_ompatibilität überprüfen"
 
 #: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
@@ -601,7 +588,7 @@ msgstr "_Tastenkürzel"
 
 #: src/exm-window.blp:116
 msgid "_About Extension Manager"
-msgstr "_Info zu Erweiterungs-Manager"
+msgstr "Info zu _Erweiterungs-Manager"
 
 #: src/exm-window.blp:121
 msgid "Uninstall Extension?"
