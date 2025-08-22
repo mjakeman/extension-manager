@@ -7,13 +7,14 @@
 # Gabriel Brand <gabr.brand@gmail.com>, 2022-2024, 2025.
 # Robert Winzer <weissnicht000099@gmail.com>, 2024, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-19 03:02+0000\n"
-"Last-Translator: Robert Winzer <weissnicht000099@gmail.com>\n"
+"PO-Revision-Date: 2025-08-22 12:53+0000\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
 "Language: de\n"
@@ -151,7 +152,7 @@ msgstr "Rezensionen und Kommentare"
 #: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:622
 #: src/exm-install-button.c:147
 msgid "Loading"
-msgstr "Werden geladen"
+msgstr "Laden …"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:128
 msgid "Author"
