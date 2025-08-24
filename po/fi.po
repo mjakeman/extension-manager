@@ -10,9 +10,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2025-08-24 10:02+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/"
 "extension-manager/app/fi/>\n"
 "Language: fi\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -85,12 +84,12 @@ msgstr "Etsi laajennuksia"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Anna hakuehto, jolla Gnome Shell -laajennuksia etsitään\"extensions.gnome."
-"org\"-sivustolta"
+"Anna hakuehto, jolla Gnome Shell -laajennuksia etsitään "
+"\"extensions.gnome.org\"-sivustolta"
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
-msgstr ""
+msgstr "Laskeva järjestys"
 
 #: src/exm-browse-page.blp:53
 msgctxt "Sort search results"
@@ -99,15 +98,15 @@ msgstr "Lataukset"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "Luotu"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
-msgstr ""
+msgstr "Suosio"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Päivitetty"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -133,7 +132,7 @@ msgstr "Yhteysvirhe"
 
 #: src/exm-browse-page.c:352
 msgid "Ascending Order"
-msgstr ""
+msgstr "Nouseva järjestys"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -249,8 +248,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Käytät kolmannen osapuolen Extension Managerin koontiversiota. <span "
-"weight=\"bold\">ota ensin yhteyttä paketin jakelijaan (%s)</span> ennen kuin "
+"Käytät kolmannen osapuolen Extension Managerin koontiversiota. <span weight="
+"\"bold\">Ota ensin yhteys paketin jakelijaan (%s)</span>, ennen kuin "
 "ilmoitat ongelmasta. Muista liittää mukaan seuraavat tiedot:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -373,16 +372,12 @@ msgid "_Search Online"
 msgstr "_Etsi verkosta"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "EI käyttäjän asentamia laajennuksia"
+msgstr "Laajennuksia ei ole asennettu"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "Hae asennetut laajennukset"
+msgstr "Etsi laajennuksia verkosta"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -412,20 +407,14 @@ msgstr "Lähennä"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "Näkymät"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
 msgstr "Näytä Asennettu-sivu"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
 msgstr "Näytä Selaa-sivu"
@@ -453,7 +442,7 @@ msgstr "Palauta koko"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "Sovellus"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -461,11 +450,9 @@ msgid "Toggle Search"
 msgstr "Haku päällä/pois"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "_Pikanäppäimet"
+msgstr "Pikanäppäimet"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
