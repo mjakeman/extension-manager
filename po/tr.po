@@ -7,14 +7,14 @@
 # AlphaBeta1 <hsynulassudem200w@gmail.com>, 2024.
 # Nuri KÜÇÜKLER <enatsek@gmail.com>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
+# Mücahit Şahin <mucahitsahin786@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2025-08-26 12:02+0000\n"
+"Last-Translator: Mücahit Şahin <mucahitsahin786@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "extension-manager/app/tr/>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -41,16 +41,14 @@ msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;uzantı;yönetici;kabuk;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
 msgstr "Kurulu Uzantılarınız"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "GNOME Shell Uzantılarını keşfedin, kurun ve yönetin."
+msgstr ""
+"Masanüstünüzü özelleştirmek için GNOME Shell eklentilerine göz atın ve "
+"yükleyin."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -84,7 +82,8 @@ msgid "translator-credits"
 msgstr ""
 "Onur Ankut <ripsivis@gmail.com>\n"
 "Sabri Ünal <libreajans@gmail.com>\n"
-"Oğuz Ersen <oguz@ersen.moe>"
+"Oğuz Ersen <oguz@ersen.moe>\n"
+"Mücahit Şahin <mucahitsahin786@gmail.com>"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
@@ -99,7 +98,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
-msgstr ""
+msgstr "Azalan Sıra"
 
 #: src/exm-browse-page.blp:53
 msgctxt "Sort search results"
@@ -108,7 +107,7 @@ msgstr "İndirilenler"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "Oluşturulma Tarihi"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
@@ -116,7 +115,7 @@ msgstr "Çok oylananlar"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Güncellenme Tarihi"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -142,7 +141,7 @@ msgstr "Bağlantı Hatası"
 
 #: src/exm-browse-page.c:352
 msgid "Ascending Order"
-msgstr ""
+msgstr "Artan Sıralama"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -381,16 +380,12 @@ msgid "_Search Online"
 msgstr "Çevrimiçi Ara"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "Kurulu Kullanıcı Uzantısı Yok"
+msgstr "Yüklü Eklenti Yok"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "Kurulu uzantılarda ara"
+msgstr "Eklentileri yüklemek için çevrimiçi arayın"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -418,23 +413,17 @@ msgstr "Yakınlaştır"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "Görünümler"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Kurulu Sayfayı Göster"
+msgstr "Yüklü Olanlara Geç"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Tarayıcı Sayfasını Göster"
+msgstr "Göz Atmaya Geç"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -459,7 +448,7 @@ msgstr "Yakınlaştırmayı Sıfırla"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "Uygulama"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -467,11 +456,9 @@ msgid "Toggle Search"
 msgstr "Aramayı Tersine Çevir"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "_Klavye Kısayolları"
+msgstr "Klavye Kısayolları"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
