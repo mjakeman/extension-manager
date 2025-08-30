@@ -12,9 +12,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2025-08-19 03:02+0000\n"
+"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -23,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -98,7 +97,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
-msgstr ""
+msgstr "Malejąco"
 
 #: src/exm-browse-page.blp:53
 msgctxt "Sort search results"
@@ -107,7 +106,7 @@ msgstr "Liczba pobrań"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "Stworzono"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
@@ -115,7 +114,7 @@ msgstr "Popularność"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Zaktualizowano"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -141,7 +140,7 @@ msgstr "Błąd połączenia"
 
 #: src/exm-browse-page.c:352
 msgid "Ascending Order"
-msgstr ""
+msgstr "Rosnąco"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -380,16 +379,12 @@ msgid "_Search Online"
 msgstr "_Szukaj w sieci"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "Brak ręcznie zainstalowanych rozszerzeń"
+msgstr "Brak zainstalowanych rozszerzeń"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "Wyszukaj zainstalowane rozszerzenia"
+msgstr "Wyszukaj w sieci rozszerzenia do zainstalowania"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -421,23 +416,17 @@ msgstr "Powiększ"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "Wyświetlenia"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Pokaż zainstalowane"
+msgstr "Przełącz na zainstalowane"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Otwórz stronę"
+msgstr "Przełącz na przeglądanie"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -462,7 +451,7 @@ msgstr "Zresetuj powiększenie"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "Aplikacja"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -470,11 +459,9 @@ msgid "Toggle Search"
 msgstr "Przełącz wyszukiwanie"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "Skróty klawiaturowe"
+msgstr "Skróty klawiszowe"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
@@ -595,7 +582,7 @@ msgstr "_Asystent aktualizacji"
 
 #: src/exm-window.blp:115
 msgid "_Keyboard Shortcuts"
-msgstr "Skróty klawiaturowe"
+msgstr "_Skróty klawiszowe"
 
 #: src/exm-window.blp:116
 msgid "_About Extension Manager"
