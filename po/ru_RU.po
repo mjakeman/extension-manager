@@ -6,13 +6,14 @@
 # Fedorov Alexei <aleksejfedorov963@gmail.com>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # AnmiTaliDev <anmitali198@gmail.com>, 2025.
+# Yurt Page <yurtpage+weblate@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-09-01 20:34+0000\n"
-"Last-Translator: AnmiTaliDev <anmitali198@gmail.com>\n"
+"PO-Revision-Date: 2025-09-06 21:37+0000\n"
+"Last-Translator: Yurt Page <yurtpage+weblate@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "extension-manager/app/ru/>\n"
 "Language: ru_RU\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -40,16 +41,14 @@ msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;менеджер;расширение;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "Расширения, установленные пользователем"
+msgstr "Установка дополнений для GNOME"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "Просмотр, установка и управление расширениями GNOME Shell."
+msgstr ""
+"Просмотр и установка расширений оболочки GNOME Shell для настройки рабочего "
+"стола."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -382,16 +381,12 @@ msgid "_Search Online"
 msgstr "_Поиск в Интернете"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "Пользовательские расширения не установлены"
+msgstr "Нет установленных расширений"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "Поиск по установленным расширениям"
+msgstr "Поиск в сети для установки расширений"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -426,20 +421,14 @@ msgid "Views"
 msgstr "Виды"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Показать «Установленные»"
+msgstr "Перейти к «Установленным»"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Показать «Обзор»"
+msgstr "Перейти на «Обзор»"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -472,11 +461,9 @@ msgid "Toggle Search"
 msgstr "Переключить поиск"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "_Комбинации клавиш"
+msgstr "Сочетания клавиш"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
