@@ -57,6 +57,17 @@
     <color type="primary" scheme_preference="dark">#005edf</color>
   </branding>
   <releases>
+    <release version="0.6.4" date="2025-09-17">
+      <description translate="no">
+        <ul>
+          <li>Port to GNOME Extensions v1 API</li>
+          <li>Latest platform updates</li>
+          <li>Fix various crashes</li>
+          <li>Add Basque and Kazakh translations</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.6.3" date="2025-04-01">
       <description translate="no">
         <ul>

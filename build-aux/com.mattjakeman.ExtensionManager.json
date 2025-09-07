@@ -1,7 +1,7 @@
 {
     "id" : "com.mattjakeman.ExtensionManager",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "48",
+    "runtime-version" : "49",
     "sdk" : "org.gnome.Sdk",
     "command" : "extension-manager",
     "finish-args" : [
@@ -25,22 +25,6 @@
         "*.a"
     ],
     "modules" : [
-    	{
-            "name" : "blueprint-compiler",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "cleanup" : [
-                "*"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "commit" : "04ef0944db56ab01307a29aaa7303df6067cb3c0",
-                    "tag" : "v0.16.0"
-                }
-            ]
-        },
         {
             "name" : "libbacktrace",
             "builddir" : true,
@@ -49,7 +33,7 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/ianlancetaylor/libbacktrace.git",
-                    "commit" : "78af4ffa26e15532847c1ba854ece7b3bacc6b1a"
+                    "commit" : "793921876c981ce49759114d7bb89bb89b2d3a2d"
                 }
             ]
         },
