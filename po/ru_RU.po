@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-09-06 21:37+0000\n"
-"Last-Translator: Yurt Page <yurtpage+weblate@gmail.com>\n"
+"PO-Revision-Date: 2025-09-10 13:02+0000\n"
+"Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "extension-manager/app/ru/>\n"
 "Language: ru_RU\n"
@@ -42,7 +42,7 @@ msgstr "extension;manager;shell;менеджер;расширение;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Install GNOME Extensions"
-msgstr "Установка дополнений для GNOME"
+msgstr "Установка расширений для GNOME"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
@@ -428,7 +428,7 @@ msgstr "Перейти к «Установленным»"
 #: src/exm-shortcuts-dialog.blp:14
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Перейти на «Обзор»"
+msgstr "Перейти к «Обзору»"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -463,7 +463,7 @@ msgstr "Переключить поиск"
 #: src/exm-shortcuts-dialog.blp:47
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "Сочетания клавиш"
+msgstr "Комбинации клавиш"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
