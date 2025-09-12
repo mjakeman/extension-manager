@@ -9,9 +9,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2025-09-12 13:20+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "extension-manager/app/ja/>\n"
 "Language: ja\n"
@@ -19,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -38,16 +37,13 @@ msgid "extension;manager;shell;"
 msgstr "extension;manager;shell;拡張機能;マネージャー;シェル;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "ユーザーがインストールした拡張機能"
+msgstr "GNOME 拡張機能をインストールします"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "GNOME Shell 拡張機能を検索、インストール、管理します。"
+msgstr "GNOME Shell "
+"拡張機能を検索・インストールして、デスクトップをカスタマイズします。"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -95,7 +91,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
-msgstr ""
+msgstr "降順"
 
 #: src/exm-browse-page.blp:53
 msgctxt "Sort search results"
@@ -104,7 +100,7 @@ msgstr "ダウンロード数順"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "作成日順"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
@@ -112,7 +108,7 @@ msgstr "人気順"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "更新日順"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -138,7 +134,7 @@ msgstr "接続エラー"
 
 #: src/exm-browse-page.c:352
 msgid "Ascending Order"
-msgstr ""
+msgstr "昇順"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -375,16 +371,12 @@ msgid "_Search Online"
 msgstr "オンラインで検索(_S)"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "ユーザーがインストールした拡張機能なし"
+msgstr "インストール済み拡張機能なし"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "インストール済みの拡張機能を検索"
+msgstr "拡張機能をインストールするにはオンラインで検索してください"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -412,23 +404,17 @@ msgstr "拡大"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "画面"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "“インストール済み”ページを表示する"
+msgstr "“インストール済み”に切り替える"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "“探す”ページを表示する"
+msgstr "“探す”に切り替える"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -453,7 +439,7 @@ msgstr "拡大率をリセットする"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "アプリ"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -461,11 +447,9 @@ msgid "Toggle Search"
 msgstr "検索する/検索をやめる"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "キーボードショートカット(_K)"
+msgstr "キーボードショートカットを表示する"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
@@ -501,24 +485,22 @@ msgid "%d%% Compatible"
 msgstr "%d%% 対応"
 
 #: src/exm-upgrade-assistant.c:224
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system"
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
-msgstr "<b>GNOME %s</b> には、<b>%d/%d個</b> の拡張機能が対応しています"
+msgstr "現在システムにインストール済みの拡張機能のうち、<b>%d/%d個</b>が <b>GNOME "
+"%s</b> への対応を謳っています"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr ""
+msgstr "今 GNOME %s に移行しても、利用中のすべての拡張機能が動作すると考えられます"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr ""
+msgstr "今 GNOME %s に移行すると、利用中の%d個の拡張機能が動作しない可能性があります"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:566
