@@ -8,9 +8,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2025-09-08 11:15+0000\n"
+"Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/"
 "extension-manager/app/sv/>\n"
 "Language: sv\n"
@@ -18,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -37,16 +36,12 @@ msgid "extension;manager;shell;"
 msgstr "Tilläggshanterare;skal;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "Användarinstallerade tillägg"
+msgstr "Installera GNOME tillägg"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "Bläddra, installera och hantera GNOME-tillägg."
+msgstr "Bläddra bland och installera GNOME tillägg för att anpassa skrivbordet."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -92,7 +87,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
-msgstr ""
+msgstr "Fallande ordning"
 
 #: src/exm-browse-page.blp:53
 msgctxt "Sort search results"
@@ -101,7 +96,7 @@ msgstr "Hämtningar"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr ""
+msgstr "Skapad"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
@@ -109,7 +104,7 @@ msgstr "Populäritet"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr ""
+msgstr "Uppdaterad"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
@@ -135,7 +130,7 @@ msgstr "Anslutningsfel"
 
 #: src/exm-browse-page.c:352
 msgid "Ascending Order"
-msgstr ""
+msgstr "Stigande ordning"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -373,16 +368,12 @@ msgid "_Search Online"
 msgstr "_Sök online"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "Inga användartillägg installerade"
+msgstr "Inga tillägg installerade"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for installed extensions"
 msgid "Search online to install extensions"
-msgstr "Sök efter installerade tillägg"
+msgstr "Sök online för att installera tillägg"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -412,23 +403,17 @@ msgstr "Zooma in"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "Visningar"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Visa installerat sida"
+msgstr "Växla till installerat"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Visa bläddra sida"
+msgstr "Ändra till bläddra"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -453,7 +438,7 @@ msgstr "Återställ zoom"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "Program"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -461,11 +446,9 @@ msgid "Toggle Search"
 msgstr "Växla sök"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "_Tangentbordsgenvägar"
+msgstr "Tangentbordsgenvägar"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"

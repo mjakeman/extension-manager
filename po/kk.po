@@ -1,244 +1,241 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension-manager package.
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2024, 2025.
-# Ricky Tigg <ricky.tigg@gmail.com>, 2024, 2025.
-# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2025.
-# Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
+# AnmiTaliDev <anmitali198@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-24 10:02+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/"
-"extension-manager/app/fi/>\n"
-"Language: fi\n"
+"PO-Revision-Date: 2025-09-01 20:34+0000\n"
+"Last-Translator: AnmiTaliDev <anmitali198@gmail.com>\n"
+"Language-Team: Kazakh <https://hosted.weblate.org/projects/extension-manager/"
+"app/kk/>\n"
+"Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
 #: src/exm-window.blp:7
 msgid "Extension Manager"
-msgstr "Laajennusten hallinta"
+msgstr "Кеңейту басқарушысы"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:11
 msgid "Manage GNOME Shell Extensions"
-msgstr "Hallitse Gnome Shell -laajenuksia"
+msgstr "GNOME Shell кеңейтулерін басқару"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:14
 msgid "extension;manager;shell;"
-msgstr "extension;manager;shell;laajennus;lisäosa;"
+msgstr "extension;manager;shell;кеңейту;басқарушы;қабық;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Install GNOME Extensions"
-msgstr "Asenna Gnomen laajennuksia"
+msgstr "GNOME кеңейтулерін орнату"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "Selaa ja asenna Gnome Shell -laajennuksia mukauttaaksesi työpöytääsi."
+msgstr "Жұмыс үстелін теңшеу үшін GNOME Shell кеңейтулерін шолып, орнатыңыз."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
-msgstr "Ominaisuudet:"
+msgstr "Мүмкіндіктер:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "Selaa extensions.gnome.org-palvelun sisältöä sovelluksesta"
+msgstr "extensions.gnome.org сайтын қолданба ішінен шолыңыз"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
-msgstr "Hallitse jo asennettuja laajennuksia"
+msgstr "Алдағы орнатылған кеңейтулерді басқарыңыз"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "See all the details of your extensions"
-msgstr "Näe kaikki laajennusten yksityiskohdat"
+msgstr "Кеңейтулердің барлық мәліметтерін көріңіз"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "Tarkista laajennustesi yhteensopivuus seuraavan Gnome-version kanssa"
+msgstr "Кеңейтулердің GNOME келесі нұсқасымен үйлесімділігін тексеріңіз"
 
 #: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "Selaa, asenna ja hallitse Gnome Shell -laajennuksia."
+msgstr "GNOME Shell кеңейтулерін шолу, орнату және басқару."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
 #: src/exm-application.c:178
 msgid "translator-credits"
-msgstr "Jiri Grönroos"
+msgstr "AnmiTaliDev anmitali198@gmail.com"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
-msgstr "Etsi laajennuksia"
+msgstr "Кеңейтулерді іздеу"
 
 #: src/exm-browse-page.blp:17
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Anna hakuehto, jolla Gnome Shell -laajennuksia etsitään "
-"\"extensions.gnome.org\"-sivustolta"
+"GNOME Shell кеңейтулерін 'extensions.gnome.org' сайтынан іздеу үшін кілт сөз "
+"енгізіңіз"
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
 msgid "Descending Order"
-msgstr "Laskeva järjestys"
+msgstr "Кему тәртібі"
 
 #: src/exm-browse-page.blp:53
 msgctxt "Sort search results"
 msgid "Downloads"
-msgstr "Lataukset"
+msgstr "Жүктеулер"
 
 #: src/exm-browse-page.blp:54
 msgid "Created"
-msgstr "Luotu"
+msgstr "Жасалған күні"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
-msgstr "Suosio"
+msgstr "Танымалдылық"
 
 #: src/exm-browse-page.blp:56
 msgid "Updated"
-msgstr "Päivitetty"
+msgstr "Жаңартылған күні"
 
 #: src/exm-browse-page.blp:63
 msgid "Sort search results"
-msgstr "Järjestä hakutulokset"
+msgstr "Іздеу нәтижелерін сұрыптау"
 
 #: src/exm-browse-page.blp:109
 msgid "_Load More Results"
-msgstr "_Lataa lisää tuloksia"
+msgstr "_Көбірек нәтиже жүктеу"
 
 #: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
 msgid "No Results Found"
-msgstr "Tuloksia ei löytynyt"
+msgstr "Ешқандай нәтиже табылмады"
 
 #: src/exm-browse-page.blp:150
 msgid "Try a different search"
-msgstr "Kokeile eri hakuehtoja"
+msgstr "Басқа іздеу жасап көріңіз"
 
 #: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
-msgstr "Yhteysvirhe"
+msgstr "Байланыс қатесі"
 
 #: src/exm-browse-page.c:352
 msgid "Ascending Order"
-msgstr "Nouseva järjestys"
+msgstr "Өсу тәртібі"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
-msgstr "Arviot ja kommentit"
+msgstr "Пікірлер мен түсініктемелер"
 
 #: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:622
 #: src/exm-install-button.c:147
 msgid "Loading"
-msgstr "Ladataan"
+msgstr "Жүктелуде"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:128
 msgid "Author"
-msgstr "Tekijä"
+msgstr "Құрастырушы"
 
 #: src/exm-detail-view.blp:41
 msgid "Loading Details"
-msgstr "Ladataan tietoja"
+msgstr "Мәліметтер жүктелуде"
 
 #: src/exm-detail-view.blp:60 src/exm-window.c:353
 msgid "An Error Occurred"
-msgstr "Tapahtui virhe"
+msgstr "Қате орын алды"
 
 #: src/exm-detail-view.blp:61
 msgid "No extension details available"
-msgstr "Laajennuksen tietoja ei ole saatavilla"
+msgstr "Кеңейту мәліметтері жоқ"
 
 #: src/exm-detail-view.blp:114
 msgid "Name"
-msgstr "Nimi"
+msgstr "Атауы"
 
 #: src/exm-detail-view.blp:155
 msgid "Enlarge Image"
-msgstr "Suurenna kuva"
+msgstr "Суретті үлкейту"
 
 #: src/exm-detail-view.blp:173 src/exm-extension-row.blp:89
 msgid "Description"
-msgstr "Kuvaus"
+msgstr "Сипаттамасы"
 
 #: src/exm-detail-view.blp:196
 msgid "Links"
-msgstr "Linkit"
+msgstr "Сілтемелер"
 
 #: src/exm-detail-view.blp:204
 msgid "Homepage"
-msgstr "Verkkosivu"
+msgstr "Басты бет"
 
 #: src/exm-detail-view.blp:220
 msgid "Donate"
-msgstr "Lahjoita"
+msgstr "Ақшалай көмек"
 
 #: src/exm-detail-view.blp:229
 msgid "View on Extensions"
-msgstr "Näytä sivustolla"
+msgstr "Extensions сайтында көру"
 
 #: src/exm-detail-view.blp:272
 msgid "Reviews and comments are disabled for this extension"
-msgstr "Arviot ja kommentit eivät ole käytössä tämän laajennuksen kohdalla"
+msgstr "Бұл кеңейту үшін пікірлер мен түсініктемелер өшірілген"
 
 #: src/exm-detail-view.blp:315
 msgid "There are no reviews or comments"
-msgstr "Ei arvioita tai kommentteja"
+msgstr "Пікірлер мен түсініктемелер жоқ"
 
 #: src/exm-detail-view.blp:344
 msgid "_Show All"
-msgstr "_Näytä kaikki"
+msgstr "_Барлығын көрсету"
 
 #: src/exm-detail-view.c:408 src/exm-detail-view.c:472
 msgid "Unsupported"
-msgstr "Ei tuettu"
+msgstr "Қолдау көрсетілмейтін"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:535
 #, c-format
 msgid "%s Icon"
-msgstr "Laajennuksen %s kuvake"
+msgstr "%s белгішесі"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:568
 #, c-format
 msgid "%s Screenshot"
-msgstr "Laajennuksen %s kuvakaappaus"
+msgstr "%s скриншоты"
 
 #: src/exm-error-dialog.blp:7
 msgid "Error Report"
-msgstr "Virheraportti"
+msgstr "Қате туралы есеп"
 
 #: src/exm-error-dialog.blp:22
 msgid "An unexpected error occurred in Extension Manager"
-msgstr "Laajennusten hallinta -sovelluksessa tapahtui odottamaton virhe"
+msgstr "Кеңейту басқарушысында күтпеген қате орын алды"
 
 #: src/exm-error-dialog.blp:36
 msgid "Copy to Clipboard"
-msgstr "Kopioi leikepöydälle"
+msgstr "Буферге көшіру"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
-msgstr "_Uusi vikatiketti"
+msgstr "_Жаңа мәселе"
 
 #. Success indicator
 #: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
 msgid "Copied"
-msgstr "Kopioitu"
+msgstr "Көшірілді"
 
 #: src/exm-error-dialog.c:173
 msgid "Please open a new issue and attach the following information:"
-msgstr "Avaa uusi vikatiketti ja liitä seuraavat tiedot:"
+msgstr "Жаңа мәселе ашып, келесі ақпаратты тіркеңіз:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:177
@@ -248,53 +245,53 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Käytät kolmannen osapuolen Extension Managerin koontiversiota. <span weight="
-"\"bold\">Ota ensin yhteys paketin jakelijaan (%s)</span>, ennen kuin "
-"ilmoitat ongelmasta. Muista liittää mukaan seuraavat tiedot:"
+"Сіз Extension Manager үшінші тарап құрылымын пайдаланасыз. Мәселе хабарламас "
+"бұрын <span weight=\"bold\">дестені таратушымен (%s) алдымен байланысыңыз</"
+"span>. Келесі ақпаратты тіркеуді ұмытпаңыз:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog
 #: src/exm-extension-row.blp:28
 msgid "Open extension preferences"
-msgstr "Avaa laajennuksen asetukset"
+msgstr "Кеңейту баптауларын ашу"
 
 #. Translators: Icon's tooltip when an extension has an error
 #: src/exm-extension-row.blp:46
 msgid "An error occurred while loading this extension"
-msgstr "Tätä laajenusta ladatessa tapahtui virhe"
+msgstr "Бұл кеңейтуді жүктеген кезде қате орын алды"
 
 #. Translators: Icon's tooltip when an extension is incompatible
 #: src/exm-extension-row.blp:63 src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
-msgstr "Tämä laajennus ei ole yhteensopiva käyttämäsi Gnome-version kanssa"
+msgstr "Бұл кеңейту сіздің ағымдағы GNOME нұсқаңызбен үйлесімсіз"
 
 #. Translators: Icon's tooltip when an extension update is available
 #: src/exm-extension-row.blp:80
 msgid "A newer version of this extension is available"
-msgstr "Uudempi versio tästä laajennuksesta on saatavilla"
+msgstr "Бұл кеңейтудің жаңа нұсқасы қол жетімді"
 
 #: src/exm-extension-row.blp:98 src/exm-info-bar.blp:54
 msgid "Version"
-msgstr "Versio"
+msgstr "Нұсқасы"
 
 #: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
-msgstr "Istuntotilat"
+msgstr "Сеанс режимдері"
 
 #: src/exm-extension-row.blp:136
 msgid "Error"
-msgstr "Virhe"
+msgstr "Қате"
 
 #: src/exm-extension-row.blp:157
 msgid "See Details"
-msgstr "Näytä tiedot"
+msgstr "Мәліметтерді көру"
 
 #: src/exm-extension-row.blp:168
 msgid "Remove…"
-msgstr "Poista…"
+msgstr "Жою…"
 
 #: src/exm-extension-row.c:175 src/exm-info-bar.c:129
 msgid "Unlock Dialog"
-msgstr "Lukituksen avauksen ikkuna"
+msgstr "Құлыпты ашу диалогы"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
@@ -306,186 +303,184 @@ msgstr "GDM"
 msgid ""
 "This extension will run while the screen is locked and no user is logged in"
 msgstr ""
-"Tämä laajennus pysyy käynnissä, kun näyttö on lukittu ja yksikään käyttäjä "
-"ei ole sisäänkirjautunut"
+"Бұл кеңейту экран құлыпталған кезде және ешбір пайдаланушы кірмеген кезде "
+"жұмыс істейді"
 
 #. Translators: Label when an extension runs on the lock screen
 #: src/exm-extension-row.c:194
 msgid "This extension will run while the screen is locked"
-msgstr "Tämä laajennus pysyy käynnissä, kun näyttö on lukittu"
+msgstr "Бұл кеңейту экран құлыпталған кезде жұмыс істейді"
 
 #. Translators: Label when an extension runs on the login screen
 #: src/exm-extension-row.c:199
 msgid "This extension will run while no user is logged in"
-msgstr ""
-"Tämä laajennus pysyy käynnissä vaikka yksikään käyttäjä ei olisi "
-"sisäänkirjautunut"
+msgstr "Бұл кеңейту ешбір пайдаланушы жүйеге кірмеген кезде жұмыс істейді"
 
 #: src/exm-info-bar.blp:30
 msgctxt "Number of downloads"
 msgid "Downloads"
-msgstr "Lataukset"
+msgstr "Жүктеулер"
 
 #: src/exm-install-button.c:125
 msgid "Install…"
-msgstr "Asenna…"
+msgstr "Орнату…"
 
 #: src/exm-install-button.c:130
 msgid "Installing"
-msgstr "Asennetaan"
+msgstr "Орнатылуда"
 
 #: src/exm-install-button.c:134
 msgctxt "State"
 msgid "Installed"
-msgstr "Asennettu"
+msgstr "Орнатылған"
 
 #: src/exm-install-button.c:138
 msgid "Unsupported…"
-msgstr "Ei tuettu…"
+msgstr "Қолдау көрсетілмейді…"
 
 #: src/exm-installed-page.blp:16
 msgid "_Log Out…"
-msgstr "_Kirjaudu ulos…"
+msgstr "_Шығу…"
 
 #: src/exm-installed-page.blp:28
 msgid "Use Extensions"
-msgstr "Käytä laajennuksia"
+msgstr "Кеңейтулерді пайдалану"
 
 #: src/exm-installed-page.blp:29
 msgid "Extensions can cause performance and stability issues"
-msgstr "Laajennukset voivat aiheuttaa suorituskyky- ja vakausongelmia"
+msgstr "Кеңейтулер өнімділік пен тұрақтылық мәселелерін тудыруы мүмкін"
 
 #: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
-msgstr "Käyttäjän asentamat laajennukset"
+msgstr "Пайдаланушы орнатқан кеңейтулер"
 
 #: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
-msgstr "Järjestelmän laajennukset"
+msgstr "Жүйелік кеңейтулер"
 
 #: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
-msgstr "Kokeile eri hakuehtoja tai etsi verkosta"
+msgstr "Басқа іздеу жасап көріңіз немесе интернетте іздеңіз"
 
 #: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
-msgstr "_Etsi verkosta"
+msgstr "_Интернетте іздеу"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
 msgid "No Extensions Installed"
-msgstr "Laajennuksia ei ole asennettu"
+msgstr "Орнатылған кеңейтулер жоқ"
 
 #: src/exm-installed-page.blp:80
 msgid "Search online to install extensions"
-msgstr "Etsi laajennuksia verkosta"
+msgstr "Кеңейтулерді орнату үшін интернетте іздеңіз"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "%d laajennus päivitetään seuraavan sisäänkirjautumisen yhteydessä"
-msgstr[1] "%d laajennusta päivitetään seuraavan sisäänkirjautumisen yhteydessä"
+msgstr[0] "Келесі кіру кезінде %d кеңейту жаңартылады"
+msgstr[1] "Келесі кіру кезінде %d кеңейтулер жаңартылады"
 
 #: src/exm-rating.c:142
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] "%i tähti"
-msgstr[1] "%i tähteä"
+msgstr[0] "%i жұлдыз"
+msgstr[1] "%i жұлдыздар"
 
 #. Translators: Button's tooltip to zoom out screenshots
 #: src/exm-screenshot-view.blp:37
 msgid "Zoom Out"
-msgstr "Loitonna"
+msgstr "Кішірейту"
 
 #. Translators: Button's tooltip to zoom in screenshots
 #: src/exm-screenshot-view.blp:51
 msgid "Zoom In"
-msgstr "Lähennä"
+msgstr "Үлкейту"
 
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr "Näkymät"
+msgstr "Көрінімдер"
 
 #: src/exm-shortcuts-dialog.blp:9
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Näytä Asennettu-sivu"
+msgstr "Орнатылғанға ауысу"
 
 #: src/exm-shortcuts-dialog.blp:14
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Näytä Selaa-sivu"
+msgstr "Шолуға ауысу"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
 msgid "Screenshot View"
-msgstr "Kuvakaappauksen näkymä"
+msgstr "Скриншот көрінісі"
 
 #: src/exm-shortcuts-dialog.blp:23
 msgctxt "shortcuts dialog"
 msgid "Zoom In"
-msgstr "Lähennä"
+msgstr "Үлкейту"
 
 #: src/exm-shortcuts-dialog.blp:28
 msgctxt "shortcuts dialog"
 msgid "Zoom Out"
-msgstr "Loitonna"
+msgstr "Кішірейту"
 
 #: src/exm-shortcuts-dialog.blp:33
 msgctxt "shortcuts dialog"
 msgid "Reset Zoom"
-msgstr "Palauta koko"
+msgstr "Масштабты қалпына келтіру"
 
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr "Sovellus"
+msgstr "Қолданба"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
 msgid "Toggle Search"
-msgstr "Haku päällä/pois"
+msgstr "Іздеуді қосу/өшіру"
 
 #: src/exm-shortcuts-dialog.blp:47
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "Pikanäppäimet"
+msgstr "Пернетақта жарлықтары"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
 msgid "Close Window"
-msgstr "Sulje ikkuna"
+msgstr "Терезені жабу"
 
 #: src/exm-shortcuts-dialog.blp:57
 msgctxt "shortcuts dialog"
 msgid "Quit"
-msgstr "Lopeta"
+msgstr "Шығу"
 
 #: src/exm-upgrade-assistant.blp:11
 msgid "Upgrade Assistant"
-msgstr "Päivitysavustaja"
+msgstr "Жаңарту көмекшісі"
 
 #: src/exm-upgrade-assistant.blp:65
 msgid "_Check Compatibility"
-msgstr "_Tarkista yhteensopivuus"
+msgstr "_Үйлесімділікті тексеру"
 
 #: src/exm-upgrade-assistant.blp:145
 msgid "_Copy to Clipboard"
-msgstr "_Kopioi leikepöydälle"
+msgstr "_Буферге көшіру"
 
 #: src/exm-upgrade-assistant.c:189
 #, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "Tarkistettu %d/%d laajennusta"
+msgstr "%d/%d кеңейту тексерілді"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
-msgstr "%d %% yhteensopiva"
+msgstr "%d%% үйлесімді"
 
 #: src/exm-upgrade-assistant.c:224
 #, c-format
@@ -493,32 +488,32 @@ msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>%d/%d</b> tähän järjestelmään asennetuista laajennuksista on merkitty "
-"tukevan <b>Gnomen versiota %s</b>"
+"<b>%d кеңейту %d-дан</b> бұл жүйеде орнатылған және <b>GNOME %s</b> "
+"қолдайтын етіп белгіленген"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr ""
-"Jos vaihdat nyt Gnomen versioon %s, kaikkien käyttämiesi laajennusten "
-"pitäisi toimia"
+"Егер сіз қазір GNOME %s нұсқасына ауысатын болсаңыз, барлық кеңейтулеріңіз "
+"жұмыс істеуі тиіс"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
-"Jos vaihdat nyt Gnomen versioon %s, %d käyttämistäsi laajennuksista ei "
-"välttämättä toimi"
+"Егер сіз қазір GNOME %s нұсқасына ауысатын болсаңыз, %d кеңейтуіңіз жұмыс "
+"істемеуі мүмкін"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:566
 msgid "A compatible version of the extension exists"
-msgstr "Yhteensopiva versio laajennuksesta on olemassa"
+msgstr "Кеңейтудің үйлесімді нұсқасы бар"
 
 #. Translators: Icon's tooltip when an extension is not compatible
 #: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
-msgstr "Laajennuksesta ei ole yhteensopivaa versiota"
+msgstr "Кеңейтудің үйлесімді нұсқасы жоқ"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
 #: src/exm-upgrade-assistant.c:580
@@ -526,8 +521,8 @@ msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
 msgstr ""
-"Tämä laajennus ei ole sivustolta extensions.gnome.org. Sen yhteensopivuutta "
-"ei voi määrittää."
+"Бұл кеңейту extensions.gnome.org сайтында орналастырылмаған. Оның "
+"үйлесімділігін анықтау мүмкін емес."
 
 #: src/exm-upgrade-assistant.c:671
 #, c-format
@@ -535,162 +530,102 @@ msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"Käytössäsi on <b>Gnome %s</b>. Valitse Gnomen versio alapuolelta ja "
-"tarkista, ovatko laajennukset käytettävissä."
+"Сіз қазір <b>GNOME %s</b> пайдаланудасыз. Төменде GNOME нұсқасын таңдап, "
+"кеңейтулеріңіз жұмыс істей беретінін тексеріңіз."
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
 msgid "Search Installed Extensions"
-msgstr "Etsi asennettuja laajennuksia"
+msgstr "Орнатылған кеңейтулерден іздеу"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
-msgstr "Päävalikko"
+msgstr "Басты мәзір"
 
 #: src/exm-window.blp:58
 msgid "Search for installed extensions"
-msgstr "Hae asennetut laajennukset"
+msgstr "Орнатылған кеңейтулерді іздеу"
 
 #: src/exm-window.blp:69
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "_Asennettu"
+msgstr "_Орнатылған"
 
 #: src/exm-window.blp:81
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "_Selaa"
+msgstr "_Іздеу"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
 #: src/exm-window.blp:110
 msgid "Sort _Enabled First"
-msgstr "_Järjestä käytössä olevat ensin"
+msgstr "_Қосылғандарды алдымен сұрыптау"
 
 #: src/exm-window.blp:114
 msgid "_Upgrade Assistant"
-msgstr "_Päivitysavustaja"
+msgstr "_Жаңарту көмекшісі"
 
 #: src/exm-window.blp:115
 msgid "_Keyboard Shortcuts"
-msgstr "_Pikanäppäimet"
+msgstr "_Пернетақта жарлықтары"
 
 #: src/exm-window.blp:116
 msgid "_About Extension Manager"
-msgstr "_Tietoja - Laajennusten hallinta"
+msgstr "Кеңейту _басқарушысы туралы"
 
 #: src/exm-window.blp:121
 msgid "Uninstall Extension?"
-msgstr "Poistetaanko laajennus?"
+msgstr "Кеңейтуді жою керек пе?"
 
 #: src/exm-window.blp:122
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
-"Laajennuksen ominaisuudet ja toiminnallisuudet eivät ole enää käytettävissä. "
-"Haluatko varmasti poistaa laajennuksen?"
+"Кеңейтудің мүмкіндіктері мен функционалы енді қол жетімді болмайды. Жойғыңыз "
+"келетініне сенімдісіз бе?"
 
 #: src/exm-window.blp:127
 msgid "_No"
-msgstr "_Ei"
+msgstr "_Жоқ"
 
 #: src/exm-window.blp:128
 msgid "_Yes"
-msgstr "_Kyllä"
+msgstr "_Иә"
 
 #: src/exm-window.blp:133
 msgid "Unsupported Extension"
-msgstr "Laajennus ei ole tuettu"
+msgstr "Қолдау көрсетілмейтін кеңейту"
 
 #: src/exm-window.blp:134
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
-"Tämä laajennus ei tue käyttämääsi Gnome Shell -versiota. Se saattaa "
-"aiheuttaa ongelmia, jos se asennetaan."
+"Бұл кеңейту сіздің GNOME Shell нұсқаңызды қолдамайды. Орнатқан жағдайда "
+"қателер туындауы мүмкін."
 
 #: src/exm-window.blp:140
 msgid "_Install Anyway"
-msgstr "_Asenna silti"
+msgstr "_Сонда да орнату"
 
 #: src/exm-window.blp:141
 msgid "_Go Back"
-msgstr "_Takaisin"
+msgstr "_Артқа қайту"
 
 #: src/exm-window.c:354
 msgid "_Details"
-msgstr "_Tiedot"
+msgstr "_Мәліметтер"
 
 #: src/web/exm-request-handler.c:99
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
-"Tarkista <a href='https://status.gnome.org/'>Gnomen infrastruktuurin tila</"
-"a> ja yritä uudelleen"
+"<a href='https://status.gnome.org/'>GNOME инфрақұрылымының күйін</a> "
+"тексеріп, кейін қайталап көріңіз"
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
-msgstr "Tarkista verkkoyhteyden tila ja yritä uudelleen"
-
-#~ msgctxt "shortcut window"
-#~ msgid "General"
-#~ msgstr "Yleiset"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Show Keyboard Shortcuts"
-#~ msgstr "Näytä pikanäppäimet"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Zoom In"
-#~ msgstr "Lähennä"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Zoom Out"
-#~ msgstr "Loitonna"
-
-#~ msgid "Browse"
-#~ msgstr "Selaa"
-
-#~ msgid "No System Extensions Installed"
-#~ msgstr "Ei järjestelmän asetamia laajennuksia"
-
-#~ msgid "Search Results"
-#~ msgstr "Hakutulokset"
-
-#~ msgid "Relevance"
-#~ msgstr "Merkitys"
-
-#~ msgid "Recent"
-#~ msgstr "Viimeisimmät"
-
-#~ msgid "_Show Unsupported"
-#~ msgstr "_Näytä ilman tukea olevat"
-
-#~ msgid "Browse, install, and manage GNOME Shell Extensions"
-#~ msgstr "Selaa, asenna ja hallitse Gnome Shell -laajennuksia"
-
-#~ msgid "A utility for browsing and installing GNOME Shell Extensions."
-#~ msgstr "Apuohjelma Gnome Shell -laajennusten selaamiseen ja asentamiseen."
-
-#~ msgid "Comments"
-#~ msgstr "Kommentit"
-
-#~ msgid "User Reviews"
-#~ msgstr "Käyttäjäarvostelut"
-
-#~ msgid "No comments yet"
-#~ msgstr "Ei kommentteja vielä"
-
-#~ msgid ""
-#~ "This extension could be activated in session modes such as the login "
-#~ "screen or the lock screen"
-#~ msgstr ""
-#~ "Tämä laajennus voidaan aktivoida istuntotiloissa, kuten "
-#~ "sisäänkirjautumisnäytössä tai lukitusnäytössä"
-
-#, c-format
-#~ msgid "%s by %s"
-#~ msgstr "%s tekijältä %s"
+msgstr "Желілік байланысыңызды тексеріп, қайталап көріңіз"
