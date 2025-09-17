@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"POT-Creation-Date: 2025-09-17 06:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -227,16 +227,16 @@ msgid "_New Issue"
 msgstr ""
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
+#: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr ""
 
-#: src/exm-error-dialog.c:173
+#: src/exm-error-dialog.c:174
 msgid "Please open a new issue and attach the following information:"
 msgstr ""
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:177
+#: src/exm-error-dialog.c:178
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
