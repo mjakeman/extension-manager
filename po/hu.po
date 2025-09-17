@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-30 13:11+0000\n"
+"PO-Revision-Date: 2025-09-18 10:02+0000\n"
 "Last-Translator: Hunor János <hunorjani17@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/"
 "extension-manager/app/hu/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -78,7 +78,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "ViBE <vibe@protonmail.com>\n"
-"_1ms (https://github.com/GRX005)"
+"_1ms https://github.com/GRX005"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
@@ -299,7 +299,7 @@ msgstr "Eltávolítás…"
 
 #: src/exm-extension-row.c:175 src/exm-info-bar.c:129
 msgid "Unlock Dialog"
-msgstr "Feloldási párbeszédablak"
+msgstr "Feloldási ablak"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
@@ -356,7 +356,7 @@ msgstr "Kiterjesztések engedélyezése"
 
 #: src/exm-installed-page.blp:29
 msgid "Extensions can cause performance and stability issues"
-msgstr "Egyes kiterjesztések használata teljesítmény-csökkenést okozhat"
+msgstr "A kiterjesztések teljesítmény és stabilitási problémákat okozhatnak"
 
 #: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
@@ -417,7 +417,7 @@ msgstr "Nézetek"
 #: src/exm-shortcuts-dialog.blp:9
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Átváltás a Telepítettre"
+msgstr "Átváltás a Telepítettekre"
 
 #: src/exm-shortcuts-dialog.blp:14
 msgctxt "shortcuts dialog"
@@ -498,18 +498,22 @@ msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>%d a %dból/ből</b> jelenleg telepített kiterjesztés van kompatibilisnak "
-"jelölve a <b>GNOME %sal/el</b>"
+"<b>%d</b> telepített kiterjesztés van kompatibilisnak jelölve az összesből "
+"(<b>%d</b>), ezzel: <b>GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr "Ha most átvált GNOME %s-ra/re, minden kiterjesztésének működnie kéne"
+msgstr ""
+"Ha most átvált erre a verzióra (GNOME %s), minden kiterjesztésének működnie "
+"kéne"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr "Ha most átvált GNOME %s-ra/re, %d kiterjesztése lehet nem fog működni"
+msgstr ""
+"Ha most átvált erre a verzióra (GNOME %s), %d kiterjesztése lehet nem fog "
+"működni"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:566
@@ -519,7 +523,7 @@ msgstr "Elérhető kompatibilis változat"
 #. Translators: Icon's tooltip when an extension is not compatible
 #: src/exm-upgrade-assistant.c:573
 msgid "No compatible version of the extension exists"
-msgstr "Jelenleg nem elérhető kompatibilis változat"
+msgstr "Jelenleg nem érhető el kompatibilis változat"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
 #: src/exm-upgrade-assistant.c:580
@@ -536,14 +540,14 @@ msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"A rendszeren jelenleg a <b>GNOME %s</b> verziója fut. A lenti listán "
-"kiválaszthatja és ellenőrizheti, hogy az egyes kiterjesztések mely "
-"verziókkal kompatibilisek."
+"A rendszeren jelenleg a <b>GNOME %s</b> fut. A lenti listán kiválaszthatja "
+"és ellenőrizheti, hogy az egyes kiterjesztések mely verziókkal "
+"kompatibilisek."
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
 msgid "Search Installed Extensions"
-msgstr "Keresés telepítettek között"
+msgstr "Keresés a telepítettek között"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
@@ -551,7 +555,7 @@ msgstr "Főmenü"
 
 #: src/exm-window.blp:58
 msgid "Search for installed extensions"
-msgstr "Keresés telepített kiterjesztések között"
+msgstr "Keresés a telepített kiterjesztések között"
 
 #: src/exm-window.blp:69
 msgctxt "Navigation"
