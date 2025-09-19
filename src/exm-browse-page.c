@@ -319,6 +319,7 @@ on_search_changed (ExmBrowsePage *self)
     const char *query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
     ExmSearchSort sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
     const char *icon_name = gtk_button_get_icon_name (self->order_btn);
+
     if (g_strcmp0 (icon_name, "view-sort-ascending-symbolic") == 0)
     {
         switch (sort)
