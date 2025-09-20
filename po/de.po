@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-22 12:53+0000\n"
-"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
+"PO-Revision-Date: 2025-09-21 12:17+0000\n"
+"Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
 "Language: de\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -47,7 +47,7 @@ msgstr "GNOME-Erweiterungen installieren"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
 msgstr ""
-"Suchen und installieren Sie GNOME-Shell-Erweiterungen um Ihren Desktop zu "
+"Suchen und installieren Sie GNOME-Shell-Erweiterungen, um Ihren Desktop zu "
 "personalisieren."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
@@ -389,7 +389,7 @@ msgstr "Keine Erweiterungen installiert"
 
 #: src/exm-installed-page.blp:80
 msgid "Search online to install extensions"
-msgstr "Online nach Erweiterungen suchen"
+msgstr "Online suchen, um Erweiterungen zu installieren"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -419,14 +419,16 @@ msgstr "Vergrößern"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr "Aufrufe"
+msgstr "Ansichten"
 
 #: src/exm-shortcuts-dialog.blp:9
+#, fuzzy
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
 msgstr "Zu installierten wechseln"
 
 #: src/exm-shortcuts-dialog.blp:14
+#, fuzzy
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
 msgstr "Wechsel auf „Durchsuchen“"
