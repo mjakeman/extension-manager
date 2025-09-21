@@ -320,6 +320,8 @@ on_search_changed (ExmBrowsePage *self)
     ExmSearchSort sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
     const char *icon_name = gtk_button_get_icon_name (self->order_btn);
 
+    gtk_widget_set_visible (GTK_WIDGET (self->order_btn), sort != EXM_SEARCH_SORT_NONE);
+
     if (g_strcmp0 (icon_name, "view-sort-ascending-symbolic") == 0)
     {
         switch (sort)
@@ -327,15 +329,17 @@ on_search_changed (ExmBrowsePage *self)
         case EXM_SEARCH_SORT_CREATED_DES:
             sort = EXM_SEARCH_SORT_CREATED_ASC;
             break;
+        case EXM_SEARCH_SORT_DOWNLOADS_DES:
+            sort = EXM_SEARCH_SORT_DOWNLOADS_ASC;
+            break;
         case EXM_SEARCH_SORT_POPULARITY_DES:
             sort = EXM_SEARCH_SORT_POPULARITY_ASC;
             break;
         case EXM_SEARCH_SORT_UPDATED_DES:
             sort = EXM_SEARCH_SORT_UPDATED_ASC;
             break;
-        case EXM_SEARCH_SORT_DOWNLOADS_DES:
         default:
-            sort = EXM_SEARCH_SORT_DOWNLOADS_ASC;
+            sort = EXM_SEARCH_SORT_NONE;
         }
     }
     search (self, query, sort);

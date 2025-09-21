@@ -115,6 +115,8 @@ get_sort_string (ExmSearchSort sort_type)
         return "-created";
     case EXM_SEARCH_SORT_CREATED_ASC:
         return "created";
+    case EXM_SEARCH_SORT_DOWNLOADS_DES:
+        return "-downloads";
     case EXM_SEARCH_SORT_DOWNLOADS_ASC:
         return "downloads";
     case EXM_SEARCH_SORT_POPULARITY_DES:
@@ -125,9 +127,9 @@ get_sort_string (ExmSearchSort sort_type)
         return "-updated";
     case EXM_SEARCH_SORT_UPDATED_ASC:
         return "updated";
-    case EXM_SEARCH_SORT_DOWNLOADS_DES:
+    case EXM_SEARCH_SORT_NONE:
     default:
-        return "-downloads";
+        return "";
     }
 }
 
@@ -148,10 +150,20 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
 
     sort = get_sort_string (sort_type);
 
+    if (g_strcmp0 (sort, "") != 0)
+        sort = g_strdup_printf ("ordering=%s&", sort);
+
     if (g_strcmp0 (query, "") == 0)
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?ordering=%s&page=%d&page_size=10&status=3", sort, page);
+    {
+        if (g_strcmp0 (sort, "") == 0)
+            sort = g_strdup_printf ("ordering=-popularity&");
+
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3", sort, page);
+    }
     else
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?ordering=%s&page=%d&page_size=10", query, sort, page);
+    {
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10", query, sort, page);
+    }
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
