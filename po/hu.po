@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-09-21 17:21+0000\n"
+"PO-Revision-Date: 2025-09-22 09:17+0000\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/"
 "extension-manager/app/hu/>\n"
@@ -160,7 +160,7 @@ msgstr "Nincsenek elérhető részletek"
 
 #: src/exm-detail-view.blp:114
 msgid "Name"
-msgstr "NévNem támogatott"
+msgstr "Név"
 
 #: src/exm-detail-view.blp:155
 msgid "Enlarge Image"
