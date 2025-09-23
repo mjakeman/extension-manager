@@ -387,7 +387,7 @@ msgstr "Cerca online per installare le estensioni"
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "%d l' estensioni sarà aggiornata al prossimo accesso"
+msgstr[0] "%d l'estensioni sarà aggiornata al prossimo accesso"
 msgstr[1] "%d le estensioni saranno aggiornate al prossimo accesso"
 
 #: src/exm-rating.c:142
@@ -565,7 +565,7 @@ msgstr "_Sfoglia"
 #. as others in the same menu
 #: src/exm-window.blp:110
 msgid "Sort _Enabled First"
-msgstr "Prima_estensioni attive"
+msgstr "Prima _estensioni attive"
 
 #: src/exm-window.blp:114
 msgid "_Upgrade Assistant"
