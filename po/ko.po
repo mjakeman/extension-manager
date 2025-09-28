@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"POT-Creation-Date: 2025-09-28 09:43+0000\n"
 "PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"Last-Translator: Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply."
+"github.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/extension-manager/"
 "app/ko/>\n"
 "Language: ko\n"
@@ -90,17 +90,13 @@ msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr "'extensions.gnome.org' 에서 GNOME 셸 확장 프로그램을 검색합니다"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
 msgstr ""
 
-#: src/exm-browse-page.blp:53
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "다운로드순"
-
 #: src/exm-browse-page.blp:54
-msgid "Created"
+msgctxt "Sort search results"
+msgid "None"
 msgstr ""
 
 #: src/exm-browse-page.blp:55
@@ -108,32 +104,41 @@ msgid "Popularity"
 msgstr ""
 
 #: src/exm-browse-page.blp:56
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "다운로드순"
+
+#: src/exm-browse-page.blp:57
 msgid "Updated"
 msgstr ""
 
-#: src/exm-browse-page.blp:63
+#: src/exm-browse-page.blp:58
+msgid "Created"
+msgstr ""
+
+#: src/exm-browse-page.blp:65
 msgid "Sort search results"
 msgstr "검색 결과 정렬"
 
-#: src/exm-browse-page.blp:109
+#: src/exm-browse-page.blp:111
 msgid "_Load More Results"
 msgstr "_더 많은 결과 불러오기"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
+#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "결과 없음"
 
-#: src/exm-browse-page.blp:150
+#: src/exm-browse-page.blp:152
 msgid "Try a different search"
 msgstr "다른 검색을 시도해보세요"
 
-#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "연결 오류"
 
-#: src/exm-browse-page.c:352
+#: src/exm-browse-page.c:357
 msgid "Ascending Order"
 msgstr ""
 
@@ -235,16 +240,16 @@ msgid "_New Issue"
 msgstr "_새 이슈"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
+#: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "복사됨"
 
-#: src/exm-error-dialog.c:173
+#: src/exm-error-dialog.c:174
 msgid "Please open a new issue and attach the following information:"
 msgstr "새 이슈를 열고 다음 정보를 첨부하십시오:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:177
+#: src/exm-error-dialog.c:178
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "

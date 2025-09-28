@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"POT-Creation-Date: 2025-09-28 09:43+0000\n"
 "PO-Revision-Date: 2025-08-24 10:02+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/"
-"extension-manager/app/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/extension-"
+"manager/app/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,53 +84,58 @@ msgstr "Etsi laajennuksia"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Anna hakuehto, jolla Gnome Shell -laajennuksia etsitään "
-"\"extensions.gnome.org\"-sivustolta"
+"Anna hakuehto, jolla Gnome Shell -laajennuksia etsitään \"extensions.gnome."
+"org\"-sivustolta"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
 msgstr "Laskeva järjestys"
 
-#: src/exm-browse-page.blp:53
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Lataukset"
-
 #: src/exm-browse-page.blp:54
-msgid "Created"
-msgstr "Luotu"
+msgctxt "Sort search results"
+msgid "None"
+msgstr ""
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
 msgstr "Suosio"
 
 #: src/exm-browse-page.blp:56
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Lataukset"
+
+#: src/exm-browse-page.blp:57
 msgid "Updated"
 msgstr "Päivitetty"
 
-#: src/exm-browse-page.blp:63
+#: src/exm-browse-page.blp:58
+msgid "Created"
+msgstr "Luotu"
+
+#: src/exm-browse-page.blp:65
 msgid "Sort search results"
 msgstr "Järjestä hakutulokset"
 
-#: src/exm-browse-page.blp:109
+#: src/exm-browse-page.blp:111
 msgid "_Load More Results"
 msgstr "_Lataa lisää tuloksia"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
+#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Tuloksia ei löytynyt"
 
-#: src/exm-browse-page.blp:150
+#: src/exm-browse-page.blp:152
 msgid "Try a different search"
 msgstr "Kokeile eri hakuehtoja"
 
-#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Yhteysvirhe"
 
-#: src/exm-browse-page.c:352
+#: src/exm-browse-page.c:357
 msgid "Ascending Order"
 msgstr "Nouseva järjestys"
 
@@ -232,24 +237,24 @@ msgid "_New Issue"
 msgstr "_Uusi vikatiketti"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
+#: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Kopioitu"
 
-#: src/exm-error-dialog.c:173
+#: src/exm-error-dialog.c:174
 msgid "Please open a new issue and attach the following information:"
 msgstr "Avaa uusi vikatiketti ja liitä seuraavat tiedot:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:177
+#: src/exm-error-dialog.c:178
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Käytät kolmannen osapuolen Extension Managerin koontiversiota. <span weight="
-"\"bold\">Ota ensin yhteys paketin jakelijaan (%s)</span>, ennen kuin "
+"Käytät kolmannen osapuolen Extension Managerin koontiversiota. <span "
+"weight=\"bold\">Ota ensin yhteys paketin jakelijaan (%s)</span>, ennen kuin "
 "ilmoitat ongelmasta. Muista liittää mukaan seuraavat tiedot:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog

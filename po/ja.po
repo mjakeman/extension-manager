@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"POT-Creation-Date: 2025-09-28 09:43+0000\n"
 "PO-Revision-Date: 2025-09-12 13:20+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/"
-"extension-manager/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
+"manager/app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,8 +42,9 @@ msgstr "GNOME 拡張機能をインストールします"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "GNOME Shell "
-"拡張機能を検索・インストールして、デスクトップをカスタマイズします。"
+msgstr ""
+"GNOME Shell 拡張機能を検索・インストールして、デスクトップをカスタマイズしま"
+"す。"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -89,50 +90,55 @@ msgstr ""
 "キーワードを入力すると extensions.gnome.org にある\n"
 "GNOME Shell 拡張機能を検索できます"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
 msgstr "降順"
 
-#: src/exm-browse-page.blp:53
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "ダウンロード数順"
-
 #: src/exm-browse-page.blp:54
-msgid "Created"
-msgstr "作成日順"
+msgctxt "Sort search results"
+msgid "None"
+msgstr ""
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
 msgstr "人気順"
 
 #: src/exm-browse-page.blp:56
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "ダウンロード数順"
+
+#: src/exm-browse-page.blp:57
 msgid "Updated"
 msgstr "更新日順"
 
-#: src/exm-browse-page.blp:63
+#: src/exm-browse-page.blp:58
+msgid "Created"
+msgstr "作成日順"
+
+#: src/exm-browse-page.blp:65
 msgid "Sort search results"
 msgstr "検索結果の並べ替えが、できるようになりました"
 
-#: src/exm-browse-page.blp:109
+#: src/exm-browse-page.blp:111
 msgid "_Load More Results"
 msgstr "結果をさらに表示(_L)"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
+#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "見つかりませんでした"
 
-#: src/exm-browse-page.blp:150
+#: src/exm-browse-page.blp:152
 msgid "Try a different search"
 msgstr "他のキーワードを試してください"
 
-#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "接続エラー"
 
-#: src/exm-browse-page.c:352
+#: src/exm-browse-page.c:357
 msgid "Ascending Order"
 msgstr "昇順"
 
@@ -234,16 +240,16 @@ msgid "_New Issue"
 msgstr "問題を報告(_N)"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
+#: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "コピーしました"
 
-#: src/exm-error-dialog.c:173
+#: src/exm-error-dialog.c:174
 msgid "Please open a new issue and attach the following information:"
 msgstr "問題を報告して、以下の情報を添付してください:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:177
+#: src/exm-error-dialog.c:178
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
@@ -489,18 +495,21 @@ msgstr "%d%% 対応"
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
-msgstr "現在システムにインストール済みの拡張機能のうち、<b>%d/%d個</b>が <b>GNOME "
+msgstr ""
+"現在システムにインストール済みの拡張機能のうち、<b>%d/%d個</b>が <b>GNOME "
 "%s</b> への対応を謳っています"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr "今 GNOME %s に移行しても、利用中のすべての拡張機能が動作すると考えられます"
+msgstr ""
+"今 GNOME %s に移行しても、利用中のすべての拡張機能が動作すると考えられます"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr "今 GNOME %s に移行すると、利用中の%d個の拡張機能が動作しない可能性があります"
+msgstr ""
+"今 GNOME %s に移行すると、利用中の%d個の拡張機能が動作しない可能性があります"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:566
