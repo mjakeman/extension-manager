@@ -43,6 +43,7 @@ template $ExmBrowsePage: Gtk.Widget {
               clicked => $on_order_button_clicked();
               icon-name: "view-sort-descending-symbolic";
               tooltip-text: _("Descending Order");
+              visible: false;
             }
 
             // Keep the same order as the ExmSearchSort enum
@@ -50,10 +51,11 @@ template $ExmBrowsePage: Gtk.Widget {
               model: StringList {
                 // Translators: dropdown items for sorting search results
                 strings [
-                  C_("Sort search results", "Downloads"),
-                  _("Created"),
+                  C_("Sort search results", "None"),
                   _("Popularity"),
+                  C_("Sort search results", "Downloads"),
                   _("Updated"),
+                  _("Created"),
                 ]
               };
 
