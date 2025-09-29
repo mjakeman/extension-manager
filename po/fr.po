@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-09-18 10:01+0000\n"
+"PO-Revision-Date: 2025-09-29 11:02+0000\n"
 "Last-Translator: p-sage <p-sage@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/extension-manager/"
 "app/fr/>\n"
@@ -102,7 +102,7 @@ msgstr "Ordre décroissant"
 #: src/exm-browse-page.blp:54
 msgctxt "Sort search results"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
