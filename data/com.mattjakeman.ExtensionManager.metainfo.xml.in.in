@@ -57,6 +57,14 @@
     <color type="primary" scheme_preference="dark">#005edf</color>
   </branding>
   <releases>
+    <release version="0.6.5" date="2025-10-01">
+      <description translate="no">
+        <ul>
+          <li>Fix search regressions</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.6.4" date="2025-09-17">
       <description translate="no">
         <ul>
