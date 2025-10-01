@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 18:25+0200\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
+"POT-Creation-Date: 2025-09-28 09:43+0000\n"
+"PO-Revision-Date: 2025-09-29 11:02+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -90,50 +90,55 @@ msgstr ""
 "Introduzca una palabra clave para buscar extensiones de GNOME Shell en "
 "'extensions.gnome.org'"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
 msgstr "Orden descendente"
 
-#: src/exm-browse-page.blp:53
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Descargas"
-
 #: src/exm-browse-page.blp:54
-msgid "Created"
-msgstr "Creación"
+msgctxt "Sort search results"
+msgid "None"
+msgstr "Ninguno"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
 msgstr "Popularidad"
 
 #: src/exm-browse-page.blp:56
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Descargas"
+
+#: src/exm-browse-page.blp:57
 msgid "Updated"
 msgstr "Actualización"
 
-#: src/exm-browse-page.blp:63
+#: src/exm-browse-page.blp:58
+msgid "Created"
+msgstr "Creación"
+
+#: src/exm-browse-page.blp:65
 msgid "Sort search results"
 msgstr "Ordenar los resultados de la búsqueda"
 
-#: src/exm-browse-page.blp:109
+#: src/exm-browse-page.blp:111
 msgid "_Load More Results"
 msgstr "_Cargar más resultados"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
+#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "No se encontraron resultados"
 
-#: src/exm-browse-page.blp:150
+#: src/exm-browse-page.blp:152
 msgid "Try a different search"
 msgstr "Pruebe una búsqueda diferente"
 
-#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Error de conexión"
 
-#: src/exm-browse-page.c:352
+#: src/exm-browse-page.c:357
 msgid "Ascending Order"
 msgstr "Orden ascendente"
 
@@ -235,17 +240,17 @@ msgid "_New Issue"
 msgstr "Incidencia _nueva"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
+#: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Copiado"
 
-#: src/exm-error-dialog.c:173
+#: src/exm-error-dialog.c:174
 msgid "Please open a new issue and attach the following information:"
 msgstr ""
 "Por favor, abra una incidencia nueva y adjunte la siguiente información:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:177
+#: src/exm-error-dialog.c:178
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "

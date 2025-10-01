@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"POT-Creation-Date: 2025-09-28 09:43+0000\n"
 "PO-Revision-Date: 2025-08-20 13:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/extension-manager/"
@@ -92,50 +92,55 @@ msgstr ""
 "Voer een zoek­term in om ‘extensions.gnome.org’ te door­zoeken op GNOME Shell-"
 "uitbreidingen"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
 msgstr "Aflopende volgorde"
 
-#: src/exm-browse-page.blp:53
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Downloads"
-
 #: src/exm-browse-page.blp:54
-msgid "Created"
-msgstr "Aanmaak­datum"
+msgctxt "Sort search results"
+msgid "None"
+msgstr ""
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
 msgstr "Populariteit"
 
 #: src/exm-browse-page.blp:56
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Downloads"
+
+#: src/exm-browse-page.blp:57
 msgid "Updated"
 msgstr "Bĳwerk­datum"
 
-#: src/exm-browse-page.blp:63
+#: src/exm-browse-page.blp:58
+msgid "Created"
+msgstr "Aanmaak­datum"
+
+#: src/exm-browse-page.blp:65
 msgid "Sort search results"
 msgstr "Zoekresultaten kunnen worden gesorteerd"
 
-#: src/exm-browse-page.blp:109
+#: src/exm-browse-page.blp:111
 msgid "_Load More Results"
 msgstr "_Meer resultaten laden"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
+#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Geen resultaten gevonden"
 
-#: src/exm-browse-page.blp:150
+#: src/exm-browse-page.blp:152
 msgid "Try a different search"
 msgstr "Probeer een andere zoek­opdracht"
 
-#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Verbindings­fout"
 
-#: src/exm-browse-page.c:352
+#: src/exm-browse-page.c:357
 msgid "Ascending Order"
 msgstr "Oplopende volgorde"
 
@@ -237,16 +242,16 @@ msgid "_New Issue"
 msgstr "_Nieuwe issue"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
+#: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Gekopieerd"
 
-#: src/exm-error-dialog.c:173
+#: src/exm-error-dialog.c:174
 msgid "Please open a new issue and attach the following information:"
 msgstr "Open een nieuwe issue en voeg de volgende informatie toe:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:177
+#: src/exm-error-dialog.c:178
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "

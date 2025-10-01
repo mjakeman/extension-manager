@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 18:25+0200\n"
+"POT-Creation-Date: 2025-09-28 09:43+0000\n"
 "PO-Revision-Date: 2025-08-19 03:02+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
@@ -95,50 +95,55 @@ msgid ""
 msgstr ""
 "Wpisz słowo kluczowe, aby wyszukać rozszerzenia GNOME w extensions.gnome.org"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:357
+#: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
 msgstr "Malejąco"
 
-#: src/exm-browse-page.blp:53
-msgctxt "Sort search results"
-msgid "Downloads"
-msgstr "Liczba pobrań"
-
 #: src/exm-browse-page.blp:54
-msgid "Created"
-msgstr "Stworzono"
+msgctxt "Sort search results"
+msgid "None"
+msgstr ""
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
 msgstr "Popularność"
 
 #: src/exm-browse-page.blp:56
+msgctxt "Sort search results"
+msgid "Downloads"
+msgstr "Liczba pobrań"
+
+#: src/exm-browse-page.blp:57
 msgid "Updated"
 msgstr "Zaktualizowano"
 
-#: src/exm-browse-page.blp:63
+#: src/exm-browse-page.blp:58
+msgid "Created"
+msgstr "Stworzono"
+
+#: src/exm-browse-page.blp:65
 msgid "Sort search results"
 msgstr "Sortowanie wyników wyszukiwania"
 
-#: src/exm-browse-page.blp:109
+#: src/exm-browse-page.blp:111
 msgid "_Load More Results"
 msgstr "Załaduj więcej wyników"
 
-#: src/exm-browse-page.blp:143 src/exm-installed-page.blp:58
+#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
 msgid "No Results Found"
 msgstr "Brak wyników"
 
-#: src/exm-browse-page.blp:150
+#: src/exm-browse-page.blp:152
 msgid "Try a different search"
 msgstr "Wypróbuj innego zapytania"
 
-#: src/exm-browse-page.blp:184 src/exm-comment-dialog.blp:34
+#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
 #: src/exm-detail-view.blp:50 src/exm-detail-view.blp:292
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Błąd połączenia"
 
-#: src/exm-browse-page.c:352
+#: src/exm-browse-page.c:357
 msgid "Ascending Order"
 msgstr "Rosnąco"
 
@@ -240,16 +245,16 @@ msgid "_New Issue"
 msgstr "Nowe zgłoszenie"
 
 #. Success indicator
-#: src/exm-error-dialog.c:125 src/exm-upgrade-assistant.c:367
+#: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Skopiowano"
 
-#: src/exm-error-dialog.c:173
+#: src/exm-error-dialog.c:174
 msgid "Please open a new issue and attach the following information:"
 msgstr "Otwórz nowy problem i dołącz wymagane informacje:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
-#: src/exm-error-dialog.c:177
+#: src/exm-error-dialog.c:178
 #, c-format
 msgid ""
 "You are using a third-party build of Extension Manager. Please <span "
