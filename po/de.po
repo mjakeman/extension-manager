@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-09-29 11:02+0000\n"
-"Last-Translator: Robert Winzer <weissnicht000099@gmail.com>\n"
+"PO-Revision-Date: 2025-10-07 14:01+0000\n"
+"Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
 "Language: de\n"
@@ -100,7 +100,7 @@ msgstr ""
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
-msgstr "Absteigend"
+msgstr "Absteigende Reihenfolge"
 
 #: src/exm-browse-page.blp:54
 msgctxt "Sort search results"
@@ -148,7 +148,7 @@ msgstr "Verbindungsfehler"
 
 #: src/exm-browse-page.c:357
 msgid "Ascending Order"
-msgstr "Aufsteigend"
+msgstr "Aufsteigende Reihenfolge"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
 msgid "Reviews and Comments"
@@ -156,6 +156,7 @@ msgstr "Rezensionen und Kommentare"
 
 #: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:622
 #: src/exm-install-button.c:147
+#, fuzzy
 msgid "Loading"
 msgstr "Laden …"
 
