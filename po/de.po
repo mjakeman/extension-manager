@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-10-07 14:01+0000\n"
+"PO-Revision-Date: 2025-10-09 10:07+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -428,16 +428,14 @@ msgid "Views"
 msgstr "Ansichten"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Zu installierten wechseln"
+msgstr "Zu »Installiert« wechseln"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Wechsel auf „Durchsuchen“"
+msgstr "Zu »Suchen« wechseln"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
