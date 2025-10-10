@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-10-09 10:07+0000\n"
+"PO-Revision-Date: 2025-10-10 20:07+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -156,9 +156,8 @@ msgstr "Rezensionen und Kommentare"
 
 #: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:622
 #: src/exm-install-button.c:147
-#, fuzzy
 msgid "Loading"
-msgstr "Laden …"
+msgstr "Laden"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:128
 msgid "Author"
