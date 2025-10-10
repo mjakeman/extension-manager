@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-09-07 12:53+0000\n"
+"PO-Revision-Date: 2025-10-10 20:07+0000\n"
 "Last-Translator: Ibai Oihanguren Sala <ibaios@disroot.org>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/extension-manager/"
 "app/eu/>\n"
@@ -96,7 +96,7 @@ msgstr "Z-tik A-ra"
 #: src/exm-browse-page.blp:54
 msgctxt "Sort search results"
 msgid "None"
-msgstr ""
+msgstr "Bat ere ez"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
