@@ -6,13 +6,14 @@
 # Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # albanobattistella <albanobattistella@gmail.com>, 2025.
+# Osiride <usiride@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-10-02 18:17+0000\n"
-"Last-Translator: albanobattistella <albanobattistella@gmail.com>\n"
+"PO-Revision-Date: 2025-10-12 09:54+0000\n"
+"Last-Translator: Osiride <usiride@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "extension-manager/app/it/>\n"
 "Language: it\n"
@@ -393,8 +394,8 @@ msgstr "Cerca online per installare le estensioni"
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
-msgstr[0] "%d l'estensioni sarà aggiornata al prossimo accesso"
-msgstr[1] "%d le estensioni saranno aggiornate al prossimo accesso"
+msgstr[0] "%d estensione sarà aggiornata al prossimo accesso"
+msgstr[1] "%d estensioni saranno aggiornate al prossimo accesso"
 
 #: src/exm-rating.c:142
 #, c-format
