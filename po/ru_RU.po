@@ -7,15 +7,16 @@
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # AnmiTaliDev <anmitali198@gmail.com>, 2025.
 # Yurt Page <yurtpage+weblate@gmail.com>, 2025.
+# Ахматов Тамерлан <novadapresna@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-09-10 13:02+0000\n"
-"Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
-"manager/app/ru/>\n"
+"PO-Revision-Date: 2025-10-02 18:17+0000\n"
+"Last-Translator: Ахматов Тамерлан <novadapresna@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"extension-manager/app/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,7 +103,7 @@ msgstr "По убыванию"
 #: src/exm-browse-page.blp:54
 msgctxt "Sort search results"
 msgid "None"
-msgstr ""
+msgstr "Без сортировки"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"

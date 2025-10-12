@@ -11,17 +11,16 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-08-14 17:21+0000\n"
-"Last-Translator: Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply."
-"github.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/extension-"
-"manager/app/fa/>\n"
+"PO-Revision-Date: 2025-10-12 09:54+0000\n"
+"Last-Translator: Mir Sobhan <mr.sobhan.n@outlook.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"extension-manager/app/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -40,16 +39,12 @@ msgid "extension;manager;shell;"
 msgstr "افزونه;مدیر;پوسته"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "افزونه‌های نصب شده توسط کاربر"
+msgstr "نصب افزونه‌های گنوم"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "مرور، نصب و مدیریت افزونه‌های گنوم."
+msgstr "مرور و نصب افزونه‌های گنوم برای شخصی‌سازی میزکارتون."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -70,10 +65,8 @@ msgid "See all the details of your extensions"
 msgstr "دیدن همه جزئیاتِ افزونه شما"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
-#, fuzzy
-#| msgid "This extension is incompatible with your current version of GNOME"
 msgid "Check your extensions compatibility with the next version of GNOME"
-msgstr "این افزونه با نگارش کنونی پوستهٔ گنوم شما سازگار نیست"
+msgstr "بررسی تطبیق پذیری افزونه‌ها برای نگارش بعدی گنوم"
 
 #: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -88,58 +81,48 @@ msgstr ""
 "سید اسحاق مقیم شهیدانی <eshagh094@gmail.com>"
 
 #: src/exm-browse-page.blp:16
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for Extensions"
 msgstr "جست‌وجو برای افزونه‌ها"
 
 #: src/exm-browse-page.blp:17
-#, fuzzy
-#| msgid ""
-#| "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell "
-#| "Extensions."
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"یک کلیدواژه برای جست‌وجوی افزونه‌های گنوم در «extensions.gnome.org» وارد کنید."
+"یک کلیدواژه برای جست‌وجوی افزونه‌های گنوم در «extensions.gnome.org» وارد کنید"
 
 #: src/exm-browse-page.blp:45 src/exm-browse-page.c:362
 msgid "Descending Order"
-msgstr ""
+msgstr "ترتیب کاهشی"
 
 #: src/exm-browse-page.blp:54
 msgctxt "Sort search results"
 msgid "None"
-msgstr ""
+msgstr "هیچ"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
 msgstr "محبوبیت"
 
 #: src/exm-browse-page.blp:56
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Sort search results"
 msgid "Downloads"
-msgstr "بارگیری"
+msgstr "بارگیری‌ها"
 
 #: src/exm-browse-page.blp:57
 msgid "Updated"
-msgstr ""
+msgstr "به‌روزشده"
 
 #: src/exm-browse-page.blp:58
 msgid "Created"
-msgstr ""
+msgstr "ایجاد‌شده"
 
 #: src/exm-browse-page.blp:65
 msgid "Sort search results"
 msgstr "مرتب‌سازی نتایج جست‌وجو"
 
 #: src/exm-browse-page.blp:111
-#, fuzzy
-#| msgid "Load More Results"
 msgid "_Load More Results"
-msgstr "بار کردن نتایج بیشتر"
+msgstr "_بار کردن نتایج بیشتر"
 
 #: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
 msgid "No Results Found"
@@ -157,48 +140,38 @@ msgstr "خطای ارتباط"
 
 #: src/exm-browse-page.c:357
 msgid "Ascending Order"
-msgstr ""
+msgstr "ترتیب افزایشی"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:249
-#, fuzzy
-#| msgid "Comments"
 msgid "Reviews and Comments"
-msgstr "بازبینی‌ها"
+msgstr "بازبینی‌ها و دیدگاه‌ها"
 
 #: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:622
 #: src/exm-install-button.c:147
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "در حال بار کردن…"
+msgstr "بارگیری"
 
 #: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:128
 msgid "Author"
 msgstr "سازنده"
 
 #: src/exm-detail-view.blp:41
-#, fuzzy
-#| msgid "Details"
 msgid "Loading Details"
-msgstr "جزییات"
+msgstr "بارکردن جزییات"
 
 #: src/exm-detail-view.blp:60 src/exm-window.c:353
 msgid "An Error Occurred"
 msgstr "مشکلی رخ داد"
 
 #: src/exm-detail-view.blp:61
-#, fuzzy
-#| msgid "A newer version of this extension is available"
 msgid "No extension details available"
-msgstr "نگارش جدیدی از این افزونه موجود است"
+msgstr "جزییات هیج افزونه‌ای در دسترس نیست"
 
 #: src/exm-detail-view.blp:114
 msgid "Name"
 msgstr "نام"
 
 #: src/exm-detail-view.blp:155
-#, fuzzy
-#| msgid "Enlarge image"
 msgid "Enlarge Image"
 msgstr "بزرگ کردن تصویر"
 
@@ -211,10 +184,8 @@ msgid "Links"
 msgstr "پیوند ها"
 
 #: src/exm-detail-view.blp:204
-#, fuzzy
-#| msgid "Project Homepage"
 msgid "Homepage"
-msgstr "صفحه اصلی پروژه"
+msgstr "صفحه اصلی"
 
 #: src/exm-detail-view.blp:220
 msgid "Donate"
@@ -233,10 +204,8 @@ msgid "There are no reviews or comments"
 msgstr "نظر یا بازبینی وجود ندارد"
 
 #: src/exm-detail-view.blp:344
-#, fuzzy
-#| msgid "Show All Reviews"
 msgid "_Show All"
-msgstr "نمایش همهٔ بازبینی‌ها"
+msgstr "_نمایش همهٔ"
 
 #: src/exm-detail-view.c:408 src/exm-detail-view.c:472
 msgid "Unsupported"
@@ -259,26 +228,16 @@ msgid "Error Report"
 msgstr "گزارش مشکل"
 
 #: src/exm-error-dialog.blp:22
-#, fuzzy
-#| msgid ""
-#| "An unexpected error occurred in Extension Manager. Please open a new "
-#| "issue and attach the following information:"
 msgid "An unexpected error occurred in Extension Manager"
-msgstr ""
-"یک خطای غیرمنتظره در مدیر افزونه‌ها رخ داد. لطفاً یک اشکال جدید باز کنید و "
-"اطلاعات زیر را پیوست کنید:"
+msgstr "یک خطای غیرمنتظره در مدیر افزونه‌ها رخ داد"
 
 #: src/exm-error-dialog.blp:36
-#, fuzzy
-#| msgid "Copy to Clipboard"
 msgid "Copy to Clipboard"
 msgstr "رونوشت به تخته‌گیره"
 
 #: src/exm-error-dialog.blp:77
-#, fuzzy
-#| msgid "New Issue"
 msgid "_New Issue"
-msgstr "اشکال جدید"
+msgstr "_اشکال جدید"
 
 #. Success indicator
 #: src/exm-error-dialog.c:126 src/exm-upgrade-assistant.c:367
@@ -286,14 +245,8 @@ msgid "Copied"
 msgstr "رونوشت شد"
 
 #: src/exm-error-dialog.c:174
-#, fuzzy
-#| msgid ""
-#| "An unexpected error occurred in Extension Manager. Please open a new "
-#| "issue and attach the following information:"
 msgid "Please open a new issue and attach the following information:"
-msgstr ""
-"یک خطای غیرمنتظره در مدیر افزونه‌ها رخ داد. لطفاً یک اشکال جدید باز کنید و "
-"اطلاعات زیر را پیوست کنید:"
+msgstr "لطفاً یک اشکال جدید باز کنید و اطلاعات زیر را پیوست کنید:"
 
 #. Translators: '%s' = Name of Distributor (e.g. "Packager123")
 #: src/exm-error-dialog.c:178
@@ -330,7 +283,7 @@ msgstr "نگارش"
 
 #: src/exm-extension-row.blp:106 src/exm-info-bar.blp:79
 msgid "Session Modes"
-msgstr ""
+msgstr "حالت‌های نشست"
 
 #: src/exm-extension-row.blp:136
 msgid "Error"
@@ -341,14 +294,12 @@ msgid "See Details"
 msgstr "دیدن جزییات"
 
 #: src/exm-extension-row.blp:168
-#, fuzzy
-#| msgid "Remove"
 msgid "Remove…"
-msgstr "برداشتن"
+msgstr "برداشتن…"
 
 #: src/exm-extension-row.c:175 src/exm-info-bar.c:129
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "قفل‌گشایی محاوره"
 
 #. Translators: GNOME Display Manager
 #: src/exm-extension-row.c:181
@@ -375,24 +326,17 @@ msgid "This extension will run while no user is logged in"
 msgstr "تعداد %Id افزونه در ورود بعدی به‌روز رسانی خواهند شد."
 
 #: src/exm-info-bar.blp:30
-#, fuzzy
-#| msgid "Downloads"
 msgctxt "Number of downloads"
 msgid "Downloads"
-msgstr "بارگیری"
+msgstr "بارگیری‌ها"
 
 #: src/exm-install-button.c:125
-#, fuzzy
-#| msgid "Install"
 msgid "Install…"
-msgstr "نصب"
+msgstr "نصب…"
 
 #: src/exm-install-button.c:130
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "نصب شده"
+msgstr "نصب‌کردن"
 
 #: src/exm-install-button.c:134
 msgctxt "State"
@@ -400,26 +344,20 @@ msgid "Installed"
 msgstr "نصب شده"
 
 #: src/exm-install-button.c:138
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported…"
-msgstr "پشتیبانی نشده"
+msgstr "پشتیبانی نشده…"
 
 #: src/exm-installed-page.blp:16
-#, fuzzy
-#| msgid "Log Out"
 msgid "_Log Out…"
-msgstr "خروج"
+msgstr "_خروج…"
 
 #: src/exm-installed-page.blp:28
 msgid "Use Extensions"
 msgstr "استفاده از افزونه‌ها"
 
 #: src/exm-installed-page.blp:29
-#, fuzzy
-#| msgid "Extensions can cause performance and stability issues."
 msgid "Extensions can cause performance and stability issues"
-msgstr "افزونه‌ها می‌توانند باعث مشکلات عملکرد و پایداری شوند."
+msgstr "افزونه‌ها می‌توانند باعث مشکلات عملکرد و پایداری شوند"
 
 #: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
@@ -431,23 +369,19 @@ msgstr "افزونه‌های سامانه"
 
 #: src/exm-installed-page.blp:59
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "جست‌وجتوی دیگری را بیازمایید یا برخط بجویید"
 
 #: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
 msgid "_Search Online"
-msgstr ""
+msgstr "_جستن برخط"
 
 #: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
-#, fuzzy
-#| msgid "There are no user extensions installed."
 msgid "No Extensions Installed"
-msgstr "هیچ افزونه‌ای توسط کاربر نصب نشده است."
+msgstr "هیچ افزونه‌ای نصب نشده"
 
 #: src/exm-installed-page.blp:80
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search online to install extensions"
-msgstr "جست‌وجو برای افزونه‌ها"
+msgstr "جستن برخط برای نصب افزونه‌ها"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:315
@@ -463,8 +397,8 @@ msgstr[1] "یک افزونه در ورود بعدی به‌روز رسانی خ�
 #, c-format
 msgid "%i Star"
 msgid_plural "%i Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i ستاره"
+msgstr[1] "%i ستاره"
 
 #. Translators: Button's tooltip to zoom out screenshots
 #: src/exm-screenshot-view.blp:37
@@ -479,23 +413,17 @@ msgstr "بزرگ‌نمایی"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "نمایش"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "نصب شده"
+msgstr "گزیدن به نصب‌شده"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "نمایش صفحه مرور"
+msgstr "گزیدن به مرور"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -515,12 +443,12 @@ msgstr "کوچک‌نمایی"
 #: src/exm-shortcuts-dialog.blp:33
 msgctxt "shortcuts dialog"
 msgid "Reset Zoom"
-msgstr ""
+msgstr "بازنشانی بزرگ‌نمایی"
 
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "برنامه"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -528,12 +456,9 @@ msgid "Toggle Search"
 msgstr "روشن/خاموش جست‌وجو"
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "نمایش میانبر صفحه کلید"
+msgstr "میانبر‌های صفحه‌کلید"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
@@ -550,28 +475,23 @@ msgid "Upgrade Assistant"
 msgstr "دستیار ارتقاء"
 
 #: src/exm-upgrade-assistant.blp:65
-#, fuzzy
-#| msgid "Check Compatibility"
 msgid "_Check Compatibility"
-msgstr "بررسی سازگاری"
+msgstr "_بررسی سازگاری"
 
 #: src/exm-upgrade-assistant.blp:145
-#, fuzzy
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
-msgstr "رونوشت به تخته‌گیره"
+msgstr "_رونوشت به تخته‌گیره"
 
 #: src/exm-upgrade-assistant.c:189
-#, fuzzy, c-format
-#| msgid "Search for extensions"
+#, c-format
 msgid "Checked %d/%d Extensions"
-msgstr "جست‌وجو برای افزونه‌ها"
+msgstr "%d/%d تا از افزونه‌ها بررسی شد"
 
 #. Set percentage text
 #: src/exm-upgrade-assistant.c:208
 #, c-format
 msgid "%d%% Compatible"
-msgstr ""
+msgstr "%d%% سازگار است"
 
 #: src/exm-upgrade-assistant.c:224
 #, fuzzy, c-format
@@ -588,26 +508,22 @@ msgstr ""
 #: src/exm-upgrade-assistant.c:231
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
-msgstr ""
+msgstr "اگر به گنوم %s بگزینید، اکنون تمام افزونه‌هایتان باید کار کنند"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
-msgstr ""
+msgstr "اگر به گنوم %s بگزینید، %d تا از افزونه‌هایتان احتمالا کار نکند"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:566
-#, fuzzy
-#| msgid "A compatible version of the extension exists."
 msgid "A compatible version of the extension exists"
-msgstr "یک نگارش سازگار از این افزونه موجود است."
+msgstr "یک نگارش سازگار از این افزونه موجود است"
 
 #. Translators: Icon's tooltip when an extension is not compatible
 #: src/exm-upgrade-assistant.c:573
-#, fuzzy
-#| msgid "No compatible version of the extension exists."
 msgid "No compatible version of the extension exists"
-msgstr "هیچ نگارش سازگاری از این افزونه موجود نیست."
+msgstr "هیچ نگارش سازگاری از این افزونه موجود نیست"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
 #: src/exm-upgrade-assistant.c:580
@@ -629,113 +545,88 @@ msgstr ""
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "افزونه‌های نصب شده توسط کاربر"
+msgstr "جستن افزونه‌های نصب‌شده"
 
 #: src/exm-window.blp:48
 msgid "Main Menu"
-msgstr ""
+msgstr "منو اصلی"
 
 #: src/exm-window.blp:58
-#, fuzzy
-#| msgid "Search for extensions"
 msgid "Search for installed extensions"
-msgstr "جست‌وجو برای افزونه‌ها"
+msgstr "جست‌وجو برای افزونه‌های نصب‌شده"
 
 #: src/exm-window.blp:69
-#, fuzzy
-#| msgctxt "Navigation"
-#| msgid "Installed"
 msgctxt "Navigation"
 msgid "_Installed"
-msgstr "نصب شده"
+msgstr "_نصب شده"
 
 #: src/exm-window.blp:81
-#, fuzzy
-#| msgid "Browse"
 msgctxt "Navigation"
 msgid "_Browse"
-msgstr "مرور"
+msgstr "_مرور"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
 #: src/exm-window.blp:110
-#, fuzzy
-#| msgid "Sort Enabled First"
 msgid "Sort _Enabled First"
 msgstr "مرتب‌سازی افزونه‌های فعّال در ابتدا"
 
 #: src/exm-window.blp:114
-#, fuzzy
-#| msgid "Upgrade Assistant"
 msgid "_Upgrade Assistant"
-msgstr "دستیار ارتقاء"
+msgstr "_دستیار ارتقاء"
 
 #: src/exm-window.blp:115
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_میانبرهای تخته‌کلید"
 
 #: src/exm-window.blp:116
-#, fuzzy
-#| msgid "About Extension Manager"
 msgid "_About Extension Manager"
-msgstr "دربارهٔ مدیر افزونه‌ها"
+msgstr "_دربارهٔ مدیر افزونه‌ها"
 
 #: src/exm-window.blp:121
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Uninstall Extension?"
-msgstr "افزونه‌های نصب شده توسط کاربر"
+msgstr "حذف افزونه؟"
 
 #: src/exm-window.blp:122
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
 msgstr ""
+"امکانات و عملکرد افزونه دیگر در دسترس نخواهد بود. آیا مطمئن هستید که می‌"
+"خواهید حذف نصب کنید؟"
 
 #: src/exm-window.blp:127
 msgid "_No"
-msgstr ""
+msgstr "_نه"
 
 #: src/exm-window.blp:128
 msgid "_Yes"
-msgstr ""
+msgstr "_بله"
 
 #: src/exm-window.blp:133
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Unsupported Extension"
-msgstr "استفاده از افزونه‌ها"
+msgstr "افزونه‌های پشتیبانی‌نشده"
 
 #: src/exm-window.blp:134
-#, fuzzy
-#| msgid ""
-#| "This extension does not support your GNOME Shell version.\n"
-#| "Would you like to install anyway?"
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
-"این افزونه با نگارش کنونی پوستهٔ گنوم شما سازگار نیست.\n"
-"به هر حال نصب شود؟"
+"این افزونه با نگارش کنونی پوستهٔ گنوم شما سازگار نیست. در صورت نصب ممکن است "
+"خطا بروز دهد."
 
 #: src/exm-window.blp:140
-#, fuzzy
-#| msgid "Install"
 msgid "_Install Anyway"
-msgstr "نصب"
+msgstr "بهرحال نصب شود"
 
 #: src/exm-window.blp:141
 msgid "_Go Back"
-msgstr ""
+msgstr "برگشت"
 
 #: src/exm-window.c:354
-#, fuzzy
-#| msgid "Details"
 msgid "_Details"
-msgstr "جزییات"
+msgstr "_جزییات"
 
 #: src/web/exm-request-handler.c:99
 msgid ""
@@ -745,7 +636,7 @@ msgstr ""
 
 #: src/web/exm-request-handler.c:100
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "وضعیت شبکه‌تان را بررسی و دوباره بکوشید"
 
 #~ msgctxt "shortcut window"
 #~ msgid "General"

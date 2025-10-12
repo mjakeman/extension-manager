@@ -8,21 +8,22 @@
 # Nuri KÜÇÜKLER <enatsek@gmail.com>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # Mücahit Şahin <mucahitsahin786@gmail.com>, 2025.
+# Oğuz Ersen <oguz@ersen.moe>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-08-26 12:02+0000\n"
-"Last-Translator: Mücahit Şahin <mucahitsahin786@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
-"manager/app/tr/>\n"
+"PO-Revision-Date: 2025-10-10 20:07+0000\n"
+"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"extension-manager/app/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -103,7 +104,7 @@ msgstr "Azalan Sıra"
 #: src/exm-browse-page.blp:54
 msgctxt "Sort search results"
 msgid "None"
-msgstr ""
+msgstr "Yok"
 
 #: src/exm-browse-page.blp:55
 msgid "Popularity"
