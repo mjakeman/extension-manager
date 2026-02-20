@@ -40,12 +40,14 @@ struct _ExmInstalledPage
     GtkStack *stack;
     AdwBanner *updates_banner;
     AdwSwitchRow *global_toggle;
+    AdwSwitchRow *auto_check_updates_toggle;
     AdwPreferencesGroup *user_prefs_group;
     AdwPreferencesGroup *system_prefs_group;
     AdwPreferencesGroup *search_prefs_group;
     GtkFilterListModel *search_list_model;
 
     gboolean sort_enabled_first;
+    gboolean auto_check_updates;
     gboolean search_mode_enabled;
     const char *search_query;
     guint signal_id;
@@ -57,6 +59,7 @@ enum {
     PROP_0,
     PROP_MANAGER,
     PROP_SORT_ENABLED_FIRST,
+    PROP_AUTO_CHECK_UPDATES,
     PROP_SEARCH_MODE_ENABLED,
     PROP_SEARCH_QUERY,
     N_PROPS
@@ -104,6 +107,9 @@ exm_installed_page_get_property (GObject    *object,
     case PROP_SORT_ENABLED_FIRST:
         g_value_set_boolean (value, self->sort_enabled_first);
         break;
+    case PROP_AUTO_CHECK_UPDATES:
+        g_value_set_boolean (value, self->auto_check_updates);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -125,6 +131,9 @@ exm_installed_page_set_property (GObject      *object,
     case PROP_SORT_ENABLED_FIRST:
         self->sort_enabled_first = g_value_get_boolean (value);
         invalidate_model_bindings (self);
+        break;
+    case PROP_AUTO_CHECK_UPDATES:
+        self->auto_check_updates = g_value_get_boolean (value);
         break;
     case PROP_SEARCH_MODE_ENABLED:
         self->search_mode_enabled = g_value_get_boolean (value);
@@ -450,7 +459,8 @@ on_bind_manager (ExmInstalledPage *self)
     // Check if updates are available
     // NOTE: We need to do this *after* connecting the signal
     // handler above, otherwise we will not be notified.
-    exm_manager_check_for_updates (self->manager);
+    if (self->auto_check_updates)
+        exm_manager_check_for_updates (self->manager);
 }
 
 static void
@@ -476,6 +486,13 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
                                 FALSE,
                                 G_PARAM_READWRITE);
 
+    properties [PROP_AUTO_CHECK_UPDATES]
+        = g_param_spec_boolean ("auto-check-updates",
+                                "Auto Check Updates",
+                                "Auto Check Updates",
+                                TRUE,
+                                G_PARAM_READWRITE);
+
     properties [PROP_SEARCH_MODE_ENABLED]
         = g_param_spec_boolean ("search-mode-enabled",
                                 "Search Mode Enabled",
@@ -499,6 +516,7 @@ exm_installed_page_class_init (ExmInstalledPageClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, stack);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, updates_banner);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, global_toggle);
+    gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, auto_check_updates_toggle);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, user_prefs_group);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, system_prefs_group);
     gtk_widget_class_bind_template_child (widget_class, ExmInstalledPage, search_prefs_group);
@@ -521,6 +539,14 @@ exm_installed_page_init (ExmInstalledPage *self)
     g_settings_bind (settings, "sort-enabled-first",
                      self, "sort-enabled-first",
                      G_SETTINGS_BIND_GET);
+
+    g_settings_bind (settings, "auto-check-updates",
+                     self, "auto-check-updates",
+                     G_SETTINGS_BIND_DEFAULT);
+
+    g_object_bind_property (self, "auto-check-updates",
+                            self->auto_check_updates_toggle, "active",
+                            G_BINDING_BIDIRECTIONAL|G_BINDING_SYNC_CREATE);
 
     g_object_unref (settings);
 }
