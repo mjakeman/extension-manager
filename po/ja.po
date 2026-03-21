@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2026-02-03 12:06+0000\n"
+"PO-Revision-Date: 2026-03-22 14:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
 "manager/app/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -77,7 +77,7 @@ msgstr "GNOME Shell 拡張機能を検索、インストール、管理します
 msgid "translator-credits"
 msgstr ""
 "小山田 純 <oyamadajun@outlook.jp>\n"
-"Ryo Nakano"
+"Ryo Nakano <ryonakaknock3@gmail.com>"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
