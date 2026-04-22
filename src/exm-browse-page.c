@@ -429,10 +429,13 @@ on_bind_manager (ExmBrowsePage *self)
                   "extensions", &ext_model,
                   NULL);
 
-    g_signal_connect_swapped (ext_model,
-                              "items-changed",
-                              G_CALLBACK (refresh_search),
-                              self);
+    g_signal_connect_object (ext_model,
+                             "items-changed",
+                             G_CALLBACK (refresh_search),
+                             self,
+                             G_CONNECT_SWAPPED);
+
+    g_object_unref (ext_model);
 
     refresh_search (self);
 }

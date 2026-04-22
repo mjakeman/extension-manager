@@ -696,10 +696,13 @@ on_bind_manager (ExmDetailView *self)
                                                 G_CALLBACK (on_install_status),
                                                 self);
 
-    g_signal_connect_swapped (ext_model,
-                              "items-changed",
-                              G_CALLBACK (exm_detail_view_update),
-                              self);
+    g_signal_connect_object (ext_model,
+                             "items-changed",
+                             G_CALLBACK (exm_detail_view_update),
+                             self,
+                             G_CONNECT_SWAPPED);
+
+    g_object_unref (ext_model);
 }
 
 static void
