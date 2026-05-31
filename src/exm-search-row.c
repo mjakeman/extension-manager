@@ -40,6 +40,8 @@ struct _ExmSearchRow
     gboolean compact;
     gchar *uuid;
 
+    GCancellable *cancellable;
+
     GtkLabel *description_label;
     ExmInstallButton *install_btn;
     guint signal_id;
@@ -66,6 +68,19 @@ exm_search_row_new (ExmManager      *manager,
                          "manager", manager,
                          "search-result", search_result,
                          NULL);
+}
+
+static void
+exm_search_row_dispose (GObject *object)
+{
+    ExmSearchRow *self = EXM_SEARCH_ROW (object);
+
+    g_cancellable_cancel (self->cancellable);
+    g_clear_object (&self->cancellable);
+
+    gtk_widget_dispose_template (GTK_WIDGET (self), EXM_TYPE_SEARCH_ROW);
+
+    G_OBJECT_CLASS (exm_search_row_parent_class)->dispose (object);
 }
 
 static void
@@ -156,6 +171,14 @@ on_version_loaded (GObject      *source,
     list = exm_versions_provider_query_finish (EXM_VERSIONS_PROVIDER (source), result, &next, &error);
     self = EXM_SEARCH_ROW (user_data);
 
+    if (!self->install_btn)
+    {
+        g_clear_object (&list);
+        g_clear_error (&error);
+        g_object_unref (self);
+        return;
+    }
+
     is_installed = exm_manager_is_installed_uuid (self->manager, self->uuid);
 
     if (error)
@@ -166,6 +189,7 @@ on_version_loaded (GObject      *source,
         g_object_set (self->install_btn, "state", install_state, NULL);
 
         g_clear_error (&error);
+        g_object_unref (self);
         return;
     }
 
@@ -201,10 +225,11 @@ on_version_loaded (GObject      *source,
     {
         exm_versions_provider_query_next_async (self->versions_provider,
                                                 next,
-                                                NULL,
+                                                self->cancellable,
                                                 on_version_loaded,
-                                                self);
+                                                g_object_ref (self));
         g_object_unref (list);
+        g_object_unref (self);
         return;
     }
     else
@@ -218,6 +243,7 @@ on_version_loaded (GObject      *source,
     g_object_unref (list);
 
     install_extension (install_state, self);
+    g_object_unref (self);
 }
 
 static void
@@ -247,7 +273,8 @@ install_remote (GtkButton    *button G_GNUC_UNUSED,
 
         g_object_set (self->install_btn, "state", EXM_INSTALL_BUTTON_STATE_LOADING, NULL);
 
-        exm_versions_provider_query_async (self->versions_provider, self->uuid, NULL, on_version_loaded, self);
+        self->cancellable = g_cancellable_new ();
+        exm_versions_provider_query_async (self->versions_provider, self->uuid, self->cancellable, on_version_loaded, g_object_ref (self));
     }
     else
     {
@@ -311,6 +338,7 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->dispose = exm_search_row_dispose;
     object_class->get_property = exm_search_row_get_property;
     object_class->set_property = exm_search_row_set_property;
     object_class->constructed = exm_search_row_constructed;
