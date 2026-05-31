@@ -1763,7 +1763,7 @@ shell_extensions_call_list_extensions (
 gboolean
 shell_extensions_call_list_extensions_finish (
     ShellExtensions *proxy,
-    GVariant **out_extensions,
+    GVariant ** out_extensions,
     GAsyncResult *res,
     GError **error)
 {
@@ -1795,7 +1795,7 @@ _out:
 gboolean
 shell_extensions_call_list_extensions_sync (
     ShellExtensions *proxy,
-    GVariant **out_extensions,
+    GVariant ** out_extensions,
     GCancellable *cancellable,
     GError **error)
 {
@@ -1864,7 +1864,7 @@ shell_extensions_call_get_extension_info (
 gboolean
 shell_extensions_call_get_extension_info_finish (
     ShellExtensions *proxy,
-    GVariant **out_info,
+    GVariant ** out_info,
     GAsyncResult *res,
     GError **error)
 {
@@ -1898,7 +1898,7 @@ gboolean
 shell_extensions_call_get_extension_info_sync (
     ShellExtensions *proxy,
     const gchar *arg_uuid,
-    GVariant **out_info,
+    GVariant ** out_info,
     GCancellable *cancellable,
     GError **error)
 {
@@ -1968,7 +1968,7 @@ shell_extensions_call_get_extension_errors (
 gboolean
 shell_extensions_call_get_extension_errors_finish (
     ShellExtensions *proxy,
-    gchar ***out_errors,
+    gchar *** out_errors,
     GAsyncResult *res,
     GError **error)
 {
@@ -2002,7 +2002,7 @@ gboolean
 shell_extensions_call_get_extension_errors_sync (
     ShellExtensions *proxy,
     const gchar *arg_uuid,
-    gchar ***out_errors,
+    gchar *** out_errors,
     GCancellable *cancellable,
     GError **error)
 {
@@ -2072,7 +2072,7 @@ shell_extensions_call_install_remote_extension (
 gboolean
 shell_extensions_call_install_remote_extension_finish (
     ShellExtensions *proxy,
-    gchar **out_result,
+    gchar ** out_result,
     GAsyncResult *res,
     GError **error)
 {
@@ -2106,7 +2106,7 @@ gboolean
 shell_extensions_call_install_remote_extension_sync (
     ShellExtensions *proxy,
     const gchar *arg_uuid,
-    gchar **out_result,
+    gchar ** out_result,
     GCancellable *cancellable,
     GError **error)
 {
@@ -2176,7 +2176,7 @@ shell_extensions_call_uninstall_extension (
 gboolean
 shell_extensions_call_uninstall_extension_finish (
     ShellExtensions *proxy,
-    gboolean *out_success,
+    gboolean* out_success,
     GAsyncResult *res,
     GError **error)
 {
@@ -2210,7 +2210,7 @@ gboolean
 shell_extensions_call_uninstall_extension_sync (
     ShellExtensions *proxy,
     const gchar *arg_uuid,
-    gboolean *out_success,
+    gboolean* out_success,
     GCancellable *cancellable,
     GError **error)
 {
@@ -2378,7 +2378,7 @@ shell_extensions_call_enable_extension (
 gboolean
 shell_extensions_call_enable_extension_finish (
     ShellExtensions *proxy,
-    gboolean *out_success,
+    gboolean* out_success,
     GAsyncResult *res,
     GError **error)
 {
@@ -2412,7 +2412,7 @@ gboolean
 shell_extensions_call_enable_extension_sync (
     ShellExtensions *proxy,
     const gchar *arg_uuid,
-    gboolean *out_success,
+    gboolean* out_success,
     GCancellable *cancellable,
     GError **error)
 {
@@ -2482,7 +2482,7 @@ shell_extensions_call_disable_extension (
 gboolean
 shell_extensions_call_disable_extension_finish (
     ShellExtensions *proxy,
-    gboolean *out_success,
+    gboolean* out_success,
     GAsyncResult *res,
     GError **error)
 {
@@ -2516,7 +2516,7 @@ gboolean
 shell_extensions_call_disable_extension_sync (
     ShellExtensions *proxy,
     const gchar *arg_uuid,
-    gboolean *out_success,
+    gboolean* out_success,
     GCancellable *cancellable,
     GError **error)
 {
@@ -3792,8 +3792,14 @@ shell_extensions_skeleton_finalize (GObject *object)
     g_value_unset (&skeleton->priv->properties[n]);
   g_free (skeleton->priv->properties);
   g_list_free_full (skeleton->priv->changed_properties, (GDestroyNotify) _changed_property_free);
+#if GLIB_VERSION_MAX_ALLOWED >= GLIB_VERSION_2_38
+  /* coverity[missing_lock : SUPPRESS] */
+  g_clear_pointer (&skeleton->priv->changed_properties_idle_source, g_source_destroy);
+#else
   if (skeleton->priv->changed_properties_idle_source != NULL)
     g_source_destroy (skeleton->priv->changed_properties_idle_source);
+skeleton->priv->changed_properties_idle_source = NULL;
+#endif
   g_main_context_unref (skeleton->priv->context);
   g_mutex_clear (&skeleton->priv->lock);
   G_OBJECT_CLASS (shell_extensions_skeleton_parent_class)->finalize (object);
