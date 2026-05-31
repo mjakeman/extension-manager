@@ -78,15 +78,22 @@ exm_browse_page_new (void)
 }
 
 static void
-exm_browse_page_finalize (GObject *object)
+exm_browse_page_dispose (GObject *object)
 {
     GtkWidget *child;
-    ExmBrowsePage *self = (ExmBrowsePage *)object;
+    ExmBrowsePage *self = EXM_BROWSE_PAGE (object);
+
+    g_cancellable_cancel (self->cancellable);
+    g_clear_object (&self->cancellable);
+    g_clear_object (&self->search_results_model);
+
+    gtk_widget_dispose_template (GTK_WIDGET (self), EXM_TYPE_BROWSE_PAGE);
 
     child = gtk_widget_get_first_child (GTK_WIDGET (self));
-    gtk_widget_unparent (child);
+    if (child != NULL)
+        gtk_widget_unparent (child);
 
-    G_OBJECT_CLASS (exm_browse_page_parent_class)->finalize (object);
+    G_OBJECT_CLASS (exm_browse_page_parent_class)->dispose (object);
 }
 
 static void
@@ -182,6 +189,14 @@ on_first_page_result (GObject       *source,
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
 
+    if (!self->search_results)
+    {
+        g_clear_object (&to_append);
+        g_clear_error (&error);
+        g_object_unref (self);
+        return;
+    }
+
     if (error)
     {
         gtk_label_set_text (self->error_label, error->message);
@@ -190,6 +205,7 @@ on_first_page_result (GObject       *source,
 
         g_clear_error (&error);
 
+        g_object_unref (self);
         return;
     }
 
@@ -203,6 +219,8 @@ on_first_page_result (GObject       *source,
     refresh_search (self);
 
     update_load_more_btn (self);
+
+    g_object_unref (self);
 }
 
 static void
@@ -216,6 +234,21 @@ on_next_page_result (GObject       *source,
     int i;
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
+
+    if (!self->search_results)
+    {
+        g_clear_object (&to_append);
+        g_clear_error (&error);
+        g_object_unref (self);
+        return;
+    }
+
+    if (error)
+    {
+        g_clear_error (&error);
+        g_object_unref (self);
+        return;
+    }
 
     if (G_IS_LIST_MODEL (to_append))
     {
@@ -255,6 +288,8 @@ on_next_page_result (GObject       *source,
     }
 
     update_load_more_btn (self);
+
+    g_object_unref (self);
 }
 
 static void
@@ -273,7 +308,7 @@ on_load_more_results (AdwButtonRow  *row G_GNUC_UNUSED,
     sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
     exm_search_provider_query_async (self->search, query, ++self->current_page, sort, self->cancellable,
                                      (GAsyncReadyCallback) on_next_page_result,
-                                     self);
+                                     g_object_ref (self));
 }
 
 static void
@@ -294,7 +329,7 @@ search (ExmBrowsePage *self,
 
     exm_search_provider_query_async (self->search, query, 1, sort, self->cancellable,
                                      (GAsyncReadyCallback) on_first_page_result,
-                                     self);
+                                     g_object_ref (self));
 }
 
 void
@@ -394,10 +429,13 @@ on_bind_manager (ExmBrowsePage *self)
                   "extensions", &ext_model,
                   NULL);
 
-    g_signal_connect_swapped (ext_model,
-                              "items-changed",
-                              G_CALLBACK (refresh_search),
-                              self);
+    g_signal_connect_object (ext_model,
+                             "items-changed",
+                             G_CALLBACK (refresh_search),
+                             self,
+                             G_CONNECT_SWAPPED);
+
+    g_object_unref (ext_model);
 
     refresh_search (self);
 }
@@ -441,7 +479,7 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = exm_browse_page_finalize;
+    object_class->dispose = exm_browse_page_dispose;
     object_class->get_property = exm_browse_page_get_property;
     object_class->set_property = exm_browse_page_set_property;
 
