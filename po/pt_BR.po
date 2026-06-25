@@ -7,13 +7,14 @@
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # Mateus Liberale Gomes <sergiogomes209403@gmail.com>, 2025.
 # Marcos Pereira <pereira.mvini@gmail.com>, 2025.
+# Carlos André <andre.h4rkov@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2025-12-08 14:00+0000\n"
-"Last-Translator: Marcos Pereira <pereira.mvini@gmail.com>\n"
+"PO-Revision-Date: 2026-06-26 20:01+0000\n"
+"Last-Translator: Carlos André <andre.h4rkov@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "extension-manager/app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -70,7 +71,7 @@ msgstr "Veja todos os detalhes das suas extensões"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:34
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr ""
-"Verifique a compatibilidade das suas extensões para a próxima versão do GNOME"
+"Verifique a compatibilidade das suas extensões com a próxima versão do GNOME"
 
 #: src/exm-application.c:175
 msgid "Browse, install, and manage GNOME Shell Extensions."
@@ -263,9 +264,9 @@ msgid ""
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
 "Você está usando uma compilação de terceiros do Gerenciador de Extensões. "
-"Por favor, <span weight=\"bold\">entre em contato primeiro com o "
-"distribuidor do pacote (%s)</span> antes de registrar um problema. "
-"Certifique-se de anexar as seguintes informações:"
+"Por favor, <span weight=\"bold\">entre em contato (%s)primeiro</span> com o "
+"distribuidor do pacote antes de registrar um problema. Certifique-se de "
+"anexar as seguintes informações:"
 
 #. Translators: Button's tooltip to open extension's preferences dialog
 #: src/exm-extension-row.blp:28
@@ -506,8 +507,8 @@ msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>%d entre %d</b> as extensões instaladas no sistema atualmente que foram "
-"marcadas como suportam o <b>GNOME %s</b>"
+"<b>%d das %d</b> extensões atualmente instaladas neste sistema foram "
+"marcadas como compatíveis com o <b>GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
@@ -519,7 +520,8 @@ msgstr ""
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
-"Se você mudar para o GNOME %s agora, %d das suas extensões devem funcionar"
+"Se você mudar para o GNOME %s agora, %d das suas extensões podem não "
+"funcionar"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:566
