@@ -141,6 +141,10 @@ search_widget_factory (ExmSearchResult *result,
 
     row = exm_search_row_new (self->manager, result);
 
+    g_object_bind_property (self->search, "show-unsupported",
+                            row, "show-unsupported",
+                            G_BINDING_SYNC_CREATE);
+
     g_value_init (&value, G_TYPE_BOOLEAN);
     g_value_set_boolean (&value, TRUE);
     adw_breakpoint_add_setter (self->breakpoint, G_OBJECT (row), "compact", &value);
@@ -425,6 +429,15 @@ on_bind_manager (ExmBrowsePage *self)
 {
     GListModel *ext_model;
 
+    g_object_bind_property (self->manager, "shell-version",
+                            self->search, "shell-version",
+                            G_BINDING_SYNC_CREATE);
+
+    g_signal_connect_swapped (self->search,
+                              "notify::shell-version",
+                              G_CALLBACK (on_search_changed),
+                              self);
+
     g_object_get (self->manager,
                   "extensions", &ext_model,
                   NULL);
@@ -518,9 +531,24 @@ exm_browse_page_class_init (ExmBrowsePageClass *klass)
 static void
 exm_browse_page_init (ExmBrowsePage *self)
 {
+    GSettings *settings;
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->search = exm_search_provider_new ();
+
+    settings = g_settings_new (APP_ID);
+
+    g_settings_bind (settings, "show-unsupported",
+                     self->search, "show-unsupported",
+                     G_SETTINGS_BIND_GET);
+
+    g_object_unref (settings);
+
+    g_signal_connect_swapped (self->search,
+                              "notify::show-unsupported",
+                              G_CALLBACK (on_search_changed),
+                              self);
 
     load_suggestions (self);
 

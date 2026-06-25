@@ -142,11 +142,6 @@ update_state (ExmInstallButton *button)
                                      _("This extension is incompatible with your current version of GNOME"));
         gtk_widget_set_sensitive (GTK_WIDGET (button), TRUE);
         break;
-    case EXM_INSTALL_BUTTON_STATE_LOADING:
-        gtk_button_set_child (GTK_BUTTON (button), GTK_WIDGET (adw_spinner_new ()));
-        gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("Loading"));
-        gtk_widget_set_sensitive (GTK_WIDGET (button), FALSE);
-        break;
     }
 }
 

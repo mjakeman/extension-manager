@@ -28,9 +28,20 @@
 struct _ExmSearchProvider
 {
     ExmRequestHandler parent_instance;
+    gchar *shell_version;
+    gboolean show_unsupported;
 };
 
 G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM_TYPE_REQUEST_HANDLER)
+
+enum {
+    PROP_0,
+    PROP_SHELL_VERSION,
+    PROP_SHOW_UNSUPPORTED,
+    N_PROPS
+};
+
+static GParamSpec *properties [N_PROPS];
 
 typedef struct
 {
@@ -42,6 +53,59 @@ ExmSearchProvider *
 exm_search_provider_new (void)
 {
     return g_object_new (EXM_TYPE_SEARCH_PROVIDER, NULL);
+}
+
+static void
+exm_search_provider_dispose (GObject *object)
+{
+    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
+
+    g_clear_pointer (&self->shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_search_provider_parent_class)->dispose (object);
+}
+
+static void
+exm_search_provider_get_property (GObject    *object,
+                                  guint       prop_id,
+                                  GValue     *value,
+                                  GParamSpec *pspec)
+{
+    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
+
+    switch (prop_id)
+    {
+    case PROP_SHELL_VERSION:
+        g_value_set_string (value, self->shell_version);
+        break;
+    case PROP_SHOW_UNSUPPORTED:
+        g_value_set_boolean (value, self->show_unsupported);
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
+exm_search_provider_set_property (GObject      *object,
+                                  guint         prop_id,
+                                  const GValue *value,
+                                  GParamSpec   *pspec)
+{
+    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
+
+    switch (prop_id)
+    {
+    case PROP_SHELL_VERSION:
+        g_free (self->shell_version);
+        self->shell_version = g_value_dup_string (value);
+        break;
+    case PROP_SHOW_UNSUPPORTED:
+        self->show_unsupported = g_value_get_boolean (value);
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
 }
 
 static SearchRequestData *
@@ -153,17 +217,23 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
     if (g_strcmp0 (sort, "") != 0)
         sort = g_strdup_printf ("ordering=%s&", sort);
 
+    gchar *version_suffix = (!self->show_unsupported && self->shell_version)
+        ? g_strdup_printf ("&shell_version=%s", self->shell_version)
+        : g_strdup ("");
+
     if (g_strcmp0 (query, "") == 0)
     {
         if (g_strcmp0 (sort, "") == 0)
             sort = g_strdup_printf ("ordering=-popularity&");
 
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3", sort, page);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3%s", sort, page, version_suffix);
     }
     else
     {
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10", query, sort, page);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10%s", query, sort, page, version_suffix);
     }
+
+    g_free (version_suffix);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
@@ -211,9 +281,31 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
 static void
 exm_search_provider_class_init (ExmSearchProviderClass *klass)
 {
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->dispose = exm_search_provider_dispose;
+    object_class->get_property = exm_search_provider_get_property;
+    object_class->set_property = exm_search_provider_set_property;
+
     ExmRequestHandlerClass *request_handler_class = EXM_REQUEST_HANDLER_CLASS (klass);
 
     request_handler_class->handle_response = (ResponseHandler) parse_search_results;
+
+    properties [PROP_SHELL_VERSION]
+        = g_param_spec_string ("shell-version",
+                               "Shell Version",
+                               "Shell Version",
+                               NULL,
+                               G_PARAM_READWRITE);
+
+    properties [PROP_SHOW_UNSUPPORTED]
+        = g_param_spec_boolean ("show-unsupported",
+                                "Show Unsupported",
+                                "Show Unsupported",
+                                FALSE,
+                                G_PARAM_READWRITE);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
 static void

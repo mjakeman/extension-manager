@@ -108,6 +108,7 @@ menu primary_menu {
     // Translators: the character preceded by "_" should not be the same
     // as others in the same menu
     item (_("Sort _Enabled First"), "app.sort-enabled-first")
+    item (_("Show _Unsupported"), "app.show-unsupported")
   }
 
   section {
@@ -119,7 +120,9 @@ menu primary_menu {
 
 Adw.AlertDialog remove_dialog {
   heading: _("Uninstall Extension?");
-  body: _("The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?");
+  body: _(
+    "The extension's features and functionality will no longer be accessible. Are you sure you want to uninstall?"
+  );
   default-response: "no";
   close-response: "no";
 
