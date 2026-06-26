@@ -547,7 +547,7 @@ parse_single_extension (ExmExtension **extension,
     gboolean is_user = FALSE;
     ExmExtensionType type = EXM_EXTENSION_TYPE_SYSTEM;
     GPtrArray *session_modes = g_ptr_array_new_with_free_func (g_free);
-    GHashTable *donations = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+    GHashTable *donations = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, (GDestroyNotify) g_ptr_array_unref);
 
     if (extension && *extension)
     {
@@ -643,12 +643,31 @@ parse_single_extension (ExmExtension **extension,
         else if (g_strcmp0 (prop_name, "donations") == 0)
         {
             GVariantIter iter;
+            GVariant *donation_entry;
             gchar *key;
             g_variant_iter_init (&iter, prop_value);
-            while (g_variant_iter_loop (&iter, "{sv}", &key, &prop_value))
+
+            while (g_variant_iter_loop (&iter, "{sv}", &key, &donation_entry))
             {
-                const gchar *donation_value = g_variant_get_string (prop_value, NULL);
-                g_hash_table_insert (donations, g_strdup (key), g_strdup (donation_value));
+                GPtrArray *usernames = g_ptr_array_new_with_free_func (g_free);
+
+                if (g_variant_is_of_type (donation_entry, G_VARIANT_TYPE_STRING))
+                {
+                    g_ptr_array_add (usernames, g_variant_dup_string (donation_entry, NULL));
+                }
+                else if (g_variant_is_container (donation_entry))
+                {
+                    for (gsize j = 0; j < g_variant_n_children (donation_entry); j++)
+                    {
+                        GVariant *child_v = g_variant_get_child_value (donation_entry, j);
+                        GVariant *child_s = g_variant_get_variant (child_v);
+                        g_ptr_array_add (usernames, g_variant_dup_string (child_s, NULL));
+                        g_variant_unref (child_s);
+                        g_variant_unref (child_v);
+                    }
+                }
+
+                g_hash_table_insert (donations, g_strdup (key), usernames);
             }
         }
     }
