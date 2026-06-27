@@ -266,6 +266,21 @@ template $ExmDetailView: Adw.NavigationPage {
                     }
                   }
 
+                  Adw.ActionRow link_donation {
+                    [prefix]
+                    Gtk.Image {
+                      icon-name: "donation-symbolic";
+                    }
+
+                    title: _("Donate");
+                    activatable: true;
+
+                    [suffix]
+                    Gtk.Image {
+                      icon-name: "external-link-symbolic";
+                    }
+                  }
+
                   Adw.ExpanderRow links_donations {
                     [prefix]
                     Gtk.Image {

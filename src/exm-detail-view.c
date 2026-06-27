@@ -82,6 +82,7 @@ struct _ExmDetailView
 
     AdwActionRow *link_homepage;
     gchar *uri_homepage;
+    AdwActionRow *link_donation;
     AdwExpanderRow *links_donations;
     gchar **uri_donations;
     GList *donation_rows_list;
@@ -340,7 +341,7 @@ new_donation_row (ExmDetailView *self,
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), self->uri_donations[num_donation]);
     gtk_list_box_row_set_activatable (GTK_LIST_BOX_ROW (row), TRUE);
 
-    gtk_actionable_set_action_name (GTK_ACTIONABLE (row), "detail.open-donation");
+    gtk_actionable_set_action_name (GTK_ACTIONABLE (row), "detail.open-donations");
     gtk_actionable_set_action_target_value (GTK_ACTIONABLE (row), g_variant_new_int32 (num_donation));
 
     external_link_icon = gtk_image_new_from_icon_name ("external-link-symbolic");
@@ -365,25 +366,41 @@ static void
 update_donation_rows (ExmDetailView  *self,
                       gchar         **donation_urls)
 {
+    guint n_urls;
+
+    gtk_widget_set_visible (GTK_WIDGET (self->link_donation), FALSE);
     gtk_widget_set_visible (GTK_WIDGET (self->links_donations), FALSE);
     delete_donation_rows (self);
 
     if (donation_urls == NULL || donation_urls[0] == NULL)
         return;
 
-    self->uri_donations = g_new0 (gchar *, g_strv_length (donation_urls));
+    n_urls = g_strv_length (donation_urls);
 
-    for (int i = 0; donation_urls[i] != NULL; i++)
+    self->uri_donations = g_new0 (gchar *, n_urls);
+
+    for (guint i = 0; donation_urls[i] != NULL; i++)
     {
         self->uri_donations[i] = g_uri_resolve_relative (donation_urls[i],
                                                          "",
                                                          G_URI_FLAGS_NONE,
                                                          NULL);
-        new_donation_row (self, i);
     }
 
-    adw_expander_row_set_expanded (self->links_donations, FALSE);
-    gtk_widget_set_visible (GTK_WIDGET (self->links_donations), TRUE);
+    if (n_urls == 1)
+    {
+        adw_action_row_set_subtitle (self->link_donation, self->uri_donations[0]);
+        gtk_actionable_set_action_name (GTK_ACTIONABLE (self->link_donation), "detail.open-donation");
+        gtk_widget_set_visible (GTK_WIDGET (self->link_donation), TRUE);
+    }
+    else
+    {
+        for (guint i = 0; donation_urls[i] != NULL; i++)
+            new_donation_row (self, i);
+
+        adw_expander_row_set_expanded (self->links_donations, FALSE);
+        gtk_widget_set_visible (GTK_WIDGET (self->links_donations), TRUE);
+    }
 }
 
 static gchar *
@@ -782,11 +799,15 @@ open_link (ExmDetailView *self,
     {
         uri = gtk_uri_launcher_new (self->uri_homepage);
     }
-    else if (strcmp (action_name, "detail.open-donation") == 0)
+    else if (strcmp (action_name, "detail.open-donations") == 0)
     {
         guint val;
         g_variant_get (param, "i", &val);
         uri = gtk_uri_launcher_new (self->uri_donations[val]);
+    }
+    else if (strcmp (action_name, "detail.open-donation") == 0)
+    {
+        uri = gtk_uri_launcher_new (self->uri_donations[0]);
     }
     else
     {
@@ -904,6 +925,7 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, session_modes_row);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, session_modes_label);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_homepage);
+    gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_donation);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, links_donations);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, link_extensions);
     gtk_widget_class_bind_template_child (widget_class, ExmDetailView, scroll_area);
@@ -918,7 +940,8 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_install_action (widget_class, "detail.show-versions", NULL, show_versions);
     gtk_widget_class_install_action (widget_class, "detail.open-extensions", NULL, (GtkWidgetActionActivateFunc) open_link);
     gtk_widget_class_install_action (widget_class, "detail.open-homepage", NULL, (GtkWidgetActionActivateFunc) open_link);
-    gtk_widget_class_install_action (widget_class, "detail.open-donation", "i", (GtkWidgetActionActivateFunc) open_link);
+    gtk_widget_class_install_action (widget_class, "detail.open-donations", "i", (GtkWidgetActionActivateFunc) open_link);
+    gtk_widget_class_install_action (widget_class, "detail.open-donation", NULL, (GtkWidgetActionActivateFunc) open_link);
 }
 
 static void
