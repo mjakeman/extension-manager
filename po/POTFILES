@@ -33,6 +33,8 @@ src/exm-upgrade-assistant.blp
 src/exm-upgrade-assistant.c
 src/exm-upgrade-result.c
 src/exm-utils.c
+src/exm-versions-dialog.blp
+src/exm-versions-dialog.c
 src/exm-window.blp
 src/exm-window.c
 src/exm-zoom-picture.c
