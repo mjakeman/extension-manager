@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 09:43+0000\n"
-"PO-Revision-Date: 2026-02-20 11:09+0000\n"
+"PO-Revision-Date: 2026-04-13 11:09+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/extension-manager/"
 "app/ga/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :(n>"
 "6 && n<11) ? 3 : 4;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -549,8 +549,8 @@ msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"Faoi láthair tá tú ag rith <b>GNOME %s </b>. Roghnaigh leagan de GNOME thíos "
-"agus seiceáil an leanfaidh do shíneadh ar fáil."
+"Tá <b>GNOME %s</b> á rith agat faoi láthair. Roghnaigh leagan de GNOME thíos "
+"agus seiceáil an mbeidh do shíntí ar fáil fós."
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:39
