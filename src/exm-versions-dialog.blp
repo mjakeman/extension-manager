@@ -1,0 +1,82 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.SpinnerPaintable spinner {
+  widget: loading_status;
+}
+
+template $ExmVersionsDialog: Adw.Dialog {
+  content-width: 600;
+  content-height: 600;
+  width-request: 360;
+  height-request: 294;
+  title: _("Version History");
+
+  child: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {}
+
+    content: Gtk.Stack stack {
+      Gtk.StackPage {
+        name: "loading";
+
+        child: Adw.StatusPage loading_status {
+          paintable: spinner;
+          title: _("Loading Versions");
+        };
+      }
+
+      Gtk.StackPage {
+        name: "empty";
+
+        child: Adw.StatusPage {
+          icon-name: "dialog-question-symbolic";
+          title: _("No Version History");
+        };
+      }
+
+      Gtk.StackPage {
+        name: "list";
+
+        child: Gtk.ScrolledWindow {
+          Adw.Clamp {
+            maximum-size: 600;
+            margin-top: 12;
+            margin-bottom: 12;
+            margin-start: 12;
+            margin-end: 12;
+
+            Gtk.Box {
+              orientation: vertical;
+              spacing: 12;
+
+              Gtk.ListBox version_list {
+                styles [
+                  "boxed-list",
+                ]
+
+                selection-mode: none;
+              }
+
+              Gtk.ListBox more_list {
+                styles [
+                  "boxed-list",
+                ]
+
+                selection-mode: none;
+                visible: false;
+
+                Adw.ButtonRow more_btn {
+                  start-icon-name: "view-more-symbolic";
+                  title: _("_Load More Versions");
+                  use-underline: true;
+                  activated => $on_more_btn_activated();
+                }
+              }
+            }
+          }
+        };
+      }
+    };
+  };
+}
