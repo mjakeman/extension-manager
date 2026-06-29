@@ -681,6 +681,12 @@ on_data_loaded (GObject      *source,
             gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), FALSE);
         }
 
+        gboolean is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
+        g_object_set (self->ext_install, "state",
+                      is_installed ? EXM_INSTALL_BUTTON_STATE_INSTALLED
+                                   : EXM_INSTALL_BUTTON_STATE_DEFAULT,
+                      NULL);
+
         exm_versions_provider_query_async (self->versions_provider, uuid, self->resolver_cancel, on_version_loaded, self);
 
         self->uri_homepage = g_uri_resolve_relative (url,
@@ -763,7 +769,7 @@ exm_detail_view_update (ExmDetailView *self)
     if (exm_manager_is_installed_uuid (self->manager, self->uuid))
         g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_INSTALLED, NULL);
     else
-        g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_LOADING, NULL);
+        g_object_set (self->ext_install, "state", EXM_INSTALL_BUTTON_STATE_DEFAULT, NULL);
 
 }
 
