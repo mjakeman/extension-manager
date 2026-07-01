@@ -28,6 +28,16 @@ template $ExmInstalledPage: Gtk.Widget {
             title: _("Use Extensions");
             subtitle: _("Extensions can cause performance and stability issues");
           }
+
+          Adw.SwitchRow auto_check_updates_toggle {
+            [prefix]
+            Gtk.Image {
+              icon-name: 'software-update-available-symbolic';
+            }
+
+            title: _("Auto Check for Updates");
+            subtitle: _("Check for extension updates on startup");
+          }
         }
 
         Adw.PreferencesGroup user_prefs_group {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-28 09:43+0000\n"
+"POT-Creation-Date: 2026-02-20 08:59-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,7 +116,7 @@ msgstr ""
 msgid "_Load More Results"
 msgstr ""
 
-#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:58
+#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:68
 msgid "No Results Found"
 msgstr ""
 
@@ -348,32 +348,40 @@ msgstr ""
 msgid "Extensions can cause performance and stability issues"
 msgstr ""
 
-#: src/exm-installed-page.blp:35 src/exm-upgrade-assistant.blp:135
+#: src/exm-installed-page.blp:38
+msgid "Auto Check for Updates"
+msgstr ""
+
+#: src/exm-installed-page.blp:39
+msgid "Check for extension updates on startup"
+msgstr ""
+
+#: src/exm-installed-page.blp:45 src/exm-upgrade-assistant.blp:135
 msgid "User-Installed Extensions"
 msgstr ""
 
-#: src/exm-installed-page.blp:40 src/exm-upgrade-assistant.blp:139
+#: src/exm-installed-page.blp:50 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
 msgstr ""
 
-#: src/exm-installed-page.blp:59
+#: src/exm-installed-page.blp:69
 msgid "Try a different search or search online"
 msgstr ""
 
-#: src/exm-installed-page.blp:66 src/exm-installed-page.blp:87
+#: src/exm-installed-page.blp:76 src/exm-installed-page.blp:97
 msgid "_Search Online"
 msgstr ""
 
-#: src/exm-installed-page.blp:79 src/exm-upgrade-assistant.c:496
+#: src/exm-installed-page.blp:89 src/exm-upgrade-assistant.c:496
 msgid "No Extensions Installed"
 msgstr ""
 
-#: src/exm-installed-page.blp:80
+#: src/exm-installed-page.blp:90
 msgid "Search online to install extensions"
 msgstr ""
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:315
+#: src/exm-installed-page.c:324
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"

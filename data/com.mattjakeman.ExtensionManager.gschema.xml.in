@@ -19,5 +19,10 @@
       <summary>Sort Enabled First</summary>
       <description>Display enabled extensions first in the installed view.</description>
     </key>
+    <key name="auto-check-updates" type="b">
+      <default>true</default>
+      <summary>Auto Check for Updates</summary>
+      <description>Automatically check for extension updates on startup.</description>
+    </key>
   </schema>
 </schemalist>
