@@ -28,7 +28,7 @@
 struct _ExmVersionsProvider
 {
     ExmRequestHandler parent_instance;
-    const gchar *shell_version;
+    gchar *shell_version;
 };
 
 G_DEFINE_FINAL_TYPE (ExmVersionsProvider, exm_versions_provider, EXM_TYPE_REQUEST_HANDLER)
@@ -51,6 +51,16 @@ ExmVersionsProvider *
 exm_versions_provider_new (void)
 {
     return g_object_new (EXM_TYPE_VERSIONS_PROVIDER, NULL);
+}
+
+static void
+exm_versions_provider_dispose (GObject *object)
+{
+    ExmVersionsProvider *self = EXM_VERSIONS_PROVIDER (object);
+
+    g_clear_pointer (&self->shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_versions_provider_parent_class)->dispose (object);
 }
 
 static void
@@ -82,7 +92,8 @@ exm_versions_provider_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_SHELL_VERSION:
-        self->shell_version = g_value_get_string (value);
+        g_free (self->shell_version);
+        self->shell_version = g_value_dup_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -157,8 +168,12 @@ exm_versions_provider_query_async (ExmVersionsProvider *self,
     // Query https://extensions.gnome.org/api/v1/extensions/{%s}/versions/
 
     const gchar *url;
+    gchar *version_suffix = self->shell_version
+        ? g_strdup_printf ("&shell_version=%s", self->shell_version)
+        : g_strdup ("");
 
-    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/versions/?page=1&page_size=100", uuid);
+    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/versions/?page=1&page_size=100%s", uuid, version_suffix);
+    g_free (version_suffix);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
@@ -221,6 +236,7 @@ exm_versions_provider_class_init (ExmVersionsProviderClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->dispose = exm_versions_provider_dispose;
     object_class->get_property = exm_versions_provider_get_property;
     object_class->set_property = exm_versions_provider_set_property;
 
@@ -239,8 +255,6 @@ exm_versions_provider_class_init (ExmVersionsProviderClass *klass)
 }
 
 static void
-exm_versions_provider_init (ExmVersionsProvider *self)
+exm_versions_provider_init (ExmVersionsProvider *self G_GNUC_UNUSED)
 {
-    // TODO: Get current GNOME Shell Version
-    self->shell_version = "42";
 }
