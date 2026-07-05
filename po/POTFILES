@@ -1,5 +1,6 @@
 data/com.mattjakeman.ExtensionManager.desktop.in.in
 data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in
+src/exm-animated-paintable.c
 src/exm-application.c
 src/exm-backtrace.c
 src/exm-browse-page.blp
@@ -16,8 +17,8 @@ src/exm-extension-error-dialog.blp
 src/exm-extension-error-dialog.c
 src/exm-extension-row.blp
 src/exm-extension-row.c
-src/exm-info-bar.blp
-src/exm-info-bar.c
+src/exm-extension-toggle.c
+src/exm-gnome-shell-search-provider.c
 src/exm-install-button.blp
 src/exm-install-button.c
 src/exm-installed-page.blp
@@ -31,11 +32,13 @@ src/exm-screenshot.c
 src/exm-search-row.blp
 src/exm-search-row.c
 src/exm-shortcuts-dialog.blp
+src/exm-unified-data.c
 src/exm-upgrade-assistant.blp
 src/exm-upgrade-assistant.c
-src/exm-unified-data.c
 src/exm-upgrade-result.c
 src/exm-utils.c
+src/exm-versions-dialog.blp
+src/exm-versions-dialog.c
 src/exm-window.blp
 src/exm-window.c
 src/exm-zoom-picture.c
