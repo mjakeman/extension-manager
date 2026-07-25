@@ -56,6 +56,6 @@ rating {
 }
 
 progressbar text {
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: bold;
 }
