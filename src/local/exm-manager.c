@@ -781,7 +781,8 @@ parse_extension_list (GVariant    *exlist,
 
         if (is_uninstall_operation)
         {
-            g_error ("Invalid extension: '%s' is being uninstalled.", exname);
+            g_warning ("Invalid extension: '%s' is being uninstalled.", exname);
+            g_clear_object (&extension);
             continue;
         }
 
