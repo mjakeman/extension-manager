@@ -3,6 +3,11 @@ using Gtk 4.0;
 template $ExmCommentTile: Gtk.Widget {
   focusable: true;
 
+  accessibility {
+    labelled-by: author;
+    described-by: comment_label;
+  }
+
   Gtk.Box {
     orientation: vertical;
     spacing: 6;
@@ -40,7 +45,7 @@ template $ExmCommentTile: Gtk.Widget {
       }
     }
 
-    Gtk.Label {
+    Gtk.Label comment_label {
       styles [
         "multiline",
       ]
