@@ -186,7 +186,7 @@ enable_extension_done (ShellExtensions *proxy,
 
     if (!success)
     {
-        gchar *uuid;
+        g_autofree gchar *uuid = NULL;
         g_object_get (data->extension, "uuid", &uuid, NULL);
         if (error)
         {
@@ -198,6 +198,7 @@ enable_extension_done (ShellExtensions *proxy,
         }
     }
 
+    g_clear_error (&error);
     free_callback_data (data);
 }
 
@@ -205,7 +206,7 @@ void
 exm_manager_enable_extension (ExmManager   *self,
                               ExmExtension *extension)
 {
-    gchar *uuid;
+    g_autofree gchar *uuid = NULL;
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_enable_extension (self->proxy,
@@ -226,7 +227,7 @@ disable_extension_done (ShellExtensions *proxy,
 
     if (!success)
     {
-        gchar *uuid;
+        g_autofree gchar *uuid = NULL;
         g_object_get (data->extension, "uuid", &uuid, NULL);
         if (error)
         {
@@ -238,6 +239,7 @@ disable_extension_done (ShellExtensions *proxy,
         }
     }
 
+    g_clear_error (&error);
     free_callback_data (data);
 }
 
@@ -245,7 +247,7 @@ void
 exm_manager_disable_extension (ExmManager   *self,
                                ExmExtension *extension)
 {
-    gchar *uuid;
+    g_autofree gchar *uuid = NULL;
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_disable_extension (self->proxy,
@@ -266,7 +268,7 @@ remove_extension_done (ShellExtensions *proxy,
 
     if (!success)
     {
-        gchar *uuid;
+        g_autofree gchar *uuid = NULL;
         g_object_get (data->extension, "uuid", &uuid, NULL);
         if (error)
         {
@@ -278,6 +280,7 @@ remove_extension_done (ShellExtensions *proxy,
         }
     }
 
+    g_clear_error (&error);
     free_callback_data (data);
 }
 
@@ -285,7 +288,7 @@ void
 exm_manager_remove_extension (ExmManager   *self,
                               ExmExtension *extension)
 {
-    gchar *uuid;
+    g_autofree gchar *uuid = NULL;
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_uninstall_extension (self->proxy,
@@ -311,6 +314,7 @@ open_prefs_done (ShellExtensions *proxy,
         notify_error (data->manager, "Could not open extension '%s' preferences: %s\n", uuid, error->message);
     }*/
 
+    g_clear_error (&error);
     free_callback_data (data);
 }
 
@@ -318,7 +322,7 @@ void
 exm_manager_open_prefs (ExmManager   *self,
                         ExmExtension *extension)
 {
-    gchar *uuid;
+    g_autofree gchar *uuid = NULL;
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_launch_extension_prefs (self->proxy,
@@ -337,11 +341,13 @@ list_model_get_by_uuid (GListModel  *model,
     {
         ExmExtension *ext = g_list_model_get_item (model, i);
 
-        gchar *cmp_uuid;
+        g_autofree gchar *cmp_uuid = NULL;
         g_object_get (ext, "uuid", &cmp_uuid, NULL);
 
         if (strcmp (uuid, cmp_uuid) == 0)
             return ext;
+
+        g_object_unref (ext);
     }
 
     return NULL;
@@ -351,7 +357,13 @@ static gboolean
 list_model_contains (GListModel  *model,
                      const gchar *uuid)
 {
-    return list_model_get_by_uuid (model, uuid) != NULL;
+    gpointer result = list_model_get_by_uuid (model, uuid);
+
+    if (result == NULL)
+        return FALSE;
+
+    g_object_unref (result);
+    return TRUE;
 }
 
 ExmExtension *
@@ -428,6 +440,8 @@ list_model_get_number_of_updates (GListModel *model)
 
         if (has_update)
             num_updates++;
+
+        g_object_unref (ext);
     }
 
     return num_updates;
@@ -831,6 +845,7 @@ on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
     if (is_new)
     {
         g_list_store_insert_sorted (list_store, extension, (GCompareDataFunc)compare_extension, NULL);
+        g_object_unref (extension);
         return;
     }
 
@@ -841,6 +856,7 @@ on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
         if (g_list_store_find_with_equal_func (list_store, extension, (GEqualFunc)is_extension_equal, &position))
             g_list_store_remove (list_store, position);
 
+        g_object_unref (extension);
         return;
     }
 
@@ -857,6 +873,8 @@ on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
 
     if (has_update)
         queue_notify_extension_updates (self);
+
+    g_object_unref (extension);
 }
 
 static void

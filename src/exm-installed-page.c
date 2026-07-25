@@ -581,7 +581,10 @@ exm_installed_page_uninstall_selected (ExmInstalledPage *self)
     {
         ExmExtension *ext = exm_manager_get_by_uuid (self->manager, (const char *) key);
         if (ext)
+        {
             exm_manager_remove_extension (self->manager, ext);
+            g_object_unref (ext);
+        }
     }
 
     g_hash_table_destroy (uuids_to_remove);

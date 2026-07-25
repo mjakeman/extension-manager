@@ -131,7 +131,13 @@ extension_open_prefs (GtkWidget  *widget,
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
 
-    exm_manager_open_prefs (self->manager, extension);
+    if (extension)
+    {
+        exm_manager_open_prefs (self->manager, extension);
+        g_object_unref (extension);
+    }
+
+    g_free (uuid);
 }
 
 static void
@@ -151,6 +157,7 @@ extension_show_error (GtkWidget  *widget,
     g_variant_get (param, "s", &uuid);
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
+    g_free (uuid);
 
     if (!extension)
         return;
@@ -167,6 +174,7 @@ extension_show_error (GtkWidget  *widget,
     g_free (name);
     g_free (homepage);
     g_free (error_text);
+    g_object_unref (extension);
 }
 
 typedef struct
@@ -203,10 +211,14 @@ extension_remove (GtkWidget  *widget,
     g_variant_get (param, "s", &uuid);
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
+    g_free (uuid);
+
+    if (!extension)
+        return;
 
     RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
     data->manager = g_object_ref (self->manager);
-    data->extension = g_object_ref (extension);
+    data->extension = extension;
 
     adw_alert_dialog_choose (self->remove_dialog, widget, NULL,
                              (GAsyncReadyCallback) extension_remove_dialog_response, data);

@@ -184,6 +184,7 @@ handle_get_result_metas (ExmShellSearchProvider2      *skeleton G_GNUC_UNUSED,
 
         g_free (name);
         g_free (description);
+        g_object_unref (extension);
     }
 
     g_dbus_method_invocation_return_value (invocation, g_variant_new ("(aa{sv})", &builder));
@@ -216,6 +217,7 @@ handle_activate_result (ExmShellSearchProvider2      *skeleton,
         g_timeout_add_seconds (2, release_application_hold, application);
 
         exm_manager_open_prefs (self->manager, extension);
+        g_object_unref (extension);
     }
 
     exm_shell_search_provider2_complete_activate_result (skeleton, invocation);
