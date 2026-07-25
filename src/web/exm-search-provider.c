@@ -160,24 +160,29 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
     // Query https://extensions.gnome.org/api/v1/extensions/?ordering={%s}&page={%d}&status=3
     // Query https://extensions.gnome.org/api/v1/extensions/search/{%s}/?ordering={%s}&page={%d}
 
-    const gchar *url;
-    const gchar *sort;
+    g_autofree gchar *url = NULL;
+    g_autofree gchar *sort = NULL;
+    const gchar *sort_str;
 
-    sort = get_sort_string (sort_type);
+    sort_str = get_sort_string (sort_type);
 
-    if (g_strcmp0 (sort, "") != 0)
-        sort = g_strdup_printf ("ordering=%s&", sort);
+    if (g_strcmp0 (sort_str, "") != 0)
+        sort = g_strdup_printf ("ordering=%s&", sort_str);
 
     if (g_strcmp0 (query, "") == 0)
     {
-        if (g_strcmp0 (sort, "") == 0)
+        if (sort == NULL)
             sort = g_strdup_printf ("ordering=-popularity&");
 
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3", sort, page);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3",
+                               sort, page);
     }
     else
     {
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10", query, sort, page);
+        g_autofree gchar *escaped_query = g_uri_escape_string (query, NULL, FALSE);
+
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10",
+                               escaped_query, sort ? sort : "", page);
     }
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),

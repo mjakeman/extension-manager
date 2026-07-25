@@ -172,9 +172,10 @@ exm_versions_provider_query_async (ExmVersionsProvider *self,
 {
     // Query https://extensions.gnome.org/api/v1/extensions/{%s}/versions/
 
-    const gchar *url;
+    g_autofree gchar *escaped_uuid = g_uri_escape_string (uuid, NULL, FALSE);
+    g_autofree gchar *url = NULL;
 
-    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/versions/?page=1&page_size=100", uuid);
+    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/versions/?page=1&page_size=100", escaped_uuid);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,

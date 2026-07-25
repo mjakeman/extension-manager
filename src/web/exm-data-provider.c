@@ -83,9 +83,10 @@ exm_data_provider_get_async (ExmDataProvider     *self,
 {
     // Query https://extensions.gnome.org/api/v1/extensions/{%s}/
 
+    g_autofree gchar *escaped_uuid = g_uri_escape_string (uuid, NULL, FALSE);
     g_autofree gchar *url = NULL;
 
-    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/", uuid);
+    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/", escaped_uuid);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
