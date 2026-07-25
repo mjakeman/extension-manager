@@ -166,14 +166,14 @@ free_callback_data (ExmCallbackData *data)
     g_slice_free (ExmCallbackData, data);
 }
 
-#define notify_error(self_, f_, ...); \
-    {\
-        char *error_text;\
-        error_text = g_strdup_printf (f_, __VA_ARGS__);\
-        g_critical ("%s", error_text);\
-        g_signal_emit (G_OBJECT (self_), signals [SIGNAL_ERROR_OCCURRED], 0, error_text);\
-        g_free (error_text);\
-    }\
+#define notify_error(self_, f_, ...) \
+    G_STMT_START { \
+        char *error_text; \
+        error_text = g_strdup_printf (f_, ##__VA_ARGS__); \
+        g_critical ("%s", error_text); \
+        g_signal_emit (G_OBJECT (self_), signals [SIGNAL_ERROR_OCCURRED], 0, error_text); \
+        g_free (error_text); \
+    } G_STMT_END
 
 static void
 enable_extension_done (ShellExtensions *proxy,
