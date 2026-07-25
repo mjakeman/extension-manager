@@ -40,7 +40,7 @@ static ExmSearchResult *
 parse_extension (GBytes  *bytes,
                  GError **out_error)
 {
-    JsonParser *parser;
+    g_autoptr (JsonParser) parser = NULL;
     gconstpointer data;
     gsize length;
 
@@ -57,7 +57,13 @@ parse_extension (GBytes  *bytes,
     {
         // Returned format is one single extension object
         JsonNode *root = json_parser_get_root (parser);
-        g_assert (JSON_NODE_HOLDS_OBJECT (root));
+
+        if (root == NULL || !JSON_NODE_HOLDS_OBJECT (root))
+        {
+            g_set_error (out_error, g_quark_from_string ("exm-data-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         GObject *result = json_gobject_deserialize (EXM_TYPE_SEARCH_RESULT, root);
 

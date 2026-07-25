@@ -184,7 +184,12 @@ deserialize_shell_versions (JsonNode* node)
 
     versions = exm_shell_versions_new ();
 
-    g_assert (JSON_NODE_HOLDS_ARRAY (node));
+    if (node == NULL || !JSON_NODE_HOLDS_ARRAY (node))
+    {
+        g_warning ("Unexpected shell_versions format from extensions.gnome.org");
+        return versions;
+    }
+
     array = json_node_get_array (node);
 
     json_array_foreach_element (array, (JsonArrayForeach) deserialize_version, versions);
