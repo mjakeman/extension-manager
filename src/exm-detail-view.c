@@ -1352,33 +1352,50 @@ update_tools_stack (ExmDetailView *self)
 }
 
 static void
-on_bind_manager (ExmDetailView *self)
+on_extensions_ready (ExmDetailView *self)
 {
-    GListModel *ext_model;
-    const gchar *shell_version;
+    GListModel *ext_model = NULL;
 
     g_object_get (self->manager,
                   "extensions", &ext_model,
+                  NULL);
+
+    if (ext_model)
+    {
+        g_signal_connect_object (ext_model,
+                                 "items-changed",
+                                 G_CALLBACK (exm_detail_view_update),
+                                 self,
+                                 G_CONNECT_SWAPPED);
+
+        g_object_unref (ext_model);
+    }
+}
+
+static void
+on_bind_manager (ExmDetailView *self)
+{
+    const gchar *shell_version;
+
+    g_object_get (self->manager,
                   "shell-version", &shell_version,
                   NULL);
 
     g_object_set (self->versions_provider, "shell-version", shell_version, NULL);
 
     if (self->install_signal_id > 0)
-        g_signal_handler_disconnect (self->ext_install, self->install_signal_id);
+        g_signal_handler_disconnect (self->manager, self->install_signal_id);
 
     self->install_signal_id = g_signal_connect (self->manager,
                                                 "install-status",
                                                 G_CALLBACK (on_install_status),
                                                 self);
 
-    g_signal_connect_object (ext_model,
-                             "items-changed",
-                             G_CALLBACK (exm_detail_view_update),
-                             self,
+    g_signal_connect_object (self->manager, "notify::extensions",
+                             G_CALLBACK (on_extensions_ready), self,
                              G_CONNECT_SWAPPED);
 
-    g_object_unref (ext_model);
+    on_extensions_ready (self);
 }
 
 static void

@@ -489,7 +489,7 @@ do_compatibility_check (ExmUpgradeAssistant *self)
                   "extensions", &ext_model,
                   NULL);
 
-    num_items = g_list_model_get_n_items (ext_model);
+    num_items = ext_model ? g_list_model_get_n_items (ext_model) : 0;
 
     if (num_items == 0)
     {

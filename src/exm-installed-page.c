@@ -603,6 +603,10 @@ on_bind_manager (ExmInstalledPage *self)
     // Bind (or rebind) models
     invalidate_model_bindings (self);
 
+    g_signal_connect_object (self->manager, "notify::extensions",
+                             G_CALLBACK (invalidate_model_bindings), self,
+                             G_CONNECT_SWAPPED);
+
     g_signal_connect (self->manager,
                       "updates-available",
                       G_CALLBACK (on_updates_available),
