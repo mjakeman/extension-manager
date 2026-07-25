@@ -752,6 +752,7 @@ parse_single_extension (ExmExtension **extension,
     g_free (version);
     g_free (version_name);
     g_free (error);
+    g_ptr_array_unref (session_modes);
 }
 
 static void
