@@ -1113,6 +1113,21 @@ show_error (GtkWidget  *widget,
     g_free (homepage);
 }
 
+static gboolean
+uri_scheme_is_safe (const gchar *uri)
+{
+    g_autofree gchar *scheme = NULL;
+
+    if (uri == NULL || uri[0] == '\0')
+        return FALSE;
+
+    scheme = g_uri_parse_scheme (uri);
+
+    return scheme != NULL &&
+           (g_ascii_strcasecmp (scheme, "http") == 0 ||
+            g_ascii_strcasecmp (scheme, "https") == 0);
+}
+
 static void
 show_files_or_copy_path (ExmDetailView *self,
            const char    *action_name G_GNUC_UNUSED,
@@ -1163,37 +1178,47 @@ open_link (ExmDetailView *self,
            GVariant      *param)
 {
     GtkWidget *toplevel;
-    GtkUriLauncher *uri = NULL;
+    const gchar *raw_uri = NULL;
+    char *homepage = NULL;
 
     toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
 
     if (strcmp (action_name, "detail.open-extensions") == 0)
     {
-        uri = gtk_uri_launcher_new (self->uri_extensions);
+        raw_uri = self->uri_extensions;
     }
     else if (strcmp (action_name, "detail.open-homepage") == 0)
     {
-        char *homepage = NULL;
         exm_unified_data_get_homepage (self->data, &homepage);
-        uri = gtk_uri_launcher_new (homepage);
-        g_free (homepage);
+        raw_uri = homepage;
     }
     else if (strcmp (action_name, "detail.open-donations") == 0)
     {
         guint val;
         g_variant_get (param, "i", &val);
-        uri = gtk_uri_launcher_new (self->uri_donations[val]);
+        raw_uri = self->uri_donations[val];
     }
     else if (strcmp (action_name, "detail.open-donation") == 0)
     {
-        uri = gtk_uri_launcher_new (self->uri_donations[0]);
+        raw_uri = self->uri_donations[0];
     }
     else
     {
         g_critical ("open_link() invalid action: %s", action_name);
     }
 
-    gtk_uri_launcher_launch (uri, GTK_WINDOW (toplevel), NULL, NULL, NULL);
+    if (uri_scheme_is_safe (raw_uri))
+    {
+        GtkUriLauncher *uri = gtk_uri_launcher_new (raw_uri);
+        gtk_uri_launcher_launch (uri, GTK_WINDOW (toplevel), NULL, NULL, NULL);
+        g_object_unref (uri);
+    }
+    else if (raw_uri != NULL)
+    {
+        g_warning ("Refusing to open URI with unexpected scheme: %s", raw_uri);
+    }
+
+    g_free (homepage);
 }
 
 static void
