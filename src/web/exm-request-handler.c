@@ -77,13 +77,25 @@ exm_request_handler_new (void)
     return g_object_new (EXM_TYPE_REQUEST_HANDLER, NULL);
 }
 
+SoupSession *
+exm_request_handler_get_shared_session (void)
+{
+    static SoupSession *shared = NULL;
+
+    if (g_once_init_enter (&shared))
+    {
+        SoupSession *session = soup_session_new_with_options ("timeout", 30, NULL);
+        g_once_init_leave (&shared, session);
+    }
+
+    return shared;
+}
+
 static void
 exm_request_handler_finalize (GObject *object)
 {
-    ExmRequestHandler *self = (ExmRequestHandler *)object;
-    ExmRequestHandlerPrivate *priv = exm_request_handler_get_instance_private (self);
+    ExmRequestHandlerPrivate *priv = exm_request_handler_get_instance_private ((ExmRequestHandler *)object);
 
-    g_object_unref (priv->session);
     g_hash_table_unref (priv->cache);
 
     G_OBJECT_CLASS (exm_request_handler_parent_class)->finalize (object);
@@ -259,7 +271,7 @@ static void
 exm_request_handler_init (ExmRequestHandler *self)
 {
     ExmRequestHandlerPrivate *priv = exm_request_handler_get_instance_private (self);
-    priv->session = soup_session_new_with_options ("timeout", 30, NULL);
+    priv->session = exm_request_handler_get_shared_session ();
     priv->cache = g_hash_table_new_full (g_str_hash, g_str_equal,
                                          g_free, (GDestroyNotify) cache_entry_free);
 }
