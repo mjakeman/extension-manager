@@ -93,7 +93,7 @@ static VersionsRequestData *
 parse_versions_results (GBytes  *bytes,
                         GError **out_error)
 {
-    JsonParser *parser;
+    g_autoptr (JsonParser) parser = NULL;
     const gchar *data;
     gsize length;
     VersionsRequestData *result;
@@ -115,10 +115,24 @@ parse_versions_results (GBytes  *bytes,
         GListStore *store = g_list_store_new (EXM_TYPE_VERSION_RESULT);
 
         JsonNode *root = json_parser_get_root (parser);
-        g_assert (JSON_NODE_HOLDS_OBJECT (root));
+
+        if (root == NULL || !JSON_NODE_HOLDS_OBJECT (root))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-versions-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         JsonObject *root_object = json_node_get_object (root);
-        g_assert (json_object_has_member (root_object, "results"));
+
+        if (!json_object_has_member (root_object, "results"))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-versions-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         JsonArray *array = json_object_get_array_member (root_object, "results");
         GList *versions_results = json_array_get_elements (array);
@@ -132,6 +146,7 @@ parse_versions_results (GBytes  *bytes,
 
             g_list_store_append (store, result);
         }
+        g_list_free (versions_results);
 
         const gchar *next = json_object_get_string_member_with_default (root_object, "next", NULL);
 
