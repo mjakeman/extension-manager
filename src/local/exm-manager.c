@@ -688,7 +688,7 @@ parse_single_extension (ExmExtension **extension,
             while (g_variant_iter_loop (&iter, "v", &variant))
             {
                 mode = g_variant_dup_string (variant, NULL);
-                g_ptr_array_add (session_modes, g_strdup (mode));
+                g_ptr_array_add (session_modes, mode);
             }
         }
         else if (g_strcmp0 (prop_name, "donations") == 0)
