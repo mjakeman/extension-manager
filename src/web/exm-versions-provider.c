@@ -28,7 +28,7 @@
 struct _ExmVersionsProvider
 {
     ExmRequestHandler parent_instance;
-    const gchar *shell_version;
+    gchar *shell_version;
 };
 
 G_DEFINE_FINAL_TYPE (ExmVersionsProvider, exm_versions_provider, EXM_TYPE_REQUEST_HANDLER)
@@ -82,7 +82,8 @@ exm_versions_provider_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_SHELL_VERSION:
-        self->shell_version = g_value_get_string (value);
+        g_free (self->shell_version);
+        self->shell_version = g_value_dup_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -232,10 +233,21 @@ exm_versions_provider_query_finish (ExmVersionsProvider  *self,
 }
 
 static void
+exm_versions_provider_finalize (GObject *object)
+{
+    ExmVersionsProvider *self = EXM_VERSIONS_PROVIDER (object);
+
+    g_clear_pointer (&self->shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_versions_provider_parent_class)->finalize (object);
+}
+
+static void
 exm_versions_provider_class_init (ExmVersionsProviderClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->finalize = exm_versions_provider_finalize;
     object_class->get_property = exm_versions_provider_get_property;
     object_class->set_property = exm_versions_provider_set_property;
 
@@ -257,5 +269,5 @@ static void
 exm_versions_provider_init (ExmVersionsProvider *self)
 {
     // TODO: Get current GNOME Shell Version
-    self->shell_version = "42";
+    self->shell_version = g_strdup ("42");
 }
