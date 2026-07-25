@@ -47,6 +47,9 @@ struct _ExmInstalledPage
     GtkFilterListModel *search_list_model;
     GListModel *system_filtered_model;
 
+    GtkStringFilter *search_filter;
+    guint search_list_model_signal_id;
+
     gboolean sort_enabled_first;
     gboolean search_mode_enabled;
     const char *search_query;
@@ -99,6 +102,7 @@ exm_installed_page_finalize (GObject *object)
     gtk_widget_unparent (child);
 
     g_clear_object (&self->system_filtered_model);
+    g_clear_object (&self->search_filter);
 
     G_OBJECT_CLASS (exm_installed_page_parent_class)->finalize (object);
 }
@@ -214,11 +218,12 @@ compare_enabled (ExmExtension *this,
 static void
 on_search_changed (ExmInstalledPage *self,
                    GParamSpec       *pspec G_GNUC_UNUSED,
-                   gpointer          user_data)
+                   gpointer          user_data G_GNUC_UNUSED)
 {
-    GtkStringFilter *search_filter = GTK_STRING_FILTER (user_data);
+    if (self->search_filter == NULL)
+        return;
 
-    gtk_string_filter_set_search (search_filter, self->search_query);
+    gtk_string_filter_set_search (self->search_filter, self->search_query);
 }
 
 static void
@@ -269,8 +274,14 @@ bind_list_box (GListModel       *model,
     GtkStringFilter *search_filter;
     GtkBoolFilter *is_user_filter;
     GtkFilterListModel *filtered_model;
+    GtkFilterListModel *old_search_list_model;
 
     g_return_if_fail (G_IS_LIST_MODEL (model));
+
+    old_search_list_model = self->search_list_model;
+    if (old_search_list_model != NULL && self->search_list_model_signal_id > 0)
+        g_signal_handler_disconnect (old_search_list_model, self->search_list_model_signal_id);
+    self->search_list_model_signal_id = 0;
 
     // Sort alphabetically
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "name");
@@ -296,6 +307,7 @@ bind_list_box (GListModel       *model,
     }
 
     search_filter = gtk_string_filter_new (expression);
+    g_set_object (&self->search_filter, search_filter);
     self->search_list_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (search_filter));
 
     adw_preferences_group_bind_model (self->search_prefs_group, G_LIST_MODEL (self->search_list_model),
@@ -332,15 +344,10 @@ bind_list_box (GListModel       *model,
     if (self->search_query)
         gtk_string_filter_set_search (search_filter, self->search_query);
 
-    g_signal_connect (self,
-                      "notify::search-query",
-                      G_CALLBACK (on_search_changed),
-                      search_filter);
-
-    g_signal_connect (self->search_list_model,
-                      "notify::n-items",
-                      G_CALLBACK (on_visible_stack_changed),
-                      self);
+    self->search_list_model_signal_id = g_signal_connect (self->search_list_model,
+                                                           "notify::n-items",
+                                                           G_CALLBACK (on_visible_stack_changed),
+                                                           self);
 }
 
 static guint
@@ -714,4 +721,9 @@ exm_installed_page_init (ExmInstalledPage *self)
     gtk_widget_insert_action_group (GTK_WIDGET (self), "page",
                                     G_ACTION_GROUP (action_group));
     g_object_unref (action_group);
+
+    g_signal_connect (self,
+                      "notify::search-query",
+                      G_CALLBACK (on_search_changed),
+                      NULL);
 }
