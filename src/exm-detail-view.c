@@ -796,6 +796,7 @@ populate_local_only (ExmDetailView *self)
 
         g_free (version_name);
         g_free (version);
+        g_object_unref (ext);
     }
 
     gtk_list_box_row_set_activatable (GTK_LIST_BOX_ROW (self->version_row), FALSE);
@@ -1139,12 +1140,15 @@ show_files_or_copy_path (ExmDetailView *self,
 
     extension = exm_manager_get_by_uuid (self->manager, self->uuid);
 
+    if (!extension)
+        return;
+
     g_object_get (extension,
                   "is_user", &is_user,
                   "path", &path,
                   NULL);
 
-    if (is_user) 
+    if (is_user)
     {
         GtkWidget *toplevel;
         g_autoptr (GFile) file = NULL;
@@ -1170,6 +1174,8 @@ show_files_or_copy_path (ExmDetailView *self,
 
         adw_toast_overlay_add_toast (self->toast_overlay, adw_toast_new (_("Copied")));
     }
+
+    g_object_unref (extension);
 }
 
 static void
@@ -1231,7 +1237,10 @@ page_open_prefs (GSimpleAction *action G_GNUC_UNUSED,
 
     ExmExtension *extension = exm_manager_get_by_uuid (self->manager, self->uuid);
     if (extension)
+    {
         exm_manager_open_prefs (self->manager, extension);
+        g_object_unref (extension);
+    }
 }
 
 static void
@@ -1244,7 +1253,10 @@ page_remove (GSimpleAction *action G_GNUC_UNUSED,
 
     ExmExtension *extension = exm_manager_get_by_uuid (self->manager, self->uuid);
     if (extension)
+    {
         exm_manager_remove_extension (self->manager, extension);
+        g_object_unref (extension);
+    }
 }
 
 static gboolean
@@ -1261,7 +1273,9 @@ on_toggle_changed (GtkSwitch     *toggle,
     if (!extension)
         return FALSE;
 
-    return exm_extension_apply_toggle (self->manager, extension, toggle, state);
+    gboolean result = exm_extension_apply_toggle (self->manager, extension, toggle, state);
+    g_object_unref (extension);
+    return result;
 }
 
 static void
@@ -1324,6 +1338,7 @@ update_tools_stack (ExmDetailView *self)
             g_free (error_msg);
 
             exm_extension_bind_toggle (extension, self->ext_toggle);
+            g_object_unref (extension);
         }
     }
     else
