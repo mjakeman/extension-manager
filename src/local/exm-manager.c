@@ -610,7 +610,8 @@ parse_single_extension (ExmExtension **extension,
 
     while (g_variant_iter_loop (variant_iter, "{sv}", &prop_name, &prop_value))
     {
-        g_debug (" - Property: %s=%s\n", prop_name, g_variant_print(prop_value, 0));
+        g_autofree gchar *prop_value_str = g_variant_print (prop_value, 0);
+        g_debug (" - Property: %s=%s\n", prop_name, prop_value_str);
 
         // Compare with DBus property names
         if (g_strcmp0 (prop_name, "uuid") == 0)
