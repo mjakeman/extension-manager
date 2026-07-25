@@ -7,7 +7,6 @@
 }
 
 .tint {
-  /* Dark view_bg_color */
   background-color: rgb(30 30 30);
   color: white;
 }
@@ -28,7 +27,7 @@
 }
 
 .update {
-  color: #ff7800;
+  color: var(--warning-color);
 }
 
 comment-tile {
