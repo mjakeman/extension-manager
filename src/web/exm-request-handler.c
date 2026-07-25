@@ -213,6 +213,7 @@ exm_request_handler_request_async (ExmRequestHandler   *self,
     {
         g_task_return_new_error (task, g_quark_from_string ("exm-search-provider"), -1,
                                  "Could not construct message for uri: %s", url_endpoint);
+        g_object_unref (task);
         return;
     }
 
@@ -229,6 +230,7 @@ exm_request_handler_request_async (ExmRequestHandler   *self,
                                       data);
 
     g_object_unref (msg);
+    g_object_unref (task);
 }
 
 gpointer
