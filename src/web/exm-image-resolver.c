@@ -32,7 +32,6 @@ struct _ExmImageResolver
     GObject parent_instance;
 
     SoupSession *session;
-    GMutex mutex;
 };
 
 G_DEFINE_FINAL_TYPE (ExmImageResolver, exm_image_resolver, G_TYPE_OBJECT)
@@ -49,7 +48,6 @@ exm_image_resolver_finalize (GObject *object)
     ExmImageResolver *self = (ExmImageResolver *)object;
 
     g_object_unref (self->session);
-    g_mutex_clear (&self->mutex);
 
     G_OBJECT_CLASS (exm_image_resolver_parent_class)->finalize (object);
 }
@@ -161,13 +159,18 @@ exm_image_resolver_resolve_async (ExmImageResolver    *self,
                                   gpointer             user_data)
 {
     GTask *task;
-    const gchar *url;
+    g_autofree gchar *url = NULL;
     SoupMessage *msg;
 
-    if (rel_path == NULL)
-        return;
-
     task = g_task_new (self, cancellable, callback, user_data);
+
+    if (rel_path == NULL)
+    {
+        g_task_return_new_error (task, g_quark_from_string ("exm-image-resolver"), -1,
+                                 "No image path given");
+        g_object_unref (task);
+        return;
+    }
 
     // Resolve https://extensions.gnome.org{rel_path}
 
@@ -176,23 +179,36 @@ exm_image_resolver_resolve_async (ExmImageResolver    *self,
                                   G_URI_FLAGS_NONE,
                                   NULL);
 
-    msg = soup_message_new (SOUP_METHOD_GET, url);
+    if (url != NULL)
+    {
+        g_autoptr (GUri) parsed = g_uri_parse (url, G_URI_FLAGS_NONE, NULL);
+        const gchar *host = parsed ? g_uri_get_host (parsed) : NULL;
+
+        if (g_strcmp0 (host, "extensions.gnome.org") != 0)
+        {
+            g_task_return_new_error (task, g_quark_from_string ("exm-image-resolver"), -1,
+                                     "Refusing to fetch image from unexpected host: %s", url);
+            g_object_unref (task);
+            return;
+        }
+    }
+
+    msg = url ? soup_message_new (SOUP_METHOD_GET, url) : NULL;
 
     if (!msg)
     {
         g_task_return_new_error (task, g_quark_from_string ("exm-image-resolver"), -1,
-                                 "Could not construct message for uri: %s", url);
+                                 "Could not construct message for uri: %s", rel_path);
+        g_object_unref (task);
         return;
     }
 
-    g_mutex_lock (&self->mutex);
     soup_session_send_and_read_async (self->session, msg,
                                       G_PRIORITY_DEFAULT,
                                       cancellable,
                                       (GAsyncReadyCallback) image_loaded_callback,
                                       task);
 
-    g_mutex_unlock (&self->mutex);
     g_object_unref (msg);
 }
 
@@ -218,5 +234,4 @@ static void
 exm_image_resolver_init (ExmImageResolver *self)
 {
     self->session = soup_session_new_with_options ("timeout", 30, NULL);
-    g_mutex_init (&self->mutex);
 }
