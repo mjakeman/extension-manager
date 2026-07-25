@@ -140,10 +140,25 @@ exm_detail_view_dispose (GObject *object)
 {
     ExmDetailView *self = EXM_DETAIL_VIEW (object);
 
+    if (self->resolver_cancel)
+        g_cancellable_cancel (self->resolver_cancel);
+    g_clear_object (&self->resolver_cancel);
+
     g_clear_object (&self->data);
     g_clear_object (&self->action_group);
+    g_clear_object (&self->provider);
+    g_clear_object (&self->resolver);
+    g_clear_object (&self->versions_provider);
+    g_clear_object (&self->comment_provider);
+    g_clear_object (&self->ext_versions_dialog);
     g_clear_pointer (&self->uuid, g_free);
     g_clear_pointer (&self->error_text, g_free);
+    g_clear_pointer (&self->shell_version, g_free);
+    g_clear_pointer (&self->versions_next_url, g_free);
+    g_clear_pointer (&self->uri_extensions, g_free);
+    g_clear_pointer (&self->uri_donations, g_strfreev);
+    g_list_free (self->donation_rows_list);
+    self->donation_rows_list = NULL;
 
     G_OBJECT_CLASS (exm_detail_view_parent_class)->dispose (object);
 }
@@ -219,6 +234,8 @@ on_icon_loaded (GObject       *source,
     {
         // TODO: Properly log this
         g_critical ("%s\n", error->message);
+        g_clear_error (&error);
+        g_object_unref (self);
         return;
     }
 
@@ -240,6 +257,8 @@ on_image_loaded (GObject       *source,
     {
         // TODO: Properly log this
         g_critical ("%s\n", error->message);
+        g_clear_error (&error);
+        g_object_unref (self);
         return;
     }
 
@@ -293,6 +312,8 @@ on_get_comments (GObject       *source,
             gtk_label_set_label (self->error_label, error->message);
         }
 
+        g_clear_error (&error);
+        g_object_unref (self);
         return;
     }
 
@@ -318,6 +339,9 @@ on_get_comments (GObject       *source,
         adw_wrap_box_append (self->comment_box, tile);
         g_object_unref (comment);
     }
+
+    g_object_unref (model);
+    g_object_unref (self);
 }
 
 static void
@@ -328,7 +352,7 @@ queue_resolve_comments (ExmDetailView *self,
     gtk_stack_set_visible_child_name (self->comment_stack, "page_spinner");
     exm_comment_provider_get_comments_async (self->comment_provider, pk, false, cancellable,
                                              (GAsyncReadyCallback) on_get_comments,
-                                             self);
+                                             g_object_ref (self));
 }
 
 static void
@@ -414,13 +438,14 @@ update_donation_rows (ExmDetailView  *self,
     gtk_widget_set_visible (GTK_WIDGET (self->link_donation), FALSE);
     gtk_widget_set_visible (GTK_WIDGET (self->links_donations), FALSE);
     delete_donation_rows (self);
+    g_clear_pointer (&self->uri_donations, g_strfreev);
 
     if (donation_urls == NULL || donation_urls[0] == NULL)
         return;
 
     n_urls = g_strv_length (donation_urls);
 
-    self->uri_donations = g_new0 (gchar *, n_urls);
+    self->uri_donations = g_new0 (gchar *, n_urls + 1);
 
     for (guint i = 0; donation_urls[i] != NULL; i++)
     {
@@ -582,7 +607,7 @@ on_load_more_versions (ExmDetailView     *self,
                                             self->versions_next_url,
                                             self->resolver_cancel,
                                             on_version_loaded,
-                                            self);
+                                            g_object_ref (self));
 }
 
 static void
@@ -603,7 +628,7 @@ on_version_loaded (GObject      *source,
 
     is_installed = exm_manager_is_installed_uuid (self->manager, self->uuid);
 
-    if (error)
+    if (error || list == NULL)
     {
         install_state = is_installed ? EXM_INSTALL_BUTTON_STATE_INSTALLED
                                      : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
@@ -618,6 +643,7 @@ on_version_loaded (GObject      *source,
         g_clear_error (&error);
         g_free (next);
         self->version_state = EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
+        g_object_unref (self);
         return;
     }
 
@@ -742,6 +768,7 @@ on_version_loaded (GObject      *source,
 
     g_object_unref (list);
     g_free (next);
+    g_object_unref (self);
 }
 
 
@@ -826,6 +853,7 @@ on_data_loaded (GObject      *source,
         }
 
         g_clear_error (&error);
+        g_object_unref (self);
 
         return;
     }
@@ -854,23 +882,14 @@ on_data_loaded (GObject      *source,
                                      // Translators: '%s' = extension name
                                      g_strdup_printf (_("%s Icon"), name));
 
-        if (self->resolver_cancel)
-        {
-            g_cancellable_cancel (self->resolver_cancel);
-            g_clear_object (&self->resolver_cancel);
-        }
 
         if (icon_uri != NULL)
         {
-            self->resolver_cancel = g_cancellable_new ();
-
             queue_resolve_image (self, icon_uri, self->resolver_cancel, TRUE);
         }
 
         if (screenshot_uri != NULL)
         {
-            self->resolver_cancel = g_cancellable_new ();
-
             exm_screenshot_set_paintable (self->ext_screenshot, NULL);
             exm_screenshot_reset (self->ext_screenshot);
 
@@ -888,10 +907,11 @@ on_data_loaded (GObject      *source,
             gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), FALSE);
         }
 
-        exm_versions_provider_query_async (self->versions_provider, uuid, self->resolver_cancel, on_version_loaded, self);
+        exm_versions_provider_query_async (self->versions_provider, uuid, self->resolver_cancel, on_version_loaded, g_object_ref (self));
 
         update_donation_rows (self, donation_urls);
 
+        g_clear_pointer (&self->uri_extensions, g_free);
         self->uri_extensions = g_uri_resolve_relative ("https://extensions.gnome.org/",
                                                        link,
                                                        G_URI_FLAGS_NONE,
@@ -919,6 +939,7 @@ on_data_loaded (GObject      *source,
                     exm_versions_dialog_set_installed_version (self->ext_versions_dialog,
                                                                atoi (installed_ver));
                 g_free (installed_ver);
+                g_object_unref (local_ext);
             }
         }
 
@@ -945,8 +966,20 @@ on_data_loaded (GObject      *source,
 
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
 
+        g_free (uuid);
+        g_free (name);
+        g_free (screenshot_uri);
+        g_free (icon_uri);
+        g_free (link);
+        g_strfreev (donation_urls);
+        g_object_unref (data);
+        g_object_unref (self);
+
         return;
     }
+
+    g_object_unref (data);
+    g_object_unref (self);
 }
 
 void
@@ -988,6 +1021,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     {
         gtk_stack_set_visible_child_name (self->stack, "page_detail");
         update_tools_stack (self);
+        g_object_unref (local_info);
     }
     else
     {
@@ -1001,6 +1035,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
         g_cancellable_cancel (self->resolver_cancel);
         g_clear_object (&self->resolver_cancel);
     }
+    self->resolver_cancel = g_cancellable_new ();
 
     gtk_image_set_from_icon_name (self->ext_icon, "puzzle-piece-symbolic");
     exm_screenshot_set_paintable (self->ext_screenshot, NULL);
@@ -1017,7 +1052,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
     gtk_list_box_row_set_activatable (GTK_LIST_BOX_ROW (self->version_row), TRUE);
     gtk_widget_set_visible (GTK_WIDGET (self->version_row_go_next), TRUE);
 
-    exm_data_provider_get_async (self->provider, uuid, NULL, on_data_loaded, self);
+    exm_data_provider_get_async (self->provider, uuid, self->resolver_cancel, on_data_loaded, g_object_ref (self));
 }
 
 void
