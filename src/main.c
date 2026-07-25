@@ -71,7 +71,8 @@ run_crash_reporter (const char *error_text)
     // Setup CSS
     GdkDisplay *display = gdk_display_get_default ();
     GtkCssProvider *provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_resource (provider, g_strdup_printf ("%s/style.css", RESOURCE_PATH));
+    g_autofree gchar *css_resource_path = g_strdup_printf ("%s/style.css", RESOURCE_PATH);
+    gtk_css_provider_load_from_resource (provider, css_resource_path);
     gtk_style_context_add_provider_for_display (display, GTK_STYLE_PROVIDER (provider),
                                                 GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
