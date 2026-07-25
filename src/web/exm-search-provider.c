@@ -48,7 +48,7 @@ static SearchRequestData *
 parse_search_results (GBytes  *bytes,
                       GError **out_error)
 {
-    JsonParser *parser;
+    g_autoptr (JsonParser) parser = NULL;
     const gchar *data;
     gsize length;
     int count;
@@ -72,11 +72,25 @@ parse_search_results (GBytes  *bytes,
         GListStore *store = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
 
         JsonNode *root = json_parser_get_root (parser);
-        g_assert (JSON_NODE_HOLDS_OBJECT (root));
+
+        if (root == NULL || !JSON_NODE_HOLDS_OBJECT (root))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-search-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         JsonObject *root_object = json_node_get_object (root);
-        g_assert (json_object_has_member (root_object, "count"));
-        g_assert (json_object_has_member (root_object, "results"));
+
+        if (!json_object_has_member (root_object, "count") ||
+            !json_object_has_member (root_object, "results"))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-search-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         count = json_object_get_int_member (root_object, "count");
         g_info ("Count: %d\n", count);
@@ -93,6 +107,7 @@ parse_search_results (GBytes  *bytes,
 
             g_list_store_append (store, result);
         }
+        g_list_free (search_results);
 
         result = g_slice_new0 (SearchRequestData);
         result->list_model = G_LIST_MODEL (store);
