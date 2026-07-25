@@ -33,7 +33,7 @@ struct _ExmManager
     ShellExtensions *proxy;
     GListModel *ext_model;
 
-    const gchar *shell_version;
+    gchar *shell_version;
     gboolean extensions_enabled;
     gboolean is_supported;
 
@@ -67,6 +67,23 @@ ExmManager *
 exm_manager_new (void)
 {
     return g_object_new (EXM_TYPE_MANAGER, NULL);
+}
+
+static void
+exm_manager_dispose (GObject *object)
+{
+    ExmManager *self = EXM_MANAGER (object);
+
+    g_clear_handle_id (&self->update_callback_id, g_source_remove);
+
+    if (self->proxy)
+        g_signal_handlers_disconnect_by_data (self->proxy, self);
+
+    g_clear_object (&self->proxy);
+    g_clear_object (&self->ext_model);
+    g_clear_pointer (&self->shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_manager_parent_class)->dispose (object);
 }
 
 static void
@@ -107,6 +124,7 @@ exm_manager_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_SHELL_VERSION:
+        g_free (self->shell_version);
         self->shell_version = g_value_dup_string (value);
         break;
     case PROP_EXTENSIONS_ENABLED:
@@ -476,6 +494,7 @@ exm_manager_class_init (ExmManagerClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->dispose = exm_manager_dispose;
     object_class->get_property = exm_manager_get_property;
     object_class->set_property = exm_manager_set_property;
 
