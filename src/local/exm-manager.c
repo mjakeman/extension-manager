@@ -207,6 +207,13 @@ exm_manager_enable_extension (ExmManager   *self,
                               ExmExtension *extension)
 {
     g_autofree gchar *uuid = NULL;
+
+    if (self->proxy == NULL)
+    {
+        notify_error (self, "Extension manager is not ready yet\n");
+        return;
+    }
+
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_enable_extension (self->proxy,
@@ -248,6 +255,13 @@ exm_manager_disable_extension (ExmManager   *self,
                                ExmExtension *extension)
 {
     g_autofree gchar *uuid = NULL;
+
+    if (self->proxy == NULL)
+    {
+        notify_error (self, "Extension manager is not ready yet\n");
+        return;
+    }
+
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_disable_extension (self->proxy,
@@ -289,6 +303,13 @@ exm_manager_remove_extension (ExmManager   *self,
                               ExmExtension *extension)
 {
     g_autofree gchar *uuid = NULL;
+
+    if (self->proxy == NULL)
+    {
+        notify_error (self, "Extension manager is not ready yet\n");
+        return;
+    }
+
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_uninstall_extension (self->proxy,
@@ -323,6 +344,13 @@ exm_manager_open_prefs (ExmManager   *self,
                         ExmExtension *extension)
 {
     g_autofree gchar *uuid = NULL;
+
+    if (self->proxy == NULL)
+    {
+        notify_error (self, "Extension manager is not ready yet\n");
+        return;
+    }
+
     g_object_get (extension, "uuid", &uuid, NULL);
 
     shell_extensions_call_launch_extension_prefs (self->proxy,
@@ -497,6 +525,12 @@ check_for_updates_done (ShellExtensions *proxy,
 void
 exm_manager_check_for_updates (ExmManager *self)
 {
+    if (self->proxy == NULL)
+    {
+        notify_error (self, "Extension manager is not ready yet\n");
+        return;
+    }
+
     shell_extensions_call_check_for_updates (self->proxy,
                                              NULL,
                                              (GAsyncReadyCallback) check_for_updates_done,
@@ -794,16 +828,21 @@ parse_extension_list (GVariant    *exlist,
 }
 
 static void
-update_extension_list (ExmManager *self)
+on_list_extensions_ready (GObject      *source,
+                          GAsyncResult *res,
+                          gpointer      user_data)
 {
+    ExmManager *self = EXM_MANAGER (user_data);
     GError *error = NULL;
+    GVariant *exlist = NULL;
 
-    GVariant* exlist;
-    shell_extensions_call_list_extensions_sync (self->proxy, &exlist, NULL, &error);
+    shell_extensions_call_list_extensions_finish (SHELL_EXTENSIONS (source), &exlist, res, &error);
 
     if (error != NULL)
     {
         notify_error (self, "Could not list extensions: %s\n", error->message);
+        g_clear_error (&error);
+        g_object_unref (self);
         return;
     }
 
@@ -811,10 +850,19 @@ update_extension_list (ExmManager *self)
     g_clear_object (&self->ext_model);
 
     parse_extension_list (exlist, &self->ext_model);
+    g_variant_unref (exlist);
 
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_EXTENSIONS]);
 
     queue_notify_extension_updates (self);
+
+    g_object_unref (self);
+}
+
+static void
+update_extension_list (ExmManager *self)
+{
+    shell_extensions_call_list_extensions (self->proxy, NULL, on_list_extensions_ready, g_object_ref (self));
 }
 
 static void
@@ -898,23 +946,21 @@ update_is_supported (ExmManager *self)
 }
 
 static void
-exm_manager_init (ExmManager *self)
+on_proxy_created (GObject      *source G_GNUC_UNUSED,
+                  GAsyncResult *res,
+                  gpointer      user_data)
 {
+    ExmManager *self = EXM_MANAGER (user_data);
     GError *error = NULL;
 
-    self->proxy = shell_extensions_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
-                                                           G_DBUS_PROXY_FLAGS_NONE,
-                                                           "org.gnome.Shell.Extensions",
-                                                           "/org/gnome/Shell/Extensions",
-                                                           NULL, &error);
+    self->proxy = shell_extensions_proxy_new_for_bus_finish (res, &error);
 
     if (error != NULL)
     {
         notify_error (self, "Could not create proxy: %s\n", error->message);
+        g_object_unref (self);
         return;
     }
-
-    self->update_callback_id = 0;
 
     g_signal_connect_swapped (self->proxy, "notify::g-name-owner",
                               G_CALLBACK (update_is_supported), self);
@@ -935,4 +981,18 @@ exm_manager_init (ExmManager *self)
                       "extension-state-changed",
                       G_CALLBACK (on_state_changed),
                       self);
+
+    g_object_unref (self);
+}
+
+static void
+exm_manager_init (ExmManager *self)
+{
+    self->update_callback_id = 0;
+
+    shell_extensions_proxy_new_for_bus (G_BUS_TYPE_SESSION,
+                                        G_DBUS_PROXY_FLAGS_NONE,
+                                        "org.gnome.Shell.Extensions",
+                                        "/org/gnome/Shell/Extensions",
+                                        NULL, on_proxy_created, g_object_ref (self));
 }
