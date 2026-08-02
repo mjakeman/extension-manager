@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-31 19:23+0000\n"
+"POT-Creation-Date: 2026-08-02 13:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,7 +125,7 @@ msgid "Try a different search"
 msgstr ""
 
 #: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:60 src/exm-detail-view.blp:482
+#: src/exm-detail-view.blp:61 src/exm-detail-view.blp:491
 #: src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr ""
@@ -134,151 +134,156 @@ msgstr ""
 msgid "Ascending Order"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:439
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:448
 msgid "Reviews and Comments"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:921
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:924
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr ""
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:152
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:153
 msgid "Author"
 msgstr ""
 
-#: src/exm-detail-view.blp:51
+#: src/exm-detail-view.blp:52
 msgid "Loading Details"
 msgstr ""
 
-#: src/exm-detail-view.blp:70 src/exm-window.c:411
+#: src/exm-detail-view.blp:71 src/exm-window.c:411
 msgid "An Error Occurred"
 msgstr ""
 
-#: src/exm-detail-view.blp:71
+#: src/exm-detail-view.blp:72
 msgid "No extension details available"
 msgstr ""
 
 #. Translators: Banner title shown when the extension has a runtime error
-#: src/exm-detail-view.blp:84
+#: src/exm-detail-view.blp:85
 msgid "This extension has an error"
 msgstr ""
 
-#: src/exm-detail-view.blp:85
+#: src/exm-detail-view.blp:86
 msgid "_View Details"
 msgstr ""
 
-#: src/exm-detail-view.blp:137
+#: src/exm-detail-view.blp:138
 msgid "Name"
 msgstr ""
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:185
+#: src/exm-detail-view.blp:186
 msgid "Remove Extension"
 msgstr ""
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:197 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:198 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr ""
 
-#. Translators: Button tooltip to show extension directory in Files
-#: src/exm-detail-view.blp:209
-msgid "Show in Files"
-msgstr ""
-
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:217
+#: src/exm-detail-view.blp:206
 msgid "Toggle Extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:241
+#: src/exm-detail-view.blp:230
 msgid "Enlarge Image"
 msgstr ""
 
-#: src/exm-detail-view.blp:259
+#: src/exm-detail-view.blp:248
 msgid "Description"
 msgstr ""
 
-#: src/exm-detail-view.blp:287
+#: src/exm-detail-view.blp:276
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr ""
 
-#: src/exm-detail-view.blp:307
+#: src/exm-detail-view.blp:296
 msgid "Version"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:324 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:313 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr ""
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:338 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:327 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr ""
 
-#: src/exm-detail-view.blp:360
+#: src/exm-detail-view.blp:349
 msgid "Session Modes"
 msgstr ""
 
-#: src/exm-detail-view.blp:369
+#: src/exm-detail-view.blp:364
+msgid "Location"
+msgstr ""
+
+#: src/exm-detail-view.blp:378
 msgid "Links"
 msgstr ""
 
-#: src/exm-detail-view.blp:379
+#: src/exm-detail-view.blp:388
 msgid "Homepage"
 msgstr ""
 
-#: src/exm-detail-view.blp:395 src/exm-detail-view.blp:410
+#: src/exm-detail-view.blp:404 src/exm-detail-view.blp:419
 msgid "Donate"
 msgstr ""
 
-#: src/exm-detail-view.blp:421
+#: src/exm-detail-view.blp:430
 msgid "View on Extensions"
 msgstr ""
 
-#: src/exm-detail-view.blp:462
+#: src/exm-detail-view.blp:471
 msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:505
+#: src/exm-detail-view.blp:514
 msgid "There are no reviews or comments"
 msgstr ""
 
-#: src/exm-detail-view.blp:534
+#: src/exm-detail-view.blp:543
 msgid "_Show All"
 msgstr ""
 
-#: src/exm-detail-view.c:464
+#: src/exm-detail-view.c:467
 msgid "Unlock Dialog"
 msgstr ""
 
-#: src/exm-detail-view.c:465
+#: src/exm-detail-view.c:468
 msgid "GDM"
 msgstr ""
 
-#: src/exm-detail-view.c:559 src/exm-detail-view.c:664
+#: src/exm-detail-view.c:562 src/exm-detail-view.c:667
 msgid "Unsupported"
 msgstr ""
 
-#: src/exm-detail-view.c:712
+#: src/exm-detail-view.c:715
 msgid "Unknown"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:802
+#: src/exm-detail-view.c:805
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:831
+#: src/exm-detail-view.c:834
 #, c-format
 msgid "%s Screenshot"
+msgstr ""
+
+#. Success indicator
+#: src/exm-detail-view.c:1071 src/exm-error-dialog.c:126
+#: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
+msgid "Copied"
 msgstr ""
 
 #: src/exm-error-dialog.blp:7
@@ -295,12 +300,6 @@ msgstr ""
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
-msgstr ""
-
-#. Success indicator
-#: src/exm-error-dialog.c:126 src/exm-extension-error-dialog.c:82
-#: src/exm-upgrade-assistant.c:367
-msgid "Copied"
 msgstr ""
 
 #: src/exm-error-dialog.c:174
