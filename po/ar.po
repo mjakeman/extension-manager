@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-02 13:12+0000\n"
-"PO-Revision-Date: 2026-08-02 13:01+0000\n"
+"PO-Revision-Date: 2026-08-07 17:51+0000\n"
 "Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/extension-manager/"
 "app/ar/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -230,7 +230,7 @@ msgstr "أوضاع الجلسة"
 
 #: src/exm-detail-view.blp:364
 msgid "Location"
-msgstr ""
+msgstr "المكان"
 
 #: src/exm-detail-view.blp:378
 msgid "Links"
