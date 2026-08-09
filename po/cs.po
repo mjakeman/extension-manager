@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-02 13:12+0000\n"
-"PO-Revision-Date: 2026-08-01 09:38+0000\n"
+"PO-Revision-Date: 2026-08-10 09:51+0000\n"
 "Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -237,7 +237,7 @@ msgstr "Režimy relací"
 
 #: src/exm-detail-view.blp:364
 msgid "Location"
-msgstr ""
+msgstr "Umístění"
 
 #: src/exm-detail-view.blp:378
 msgid "Links"
