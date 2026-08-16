@@ -60,6 +60,7 @@ struct _ExmDetailView
     GdkPaintable *screenshot;
     gchar *shell_version;
     gchar *uuid;
+    GBinding *versions_provider_shell_version_binding;
 
     AdwHeaderBar *header_bar;
     GtkRevealer *title_revealer;
@@ -143,6 +144,12 @@ exm_detail_view_dispose (GObject *object)
     if (self->resolver_cancel)
         g_cancellable_cancel (self->resolver_cancel);
     g_clear_object (&self->resolver_cancel);
+
+    if (self->versions_provider_shell_version_binding)
+    {
+        g_binding_unbind (self->versions_provider_shell_version_binding);
+        self->versions_provider_shell_version_binding = NULL;
+    }
 
     g_clear_object (&self->data);
     g_clear_object (&self->screenshot);
@@ -1376,13 +1383,16 @@ on_extensions_ready (ExmDetailView *self)
 static void
 on_bind_manager (ExmDetailView *self)
 {
-    const gchar *shell_version;
+    if (self->versions_provider_shell_version_binding)
+    {
+        g_binding_unbind (self->versions_provider_shell_version_binding);
+        self->versions_provider_shell_version_binding = NULL;
+    }
 
-    g_object_get (self->manager,
-                  "shell-version", &shell_version,
-                  NULL);
-
-    g_object_set (self->versions_provider, "shell-version", shell_version, NULL);
+    self->versions_provider_shell_version_binding =
+        g_object_bind_property (self->manager, "shell-version",
+                                self->versions_provider, "shell-version",
+                                G_BINDING_SYNC_CREATE);
 
     if (self->install_signal_id > 0)
         g_signal_handler_disconnect (self->manager, self->install_signal_id);
