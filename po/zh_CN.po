@@ -6,14 +6,14 @@
 # taijuin Lee <taijuin@gmail.com>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025, 2026.
 # Charles Garris <charlesgarris3822@gmail.com>, 2026.
+# xiezhihai <xiezhihai7321@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-02 13:12+0000\n"
-"PO-Revision-Date: 2026-01-19 18:01+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2026-08-17 22:51+0000\n"
+"Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -167,13 +167,11 @@ msgstr "无扩展详细信息"
 #. Translators: Banner title shown when the extension has a runtime error
 #: src/exm-detail-view.blp:85
 msgid "This extension has an error"
-msgstr ""
+msgstr "此扩展出现错误"
 
 #: src/exm-detail-view.blp:86
-#, fuzzy
-#| msgid "_Details"
 msgid "_View Details"
-msgstr "细节 (_D)"
+msgstr "_查看详情"
 
 #: src/exm-detail-view.blp:138
 msgid "Name"
@@ -181,10 +179,8 @@ msgstr "名称"
 
 #. Translators: Button tooltip to remove an installed extension
 #: src/exm-detail-view.blp:186
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Remove Extension"
-msgstr "使用扩展"
+msgstr "移除扩展"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -194,10 +190,8 @@ msgstr "打开扩展属性"
 
 #. Translators: Switch tooltip to enable or disable the extension
 #: src/exm-detail-view.blp:206
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Toggle Extension"
-msgstr "使用扩展"
+msgstr "切换扩展"
 
 #: src/exm-detail-view.blp:230
 msgid "Enlarge Image"
@@ -233,7 +227,7 @@ msgstr "会话模式"
 
 #: src/exm-detail-view.blp:364
 msgid "Location"
-msgstr ""
+msgstr "本地"
 
 #: src/exm-detail-view.blp:378
 msgid "Links"
@@ -325,30 +319,26 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"您在使用扩展管理器的第三方版本。在发布 Issue 前，请先<span weight=\"bold\">联"
-"系软件包分发者 (%s)</span>。确保带有以下信息："
+"您正在使用扩展管理器的第三方版本。在提交问题之前，请<span weight=\"bold\">首"
+"先联系软件包分发商（%s）</span>。请务必附上以下信息："
 
 #: src/exm-extension-error-dialog.blp:9
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "Extension Error"
-msgstr "扩展管理器"
+msgstr "扩展错误"
 
 #. Translators: Button to report an extension error to its developer
 #: src/exm-extension-error-dialog.blp:77
-#, fuzzy
-#| msgid "_New Issue"
 msgid "_Report Issue"
-msgstr "新建 Issue (_N)"
+msgstr "_报告问题"
 
 #: src/exm-extension-error-dialog.c:54
 #, c-format
 msgid "“%s” Failed to Load"
-msgstr ""
+msgstr "“%s”加载失败"
 
 #: src/exm-extension-error-dialog.c:55
 msgid "Extension Failed to Load"
-msgstr ""
+msgstr "扩展加载失败"
 
 #. Translators: Button's tooltip to view an extension's error details
 #: src/exm-extension-row.blp:58
@@ -390,10 +380,8 @@ msgstr "用户安装的扩展"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
 #: src/exm-installed-page.blp:46 src/exm-window.c:506
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Select Extensions"
-msgstr "使用扩展"
+msgstr "选择扩展"
 
 #: src/exm-installed-page.blp:52 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
@@ -526,7 +514,7 @@ msgstr "%d%% 兼容"
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
-msgstr "<b>%d 个（共 %d 个）</b>当前安装的扩展被标记为支持 <b> GNOME %s</b>"
+msgstr "<b>当前系统中已安装的 %d 个扩展中，有 %d 个被标记为支持 <b>GNOME %s</b></b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
@@ -561,41 +549,33 @@ msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
 "and check whether your extensions will continue to be available."
 msgstr ""
-"您正在运行<b>GNOME %s</b>。请在下面选择一个 GNOME 版本，并检查您的扩展是否将"
-"继续可用。"
+"您当前正在运行 <b>GNOME %s</b>。请在下面选择一个 GNOME 版本，并检查您的扩展是"
+"否仍然可用。"
 
 #: src/exm-versions-dialog.blp:13
-#, fuzzy
-#| msgid "Version"
 msgid "Version History"
-msgstr "版本"
+msgstr "历史版本"
 
 #: src/exm-versions-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading Versions"
-msgstr "加载详情中"
+msgstr "版本加载中"
 
 #: src/exm-versions-dialog.blp:34
 msgid "No Version History"
-msgstr ""
+msgstr "没有版本历史"
 
 #: src/exm-versions-dialog.blp:71
-#, fuzzy
-#| msgid "_Load More Results"
 msgid "_Load More Versions"
-msgstr "载入更多结果 (_L)"
+msgstr "_加载更多版本中"
 
 #. Translators: Tooltip on the installed-version indicator in the versions dialog
 #: src/exm-versions-dialog.c:239
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Installed Version"
-msgstr "用户安装的扩展"
+msgstr "已安装的版本"
 
 #: src/exm-window.blp:61
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:69
@@ -621,22 +601,20 @@ msgid "_Browse"
 msgstr "浏览 (_B)"
 
 #: src/exm-window.blp:129
-#, fuzzy
-#| msgid "Install…"
 msgid "Uninstall…"
-msgstr "安装…"
+msgstr "卸载…"
 
 #: src/exm-window.blp:164
 msgid "GNOME Shell Unavailable"
-msgstr ""
+msgstr "GNOME Shell不可用"
 
 #: src/exm-window.blp:165
 msgid "Log in to a GNOME session to manage extensions"
-msgstr ""
+msgstr "登录到 GNOME 会话以管理扩展"
 
 #: src/exm-window.blp:174
 msgid "_Discover GNOME"
-msgstr ""
+msgstr "_发现 GNOME"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
@@ -675,10 +653,8 @@ msgid "_Yes"
 msgstr "是 (_Y)"
 
 #: src/exm-window.blp:215
-#, fuzzy
-#| msgid "Uninstall Extension?"
 msgid "Uninstall Extensions?"
-msgstr "卸载扩展吗？"
+msgstr "卸载多个扩展程序？"
 
 #: src/exm-window.blp:226
 msgid "Unsupported Extension"
@@ -707,27 +683,25 @@ msgstr "细节 (_D)"
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
-msgstr[0] ""
+msgstr[0] "%u 已选择"
 
 #: src/exm-window.c:556
-#, fuzzy, c-format
-#| msgid ""
-#| "The extension's features and functionality will no longer be accessible. "
-#| "Are you sure you want to uninstall?"
+#, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall %u extension?"
 msgid_plural ""
 "Their features and functionality will no longer be accessible. Are you sure "
 "you want to uninstall %u extensions?"
-msgstr[0] "您将无法再使用此扩展的特性与功能。确定要卸载吗？"
+msgstr[0] "扩展的功能将不再可用。您确定要卸载 %u 扩展吗？"
 
 #: src/web/exm-request-handler.c:133
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
-"请检查<a href='https://status.gnome.org/'>GNOME基础设施状态</a>并稍后再试"
+"请检查 <a href='https://status.gnome.org/'>GNOME 基础设施状态</a>，然后稍后再"
+"试"
 
 #: src/web/exm-request-handler.c:134
 msgid "Check your network status and try again"
