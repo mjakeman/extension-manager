@@ -83,7 +83,7 @@ exm_screenshot_view_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_SCREENSHOT:
-        self->screenshot = g_value_get_object (value);
+        g_set_object (&self->screenshot, g_value_get_object (value));
         set_screenshot (self, self->screenshot);
         break;
     default:
@@ -138,10 +138,21 @@ notify_zoom (ExmZoomPicture    *picture,
 }
 
 static void
+exm_screenshot_view_dispose (GObject *object)
+{
+    ExmScreenshotView *self = EXM_SCREENSHOT_VIEW (object);
+
+    g_clear_object (&self->screenshot);
+
+    G_OBJECT_CLASS (exm_screenshot_view_parent_class)->dispose (object);
+}
+
+static void
 exm_screenshot_view_class_init (ExmScreenshotViewClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->dispose = exm_screenshot_view_dispose;
     object_class->get_property = exm_screenshot_view_get_property;
     object_class->set_property = exm_screenshot_view_set_property;
 

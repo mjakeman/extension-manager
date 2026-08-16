@@ -145,6 +145,7 @@ exm_detail_view_dispose (GObject *object)
     g_clear_object (&self->resolver_cancel);
 
     g_clear_object (&self->data);
+    g_clear_object (&self->screenshot);
     g_clear_object (&self->action_group);
     g_clear_object (&self->provider);
     g_clear_object (&self->resolver);
@@ -211,7 +212,7 @@ exm_detail_view_set_property (GObject      *object,
         self->shell_version = g_value_dup_string (value);
         break;
     case PROP_SCREENSHOT:
-        self->screenshot = g_value_get_object (value);
+        g_set_object (&self->screenshot, g_value_get_object (value));
         break;
     case PROP_DATA:
         g_set_object (&self->data, g_value_get_object (value));
