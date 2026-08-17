@@ -346,9 +346,16 @@ exm_search_result_deserialize_property (JsonSerializable *serializable,
     if (g_strcmp0 (property_name, "creator") == 0)
     {
         JsonObject *obj;
+        const gchar *creator;
 
         obj = json_node_get_object (property_node);
-        g_value_set_string (value, json_object_get_string_member (obj, "username"));
+        creator = json_object_get_string_member_with_default (obj, "display_name", NULL);
+
+        if (creator == NULL)
+            creator = json_object_get_string_member (obj, "username");
+
+        g_value_set_string (value, creator);
+
         return TRUE;
     }
 
