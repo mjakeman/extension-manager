@@ -172,6 +172,30 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
                                        user_data);
 }
 
+void
+exm_search_provider_query_by_creator_async (ExmSearchProvider   *self,
+                                            const gchar         *username,
+                                            GCancellable        *cancellable,
+                                            GAsyncReadyCallback  callback,
+                                            gpointer             user_data)
+{
+    // Query https://extensions.gnome.org/api/v1/extensions/search/{%s}/?ordering=name&page_size=100
+
+    gchar *escaped = g_uri_escape_string (username, NULL, FALSE);
+    gchar *url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?ordering=name&page_size=100",
+                                  escaped);
+
+    g_free (escaped);
+
+    exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
+                                       url,
+                                       cancellable,
+                                       callback,
+                                       user_data);
+
+    g_free (url);
+}
+
 GListModel *
 exm_search_provider_query_finish (ExmSearchProvider  *self,
                                   GAsyncResult       *result,
