@@ -7,13 +7,14 @@
 # pan93412 <pan93412@gmail.com>, 2025.
 # taijuin Lee <taijuin@gmail.com>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
+# xiezhihai <xiezhihai7321@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-02 13:12+0000\n"
-"PO-Revision-Date: 2026-07-25 10:13+0000\n"
-"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
+"PO-Revision-Date: 2026-08-20 08:52+0000\n"
+"Last-Translator: xiezhihai <xiezhihai7321@outlook.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -37,7 +38,7 @@ msgstr "管理 GNOME Shell 擴充功能"
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:15
 msgid "extension;manager;shell;"
-msgstr "extension;manager;shell;擴充功能;管理員;管理器;殼層;"
+msgstr "擴充功能;管理員;終端機;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
 msgid "Install GNOME Extensions"
@@ -49,17 +50,17 @@ msgstr "瀏覽並安裝 GNOME Shell 擴充功能以自訂您的桌面環境。"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
-msgstr "功能："
+msgstr "特點："
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
 msgid "Browse extensions.gnome.org right inside the app"
-msgstr "在應用程式內瀏覽 extensions.gnome.org"
+msgstr "直接在應用程式內瀏覽 extensions.gnome.org"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:17
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:22
 msgid "Manage the extensions you already have installed"
-msgstr "管理已安裝的擴充功能"
+msgstr "管理您已安裝的擴充功能"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:30
 msgid "See all the details of your extensions"
@@ -71,15 +72,12 @@ msgstr "檢查您的擴充功能與下一版本 GNOME 的相容性"
 
 #: src/exm-application.c:234
 msgid "Browse, install, and manage GNOME Shell Extensions."
-msgstr "瀏覽、安裝和管理 GNOME Shell 擴充功能。"
+msgstr "瀏覽、安裝及管理 GNOME Shell 擴充功能。"
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
 #: src/exm-application.c:237
 msgid "translator-credits"
-msgstr ""
-"Sean Wang <sn1128231220jd@yahoo.com>\n"
-"Oliver Tzeng(曾嘉禾) <olivertzengolivertzeng@gmail.com>\n"
-"taijuin <taijuin@gmail.com>"
+msgstr "翻譯者名單"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
@@ -230,7 +228,7 @@ msgstr "工作階段模式"
 
 #: src/exm-detail-view.blp:364
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: src/exm-detail-view.blp:378
 msgid "Links"
@@ -322,8 +320,8 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"您正在使用第三方版本的擴充功能管理員。在提交問題之前，請先<span "
-"weight=\"bold\">聯絡軟體包分發者（%s）</span>。請務必附上以下資訊："
+"您正在使用第三方版本的擴充管理器。請在提交問題之前 <span weight=\"bold\">先聯"
+"絡套件發行者（%s）</span>。請務必附上以下資訊："
 
 #: src/exm-extension-error-dialog.blp:9
 msgid "Extension Error"
@@ -517,7 +515,9 @@ msgstr "%d%% 相容"
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
-msgstr "目前安裝在系統上的擴充功能已被標記為<b>%d不%d</b>支援 <b>GNOME %s</b>"
+msgstr ""
+"<b>目前系統上已安裝的 %d 個擴充功能中，有 %d 個已標記為支援 <b>GNOME %s</b></"
+"b>"
 
 #: src/exm-upgrade-assistant.c:231
 #, c-format
@@ -702,8 +702,7 @@ msgstr[0] "這 %u 個擴充功能提供的功能將無法再使用。確定要�
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
-msgstr ""
-"請檢查<a href='https://status.gnome.org/'>GNOME 基礎設施狀態</a>並稍後再試"
+msgstr "檢查 <a href='https://status.gnome.org/'>GNOME 基礎設施狀態</a> 並稍後再試"
 
 #: src/web/exm-request-handler.c:134
 msgid "Check your network status and try again"
