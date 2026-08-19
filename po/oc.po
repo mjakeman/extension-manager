@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-02 13:12+0000\n"
-"PO-Revision-Date: 2026-08-14 18:51+0000\n"
+"PO-Revision-Date: 2026-08-20 08:52+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
 "manager/app/oc/>\n"
@@ -75,7 +75,7 @@ msgstr "Percórrer, installar e gerir las extensions GNOME Shell."
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
 #: src/exm-application.c:237
 msgid "translator-credits"
-msgstr "Quentin PAGÈS"
+msgstr "Quentin PAGÈS <pages_quentin@hotmail.com>"
 
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
@@ -704,10 +704,7 @@ msgstr[0] "%u seleccionada"
 msgstr[1] "%u seleccionadas"
 
 #: src/exm-window.c:556
-#, fuzzy, c-format
-#| msgid ""
-#| "The extension's features and functionality will no longer be accessible. "
-#| "Are you sure you want to uninstall?"
+#, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall %u extension?"
@@ -715,11 +712,11 @@ msgid_plural ""
 "Their features and functionality will no longer be accessible. Are you sure "
 "you want to uninstall %u extensions?"
 msgstr[0] ""
-"La foncions e foncionalitats d’aquesta extension seràn pas mai accessiblas. "
-"Volètz vertadièrament la desinstallar ?"
+"Las foncions e foncionalitats de l’extension seràn pas mai accessiblas. "
+"Volètz vertadièrament desinstallar %u extension ?"
 msgstr[1] ""
-"La foncions e foncionalitats d’aquesta extension seràn pas mai accessiblas. "
-"Volètz vertadièrament la desinstallar ?"
+"Lors foncions e foncionalitats seràn pas mai accessiblas. Volètz "
+"vertadièrament la desinstallar %u extension ?"
 
 #: src/web/exm-request-handler.c:133
 msgid ""
