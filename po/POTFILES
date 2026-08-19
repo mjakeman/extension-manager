@@ -2,6 +2,8 @@ data/com.mattjakeman.ExtensionManager.desktop.in.in
 data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in
 src/exm-animated-paintable.c
 src/exm-application.c
+src/exm-author-page.blp
+src/exm-author-page.c
 src/exm-backtrace.c
 src/exm-browse-page.blp
 src/exm-browse-page.c
@@ -49,10 +51,12 @@ src/main.c
 src/web/exm-comment-provider.c
 src/web/exm-data-provider.c
 src/web/exm-image-resolver.c
+src/web/exm-profile-provider.c
 src/web/exm-request-handler.c
 src/web/exm-search-provider.c
 src/web/exm-versions-provider.c
 src/web/model/exm-comment.c
 src/web/model/exm-search-result.c
 src/web/model/exm-shell-versions.c
+src/web/model/exm-user-profile.c
 src/web/model/exm-version-result.c
