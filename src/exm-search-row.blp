@@ -15,6 +15,13 @@ template $ExmSearchRow: Gtk.ListBoxRow {
 
     spacing: 12;
 
+    Gtk.Image row_icon {
+      visible: bind template.show-icon;
+      icon-name: "puzzle-piece-symbolic";
+      pixel-size: 32;
+      valign: center;
+    }
+
     Gtk.Box {
       styles [
         "title",
@@ -41,6 +48,7 @@ template $ExmSearchRow: Gtk.ListBoxRow {
           "subtitle",
         ]
 
+        visible: bind template.show-creator;
         ellipsize: end;
         label: bind template.search-result as <$ExmSearchResult>.creator;
         wrap: true;
