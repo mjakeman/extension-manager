@@ -60,4 +60,10 @@ GListModel        *exm_search_provider_query_finish (ExmSearchProvider  *self,
                                                      int                *num_pages,
                                                      GError            **error);
 
+void                exm_search_provider_query_by_creator_async (ExmSearchProvider   *self,
+                                                                const gchar         *username,
+                                                                GCancellable        *cancellable,
+                                                                GAsyncReadyCallback  callback,
+                                                                gpointer             user_data);
+
 G_END_DECLS
