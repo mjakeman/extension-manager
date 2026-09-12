@@ -12,7 +12,7 @@
     <key name="is-maximized" type="b">
       <default>false</default>
       <summary>Is Maximized</summary>
-      <description>Wether app window is maximized.</description>
+      <description>Whether app window is maximized.</description>
     </key>
     <key name="sort-enabled-first" type="b">
       <default>false</default>
