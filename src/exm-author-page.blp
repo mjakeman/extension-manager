@@ -1,0 +1,180 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ExmAuthorPage: Adw.NavigationPage {
+  Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar header_bar {
+      overflow: hidden;
+
+      title-widget: Gtk.Revealer title_revealer {
+        transition-type: slide_up;
+        transition-duration: 500;
+        overflow: visible;
+
+        child: Adw.WindowTitle title {
+          title: bind template.title;
+        };
+      };
+    }
+
+    content: Adw.BreakpointBin {
+      width-request: 360;
+      height-request: 294;
+
+      Adw.Breakpoint breakpoint {
+        condition ("max-width: 400sp")
+        apply => $breakpoint_apply_cb() swapped;
+        unapply => $breakpoint_unapply_cb() swapped;
+      }
+
+      Gtk.ScrolledWindow scroll_area {
+        vexpand: true;
+
+        Adw.Clamp {
+          Gtk.Box {
+            orientation: vertical;
+            spacing: 24;
+            margin-top: 24;
+            margin-bottom: 24;
+            margin-start: 12;
+            margin-end: 12;
+
+            Gtk.Box {
+              orientation: vertical;
+              spacing: 12;
+              halign: center;
+
+              Adw.Avatar avatar {
+                size: 96;
+                show-initials: true;
+                focusable: true;
+              }
+
+              Gtk.Label author_name {
+                styles [
+                  "title-1",
+                ]
+
+                label: bind template.title;
+                justify: center;
+                wrap: true;
+                wrap-mode: word_char;
+                selectable: true;
+              }
+            }
+
+            Gtk.Stack stack {
+              vexpand: true;
+
+              Gtk.StackPage {
+                name: "page_spinner";
+
+                child: Adw.Spinner {
+                  styles [
+                    "dimmed",
+                  ]
+
+                  halign: center;
+                  valign: start;
+                  margin-top: 24;
+                  height-request: 48;
+                  width-request: 48;
+                };
+              }
+
+              Gtk.StackPage {
+                name: "page_list";
+
+                child: Gtk.ListBox extensions_list {
+                  styles [
+                    "boxed-list",
+                  ]
+
+                  selection-mode: none;
+                  valign: center;
+
+                  accessibility {
+                    label: _("Extensions by this author");
+                  }
+                };
+              }
+
+              Gtk.StackPage {
+                name: "page_empty";
+
+                child: Gtk.Box {
+                  orientation: vertical;
+                  margin-start: 12;
+                  margin-end: 12;
+                  margin-top: 36;
+                  margin-bottom: 24;
+
+                  Gtk.Image {
+                    styles [
+                      "dimmed",
+                    ]
+
+                    icon-name: "puzzle-piece-symbolic";
+                    halign: center;
+                    margin-bottom: 24;
+                    pixel-size: 128;
+                  }
+
+                  Gtk.Label {
+                    styles [
+                      "title-1",
+                    ]
+
+                    label: _("No Extensions Found");
+                    wrap: true;
+                    wrap-mode: word_char;
+                  }
+                };
+              }
+
+              Gtk.StackPage {
+                name: "page_error";
+
+                child: Gtk.Box {
+                  orientation: vertical;
+                  margin-start: 12;
+                  margin-end: 12;
+                  margin-top: 36;
+                  margin-bottom: 24;
+
+                  Gtk.Image {
+                    styles [
+                      "dimmed",
+                    ]
+
+                    icon-name: "offline-symbolic";
+                    halign: center;
+                    margin-bottom: 24;
+                    pixel-size: 128;
+                  }
+
+                  Gtk.Label {
+                    styles [
+                      "title-1",
+                    ]
+
+                    label: _("Connection Error");
+                    margin-bottom: 12;
+                    wrap: true;
+                    wrap-mode: word_char;
+                  }
+
+                  Gtk.Label error_label {
+                    wrap: true;
+                    wrap-mode: word_char;
+                  }
+                };
+              }
+            }
+          }
+        }
+      }
+    };
+  }
+}

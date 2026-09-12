@@ -158,6 +158,8 @@ exm_screenshot_view_class_init (ExmScreenshotViewClass *klass)
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-screenshot-view.ui", RESOURCE_PATH));
 
+    g_type_ensure (EXM_TYPE_ZOOM_PICTURE);
+
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshotView, overlay_screenshot);
 
     gtk_widget_class_bind_template_callback (widget_class, notify_zoom);

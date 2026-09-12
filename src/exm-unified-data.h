@@ -46,8 +46,12 @@ void             exm_unified_data_set_web_data (ExmUnifiedData  *self,
 
 const char *exm_unified_data_get_name        (ExmUnifiedData *self);
 const char *exm_unified_data_get_creator     (ExmUnifiedData *self);
+const char *exm_unified_data_get_creator_username (ExmUnifiedData *self);
 const char *exm_unified_data_get_uuid        (ExmUnifiedData *self);
 const char *exm_unified_data_get_description (ExmUnifiedData *self);
+
+gboolean exm_unified_data_get_creator_id     (ExmUnifiedData *self,
+                                              guint          *creator_id);
 
 gboolean exm_unified_data_get_screenshot_uri (ExmUnifiedData  *self,
                                               char           **uri);

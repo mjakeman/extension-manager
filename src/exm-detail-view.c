@@ -461,6 +461,56 @@ has_homepage (GObject     *object G_GNUC_UNUSED,
 }
 
 static gchar *
+format_author_link (GObject     *object G_GNUC_UNUSED,
+                    const gchar *creator,
+                    const gchar *username)
+{
+    gchar *escaped;
+    gchar *markup;
+
+    if (creator == NULL || creator[0] == '\0')
+        return g_strdup ("");
+
+    escaped = g_markup_escape_text (creator, -1);
+
+    if (username == NULL || username[0] == '\0')
+        return escaped;
+
+    markup = g_strdup_printf ("<a href=\"author\">%s</a>", escaped);
+    g_free (escaped);
+
+    return markup;
+}
+
+static gboolean
+on_author_link_activated (GtkLabel      *label G_GNUC_UNUSED,
+                          const gchar   *uri G_GNUC_UNUSED,
+                          ExmDetailView *self)
+{
+    guint creator_id = 0;
+    const gchar *username;
+    const gchar *display_name;
+
+    if (self->data == NULL)
+        return GDK_EVENT_PROPAGATE;
+
+    username = exm_unified_data_get_creator_username (self->data);
+
+    if (username == NULL || username[0] == '\0')
+        return GDK_EVENT_PROPAGATE;
+
+    display_name = exm_unified_data_get_creator (self->data);
+    exm_unified_data_get_creator_id (self->data, &creator_id);
+
+    gtk_widget_grab_focus (GTK_WIDGET (self->ext_icon));
+
+    gtk_widget_activate_action (GTK_WIDGET (self), "win.show-author", "(uss)",
+                                creator_id, username, display_name);
+
+    return GDK_EVENT_STOP;
+}
+
+static gchar *
 format_session_modes (gchar **session_modes)
 {
     static const struct { const char *key; const char *label; } known[] = {
@@ -1371,6 +1421,8 @@ exm_detail_view_class_init (ExmDetailViewClass *klass)
     gtk_widget_class_bind_template_callback (widget_class, on_toggle_changed);
     gtk_widget_class_bind_template_callback (widget_class, format_downloads);
     gtk_widget_class_bind_template_callback (widget_class, has_homepage);
+    gtk_widget_class_bind_template_callback (widget_class, format_author_link);
+    gtk_widget_class_bind_template_callback (widget_class, on_author_link_activated);
 
     gtk_widget_class_install_action (widget_class, "detail.show-versions", NULL, show_versions);
     gtk_widget_class_install_action (widget_class, "detail.show-error", NULL, show_error);

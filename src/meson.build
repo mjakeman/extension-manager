@@ -17,6 +17,9 @@ exm_sources = [
   # Screenshot View
   'exm-screenshot-view.c',
 
+  # Author Page
+  'exm-author-page.c',
+
   # Installed Page
   'exm-installed-page.c',
   'exm-extension-row.c',
@@ -68,6 +71,7 @@ subdir('web')
 
 blueprints = custom_target('blueprints',
   input: files(
+    'exm-author-page.blp',
     'exm-browse-page.blp',
     'exm-comment-dialog.blp',
     'exm-comment-tile.blp',
