@@ -236,7 +236,7 @@ msgstr "Режимы сеанса"
 
 #: src/exm-detail-view.blp:364
 msgid "Location"
-msgstr ""
+msgstr "Расположение"
 
 #: src/exm-detail-view.blp:378
 msgid "Links"
