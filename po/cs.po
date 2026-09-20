@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-02 13:12+0000\n"
-"PO-Revision-Date: 2026-08-01 09:38+0000\n"
+"POT-Creation-Date: 2026-09-20 10:09+0000\n"
+"PO-Revision-Date: 2026-08-10 09:51+0000\n"
 "Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
 "app/cs/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -85,6 +85,24 @@ msgstr ""
 "vikdevelop https://github.com/vikdevelop\n"
 "Masterix https://github.com/MasterixCZ"
 
+#: src/exm-author-page.blp:95
+#, fuzzy
+#| msgid "Unsupported Extension"
+msgid "Authored Extensions"
+msgstr "Nepodporované rozšíření"
+
+#: src/exm-author-page.blp:126
+#, fuzzy
+#| msgid "No Extensions Installed"
+msgid "No Extensions Found"
+msgstr "Nejsou nainstalována žádná rozšíření"
+
+#: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
+#: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
+#: src/exm-detail-view.blp:496 src/exm-upgrade-assistant.blp:99
+msgid "Connection Error"
+msgstr "Chyba připojení"
+
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
 msgstr "Hledat rozšíření"
@@ -138,26 +156,20 @@ msgstr "Nenalezeny žádné výsledky"
 msgid "Try a different search"
 msgstr "Zkuste vyhledat něco jiného"
 
-#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:61 src/exm-detail-view.blp:491
-#: src/exm-upgrade-assistant.blp:99
-msgid "Connection Error"
-msgstr "Chyba připojení"
-
 #: src/exm-browse-page.c:392
 msgid "Ascending Order"
 msgstr "Vzestupné pořadí"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:448
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:453
 msgid "Reviews and Comments"
 msgstr "Recenze a komentáře"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:924
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:974
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Načítání"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:153
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:158
 msgid "Author"
 msgstr "Autor"
 
@@ -165,7 +177,7 @@ msgstr "Autor"
 msgid "Loading Details"
 msgstr "Načítání podrobností"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:411
+#: src/exm-detail-view.blp:71 src/exm-window.c:474
 msgid "An Error Occurred"
 msgstr "Došlo k chybě"
 
@@ -187,116 +199,116 @@ msgid "Name"
 msgstr "Název"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:186
+#: src/exm-detail-view.blp:191
 msgid "Remove Extension"
 msgstr "Odstranit rozšíření"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:198 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:203 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "Otevřít předvolby rozšíření"
 
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:206
+#: src/exm-detail-view.blp:211
 msgid "Toggle Extension"
 msgstr "Vyp/zapnout rozšíření"
 
-#: src/exm-detail-view.blp:230
+#: src/exm-detail-view.blp:235
 msgid "Enlarge Image"
 msgstr "Zvětšit obrázek"
 
-#: src/exm-detail-view.blp:248
+#: src/exm-detail-view.blp:253
 msgid "Description"
 msgstr "Popis"
 
-#: src/exm-detail-view.blp:276
+#: src/exm-detail-view.blp:281
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Počet stažení"
 
-#: src/exm-detail-view.blp:296
+#: src/exm-detail-view.blp:301
 msgid "Version"
 msgstr "Verze"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:313 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:318 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "Je k dispozici novější verze tohoto rozšíření"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:327 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:332 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr ""
 "Toto rozšíření není kompatibilní s vámi provozovanou verzí prostředí GNOME"
 
-#: src/exm-detail-view.blp:349
+#: src/exm-detail-view.blp:354
 msgid "Session Modes"
 msgstr "Režimy relací"
 
-#: src/exm-detail-view.blp:364
+#: src/exm-detail-view.blp:369
 msgid "Location"
-msgstr ""
+msgstr "Umístění"
 
-#: src/exm-detail-view.blp:378
+#: src/exm-detail-view.blp:383
 msgid "Links"
 msgstr "Odkazy"
 
-#: src/exm-detail-view.blp:388
+#: src/exm-detail-view.blp:393
 msgid "Homepage"
 msgstr "Domovská stránka"
 
-#: src/exm-detail-view.blp:404 src/exm-detail-view.blp:419
+#: src/exm-detail-view.blp:409 src/exm-detail-view.blp:424
 msgid "Donate"
 msgstr "Podpořit vývoj darem"
 
-#: src/exm-detail-view.blp:430
+#: src/exm-detail-view.blp:435
 msgid "View on Extensions"
 msgstr "Zobrazit na webu"
 
-#: src/exm-detail-view.blp:471
+#: src/exm-detail-view.blp:476
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Recenze a komentáře jsou u tohoto rozšíření vypnuty"
 
-#: src/exm-detail-view.blp:514
+#: src/exm-detail-view.blp:519
 msgid "There are no reviews or comments"
 msgstr "Toto rozšíření nemá žádné recenze ani komentáře"
 
-#: src/exm-detail-view.blp:543
+#: src/exm-detail-view.blp:548
 msgid "_Show All"
 msgstr "_Zobrazit vše"
 
-#: src/exm-detail-view.c:467
+#: src/exm-detail-view.c:517
 msgid "Unlock Dialog"
 msgstr "Dialog odemčení"
 
-#: src/exm-detail-view.c:468
+#: src/exm-detail-view.c:518
 msgid "GDM"
 msgstr "GDM"
 
-#: src/exm-detail-view.c:562 src/exm-detail-view.c:667
+#: src/exm-detail-view.c:612 src/exm-detail-view.c:717
 msgid "Unsupported"
 msgstr "Nepodporované"
 
-#: src/exm-detail-view.c:715
+#: src/exm-detail-view.c:765
 msgid "Unknown"
 msgstr "Neznámé"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:805
+#: src/exm-detail-view.c:855
 #, c-format
 msgid "%s Icon"
 msgstr "Ikona rozšíření %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:834
+#: src/exm-detail-view.c:884
 #, c-format
 msgid "%s Screenshot"
 msgstr "Snímek obrazovky rozšíření %s"
 
 #. Success indicator
-#: src/exm-detail-view.c:1071 src/exm-error-dialog.c:126
+#: src/exm-detail-view.c:1121 src/exm-error-dialog.c:126
 #: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Zkopírováno"
@@ -391,7 +403,7 @@ msgid "User-Installed Extensions"
 msgstr "Uživatelská rozšíření"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:506
+#: src/exm-installed-page.blp:46 src/exm-window.c:569
 msgid "Select Extensions"
 msgstr "Vybrat rozšíření"
 
@@ -625,41 +637,41 @@ msgstr "_Procházet"
 msgid "Uninstall…"
 msgstr "Odinstalovat…"
 
-#: src/exm-window.blp:164
+#: src/exm-window.blp:159
 msgid "GNOME Shell Unavailable"
 msgstr "GNOME Shell není dostupný"
 
-#: src/exm-window.blp:165
+#: src/exm-window.blp:160
 msgid "Log in to a GNOME session to manage extensions"
 msgstr "Pro správu rozšíření se přihlaste do relace GNOME"
 
-#: src/exm-window.blp:174
+#: src/exm-window.blp:169
 msgid "_Discover GNOME"
 msgstr "_Objevte GNOME"
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:190
+#: src/exm-window.blp:185
 msgid "Sort _Enabled First"
 msgstr "Řadit zapnutá jako _první"
 
-#: src/exm-window.blp:194
+#: src/exm-window.blp:189
 msgid "_Upgrade Assistant"
 msgstr "_Pomocník s aktualizací"
 
-#: src/exm-window.blp:195
+#: src/exm-window.blp:190
 msgid "_Keyboard Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: src/exm-window.blp:196
+#: src/exm-window.blp:191
 msgid "_About Extension Manager"
 msgstr "_O Správci rozšíření"
 
-#: src/exm-window.blp:201
+#: src/exm-window.blp:196
 msgid "Uninstall Extension?"
 msgstr "Odinstalovat rozšíření?"
 
-#: src/exm-window.blp:203
+#: src/exm-window.blp:198
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -667,23 +679,23 @@ msgstr ""
 "Funkce tohoto rozšíření už nebudou nadále k dispozici. Opravdu ho chcete "
 "odinstalovat?"
 
-#: src/exm-window.blp:209 src/exm-window.blp:220
+#: src/exm-window.blp:204 src/exm-window.blp:215
 msgid "_No"
 msgstr "_Ne"
 
-#: src/exm-window.blp:210 src/exm-window.blp:221
+#: src/exm-window.blp:205 src/exm-window.blp:216
 msgid "_Yes"
 msgstr "_Ano"
 
-#: src/exm-window.blp:215
+#: src/exm-window.blp:210
 msgid "Uninstall Extensions?"
 msgstr "Odinstalovat rozšíření?"
 
-#: src/exm-window.blp:226
+#: src/exm-window.blp:221
 msgid "Unsupported Extension"
 msgstr "Nepodporované rozšíření"
 
-#: src/exm-window.blp:227
+#: src/exm-window.blp:222
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -691,20 +703,20 @@ msgstr ""
 "Toto rozšíření nepodporuje vaši verzi GNOME Shell. Při nainstalování může "
 "způsobovat problémy."
 
-#: src/exm-window.blp:233
+#: src/exm-window.blp:228
 msgid "_Install Anyway"
 msgstr "_Přesto nainstalovat"
 
-#: src/exm-window.blp:234
+#: src/exm-window.blp:229
 msgid "_Go Back"
 msgstr "_Zpět"
 
-#: src/exm-window.c:412
+#: src/exm-window.c:475
 msgid "_Details"
 msgstr "_Podrobnosti"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:509
+#: src/exm-window.c:572
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
@@ -712,7 +724,7 @@ msgstr[0] "Vybráno %u"
 msgstr[1] "Vybrána %u"
 msgstr[2] "Vybráno %u"
 
-#: src/exm-window.c:556
+#: src/exm-window.c:619
 #, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
