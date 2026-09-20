@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-02 13:12+0000\n"
+"POT-Creation-Date: 2026-09-20 10:09+0000\n"
 "PO-Revision-Date: 2025-08-14 17:21+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
@@ -78,6 +78,24 @@ msgstr "गनोम शैल एक्सटेंशन ब्राउज़
 msgid "translator-credits"
 msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 
+#: src/exm-author-page.blp:95
+#, fuzzy
+#| msgid "Unsupported Extension"
+msgid "Authored Extensions"
+msgstr "असमर्थित एक्सटेंशन"
+
+#: src/exm-author-page.blp:126
+#, fuzzy
+#| msgid "No User Extensions Installed"
+msgid "No Extensions Found"
+msgstr "कोई उपयोक्ता एक्सटेंशन स्थापित नहीं हैं"
+
+#: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
+#: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
+#: src/exm-detail-view.blp:496 src/exm-upgrade-assistant.blp:99
+msgid "Connection Error"
+msgstr ""
+
 #: src/exm-browse-page.blp:16
 msgid "Search for Extensions"
 msgstr "एक्सटेंशन खोजें"
@@ -129,30 +147,24 @@ msgstr "कोई परिणाम नहीं मिला"
 msgid "Try a different search"
 msgstr ""
 
-#: src/exm-browse-page.blp:186 src/exm-comment-dialog.blp:34
-#: src/exm-detail-view.blp:61 src/exm-detail-view.blp:491
-#: src/exm-upgrade-assistant.blp:99
-msgid "Connection Error"
-msgstr ""
-
 #: src/exm-browse-page.c:392
 msgid "Ascending Order"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:448
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:453
 #, fuzzy
 #| msgid "There are no comments."
 msgid "Reviews and Comments"
 msgstr "कोई टिप्पणियां नहीं हैं।"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:924
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:974
 #: src/exm-install-button.c:147
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
 msgstr "लोड हो रहा है…"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:153
+#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:158
 msgid "Author"
 msgstr "लेखक"
 
@@ -160,7 +172,7 @@ msgstr "लेखक"
 msgid "Loading Details"
 msgstr "विवरण लोड हो रहा है"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:411
+#: src/exm-detail-view.blp:71 src/exm-window.c:474
 msgid "An Error Occurred"
 msgstr "एक त्रुटि हुई"
 
@@ -186,7 +198,7 @@ msgid "Name"
 msgstr "नाम"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:186
+#: src/exm-detail-view.blp:191
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Remove Extension"
@@ -194,109 +206,109 @@ msgstr "एक्सटेंशन का उपयोग करें"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:198 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:203 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "एक्सटेंशन प्राथमिकताएं खोलें"
 
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:206
+#: src/exm-detail-view.blp:211
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Toggle Extension"
 msgstr "एक्सटेंशन का उपयोग करें"
 
-#: src/exm-detail-view.blp:230
+#: src/exm-detail-view.blp:235
 msgid "Enlarge Image"
 msgstr "छवि बड़ा करें"
 
-#: src/exm-detail-view.blp:248
+#: src/exm-detail-view.blp:253
 msgid "Description"
 msgstr "विवरण"
 
-#: src/exm-detail-view.blp:276
+#: src/exm-detail-view.blp:281
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "डाउनलोड"
 
-#: src/exm-detail-view.blp:296
+#: src/exm-detail-view.blp:301
 msgid "Version"
 msgstr "संस्करण"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:313 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:318 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "इस एक्सटेंशन का एक नया संस्करण उपलब्ध है"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:327 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:332 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है"
 
-#: src/exm-detail-view.blp:349
+#: src/exm-detail-view.blp:354
 msgid "Session Modes"
 msgstr ""
 
-#: src/exm-detail-view.blp:364
+#: src/exm-detail-view.blp:369
 msgid "Location"
 msgstr ""
 
-#: src/exm-detail-view.blp:378
+#: src/exm-detail-view.blp:383
 msgid "Links"
 msgstr "लिंक"
 
-#: src/exm-detail-view.blp:388
+#: src/exm-detail-view.blp:393
 msgid "Homepage"
 msgstr "मुखपृष्ठ"
 
-#: src/exm-detail-view.blp:404 src/exm-detail-view.blp:419
+#: src/exm-detail-view.blp:409 src/exm-detail-view.blp:424
 msgid "Donate"
 msgstr "दान करें"
 
-#: src/exm-detail-view.blp:430
+#: src/exm-detail-view.blp:435
 msgid "View on Extensions"
 msgstr "एक्सटेंशन पर देखें"
 
-#: src/exm-detail-view.blp:471
+#: src/exm-detail-view.blp:476
 msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:514
+#: src/exm-detail-view.blp:519
 #, fuzzy
 #| msgid "There are no comments."
 msgid "There are no reviews or comments"
 msgstr "कोई टिप्पणियां नहीं हैं।"
 
-#: src/exm-detail-view.blp:543
+#: src/exm-detail-view.blp:548
 #, fuzzy
 #| msgid "_Show All Reviews"
 msgid "_Show All"
 msgstr "सभी समीक्षाएं दिखाएं (_S)"
 
-#: src/exm-detail-view.c:467
+#: src/exm-detail-view.c:517
 msgid "Unlock Dialog"
 msgstr ""
 
-#: src/exm-detail-view.c:468
+#: src/exm-detail-view.c:518
 msgid "GDM"
 msgstr ""
 
-#: src/exm-detail-view.c:562 src/exm-detail-view.c:667
+#: src/exm-detail-view.c:612 src/exm-detail-view.c:717
 msgid "Unsupported"
 msgstr "असमर्थित"
 
-#: src/exm-detail-view.c:715
+#: src/exm-detail-view.c:765
 msgid "Unknown"
 msgstr "अज्ञात"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:805
+#: src/exm-detail-view.c:855
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:834
+#: src/exm-detail-view.c:884
 #, fuzzy, c-format
 #| msgctxt "shortcut window"
 #| msgid "Screenshot View"
@@ -304,7 +316,7 @@ msgid "%s Screenshot"
 msgstr "स्क्रीनशॉट दृश्य"
 
 #. Success indicator
-#: src/exm-detail-view.c:1071 src/exm-error-dialog.c:126
+#: src/exm-detail-view.c:1121 src/exm-error-dialog.c:126
 #: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "कॉपी किया गया"
@@ -409,7 +421,7 @@ msgid "User-Installed Extensions"
 msgstr "उपयोक्ता-स्थापित एक्सटेंशन"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:506
+#: src/exm-installed-page.blp:46 src/exm-window.c:569
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Select Extensions"
@@ -673,41 +685,41 @@ msgstr "देखें (_B)"
 msgid "Uninstall…"
 msgstr "स्थापित करें…"
 
-#: src/exm-window.blp:164
+#: src/exm-window.blp:159
 msgid "GNOME Shell Unavailable"
 msgstr ""
 
-#: src/exm-window.blp:165
+#: src/exm-window.blp:160
 msgid "Log in to a GNOME session to manage extensions"
 msgstr ""
 
-#: src/exm-window.blp:174
+#: src/exm-window.blp:169
 msgid "_Discover GNOME"
 msgstr ""
 
 #. Translators: the character preceded by "_" should not be the same
 #. as others in the same menu
-#: src/exm-window.blp:190
+#: src/exm-window.blp:185
 msgid "Sort _Enabled First"
 msgstr "सक्षम पहले क्रमबद्ध करें (_E)"
 
-#: src/exm-window.blp:194
+#: src/exm-window.blp:189
 msgid "_Upgrade Assistant"
 msgstr "उन्नयन सहायक (_U)"
 
-#: src/exm-window.blp:195
+#: src/exm-window.blp:190
 msgid "_Keyboard Shortcuts"
 msgstr "कीबोर्ड शॉर्टकट (_K)"
 
-#: src/exm-window.blp:196
+#: src/exm-window.blp:191
 msgid "_About Extension Manager"
 msgstr "एक्सटेंशन मैनेजर के बारे में (_A)"
 
-#: src/exm-window.blp:201
+#: src/exm-window.blp:196
 msgid "Uninstall Extension?"
 msgstr "एक्सटेंशन अस्थापित करें?"
 
-#: src/exm-window.blp:203
+#: src/exm-window.blp:198
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -715,25 +727,25 @@ msgstr ""
 "एक्सटेंशन की सुविधाएं और कार्यक्षमता अब पहुंच योग्य नहीं होंगी। क्या आप स्थापना रद्द करना "
 "चाहते हैं?"
 
-#: src/exm-window.blp:209 src/exm-window.blp:220
+#: src/exm-window.blp:204 src/exm-window.blp:215
 msgid "_No"
 msgstr "नहीं (_N)"
 
-#: src/exm-window.blp:210 src/exm-window.blp:221
+#: src/exm-window.blp:205 src/exm-window.blp:216
 msgid "_Yes"
 msgstr "हाँ (_Y)"
 
-#: src/exm-window.blp:215
+#: src/exm-window.blp:210
 #, fuzzy
 #| msgid "Uninstall Extension?"
 msgid "Uninstall Extensions?"
 msgstr "एक्सटेंशन अस्थापित करें?"
 
-#: src/exm-window.blp:226
+#: src/exm-window.blp:221
 msgid "Unsupported Extension"
 msgstr "असमर्थित एक्सटेंशन"
 
-#: src/exm-window.blp:227
+#: src/exm-window.blp:222
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -741,29 +753,29 @@ msgstr ""
 "यह एक्सटेंशन आपके गनोम शैल संस्करण का समर्थन नहीं करता है। स्थापित होने पर यह त्रुटियां "
 "उत्पन्न कर सकता है।"
 
-#: src/exm-window.blp:233
+#: src/exm-window.blp:228
 msgid "_Install Anyway"
 msgstr "फिर भी स्थापित करें (_I)"
 
-#: src/exm-window.blp:234
+#: src/exm-window.blp:229
 msgid "_Go Back"
 msgstr "पीछे जाएं (_G)"
 
-#: src/exm-window.c:412
+#: src/exm-window.c:475
 #, fuzzy
 #| msgid "Details"
 msgid "_Details"
 msgstr "विवरण"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:509
+#: src/exm-window.c:572
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/exm-window.c:556
+#: src/exm-window.c:619
 #, fuzzy, c-format
 #| msgid ""
 #| "The extension's features and functionality will no longer be accessible. "
