@@ -25,6 +25,7 @@
 #include "exm-enums.h"
 #include "exm-install-button.h"
 #include "exm-types.h"
+#include "web/exm-image-resolver.h"
 #include "web/exm-versions-provider.h"
 #include "web/model/exm-version-result.h"
 
@@ -38,6 +39,7 @@ struct _ExmSearchRow
     ExmSearchResult *search_result;
     ExmVersionsProvider *versions_provider;
     gboolean compact;
+    gboolean show_creator;
     gchar *uuid;
 
     GCancellable *cancellable;
@@ -45,6 +47,11 @@ struct _ExmSearchRow
     ExmInstallButton *install_btn;
     guint signal_id;
     gboolean install_attempt;
+
+    ExmImageResolver *image_resolver;
+    GCancellable *icon_cancellable;
+    gboolean show_icon;
+    GtkImage *row_icon;
 };
 
 G_DEFINE_FINAL_TYPE (ExmSearchRow, exm_search_row, GTK_TYPE_LIST_BOX_ROW)
@@ -54,6 +61,8 @@ enum {
     PROP_MANAGER,
     PROP_SEARCH_RESULT,
     PROP_COMPACT,
+    PROP_SHOW_CREATOR,
+    PROP_SHOW_ICON,
     N_PROPS
 };
 
@@ -76,6 +85,10 @@ exm_search_row_dispose (GObject *object)
 
     g_cancellable_cancel (self->cancellable);
     g_clear_object (&self->cancellable);
+
+    g_cancellable_cancel (self->icon_cancellable);
+    g_clear_object (&self->icon_cancellable);
+    g_clear_object (&self->image_resolver);
 
     gtk_widget_dispose_template (GTK_WIDGET (self), EXM_TYPE_SEARCH_ROW);
 
@@ -101,10 +114,18 @@ exm_search_row_get_property (GObject    *object,
     case PROP_COMPACT:
         g_value_set_boolean (value, self->compact);
         break;
+    case PROP_SHOW_CREATOR:
+        g_value_set_boolean (value, self->show_creator);
+        break;
+    case PROP_SHOW_ICON:
+        g_value_set_boolean (value, self->show_icon);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
 }
+
+static void queue_resolve_icon (ExmSearchRow *self);
 
 static void
 exm_search_row_set_property (GObject      *object,
@@ -131,6 +152,14 @@ exm_search_row_set_property (GObject      *object,
         break;
     case PROP_COMPACT:
         self->compact = g_value_get_boolean (value);
+        break;
+    case PROP_SHOW_CREATOR:
+        self->show_creator = g_value_get_boolean (value);
+        break;
+    case PROP_SHOW_ICON:
+        self->show_icon = g_value_get_boolean (value);
+        if (self->show_icon)
+            queue_resolve_icon (self);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -285,6 +314,58 @@ install_remote (GtkButton    *button G_GNUC_UNUSED,
     }
 }
 
+static void
+on_icon_loaded (GObject      *source,
+                GAsyncResult *result,
+                gpointer      user_data)
+{
+    ExmSearchRow *self = EXM_SEARCH_ROW (user_data);
+    GError *error = NULL;
+    GdkPaintable *paintable;
+
+    paintable = exm_image_resolver_resolve_finish (EXM_IMAGE_RESOLVER (source), result, &error);
+
+    if (!self->row_icon)
+    {
+        g_clear_object (&paintable);
+        g_clear_error (&error);
+        g_object_unref (self);
+        return;
+    }
+
+    if (error)
+    {
+        g_clear_error (&error);
+        g_object_unref (self);
+        return;
+    }
+
+    gtk_image_set_from_paintable (self->row_icon, paintable);
+    g_object_unref (paintable);
+
+    g_object_unref (self);
+}
+
+static void
+queue_resolve_icon (ExmSearchRow *self)
+{
+    gchar *icon_url = NULL;
+
+    if (self->search_result == NULL)
+        return;
+
+    g_object_get (self->search_result, "icon", &icon_url, NULL);
+
+    if (icon_url != NULL)
+    {
+        self->icon_cancellable = g_cancellable_new ();
+        exm_image_resolver_resolve_async (self->image_resolver, icon_url, self->icon_cancellable,
+                                          on_icon_loaded, g_object_ref (self));
+    }
+
+    g_free (icon_url);
+}
+
 static gchar *
 first_line (GObject     *object G_GNUC_UNUSED,
             const gchar *description)
@@ -364,13 +445,30 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
                               FALSE,
                               G_PARAM_READWRITE);
 
+    properties [PROP_SHOW_CREATOR] =
+        g_param_spec_boolean ("show-creator",
+                              "Show Creator",
+                              "Show Creator",
+                              TRUE,
+                              G_PARAM_READWRITE);
+
+    properties [PROP_SHOW_ICON] =
+        g_param_spec_boolean ("show-icon",
+                              "Show Icon",
+                              "Show Icon",
+                              FALSE,
+                              G_PARAM_READWRITE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
     gtk_widget_class_set_template_from_resource (widget_class, g_strdup_printf ("%s/exm-search-row.ui", RESOURCE_PATH));
 
+    g_type_ensure (EXM_TYPE_INSTALL_BUTTON);
+
     gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, install_btn);
+    gtk_widget_class_bind_template_child (widget_class, ExmSearchRow, row_icon);
 
     gtk_widget_class_bind_template_callback (widget_class, install_remote);
     gtk_widget_class_bind_template_callback (widget_class, first_line);
@@ -379,8 +477,11 @@ exm_search_row_class_init (ExmSearchRowClass *klass)
 static void
 exm_search_row_init (ExmSearchRow *self)
 {
+    self->show_creator = TRUE;
+
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->versions_provider = exm_versions_provider_new ();
     self->install_attempt = FALSE;
+    self->image_resolver = exm_image_resolver_new ();
 }

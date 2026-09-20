@@ -141,10 +141,15 @@ template $ExmDetailView: Adw.NavigationPage {
 
                           Gtk.Label ext_author {
                             styles [
-                              "dimmed",
+                              "author-link",
                             ]
 
-                            label: bind template.data as <$ExmUnifiedData>.creator;
+                            use-markup: true;
+                            label: bind $format_author_link(
+                              template.data as <$ExmUnifiedData>.creator,
+                              template.data as <$ExmUnifiedData>.creator-username
+                              ) as <string>;
+                            activate-link => $on_author_link_activated();
                             xalign: 0;
                             ellipsize: end;
                             selectable: true;

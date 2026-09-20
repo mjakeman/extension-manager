@@ -35,6 +35,8 @@ enum {
     PROP_0,
     PROP_NAME,
     PROP_CREATOR,
+    PROP_CREATOR_USERNAME,
+    PROP_CREATOR_ID,
     PROP_UUID,
     PROP_DESCRIPTION,
     PROP_SCREENSHOT_URI,
@@ -92,6 +94,21 @@ exm_unified_data_get_property (GObject    *object,
             if (self->web_data)
                 g_object_get (self->web_data, "creator", &creator, NULL);
             g_value_take_string (value, creator);
+        }
+        break;
+    case PROP_CREATOR_USERNAME:
+        {
+            char *username = NULL;
+            if (self->web_data)
+                g_object_get (self->web_data, "creator-username", &username, NULL);
+            g_value_take_string (value, username);
+        }
+        break;
+    case PROP_CREATOR_ID:
+        {
+            guint creator_id = 0;
+            exm_unified_data_get_creator_id (self, &creator_id);
+            g_value_set_uint (value, creator_id);
         }
         break;
     case PROP_UUID:
@@ -188,6 +205,8 @@ notify_properties (ExmUnifiedData *self)
 {
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_NAME]);
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_CREATOR]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_CREATOR_USERNAME]);
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_CREATOR_ID]);
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_UUID]);
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_DESCRIPTION]);
     g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_SCREENSHOT_URI]);
@@ -253,6 +272,37 @@ exm_unified_data_get_creator (ExmUnifiedData *self)
     }
 
     return NULL;
+}
+
+const char *
+exm_unified_data_get_creator_username (ExmUnifiedData *self)
+{
+    const char *username;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "creator-username", &username, NULL);
+        return username;
+    }
+
+    return NULL;
+}
+
+gboolean
+exm_unified_data_get_creator_id (ExmUnifiedData *self,
+                                 guint          *creator_id)
+{
+    g_return_val_if_fail (creator_id != NULL, FALSE);
+
+    *creator_id = 0;
+
+    if (self->web_data)
+    {
+        g_object_get (self->web_data, "creator-id", creator_id, NULL);
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 const char *
@@ -565,6 +615,15 @@ exm_unified_data_class_init (ExmUnifiedDataClass *klass)
     properties [PROP_CREATOR] =
         g_param_spec_string ("creator", "Creator", "Creator",
                              NULL, G_PARAM_READABLE | G_PARAM_STATIC_STRINGS);
+
+    properties [PROP_CREATOR_USERNAME] =
+        g_param_spec_string ("creator-username", "Creator Username", "Creator Username",
+                             NULL, G_PARAM_READABLE | G_PARAM_STATIC_STRINGS);
+
+    properties [PROP_CREATOR_ID] =
+        g_param_spec_uint ("creator-id", "Creator ID", "Creator ID",
+                           0, G_MAXUINT, 0,
+                           G_PARAM_READABLE | G_PARAM_STATIC_STRINGS);
 
     properties [PROP_UUID] =
         g_param_spec_string ("uuid", "UUID", "UUID",

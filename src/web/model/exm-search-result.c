@@ -31,6 +31,8 @@ struct _ExmSearchResult
     gchar *uuid;
     gchar *name;
     gchar *creator;
+    gchar *creator_username;
+    guint creator_id;
     gchar *description;
     gchar *created;
     gchar *updated;
@@ -59,6 +61,8 @@ enum {
     PROP_UUID,
     PROP_NAME,
     PROP_CREATOR,
+    PROP_CREATOR_USERNAME,
+    PROP_CREATOR_ID,
     PROP_DESCRIPTION,
     PROP_CREATED,
     PROP_UPDATED,
@@ -103,6 +107,12 @@ exm_search_result_get_property (GObject    *object,
         break;
     case PROP_CREATOR:
         g_value_set_string (value, self->creator);
+        break;
+    case PROP_CREATOR_USERNAME:
+        g_value_set_string (value, self->creator_username);
+        break;
+    case PROP_CREATOR_ID:
+        g_value_set_uint (value, self->creator_id);
         break;
     case PROP_DESCRIPTION:
         g_value_set_string (value, self->description);
@@ -244,6 +254,20 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
                              NULL,
                              G_PARAM_READWRITE);
 
+    properties [PROP_CREATOR_USERNAME] =
+        g_param_spec_string ("creator-username",
+                             "Creator Username",
+                             "Creator Username",
+                             NULL,
+                             G_PARAM_READABLE);
+
+    properties [PROP_CREATOR_ID] =
+        g_param_spec_uint ("creator-id",
+                           "Creator ID",
+                           "Creator ID",
+                           0, G_MAXUINT, 0,
+                           G_PARAM_READABLE);
+
     properties [PROP_DESCRIPTION] =
         g_param_spec_string ("description",
                              "Description",
@@ -345,10 +369,22 @@ exm_search_result_deserialize_property (JsonSerializable *serializable,
 {
     if (g_strcmp0 (property_name, "creator") == 0)
     {
+        ExmSearchResult *self = EXM_SEARCH_RESULT (serializable);
         JsonObject *obj;
+        const gchar *creator;
 
         obj = json_node_get_object (property_node);
-        g_value_set_string (value, json_object_get_string_member (obj, "username"));
+        creator = json_object_get_string_member_with_default (obj, "display_name", NULL);
+
+        if (creator == NULL)
+            creator = json_object_get_string_member (obj, "username");
+
+        g_value_set_string (value, creator);
+
+        g_free (self->creator_username);
+        self->creator_username = g_strdup (json_object_get_string_member (obj, "username"));
+        self->creator_id = json_object_get_int_member_with_default (obj, "id", 0);
+
         return TRUE;
     }
 

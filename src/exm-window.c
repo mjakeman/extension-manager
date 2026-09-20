@@ -21,6 +21,7 @@
 
 #include "exm-window.h"
 
+#include "exm-author-page.h"
 #include "exm-browse-page.h"
 #include "exm-config.h"
 #include "exm-detail-view.h"
@@ -48,7 +49,6 @@ struct _ExmWindow
     GtkStack             *main_stack;
     AdwNavigationView    *navigation_view;
     AdwNavigationPage    *main_view;
-    ExmDetailView        *detail_view;
     ExmScreenshotView    *screenshot_view;
     AdwViewSwitcher      *title;
     GtkToggleButton      *search_button;
@@ -334,6 +334,38 @@ show_page (GtkWidget  *widget,
     adw_view_stack_set_visible_child_name (self->view_stack, target);
 }
 
+static ExmDetailView *
+create_detail_view (ExmWindow   *self,
+                    const gchar *title)
+{
+    ExmDetailView *view = exm_detail_view_new ();
+
+    adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (view), title);
+
+    g_object_set (view, "manager", self->manager, NULL);
+    g_object_bind_property (self->manager, "shell-version", view, "shell-version",
+                            G_BINDING_SYNC_CREATE);
+
+    adw_navigation_view_add (self->navigation_view, ADW_NAVIGATION_PAGE (view));
+
+    return view;
+}
+
+static ExmAuthorPage *
+create_author_page (ExmWindow   *self,
+                    const gchar *title)
+{
+    ExmAuthorPage *page = exm_author_page_new ();
+
+    adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (page), title);
+
+    g_object_set (page, "manager", self->manager, NULL);
+
+    adw_navigation_view_add (self->navigation_view, ADW_NAVIGATION_PAGE (page));
+
+    return page;
+}
+
 static void
 show_view (GtkWidget  *widget,
            const char *action_name,
@@ -346,17 +378,48 @@ show_view (GtkWidget  *widget,
     if (g_strcmp0 (action_name, "win.show-detail") == 0)
     {
         gchar *uuid;
+        ExmDetailView *view;
 
         g_variant_get (param, "s", &uuid);
-        adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self->detail_view), uuid);
-        adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (self->detail_view));
 
-        exm_detail_view_load_for_uuid (self->detail_view, uuid);
+        view = create_detail_view (self, uuid);
+        adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (view));
+
+        exm_detail_view_load_for_uuid (view, uuid);
+
+        return;
+    }
+    else if (g_strcmp0 (action_name, "win.show-author") == 0)
+    {
+        guint32 creator_id;
+        const gchar *username;
+        const gchar *display_name;
+        ExmAuthorPage *page;
+
+        g_variant_get (param, "(u&s&s)", &creator_id, &username, &display_name);
+
+        page = create_author_page (self, display_name);
+        adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (page));
+
+        exm_author_page_load (page, creator_id, username, display_name);
 
         return;
     }
     else if (g_strcmp0 (action_name, "win.show-screenshot") == 0)
     {
+        AdwNavigationPage *visible = adw_navigation_view_get_visible_page (self->navigation_view);
+
+        if (EXM_IS_DETAIL_VIEW (visible))
+        {
+            GdkPaintable *screenshot = NULL;
+
+            g_object_get (visible, "screenshot", &screenshot, NULL);
+            adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self->screenshot_view),
+                                           adw_navigation_page_get_title (visible));
+            g_object_set (self->screenshot_view, "screenshot", screenshot, NULL);
+            g_clear_object (&screenshot);
+        }
+
         adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (self->screenshot_view));
 
         return;
@@ -651,13 +714,6 @@ exm_window_constructed (GObject *object)
 
     g_object_set (self->installed_page, "manager", self->manager, NULL);
     g_object_set (self->browse_page, "manager", self->manager, NULL);
-    g_object_set (self->detail_view, "manager", self->manager, NULL);
-
-    g_object_bind_property (self->manager,
-                            "shell-version",
-                            self->detail_view,
-                            "shell-version",
-                            G_BINDING_SYNC_CREATE);
 
     g_signal_connect (self->manager,
                       "updates-available",
@@ -700,7 +756,6 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_stack);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, navigation_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, main_view);
-    gtk_widget_class_bind_template_child (widget_class, ExmWindow, detail_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, screenshot_view);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, title);
     gtk_widget_class_bind_template_child (widget_class, ExmWindow, search_button);
@@ -727,6 +782,7 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "ext.show-error", "s", extension_show_error);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-author", "(uss)", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-screenshot", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-upgrade-assistant", NULL, show_upgrade_assistant);
@@ -754,7 +810,6 @@ exm_window_init (ExmWindow *self)
 {
     g_type_ensure (EXM_TYPE_INSTALLED_PAGE);
     g_type_ensure (EXM_TYPE_BROWSE_PAGE);
-    g_type_ensure (EXM_TYPE_DETAIL_VIEW);
     g_type_ensure (EXM_TYPE_SCREENSHOT_VIEW);
 
     gtk_widget_init_template (GTK_WIDGET (self));

@@ -43,6 +43,11 @@ rating {
   color: var(--yellow-4);
 }
 
+.author-link link {
+  color: var(--blue-2);
+  text-decoration: none;
+}
+
 .author-badge {
   background-color: var(--accent-color);
   border-radius: 999px;

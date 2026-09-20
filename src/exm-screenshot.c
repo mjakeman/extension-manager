@@ -21,8 +21,6 @@
 
 #include "exm-screenshot.h"
 
-#include "exm-zoom-picture.h"
-
 #include "exm-config.h"
 
 struct _ExmScreenshot
@@ -132,8 +130,6 @@ exm_screenshot_class_init (ExmScreenshotClass *klass)
     widget_class->get_request_mode = exm_screenshot_get_request_mode;
     widget_class->measure = exm_screenshot_measure;
     widget_class->size_allocate = exm_screenshot_size_allocate;
-
-	g_type_ensure (EXM_TYPE_ZOOM_PICTURE);
 
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshot, picture);
     gtk_widget_class_bind_template_child (widget_class, ExmScreenshot, stack);
