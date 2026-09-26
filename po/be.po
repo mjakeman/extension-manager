@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 10:09+0000\n"
-"PO-Revision-Date: 2026-09-12 09:41+0000\n"
+"PO-Revision-Date: 2026-09-22 14:51+0000\n"
 "Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/extension-"
 "manager/app/be/>\n"
@@ -82,16 +82,12 @@ msgid "translator-credits"
 msgstr "Anton Veratsenikau"
 
 #: src/exm-author-page.blp:95
-#, fuzzy
-#| msgid "Unsupported Extension"
 msgid "Authored Extensions"
-msgstr "Пашырэнне не падтрымліваецца"
+msgstr "Аўтарскія пашырэнні"
 
 #: src/exm-author-page.blp:126
-#, fuzzy
-#| msgid "No Extensions Installed"
 msgid "No Extensions Found"
-msgstr "Няма ўсталяваных пашырэнняў"
+msgstr "Пашырэнні не знойдзены"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
