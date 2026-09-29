@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 10:09+0000\n"
-"PO-Revision-Date: 2026-09-22 14:51+0000\n"
+"PO-Revision-Date: 2026-09-30 19:51+0000\n"
 "Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
@@ -88,8 +88,6 @@ msgstr ""
 "Robert Winzer <weissnicht000099@gmail.com>"
 
 #: src/exm-author-page.blp:95
-#, fuzzy
-#| msgid "Unsupported Extension"
 msgid "Authored Extensions"
 msgstr "Verfasste Erweiterungen"
 
