@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the extension-manager package.
 # Douglas Silva <douglasilvadev@gmail.com>, 2024.
 # Álvaro Burns, 2025.
-# burns <ahoradocafezinho@gmail.com>, 2025.
+# burns <ahoradocafezinho@gmail.com>, 2025, 2026.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # Mateus Liberale Gomes <sergiogomes209403@gmail.com>, 2025.
 # Marcos Pereira <pereira.mvini@gmail.com>, 2025.
@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 10:09+0000\n"
-"PO-Revision-Date: 2026-06-26 20:01+0000\n"
-"Last-Translator: Carlos André <andre.h4rkov@gmail.com>\n"
+"PO-Revision-Date: 2026-09-30 19:51+0000\n"
+"Last-Translator: burns <ahoradocafezinho@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "extension-manager/app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.7.dev0\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -87,16 +87,12 @@ msgstr ""
 "Slowayy_ https://github.com/slowayy"
 
 #: src/exm-author-page.blp:95
-#, fuzzy
-#| msgid "Unsupported Extension"
 msgid "Authored Extensions"
-msgstr "Extensão Não Suportada"
+msgstr "Extensões autorais"
 
 #: src/exm-author-page.blp:126
-#, fuzzy
-#| msgid "No Extensions Installed"
 msgid "No Extensions Found"
-msgstr "Não há extensões instaladas"
+msgstr "Sem Extensões encontradas"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
@@ -189,13 +185,11 @@ msgstr "Nenhum detalhe desta extensão está disponível"
 #. Translators: Banner title shown when the extension has a runtime error
 #: src/exm-detail-view.blp:85
 msgid "This extension has an error"
-msgstr ""
+msgstr "Esta extensão tem um erro"
 
 #: src/exm-detail-view.blp:86
-#, fuzzy
-#| msgid "_Details"
 msgid "_View Details"
-msgstr "_Detalhes"
+msgstr "_Ver detalhes"
 
 #: src/exm-detail-view.blp:138
 msgid "Name"
@@ -203,10 +197,8 @@ msgstr "Nome"
 
 #. Translators: Button tooltip to remove an installed extension
 #: src/exm-detail-view.blp:191
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Remove Extension"
-msgstr "Usar Extensões"
+msgstr "Remover Extensão"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -216,10 +208,8 @@ msgstr "Abrir preferências da extensão"
 
 #. Translators: Switch tooltip to enable or disable the extension
 #: src/exm-detail-view.blp:211
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Toggle Extension"
-msgstr "Usar Extensões"
+msgstr "Ativar Extensão"
 
 #: src/exm-detail-view.blp:235
 msgid "Enlarge Image"
@@ -255,7 +245,7 @@ msgstr "Modos da sessão"
 
 #: src/exm-detail-view.blp:369
 msgid "Location"
-msgstr ""
+msgstr "Localização"
 
 #: src/exm-detail-view.blp:383
 msgid "Links"
@@ -353,26 +343,22 @@ msgstr ""
 "anexar as seguintes informações:"
 
 #: src/exm-extension-error-dialog.blp:9
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "Extension Error"
-msgstr "Gerenciador de Extensões"
+msgstr "Erro em extensão"
 
 #. Translators: Button to report an extension error to its developer
 #: src/exm-extension-error-dialog.blp:77
-#, fuzzy
-#| msgid "_New Issue"
 msgid "_Report Issue"
-msgstr "_Novo Problema"
+msgstr "_Reportar problema"
 
 #: src/exm-extension-error-dialog.c:54
 #, c-format
 msgid "“%s” Failed to Load"
-msgstr ""
+msgstr "“%s” Falha ao carregar"
 
 #: src/exm-extension-error-dialog.c:55
 msgid "Extension Failed to Load"
-msgstr ""
+msgstr "Extensão falhou ao carregar"
 
 #. Translators: Button's tooltip to view an extension's error details
 #: src/exm-extension-row.blp:58
@@ -414,10 +400,8 @@ msgstr "Extensões instaladas pelo usuário"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
 #: src/exm-installed-page.blp:46 src/exm-window.c:569
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Select Extensions"
-msgstr "Usar Extensões"
+msgstr "Selecionar extensões"
 
 #: src/exm-installed-page.blp:52 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
@@ -598,37 +582,29 @@ msgstr ""
 "abaixo e verifique se suas extensões continuarão disponíveis."
 
 #: src/exm-versions-dialog.blp:13
-#, fuzzy
-#| msgid "Version"
 msgid "Version History"
-msgstr "Versão"
+msgstr "Histórico de versão"
 
 #: src/exm-versions-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading Versions"
-msgstr "Carregando Detalhes"
+msgstr "Carregando versões"
 
 #: src/exm-versions-dialog.blp:34
 msgid "No Version History"
-msgstr ""
+msgstr "Sem histórico de versão"
 
 #: src/exm-versions-dialog.blp:71
-#, fuzzy
-#| msgid "_Load More Results"
 msgid "_Load More Versions"
-msgstr "_Carregar Mais Resultados"
+msgstr "_Carregar Mais Versões"
 
 #. Translators: Tooltip on the installed-version indicator in the versions dialog
 #: src/exm-versions-dialog.c:239
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Installed Version"
-msgstr "Extensões instaladas pelo usuário"
+msgstr "Versão instalada"
 
 #: src/exm-window.blp:61
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:69
@@ -654,18 +630,16 @@ msgid "_Browse"
 msgstr "_Navegar"
 
 #: src/exm-window.blp:129
-#, fuzzy
-#| msgid "Install…"
 msgid "Uninstall…"
-msgstr "Instalar…"
+msgstr "Desinstalar…"
 
 #: src/exm-window.blp:159
 msgid "GNOME Shell Unavailable"
-msgstr ""
+msgstr "GNOME Shell indisponível"
 
 #: src/exm-window.blp:160
 msgid "Log in to a GNOME session to manage extensions"
-msgstr ""
+msgstr "Inicie uma sessão do GNOME para gerenciar extensões"
 
 #: src/exm-window.blp:169
 msgid "_Discover GNOME"
@@ -710,10 +684,8 @@ msgid "_Yes"
 msgstr "_Sim"
 
 #: src/exm-window.blp:210
-#, fuzzy
-#| msgid "Uninstall Extension?"
 msgid "Uninstall Extensions?"
-msgstr "Desinstalar Extensão?"
+msgstr "Desinstalar Extensões?"
 
 #: src/exm-window.blp:221
 msgid "Unsupported Extension"
@@ -744,14 +716,11 @@ msgstr "_Detalhes"
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u Selecionado"
+msgstr[1] "%u Selecionados"
 
 #: src/exm-window.c:619
-#, fuzzy, c-format
-#| msgid ""
-#| "The extension's features and functionality will no longer be accessible. "
-#| "Are you sure you want to uninstall?"
+#, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall %u extension?"
@@ -759,11 +728,11 @@ msgid_plural ""
 "Their features and functionality will no longer be accessible. Are you sure "
 "you want to uninstall %u extensions?"
 msgstr[0] ""
-"Os recursos e funcionalidades da extensão não estão mais acessíveis. Tem "
-"certeza de que deseja desinstalar?"
+"Os recursos e funcionalidades não estão mais acessíveis. Tem certeza de que "
+"deseja desinstalar %u extensão?"
 msgstr[1] ""
-"Os recursos e funcionalidades da extensão não estão mais acessíveis. Tem "
-"certeza de que deseja desinstalar?"
+"Os recursos e funcionalidades não estão mais acessíveis. Tem certeza de que "
+"deseja desinstalar %u extensões?"
 
 #: src/web/exm-request-handler.c:133
 msgid ""
