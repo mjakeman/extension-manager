@@ -30,6 +30,7 @@
 #include "exm-request-handler.h"
 
 #define EXM_IMAGE_URL_KEY "exm-image-resolver-url"
+#define EXM_IMAGE_CACHE_MAX 50
 
 struct _ExmImageResolver
 {
@@ -38,6 +39,7 @@ struct _ExmImageResolver
     SoupSession *session;
 
     GHashTable *cache;
+    GQueue     *cache_order;
 };
 
 G_DEFINE_FINAL_TYPE (ExmImageResolver, exm_image_resolver, G_TYPE_OBJECT)
@@ -49,11 +51,30 @@ exm_image_resolver_new (void)
 }
 
 static void
+cache_insert (ExmImageResolver *self,
+              const gchar      *url,
+              GdkTexture       *texture)
+{
+    if (g_hash_table_contains (self->cache, url))
+        return;
+
+    if (g_queue_get_length (self->cache_order) >= EXM_IMAGE_CACHE_MAX)
+    {
+        g_autofree gchar *oldest = g_queue_pop_head (self->cache_order);
+        g_hash_table_remove (self->cache, oldest);
+    }
+
+    g_hash_table_insert (self->cache, g_strdup (url), g_object_ref (texture));
+    g_queue_push_tail (self->cache_order, g_strdup (url));
+}
+
+static void
 exm_image_resolver_finalize (GObject *object)
 {
     ExmImageResolver *self = (ExmImageResolver *)object;
 
     g_hash_table_unref (self->cache);
+    g_queue_free_full (self->cache_order, g_free);
 
     G_OBJECT_CLASS (exm_image_resolver_parent_class)->finalize (object);
 }
@@ -102,15 +123,12 @@ on_first_frame_loaded (GObject      *source,
             GdkPaintable *paintable = GDK_PAINTABLE (exm_animated_paintable_new (ctx->image, texture, delay_us));
             ctx->image = NULL;
 
-            if (url != NULL)
-                g_hash_table_insert (self->cache, g_strdup (url), g_object_ref (paintable));
-
             g_task_return_pointer (task, paintable, g_object_unref);
         }
         else
         {
             if (url != NULL)
-                g_hash_table_insert (self->cache, g_strdup (url), g_object_ref (texture));
+                cache_insert (self, url, texture);
 
             g_task_return_pointer (task, texture, g_object_unref);
         }
@@ -212,7 +230,7 @@ exm_image_resolver_resolve_async (ExmImageResolver    *self,
     }
 
     {
-        GdkPaintable *cached = url ? g_hash_table_lookup (self->cache, url) : NULL;
+        GdkTexture *cached = url ? g_hash_table_lookup (self->cache, url) : NULL;
 
         if (cached != NULL)
         {
@@ -267,4 +285,5 @@ exm_image_resolver_init (ExmImageResolver *self)
     self->session = exm_request_handler_get_shared_session ();
     self->cache = g_hash_table_new_full (g_str_hash, g_str_equal,
                                          g_free, g_object_unref);
+    self->cache_order = g_queue_new ();
 }
