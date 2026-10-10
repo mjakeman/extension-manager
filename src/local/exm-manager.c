@@ -364,6 +364,9 @@ static gpointer
 list_model_get_by_uuid (GListModel  *model,
                         const gchar *uuid)
 {
+    if (model == NULL)
+        return NULL;
+
     int n_items = g_list_model_get_n_items (model);
     for (int i = 0; i < n_items; i++)
     {
@@ -457,6 +460,9 @@ static int
 list_model_get_number_of_updates (GListModel *model)
 {
     int num_updates = 0;
+
+    if (model == NULL)
+        return 0;
 
     int n_items = g_list_model_get_n_items (model);
     for (int i = 0; i < n_items; i++)
@@ -881,6 +887,9 @@ on_state_changed (ShellExtensions *object G_GNUC_UNUSED,
     // Parse the new extension state and update only that element in
     // the list model. This will automatically update any bound
     // listboxes or listviews.
+
+    if (self->ext_model == NULL)
+        return;
 
     // This is NULL if it does not exist
     extension = exm_manager_get_by_uuid (self, arg_uuid);
