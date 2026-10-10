@@ -81,9 +81,18 @@ exm_manager_dispose (GObject *object)
 
     g_clear_object (&self->proxy);
     g_clear_object (&self->ext_model);
-    g_clear_pointer (&self->shell_version, g_free);
 
     G_OBJECT_CLASS (exm_manager_parent_class)->dispose (object);
+}
+
+static void
+exm_manager_finalize (GObject *object)
+{
+    ExmManager *self = EXM_MANAGER (object);
+
+    g_clear_pointer (&self->shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_manager_parent_class)->finalize (object);
 }
 
 static void
@@ -426,6 +435,12 @@ exm_manager_install_async (ExmManager          *self,
                            GAsyncReadyCallback  callback,
                            gpointer             user_data)
 {
+    if (self->proxy == NULL)
+    {
+        notify_error (self, "Extension manager is not ready yet\n");
+        return;
+    }
+
     shell_extensions_call_install_remote_extension (self->proxy,
                                                     uuid,
                                                     cancellable,
@@ -522,6 +537,7 @@ check_for_updates_done (ShellExtensions *proxy,
     if (error)
     {
         notify_error (manager, "Could not check for updates: %s\n", error->message);
+        g_clear_error (&error);
     }
 
     // Notify the user if updates are detected
@@ -549,6 +565,7 @@ exm_manager_class_init (ExmManagerClass *klass)
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
     object_class->dispose = exm_manager_dispose;
+    object_class->finalize = exm_manager_finalize;
     object_class->get_property = exm_manager_get_property;
     object_class->set_property = exm_manager_set_property;
 
