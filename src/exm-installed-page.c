@@ -53,6 +53,7 @@ struct _ExmInstalledPage
     gboolean sort_enabled_first;
     gboolean search_mode_enabled;
     const char *search_query;
+    GListModel *bound_model;
     guint signal_id;
 
     gboolean selection_mode;
@@ -103,6 +104,12 @@ exm_installed_page_finalize (GObject *object)
 
     g_clear_object (&self->system_filtered_model);
     g_clear_object (&self->search_filter);
+    g_clear_object (&self->search_list_model);
+
+    if (self->bound_model != NULL && self->signal_id > 0)
+        g_signal_handler_disconnect (self->bound_model, self->signal_id);
+    self->signal_id = 0;
+    g_clear_object (&self->bound_model);
 
     G_OBJECT_CLASS (exm_installed_page_parent_class)->finalize (object);
 }
@@ -274,14 +281,13 @@ bind_list_box (GListModel       *model,
     GtkStringFilter *search_filter;
     GtkBoolFilter *is_user_filter;
     GtkFilterListModel *filtered_model;
-    GtkFilterListModel *old_search_list_model;
 
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
-    old_search_list_model = self->search_list_model;
-    if (old_search_list_model != NULL && self->search_list_model_signal_id > 0)
-        g_signal_handler_disconnect (old_search_list_model, self->search_list_model_signal_id);
+    if (self->search_list_model != NULL && self->search_list_model_signal_id > 0)
+        g_signal_handler_disconnect (self->search_list_model, self->search_list_model_signal_id);
     self->search_list_model_signal_id = 0;
+    g_clear_object (&self->search_list_model);
 
     // Sort alphabetically
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "name");
@@ -308,7 +314,7 @@ bind_list_box (GListModel       *model,
 
     search_filter = gtk_string_filter_new (expression);
     g_set_object (&self->search_filter, search_filter);
-    self->search_list_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (search_filter));
+    self->search_list_model = gtk_filter_list_model_new (g_object_ref (G_LIST_MODEL (sorted_model)), GTK_FILTER (search_filter));
 
     adw_preferences_group_bind_model (self->search_prefs_group, G_LIST_MODEL (self->search_list_model),
                                       (GtkListBoxCreateWidgetFunc) widget_factory,
@@ -317,7 +323,7 @@ bind_list_box (GListModel       *model,
     // Filter by user/system extension
     expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user");
     is_user_filter = gtk_bool_filter_new (expression);
-    filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+    filtered_model = gtk_filter_list_model_new (g_object_ref (G_LIST_MODEL (sorted_model)), GTK_FILTER (is_user_filter));
 
     g_object_bind_property (filtered_model, "n-items",
                             self->user_prefs_group, "visible",
@@ -470,11 +476,13 @@ invalidate_model_bindings (ExmInstalledPage *self)
 
     if (ext_model)
     {
-        bind_list_box (ext_model, self);
+        bind_list_box (g_object_ref (ext_model), self);
 
-        if (self->signal_id > 0)
-            g_signal_handler_disconnect (ext_model, self->signal_id);
+        if (self->bound_model != NULL && self->signal_id > 0)
+            g_signal_handler_disconnect (self->bound_model, self->signal_id);
+        g_clear_object (&self->bound_model);
 
+        self->bound_model = ext_model;
         self->signal_id = g_signal_connect (ext_model,
                                             "items-changed",
                                             G_CALLBACK (on_extensions_changed),
