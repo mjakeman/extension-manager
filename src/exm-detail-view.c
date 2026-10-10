@@ -273,10 +273,10 @@ on_image_loaded (GObject       *source,
     g_object_set (self, "screenshot", paintable, NULL);
     exm_screenshot_set_paintable (self->ext_screenshot, paintable);
     exm_screenshot_display (self->ext_screenshot);
+    gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), TRUE);
+
     g_object_unref (paintable);
     g_object_unref (self);
-
-    gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_popout_button), TRUE);
 }
 
 static void
@@ -310,6 +310,13 @@ on_get_comments (GObject       *source,
 
     if (error != NULL)
     {
+        if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+        {
+            g_clear_error (&error);
+            g_object_unref (self);
+            return;
+        }
+
         if (error->domain == g_quark_try_string ("request-error-quark") && error->code == 403)
         {
             gtk_stack_set_visible_child_name (self->comment_stack, "page_disabled");
@@ -634,6 +641,14 @@ on_version_loaded (GObject      *source,
     list = exm_versions_provider_query_finish (EXM_VERSIONS_PROVIDER (source), result, &next, &error);
     self = EXM_DETAIL_VIEW (user_data);
 
+    if (list == NULL && (error == NULL || g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)))
+    {
+        g_clear_error (&error);
+        g_free (next);
+        g_object_unref (self);
+        return;
+    }
+
     is_installed = exm_manager_is_installed_uuid (self->manager, self->uuid);
 
     if (error || list == NULL)
@@ -844,6 +859,13 @@ on_data_loaded (GObject      *source,
 
     if (error)
     {
+        if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+        {
+            g_clear_error (&error);
+            g_object_unref (self);
+            return;
+        }
+
         if (!exm_manager_is_installed_uuid (self->manager, self->uuid))
         {
             if (error->domain == g_quark_try_string ("request-error-quark") && error->code == 404)
