@@ -36,6 +36,7 @@ struct _ExmManager
     gchar *shell_version;
     gboolean extensions_enabled;
     gboolean is_supported;
+    gboolean is_ready;
 
     guint update_callback_id;
 };
@@ -48,6 +49,7 @@ enum {
     PROP_EXTENSIONS_ENABLED,
     PROP_SHELL_VERSION,
     PROP_IS_SUPPORTED,
+    PROP_IS_READY,
     N_PROPS
 };
 
@@ -116,6 +118,9 @@ exm_manager_get_property (GObject    *object,
         break;
     case PROP_IS_SUPPORTED:
         g_value_set_boolean (value, self->is_supported);
+        break;
+    case PROP_IS_READY:
+        g_value_set_boolean (value, self->is_ready);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -597,6 +602,13 @@ exm_manager_class_init (ExmManagerClass *klass)
                                 FALSE,
                                 G_PARAM_READABLE);
 
+    properties [PROP_IS_READY]
+        = g_param_spec_boolean ("is-ready",
+                                "Is Ready",
+                                "Whether the D-Bus proxy has been created (or failed to be)",
+                                FALSE,
+                                G_PARAM_READABLE);
+
     g_object_class_install_properties (object_class, N_PROPS, properties);
 
     signals [SIGNAL_UPDATES_AVAILABLE]
@@ -987,6 +999,9 @@ on_proxy_created (GObject      *source G_GNUC_UNUSED,
     if (error != NULL)
     {
         notify_error (self, "Could not create proxy: %s\n", error->message);
+        g_clear_error (&error);
+        self->is_ready = TRUE;
+        g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_IS_READY]);
         g_object_unref (self);
         return;
     }
@@ -994,6 +1009,9 @@ on_proxy_created (GObject      *source G_GNUC_UNUSED,
     g_signal_connect_swapped (self->proxy, "notify::g-name-owner",
                               G_CALLBACK (update_is_supported), self);
     update_is_supported (self);
+
+    self->is_ready = TRUE;
+    g_object_notify_by_pspec (G_OBJECT (self), properties [PROP_IS_READY]);
 
     g_object_bind_property (self->proxy, "shell-version",
                             self, "shell-version",

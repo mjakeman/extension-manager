@@ -550,12 +550,15 @@ on_error (ExmManager *manager G_GNUC_UNUSED,
 static void
 sync_visible_page (ExmWindow *self)
 {
-    gboolean is_supported;
+    gboolean is_supported, is_ready;
 
-    g_object_get (self->manager, "is-supported", &is_supported, NULL);
+    g_object_get (self->manager,
+                  "is-supported", &is_supported,
+                  "is-ready", &is_ready,
+                  NULL);
 
     gtk_stack_set_visible_child_name (self->main_stack,
-                                      is_supported ? "app" : "noshell");
+                                      (is_supported || !is_ready) ? "app" : "noshell");
 }
 
 static void
@@ -721,6 +724,8 @@ exm_window_constructed (GObject *object)
 
     g_signal_connect (self->manager, "error-occurred", G_CALLBACK (on_error), self);
     g_signal_connect_swapped (self->manager, "notify::is-supported",
+                              G_CALLBACK (sync_visible_page), self);
+    g_signal_connect_swapped (self->manager, "notify::is-ready",
                               G_CALLBACK (sync_visible_page), self);
     sync_visible_page (self);
 
