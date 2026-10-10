@@ -32,6 +32,12 @@
 #define EXM_IMAGE_URL_KEY "exm-image-resolver-url"
 #define EXM_IMAGE_CACHE_MAX 50
 
+static const gchar *const allowed_hosts[] = {
+    "extensions.gnome.org",
+    "secure.gravatar.com",
+    NULL
+};
+
 struct _ExmImageResolver
 {
     GObject parent_instance;
@@ -219,8 +225,12 @@ exm_image_resolver_resolve_async (ExmImageResolver    *self,
     {
         g_autoptr (GUri) parsed = g_uri_parse (url, G_URI_FLAGS_NONE, NULL);
         const gchar *host = parsed ? g_uri_get_host (parsed) : NULL;
+        gboolean allowed = parsed != NULL &&
+                           g_strcmp0 (g_uri_get_scheme (parsed), "https") == 0 &&
+                           host != NULL &&
+                           g_strv_contains (allowed_hosts, host);
 
-        if (g_strcmp0 (host, "extensions.gnome.org") != 0)
+        if (!allowed)
         {
             g_task_return_new_error (task, g_quark_from_string ("exm-image-resolver"), -1,
                                      "Refusing to fetch image from unexpected host: %s", url);
