@@ -177,7 +177,15 @@ exm_screenshot_view_class_init (ExmScreenshotViewClass *klass)
 }
 
 static void
+on_hidden (ExmScreenshotView *self)
+{
+    g_object_set (self, "screenshot", NULL, NULL);
+}
+
+static void
 exm_screenshot_view_init (ExmScreenshotView *self)
 {
     gtk_widget_init_template (GTK_WIDGET (self));
+
+    g_signal_connect (self, "hidden", G_CALLBACK (on_hidden), NULL);
 }
