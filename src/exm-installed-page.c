@@ -598,6 +598,17 @@ exm_installed_page_uninstall_selected (ExmInstalledPage *self)
 }
 
 static void
+check_for_updates_if_supported (ExmInstalledPage *self)
+{
+    gboolean is_supported = FALSE;
+
+    g_object_get (self->manager, "is-supported", &is_supported, NULL);
+
+    if (is_supported)
+        exm_manager_check_for_updates (self->manager);
+}
+
+static void
 on_bind_manager (ExmInstalledPage *self)
 {
     // Bind (or rebind) models
@@ -623,11 +634,11 @@ on_bind_manager (ExmInstalledPage *self)
     // Check if updates are available
     // NOTE: We need to do this *after* connecting the signal
     // handler above, otherwise we will not be notified.
-    gboolean is_supported;
-    g_object_get (self->manager, "is-supported", &is_supported, NULL);
+    g_signal_connect_object (self->manager, "notify::is-supported",
+                             G_CALLBACK (check_for_updates_if_supported), self,
+                             G_CONNECT_SWAPPED);
 
-    if (is_supported)
-        exm_manager_check_for_updates (self->manager);
+    check_for_updates_if_supported (self);
 }
 
 static void
