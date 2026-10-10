@@ -148,7 +148,7 @@ exm_detail_view_dispose (GObject *object)
     if (self->versions_provider_shell_version_binding)
     {
         g_binding_unbind (self->versions_provider_shell_version_binding);
-        self->versions_provider_shell_version_binding = NULL;
+        g_clear_object (&self->versions_provider_shell_version_binding);
     }
 
     g_clear_object (&self->data);
@@ -241,7 +241,8 @@ on_icon_loaded (GObject       *source,
     if (error)
     {
         // TODO: Properly log this
-        g_critical ("%s\n", error->message);
+        if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+            g_critical ("%s\n", error->message);
         g_clear_error (&error);
         g_object_unref (self);
         return;
@@ -264,7 +265,8 @@ on_image_loaded (GObject       *source,
     if (error)
     {
         // TODO: Properly log this
-        g_critical ("%s\n", error->message);
+        if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+            g_critical ("%s\n", error->message);
         g_clear_error (&error);
         g_object_unref (self);
         return;
@@ -1408,21 +1410,21 @@ on_bind_manager (ExmDetailView *self)
     if (self->versions_provider_shell_version_binding)
     {
         g_binding_unbind (self->versions_provider_shell_version_binding);
-        self->versions_provider_shell_version_binding = NULL;
+        g_clear_object (&self->versions_provider_shell_version_binding);
     }
 
     self->versions_provider_shell_version_binding =
-        g_object_bind_property (self->manager, "shell-version",
-                                self->versions_provider, "shell-version",
-                                G_BINDING_SYNC_CREATE);
+        g_object_ref (g_object_bind_property (self->manager, "shell-version",
+                                              self->versions_provider, "shell-version",
+                                              G_BINDING_SYNC_CREATE));
 
     if (self->install_signal_id > 0)
         g_signal_handler_disconnect (self->manager, self->install_signal_id);
 
-    self->install_signal_id = g_signal_connect (self->manager,
-                                                "install-status",
-                                                G_CALLBACK (on_install_status),
-                                                self);
+    self->install_signal_id = g_signal_connect_object (self->manager,
+                                                       "install-status",
+                                                       G_CALLBACK (on_install_status),
+                                                       self, 0);
 
     g_signal_connect_object (self->manager, "notify::extensions",
                              G_CALLBACK (on_extensions_ready), self,
