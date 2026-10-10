@@ -358,8 +358,6 @@ create_detail_view (ExmWindow   *self,
     g_object_bind_property (self->manager, "shell-version", view, "shell-version",
                             G_BINDING_SYNC_CREATE);
 
-    adw_navigation_view_add (self->navigation_view, ADW_NAVIGATION_PAGE (view));
-
     return view;
 }
 
@@ -372,8 +370,6 @@ create_author_page (ExmWindow   *self,
     adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (page), title);
 
     g_object_set (page, "manager", self->manager, NULL);
-
-    adw_navigation_view_add (self->navigation_view, ADW_NAVIGATION_PAGE (page));
 
     return page;
 }
