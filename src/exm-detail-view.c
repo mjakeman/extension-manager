@@ -216,6 +216,7 @@ exm_detail_view_set_property (GObject      *object,
         on_bind_manager (self);
         break;
     case PROP_SHELL_VERSION:
+        g_free (self->shell_version);
         self->shell_version = g_value_dup_string (value);
         break;
     case PROP_SCREENSHOT:

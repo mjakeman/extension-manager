@@ -52,7 +52,7 @@ struct _ExmInstalledPage
 
     gboolean sort_enabled_first;
     gboolean search_mode_enabled;
-    const char *search_query;
+    char *search_query;
     GListModel *bound_model;
     guint signal_id;
 
@@ -105,6 +105,7 @@ exm_installed_page_finalize (GObject *object)
     g_clear_object (&self->system_filtered_model);
     g_clear_object (&self->search_filter);
     g_clear_object (&self->search_list_model);
+    g_clear_pointer (&self->search_query, g_free);
 
     if (self->bound_model != NULL && self->signal_id > 0)
         g_signal_handler_disconnect (self->bound_model, self->signal_id);
@@ -163,6 +164,7 @@ exm_installed_page_set_property (GObject      *object,
         switch_page (self);
         break;
     case PROP_SEARCH_QUERY:
+        g_free (self->search_query);
         self->search_query = g_value_dup_string (value);
         break;
     case PROP_SELECTION_MODE:
