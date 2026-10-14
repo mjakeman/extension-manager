@@ -447,8 +447,6 @@ exm_manager_install_async (ExmManager          *self,
 {
     if (self->proxy == NULL)
     {
-        notify_error (self, "Extension manager is not ready yet\n");
-
         g_task_report_new_error (self, callback, user_data, exm_manager_install_async,
                                  g_quark_from_static_string ("exm-manager"), -1,
                                  "Extension manager is not ready yet");
