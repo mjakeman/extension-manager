@@ -40,7 +40,7 @@ static ExmSearchResult *
 parse_extension (GBytes  *bytes,
                  GError **out_error)
 {
-    JsonParser *parser;
+    g_autoptr (JsonParser) parser = NULL;
     gconstpointer data;
     gsize length;
 
@@ -57,7 +57,13 @@ parse_extension (GBytes  *bytes,
     {
         // Returned format is one single extension object
         JsonNode *root = json_parser_get_root (parser);
-        g_assert (JSON_NODE_HOLDS_OBJECT (root));
+
+        if (root == NULL || !JSON_NODE_HOLDS_OBJECT (root))
+        {
+            g_set_error (out_error, g_quark_from_string ("exm-data-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         GObject *result = json_gobject_deserialize (EXM_TYPE_SEARCH_RESULT, root);
 
@@ -77,9 +83,10 @@ exm_data_provider_get_async (ExmDataProvider     *self,
 {
     // Query https://extensions.gnome.org/api/v1/extensions/{%s}/
 
+    g_autofree gchar *escaped_uuid = g_uri_escape_string (uuid, NULL, FALSE);
     g_autofree gchar *url = NULL;
 
-    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/", uuid);
+    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/", escaped_uuid);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,

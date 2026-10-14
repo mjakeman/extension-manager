@@ -87,6 +87,87 @@ extension_matches_terms (ExmExtension       *extension,
     return matches;
 }
 
+typedef struct
+{
+    ExmGnomeShellSearchProvider *self;
+    GDBusMethodInvocation       *invocation;
+    gchar                      **terms;
+    gulong                       notify_id;
+    guint                        timeout_id;
+} PendingSearch;
+
+static GVariant *find_matching_results (ExmGnomeShellSearchProvider *self,
+                                        const gchar *const          *terms);
+
+static void
+pending_search_complete (PendingSearch *pending)
+{
+    if (pending->notify_id != 0)
+    {
+        g_signal_handler_disconnect (pending->self->manager, pending->notify_id);
+        pending->notify_id = 0;
+    }
+
+    if (pending->timeout_id != 0)
+    {
+        g_source_remove (pending->timeout_id);
+        pending->timeout_id = 0;
+    }
+
+    g_dbus_method_invocation_return_value (pending->invocation,
+                                           find_matching_results (pending->self, (const gchar *const *) pending->terms));
+
+    g_object_unref (pending->invocation);
+    g_strfreev (pending->terms);
+    g_object_unref (pending->self);
+    g_free (pending);
+}
+
+static void
+on_pending_search_extensions_ready (ExmManager *manager G_GNUC_UNUSED,
+                                    GParamSpec *pspec G_GNUC_UNUSED,
+                                    gpointer    user_data)
+{
+    pending_search_complete (user_data);
+}
+
+static gboolean
+on_pending_search_timeout (gpointer user_data)
+{
+    PendingSearch *pending = user_data;
+
+    pending->timeout_id = 0;
+    pending_search_complete (pending);
+    return G_SOURCE_REMOVE;
+}
+
+static void
+complete_search (ExmGnomeShellSearchProvider *self,
+                 GDBusMethodInvocation       *invocation,
+                 gchar                      **terms)
+{
+    GListModel *model = NULL;
+    PendingSearch *pending;
+
+    g_object_get (self->manager, "extensions", &model, NULL);
+
+    if (model != NULL)
+    {
+        g_object_unref (model);
+        g_dbus_method_invocation_return_value (invocation,
+                                               find_matching_results (self, (const gchar *const *) terms));
+        return;
+    }
+
+    pending = g_new0 (PendingSearch, 1);
+    pending->self = g_object_ref (self);
+    pending->invocation = g_object_ref (invocation);
+    pending->terms = g_strdupv (terms);
+    pending->notify_id = g_signal_connect (self->manager, "notify::extensions",
+                                           G_CALLBACK (on_pending_search_extensions_ready), pending);
+    pending->timeout_id = g_timeout_add_seconds (5, on_pending_search_timeout, pending);
+}
+
 static GVariant *
 find_matching_results (ExmGnomeShellSearchProvider *self,
                        const gchar *const          *terms)
@@ -127,8 +208,7 @@ handle_get_initial_result_set (ExmShellSearchProvider2      *skeleton G_GNUC_UNU
                                gchar                        **terms,
                                ExmGnomeShellSearchProvider  *self)
 {
-    g_dbus_method_invocation_return_value (invocation,
-                                           find_matching_results (self, (const gchar *const *) terms));
+    complete_search (self, invocation, terms);
     return TRUE;
 }
 
@@ -139,8 +219,7 @@ handle_get_subsearch_result_set (ExmShellSearchProvider2      *skeleton G_GNUC_U
                                  gchar                        **terms,
                                  ExmGnomeShellSearchProvider  *self)
 {
-    g_dbus_method_invocation_return_value (invocation,
-                                           find_matching_results (self, (const gchar *const *) terms));
+    complete_search (self, invocation, terms);
     return TRUE;
 }
 
@@ -184,6 +263,7 @@ handle_get_result_metas (ExmShellSearchProvider2      *skeleton G_GNUC_UNUSED,
 
         g_free (name);
         g_free (description);
+        g_object_unref (extension);
     }
 
     g_dbus_method_invocation_return_value (invocation, g_variant_new ("(aa{sv})", &builder));
@@ -216,6 +296,7 @@ handle_activate_result (ExmShellSearchProvider2      *skeleton,
         g_timeout_add_seconds (2, release_application_hold, application);
 
         exm_manager_open_prefs (self->manager, extension);
+        g_object_unref (extension);
     }
 
     exm_shell_search_provider2_complete_activate_result (skeleton, invocation);

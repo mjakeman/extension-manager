@@ -110,6 +110,10 @@ template $ExmDetailView: Adw.NavigationPage {
                         halign: center;
                         valign: center;
                         pixel-size: 64;
+
+                        accessibility {
+                          label: _("Extension Icon");
+                        }
                       }
 
                       Gtk.Box header_suffix {
@@ -238,6 +242,10 @@ template $ExmDetailView: Adw.NavigationPage {
 
                       $ExmScreenshot ext_screenshot {
                         focusable: true;
+
+                        accessibility {
+                          label: _("Extension Screenshot");
+                        }
                       }
                     }
 

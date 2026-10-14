@@ -23,6 +23,7 @@
 
 #include <glib-object.h>
 #include <gio/gio.h>
+#include <libsoup/soup.h>
 
 G_BEGIN_DECLS
 
@@ -41,6 +42,8 @@ struct _ExmRequestHandlerClass
 };
 
 ExmRequestHandler *exm_request_handler_new (void);
+
+SoupSession *exm_request_handler_get_shared_session (void);
 
 void
 exm_request_handler_request_async (ExmRequestHandler   *self,

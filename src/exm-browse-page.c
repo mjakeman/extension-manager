@@ -421,23 +421,36 @@ on_search_entry_realize (GtkSearchEntry *search_entry,
 }
 
 static void
-on_bind_manager (ExmBrowsePage *self)
+on_extensions_ready (ExmBrowsePage *self)
 {
-    GListModel *ext_model;
+    GListModel *ext_model = NULL;
 
     g_object_get (self->manager,
                   "extensions", &ext_model,
                   NULL);
 
-    g_signal_connect_object (ext_model,
-                             "items-changed",
-                             G_CALLBACK (refresh_search),
-                             self,
-                             G_CONNECT_SWAPPED);
+    if (ext_model)
+    {
+        g_signal_connect_object (ext_model,
+                                 "items-changed",
+                                 G_CALLBACK (refresh_search),
+                                 self,
+                                 G_CONNECT_SWAPPED);
 
-    g_object_unref (ext_model);
+        g_object_unref (ext_model);
+    }
 
     refresh_search (self);
+}
+
+static void
+on_bind_manager (ExmBrowsePage *self)
+{
+    g_signal_connect_object (self->manager, "notify::extensions",
+                             G_CALLBACK (on_extensions_ready), self,
+                             G_CONNECT_SWAPPED);
+
+    on_extensions_ready (self);
 }
 
 static void

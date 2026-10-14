@@ -60,10 +60,18 @@ exm_utils_read_resource (const char *resource, gsize *length)
   return NULL;
 }
 
+#define EXM_HTML_MAX_DEPTH 128
+
 static GString *
-build_text_recursive (xmlNode *node, GString *string)
+build_text_recursive (xmlNode *node, GString *string, guint depth)
 {
     xmlNode *cur_node = NULL;
+
+    if (depth > EXM_HTML_MAX_DEPTH)
+    {
+        g_warning ("Extension description HTML is nested too deeply; truncating.");
+        return string;
+    }
 
     for (cur_node = node; cur_node != NULL; cur_node = cur_node->next)
     {
@@ -91,7 +99,7 @@ build_text_recursive (xmlNode *node, GString *string)
         }
 
         // PROCESS CHILDREN
-        build_text_recursive (cur_node->children, string);
+        build_text_recursive (cur_node->children, string, depth + 1);
 
         // EXIT NODE
         if (cur_node->type == XML_ELEMENT_NODE)
@@ -119,6 +127,7 @@ exm_utils_convert_html (const gchar *html)
     if (doc == NULL)
     {
         g_critical ("Failed to parse HTML document.");
+        g_string_free (string, TRUE);
         return NULL;
     }
 
@@ -127,14 +136,13 @@ exm_utils_convert_html (const gchar *html)
     {
         g_warning ("Empty HTML document.");
         xmlFreeDoc (doc);
-        xmlCleanupParser ();
+        g_string_free (string, TRUE);
         return NULL;
     }
 
-    build_text_recursive (root, string);
+    build_text_recursive (root, string, 0);
 
     xmlFreeDoc (doc);
-    xmlCleanupParser ();
 
     return g_string_free (string, FALSE);
 }

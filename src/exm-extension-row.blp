@@ -79,6 +79,8 @@ template $ExmExtensionRow: Adw.ActionRow {
     active: bind template.extension as <$ExmExtension>.enabled;
     sensitive: bind template.extension as <$ExmExtension>.can-change;
     state-set => $on_state_changed();
+    // Translators: Switch's tooltip to enable/disable this extension
+    tooltip-text: _("Toggle Extension");
   }
 
   [suffix]

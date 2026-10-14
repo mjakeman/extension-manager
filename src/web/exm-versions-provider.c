@@ -28,7 +28,7 @@
 struct _ExmVersionsProvider
 {
     ExmRequestHandler parent_instance;
-    const gchar *shell_version;
+    gchar *shell_version;
 };
 
 G_DEFINE_FINAL_TYPE (ExmVersionsProvider, exm_versions_provider, EXM_TYPE_REQUEST_HANDLER)
@@ -82,7 +82,8 @@ exm_versions_provider_set_property (GObject      *object,
     switch (prop_id)
     {
     case PROP_SHELL_VERSION:
-        self->shell_version = g_value_get_string (value);
+        g_free (self->shell_version);
+        self->shell_version = g_value_dup_string (value);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -93,7 +94,7 @@ static VersionsRequestData *
 parse_versions_results (GBytes  *bytes,
                         GError **out_error)
 {
-    JsonParser *parser;
+    g_autoptr (JsonParser) parser = NULL;
     const gchar *data;
     gsize length;
     VersionsRequestData *result;
@@ -115,10 +116,24 @@ parse_versions_results (GBytes  *bytes,
         GListStore *store = g_list_store_new (EXM_TYPE_VERSION_RESULT);
 
         JsonNode *root = json_parser_get_root (parser);
-        g_assert (JSON_NODE_HOLDS_OBJECT (root));
+
+        if (root == NULL || !JSON_NODE_HOLDS_OBJECT (root))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-versions-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         JsonObject *root_object = json_node_get_object (root);
-        g_assert (json_object_has_member (root_object, "results"));
+
+        if (!json_object_has_member (root_object, "results"))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-versions-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         JsonArray *array = json_object_get_array_member (root_object, "results");
         GList *versions_results = json_array_get_elements (array);
@@ -132,6 +147,7 @@ parse_versions_results (GBytes  *bytes,
 
             g_list_store_append (store, result);
         }
+        g_list_free (versions_results);
 
         const gchar *next = json_object_get_string_member_with_default (root_object, "next", NULL);
 
@@ -156,9 +172,10 @@ exm_versions_provider_query_async (ExmVersionsProvider *self,
 {
     // Query https://extensions.gnome.org/api/v1/extensions/{%s}/versions/
 
-    const gchar *url;
+    g_autofree gchar *escaped_uuid = g_uri_escape_string (uuid, NULL, FALSE);
+    g_autofree gchar *url = NULL;
 
-    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/versions/?page=1&page_size=100", uuid);
+    url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/%s/versions/?page=1&page_size=100", escaped_uuid);
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url,
@@ -217,10 +234,21 @@ exm_versions_provider_query_finish (ExmVersionsProvider  *self,
 }
 
 static void
+exm_versions_provider_finalize (GObject *object)
+{
+    ExmVersionsProvider *self = EXM_VERSIONS_PROVIDER (object);
+
+    g_clear_pointer (&self->shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_versions_provider_parent_class)->finalize (object);
+}
+
+static void
 exm_versions_provider_class_init (ExmVersionsProviderClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->finalize = exm_versions_provider_finalize;
     object_class->get_property = exm_versions_provider_get_property;
     object_class->set_property = exm_versions_provider_set_property;
 
@@ -242,5 +270,5 @@ static void
 exm_versions_provider_init (ExmVersionsProvider *self)
 {
     // TODO: Get current GNOME Shell Version
-    self->shell_version = "42";
+    self->shell_version = g_strdup ("42");
 }

@@ -47,9 +47,13 @@ struct _ExmInstalledPage
     GtkFilterListModel *search_list_model;
     GListModel *system_filtered_model;
 
+    GtkStringFilter *search_filter;
+    guint search_list_model_signal_id;
+
     gboolean sort_enabled_first;
     gboolean search_mode_enabled;
-    const char *search_query;
+    char *search_query;
+    GListModel *bound_model;
     guint signal_id;
 
     gboolean selection_mode;
@@ -99,6 +103,14 @@ exm_installed_page_finalize (GObject *object)
     gtk_widget_unparent (child);
 
     g_clear_object (&self->system_filtered_model);
+    g_clear_object (&self->search_filter);
+    g_clear_object (&self->search_list_model);
+    g_clear_pointer (&self->search_query, g_free);
+
+    if (self->bound_model != NULL && self->signal_id > 0)
+        g_signal_handler_disconnect (self->bound_model, self->signal_id);
+    self->signal_id = 0;
+    g_clear_object (&self->bound_model);
 
     G_OBJECT_CLASS (exm_installed_page_parent_class)->finalize (object);
 }
@@ -152,6 +164,7 @@ exm_installed_page_set_property (GObject      *object,
         switch_page (self);
         break;
     case PROP_SEARCH_QUERY:
+        g_free (self->search_query);
         self->search_query = g_value_dup_string (value);
         break;
     case PROP_SELECTION_MODE:
@@ -214,11 +227,12 @@ compare_enabled (ExmExtension *this,
 static void
 on_search_changed (ExmInstalledPage *self,
                    GParamSpec       *pspec G_GNUC_UNUSED,
-                   gpointer          user_data)
+                   gpointer          user_data G_GNUC_UNUSED)
 {
-    GtkStringFilter *search_filter = GTK_STRING_FILTER (user_data);
+    if (self->search_filter == NULL)
+        return;
 
-    gtk_string_filter_set_search (search_filter, self->search_query);
+    gtk_string_filter_set_search (self->search_filter, self->search_query);
 }
 
 static void
@@ -272,8 +286,13 @@ bind_list_box (GListModel       *model,
 
     g_return_if_fail (G_IS_LIST_MODEL (model));
 
+    if (self->search_list_model != NULL && self->search_list_model_signal_id > 0)
+        g_signal_handler_disconnect (self->search_list_model, self->search_list_model_signal_id);
+    self->search_list_model_signal_id = 0;
+    g_clear_object (&self->search_list_model);
+
     // Sort alphabetically
-    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "name");
+    expression = gtk_expression_ref (gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "name"));
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
     if (self->sort_enabled_first)
@@ -296,16 +315,17 @@ bind_list_box (GListModel       *model,
     }
 
     search_filter = gtk_string_filter_new (expression);
-    self->search_list_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (search_filter));
+    g_set_object (&self->search_filter, search_filter);
+    self->search_list_model = gtk_filter_list_model_new (g_object_ref (G_LIST_MODEL (sorted_model)), GTK_FILTER (search_filter));
 
     adw_preferences_group_bind_model (self->search_prefs_group, G_LIST_MODEL (self->search_list_model),
                                       (GtkListBoxCreateWidgetFunc) widget_factory,
                                       self, NULL);
 
     // Filter by user/system extension
-    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user");
+    expression = gtk_expression_ref (gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user"));
     is_user_filter = gtk_bool_filter_new (expression);
-    filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+    filtered_model = gtk_filter_list_model_new (g_object_ref (G_LIST_MODEL (sorted_model)), GTK_FILTER (is_user_filter));
 
     g_object_bind_property (filtered_model, "n-items",
                             self->user_prefs_group, "visible",
@@ -314,10 +334,15 @@ bind_list_box (GListModel       *model,
     adw_preferences_group_bind_model (self->user_prefs_group, G_LIST_MODEL (filtered_model),
                                       (GtkListBoxCreateWidgetFunc) widget_factory,
                                       self, NULL);
+    g_object_unref (filtered_model);
 
     is_user_filter = gtk_bool_filter_new (expression);
     gtk_bool_filter_set_invert (is_user_filter, TRUE);
     filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+
+    if (self->system_filtered_model != NULL)
+        g_signal_handlers_disconnect_by_func (self->system_filtered_model,
+                                              update_system_group_visibility, self);
 
     g_set_object (&self->system_filtered_model, G_LIST_MODEL (filtered_model));
     g_signal_connect_swapped (self->system_filtered_model, "notify::n-items",
@@ -327,20 +352,16 @@ bind_list_box (GListModel       *model,
     adw_preferences_group_bind_model (self->system_prefs_group, G_LIST_MODEL (filtered_model),
                                       (GtkListBoxCreateWidgetFunc) widget_factory,
                                       self, NULL);
+    g_object_unref (filtered_model);
 
     // Refilter when sort-enabled-first changes and there is an ongoing search
     if (self->search_query)
         gtk_string_filter_set_search (search_filter, self->search_query);
 
-    g_signal_connect (self,
-                      "notify::search-query",
-                      G_CALLBACK (on_search_changed),
-                      search_filter);
-
-    g_signal_connect (self->search_list_model,
-                      "notify::n-items",
-                      G_CALLBACK (on_visible_stack_changed),
-                      self);
+    self->search_list_model_signal_id = g_signal_connect (self->search_list_model,
+                                                           "notify::n-items",
+                                                           G_CALLBACK (on_visible_stack_changed),
+                                                           self);
 }
 
 static guint
@@ -463,11 +484,13 @@ invalidate_model_bindings (ExmInstalledPage *self)
 
     if (ext_model)
     {
-        bind_list_box (ext_model, self);
+        bind_list_box (g_object_ref (ext_model), self);
 
-        if (self->signal_id > 0)
-            g_signal_handler_disconnect (ext_model, self->signal_id);
+        if (self->bound_model != NULL && self->signal_id > 0)
+            g_signal_handler_disconnect (self->bound_model, self->signal_id);
+        g_clear_object (&self->bound_model);
 
+        self->bound_model = ext_model;
         self->signal_id = g_signal_connect (ext_model,
                                             "items-changed",
                                             G_CALLBACK (on_extensions_changed),
@@ -581,10 +604,24 @@ exm_installed_page_uninstall_selected (ExmInstalledPage *self)
     {
         ExmExtension *ext = exm_manager_get_by_uuid (self->manager, (const char *) key);
         if (ext)
+        {
             exm_manager_remove_extension (self->manager, ext);
+            g_object_unref (ext);
+        }
     }
 
     g_hash_table_destroy (uuids_to_remove);
+}
+
+static void
+check_for_updates_if_supported (ExmInstalledPage *self)
+{
+    gboolean is_supported = FALSE;
+
+    g_object_get (self->manager, "is-supported", &is_supported, NULL);
+
+    if (is_supported)
+        exm_manager_check_for_updates (self->manager);
 }
 
 static void
@@ -592,6 +629,10 @@ on_bind_manager (ExmInstalledPage *self)
 {
     // Bind (or rebind) models
     invalidate_model_bindings (self);
+
+    g_signal_connect_object (self->manager, "notify::extensions",
+                             G_CALLBACK (invalidate_model_bindings), self,
+                             G_CONNECT_SWAPPED);
 
     g_signal_connect (self->manager,
                       "updates-available",
@@ -609,11 +650,11 @@ on_bind_manager (ExmInstalledPage *self)
     // Check if updates are available
     // NOTE: We need to do this *after* connecting the signal
     // handler above, otherwise we will not be notified.
-    gboolean is_supported;
-    g_object_get (self->manager, "is-supported", &is_supported, NULL);
+    g_signal_connect_object (self->manager, "notify::is-supported",
+                             G_CALLBACK (check_for_updates_if_supported), self,
+                             G_CONNECT_SWAPPED);
 
-    if (is_supported)
-        exm_manager_check_for_updates (self->manager);
+    check_for_updates_if_supported (self);
 }
 
 static void
@@ -711,4 +752,9 @@ exm_installed_page_init (ExmInstalledPage *self)
     gtk_widget_insert_action_group (GTK_WIDGET (self), "page",
                                     G_ACTION_GROUP (action_group));
     g_object_unref (action_group);
+
+    g_signal_connect (self,
+                      "notify::search-query",
+                      G_CALLBACK (on_search_changed),
+                      NULL);
 }

@@ -80,6 +80,24 @@ exm_extension_new (const gchar *uuid)
 }
 
 static void
+exm_extension_finalize (GObject *object)
+{
+    ExmExtension *self = EXM_EXTENSION (object);
+
+    g_clear_pointer (&self->uuid, g_free);
+    g_clear_pointer (&self->name, g_free);
+    g_clear_pointer (&self->description, g_free);
+    g_clear_pointer (&self->url, g_free);
+    g_clear_pointer (&self->version, g_free);
+    g_clear_pointer (&self->version_name, g_free);
+    g_clear_pointer (&self->error, g_free);
+    g_clear_pointer (&self->session_modes, g_ptr_array_unref);
+    g_clear_pointer (&self->donations, g_hash_table_unref);
+
+    G_OBJECT_CLASS (exm_extension_parent_class)->finalize (object);
+}
+
+static void
 exm_extension_get_property (GObject    *object,
                             guint       prop_id,
                             GValue     *value,
@@ -205,7 +223,7 @@ exm_extension_set_property (GObject      *object,
     case PROP_SESSION_MODES:
         if (self->session_modes)
             g_ptr_array_unref (self->session_modes);
-        self->session_modes = g_value_get_boxed (value);
+        self->session_modes = g_value_dup_boxed (value);
         break;
     case PROP_DONATIONS:
         if (self->donations)
@@ -222,7 +240,8 @@ compare_extension (ExmExtension *a,
                    ExmExtension *b,
                    gpointer      user_data G_GNUC_UNUSED)
 {
-    const gchar *uuid_a, *uuid_b;
+    g_autofree gchar *uuid_a = NULL;
+    g_autofree gchar *uuid_b = NULL;
     g_object_get (a, "uuid", &uuid_a, NULL);
     g_object_get (b, "uuid", &uuid_b, NULL);
 
@@ -241,6 +260,7 @@ exm_extension_class_init (ExmExtensionClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->finalize = exm_extension_finalize;
     object_class->get_property = exm_extension_get_property;
     object_class->set_property = exm_extension_set_property;
 

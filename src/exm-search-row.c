@@ -394,13 +394,9 @@ exm_search_row_constructed (GObject *object)
                   "uuid", &uuid,
                   NULL);
 
-    gchar *shell_version;
-    g_object_get (self->manager,
-                  "shell-version",
-                  &shell_version,
-                  NULL);
-
-    g_object_set (self->versions_provider, "shell-version", shell_version, NULL);
+    g_object_bind_property (self->manager, "shell-version",
+                            self->versions_provider, "shell-version",
+                            G_BINDING_SYNC_CREATE);
 
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
     is_installed = exm_manager_is_installed_uuid (self->manager, uuid);

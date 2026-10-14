@@ -42,7 +42,7 @@ static GListModel *
 parse_comments (GBytes  *bytes,
                 GError **out_error)
 {
-    JsonParser *parser;
+    g_autoptr (JsonParser) parser = NULL;
     gconstpointer data;
     gsize length;
 
@@ -60,7 +60,14 @@ parse_comments (GBytes  *bytes,
         GListStore *store = g_list_store_new (EXM_TYPE_COMMENT);
 
         JsonNode *root = json_parser_get_root (parser);
-        g_assert (JSON_NODE_HOLDS_ARRAY (root));
+
+        if (root == NULL || !JSON_NODE_HOLDS_ARRAY (root))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-comment-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         JsonArray *array = json_node_get_array (root);
         GList *comments = json_array_get_elements (array);
@@ -74,6 +81,7 @@ parse_comments (GBytes  *bytes,
 
             g_list_store_append (store, result);
         }
+        g_list_free (comments);
 
         return G_LIST_MODEL (store);
     }

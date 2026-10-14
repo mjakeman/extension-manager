@@ -131,7 +131,13 @@ extension_open_prefs (GtkWidget  *widget,
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
 
-    exm_manager_open_prefs (self->manager, extension);
+    if (extension)
+    {
+        exm_manager_open_prefs (self->manager, extension);
+        g_object_unref (extension);
+    }
+
+    g_free (uuid);
 }
 
 static void
@@ -151,6 +157,7 @@ extension_show_error (GtkWidget  *widget,
     g_variant_get (param, "s", &uuid);
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
+    g_free (uuid);
 
     if (!extension)
         return;
@@ -167,6 +174,7 @@ extension_show_error (GtkWidget  *widget,
     g_free (name);
     g_free (homepage);
     g_free (error_text);
+    g_object_unref (extension);
 }
 
 typedef struct
@@ -203,10 +211,14 @@ extension_remove (GtkWidget  *widget,
     g_variant_get (param, "s", &uuid);
 
     extension = exm_manager_get_by_uuid (self->manager, uuid);
+    g_free (uuid);
+
+    if (!extension)
+        return;
 
     RemoveDialogData *data = g_new0 (RemoveDialogData, 1);
     data->manager = g_object_ref (self->manager);
-    data->extension = g_object_ref (extension);
+    data->extension = extension;
 
     adw_alert_dialog_choose (self->remove_dialog, widget, NULL,
                              (GAsyncReadyCallback) extension_remove_dialog_response, data);
@@ -346,8 +358,6 @@ create_detail_view (ExmWindow   *self,
     g_object_bind_property (self->manager, "shell-version", view, "shell-version",
                             G_BINDING_SYNC_CREATE);
 
-    adw_navigation_view_add (self->navigation_view, ADW_NAVIGATION_PAGE (view));
-
     return view;
 }
 
@@ -360,8 +370,6 @@ create_author_page (ExmWindow   *self,
     adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (page), title);
 
     g_object_set (page, "manager", self->manager, NULL);
-
-    adw_navigation_view_add (self->navigation_view, ADW_NAVIGATION_PAGE (page));
 
     return page;
 }
@@ -538,12 +546,15 @@ on_error (ExmManager *manager G_GNUC_UNUSED,
 static void
 sync_visible_page (ExmWindow *self)
 {
-    gboolean is_supported;
+    gboolean is_supported, is_ready;
 
-    g_object_get (self->manager, "is-supported", &is_supported, NULL);
+    g_object_get (self->manager,
+                  "is-supported", &is_supported,
+                  "is-ready", &is_ready,
+                  NULL);
 
     gtk_stack_set_visible_child_name (self->main_stack,
-                                      is_supported ? "app" : "noshell");
+                                      (is_supported || !is_ready) ? "app" : "noshell");
 }
 
 static void
@@ -709,6 +720,8 @@ exm_window_constructed (GObject *object)
 
     g_signal_connect (self->manager, "error-occurred", G_CALLBACK (on_error), self);
     g_signal_connect_swapped (self->manager, "notify::is-supported",
+                              G_CALLBACK (sync_visible_page), self);
+    g_signal_connect_swapped (self->manager, "notify::is-ready",
                               G_CALLBACK (sync_visible_page), self);
     sync_visible_page (self);
 

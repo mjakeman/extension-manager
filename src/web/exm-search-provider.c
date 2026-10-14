@@ -48,7 +48,7 @@ static SearchRequestData *
 parse_search_results (GBytes  *bytes,
                       GError **out_error)
 {
-    JsonParser *parser;
+    g_autoptr (JsonParser) parser = NULL;
     const gchar *data;
     gsize length;
     int count;
@@ -72,11 +72,25 @@ parse_search_results (GBytes  *bytes,
         GListStore *store = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
 
         JsonNode *root = json_parser_get_root (parser);
-        g_assert (JSON_NODE_HOLDS_OBJECT (root));
+
+        if (root == NULL || !JSON_NODE_HOLDS_OBJECT (root))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-search-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         JsonObject *root_object = json_node_get_object (root);
-        g_assert (json_object_has_member (root_object, "count"));
-        g_assert (json_object_has_member (root_object, "results"));
+
+        if (!json_object_has_member (root_object, "count") ||
+            !json_object_has_member (root_object, "results"))
+        {
+            g_object_unref (store);
+            g_set_error (out_error, g_quark_from_string ("exm-search-provider"), -1,
+                        "Unexpected response format from extensions.gnome.org");
+            return NULL;
+        }
 
         count = json_object_get_int_member (root_object, "count");
         g_info ("Count: %d\n", count);
@@ -93,6 +107,7 @@ parse_search_results (GBytes  *bytes,
 
             g_list_store_append (store, result);
         }
+        g_list_free (search_results);
 
         result = g_slice_new0 (SearchRequestData);
         result->list_model = G_LIST_MODEL (store);
@@ -145,24 +160,29 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
     // Query https://extensions.gnome.org/api/v1/extensions/?ordering={%s}&page={%d}&status=3
     // Query https://extensions.gnome.org/api/v1/extensions/search/{%s}/?ordering={%s}&page={%d}
 
-    const gchar *url;
-    const gchar *sort;
+    g_autofree gchar *url = NULL;
+    g_autofree gchar *sort = NULL;
+    const gchar *sort_str;
 
-    sort = get_sort_string (sort_type);
+    sort_str = get_sort_string (sort_type);
 
-    if (g_strcmp0 (sort, "") != 0)
-        sort = g_strdup_printf ("ordering=%s&", sort);
+    if (g_strcmp0 (sort_str, "") != 0)
+        sort = g_strdup_printf ("ordering=%s&", sort_str);
 
     if (g_strcmp0 (query, "") == 0)
     {
-        if (g_strcmp0 (sort, "") == 0)
+        if (sort == NULL)
             sort = g_strdup_printf ("ordering=-popularity&");
 
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3", sort, page);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3",
+                               sort, page);
     }
     else
     {
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10", query, sort, page);
+        g_autofree gchar *escaped_query = g_uri_escape_string (query, NULL, FALSE);
+
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10",
+                               escaped_query, sort ? sort : "", page);
     }
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),

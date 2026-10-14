@@ -1,26 +1,27 @@
 using Gtk 4.0;
 
-template $ExmScreenshot : Gtk.Widget {
-	Gtk.Stack stack {
-		transition-type: crossfade;
+template $ExmScreenshot: Gtk.Widget {
+  Gtk.Stack stack {
+    transition-type: crossfade;
 
-		Gtk.StackPage {
-			name: "page_spinner";
+    Gtk.StackPage {
+      name: "page_spinner";
 
-			child: Gtk.Image {
-				icon-name: "image-loading-symbolic";
-				icon-size: large;
-				valign: center;
-			};
-		}
+      child: Gtk.Image {
+        icon-name: "image-loading-symbolic";
+        icon-size: large;
+        valign: center;
+      };
+    }
 
-		Gtk.StackPage {
-			name: "page_picture";
+    Gtk.StackPage {
+      name: "page_picture";
 
-			child: Gtk.Picture picture {
-				valign: fill;
-				halign: fill;
-			};
-		}
-	}
+      child: Gtk.Picture picture {
+        valign: fill;
+        halign: fill;
+        alternative-text: _("Extension Screenshot");
+      };
+    }
+  }
 }

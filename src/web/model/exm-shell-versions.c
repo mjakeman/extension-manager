@@ -126,6 +126,9 @@ exm_shell_versions_supports (ExmShellVersions *self,
     if (self->versions == NULL)
         return FALSE;
 
+    if (shell_version == NULL)
+        return FALSE;
+
     strarr = g_strsplit (shell_version, ".", 2);
     if (!strarr || !strarr[0])
     {
