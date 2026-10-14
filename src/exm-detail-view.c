@@ -1402,6 +1402,8 @@ on_extensions_ready (ExmDetailView *self)
                                  G_CONNECT_SWAPPED);
 
         g_object_unref (ext_model);
+
+        exm_detail_view_update (self);
     }
 }
 
