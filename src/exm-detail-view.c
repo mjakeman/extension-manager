@@ -1114,7 +1114,7 @@ show_versions (GtkWidget  *widget,
     self = EXM_DETAIL_VIEW (widget);
     toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
 
-    adw_dialog_present (ADW_DIALOG (g_object_ref (self->ext_versions_dialog)), toplevel);
+    adw_dialog_present (ADW_DIALOG (self->ext_versions_dialog), toplevel);
 }
 
 static void
