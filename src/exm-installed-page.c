@@ -292,7 +292,7 @@ bind_list_box (GListModel       *model,
     g_clear_object (&self->search_list_model);
 
     // Sort alphabetically
-    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "name");
+    expression = gtk_expression_ref (gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "name"));
     alphabetical_sorter = gtk_string_sorter_new (expression);
 
     if (self->sort_enabled_first)
@@ -323,7 +323,7 @@ bind_list_box (GListModel       *model,
                                       self, NULL);
 
     // Filter by user/system extension
-    expression = gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user");
+    expression = gtk_expression_ref (gtk_property_expression_new (EXM_TYPE_EXTENSION, NULL, "is-user"));
     is_user_filter = gtk_bool_filter_new (expression);
     filtered_model = gtk_filter_list_model_new (g_object_ref (G_LIST_MODEL (sorted_model)), GTK_FILTER (is_user_filter));
 
@@ -334,10 +334,15 @@ bind_list_box (GListModel       *model,
     adw_preferences_group_bind_model (self->user_prefs_group, G_LIST_MODEL (filtered_model),
                                       (GtkListBoxCreateWidgetFunc) widget_factory,
                                       self, NULL);
+    g_object_unref (filtered_model);
 
     is_user_filter = gtk_bool_filter_new (expression);
     gtk_bool_filter_set_invert (is_user_filter, TRUE);
     filtered_model = gtk_filter_list_model_new (G_LIST_MODEL (sorted_model), GTK_FILTER (is_user_filter));
+
+    if (self->system_filtered_model != NULL)
+        g_signal_handlers_disconnect_by_func (self->system_filtered_model,
+                                              update_system_group_visibility, self);
 
     g_set_object (&self->system_filtered_model, G_LIST_MODEL (filtered_model));
     g_signal_connect_swapped (self->system_filtered_model, "notify::n-items",
@@ -347,6 +352,7 @@ bind_list_box (GListModel       *model,
     adw_preferences_group_bind_model (self->system_prefs_group, G_LIST_MODEL (filtered_model),
                                       (GtkListBoxCreateWidgetFunc) widget_factory,
                                       self, NULL);
+    g_object_unref (filtered_model);
 
     // Refilter when sort-enabled-first changes and there is an ongoing search
     if (self->search_query)
