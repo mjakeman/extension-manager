@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-20 10:09+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
+"POT-Creation-Date: 2026-10-14 21:13+0000\n"
 "PO-Revision-Date: 2025-08-14 17:21+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
@@ -92,7 +92,7 @@ msgstr "कोई उपयोक्ता एक्सटेंशन स्थ
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
-#: src/exm-detail-view.blp:496 src/exm-upgrade-assistant.blp:99
+#: src/exm-detail-view.blp:504 src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr ""
 
@@ -151,20 +151,20 @@ msgstr ""
 msgid "Ascending Order"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:453
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:461
 #, fuzzy
 #| msgid "There are no comments."
 msgid "Reviews and Comments"
 msgstr "कोई टिप्पणियां नहीं हैं।"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:974
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1041
 #: src/exm-install-button.c:147
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
 msgstr "लोड हो रहा है…"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:158
+#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:162
 msgid "Author"
 msgstr "लेखक"
 
@@ -172,7 +172,7 @@ msgstr "लेखक"
 msgid "Loading Details"
 msgstr "विवरण लोड हो रहा है"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:474
+#: src/exm-detail-view.blp:71 src/exm-window.c:482
 msgid "An Error Occurred"
 msgstr "एक त्रुटि हुई"
 
@@ -193,12 +193,18 @@ msgstr ""
 msgid "_View Details"
 msgstr "विवरण"
 
-#: src/exm-detail-view.blp:138
+#: src/exm-detail-view.blp:115
+#, fuzzy
+#| msgid "Extension Manager"
+msgid "Extension Icon"
+msgstr "एक्सटेंशन मैनेजर"
+
+#: src/exm-detail-view.blp:142
 msgid "Name"
 msgstr "नाम"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:191
+#: src/exm-detail-view.blp:195
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Remove Extension"
@@ -206,109 +212,117 @@ msgstr "एक्सटेंशन का उपयोग करें"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:203 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:207 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "एक्सटेंशन प्राथमिकताएं खोलें"
 
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:211
+#. Translators: Switch's tooltip to enable/disable this extension
+#: src/exm-detail-view.blp:215 src/exm-extension-row.blp:83
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Toggle Extension"
 msgstr "एक्सटेंशन का उपयोग करें"
 
-#: src/exm-detail-view.blp:235
+#: src/exm-detail-view.blp:239
 msgid "Enlarge Image"
 msgstr "छवि बड़ा करें"
 
-#: src/exm-detail-view.blp:253
+#: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Screenshot View"
+msgid "Extension Screenshot"
+msgstr "स्क्रीनशॉट दृश्य"
+
+#: src/exm-detail-view.blp:261
 msgid "Description"
 msgstr "विवरण"
 
-#: src/exm-detail-view.blp:281
+#: src/exm-detail-view.blp:289
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "डाउनलोड"
 
-#: src/exm-detail-view.blp:301
+#: src/exm-detail-view.blp:309
 msgid "Version"
 msgstr "संस्करण"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:318 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:326 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "इस एक्सटेंशन का एक नया संस्करण उपलब्ध है"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:332 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:340 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "यह एक्सटेंशन आपके गनोम के वर्तमान संस्करण के साथ असंगत है"
 
-#: src/exm-detail-view.blp:354
+#: src/exm-detail-view.blp:362
 msgid "Session Modes"
 msgstr ""
 
-#: src/exm-detail-view.blp:369
+#: src/exm-detail-view.blp:377
 msgid "Location"
 msgstr ""
 
-#: src/exm-detail-view.blp:383
+#: src/exm-detail-view.blp:391
 msgid "Links"
 msgstr "लिंक"
 
-#: src/exm-detail-view.blp:393
+#: src/exm-detail-view.blp:401
 msgid "Homepage"
 msgstr "मुखपृष्ठ"
 
-#: src/exm-detail-view.blp:409 src/exm-detail-view.blp:424
+#: src/exm-detail-view.blp:417 src/exm-detail-view.blp:432
 msgid "Donate"
 msgstr "दान करें"
 
-#: src/exm-detail-view.blp:435
+#: src/exm-detail-view.blp:443
 msgid "View on Extensions"
 msgstr "एक्सटेंशन पर देखें"
 
-#: src/exm-detail-view.blp:476
+#: src/exm-detail-view.blp:484
 msgid "Reviews and comments are disabled for this extension"
 msgstr ""
 
-#: src/exm-detail-view.blp:519
+#: src/exm-detail-view.blp:527
 #, fuzzy
 #| msgid "There are no comments."
 msgid "There are no reviews or comments"
 msgstr "कोई टिप्पणियां नहीं हैं।"
 
-#: src/exm-detail-view.blp:548
+#: src/exm-detail-view.blp:556
 #, fuzzy
 #| msgid "_Show All Reviews"
 msgid "_Show All"
 msgstr "सभी समीक्षाएं दिखाएं (_S)"
 
-#: src/exm-detail-view.c:517
+#: src/exm-detail-view.c:560
 msgid "Unlock Dialog"
 msgstr ""
 
-#: src/exm-detail-view.c:518
+#: src/exm-detail-view.c:561
 msgid "GDM"
 msgstr ""
 
-#: src/exm-detail-view.c:612 src/exm-detail-view.c:717
+#: src/exm-detail-view.c:663 src/exm-detail-view.c:769
 msgid "Unsupported"
 msgstr "असमर्थित"
 
-#: src/exm-detail-view.c:765
+#: src/exm-detail-view.c:818
 msgid "Unknown"
 msgstr "अज्ञात"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:855
+#: src/exm-detail-view.c:916
 #, c-format
 msgid "%s Icon"
 msgstr ""
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:884
+#: src/exm-detail-view.c:936
 #, fuzzy, c-format
 #| msgctxt "shortcut window"
 #| msgid "Screenshot View"
@@ -316,7 +330,7 @@ msgid "%s Screenshot"
 msgstr "स्क्रीनशॉट दृश्य"
 
 #. Success indicator
-#: src/exm-detail-view.c:1121 src/exm-error-dialog.c:126
+#: src/exm-detail-view.c:1208 src/exm-error-dialog.c:126
 #: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "कॉपी किया गया"
@@ -421,7 +435,7 @@ msgid "User-Installed Extensions"
 msgstr "उपयोक्ता-स्थापित एक्सटेंशन"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:569
+#: src/exm-installed-page.blp:46 src/exm-window.c:580
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Select Extensions"
@@ -452,7 +466,7 @@ msgid "Search online to install extensions"
 msgstr "एक्सटेंशन खोजें"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:362
+#: src/exm-installed-page.c:383
 #, fuzzy, c-format
 #| msgid "One extension will be updated on next login"
 #| msgid_plural "%d extensions will be updated on next login"
@@ -761,21 +775,21 @@ msgstr "फिर भी स्थापित करें (_I)"
 msgid "_Go Back"
 msgstr "पीछे जाएं (_G)"
 
-#: src/exm-window.c:475
+#: src/exm-window.c:483
 #, fuzzy
 #| msgid "Details"
 msgid "_Details"
 msgstr "विवरण"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:572
+#: src/exm-window.c:583
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/exm-window.c:619
+#: src/exm-window.c:630
 #, fuzzy, c-format
 #| msgid ""
 #| "The extension's features and functionality will no longer be accessible. "
@@ -793,13 +807,13 @@ msgstr[1] ""
 "एक्सटेंशन की सुविधाएं और कार्यक्षमता अब पहुंच योग्य नहीं होंगी। क्या आप स्थापना रद्द करना "
 "चाहते हैं?"
 
-#: src/web/exm-request-handler.c:133
+#: src/web/exm-request-handler.c:145
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
 
-#: src/web/exm-request-handler.c:134
+#: src/web/exm-request-handler.c:146
 msgid "Check your network status and try again"
 msgstr ""
 
