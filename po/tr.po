@@ -10,6 +10,7 @@
 # Mücahit Şahin <mucahitsahin786@gmail.com>, 2025.
 # Oğuz Ersen <oguz@ersen.moe>, 2025.
 # Sabri Ünal <yakushabb@gmail.com>, 2025.
+# Ömer Efe Bilgin <omerefebilgin916@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
@@ -255,7 +256,7 @@ msgstr "Oturum Kipleri"
 
 #: src/exm-detail-view.blp:369
 msgid "Location"
-msgstr ""
+msgstr "Konum"
 
 #: src/exm-detail-view.blp:383
 msgid "Links"
@@ -368,11 +369,11 @@ msgstr "_Yeni Hata"
 #: src/exm-extension-error-dialog.c:54
 #, c-format
 msgid "“%s” Failed to Load"
-msgstr ""
+msgstr "“%s” Yüklenemedi"
 
 #: src/exm-extension-error-dialog.c:55
 msgid "Extension Failed to Load"
-msgstr ""
+msgstr "Uzantı Yüklenemedi"
 
 #. Translators: Button's tooltip to view an extension's error details
 #: src/exm-extension-row.blp:58
