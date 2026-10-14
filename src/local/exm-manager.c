@@ -443,6 +443,10 @@ exm_manager_install_async (ExmManager          *self,
     if (self->proxy == NULL)
     {
         notify_error (self, "Extension manager is not ready yet\n");
+
+        g_task_report_new_error (self, callback, user_data, exm_manager_install_async,
+                                 g_quark_from_static_string ("exm-manager"), -1,
+                                 "Extension manager is not ready yet");
         return;
     }
 
@@ -460,6 +464,12 @@ exm_manager_install_finish (GObject       *self,
 {
     gchar *out_result = NULL;
     gboolean success;
+
+    if (EXM_IS_MANAGER (self))
+    {
+        g_task_propagate_boolean (G_TASK (result), error);
+        return FALSE;
+    }
 
     g_return_val_if_fail (SHELL_IS_EXTENSIONS (self), FALSE);
 
