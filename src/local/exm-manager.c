@@ -681,7 +681,7 @@ parse_single_extension (ExmExtension **extension,
 
     if (extension && *extension)
     {
-        const gchar *uuid_cmp;
+        g_autofree gchar *uuid_cmp = NULL;
         g_object_get (*extension, "uuid", &uuid_cmp, NULL);
         g_assert (strcmp (extension_uuid, uuid_cmp) == 0);
     }
@@ -871,6 +871,7 @@ parse_extension_list (GVariant    *exlist,
         }
 
         g_list_store_append (ext_store, extension);
+        g_object_unref (extension);
     }
     g_variant_iter_free (iter);
 
