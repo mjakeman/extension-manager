@@ -633,7 +633,7 @@ on_version_loaded (GObject      *source,
                    GAsyncResult *result,
                    gpointer      user_data)
 {
-    gchar *next;
+    gchar *next = NULL;
     GError *error = NULL;
     GListModel *list;
     ExmDetailView *self;
