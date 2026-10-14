@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 10:09+0000\n"
-"PO-Revision-Date: 2026-07-18 00:58+0000\n"
+"PO-Revision-Date: 2026-10-04 08:51+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/extension-"
 "manager/app/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.10.1.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -80,16 +80,12 @@ msgstr ""
 "Ryo Nakano <ryonakaknock3@gmail.com>"
 
 #: src/exm-author-page.blp:95
-#, fuzzy
-#| msgid "Unsupported Extension"
 msgid "Authored Extensions"
-msgstr "非対応の拡張機能"
+msgstr "この開発者の拡張機能"
 
 #: src/exm-author-page.blp:126
-#, fuzzy
-#| msgid "No Extensions Installed"
 msgid "No Extensions Found"
-msgstr "インストール済み拡張機能なし"
+msgstr "拡張機能が見つかりませんでした"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
@@ -242,7 +238,7 @@ msgstr "セッションモード"
 
 #: src/exm-detail-view.blp:369
 msgid "Location"
-msgstr ""
+msgstr "場所"
 
 #: src/exm-detail-view.blp:383
 msgid "Links"
