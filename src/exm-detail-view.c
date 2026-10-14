@@ -673,7 +673,7 @@ on_version_loaded (GObject      *source,
         return;
     }
 
-    const gchar *shell_version;
+    g_autofree gchar *shell_version = NULL;
     g_object_get (self->versions_provider, "shell-version", &shell_version, NULL);
 
     for (guint i = 0; i < g_list_model_get_n_items (list); i++)
@@ -912,9 +912,9 @@ on_data_loaded (GObject      *source,
         adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self), name);
 
         gtk_image_set_from_icon_name (self->ext_icon, "puzzle-piece-symbolic");
-        gtk_widget_set_tooltip_text (GTK_WIDGET (self->ext_icon),
-                                     // Translators: '%s' = extension name
-                                     g_strdup_printf (_("%s Icon"), name));
+        // Translators: '%s' = extension name
+        g_autofree gchar *icon_tooltip = g_strdup_printf (_("%s Icon"), name);
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->ext_icon), icon_tooltip);
 
 
         if (icon_uri != NULL)
@@ -932,9 +932,9 @@ on_data_loaded (GObject      *source,
 
             queue_resolve_image (self, screenshot_uri, self->resolver_cancel, FALSE);
 
-            gtk_widget_set_tooltip_text (GTK_WIDGET (self->ext_screenshot),
-                                         // Translators: '%s' = extension name
-                                         g_strdup_printf (_("%s Screenshot"), name));
+            // Translators: '%s' = extension name
+            g_autofree gchar *screenshot_tooltip = g_strdup_printf (_("%s Screenshot"), name);
+            gtk_widget_set_tooltip_text (GTK_WIDGET (self->ext_screenshot), screenshot_tooltip);
         }
         else
         {
