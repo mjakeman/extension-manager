@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-20 10:09+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
+"POT-Creation-Date: 2026-10-14 21:13+0000\n"
 "PO-Revision-Date: 2025-08-14 17:21+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
@@ -95,7 +95,7 @@ msgstr "Ingen brukerutvidelser er installert"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
-#: src/exm-detail-view.blp:496 src/exm-upgrade-assistant.blp:99
+#: src/exm-detail-view.blp:504 src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Tilkoblingsfeil"
 
@@ -154,16 +154,16 @@ msgstr "Prøv et annet søk"
 msgid "Ascending Order"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:453
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:461
 msgid "Reviews and Comments"
 msgstr "Anmeldelser og kommentarer"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:974
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1041
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Laster inn"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:158
+#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:162
 msgid "Author"
 msgstr "Utvikler"
 
@@ -171,7 +171,7 @@ msgstr "Utvikler"
 msgid "Loading Details"
 msgstr "Laster informasjon"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:474
+#: src/exm-detail-view.blp:71 src/exm-window.c:482
 msgid "An Error Occurred"
 msgstr "Det oppstod et problem"
 
@@ -190,12 +190,18 @@ msgstr ""
 msgid "_View Details"
 msgstr "_Informasjon"
 
-#: src/exm-detail-view.blp:138
+#: src/exm-detail-view.blp:115
+#, fuzzy
+#| msgid "Extension Manager"
+msgid "Extension Icon"
+msgstr "Extension Manager"
+
+#: src/exm-detail-view.blp:142
 msgid "Name"
 msgstr "Navn"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:191
+#: src/exm-detail-view.blp:195
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Remove Extension"
@@ -203,111 +209,118 @@ msgstr "Bruk utvidelser"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:203 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:207 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "Åpne innstillinger"
 
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:211
+#. Translators: Switch's tooltip to enable/disable this extension
+#: src/exm-detail-view.blp:215 src/exm-extension-row.blp:83
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Toggle Extension"
 msgstr "Bruk utvidelser"
 
-#: src/exm-detail-view.blp:235
+#: src/exm-detail-view.blp:239
 msgid "Enlarge Image"
 msgstr "Forstørr bilde"
 
-#: src/exm-detail-view.blp:253
+#: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
+#, fuzzy
+#| msgid "%s Screenshot"
+msgid "Extension Screenshot"
+msgstr "Skjermbilde av %s"
+
+#: src/exm-detail-view.blp:261
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/exm-detail-view.blp:281
+#: src/exm-detail-view.blp:289
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Nedlastinger"
 
-#: src/exm-detail-view.blp:301
+#: src/exm-detail-view.blp:309
 msgid "Version"
 msgstr "Versjon"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:318 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:326 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "En nyere versjon av denne utvidelsen er tilgjengelig"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:332 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:340 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Denne utvidelsen er inkompatibel med GNOME-versjonen din"
 
-#: src/exm-detail-view.blp:354
+#: src/exm-detail-view.blp:362
 msgid "Session Modes"
 msgstr "Moduser"
 
-#: src/exm-detail-view.blp:369
+#: src/exm-detail-view.blp:377
 msgid "Location"
 msgstr ""
 
-#: src/exm-detail-view.blp:383
+#: src/exm-detail-view.blp:391
 msgid "Links"
 msgstr "Lenker"
 
-#: src/exm-detail-view.blp:393
+#: src/exm-detail-view.blp:401
 msgid "Homepage"
 msgstr "Nettsted"
 
-#: src/exm-detail-view.blp:409 src/exm-detail-view.blp:424
+#: src/exm-detail-view.blp:417 src/exm-detail-view.blp:432
 msgid "Donate"
 msgstr "Doner"
 
-#: src/exm-detail-view.blp:435
+#: src/exm-detail-view.blp:443
 msgid "View on Extensions"
 msgstr "Side på extensions.gnome.org"
 
-#: src/exm-detail-view.blp:476
+#: src/exm-detail-view.blp:484
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Anmeldelser og kommentarer er slått av for denne utvidelsen"
 
-#: src/exm-detail-view.blp:519
+#: src/exm-detail-view.blp:527
 msgid "There are no reviews or comments"
 msgstr "Ingen anmeldelser eller kommentarer"
 
-#: src/exm-detail-view.blp:548
+#: src/exm-detail-view.blp:556
 msgid "_Show All"
 msgstr "_Vis mer"
 
-#: src/exm-detail-view.c:517
+#: src/exm-detail-view.c:560
 msgid "Unlock Dialog"
 msgstr "Låseskjerm"
 
-#: src/exm-detail-view.c:518
+#: src/exm-detail-view.c:561
 msgid "GDM"
 msgstr "GDM"
 
-#: src/exm-detail-view.c:612 src/exm-detail-view.c:717
+#: src/exm-detail-view.c:663 src/exm-detail-view.c:769
 msgid "Unsupported"
 msgstr "Støttes ikke"
 
-#: src/exm-detail-view.c:765
+#: src/exm-detail-view.c:818
 msgid "Unknown"
 msgstr "Ukjent"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:855
+#: src/exm-detail-view.c:916
 #, c-format
 msgid "%s Icon"
 msgstr "Ikon til %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:884
+#: src/exm-detail-view.c:936
 #, c-format
 msgid "%s Screenshot"
 msgstr "Skjermbilde av %s"
 
 #. Success indicator
-#: src/exm-detail-view.c:1121 src/exm-error-dialog.c:126
+#: src/exm-detail-view.c:1208 src/exm-error-dialog.c:126
 #: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Kopiert"
@@ -405,7 +418,7 @@ msgid "User-Installed Extensions"
 msgstr "Brukerinstallert utvidelser"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:569
+#: src/exm-installed-page.blp:46 src/exm-window.c:580
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Select Extensions"
@@ -436,7 +449,7 @@ msgid "Search online to install extensions"
 msgstr "Søk etter installerte utvidelser"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:362
+#: src/exm-installed-page.c:383
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -738,19 +751,19 @@ msgstr "_Installer"
 msgid "_Go Back"
 msgstr "_Gå tilbake"
 
-#: src/exm-window.c:475
+#: src/exm-window.c:483
 msgid "_Details"
 msgstr "_Informasjon"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:572
+#: src/exm-window.c:583
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/exm-window.c:619
+#: src/exm-window.c:630
 #, fuzzy, c-format
 #| msgid ""
 #| "The extension's features and functionality will no longer be accessible. "
@@ -768,7 +781,7 @@ msgstr[1] ""
 "Utvidelsens funksjoner kommer til å fjernes fra systemet. Er du sikker på at "
 "du vil avinstallere?"
 
-#: src/web/exm-request-handler.c:133
+#: src/web/exm-request-handler.c:145
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
@@ -776,7 +789,7 @@ msgstr ""
 "Sjekk <a href='https://status.gnome.org/'>GNOME-infrastrukturens status</a> "
 "og prøv igjen senere"
 
-#: src/web/exm-request-handler.c:134
+#: src/web/exm-request-handler.c:146
 msgid "Check your network status and try again"
 msgstr "Sjekk nettverkstilkoblingen din og prøv igjen"
 
