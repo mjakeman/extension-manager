@@ -39,6 +39,7 @@ struct _ExmManager
     gboolean is_ready;
 
     guint update_callback_id;
+    GCancellable *list_cancellable;
 };
 
 G_DEFINE_FINAL_TYPE (ExmManager, exm_manager, G_TYPE_OBJECT)
@@ -77,6 +78,10 @@ exm_manager_dispose (GObject *object)
     ExmManager *self = EXM_MANAGER (object);
 
     g_clear_handle_id (&self->update_callback_id, g_source_remove);
+
+    if (self->list_cancellable)
+        g_cancellable_cancel (self->list_cancellable);
+    g_clear_object (&self->list_cancellable);
 
     if (self->proxy)
         g_signal_handlers_disconnect_by_data (self->proxy, self);
@@ -885,7 +890,9 @@ on_list_extensions_ready (GObject      *source,
 
     if (error != NULL)
     {
-        notify_error (self, "Could not list extensions: %s\n", error->message);
+        if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+            notify_error (self, "Could not list extensions: %s\n", error->message);
+
         g_clear_error (&error);
         g_object_unref (self);
         return;
@@ -907,7 +914,13 @@ on_list_extensions_ready (GObject      *source,
 static void
 update_extension_list (ExmManager *self)
 {
-    shell_extensions_call_list_extensions (self->proxy, NULL, on_list_extensions_ready, g_object_ref (self));
+    if (self->list_cancellable)
+        g_cancellable_cancel (self->list_cancellable);
+    g_clear_object (&self->list_cancellable);
+    self->list_cancellable = g_cancellable_new ();
+
+    shell_extensions_call_list_extensions (self->proxy, self->list_cancellable,
+                                           on_list_extensions_ready, g_object_ref (self));
 }
 
 static void
