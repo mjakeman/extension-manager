@@ -4,13 +4,14 @@
 # Quentin PAGÈS <EMAIL@ADDRESS>, 2022.
 # Quentin PAGÈS <quentinantonin@free.fr>, 2024, 2025, 2026.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
+# Quentin PAGÈS <quenti@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-09-22 14:51+0000\n"
-"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"PO-Revision-Date: 2026-10-15 21:51+0000\n"
+"Last-Translator: Quentin PAGÈS <quenti@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
 "manager/app/oc/>\n"
 "Language: oc\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -183,10 +184,8 @@ msgid "_View Details"
 msgstr "_Veire los detalhs"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Error de l’extension"
+msgstr "Icòna de l’extension"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -214,10 +213,8 @@ msgid "Enlarge Image"
 msgstr "Agrandir l'imatge"
 
 #: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "Captura d'ecran de %s"
+msgstr "Captura d'ecran de l’extension"
 
 #: src/exm-detail-view.blp:261
 msgid "Description"
