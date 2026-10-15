@@ -50,7 +50,9 @@ ExmSearchProvider *exm_search_provider_new          (void);
 void               exm_search_provider_query_async  (ExmSearchProvider   *self,
                                                      const gchar         *query,
                                                      int                  page,
+                                                     int                  page_size,
                                                      ExmSearchSort        sort_type,
+                                                     gboolean             only_supported,
                                                      GCancellable        *cancellable,
                                                      GAsyncReadyCallback  callback,
                                                      gpointer             user_data);
