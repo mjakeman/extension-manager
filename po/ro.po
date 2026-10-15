@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the extension-manager package.
 # Igor Sorocean <sorocean.igor@gmail.com>, 2025, 2026.
 # Rareș Pița <pitarares28@gmail.com>, 2026.
+# Igor Sorocean <ygorigor@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-09-22 14:51+0000\n"
-"Last-Translator: Igor Sorocean <sorocean.igor@gmail.com>\n"
+"PO-Revision-Date: 2026-10-15 21:51+0000\n"
+"Last-Translator: Igor Sorocean <ygorigor@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/extension-"
 "manager/app/ro/>\n"
 "Language: ro\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -185,10 +186,8 @@ msgid "_View Details"
 msgstr "_Detalii"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Eroare extensie"
+msgstr "Pictogramă extensie"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -216,10 +215,8 @@ msgid "Enlarge Image"
 msgstr "Mărește imaginea"
 
 #: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "Captură de ecran %s"
+msgstr "Captură de ecran a extensiei"
 
 #: src/exm-detail-view.blp:261
 msgid "Description"
