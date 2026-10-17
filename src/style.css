@@ -15,6 +15,14 @@
   padding: 2px;
 }
 
+.browse-content {
+  border-spacing: 12px;
+}
+
+.browse-content > .linked {
+  border-spacing: 0;
+}
+
 .version-label {
   background: color-mix(in srgb, currentColor 12%, transparent);
   border-radius: 99px;

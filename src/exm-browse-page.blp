@@ -20,6 +20,10 @@ template $ExmBrowsePage: Gtk.Widget {
 
       child: Adw.Clamp {
         Gtk.Box {
+          styles [
+            "browse-content",
+          ]
+
           orientation: vertical;
 
           Gtk.Box {
@@ -153,6 +157,57 @@ template $ExmBrowsePage: Gtk.Widget {
                   margin-bottom: 12;
                   wrap: true;
                   wrap-mode: word_char;
+                }
+              };
+            }
+
+            Gtk.StackPage {
+              name: "page_hidden";
+
+              child: Gtk.Box {
+                orientation: vertical;
+                margin-start: 12;
+                margin-end: 12;
+                margin-top: 36;
+                margin-bottom: 24;
+
+                Gtk.Image {
+                  styles [
+                    "dimmed",
+                  ]
+
+                  icon-name: "view-conceal-symbolic";
+                  halign: center;
+                  margin-bottom: 24;
+                  pixel-size: 128;
+                }
+
+                Gtk.Label {
+                  styles [
+                    "title-1",
+                  ]
+
+                  label: _("No Compatible Extensions Found");
+                  margin-bottom: 12;
+                  wrap: true;
+                  wrap-mode: word_char;
+                }
+
+                Gtk.Label {
+                  label: _("Extensions that do not support your version of GNOME are hidden");
+                  margin-bottom: 24;
+                  wrap: true;
+                  wrap-mode: word_char;
+                }
+
+                Gtk.Button {
+                  styles [
+                    "pill",
+                  ]
+
+                  label: _("Show Unsupported Extensions");
+                  action-name: "win.show-unsupported";
+                  halign: center;
                 }
               };
             }
