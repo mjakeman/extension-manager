@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-20 10:09+0000\n"
-"PO-Revision-Date: 2026-10-04 08:51+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
+"POT-Creation-Date: 2026-10-14 21:13+0000\n"
+"PO-Revision-Date: 2026-10-17 11:51+0000\n"
 "Last-Translator: Димко <Dymkovych@proton.me>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/extension-"
 "manager/app/uk/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -97,7 +97,7 @@ msgstr "Розширень не знайдено"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
-#: src/exm-detail-view.blp:496 src/exm-upgrade-assistant.blp:99
+#: src/exm-detail-view.blp:504 src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Помилка підключення"
 
@@ -158,16 +158,16 @@ msgstr "Спробуйте змінити запит"
 msgid "Ascending Order"
 msgstr "Порядок зростання"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:453
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:461
 msgid "Reviews and Comments"
 msgstr "Відгуки та коментарі"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:974
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1041
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Завантаження"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:158
+#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:162
 msgid "Author"
 msgstr "Автор"
 
@@ -175,7 +175,7 @@ msgstr "Автор"
 msgid "Loading Details"
 msgstr "Завантажуємо подробиці"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:474
+#: src/exm-detail-view.blp:71 src/exm-window.c:482
 msgid "An Error Occurred"
 msgstr "Сталася помилка"
 
@@ -192,120 +192,129 @@ msgstr "Розширення містить помилку"
 msgid "_View Details"
 msgstr "_Подробиці"
 
-#: src/exm-detail-view.blp:138
+#: src/exm-detail-view.blp:115
+msgid "Extension Icon"
+msgstr "Піктограма розширення"
+
+#: src/exm-detail-view.blp:142
 msgid "Name"
 msgstr "За назвою"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:191
+#: src/exm-detail-view.blp:195
 msgid "Remove Extension"
 msgstr "Вилучити розширення"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:203 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:207 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "Параметри"
 
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:211
+#. Translators: Switch's tooltip to enable/disable this extension
+#: src/exm-detail-view.blp:215 src/exm-extension-row.blp:83
 msgid "Toggle Extension"
 msgstr "Перемкнути розширення"
 
-#: src/exm-detail-view.blp:235
+#: src/exm-detail-view.blp:239
 msgid "Enlarge Image"
 msgstr "Збільшити зображення"
 
-#: src/exm-detail-view.blp:253
+#: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
+msgid "Extension Screenshot"
+msgstr "Зняток"
+
+#: src/exm-detail-view.blp:261
 msgid "Description"
 msgstr "Опис"
 
-#: src/exm-detail-view.blp:281
+#: src/exm-detail-view.blp:289
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Завантажень"
 
-#: src/exm-detail-view.blp:301
+#: src/exm-detail-view.blp:309
 msgid "Version"
 msgstr "Версія"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:318 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:326 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "Доступна нова версія цього розширення"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:332 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:340 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Розширення не сумісне з поточною версією GNOME"
 
-#: src/exm-detail-view.blp:354
+#: src/exm-detail-view.blp:362
 msgid "Session Modes"
 msgstr "Режими сесії"
 
-#: src/exm-detail-view.blp:369
+#: src/exm-detail-view.blp:377
 msgid "Location"
 msgstr "Розташування"
 
-#: src/exm-detail-view.blp:383
+#: src/exm-detail-view.blp:391
 msgid "Links"
 msgstr "Посилання"
 
-#: src/exm-detail-view.blp:393
+#: src/exm-detail-view.blp:401
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: src/exm-detail-view.blp:409 src/exm-detail-view.blp:424
+#: src/exm-detail-view.blp:417 src/exm-detail-view.blp:432
 msgid "Donate"
 msgstr "Пожертвувати"
 
-#: src/exm-detail-view.blp:435
+#: src/exm-detail-view.blp:443
 msgid "View on Extensions"
 msgstr "Сторінка Extensions"
 
-#: src/exm-detail-view.blp:476
+#: src/exm-detail-view.blp:484
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Відгуки та коментарі для цього розширення вимкнено"
 
-#: src/exm-detail-view.blp:519
+#: src/exm-detail-view.blp:527
 msgid "There are no reviews or comments"
 msgstr "Відгуків і коментарів немає"
 
-#: src/exm-detail-view.blp:548
+#: src/exm-detail-view.blp:556
 msgid "_Show All"
 msgstr "_Показати все"
 
-#: src/exm-detail-view.c:517
+#: src/exm-detail-view.c:560
 msgid "Unlock Dialog"
 msgstr "Діалог розблокування"
 
-#: src/exm-detail-view.c:518
+#: src/exm-detail-view.c:561
 msgid "GDM"
 msgstr "GDM"
 
-#: src/exm-detail-view.c:612 src/exm-detail-view.c:717
+#: src/exm-detail-view.c:663 src/exm-detail-view.c:769
 msgid "Unsupported"
 msgstr "Не підтримується"
 
-#: src/exm-detail-view.c:765
+#: src/exm-detail-view.c:818
 msgid "Unknown"
 msgstr "Невідомо"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:855
+#: src/exm-detail-view.c:916
 #, c-format
 msgid "%s Icon"
 msgstr "Іконка %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:884
+#: src/exm-detail-view.c:936
 #, c-format
 msgid "%s Screenshot"
 msgstr "Зняток %s"
 
 #. Success indicator
-#: src/exm-detail-view.c:1121 src/exm-error-dialog.c:126
+#: src/exm-detail-view.c:1208 src/exm-error-dialog.c:126
 #: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Скопійовано"
@@ -399,7 +408,7 @@ msgid "User-Installed Extensions"
 msgstr "Користувацькі розширення"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:569
+#: src/exm-installed-page.blp:46 src/exm-window.c:580
 msgid "Select Extensions"
 msgstr "Вибрати розширення"
 
@@ -424,7 +433,7 @@ msgid "Search online to install extensions"
 msgstr "Шукайте в мережі, щоб встановити розширення"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:362
+#: src/exm-installed-page.c:383
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -708,12 +717,12 @@ msgstr "_Все одно встановити"
 msgid "_Go Back"
 msgstr "_Повернутися"
 
-#: src/exm-window.c:475
+#: src/exm-window.c:483
 msgid "_Details"
 msgstr "_Подробиці"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:572
+#: src/exm-window.c:583
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
@@ -721,7 +730,7 @@ msgstr[0] "Вибрано %u"
 msgstr[1] "Вибрано %u"
 msgstr[2] "Вибрано %u"
 
-#: src/exm-window.c:619
+#: src/exm-window.c:630
 #, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
@@ -739,7 +748,7 @@ msgstr[2] ""
 "Функції та можливості розширення більше не будуть доступними. Ви впевнені, "
 "що хочете його видалити?"
 
-#: src/web/exm-request-handler.c:133
+#: src/web/exm-request-handler.c:145
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
@@ -747,7 +756,7 @@ msgstr ""
 "Перевірте <a href='https://status.gnome.org/'>Статус інфраструктури GNOME</"
 "a> та спробуйте пізніше"
 
-#: src/web/exm-request-handler.c:134
+#: src/web/exm-request-handler.c:146
 msgid "Check your network status and try again"
 msgstr "Переконайтесь, що з'єднання з мережею присутнє та спробуйте ще раз"
 

@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-20 10:09+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
+"POT-Creation-Date: 2026-10-14 21:13+0000\n"
 "PO-Revision-Date: 2025-08-14 17:21+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
@@ -95,7 +95,7 @@ msgstr "사용자 확장 프로그램이 설치되지 않았습니다"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
-#: src/exm-detail-view.blp:496 src/exm-upgrade-assistant.blp:99
+#: src/exm-detail-view.blp:504 src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "연결 오류"
 
@@ -154,16 +154,16 @@ msgstr "다른 검색을 시도해보세요"
 msgid "Ascending Order"
 msgstr ""
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:453
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:461
 msgid "Reviews and Comments"
 msgstr "리뷰와 의견"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:974
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1041
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "불러오는 중"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:158
+#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:162
 msgid "Author"
 msgstr "저자"
 
@@ -171,7 +171,7 @@ msgstr "저자"
 msgid "Loading Details"
 msgstr "잠시만 기다려주세요"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:474
+#: src/exm-detail-view.blp:71 src/exm-window.c:482
 msgid "An Error Occurred"
 msgstr "오류가 발생했습니다"
 
@@ -190,12 +190,18 @@ msgstr ""
 msgid "_View Details"
 msgstr "_세부 사항"
 
-#: src/exm-detail-view.blp:138
+#: src/exm-detail-view.blp:115
+#, fuzzy
+#| msgid "Extension Manager"
+msgid "Extension Icon"
+msgstr "확장 프로그램 관리자"
+
+#: src/exm-detail-view.blp:142
 msgid "Name"
 msgstr "이름순"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:191
+#: src/exm-detail-view.blp:195
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Remove Extension"
@@ -203,111 +209,118 @@ msgstr "확장 프로그램 사용"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:203 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:207 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "확장 프로그램 환경설정 열기"
 
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:211
+#. Translators: Switch's tooltip to enable/disable this extension
+#: src/exm-detail-view.blp:215 src/exm-extension-row.blp:83
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Toggle Extension"
 msgstr "확장 프로그램 사용"
 
-#: src/exm-detail-view.blp:235
+#: src/exm-detail-view.blp:239
 msgid "Enlarge Image"
 msgstr "확대된 이미지"
 
-#: src/exm-detail-view.blp:253
+#: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
+#, fuzzy
+#| msgid "%s Screenshot"
+msgid "Extension Screenshot"
+msgstr "%s의 스크린샷"
+
+#: src/exm-detail-view.blp:261
 msgid "Description"
 msgstr "설명"
 
-#: src/exm-detail-view.blp:281
+#: src/exm-detail-view.blp:289
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "다운로드수"
 
-#: src/exm-detail-view.blp:301
+#: src/exm-detail-view.blp:309
 msgid "Version"
 msgstr "버전"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:318 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:326 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "새로운 버전의 확장 프로그램을 사용할 수 있습니다"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:332 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:340 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "이 확장 프로그램은 현재 설치된 GNOME 버전과 호환되지 않습니다"
 
-#: src/exm-detail-view.blp:354
+#: src/exm-detail-view.blp:362
 msgid "Session Modes"
 msgstr "세션 모드"
 
-#: src/exm-detail-view.blp:369
+#: src/exm-detail-view.blp:377
 msgid "Location"
 msgstr ""
 
-#: src/exm-detail-view.blp:383
+#: src/exm-detail-view.blp:391
 msgid "Links"
 msgstr "링크"
 
-#: src/exm-detail-view.blp:393
+#: src/exm-detail-view.blp:401
 msgid "Homepage"
 msgstr "홈페이지"
 
-#: src/exm-detail-view.blp:409 src/exm-detail-view.blp:424
+#: src/exm-detail-view.blp:417 src/exm-detail-view.blp:432
 msgid "Donate"
 msgstr "기부하기"
 
-#: src/exm-detail-view.blp:435
+#: src/exm-detail-view.blp:443
 msgid "View on Extensions"
 msgstr "확장 프로그램 보기"
 
-#: src/exm-detail-view.blp:476
+#: src/exm-detail-view.blp:484
 msgid "Reviews and comments are disabled for this extension"
 msgstr "이 확장 프로그램은 리뷰와 댓글을 남길 수 없습니다"
 
-#: src/exm-detail-view.blp:519
+#: src/exm-detail-view.blp:527
 msgid "There are no reviews or comments"
 msgstr "댓글이 없습니다"
 
-#: src/exm-detail-view.blp:548
+#: src/exm-detail-view.blp:556
 msgid "_Show All"
 msgstr "_모든 리뷰 보기"
 
-#: src/exm-detail-view.c:517
+#: src/exm-detail-view.c:560
 msgid "Unlock Dialog"
 msgstr "대화상자 잠금해제"
 
-#: src/exm-detail-view.c:518
+#: src/exm-detail-view.c:561
 msgid "GDM"
 msgstr "GDM(GNOME Display Manager)"
 
-#: src/exm-detail-view.c:612 src/exm-detail-view.c:717
+#: src/exm-detail-view.c:663 src/exm-detail-view.c:769
 msgid "Unsupported"
 msgstr "지원 안됨"
 
-#: src/exm-detail-view.c:765
+#: src/exm-detail-view.c:818
 msgid "Unknown"
 msgstr "알 수 없음"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:855
+#: src/exm-detail-view.c:916
 #, c-format
 msgid "%s Icon"
 msgstr "%s 의 아이콘"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:884
+#: src/exm-detail-view.c:936
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s의 스크린샷"
 
 #. Success indicator
-#: src/exm-detail-view.c:1121 src/exm-error-dialog.c:126
+#: src/exm-detail-view.c:1208 src/exm-error-dialog.c:126
 #: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "복사됨"
@@ -405,7 +418,7 @@ msgid "User-Installed Extensions"
 msgstr "사용자 설치 확장 프로그램"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:569
+#: src/exm-installed-page.blp:46 src/exm-window.c:580
 #, fuzzy
 #| msgid "Use Extensions"
 msgid "Select Extensions"
@@ -436,7 +449,7 @@ msgid "Search online to install extensions"
 msgstr "설치된 확장 프로그램 검색"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:362
+#: src/exm-installed-page.c:383
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -737,18 +750,18 @@ msgstr "_무시하고 설치하기"
 msgid "_Go Back"
 msgstr "_돌아가기"
 
-#: src/exm-window.c:475
+#: src/exm-window.c:483
 msgid "_Details"
 msgstr "_세부 사항"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:572
+#: src/exm-window.c:583
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] ""
 
-#: src/exm-window.c:619
+#: src/exm-window.c:630
 #, fuzzy, c-format
 #| msgid ""
 #| "The extension's features and functionality will no longer be accessible. "
@@ -763,7 +776,7 @@ msgstr[0] ""
 "확장 프로그램 프로그램의 특징과 기능에 더 이상 액세스할 수 없게 됩니다. 정말 "
 "제거하시겠습니까?"
 
-#: src/web/exm-request-handler.c:133
+#: src/web/exm-request-handler.c:145
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
@@ -771,7 +784,7 @@ msgstr ""
 "<a href='https://status.gnome.org/'>GNOME 서버 상태 확인s</a> 을 확인하고 나"
 "중에 다시 시도하세요"
 
-#: src/web/exm-request-handler.c:134
+#: src/web/exm-request-handler.c:146
 msgid "Check your network status and try again"
 msgstr "네트워크 상태를 확인하고 다시 시도하세요"
 

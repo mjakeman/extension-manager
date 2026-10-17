@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-20 10:09+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
+"POT-Creation-Date: 2026-10-14 21:13+0000\n"
 "PO-Revision-Date: 2026-10-12 14:05+0000\n"
 "Last-Translator: Nicat <nijat@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/extension-"
@@ -86,7 +86,7 @@ msgstr "Heç bir uzantı tapılmadı"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
-#: src/exm-detail-view.blp:496 src/exm-upgrade-assistant.blp:99
+#: src/exm-detail-view.blp:504 src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Bağlantı xətası"
 
@@ -147,16 +147,16 @@ msgstr "Fərqli axtarış yoxlayın"
 msgid "Ascending Order"
 msgstr "Artan sıra"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:453
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:461
 msgid "Reviews and Comments"
 msgstr "Rəylər və şərhlər"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:974
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1041
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Yüklənir"
 
-#: src/exm-comment-tile.blp:30 src/exm-detail-view.blp:158
+#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:162
 msgid "Author"
 msgstr "Müəllif"
 
@@ -164,7 +164,7 @@ msgstr "Müəllif"
 msgid "Loading Details"
 msgstr "Təfərrüatlar yüklənir"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:474
+#: src/exm-detail-view.blp:71 src/exm-window.c:482
 msgid "An Error Occurred"
 msgstr "Xəta baş verdi"
 
@@ -181,120 +181,133 @@ msgstr "Bu uzantıda xəta var"
 msgid "_View Details"
 msgstr "Təfərrüatlara _bax"
 
-#: src/exm-detail-view.blp:138
+#: src/exm-detail-view.blp:115
+#, fuzzy
+#| msgid "Extension Error"
+msgid "Extension Icon"
+msgstr "Uzantı xətası"
+
+#: src/exm-detail-view.blp:142
 msgid "Name"
 msgstr "Ad"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:191
+#: src/exm-detail-view.blp:195
 msgid "Remove Extension"
 msgstr "Uzantını yığışdır"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:203 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:207 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "Uzantı tərcihlərini aç"
 
 #. Translators: Switch tooltip to enable or disable the extension
-#: src/exm-detail-view.blp:211
+#. Translators: Switch's tooltip to enable/disable this extension
+#: src/exm-detail-view.blp:215 src/exm-extension-row.blp:83
 msgid "Toggle Extension"
 msgstr "Uzantını aç/bağla"
 
-#: src/exm-detail-view.blp:235
+#: src/exm-detail-view.blp:239
 msgid "Enlarge Image"
 msgstr "Şəkli böyüt"
 
-#: src/exm-detail-view.blp:253
+#: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
+#, fuzzy
+#| msgid "%s Screenshot"
+msgid "Extension Screenshot"
+msgstr "%s ekran görüntüsü"
+
+#: src/exm-detail-view.blp:261
 msgid "Description"
 msgstr "Təfərrüatlar"
 
-#: src/exm-detail-view.blp:281
+#: src/exm-detail-view.blp:289
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Endirmə sayı"
 
-#: src/exm-detail-view.blp:301
+#: src/exm-detail-view.blp:309
 msgid "Version"
 msgstr "Versiya"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:318 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:326 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "Bu uzantını yeni versiyası mövcuddur"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:332 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:340 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Bu uzantı hazırki GNOME versiyanız ilə uyumlu deyil"
 
-#: src/exm-detail-view.blp:354
+#: src/exm-detail-view.blp:362
 msgid "Session Modes"
 msgstr "Oturum rejimləri"
 
-#: src/exm-detail-view.blp:369
+#: src/exm-detail-view.blp:377
 msgid "Location"
 msgstr "Yerləşmə"
 
-#: src/exm-detail-view.blp:383
+#: src/exm-detail-view.blp:391
 msgid "Links"
 msgstr "Keçidlər"
 
-#: src/exm-detail-view.blp:393
+#: src/exm-detail-view.blp:401
 msgid "Homepage"
 msgstr "Ana səhifə"
 
-#: src/exm-detail-view.blp:409 src/exm-detail-view.blp:424
+#: src/exm-detail-view.blp:417 src/exm-detail-view.blp:432
 msgid "Donate"
 msgstr "İanə et"
 
-#: src/exm-detail-view.blp:435
+#: src/exm-detail-view.blp:443
 msgid "View on Extensions"
 msgstr "Extensions-da bax"
 
-#: src/exm-detail-view.blp:476
+#: src/exm-detail-view.blp:484
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Bu uzantı üçün rəy və şərhlər bağlıdır"
 
-#: src/exm-detail-view.blp:519
+#: src/exm-detail-view.blp:527
 msgid "There are no reviews or comments"
 msgstr "Heç bir rəy və şərh yoxdur"
 
-#: src/exm-detail-view.blp:548
+#: src/exm-detail-view.blp:556
 msgid "_Show All"
 msgstr "Hamısını _göstər"
 
-#: src/exm-detail-view.c:517
+#: src/exm-detail-view.c:560
 msgid "Unlock Dialog"
 msgstr "Dialoqu kiliddən çıxar"
 
-#: src/exm-detail-view.c:518
+#: src/exm-detail-view.c:561
 msgid "GDM"
 msgstr "GDM"
 
-#: src/exm-detail-view.c:612 src/exm-detail-view.c:717
+#: src/exm-detail-view.c:663 src/exm-detail-view.c:769
 msgid "Unsupported"
 msgstr "Dəstəklənməyən"
 
-#: src/exm-detail-view.c:765
+#: src/exm-detail-view.c:818
 msgid "Unknown"
 msgstr "Bilinməyən"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:855
+#: src/exm-detail-view.c:916
 #, c-format
 msgid "%s Icon"
 msgstr "%s ikonu"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:884
+#: src/exm-detail-view.c:936
 #, c-format
 msgid "%s Screenshot"
 msgstr "%s ekran görüntüsü"
 
 #. Success indicator
-#: src/exm-detail-view.c:1121 src/exm-error-dialog.c:126
+#: src/exm-detail-view.c:1208 src/exm-error-dialog.c:126
 #: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
 msgid "Copied"
 msgstr "Köçürüldü"
@@ -329,8 +342,8 @@ msgid ""
 msgstr ""
 "Üçüncü tərəf tərəfindən yığılmış Uzantı İdarəedicisindən istifadə edirsiniz. "
 "Hər hansı bir problem barədə məlumat verməzdən əvvəl, xahiş edirik, <span "
-"weight=\"bold\">ilk növbədə paket paylayıcısı ilə əlaqə saxlayın (%s)</span>"
-". Aşağıdakı məlumatları əlavə etdiyinizdən əmin olun:"
+"weight=\"bold\">ilk növbədə paket paylayıcısı ilə əlaqə saxlayın (%s)</"
+"span>. Aşağıdakı məlumatları əlavə etdiyinizdən əmin olun:"
 
 #: src/exm-extension-error-dialog.blp:9
 msgid "Extension Error"
@@ -389,7 +402,7 @@ msgid "User-Installed Extensions"
 msgstr "İstifadəçi tərəfindən qurulmuş uzantılar"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:569
+#: src/exm-installed-page.blp:46 src/exm-window.c:580
 msgid "Select Extensions"
 msgstr "Seçilmiş uzantılar"
 
@@ -414,7 +427,7 @@ msgid "Search online to install extensions"
 msgstr "Quraşdırmaq üçün onlayn uzantı axtar"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:362
+#: src/exm-installed-page.c:383
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -694,19 +707,19 @@ msgstr "Yenə də _quraşdır"
 msgid "_Go Back"
 msgstr "Geri _qayıt"
 
-#: src/exm-window.c:475
+#: src/exm-window.c:483
 msgid "_Details"
 msgstr "_Təfərrüatlar"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:572
+#: src/exm-window.c:583
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] "%u seçilib"
 msgstr[1] "%u seçilib"
 
-#: src/exm-window.c:619
+#: src/exm-window.c:630
 #, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
@@ -721,7 +734,7 @@ msgstr[1] ""
 "Uzantıların özəllik və funksionallıqları əlçatan olmayacaq. %u uzantını "
 "silmək istədiyinizə əminsiniz?"
 
-#: src/web/exm-request-handler.c:133
+#: src/web/exm-request-handler.c:145
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
@@ -729,6 +742,6 @@ msgstr ""
 "<a href='https://status.gnome.org/'>GNOME infrastruktur vəziyyətini</a> "
 "yoxlayın və bir də cəhd edin"
 
-#: src/web/exm-request-handler.c:134
+#: src/web/exm-request-handler.c:146
 msgid "Check your network status and try again"
 msgstr "Şəbəkə vəziyyətinizi yoxlayın və bir də cəhd edin"
