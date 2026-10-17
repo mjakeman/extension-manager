@@ -42,6 +42,9 @@ struct _ExmWindow
 
     ExmManager *manager;
 
+    GAction *sort_enabled_first_action;
+    GAction *show_unsupported_action;
+
     /* Template widgets */
     AdwHeaderBar         *header_bar;
     ExmBrowsePage        *browse_page;
@@ -78,6 +81,19 @@ enum {
 };
 
 static guint signals [N_SIGNALS];
+
+static void
+update_page_actions (ExmWindow *self)
+{
+    gboolean is_installed_page = EXM_IS_INSTALLED_PAGE (adw_view_stack_get_visible_child (self->view_stack));
+    GAction *shown = is_installed_page ? self->sort_enabled_first_action : self->show_unsupported_action;
+    GAction *hidden = is_installed_page ? self->show_unsupported_action : self->sort_enabled_first_action;
+
+    g_action_map_remove_action (G_ACTION_MAP (self), g_action_get_name (hidden));
+
+    if (g_action_map_lookup_action (G_ACTION_MAP (self), g_action_get_name (shown)) == NULL)
+        g_action_map_add_action (G_ACTION_MAP (self), shown);
+}
 
 static void
 exm_window_get_property (GObject    *object,
@@ -666,6 +682,8 @@ on_visible_page_changed (AdwViewStack *view_stack,
 
     gtk_widget_set_visible (GTK_WIDGET (self->search_button),
                             is_installed_page);
+
+    update_page_actions (self);
 }
 
 static gboolean
@@ -735,10 +753,22 @@ exm_window_constructed (GObject *object)
 }
 
 static void
+exm_window_dispose (GObject *object)
+{
+    ExmWindow *self = EXM_WINDOW (object);
+
+    g_clear_object (&self->sort_enabled_first_action);
+    g_clear_object (&self->show_unsupported_action);
+
+    G_OBJECT_CLASS (exm_window_parent_class)->dispose (object);
+}
+
+static void
 exm_window_class_init (ExmWindowClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->dispose = exm_window_dispose;
     object_class->get_property = exm_window_get_property;
     object_class->set_property = exm_window_set_property;
     object_class->constructed = exm_window_constructed;
@@ -826,6 +856,11 @@ exm_window_init (ExmWindow *self)
     g_type_ensure (EXM_TYPE_SCREENSHOT_VIEW);
 
     gtk_widget_init_template (GTK_WIDGET (self));
+
+    g_autoptr (GSettings) settings = g_settings_new (APP_ID);
+    self->sort_enabled_first_action = g_settings_create_action (settings, "sort-enabled-first");
+    self->show_unsupported_action = g_settings_create_action (settings, "show-unsupported");
+    update_page_actions (self);
 
     if (strstr (APP_ID, ".Devel") != NULL)
         gtk_widget_add_css_class (GTK_WIDGET (self), "devel");
