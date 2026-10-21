@@ -8,13 +8,15 @@
 # Robert Winzer <weissnicht000099@gmail.com>, 2024, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # Philipp Kiemle <philipp.kiemle@gmail.com>, 2025.
+# Gabriel Brand <gabr.brand@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-09-30 19:51+0000\n"
-"Last-Translator: Gabriel Brand <gabr.brand@gmail.com>\n"
+"PO-Revision-Date: 2026-10-22 18:14+0000\n"
+"Last-Translator: Gabriel Brand <gabr.brand@users.noreply.hosted.weblate.org>"
+"\n"
 "Language-Team: German <https://hosted.weblate.org/projects/extension-manager/"
 "app/de/>\n"
 "Language: de\n"
@@ -22,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -193,10 +195,8 @@ msgid "_View Details"
 msgstr "_Details ansehen"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Erweiterungsfehler"
+msgstr "Symbol der Erweiterung"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -224,10 +224,8 @@ msgid "Enlarge Image"
 msgstr "Bild vergrößern"
 
 #: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "Bildschirmfoto von %s"
+msgstr "Bildschirmfoto der Erweiterung"
 
 #: src/exm-detail-view.blp:261
 msgid "Description"
