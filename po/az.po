@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-10-12 14:05+0000\n"
+"PO-Revision-Date: 2026-10-25 19:05+0000\n"
 "Last-Translator: Nicat <nijat@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/extension-"
 "manager/app/az/>\n"
@@ -182,10 +182,8 @@ msgid "_View Details"
 msgstr "Təfərrüatlara _bax"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Uzantı xətası"
+msgstr "Uzantı ikonu"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -213,10 +211,8 @@ msgid "Enlarge Image"
 msgstr "Şəkli böyüt"
 
 #: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "%s ekran görüntüsü"
+msgstr "Uzantının görüntüsü"
 
 #: src/exm-detail-view.blp:261
 msgid "Description"
