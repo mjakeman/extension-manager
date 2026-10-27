@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-10-27 02:56+0000\n"
+"PO-Revision-Date: 2026-10-27 03:10+0000\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/extension-"
 "manager/app/hu/>\n"
@@ -543,15 +543,15 @@ msgstr ""
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr ""
-"A GNOME %s verziójára frissítve minden jelenleg telepített kiterjesztés "
+"GNOME %s használata esetén minden jelenleg telepített kiterjesztés "
 "változatlanul működne"
 
 #: src/exm-upgrade-assistant.c:236
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
-"A GNOME %s verziójára frissítve a jelenleg telepített kiterjesztések közül "
-"%d nem működne a továbbiakban"
+"GNOME %s használata esetén a jelenleg telepített kiterjesztések közül %d nem "
+"működne a továbbiakban"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:566
