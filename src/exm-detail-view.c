@@ -1164,8 +1164,8 @@ uri_scheme_is_safe (const gchar *uri)
 
 static void
 show_files_or_copy_path (ExmDetailView *self,
-           const char    *action_name G_GNUC_UNUSED,
-           GVariant      *param G_GNUC_UNUSED)
+                         const char    *action_name G_GNUC_UNUSED,
+                         GVariant      *param G_GNUC_UNUSED)
 {
     ExmExtension *extension;
     gboolean is_user;
