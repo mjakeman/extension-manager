@@ -5,13 +5,14 @@
 # Ricky Tigg <ricky.tigg@gmail.com>, 2024, 2025.
 # Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
+# Jiri Grönroos <artnay@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-10-04 08:51+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2026-10-29 20:51+0000\n"
+"Last-Translator: Jiri Grönroos <artnay@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/extension-"
 "manager/app/fi/>\n"
 "Language: fi\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -184,10 +185,8 @@ msgid "_View Details"
 msgstr "_Näytä tiedot"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Laajennuksen virhe"
+msgstr "Laajennuksen kuvake"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -215,10 +214,8 @@ msgid "Enlarge Image"
 msgstr "Suurenna kuva"
 
 #: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "Laajennuksen %s kuvakaappaus"
+msgstr "Laajennuksen kuvakaappaus"
 
 #: src/exm-detail-view.blp:261
 msgid "Description"
