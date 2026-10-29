@@ -221,6 +221,7 @@ exm_application_show_about (GSimpleAction *action G_GNUC_UNUSED,
     ExmApplication *self = EXM_APPLICATION (user_data);
     GtkWindow *window = NULL;
     const gchar *authors[] = {"Matthew Jakeman", "Óscar Fernández Díaz", NULL};
+    const gchar *credits[] = {"Gabriel Brand", NULL};
 
     AdwDialog *about_dialog;
 
@@ -237,6 +238,7 @@ exm_application_show_about (GSimpleAction *action G_GNUC_UNUSED,
     // Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
     adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about_dialog), _("translator-credits"));
     adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about_dialog), "© 2022-2025 Matthew Jakeman");
+    adw_about_dialog_add_credit_section (ADW_ABOUT_DIALOG (about_dialog), _("Contributors"), credits);
 
 #if WITH_BACKTRACE
     adw_about_dialog_add_legal_section (ADW_ABOUT_DIALOG (about_dialog),
