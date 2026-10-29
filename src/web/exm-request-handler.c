@@ -167,7 +167,7 @@ request_callback (GObject      *source,
         if (model == NULL)
             g_task_return_error (data->task, error);
         else
-            g_task_return_pointer (data->task, model, g_object_unref);
+            g_task_return_pointer (data->task, model, klass->free_result);
 
         g_bytes_unref (bytes);
     }
@@ -212,7 +212,7 @@ exm_request_handler_request_async (ExmRequestHandler   *self,
             if (result == NULL)
                 g_task_return_error (task, error);
             else
-                g_task_return_pointer (task, result, g_object_unref);
+                g_task_return_pointer (task, result, klass->free_result);
 
             g_object_unref (task);
             return;
@@ -265,6 +265,7 @@ exm_request_handler_class_init (ExmRequestHandlerClass *klass)
     ExmRequestHandlerClass *request_handler_class = EXM_REQUEST_HANDLER_CLASS (klass);
 
     request_handler_class->handle_response = default_handle_response;
+    request_handler_class->free_result = g_object_unref;
 }
 
 static void
