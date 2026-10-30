@@ -58,6 +58,7 @@ struct _ExmInstalledPage
 
     gboolean selection_mode;
     guint n_selected;
+    GHashTable *selected_uuids;
 };
 
 G_DEFINE_FINAL_TYPE (ExmInstalledPage, exm_installed_page, GTK_TYPE_WIDGET)
@@ -85,6 +86,13 @@ static void
 propagate_selection_mode (ExmInstalledPage *self);
 
 static void
+update_n_selected (ExmInstalledPage *self);
+
+static void
+sync_row_selected (ExmExtensionRow *row,
+                   gpointer         user_data);
+
+static void
 update_system_group_visibility (ExmInstalledPage *self);
 
 ExmInstalledPage *
@@ -106,6 +114,7 @@ exm_installed_page_finalize (GObject *object)
     g_clear_object (&self->search_filter);
     g_clear_object (&self->search_list_model);
     g_clear_pointer (&self->search_query, g_free);
+    g_clear_pointer (&self->selected_uuids, g_hash_table_unref);
 
     if (self->bound_model != NULL && self->signal_id > 0)
         g_signal_handler_disconnect (self->bound_model, self->signal_id);
@@ -169,10 +178,10 @@ exm_installed_page_set_property (GObject      *object,
         break;
     case PROP_SELECTION_MODE:
         self->selection_mode = g_value_get_boolean (value);
-        if (!self->selection_mode && self->n_selected != 0)
+        if (!self->selection_mode)
         {
-            self->n_selected = 0;
-            g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_N_SELECTED]);
+            g_hash_table_remove_all (self->selected_uuids);
+            update_n_selected (self);
         }
         propagate_selection_mode (self);
         update_system_group_visibility (self);
@@ -193,6 +202,7 @@ widget_factory (ExmExtension     *extension,
 
     row = exm_extension_row_new (extension, self->manager);
     g_object_set (row, "selection-mode", self->selection_mode, NULL);
+    sync_row_selected (row, self);
 
     return GTK_WIDGET (row);
 }
@@ -420,12 +430,31 @@ focus_matching_extension (AdwPreferencesGroup *prefs_group,
 }
 
 static void
+prune_selection (ExmInstalledPage *self)
+{
+    GHashTableIter iter;
+    gpointer key;
+
+    g_hash_table_iter_init (&iter, self->selected_uuids);
+    while (g_hash_table_iter_next (&iter, &key, NULL))
+    {
+        if (!exm_manager_is_installed_uuid (self->manager, (const char *) key))
+            g_hash_table_iter_remove (&iter);
+    }
+
+    update_n_selected (self);
+}
+
+static void
 on_extensions_changed (GListModel       *model,
                        guint             position,
                        guint             removed,
                        guint             added,
                        ExmInstalledPage *self)
 {
+    if (removed > added && g_hash_table_size (self->selected_uuids) > 0)
+        prune_selection (self);
+
     if (!self->sort_enabled_first || (removed > 0 && added > 0))
         return;
 
@@ -525,33 +554,11 @@ propagate_selection_mode (ExmInstalledPage *self)
     foreach_extension_row (self->search_prefs_group, set_row_selection_mode, mode);
 }
 
-static guint
-count_selected_rows (ExmInstalledPage *self)
-{
-    guint count = 0;
-    guint i;
-    ExmExtensionRow *row;
-    AdwPreferencesGroup *groups[] = {
-        self->user_prefs_group,
-        self->search_prefs_group,
-    };
-
-    for (guint g = 0; g < G_N_ELEMENTS (groups); g++)
-    {
-        i = 0;
-        while ((row = EXM_EXTENSION_ROW (adw_preferences_group_get_row (groups[g], i++))) != NULL)
-            if (exm_extension_row_is_selected (row))
-                count++;
-    }
-    return count;
-}
-
 static void
-on_page_selection_changed (GSimpleAction    *action G_GNUC_UNUSED,
-                           GVariant         *param G_GNUC_UNUSED,
-                           ExmInstalledPage *self)
+update_n_selected (ExmInstalledPage *self)
 {
-    guint count = count_selected_rows (self);
+    guint count = g_hash_table_size (self->selected_uuids);
+
     if (count != self->n_selected)
     {
         self->n_selected = count;
@@ -559,47 +566,59 @@ on_page_selection_changed (GSimpleAction    *action G_GNUC_UNUSED,
     }
 }
 
+static void
+sync_row_selected (ExmExtensionRow *row,
+                   gpointer         user_data)
+{
+    ExmInstalledPage *self = EXM_INSTALLED_PAGE (user_data);
+    ExmExtension *ext = NULL;
+    gchar *uuid = NULL;
+    gboolean selected;
+
+    g_object_get (row, "extension", &ext, NULL);
+    if (!ext)
+        return;
+    g_object_get (ext, "uuid", &uuid, NULL);
+    g_object_unref (ext);
+
+    selected = uuid != NULL && g_hash_table_contains (self->selected_uuids, uuid);
+    g_free (uuid);
+
+    if (exm_extension_row_is_selected (row) != selected)
+        exm_extension_row_set_selected (row, selected);
+}
+
+static void
+on_page_selection_changed (GSimpleAction    *action G_GNUC_UNUSED,
+                           GVariant         *param,
+                           ExmInstalledPage *self)
+{
+    const char *uuid;
+    gboolean selected;
+
+    g_variant_get (param, "(&sb)", &uuid, &selected);
+
+    if (selected)
+        g_hash_table_add (self->selected_uuids, g_strdup (uuid));
+    else
+        g_hash_table_remove (self->selected_uuids, uuid);
+
+    // Keep the row for this extension in the other list in sync
+    foreach_extension_row (self->user_prefs_group, sync_row_selected, self);
+    foreach_extension_row (self->search_prefs_group, sync_row_selected, self);
+
+    update_n_selected (self);
+}
+
 void
 exm_installed_page_uninstall_selected (ExmInstalledPage *self)
 {
-    GHashTable *uuids_to_remove;
     GHashTableIter iter;
     gpointer key;
-    AdwPreferencesGroup *groups[] = {
-        self->user_prefs_group,
-        self->search_prefs_group,
-    };
 
     g_return_if_fail (EXM_IS_INSTALLED_PAGE (self));
 
-    uuids_to_remove = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
-
-    for (guint g = 0; g < G_N_ELEMENTS (groups); g++)
-    {
-        guint i = 0;
-        ExmExtensionRow *row;
-        while ((row = EXM_EXTENSION_ROW (adw_preferences_group_get_row (groups[g], i++))) != NULL)
-        {
-            ExmExtension *ext;
-            gchar *uuid;
-
-            if (!exm_extension_row_is_selected (row))
-                continue;
-
-            ext = NULL;
-            g_object_get (row, "extension", &ext, NULL);
-            if (!ext) continue;
-
-            uuid = NULL;
-            g_object_get (ext, "uuid", &uuid, NULL);
-            g_object_unref (ext);
-
-            if (uuid)
-                g_hash_table_add (uuids_to_remove, uuid);
-        }
-    }
-
-    g_hash_table_iter_init (&iter, uuids_to_remove);
+    g_hash_table_iter_init (&iter, self->selected_uuids);
     while (g_hash_table_iter_next (&iter, &key, NULL))
     {
         ExmExtension *ext = exm_manager_get_by_uuid (self->manager, (const char *) key);
@@ -609,8 +628,6 @@ exm_installed_page_uninstall_selected (ExmInstalledPage *self)
             g_object_unref (ext);
         }
     }
-
-    g_hash_table_destroy (uuids_to_remove);
 }
 
 static void
@@ -736,6 +753,8 @@ exm_installed_page_init (ExmInstalledPage *self)
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
+    self->selected_uuids = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+
     settings = g_settings_new (APP_ID);
 
     g_settings_bind (settings, "sort-enabled-first",
@@ -745,7 +764,7 @@ exm_installed_page_init (ExmInstalledPage *self)
     g_object_unref (settings);
 
     action_group = g_simple_action_group_new ();
-    action = g_simple_action_new ("selection-changed", NULL);
+    action = g_simple_action_new ("selection-changed", G_VARIANT_TYPE ("(sb)"));
     g_signal_connect (action, "activate",
                       G_CALLBACK (on_page_selection_changed), self);
     g_action_map_add_action (G_ACTION_MAP (action_group), G_ACTION (action));
