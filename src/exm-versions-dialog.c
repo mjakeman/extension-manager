@@ -192,6 +192,7 @@ exm_versions_dialog_add_release (ExmVersionsDialog *self,
     wrap_box = ADW_WRAP_BOX (adw_wrap_box_new ());
     adw_wrap_box_set_child_spacing (wrap_box, 4);
     adw_wrap_box_set_line_spacing (wrap_box, 4);
+    adw_wrap_box_set_align (wrap_box, 1.0);
     gtk_widget_set_valign (GTK_WIDGET (wrap_box), GTK_ALIGN_CENTER);
     gtk_widget_set_margin_start (GTK_WIDGET (wrap_box), 8);
 
