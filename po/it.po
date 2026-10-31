@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2025-10-12 09:54+0000\n"
 "Last-Translator: Osiride <usiride@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/extension-"
@@ -690,7 +690,7 @@ msgstr "Prima _estensioni attive"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "_Show Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "_Mostra non compatibili"
 
 #: src/exm-window.blp:199

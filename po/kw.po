@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2026-01-28 11:51+0000\n"
 "Last-Translator: Flynn <cirilla@tuta.io>\n"
 "Language-Team: Cornish <https://hosted.weblate.org/projects/extension-"
@@ -696,7 +696,7 @@ msgstr "Sortya _Gallosegys Kynsa"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "Anskoodhys"
 
 #: src/exm-window.blp:199

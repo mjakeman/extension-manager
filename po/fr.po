@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2026-07-27 20:01+0000\n"
 "Last-Translator: Mimolet <themimolet@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/extension-manager/"
@@ -679,7 +679,7 @@ msgstr "Extensions activées en premier"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "_Show Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "Afficher les extensions non prises en charge"
 
 #: src/exm-window.blp:199

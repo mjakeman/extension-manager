@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2026-02-06 12:01+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/extension-"
@@ -668,7 +668,7 @@ msgstr "დალაგებისას ჯ_ერ დაყენებულ
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "მხარდაჭერის გარეშე"
 
 #: src/exm-window.blp:199

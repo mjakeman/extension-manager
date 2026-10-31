@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2026-08-17 22:51+0000\n"
 "Last-Translator: Jordi Mas <jmas@softcatala.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
@@ -720,7 +720,7 @@ msgstr "Ordenar primer per _Habilitades"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "_Show Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "_Mostra no compatibles"
 
 #: src/exm-window.blp:199

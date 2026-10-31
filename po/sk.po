@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager 0.6.5\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2026-10-15 21:51+0000\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/extension-manager/"
@@ -656,7 +656,7 @@ msgstr "Zoradiť _najprv zapnuté"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "Nepodporované"
 
 #: src/exm-window.blp:199

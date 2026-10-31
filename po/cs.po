@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2026-10-18 15:51+0000\n"
 "Last-Translator: Fjuro <fjuro@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/extension-manager/"
@@ -666,7 +666,7 @@ msgstr "Řadit zapnutá jako _první"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "_Show Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "_Zobrazit nepodporované"
 
 #: src/exm-window.blp:199

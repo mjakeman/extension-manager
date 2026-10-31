@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2025-08-14 17:21+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
@@ -723,7 +723,7 @@ msgstr "सक्षम पहले क्रमबद्ध करें (_E)"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "_Show Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "असमर्थित दिखाएं (_S)"
 
 #: src/exm-window.blp:199

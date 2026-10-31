@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-31 17:44+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
 "PO-Revision-Date: 2026-10-07 14:51+0000\n"
 "Last-Translator: Adrián Ramos García <adrian.ramos.garcia.93@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/extension-"
@@ -660,7 +660,7 @@ msgstr "Ordenar _Activadas primeiro"
 #: src/exm-window.blp:192
 #, fuzzy
 #| msgid "Unsupported"
-msgid "Show _Unsupported"
+msgid "_Show Unsupported"
 msgstr "Non compatíbel"
 
 #: src/exm-window.blp:199
