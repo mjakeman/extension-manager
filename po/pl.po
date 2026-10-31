@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-10-15 21:51+0000\n"
+"PO-Revision-Date: 2026-10-31 20:22+0000\n"
 "Last-Translator: Adam Lewicki <xtremo3@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/extension-manager/"
 "app/pl/>\n"
@@ -89,7 +89,7 @@ msgstr ""
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Autorzy"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -666,8 +666,6 @@ msgid "Sort _Enabled First"
 msgstr "Pokaż najpierw włączone"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "Pokaż niewspierane"
 
