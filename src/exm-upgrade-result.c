@@ -25,7 +25,7 @@ struct _ExmUpgradeResult
 {
     GObject parent_instance;
 
-    ExmVersionResult *web_data;
+    ExmUpgradeSupport support;
     ExmExtension *local_data;
 };
 
@@ -49,9 +49,6 @@ static void
 exm_upgrade_result_finalize (GObject *object)
 {
     ExmUpgradeResult *self = (ExmUpgradeResult *)object;
-
-    if (self->web_data)
-        g_object_unref (self->web_data);
 
     if (self->local_data)
         g_object_unref (self->local_data);
@@ -90,17 +87,17 @@ exm_upgrade_result_set_local_data (ExmUpgradeResult *self,
     self->local_data = g_object_ref (extension);
 }
 
-ExmVersionResult *
-exm_upgrade_result_get_web_data (ExmUpgradeResult *self)
+ExmUpgradeSupport
+exm_upgrade_result_get_support (ExmUpgradeResult *self)
 {
-    return self->web_data;
+    return self->support;
 }
 
 void
-exm_upgrade_result_set_web_data (ExmUpgradeResult *self,
-                                 ExmVersionResult *extension)
+exm_upgrade_result_set_support (ExmUpgradeResult *self,
+                                ExmUpgradeSupport support)
 {
-    self->web_data = g_object_ref (extension);
+    self->support = support;
 }
 
 const char *
@@ -121,12 +118,6 @@ const char *
 exm_upgrade_result_get_uuid (ExmUpgradeResult *self)
 {
     const char *uuid;
-
-    if (self->web_data)
-    {
-        g_object_get (self->web_data, "extension", &uuid, NULL);
-        return uuid;
-    }
 
     if (self->local_data)
     {
@@ -155,6 +146,6 @@ static void
 exm_upgrade_result_init (ExmUpgradeResult *self)
 {
     self->local_data = NULL;
-    self->web_data = NULL;
+    self->support = EXM_UPGRADE_SUPPORT_UNKNOWN;
 }
 

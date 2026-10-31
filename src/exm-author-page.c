@@ -94,6 +94,9 @@ exm_author_page_dispose (GObject *object)
         g_clear_object (&self->avatar_cancellable);
     }
 
+    if (self->search_provider)
+        g_signal_handlers_disconnect_by_data (self->search_provider, self);
+
     g_clear_pointer (&self->username, g_free);
     g_clear_object (&self->extensions_model);
     g_clear_object (&self->search_provider);
@@ -133,6 +136,10 @@ exm_author_page_set_property (GObject      *object,
     {
     case PROP_MANAGER:
         self->manager = g_value_get_object (value);
+
+        g_object_bind_property (self->manager, "shell-version",
+                                self->search_provider, "shell-version",
+                                G_BINDING_SYNC_CREATE);
         break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -183,6 +190,13 @@ search_widget_factory (ExmSearchResult *result,
 }
 
 static void
+mark_unsupported (ExmAuthorPage *self)
+{
+    exm_search_provider_mark_unsupported (self->search_provider, G_LIST_MODEL (self->extensions_model),
+                                          0, self->search_cancellable);
+}
+
+static void
 on_extensions_loaded (GObject       *source,
                       GAsyncResult  *res,
                       ExmAuthorPage *self)
@@ -226,6 +240,8 @@ on_extensions_loaded (GObject       *source,
     gtk_stack_set_visible_child_name (self->stack,
         g_list_model_get_n_items (G_LIST_MODEL (self->extensions_model)) > 0
             ? "page_list" : "page_empty");
+
+    mark_unsupported (self);
 
     g_object_unref (self);
 }
@@ -376,6 +392,9 @@ exm_author_page_init (ExmAuthorPage *self)
     self->image_resolver = exm_image_resolver_new ();
 
     self->extensions_model = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
+
+    g_signal_connect_swapped (self->search_provider, "notify::shell-version",
+                              G_CALLBACK (mark_unsupported), self);
 
     adw_preferences_group_bind_model (self->extensions_list, G_LIST_MODEL (self->extensions_model),
                                       (GtkListBoxCreateWidgetFunc) search_widget_factory,

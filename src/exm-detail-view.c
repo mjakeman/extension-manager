@@ -115,6 +115,7 @@ struct _ExmDetailView
     guint comments_signal_id;
     guint install_signal_id;
     ExmInstallButtonState version_state;
+    gboolean versions_requested;
 };
 
 G_DEFINE_FINAL_TYPE (ExmDetailView, exm_detail_view, ADW_TYPE_NAVIGATION_PAGE)
@@ -941,7 +942,18 @@ on_data_loaded (GObject      *source,
             gtk_widget_set_visible (GTK_WIDGET (self->ext_screenshot_container), FALSE);
         }
 
-        exm_versions_provider_query_async (self->versions_provider, uuid, self->resolver_cancel, on_version_loaded, g_object_ref (self));
+        if (self->version_state == EXM_INSTALL_BUTTON_STATE_UNSUPPORTED &&
+            exm_manager_is_installed_uuid (self->manager, self->uuid))
+        {
+            gtk_label_set_label (self->version_label, _("Unsupported"));
+            update_session_modes_row_from_local (self);
+            self->versions_requested = FALSE;
+        }
+        else
+        {
+            self->versions_requested = TRUE;
+            exm_versions_provider_query_async (self->versions_provider, uuid, self->resolver_cancel, on_version_loaded, g_object_ref (self));
+        }
 
         update_donation_rows (self, donation_urls);
 
@@ -1017,8 +1029,9 @@ on_data_loaded (GObject      *source,
 }
 
 void
-exm_detail_view_load_for_uuid (ExmDetailView *self,
-                               gchar         *uuid)
+exm_detail_view_load_for_uuid (ExmDetailView        *self,
+                               gchar                *uuid,
+                               ExmInstallButtonState version_state)
 {
     ExmUnifiedData *data;
     ExmExtension   *local_info;
@@ -1033,7 +1046,7 @@ exm_detail_view_load_for_uuid (ExmDetailView *self,
 
     g_free (self->uuid);
     self->uuid = uuid;
-    self->version_state = EXM_INSTALL_BUTTON_STATE_LOADING;
+    self->version_state = version_state;
 
     gtk_widget_set_visible (GTK_WIDGET (self->update_icon), FALSE);
     gtk_widget_set_visible (GTK_WIDGET (self->out_of_date_icon), FALSE);
@@ -1113,6 +1126,13 @@ show_versions (GtkWidget  *widget,
 
     self = EXM_DETAIL_VIEW (widget);
     toplevel = GTK_WIDGET (gtk_widget_get_root (GTK_WIDGET (self)));
+
+    if (!self->versions_requested)
+    {
+        self->versions_requested = TRUE;
+        exm_versions_provider_query_async (self->versions_provider, self->uuid, self->resolver_cancel,
+                                           on_version_loaded, g_object_ref (self));
+    }
 
     adw_dialog_present (ADW_DIALOG (self->ext_versions_dialog), toplevel);
 }

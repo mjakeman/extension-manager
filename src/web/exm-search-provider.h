@@ -26,6 +26,8 @@
 
 #include "exm-request-handler.h"
 
+#define EXM_SEARCH_PROVIDER_MAX_UUIDS_PER_REQUEST 50
+
 G_BEGIN_DECLS
 
 #define EXM_TYPE_SEARCH_PROVIDER (exm_search_provider_get_type())
@@ -50,7 +52,9 @@ ExmSearchProvider *exm_search_provider_new          (void);
 void               exm_search_provider_query_async  (ExmSearchProvider   *self,
                                                      const gchar         *query,
                                                      int                  page,
+                                                     int                  page_size,
                                                      ExmSearchSort        sort_type,
+                                                     gboolean             only_supported,
                                                      GCancellable        *cancellable,
                                                      GAsyncReadyCallback  callback,
                                                      gpointer             user_data);
@@ -59,6 +63,19 @@ GListModel        *exm_search_provider_query_finish (ExmSearchProvider  *self,
                                                      GAsyncResult       *result,
                                                      int                *num_pages,
                                                      GError            **error);
+
+void               exm_search_provider_mark_unsupported (ExmSearchProvider *self,
+                                                         GListModel        *results,
+                                                         guint              start,
+                                                         GCancellable      *cancellable);
+
+gboolean           exm_search_provider_query_uuids_async (ExmSearchProvider    *self,
+                                                          const gchar * const  *uuids,
+                                                          guint                 n_uuids,
+                                                          const gchar          *shell_version,
+                                                          GCancellable         *cancellable,
+                                                          GAsyncReadyCallback   callback,
+                                                          gpointer              user_data);
 
 void                exm_search_provider_query_by_creator_async (ExmSearchProvider   *self,
                                                                 const gchar         *username,

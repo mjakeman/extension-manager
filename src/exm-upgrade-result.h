@@ -23,10 +23,16 @@
 
 #include <glib-object.h>
 
-#include "web/model/exm-version-result.h"
 #include "local/exm-extension.h"
 
 G_BEGIN_DECLS
+
+typedef enum
+{
+    EXM_UPGRADE_SUPPORT_UNKNOWN,
+    EXM_UPGRADE_SUPPORT_UNSUPPORTED,
+    EXM_UPGRADE_SUPPORT_SUPPORTED,
+} ExmUpgradeSupport;
 
 #define EXM_TYPE_UPGRADE_RESULT (exm_upgrade_result_get_type())
 
@@ -39,10 +45,10 @@ ExmExtension     *exm_upgrade_result_get_local_data (ExmUpgradeResult *self);
 void              exm_upgrade_result_set_local_data (ExmUpgradeResult *self,
                                                      ExmExtension     *extension);
 
-ExmVersionResult *exm_upgrade_result_get_web_data   (ExmUpgradeResult *self);
+ExmUpgradeSupport exm_upgrade_result_get_support    (ExmUpgradeResult *self);
 
-void              exm_upgrade_result_set_web_data   (ExmUpgradeResult *self,
-                                                     ExmVersionResult *extension);
+void              exm_upgrade_result_set_support    (ExmUpgradeResult *self,
+                                                     ExmUpgradeSupport support);
 
 const char       *exm_upgrade_result_get_name       (ExmUpgradeResult *self);
 
