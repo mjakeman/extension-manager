@@ -37,5 +37,7 @@ ExmExtensionRow *exm_extension_row_new       (ExmExtension *extension,
 
 void             exm_search_row_focus_toggle (ExmExtensionRow *self);
 gboolean         exm_extension_row_is_selected (ExmExtensionRow *self);
+void             exm_extension_row_set_selected (ExmExtensionRow *self,
+                                                 gboolean         selected);
 
 G_END_DECLS

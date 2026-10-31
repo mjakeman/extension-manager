@@ -502,6 +502,13 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
 }
 
 static void
+search_request_data_free (SearchRequestData *data)
+{
+    g_object_unref (data->list_model);
+    g_slice_free (SearchRequestData, data);
+}
+
+static void
 exm_search_provider_finalize (GObject *object)
 {
     ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
@@ -563,6 +570,7 @@ exm_search_provider_class_init (ExmSearchProviderClass *klass)
     object_class->set_property = exm_search_provider_set_property;
 
     request_handler_class->handle_response = (ResponseHandler) parse_search_results;
+    request_handler_class->free_result = (GDestroyNotify) search_request_data_free;
 
     properties [PROP_SHELL_VERSION] =
         g_param_spec_string ("shell-version",

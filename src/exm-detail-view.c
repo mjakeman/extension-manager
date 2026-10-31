@@ -1301,15 +1301,10 @@ page_remove (GSimpleAction *action G_GNUC_UNUSED,
              GVariant      *param G_GNUC_UNUSED,
              ExmDetailView *self)
 {
-    if (!self->uuid || !self->manager)
+    if (!self->uuid)
         return;
 
-    ExmExtension *extension = exm_manager_get_by_uuid (self->manager, self->uuid);
-    if (extension)
-    {
-        exm_manager_remove_extension (self->manager, extension);
-        g_object_unref (extension);
-    }
+    gtk_widget_activate_action (GTK_WIDGET (self), "ext.remove", "s", self->uuid);
 }
 
 static gboolean

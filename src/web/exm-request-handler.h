@@ -39,6 +39,10 @@ struct _ExmRequestHandlerClass
     ResponseHandler handle_response;
 
     guint cache_ttl_seconds;
+
+    // Frees a result that is never propagated, e.g. when cancelled.
+    // Defaults to g_object_unref().
+    GDestroyNotify free_result;
 };
 
 ExmRequestHandler *exm_request_handler_new (void);

@@ -32,6 +32,9 @@
 
 #include <glib/gi18n.h>
 
+// 2x the 96px avatar shown in the header
+#define AVATAR_PIXEL_SIZE_STR "192"
+
 struct _ExmAuthorPage
 {
     AdwNavigationPage parent_instance;
@@ -268,6 +271,47 @@ on_avatar_resolved (GObject       *source,
     g_object_unref (self);
 }
 
+// The profile API returns a 70px Gravatar, which looks blurry at 96px
+// (especially on HiDPI), so request a larger size instead.
+static gchar *
+get_hires_avatar_url (const gchar *avatar_url)
+{
+    g_autoptr (GUri) uri = g_uri_parse (avatar_url, G_URI_FLAGS_ENCODED, NULL);
+    g_autoptr (GString) query = g_string_new ("s=" AVATAR_PIXEL_SIZE_STR);
+    g_autoptr (GUri) hires = NULL;
+    const gchar *old_query;
+
+    if (uri == NULL)
+        return g_strdup (avatar_url);
+
+    old_query = g_uri_get_query (uri);
+
+    if (old_query != NULL)
+    {
+        g_auto (GStrv) params = g_strsplit (old_query, "&", -1);
+
+        for (gint i = 0; params[i] != NULL; i++)
+        {
+            if (g_str_has_prefix (params[i], "s=") || g_str_has_prefix (params[i], "size="))
+                continue;
+
+            g_string_append_c (query, '&');
+            g_string_append (query, params[i]);
+        }
+    }
+
+    hires = g_uri_build (G_URI_FLAGS_ENCODED,
+                         g_uri_get_scheme (uri),
+                         g_uri_get_userinfo (uri),
+                         g_uri_get_host (uri),
+                         g_uri_get_port (uri),
+                         g_uri_get_path (uri),
+                         query->str,
+                         g_uri_get_fragment (uri));
+
+    return g_uri_to_string (hires);
+}
+
 static void
 on_profile_loaded (GObject       *source,
                    GAsyncResult  *res,
@@ -290,10 +334,14 @@ on_profile_loaded (GObject       *source,
     g_object_unref (profile);
 
     if (avatar_url != NULL)
-        exm_image_resolver_resolve_async (self->image_resolver, avatar_url,
+    {
+        g_autofree gchar *hires_url = get_hires_avatar_url (avatar_url);
+
+        exm_image_resolver_resolve_async (self->image_resolver, hires_url,
                                           self->avatar_cancellable,
                                           (GAsyncReadyCallback) on_avatar_resolved,
                                           g_object_ref (self));
+    }
 
     g_free (avatar_url);
     g_object_unref (self);

@@ -252,7 +252,10 @@ on_select_toggled (GtkCheckButton  *check G_GNUC_UNUSED,
 {
     if (!self->selection_mode)
         return;
-    gtk_widget_activate_action (GTK_WIDGET (self), "page.selection-changed", NULL);
+    if (self->uuid)
+        gtk_widget_activate_action (GTK_WIDGET (self), "page.selection-changed", "(sb)",
+                                    self->uuid,
+                                    gtk_check_button_get_active (self->select_check));
 }
 
 static void
@@ -392,4 +395,19 @@ exm_extension_row_is_selected (ExmExtensionRow *self)
 {
     g_return_val_if_fail (EXM_IS_EXTENSION_ROW (self), FALSE);
     return gtk_check_button_get_active (self->select_check);
+}
+
+void
+exm_extension_row_set_selected (ExmExtensionRow *self,
+                                gboolean         selected)
+{
+    g_return_if_fail (EXM_IS_EXTENSION_ROW (self));
+
+    if (!self->selection_mode)
+        return;
+
+    // The page is the source of truth, so don't report this change back
+    g_signal_handlers_block_by_func (self->select_check, on_select_toggled, self);
+    gtk_check_button_set_active (self->select_check, selected);
+    g_signal_handlers_unblock_by_func (self->select_check, on_select_toggled, self);
 }
