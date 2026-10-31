@@ -23,6 +23,7 @@
 
 #include "exm-application.h"
 #include "exm-gnome-shell-search-provider.h"
+#include "exm-types.h"
 #include "exm-window.h"
 
 #include "exm-utils.h"

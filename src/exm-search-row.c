@@ -265,26 +265,31 @@ static void
 update_install_state (ExmSearchRow *self)
 {
     ExmInstallButtonState install_state;
+    ExmInstallButtonState version_state;
     g_autofree gchar *shell_version = NULL;
-    gboolean is_installed;
     gboolean is_supported;
+
+    g_object_get (self->manager, "shell-version", &shell_version, NULL);
+
+    is_supported = shell_version == NULL ||
+                   exm_search_result_supports_shell_version (self->search_result, shell_version);
+
+    version_state = is_supported ? EXM_INSTALL_BUTTON_STATE_DEFAULT
+                                 : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
+
+    gtk_actionable_set_action_name (GTK_ACTIONABLE (self),
+                                    is_supported ? "win.show-detail-default"
+                                                 : "win.show-detail-unsupported");
+    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", self->uuid);
 
     g_object_get (self->install_btn, "state", &install_state, NULL);
 
     if (install_state == EXM_INSTALL_BUTTON_STATE_INSTALLING)
         return;
 
-    g_object_get (self->manager, "shell-version", &shell_version, NULL);
-
-    is_installed = exm_manager_is_installed_uuid (self->manager, self->uuid);
-    is_supported = shell_version == NULL ||
-                   exm_search_result_supports_shell_version (self->search_result, shell_version);
-
-    install_state = is_installed
+    install_state = exm_manager_is_installed_uuid (self->manager, self->uuid)
         ? EXM_INSTALL_BUTTON_STATE_INSTALLED
-        : (is_supported
-           ? EXM_INSTALL_BUTTON_STATE_DEFAULT
-           : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
+        : version_state;
 
     g_object_set (self->install_btn, "state", install_state, NULL);
 }
@@ -293,13 +298,6 @@ static void
 exm_search_row_constructed (GObject *object)
 {
     ExmSearchRow *self = EXM_SEARCH_ROW (object);
-
-    gchar *uuid;
-    g_object_get (self->search_result,
-                  "uuid", &uuid,
-                  NULL);
-
-    gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
 
     update_install_state (self);
 

@@ -399,17 +399,23 @@ show_view (GtkWidget  *widget,
 
     self = EXM_WINDOW (widget);
 
-    if (g_strcmp0 (action_name, "win.show-detail") == 0)
+    if (g_str_has_prefix (action_name, "win.show-detail"))
     {
         gchar *uuid;
+        ExmInstallButtonState state = EXM_INSTALL_BUTTON_STATE_LOADING;
         ExmDetailView *view;
+
+        if (g_strcmp0 (action_name, "win.show-detail-default") == 0)
+            state = EXM_INSTALL_BUTTON_STATE_DEFAULT;
+        else if (g_strcmp0 (action_name, "win.show-detail-unsupported") == 0)
+            state = EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
 
         g_variant_get (param, "s", &uuid);
 
         view = create_detail_view (self, uuid);
         adw_navigation_view_push (self->navigation_view, ADW_NAVIGATION_PAGE (view));
 
-        exm_detail_view_load_for_uuid (view, uuid);
+        exm_detail_view_load_for_uuid (view, uuid, state);
 
         return;
     }
@@ -825,6 +831,8 @@ exm_window_class_init (ExmWindowClass *klass)
     gtk_widget_class_install_action (widget_class, "ext.open-prefs", "s", extension_open_prefs);
     gtk_widget_class_install_action (widget_class, "ext.show-error", "s", extension_show_error);
     gtk_widget_class_install_action (widget_class, "win.show-detail", "s", show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-detail-default", "s", show_view);
+    gtk_widget_class_install_action (widget_class, "win.show-detail-unsupported", "s", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-author", "(uss)", show_view);
     gtk_widget_class_install_action (widget_class, "win.show-main", NULL, show_view);
     gtk_widget_class_install_action (widget_class, "win.show-screenshot", NULL, show_view);
