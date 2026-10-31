@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-10-15 21:51+0000\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
+"PO-Revision-Date: 2026-10-31 18:27+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/extension-"
@@ -70,14 +70,18 @@ msgstr ""
 "Compruebe la compatibilidad de sus extensiones con la próxima versión de "
 "GNOME"
 
-#: src/exm-application.c:234
+#: src/exm-application.c:236
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Explorar, instalar y gestionar las extensiones de GNOME Shell."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:237
+#: src/exm-application.c:239
 msgid "translator-credits"
 msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
+
+#: src/exm-application.c:241
+msgid "Contributors"
+msgstr "Colaboradores"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -87,9 +91,9 @@ msgstr "Extensiones creadas"
 msgid "No Extensions Found"
 msgstr "No se encontraron extensiones"
 
-#: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
+#: src/exm-author-page.blp:159 src/exm-browse-page.blp:190
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
-#: src/exm-detail-view.blp:504 src/exm-upgrade-assistant.blp:99
+#: src/exm-detail-view.blp:499 src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Error de conexión"
 
@@ -104,62 +108,62 @@ msgstr ""
 "Introduzca una palabra clave para buscar extensiones de GNOME Shell en "
 "'extensions.gnome.org'"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:397
+#: src/exm-browse-page.blp:49 src/exm-browse-page.c:498
 msgid "Descending Order"
 msgstr "Orden descendente"
 
-#: src/exm-browse-page.blp:54
+#: src/exm-browse-page.blp:58
 msgctxt "Sort search results"
 msgid "None"
 msgstr "Ninguno"
 
-#: src/exm-browse-page.blp:55
+#: src/exm-browse-page.blp:59
 msgid "Popularity"
 msgstr "Popularidad"
 
-#: src/exm-browse-page.blp:56
+#: src/exm-browse-page.blp:60
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Descargas"
 
-#: src/exm-browse-page.blp:57
+#: src/exm-browse-page.blp:61
 msgid "Updated"
 msgstr "Actualización"
 
-#: src/exm-browse-page.blp:58
+#: src/exm-browse-page.blp:62
 msgid "Created"
 msgstr "Creación"
 
-#: src/exm-browse-page.blp:65
+#: src/exm-browse-page.blp:69
 msgid "Sort search results"
 msgstr "Ordenar los resultados de la búsqueda"
 
-#: src/exm-browse-page.blp:111
+#: src/exm-browse-page.blp:115
 msgid "_Load More Results"
 msgstr "_Cargar más resultados"
 
-#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:70
+#: src/exm-browse-page.blp:149 src/exm-installed-page.blp:70
 msgid "No Results Found"
 msgstr "No se encontraron resultados"
 
-#: src/exm-browse-page.blp:152
+#: src/exm-browse-page.blp:156
 msgid "Try a different search"
 msgstr "Pruebe una búsqueda diferente"
 
-#: src/exm-browse-page.c:392
+#: src/exm-browse-page.c:493
 msgid "Ascending Order"
 msgstr "Orden ascendente"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:461
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:456
 msgid "Reviews and Comments"
 msgstr "Opiniones y comentarios"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1041
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1054
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Cargando"
 
-#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:162
+#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:157
 msgid "Author"
 msgstr "Autor"
 
@@ -167,7 +171,7 @@ msgstr "Autor"
 msgid "Loading Details"
 msgstr "Cargando detalles"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:482
+#: src/exm-detail-view.blp:71 src/exm-window.c:504
 msgid "An Error Occurred"
 msgstr "Se ha producido un error"
 
@@ -193,121 +197,122 @@ msgid "Name"
 msgstr "Nombre"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:195
+#: src/exm-detail-view.blp:190
 msgid "Remove Extension"
 msgstr "Eliminar extensión"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:207 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:202 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "Abrir las preferencias de la extensión"
 
 #. Translators: Switch tooltip to enable or disable the extension
 #. Translators: Switch's tooltip to enable/disable this extension
-#: src/exm-detail-view.blp:215 src/exm-extension-row.blp:83
+#: src/exm-detail-view.blp:210 src/exm-extension-row.blp:83
 msgid "Toggle Extension"
 msgstr "Conmutar extensión"
 
-#: src/exm-detail-view.blp:239
+#: src/exm-detail-view.blp:234
 msgid "Enlarge Image"
 msgstr "Ampliar la imagen"
 
-#: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
+#: src/exm-detail-view.blp:242 src/exm-screenshot.blp:23
 msgid "Extension Screenshot"
 msgstr "Captura de pantalla de la extensión"
 
-#: src/exm-detail-view.blp:261
+#: src/exm-detail-view.blp:256
 msgid "Description"
 msgstr "Descripción"
 
-#: src/exm-detail-view.blp:289
+#: src/exm-detail-view.blp:284
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Descargas"
 
-#: src/exm-detail-view.blp:309
+#: src/exm-detail-view.blp:304
 msgid "Version"
 msgstr "Versión"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:326 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:321 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "Existe una versión más reciente de esta extensión"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:340 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:335 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Esta extensión es incompatible con su versión actual de GNOME"
 
-#: src/exm-detail-view.blp:362
+#: src/exm-detail-view.blp:357
 msgid "Session Modes"
 msgstr "Modos de sesión"
 
-#: src/exm-detail-view.blp:377
+#: src/exm-detail-view.blp:372
 msgid "Location"
 msgstr "Ubicación"
 
-#: src/exm-detail-view.blp:391
+#: src/exm-detail-view.blp:386
 msgid "Links"
 msgstr "Enlaces"
 
-#: src/exm-detail-view.blp:401
+#: src/exm-detail-view.blp:396
 msgid "Homepage"
 msgstr "Página de inicio"
 
-#: src/exm-detail-view.blp:417 src/exm-detail-view.blp:432
+#: src/exm-detail-view.blp:412 src/exm-detail-view.blp:427
 msgid "Donate"
 msgstr "Donar"
 
-#: src/exm-detail-view.blp:443
+#: src/exm-detail-view.blp:438
 msgid "View on Extensions"
 msgstr "Ver en Extensiones"
 
-#: src/exm-detail-view.blp:484
+#: src/exm-detail-view.blp:479
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Las opiniones y los comentarios están desactivados para esta extensión"
 
-#: src/exm-detail-view.blp:527
+#: src/exm-detail-view.blp:522
 msgid "There are no reviews or comments"
 msgstr "No hay opiniones ni comentarios"
 
-#: src/exm-detail-view.blp:556
+#: src/exm-detail-view.blp:551
 msgid "_Show All"
 msgstr "_Mostrar todos"
 
-#: src/exm-detail-view.c:560
+#: src/exm-detail-view.c:561
 msgid "Unlock Dialog"
 msgstr "Diálogo de desbloqueo"
 
-#: src/exm-detail-view.c:561
+#: src/exm-detail-view.c:562
 msgid "GDM"
 msgstr "GDM"
 
-#: src/exm-detail-view.c:663 src/exm-detail-view.c:769
+#: src/exm-detail-view.c:664 src/exm-detail-view.c:770
+#: src/exm-detail-view.c:948
 msgid "Unsupported"
 msgstr "No soportada"
 
-#: src/exm-detail-view.c:818
+#: src/exm-detail-view.c:819
 msgid "Unknown"
 msgstr "Desconocido"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:916
+#: src/exm-detail-view.c:917
 #, c-format
 msgid "%s Icon"
 msgstr "Icono de %s"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:936
+#: src/exm-detail-view.c:937
 #, c-format
 msgid "%s Screenshot"
 msgstr "Captura de pantalla de %s"
 
 #. Success indicator
-#: src/exm-detail-view.c:1208 src/exm-error-dialog.c:126
-#: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
+#: src/exm-detail-view.c:1228 src/exm-error-dialog.c:126
+#: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:350
 msgid "Copied"
 msgstr "Copiado"
 
@@ -402,7 +407,7 @@ msgid "User-Installed Extensions"
 msgstr "Extensiones instaladas por el usuario"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:580
+#: src/exm-installed-page.blp:46 src/exm-window.c:602
 msgid "Select Extensions"
 msgstr "Seleccionar extensiones"
 
@@ -418,7 +423,7 @@ msgstr "Pruebe una búsqueda diferente o busque en línea"
 msgid "_Search Online"
 msgstr "_Buscar en línea"
 
-#: src/exm-installed-page.blp:91 src/exm-upgrade-assistant.c:496
+#: src/exm-installed-page.blp:91 src/exm-upgrade-assistant.c:489
 msgid "No Extensions Installed"
 msgstr "No hay extensiones instaladas"
 
@@ -427,7 +432,7 @@ msgid "Search online to install extensions"
 msgstr "Buscar en línea para instalar extensiones"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:383
+#: src/exm-installed-page.c:393
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -523,18 +528,18 @@ msgstr "_Comprobar compatibilidad"
 msgid "_Copy to Clipboard"
 msgstr "_Copiar al portapapeles"
 
-#: src/exm-upgrade-assistant.c:189
+#: src/exm-upgrade-assistant.c:192
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Comprobadas %d/%d extensiones"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:208
+#: src/exm-upgrade-assistant.c:211
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d%% compatible"
 
-#: src/exm-upgrade-assistant.c:224
+#: src/exm-upgrade-assistant.c:227
 #, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
@@ -543,28 +548,28 @@ msgstr ""
 "<b>%d de %d</b> extensiones actualmente instaladas en este sistema han sido "
 "marcadas como compatibles con <b>GNOME %s</b>"
 
-#: src/exm-upgrade-assistant.c:231
+#: src/exm-upgrade-assistant.c:234
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr "Si cambia a GNOME %s ahora, todas sus extensiones deberían funcionar"
 
-#: src/exm-upgrade-assistant.c:236
+#: src/exm-upgrade-assistant.c:239
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr "Si cambia a GNOME %s ahora, %d de sus extensiones podrían no funcionar"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:566
+#: src/exm-upgrade-assistant.c:586
 msgid "A compatible version of the extension exists"
 msgstr "Existe una versión compatible de la extensión"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:573
+#: src/exm-upgrade-assistant.c:593
 msgid "No compatible version of the extension exists"
 msgstr "No existe ninguna versión compatible de la extensión"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:580
+#: src/exm-upgrade-assistant.c:600
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -572,7 +577,7 @@ msgstr ""
 "Esta extensión no está alojada en extensions.gnome.org. No se puede "
 "determinar su compatibilidad."
 
-#: src/exm-upgrade-assistant.c:671
+#: src/exm-upgrade-assistant.c:691
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -598,7 +603,7 @@ msgid "_Load More Versions"
 msgstr "_Cargar más versiones"
 
 #. Translators: Tooltip on the installed-version indicator in the versions dialog
-#: src/exm-versions-dialog.c:239
+#: src/exm-versions-dialog.c:240
 msgid "Installed Version"
 msgstr "Versión instalada"
 
@@ -645,29 +650,31 @@ msgstr "Inicie sesión en una sesión de GNOME para gestionar las extensiones"
 msgid "_Discover GNOME"
 msgstr "_Descubrir GNOME"
 
-#. Translators: the character preceded by "_" should not be the same
-#. as others in the same menu
-#: src/exm-window.blp:185
+#: src/exm-window.blp:186
 msgid "Sort _Enabled First"
 msgstr "_Ordenar por activadas"
 
-#: src/exm-window.blp:189
+#: src/exm-window.blp:192
+msgid "_Show Unsupported"
+msgstr "Mostrar no _soportadas"
+
+#: src/exm-window.blp:199
 msgid "_Upgrade Assistant"
 msgstr "Asistente de actuali_zación"
 
-#: src/exm-window.blp:190
+#: src/exm-window.blp:200
 msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
-#: src/exm-window.blp:191
+#: src/exm-window.blp:201
 msgid "_About Extension Manager"
 msgstr "_Acerca de Gestor de extensiones"
 
-#: src/exm-window.blp:196
+#: src/exm-window.blp:206
 msgid "Uninstall Extension?"
 msgstr "¿Desinstalar la extensión?"
 
-#: src/exm-window.blp:198
+#: src/exm-window.blp:208
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -675,23 +682,23 @@ msgstr ""
 "Las características y funcionalidades de la extensión dejarán de ser "
 "accesibles. ¿Está seguro de que desea desinstalarla?"
 
-#: src/exm-window.blp:204 src/exm-window.blp:215
+#: src/exm-window.blp:214 src/exm-window.blp:225
 msgid "_No"
 msgstr "_No"
 
-#: src/exm-window.blp:205 src/exm-window.blp:216
+#: src/exm-window.blp:215 src/exm-window.blp:226
 msgid "_Yes"
 msgstr "_Sí"
 
-#: src/exm-window.blp:210
+#: src/exm-window.blp:220
 msgid "Uninstall Extensions?"
 msgstr "¿Desinstalar las extensiones?"
 
-#: src/exm-window.blp:221
+#: src/exm-window.blp:231
 msgid "Unsupported Extension"
 msgstr "Extensión no soportada"
 
-#: src/exm-window.blp:222
+#: src/exm-window.blp:232
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -699,27 +706,27 @@ msgstr ""
 "Esta extensión no soporta su versión de GNOME Shell. Puede causar errores si "
 "se instala."
 
-#: src/exm-window.blp:228
+#: src/exm-window.blp:238
 msgid "_Install Anyway"
 msgstr "_Instalar de todos modos"
 
-#: src/exm-window.blp:229
+#: src/exm-window.blp:239
 msgid "_Go Back"
 msgstr "_Volver"
 
-#: src/exm-window.c:483
+#: src/exm-window.c:505
 msgid "_Details"
 msgstr "_Detalles"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:583
+#: src/exm-window.c:605
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] "%u seleccionada"
 msgstr[1] "%u seleccionadas"
 
-#: src/exm-window.c:630
+#: src/exm-window.c:652
 #, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
@@ -802,9 +809,6 @@ msgstr "Compruebe el estado de su red e inténtelo de nuevo"
 
 #~ msgid "Recent"
 #~ msgstr "Recientes"
-
-#~ msgid "_Show Unsupported"
-#~ msgstr "Mostrar no _soportadas"
 
 #~ msgid "Browse, install, and manage GNOME Shell Extensions"
 #~ msgstr "Explorar, instalar y gestionar extensiones de GNOME Shell"

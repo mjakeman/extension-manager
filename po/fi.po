@@ -5,13 +5,14 @@
 # Ricky Tigg <ricky.tigg@gmail.com>, 2024, 2025.
 # Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
+# Jiri Grönroos <artnay@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
-"POT-Creation-Date: 2026-10-14 21:13+0000\n"
-"PO-Revision-Date: 2026-10-04 08:51+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2026-10-31 19:17+0100\n"
+"PO-Revision-Date: 2026-10-29 20:51+0000\n"
+"Last-Translator: Jiri Grönroos <artnay@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/extension-"
 "manager/app/fi/>\n"
 "Language: fi\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -67,14 +68,18 @@ msgstr "Näe kaikki laajennusten yksityiskohdat"
 msgid "Check your extensions compatibility with the next version of GNOME"
 msgstr "Tarkista laajennustesi yhteensopivuus seuraavan Gnome-version kanssa"
 
-#: src/exm-application.c:234
+#: src/exm-application.c:236
 msgid "Browse, install, and manage GNOME Shell Extensions."
 msgstr "Selaa, asenna ja hallitse Gnome Shell -laajennuksia."
 
 #. Translators: Use 'Name email@domain.com' or 'Name https://website.example' (without single quotes). Do not delete existing names, write yours on a new line.
-#: src/exm-application.c:237
+#: src/exm-application.c:239
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
+
+#: src/exm-application.c:241
+msgid "Contributors"
+msgstr ""
 
 #: src/exm-author-page.blp:95
 #, fuzzy
@@ -86,9 +91,9 @@ msgstr "Laajennus ei ole tuettu"
 msgid "No Extensions Found"
 msgstr "Laajennuksia ei löytynyt"
 
-#: src/exm-author-page.blp:159 src/exm-browse-page.blp:186
+#: src/exm-author-page.blp:159 src/exm-browse-page.blp:190
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
-#: src/exm-detail-view.blp:504 src/exm-upgrade-assistant.blp:99
+#: src/exm-detail-view.blp:499 src/exm-upgrade-assistant.blp:99
 msgid "Connection Error"
 msgstr "Yhteysvirhe"
 
@@ -103,62 +108,62 @@ msgstr ""
 "Anna hakuehto, jolla Gnome Shell -laajennuksia etsitään "
 "\"extensions.gnome.org\"-sivustolta"
 
-#: src/exm-browse-page.blp:45 src/exm-browse-page.c:397
+#: src/exm-browse-page.blp:49 src/exm-browse-page.c:498
 msgid "Descending Order"
 msgstr "Laskeva järjestys"
 
-#: src/exm-browse-page.blp:54
+#: src/exm-browse-page.blp:58
 msgctxt "Sort search results"
 msgid "None"
 msgstr "Ei mitään"
 
-#: src/exm-browse-page.blp:55
+#: src/exm-browse-page.blp:59
 msgid "Popularity"
 msgstr "Suosio"
 
-#: src/exm-browse-page.blp:56
+#: src/exm-browse-page.blp:60
 msgctxt "Sort search results"
 msgid "Downloads"
 msgstr "Lataukset"
 
-#: src/exm-browse-page.blp:57
+#: src/exm-browse-page.blp:61
 msgid "Updated"
 msgstr "Päivitetty"
 
-#: src/exm-browse-page.blp:58
+#: src/exm-browse-page.blp:62
 msgid "Created"
 msgstr "Luotu"
 
-#: src/exm-browse-page.blp:65
+#: src/exm-browse-page.blp:69
 msgid "Sort search results"
 msgstr "Järjestä hakutulokset"
 
-#: src/exm-browse-page.blp:111
+#: src/exm-browse-page.blp:115
 msgid "_Load More Results"
 msgstr "_Lataa lisää tuloksia"
 
-#: src/exm-browse-page.blp:145 src/exm-installed-page.blp:70
+#: src/exm-browse-page.blp:149 src/exm-installed-page.blp:70
 msgid "No Results Found"
 msgstr "Tuloksia ei löytynyt"
 
-#: src/exm-browse-page.blp:152
+#: src/exm-browse-page.blp:156
 msgid "Try a different search"
 msgstr "Kokeile eri hakuehtoja"
 
-#: src/exm-browse-page.c:392
+#: src/exm-browse-page.c:493
 msgid "Ascending Order"
 msgstr "Nouseva järjestys"
 
-#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:461
+#: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:456
 msgid "Reviews and Comments"
 msgstr "Arviot ja kommentit"
 
-#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1041
+#: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1054
 #: src/exm-install-button.c:147
 msgid "Loading"
 msgstr "Ladataan"
 
-#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:162
+#: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:157
 msgid "Author"
 msgstr "Tekijä"
 
@@ -166,7 +171,7 @@ msgstr "Tekijä"
 msgid "Loading Details"
 msgstr "Ladataan tietoja"
 
-#: src/exm-detail-view.blp:71 src/exm-window.c:482
+#: src/exm-detail-view.blp:71 src/exm-window.c:504
 msgid "An Error Occurred"
 msgstr "Tapahtui virhe"
 
@@ -184,133 +189,130 @@ msgid "_View Details"
 msgstr "_Näytä tiedot"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Laajennuksen virhe"
+msgstr "Laajennuksen kuvake"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
 msgstr "Nimi"
 
 #. Translators: Button tooltip to remove an installed extension
-#: src/exm-detail-view.blp:195
+#: src/exm-detail-view.blp:190
 msgid "Remove Extension"
 msgstr "Poista laajennus"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
-#: src/exm-detail-view.blp:207 src/exm-extension-row.blp:72
+#: src/exm-detail-view.blp:202 src/exm-extension-row.blp:72
 msgid "Open extension preferences"
 msgstr "Avaa laajennuksen asetukset"
 
 #. Translators: Switch tooltip to enable or disable the extension
 #. Translators: Switch's tooltip to enable/disable this extension
-#: src/exm-detail-view.blp:215 src/exm-extension-row.blp:83
+#: src/exm-detail-view.blp:210 src/exm-extension-row.blp:83
 msgid "Toggle Extension"
 msgstr "Ota laajennus käyttöön tai poista käytöstä"
 
-#: src/exm-detail-view.blp:239
+#: src/exm-detail-view.blp:234
 msgid "Enlarge Image"
 msgstr "Suurenna kuva"
 
-#: src/exm-detail-view.blp:247 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
+#: src/exm-detail-view.blp:242 src/exm-screenshot.blp:23
 msgid "Extension Screenshot"
-msgstr "Laajennuksen %s kuvakaappaus"
+msgstr "Laajennuksen kuvakaappaus"
 
-#: src/exm-detail-view.blp:261
+#: src/exm-detail-view.blp:256
 msgid "Description"
 msgstr "Kuvaus"
 
-#: src/exm-detail-view.blp:289
+#: src/exm-detail-view.blp:284
 msgctxt "Number of downloads"
 msgid "Downloads"
 msgstr "Lataukset"
 
-#: src/exm-detail-view.blp:309
+#: src/exm-detail-view.blp:304
 msgid "Version"
 msgstr "Versio"
 
 #. Translators: Icon's tooltip when an extension update is available
-#: src/exm-detail-view.blp:326 src/exm-extension-row.blp:26
+#: src/exm-detail-view.blp:321 src/exm-extension-row.blp:26
 msgid "A newer version of this extension is available"
 msgstr "Uudempi versio tästä laajennuksesta on saatavilla"
 
 #. Translators: Icon's tooltip when an extension is incompatible
-#: src/exm-detail-view.blp:340 src/exm-extension-row.blp:43
+#: src/exm-detail-view.blp:335 src/exm-extension-row.blp:43
 #: src/exm-install-button.c:142
 msgid "This extension is incompatible with your current version of GNOME"
 msgstr "Tämä laajennus ei ole yhteensopiva käyttämäsi Gnome-version kanssa"
 
-#: src/exm-detail-view.blp:362
+#: src/exm-detail-view.blp:357
 msgid "Session Modes"
 msgstr "Istuntotilat"
 
-#: src/exm-detail-view.blp:377
+#: src/exm-detail-view.blp:372
 msgid "Location"
 msgstr "Sijainti"
 
-#: src/exm-detail-view.blp:391
+#: src/exm-detail-view.blp:386
 msgid "Links"
 msgstr "Linkit"
 
-#: src/exm-detail-view.blp:401
+#: src/exm-detail-view.blp:396
 msgid "Homepage"
 msgstr "Verkkosivu"
 
-#: src/exm-detail-view.blp:417 src/exm-detail-view.blp:432
+#: src/exm-detail-view.blp:412 src/exm-detail-view.blp:427
 msgid "Donate"
 msgstr "Lahjoita"
 
-#: src/exm-detail-view.blp:443
+#: src/exm-detail-view.blp:438
 msgid "View on Extensions"
 msgstr "Näytä sivustolla"
 
-#: src/exm-detail-view.blp:484
+#: src/exm-detail-view.blp:479
 msgid "Reviews and comments are disabled for this extension"
 msgstr "Arviot ja kommentit eivät ole käytössä tämän laajennuksen kohdalla"
 
-#: src/exm-detail-view.blp:527
+#: src/exm-detail-view.blp:522
 msgid "There are no reviews or comments"
 msgstr "Ei arvioita tai kommentteja"
 
-#: src/exm-detail-view.blp:556
+#: src/exm-detail-view.blp:551
 msgid "_Show All"
 msgstr "_Näytä kaikki"
 
-#: src/exm-detail-view.c:560
+#: src/exm-detail-view.c:561
 msgid "Unlock Dialog"
 msgstr "Lukituksen avauksen ikkuna"
 
-#: src/exm-detail-view.c:561
+#: src/exm-detail-view.c:562
 msgid "GDM"
 msgstr "GDM"
 
-#: src/exm-detail-view.c:663 src/exm-detail-view.c:769
+#: src/exm-detail-view.c:664 src/exm-detail-view.c:770
+#: src/exm-detail-view.c:948
 msgid "Unsupported"
 msgstr "Ei tuettu"
 
-#: src/exm-detail-view.c:818
+#: src/exm-detail-view.c:819
 msgid "Unknown"
 msgstr "Tuntematon"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:916
+#: src/exm-detail-view.c:917
 #, c-format
 msgid "%s Icon"
 msgstr "Laajennuksen %s kuvake"
 
 #. Translators: '%s' = extension name
-#: src/exm-detail-view.c:936
+#: src/exm-detail-view.c:937
 #, c-format
 msgid "%s Screenshot"
 msgstr "Laajennuksen %s kuvakaappaus"
 
 #. Success indicator
-#: src/exm-detail-view.c:1208 src/exm-error-dialog.c:126
-#: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:367
+#: src/exm-detail-view.c:1228 src/exm-error-dialog.c:126
+#: src/exm-extension-error-dialog.c:82 src/exm-upgrade-assistant.c:350
 msgid "Copied"
 msgstr "Kopioitu"
 
@@ -403,7 +405,7 @@ msgid "User-Installed Extensions"
 msgstr "Käyttäjän asentamat laajennukset"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
-#: src/exm-installed-page.blp:46 src/exm-window.c:580
+#: src/exm-installed-page.blp:46 src/exm-window.c:602
 msgid "Select Extensions"
 msgstr "Valitse laajennukset"
 
@@ -419,7 +421,7 @@ msgstr "Kokeile eri hakuehtoja tai etsi verkosta"
 msgid "_Search Online"
 msgstr "_Etsi verkosta"
 
-#: src/exm-installed-page.blp:91 src/exm-upgrade-assistant.c:496
+#: src/exm-installed-page.blp:91 src/exm-upgrade-assistant.c:489
 msgid "No Extensions Installed"
 msgstr "Laajennuksia ei ole asennettu"
 
@@ -428,7 +430,7 @@ msgid "Search online to install extensions"
 msgstr "Etsi laajennuksia verkosta"
 
 #. Translators: '%d' = number of extensions that will be updated
-#: src/exm-installed-page.c:383
+#: src/exm-installed-page.c:393
 #, c-format
 msgid "%d extension will be updated on next login"
 msgid_plural "%d extensions will be updated on next login"
@@ -524,18 +526,18 @@ msgstr "_Tarkista yhteensopivuus"
 msgid "_Copy to Clipboard"
 msgstr "_Kopioi leikepöydälle"
 
-#: src/exm-upgrade-assistant.c:189
+#: src/exm-upgrade-assistant.c:192
 #, c-format
 msgid "Checked %d/%d Extensions"
 msgstr "Tarkistettu %d/%d laajennusta"
 
 #. Set percentage text
-#: src/exm-upgrade-assistant.c:208
+#: src/exm-upgrade-assistant.c:211
 #, c-format
 msgid "%d%% Compatible"
 msgstr "%d %% yhteensopiva"
 
-#: src/exm-upgrade-assistant.c:224
+#: src/exm-upgrade-assistant.c:227
 #, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
@@ -544,14 +546,14 @@ msgstr ""
 "<b>%d/%d</b> tähän järjestelmään asennetuista laajennuksista on merkitty "
 "tukevan <b>Gnomen versiota %s</b>"
 
-#: src/exm-upgrade-assistant.c:231
+#: src/exm-upgrade-assistant.c:234
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr ""
 "Jos vaihdat nyt Gnomen versioon %s, kaikkien käyttämiesi laajennusten "
 "pitäisi toimia"
 
-#: src/exm-upgrade-assistant.c:236
+#: src/exm-upgrade-assistant.c:239
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
@@ -559,17 +561,17 @@ msgstr ""
 "välttämättä toimi"
 
 #. Translators: Icon's tooltip when an extension is compatible
-#: src/exm-upgrade-assistant.c:566
+#: src/exm-upgrade-assistant.c:586
 msgid "A compatible version of the extension exists"
 msgstr "Yhteensopiva versio laajennuksesta on olemassa"
 
 #. Translators: Icon's tooltip when an extension is not compatible
-#: src/exm-upgrade-assistant.c:573
+#: src/exm-upgrade-assistant.c:593
 msgid "No compatible version of the extension exists"
 msgstr "Laajennuksesta ei ole yhteensopivaa versiota"
 
 #. Translators: Icon's tooltip when an extension compatibility is unknown
-#: src/exm-upgrade-assistant.c:580
+#: src/exm-upgrade-assistant.c:600
 msgid ""
 "This extension is not hosted on extensions.gnome.org. Its compatibility "
 "cannot be determined."
@@ -577,7 +579,7 @@ msgstr ""
 "Tämä laajennus ei ole sivustolta extensions.gnome.org. Sen yhteensopivuutta "
 "ei voi määrittää."
 
-#: src/exm-upgrade-assistant.c:671
+#: src/exm-upgrade-assistant.c:691
 #, c-format
 msgid ""
 "You are currently running <b>GNOME %s</b>. Select a version of GNOME below "
@@ -603,7 +605,7 @@ msgid "_Load More Versions"
 msgstr "_Lataa lisää versioita"
 
 #. Translators: Tooltip on the installed-version indicator in the versions dialog
-#: src/exm-versions-dialog.c:239
+#: src/exm-versions-dialog.c:240
 msgid "Installed Version"
 msgstr "Asennettu versio"
 
@@ -650,29 +652,33 @@ msgstr "Kirjaudu Gnome-istuntoon hallitaksesi laajennuksi"
 msgid "_Discover GNOME"
 msgstr ""
 
-#. Translators: the character preceded by "_" should not be the same
-#. as others in the same menu
-#: src/exm-window.blp:185
+#: src/exm-window.blp:186
 msgid "Sort _Enabled First"
 msgstr "_Järjestä käytössä olevat ensin"
 
-#: src/exm-window.blp:189
+#: src/exm-window.blp:192
+#, fuzzy
+#| msgid "_Show Unsupported"
+msgid "_Show Unsupported"
+msgstr "_Näytä ilman tukea olevat"
+
+#: src/exm-window.blp:199
 msgid "_Upgrade Assistant"
 msgstr "_Päivitysavustaja"
 
-#: src/exm-window.blp:190
+#: src/exm-window.blp:200
 msgid "_Keyboard Shortcuts"
 msgstr "_Pikanäppäimet"
 
-#: src/exm-window.blp:191
+#: src/exm-window.blp:201
 msgid "_About Extension Manager"
 msgstr "_Tietoja - Laajennusten hallinta"
 
-#: src/exm-window.blp:196
+#: src/exm-window.blp:206
 msgid "Uninstall Extension?"
 msgstr "Poistetaanko laajennus?"
 
-#: src/exm-window.blp:198
+#: src/exm-window.blp:208
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall?"
@@ -680,23 +686,23 @@ msgstr ""
 "Laajennuksen ominaisuudet ja toiminnallisuudet eivät ole enää käytettävissä. "
 "Haluatko varmasti poistaa laajennuksen?"
 
-#: src/exm-window.blp:204 src/exm-window.blp:215
+#: src/exm-window.blp:214 src/exm-window.blp:225
 msgid "_No"
 msgstr "_Ei"
 
-#: src/exm-window.blp:205 src/exm-window.blp:216
+#: src/exm-window.blp:215 src/exm-window.blp:226
 msgid "_Yes"
 msgstr "_Kyllä"
 
-#: src/exm-window.blp:210
+#: src/exm-window.blp:220
 msgid "Uninstall Extensions?"
 msgstr "Poistetaanko laajennukset?"
 
-#: src/exm-window.blp:221
+#: src/exm-window.blp:231
 msgid "Unsupported Extension"
 msgstr "Laajennus ei ole tuettu"
 
-#: src/exm-window.blp:222
+#: src/exm-window.blp:232
 msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
@@ -704,27 +710,27 @@ msgstr ""
 "Tämä laajennus ei tue käyttämääsi Gnome Shell -versiota. Se saattaa "
 "aiheuttaa ongelmia, jos se asennetaan."
 
-#: src/exm-window.blp:228
+#: src/exm-window.blp:238
 msgid "_Install Anyway"
 msgstr "_Asenna silti"
 
-#: src/exm-window.blp:229
+#: src/exm-window.blp:239
 msgid "_Go Back"
 msgstr "_Takaisin"
 
-#: src/exm-window.c:483
+#: src/exm-window.c:505
 msgid "_Details"
 msgstr "_Tiedot"
 
 #. Translators: "%u" = number of selected extensions; shown as the header bar title
-#: src/exm-window.c:583
+#: src/exm-window.c:605
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] "%u valittu"
 msgstr[1] "%u valittu"
 
-#: src/exm-window.c:630
+#: src/exm-window.c:652
 #, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
@@ -805,9 +811,6 @@ msgstr "Tarkista verkkoyhteyden tila ja yritä uudelleen"
 
 #~ msgid "Recent"
 #~ msgstr "Viimeisimmät"
-
-#~ msgid "_Show Unsupported"
-#~ msgstr "_Näytä ilman tukea olevat"
 
 #~ msgid "Browse, install, and manage GNOME Shell Extensions"
 #~ msgstr "Selaa, asenna ja hallitse Gnome Shell -laajennuksia"
