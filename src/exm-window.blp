@@ -182,8 +182,17 @@ menu primary_menu {
   section {
     // Translators: the character preceded by "_" should not be the same
     // as others in the same menu
-    item (_("Sort _Enabled First"), "app.sort-enabled-first")
-    item (_("Show _Unsupported"), "app.show-unsupported")
+    item {
+      label: _("Sort _Enabled First");
+      action: "win.sort-enabled-first";
+      hidden-when: "action-missing";
+    }
+
+    item {
+      label: _("Show _Unsupported");
+      action: "win.show-unsupported";
+      hidden-when: "action-missing";
+    }
   }
 
   section {

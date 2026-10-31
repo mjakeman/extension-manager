@@ -278,8 +278,6 @@ request_logout (ExmApplication *self)
 static void
 exm_application_init (ExmApplication *self)
 {
-    GSettings *settings = g_settings_new (APP_ID);
-
     self->manager = exm_manager_new ();
     self->search_provider = exm_gnome_shell_search_provider_new (self->manager);
 
@@ -294,14 +292,6 @@ exm_application_init (ExmApplication *self)
     GSimpleAction *logout_action = g_simple_action_new ("logout", NULL);
     g_signal_connect_swapped (logout_action, "activate", G_CALLBACK (request_logout), self);
     g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (logout_action));
-
-    GAction *sort_enabled_first_action = g_settings_create_action (settings, "sort-enabled-first");
-    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (sort_enabled_first_action));
-
-    GAction *show_unsupported_action = g_settings_create_action (settings, "show-unsupported");
-    g_action_map_add_action (G_ACTION_MAP (self), G_ACTION (show_unsupported_action));
-
-    g_object_unref (settings);
 
     const char *accels_quit[] = {"<primary>q", NULL};
     gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.quit", accels_quit);
