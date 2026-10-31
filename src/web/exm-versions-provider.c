@@ -208,15 +208,27 @@ exm_versions_provider_query_finish (ExmVersionsProvider  *self,
     VersionsRequestData *data;
     GListModel *list_model;
 
-    // Check whether the task has been cancelled and if so, return null
-    // This prevents a race condition in the search logic
-    GCancellable *cancellable = g_task_get_cancellable (G_TASK (result));
-    if (g_cancellable_is_cancelled (cancellable))
-        return NULL;
-
     ret = exm_request_handler_request_finish (EXM_REQUEST_HANDLER (self),
                                               result,
                                               error);
+
+    // Check whether the task has been cancelled and if so, return null
+    // This prevents a race condition in the search logic
+    if (g_cancellable_is_cancelled (g_task_get_cancellable (G_TASK (result))))
+    {
+        if (ret != NULL)
+        {
+            data = (VersionsRequestData *) ret;
+            g_object_unref (data->list_model);
+            g_free (data->next);
+            g_slice_free (VersionsRequestData, data);
+        }
+
+        if (error)
+            g_clear_error (error);
+
+        return NULL;
+    }
 
     if (ret == NULL)
         return NULL;
@@ -228,6 +240,7 @@ exm_versions_provider_query_finish (ExmVersionsProvider  *self,
 
     list_model = data->list_model;
 
+    g_free (data->next);
     g_slice_free (VersionsRequestData, data);
 
     return list_model;

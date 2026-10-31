@@ -25,8 +25,6 @@
 
 #include <json-glib/json-glib.h>
 
-#define MAX_UUIDS_PER_REQUEST 50
-
 struct _ExmSearchProvider
 {
     ExmRequestHandler parent_instance;
@@ -252,46 +250,49 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
                                        user_data);
 }
 
-static gboolean
-query_supported_async (ExmSearchProvider   *self,
-                       GListModel          *results,
-                       GCancellable        *cancellable,
-                       GAsyncReadyCallback  callback,
-                       gpointer             user_data)
+gboolean
+exm_search_provider_query_uuids_async (ExmSearchProvider   *self,
+                                       const gchar * const *uuids,
+                                       guint                n_uuids,
+                                       const gchar         *shell_version,
+                                       GCancellable        *cancellable,
+                                       GAsyncReadyCallback  callback,
+                                       gpointer             user_data)
 {
     // Query https://extensions.gnome.org/api/v1/extensions/?uuid={%s}&uuid={%s}&shell_version={%s}&status=3
 
     g_autoptr (GString) url = g_string_new (NULL);
-    g_autofree gchar *normalized_version = normalize_shell_version (self->shell_version);
-    g_autofree gchar *base = NULL;
-    guint n_items = g_list_model_get_n_items (results);
-    guint n_uuids = 0;
+    guint n_valid = 0;
 
-    if (!normalized_version)
-        return FALSE;
+    g_return_val_if_fail (n_uuids <= EXM_SEARCH_PROVIDER_MAX_UUIDS_PER_REQUEST, FALSE);
 
-    for (guint i = 0; i < n_items; i++)
+    g_string_append_printf (url, "https://extensions.gnome.org/api/v1/extensions/?page_size=%u",
+                            n_uuids);
+
+    if (shell_version)
     {
-        g_autoptr (ExmSearchResult) result = g_list_model_get_item (results, i);
-        g_autofree gchar *uuid = NULL;
-        g_autofree gchar *escaped_uuid = NULL;
+        g_autofree gchar *normalized_version = normalize_shell_version (shell_version);
 
-        g_object_get (result, "uuid", &uuid, NULL);
+        if (!normalized_version)
+            return FALSE;
 
-        if (!uuid)
-            continue;
-
-        escaped_uuid = g_uri_escape_string (uuid, NULL, FALSE);
-        g_string_append_printf (url, "&uuid=%s", escaped_uuid);
-        n_uuids++;
+        g_string_append_printf (url, "&status=3&shell_version=%s", normalized_version);
     }
 
-    if (n_uuids == 0)
-        return FALSE;
+    for (guint i = 0; i < n_uuids; i++)
+    {
+        g_autofree gchar *escaped_uuid = NULL;
 
-    base = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?status=3&page_size=%u&shell_version=%s",
-                            n_uuids, normalized_version);
-    g_string_prepend (url, base);
+        if (!uuids[i])
+            continue;
+
+        escaped_uuid = g_uri_escape_string (uuids[i], NULL, FALSE);
+        g_string_append_printf (url, "&uuid=%s", escaped_uuid);
+        n_valid++;
+    }
+
+    if (n_valid == 0)
+        return FALSE;
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
                                        url->str,
@@ -300,6 +301,39 @@ query_supported_async (ExmSearchProvider   *self,
                                        user_data);
 
     return TRUE;
+}
+
+static gboolean
+query_supported_async (ExmSearchProvider   *self,
+                       GListModel          *results,
+                       GCancellable        *cancellable,
+                       GAsyncReadyCallback  callback,
+                       gpointer             user_data)
+{
+    g_autoptr (GPtrArray) uuids = g_ptr_array_new_with_free_func (g_free);
+    guint n_items = g_list_model_get_n_items (results);
+
+    if (!self->shell_version)
+        return FALSE;
+
+    for (guint i = 0; i < n_items; i++)
+    {
+        g_autoptr (ExmSearchResult) result = g_list_model_get_item (results, i);
+        gchar *uuid = NULL;
+
+        g_object_get (result, "uuid", &uuid, NULL);
+
+        if (uuid)
+            g_ptr_array_add (uuids, uuid);
+    }
+
+    return exm_search_provider_query_uuids_async (self,
+                                                  (const gchar * const *) uuids->pdata,
+                                                  uuids->len,
+                                                  self->shell_version,
+                                                  cancellable,
+                                                  callback,
+                                                  user_data);
 }
 
 typedef struct
@@ -373,7 +407,7 @@ exm_search_provider_mark_unsupported (ExmSearchProvider *self,
 {
     guint n_items = g_list_model_get_n_items (results);
 
-    for (guint i = start; i < n_items; i += MAX_UUIDS_PER_REQUEST)
+    for (guint i = start; i < n_items; i += EXM_SEARCH_PROVIDER_MAX_UUIDS_PER_REQUEST)
     {
         SupportCheck *check = g_new0 (SupportCheck, 1);
 
@@ -381,7 +415,7 @@ exm_search_provider_mark_unsupported (ExmSearchProvider *self,
         check->results = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
         check->shell_version = g_strdup (self->shell_version);
 
-        for (guint j = i; j < MIN (i + MAX_UUIDS_PER_REQUEST, n_items); j++)
+        for (guint j = i; j < MIN (i + EXM_SEARCH_PROVIDER_MAX_UUIDS_PER_REQUEST, n_items); j++)
         {
             g_autoptr (ExmSearchResult) result = g_list_model_get_item (results, j);
 
@@ -431,16 +465,26 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
     SearchRequestData *data;
     GListModel *list_model;
 
-    // Check whether the task has been cancelled and if so, return null
-    // This prevents a race condition in the search logic
-    GCancellable *cancellable = g_task_get_cancellable (G_TASK (result));
-    if (g_cancellable_is_cancelled (cancellable))
-        return NULL;
-
-
     ret = exm_request_handler_request_finish (EXM_REQUEST_HANDLER (self),
                                               result,
                                               error);
+
+    // Check whether the task has been cancelled and if so, return null
+    // This prevents a race condition in the search logic
+    if (g_cancellable_is_cancelled (g_task_get_cancellable (G_TASK (result))))
+    {
+        if (ret != NULL)
+        {
+            data = (SearchRequestData *) ret;
+            g_object_unref (data->list_model);
+            g_slice_free (SearchRequestData, data);
+        }
+
+        if (error)
+            g_clear_error (error);
+
+        return NULL;
+    }
 
     if (ret == NULL)
         return NULL;

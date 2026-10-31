@@ -26,6 +26,8 @@
 
 #include "exm-request-handler.h"
 
+#define EXM_SEARCH_PROVIDER_MAX_UUIDS_PER_REQUEST 50
+
 G_BEGIN_DECLS
 
 #define EXM_TYPE_SEARCH_PROVIDER (exm_search_provider_get_type())
@@ -66,6 +68,14 @@ void               exm_search_provider_mark_unsupported (ExmSearchProvider *self
                                                          GListModel        *results,
                                                          guint              start,
                                                          GCancellable      *cancellable);
+
+gboolean           exm_search_provider_query_uuids_async (ExmSearchProvider    *self,
+                                                          const gchar * const  *uuids,
+                                                          guint                 n_uuids,
+                                                          const gchar          *shell_version,
+                                                          GCancellable         *cancellable,
+                                                          GAsyncReadyCallback   callback,
+                                                          gpointer              user_data);
 
 void                exm_search_provider_query_by_creator_async (ExmSearchProvider   *self,
                                                                 const gchar         *username,
