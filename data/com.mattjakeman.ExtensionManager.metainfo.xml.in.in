@@ -57,6 +57,27 @@
     <color type="primary" scheme_preference="dark">#005edf</color>
   </branding>
   <releases>
+    <release version="0.7.0" date="2026-11-06">
+      <description translate="no">
+        <ul>
+          <li>Redesigned extension details, unifying local and web information in a single view</li>
+          <li>Search installed extensions from the GNOME Shell overview</li>
+          <li>Show extension errors in a dedicated dialog</li>
+          <li>Supported GNOME versions are now shown in a dialog, including the installed version</li>
+          <li>Selection mode to manage several installed extensions at once</li>
+          <li>Open extension folders in Files and copy the path of system extensions</li>
+          <li>Animated screenshots</li>
+          <li>Bring back filtering of unsupported extensions</li>
+          <li>Detect when GNOME Shell is not running</li>
+          <li>Faster loading thanks to response and image caching</li>
+          <li>Accessibility improvements</li>
+          <li>Fix many crashes and memory leaks</li>
+          <li>Latest platform updates</li>
+          <li>Add Azerbaijani, Galician, Georgian, Hebrew, Cornish, Romanian, Slovak and Thai translations</li>
+          <li>Translation updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.6.5" date="2025-10-01">
       <description translate="no">
         <ul>
