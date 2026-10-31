@@ -28,9 +28,19 @@
 struct _ExmSearchProvider
 {
     ExmRequestHandler parent_instance;
+
+    gchar *shell_version;
 };
 
 G_DEFINE_FINAL_TYPE (ExmSearchProvider, exm_search_provider, EXM_TYPE_REQUEST_HANDLER)
+
+enum {
+    PROP_0,
+    PROP_SHELL_VERSION,
+    N_PROPS
+};
+
+static GParamSpec *properties [N_PROPS];
 
 typedef struct
 {
@@ -42,6 +52,43 @@ ExmSearchProvider *
 exm_search_provider_new (void)
 {
     return g_object_new (EXM_TYPE_SEARCH_PROVIDER, NULL);
+}
+
+static gboolean
+is_number (const gchar *string)
+{
+    if (!string || !*string)
+        return FALSE;
+
+    for (const gchar *c = string; *c; c++)
+    {
+        if (!g_ascii_isdigit (*c))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static gchar *
+normalize_shell_version (const gchar *shell_version)
+{
+    g_auto (GStrv) parts = NULL;
+
+    if (!shell_version)
+        return NULL;
+
+    parts = g_strsplit (shell_version, ".", 3);
+
+    if (!is_number (parts[0]))
+        return NULL;
+
+    if (is_number (parts[1]) ||
+        g_strcmp0 (parts[1], "alpha") == 0 ||
+        g_strcmp0 (parts[1], "beta") == 0 ||
+        g_strcmp0 (parts[1], "rc") == 0)
+        return g_strdup_printf ("%s.%s", parts[0], parts[1]);
+
+    return g_strdup (parts[0]);
 }
 
 static SearchRequestData *
@@ -152,7 +199,9 @@ void
 exm_search_provider_query_async (ExmSearchProvider   *self,
                                  const gchar         *query,
                                  int                  page,
+                                 int                  page_size,
                                  ExmSearchSort        sort_type,
+                                 gboolean             only_supported,
                                  GCancellable        *cancellable,
                                  GAsyncReadyCallback  callback,
                                  gpointer             user_data)
@@ -162,6 +211,7 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
 
     g_autofree gchar *url = NULL;
     g_autofree gchar *sort = NULL;
+    g_autofree gchar *version = NULL;
     const gchar *sort_str;
 
     sort_str = get_sort_string (sort_type);
@@ -169,20 +219,28 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
     if (g_strcmp0 (sort_str, "") != 0)
         sort = g_strdup_printf ("ordering=%s&", sort_str);
 
+    if (only_supported)
+    {
+        g_autofree gchar *normalized_version = normalize_shell_version (self->shell_version);
+
+        if (normalized_version)
+            version = g_strdup_printf ("&shell_version=%s", normalized_version);
+    }
+
     if (g_strcmp0 (query, "") == 0)
     {
         if (sort == NULL)
             sort = g_strdup_printf ("ordering=-popularity&");
 
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=10&status=3",
-                               sort, page);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?%spage=%d&page_size=%d&status=3%s",
+                               sort, page, page_size, version ? version : "");
     }
     else
     {
         g_autofree gchar *escaped_query = g_uri_escape_string (query, NULL, FALSE);
 
-        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=10",
-                               escaped_query, sort ? sort : "", page);
+        url = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/search/%s/?%spage=%d&page_size=%d%s",
+                               escaped_query, sort ? sort : "", page, page_size, version ? version : "");
     }
 
     exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
@@ -253,11 +311,76 @@ exm_search_provider_query_finish (ExmSearchProvider  *self,
 }
 
 static void
+exm_search_provider_finalize (GObject *object)
+{
+    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
+
+    g_clear_pointer (&self->shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_search_provider_parent_class)->finalize (object);
+}
+
+static void
+exm_search_provider_get_property (GObject    *object,
+                                  guint       prop_id,
+                                  GValue     *value,
+                                  GParamSpec *pspec)
+{
+    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
+
+    switch (prop_id)
+    {
+    case PROP_SHELL_VERSION:
+        g_value_set_string (value, self->shell_version);
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
+exm_search_provider_set_property (GObject      *object,
+                                  guint         prop_id,
+                                  const GValue *value,
+                                  GParamSpec   *pspec)
+{
+    ExmSearchProvider *self = EXM_SEARCH_PROVIDER (object);
+
+    switch (prop_id)
+    {
+    case PROP_SHELL_VERSION:
+        if (g_strcmp0 (self->shell_version, g_value_get_string (value)) != 0)
+        {
+            g_free (self->shell_version);
+            self->shell_version = g_value_dup_string (value);
+            g_object_notify_by_pspec (object, properties [PROP_SHELL_VERSION]);
+        }
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
+}
+
+static void
 exm_search_provider_class_init (ExmSearchProviderClass *klass)
 {
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
     ExmRequestHandlerClass *request_handler_class = EXM_REQUEST_HANDLER_CLASS (klass);
 
+    object_class->finalize = exm_search_provider_finalize;
+    object_class->get_property = exm_search_provider_get_property;
+    object_class->set_property = exm_search_provider_set_property;
+
     request_handler_class->handle_response = (ResponseHandler) parse_search_results;
+
+    properties [PROP_SHELL_VERSION] =
+        g_param_spec_string ("shell-version",
+                             "Shell Version",
+                             "Shell Version",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY);
+
+    g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
 static void

@@ -32,6 +32,9 @@
 #include <adwaita.h>
 #include <glib/gi18n.h>
 
+#define PAGE_SIZE 10
+#define SHELL_VERSION_WAIT_SECONDS 3
+
 struct _ExmBrowsePage
 {
     GtkWidget parent_instance;
@@ -41,7 +44,10 @@ struct _ExmBrowsePage
     ExmManager *manager;
 
     GtkStringList *suggestions;
+    GSettings *settings;
     GListModel *search_results_model;
+    gboolean wait_expired;
+    guint wait_source;
 
     int current_page;
     int max_pages;
@@ -85,6 +91,19 @@ exm_browse_page_dispose (GObject *object)
 
     g_cancellable_cancel (self->cancellable);
     g_clear_object (&self->cancellable);
+    g_clear_handle_id (&self->wait_source, g_source_remove);
+
+    if (self->manager)
+        g_signal_handlers_disconnect_by_data (self->manager, self);
+
+    if (self->search)
+        g_signal_handlers_disconnect_by_data (self->search, self);
+
+    if (self->settings)
+        g_signal_handlers_disconnect_by_data (self->settings, self);
+
+    g_clear_object (&self->search);
+    g_clear_object (&self->settings);
     g_clear_object (&self->search_results_model);
 
     gtk_widget_dispose_template (GTK_WIDGET (self), EXM_TYPE_BROWSE_PAGE);
@@ -179,6 +198,12 @@ refresh_search (ExmBrowsePage *self)
     gtk_stack_set_visible_child_name (self->search_stack, "page_results");
 }
 
+static gboolean
+only_supported (ExmBrowsePage *self)
+{
+    return !g_settings_get_boolean (self->settings, "show-unsupported");
+}
+
 static void
 on_first_page_result (GObject       *source,
                       GAsyncResult  *res,
@@ -204,6 +229,17 @@ on_first_page_result (GObject       *source,
         gtk_stack_set_visible_child_name (self->search_stack, "page_error");
 
         g_clear_error (&error);
+
+        g_object_unref (self);
+        return;
+    }
+
+    if (!to_append)
+    {
+        GCancellable *request_cancellable = g_task_get_cancellable (G_TASK (res));
+
+        if (!request_cancellable || !g_cancellable_is_cancelled (request_cancellable))
+            gtk_stack_set_visible_child_name (self->search_stack, "page_empty");
 
         g_object_unref (self);
         return;
@@ -306,9 +342,31 @@ on_load_more_results (AdwButtonRow  *row G_GNUC_UNUSED,
 
     query = gtk_editable_get_text (GTK_EDITABLE (self->search_entry));
     sort = (ExmSearchSort) gtk_drop_down_get_selected (self->search_dropdown);
-    exm_search_provider_query_async (self->search, query, ++self->current_page, sort, self->cancellable,
+    exm_search_provider_query_async (self->search, query, ++self->current_page, PAGE_SIZE, sort, only_supported (self), self->cancellable,
                                      (GAsyncReadyCallback) on_next_page_result,
                                      g_object_ref (self));
+}
+
+static void on_search_changed (ExmBrowsePage *self);
+
+static gboolean
+on_shell_version_wait_expired (ExmBrowsePage *self)
+{
+    self->wait_source = 0;
+    self->wait_expired = TRUE;
+    on_search_changed (self);
+
+    return G_SOURCE_REMOVE;
+}
+
+static gboolean
+shell_version_known (ExmBrowsePage *self)
+{
+    g_autofree gchar *shell_version = NULL;
+
+    g_object_get (self->search, "shell-version", &shell_version, NULL);
+
+    return shell_version != NULL;
 }
 
 static void
@@ -327,7 +385,18 @@ search (ExmBrowsePage *self,
     g_cancellable_cancel (self->cancellable);
     self->cancellable = g_cancellable_new ();
 
-    exm_search_provider_query_async (self->search, query, 1, sort, self->cancellable,
+    if (only_supported (self) && !self->wait_expired && !shell_version_known (self))
+    {
+        if (!self->wait_source)
+            self->wait_source = g_timeout_add_seconds (SHELL_VERSION_WAIT_SECONDS,
+                                                       (GSourceFunc) on_shell_version_wait_expired,
+                                                       self);
+        return;
+    }
+
+    g_clear_handle_id (&self->wait_source, g_source_remove);
+
+    exm_search_provider_query_async (self->search, query, 1, PAGE_SIZE, sort, only_supported (self), self->cancellable,
                                      (GAsyncReadyCallback) on_first_page_result,
                                      g_object_ref (self));
 }
@@ -378,6 +447,13 @@ on_search_changed (ExmBrowsePage *self)
         }
     }
     search (self, query, sort);
+}
+
+static void
+on_shell_version_notify (ExmBrowsePage *self)
+{
+    if (only_supported (self))
+        on_search_changed (self);
 }
 
 static void
@@ -444,8 +520,23 @@ on_extensions_ready (ExmBrowsePage *self)
 }
 
 static void
+on_manager_shell_version_changed (ExmBrowsePage *self)
+{
+    g_autofree gchar *shell_version = NULL;
+
+    g_object_get (self->manager, "shell-version", &shell_version, NULL);
+    g_object_set (self->search, "shell-version", shell_version, NULL);
+}
+
+static void
 on_bind_manager (ExmBrowsePage *self)
 {
+    g_signal_connect_object (self->manager, "notify::shell-version",
+                             G_CALLBACK (on_manager_shell_version_changed), self,
+                             G_CONNECT_SWAPPED);
+
+    on_manager_shell_version_changed (self);
+
     g_signal_connect_object (self->manager, "notify::extensions",
                              G_CALLBACK (on_extensions_ready), self,
                              G_CONNECT_SWAPPED);
@@ -534,6 +625,14 @@ exm_browse_page_init (ExmBrowsePage *self)
     gtk_widget_init_template (GTK_WIDGET (self));
 
     self->search = exm_search_provider_new ();
+    self->settings = g_settings_new (APP_ID);
+
+    g_signal_connect_object (self->search, "notify::shell-version",
+                             G_CALLBACK (on_shell_version_notify), self,
+                             G_CONNECT_SWAPPED);
+    g_signal_connect_object (self->settings, "changed::show-unsupported",
+                             G_CALLBACK (on_search_changed), self,
+                             G_CONNECT_SWAPPED);
 
     load_suggestions (self);
 
