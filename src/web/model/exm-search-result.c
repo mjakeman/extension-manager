@@ -45,6 +45,8 @@ struct _ExmSearchResult
     gchar *url;
     gchar **donation_urls;
     gchar *link;
+
+    gchar *unsupported_shell_version;
 };
 
 static JsonSerializableIface *serializable_iface = NULL;
@@ -75,6 +77,7 @@ enum {
     PROP_URL,
     PROP_DONATION_URLS,
     PROP_LINK,
+    PROP_UNSUPPORTED_SHELL_VERSION,
     N_PROPS
 };
 
@@ -150,6 +153,9 @@ exm_search_result_get_property (GObject    *object,
     case PROP_LINK:
         g_value_set_string (value, self->link);
         break;
+    case PROP_UNSUPPORTED_SHELL_VERSION:
+        g_value_set_string (value, self->unsupported_shell_version);
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -213,9 +219,43 @@ exm_search_result_set_property (GObject      *object,
     case PROP_LINK:
         self->link = g_value_dup_string (value);
         break;
+    case PROP_UNSUPPORTED_SHELL_VERSION:
+        if (g_strcmp0 (self->unsupported_shell_version, g_value_get_string (value)) != 0)
+        {
+            g_free (self->unsupported_shell_version);
+            self->unsupported_shell_version = g_value_dup_string (value);
+            g_object_notify_by_pspec (object, pspec);
+        }
+        break;
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
+}
+
+gboolean
+exm_search_result_supports_shell_version (ExmSearchResult *self,
+                                          const gchar     *shell_version)
+{
+    g_return_val_if_fail (shell_version, FALSE);
+
+    return g_strcmp0 (self->unsupported_shell_version, shell_version) != 0;
+}
+
+void
+exm_search_result_set_unsupported (ExmSearchResult *self,
+                                   const gchar     *shell_version)
+{
+    g_object_set (self, "unsupported-shell-version", shell_version, NULL);
+}
+
+static void
+exm_search_result_finalize (GObject *object)
+{
+    ExmSearchResult *self = EXM_SEARCH_RESULT (object);
+
+    g_clear_pointer (&self->unsupported_shell_version, g_free);
+
+    G_OBJECT_CLASS (exm_search_result_parent_class)->finalize (object);
 }
 
 static void
@@ -223,6 +263,7 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+    object_class->finalize = exm_search_result_finalize;
     object_class->get_property = exm_search_result_get_property;
     object_class->set_property = exm_search_result_set_property;
 
@@ -351,6 +392,13 @@ exm_search_result_class_init (ExmSearchResultClass *klass)
                              "Link",
                              NULL,
                              G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY);
+
+    properties [PROP_UNSUPPORTED_SHELL_VERSION] =
+        g_param_spec_string ("unsupported-shell-version",
+                             "Unsupported Shell Version",
+                             "Shell version the extension is known not to support",
+                             NULL,
+                             G_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY);
 
     g_object_class_install_properties (object_class, N_PROPS, properties);
 }

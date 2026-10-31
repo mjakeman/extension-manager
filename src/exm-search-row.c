@@ -26,8 +26,6 @@
 #include "exm-install-button.h"
 #include "exm-types.h"
 #include "web/exm-image-resolver.h"
-#include "web/exm-versions-provider.h"
-#include "web/model/exm-version-result.h"
 
 #include <glib/gi18n.h>
 
@@ -37,16 +35,12 @@ struct _ExmSearchRow
 
     ExmManager *manager;
     ExmSearchResult *search_result;
-    ExmVersionsProvider *versions_provider;
     gboolean compact;
     gboolean show_creator;
     gchar *uuid;
 
-    GCancellable *cancellable;
-
     ExmInstallButton *install_btn;
     guint signal_id;
-    gboolean install_attempt;
 
     ExmImageResolver *image_resolver;
     GCancellable *icon_cancellable;
@@ -82,9 +76,6 @@ static void
 exm_search_row_dispose (GObject *object)
 {
     ExmSearchRow *self = EXM_SEARCH_ROW (object);
-
-    g_cancellable_cancel (self->cancellable);
-    g_clear_object (&self->cancellable);
 
     g_cancellable_cancel (self->icon_cancellable);
     g_clear_object (&self->icon_cancellable);
@@ -167,114 +158,6 @@ exm_search_row_set_property (GObject      *object,
 }
 
 static void
-install_extension (ExmInstallButtonState  install_state,
-                   ExmSearchRow          *self)
-{
-    gboolean warn;
-
-    warn = (install_state == EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
-
-    g_object_set (self->install_btn, "state", EXM_INSTALL_BUTTON_STATE_INSTALLING, NULL);
-
-    gtk_widget_grab_focus (GTK_WIDGET (self));
-
-    gtk_widget_activate_action (GTK_WIDGET (self->install_btn),
-                                "ext.install",
-                                "(sb)", self->uuid, warn);
-}
-
-static void
-on_version_loaded (GObject      *source,
-                   GAsyncResult *result,
-                   gpointer      user_data)
-{
-    gchar *next;
-    GError *error = NULL;
-    GListModel *list;
-    ExmSearchRow *self;
-    gboolean is_installed;
-    ExmInstallButtonState install_state;
-    ExmVersionResult *compatible_version = NULL;
-
-    list = exm_versions_provider_query_finish (EXM_VERSIONS_PROVIDER (source), result, &next, &error);
-    self = EXM_SEARCH_ROW (user_data);
-
-    if (!self->install_btn)
-    {
-        g_clear_object (&list);
-        g_clear_error (&error);
-        g_object_unref (self);
-        return;
-    }
-
-    is_installed = exm_manager_is_installed_uuid (self->manager, self->uuid);
-
-    if (error)
-    {
-        install_state = is_installed ? EXM_INSTALL_BUTTON_STATE_INSTALLED
-                                     : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
-
-        g_object_set (self->install_btn, "state", install_state, NULL);
-
-        g_clear_error (&error);
-        g_object_unref (self);
-        return;
-    }
-
-    const gchar *shell_version;
-    g_object_get (self->versions_provider, "shell-version", &shell_version, NULL);
-
-    for (guint i = 0; i < g_list_model_get_n_items (list); i++)
-    {
-        ExmVersionResult *item = EXM_VERSION_RESULT (g_list_model_get_object (list, i));
-
-        if (exm_version_result_supports_shell_version (item, shell_version))
-        {
-            if (compatible_version)
-                g_object_unref (compatible_version);
-            compatible_version = item;
-        }
-        else
-        {
-            g_object_unref (item);
-        }
-    }
-
-    if (compatible_version)
-    {
-        install_state = is_installed ? EXM_INSTALL_BUTTON_STATE_INSTALLED
-                                     : EXM_INSTALL_BUTTON_STATE_DEFAULT;
-
-        g_object_set (self->install_btn, "state", install_state, NULL);
-
-        g_object_unref (compatible_version);
-    }
-    else if (next != NULL)
-    {
-        exm_versions_provider_query_next_async (self->versions_provider,
-                                                next,
-                                                self->cancellable,
-                                                on_version_loaded,
-                                                g_object_ref (self));
-        g_object_unref (list);
-        g_object_unref (self);
-        return;
-    }
-    else
-    {
-        install_state = is_installed ? EXM_INSTALL_BUTTON_STATE_INSTALLED
-                                     : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED;
-
-        g_object_set (self->install_btn, "state", install_state, NULL);
-    }
-
-    g_object_unref (list);
-
-    install_extension (install_state, self);
-    g_object_unref (self);
-}
-
-static void
 on_install_status (ExmManager            *manager G_GNUC_UNUSED,
                    ExmInstallButtonState  state,
                    ExmSearchRow          *self)
@@ -286,32 +169,29 @@ on_install_status (ExmManager            *manager G_GNUC_UNUSED,
 }
 
 static void
-install_remote (GtkButton    *button G_GNUC_UNUSED,
+install_remote (GtkButton    *button,
                 ExmSearchRow *self)
 {
+    gboolean warn;
+    ExmInstallButtonState state;
+
+    g_object_get (self->install_btn, "state", &state, NULL);
+
     self->signal_id = g_signal_connect_object (self->manager,
                                                "install-status",
                                                G_CALLBACK (on_install_status),
                                                self,
                                                G_CONNECT_DEFAULT);
 
-    if (!self->install_attempt)
-    {
-        self->install_attempt = TRUE;
+    warn = (state == EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
 
-        g_object_set (self->install_btn, "state", EXM_INSTALL_BUTTON_STATE_LOADING, NULL);
+    g_object_set (self->install_btn, "state", EXM_INSTALL_BUTTON_STATE_INSTALLING, NULL);
 
-        self->cancellable = g_cancellable_new ();
-        exm_versions_provider_query_async (self->versions_provider, self->uuid, self->cancellable, on_version_loaded, g_object_ref (self));
-    }
-    else
-    {
-        ExmInstallButtonState state;
+    gtk_widget_grab_focus (GTK_WIDGET (self));
 
-        g_object_get (self->install_btn, "state", &state, NULL);
-
-        install_extension (state, self);
-    }
+    gtk_widget_activate_action (GTK_WIDGET (button),
+                                "ext.install",
+                                "(sb)", self->uuid, warn);
 }
 
 static void
@@ -382,30 +262,52 @@ first_line (GObject     *object G_GNUC_UNUSED,
 }
 
 static void
+update_install_state (ExmSearchRow *self)
+{
+    ExmInstallButtonState install_state;
+    g_autofree gchar *shell_version = NULL;
+    gboolean is_installed;
+    gboolean is_supported;
+
+    g_object_get (self->install_btn, "state", &install_state, NULL);
+
+    if (install_state == EXM_INSTALL_BUTTON_STATE_INSTALLING)
+        return;
+
+    g_object_get (self->manager, "shell-version", &shell_version, NULL);
+
+    is_installed = exm_manager_is_installed_uuid (self->manager, self->uuid);
+    is_supported = shell_version == NULL ||
+                   exm_search_result_supports_shell_version (self->search_result, shell_version);
+
+    install_state = is_installed
+        ? EXM_INSTALL_BUTTON_STATE_INSTALLED
+        : (is_supported
+           ? EXM_INSTALL_BUTTON_STATE_DEFAULT
+           : EXM_INSTALL_BUTTON_STATE_UNSUPPORTED);
+
+    g_object_set (self->install_btn, "state", install_state, NULL);
+}
+
+static void
 exm_search_row_constructed (GObject *object)
 {
     ExmSearchRow *self = EXM_SEARCH_ROW (object);
-
-    ExmInstallButtonState install_state;
-    gboolean is_installed;
 
     gchar *uuid;
     g_object_get (self->search_result,
                   "uuid", &uuid,
                   NULL);
 
-    g_object_bind_property (self->manager, "shell-version",
-                            self->versions_provider, "shell-version",
-                            G_BINDING_SYNC_CREATE);
-
     gtk_actionable_set_action_target (GTK_ACTIONABLE (self), "s", uuid);
-    is_installed = exm_manager_is_installed_uuid (self->manager, uuid);
 
-    install_state = is_installed
-        ? EXM_INSTALL_BUTTON_STATE_INSTALLED
-        : EXM_INSTALL_BUTTON_STATE_DEFAULT;
+    update_install_state (self);
 
-    g_object_set (self->install_btn, "state", install_state, NULL);
+    g_signal_connect_object (self->search_result,
+                             "notify::unsupported-shell-version",
+                             G_CALLBACK (update_install_state),
+                             self,
+                             G_CONNECT_SWAPPED);
 
     G_OBJECT_CLASS (exm_search_row_parent_class)->constructed (object);
 }
@@ -477,7 +379,5 @@ exm_search_row_init (ExmSearchRow *self)
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
-    self->versions_provider = exm_versions_provider_new ();
-    self->install_attempt = FALSE;
     self->image_resolver = exm_image_resolver_new ();
 }

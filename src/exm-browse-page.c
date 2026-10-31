@@ -53,6 +53,7 @@ struct _ExmBrowsePage
     int max_pages;
 
     GCancellable *cancellable;
+    GCancellable *support_cancellable;
 
     // Template Widgets
     AdwBreakpoint       *breakpoint;
@@ -91,6 +92,8 @@ exm_browse_page_dispose (GObject *object)
 
     g_cancellable_cancel (self->cancellable);
     g_clear_object (&self->cancellable);
+    g_cancellable_cancel (self->support_cancellable);
+    g_clear_object (&self->support_cancellable);
     g_clear_handle_id (&self->wait_source, g_source_remove);
 
     if (self->manager)
@@ -204,6 +207,26 @@ only_supported (ExmBrowsePage *self)
     return !g_settings_get_boolean (self->settings, "show-unsupported");
 }
 
+static gboolean
+shell_version_known (ExmBrowsePage *self)
+{
+    g_autofree gchar *shell_version = NULL;
+
+    g_object_get (self->search, "shell-version", &shell_version, NULL);
+
+    return shell_version != NULL;
+}
+
+static void
+check_support (ExmBrowsePage *self,
+               guint          start)
+{
+    if (only_supported (self) || !self->search_results_model)
+        return;
+
+    exm_search_provider_mark_unsupported (self->search, self->search_results_model, start, self->support_cancellable);
+}
+
 static void
 on_first_page_result (GObject       *source,
                       GAsyncResult  *res,
@@ -256,6 +279,8 @@ on_first_page_result (GObject       *source,
 
     update_load_more_btn (self);
 
+    check_support (self, 0);
+
     g_object_unref (self);
 }
 
@@ -267,6 +292,7 @@ on_next_page_result (GObject       *source,
     GError *error = NULL;
     GListModel *to_append;
     int n_items;
+    guint n_before;
     int i;
 
     to_append = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, &self->max_pages, &error);
@@ -302,6 +328,7 @@ on_next_page_result (GObject       *source,
         }
 
         n_items = g_list_model_get_n_items (G_LIST_MODEL (to_append));
+        n_before = g_list_model_get_n_items (self->search_results_model);
 
         // Append to list model
         for (i = 0; i < n_items; i++) {
@@ -321,6 +348,8 @@ on_next_page_result (GObject       *source,
         // Remove unnecessary model
         g_list_store_remove_all (G_LIST_STORE (to_append));
         g_clear_object (&to_append);
+
+        check_support (self, n_before);
     }
 
     update_load_more_btn (self);
@@ -359,16 +388,6 @@ on_shell_version_wait_expired (ExmBrowsePage *self)
     return G_SOURCE_REMOVE;
 }
 
-static gboolean
-shell_version_known (ExmBrowsePage *self)
-{
-    g_autofree gchar *shell_version = NULL;
-
-    g_object_get (self->search, "shell-version", &shell_version, NULL);
-
-    return shell_version != NULL;
-}
-
 static void
 search (ExmBrowsePage *self,
         const gchar   *query,
@@ -384,6 +403,10 @@ search (ExmBrowsePage *self,
     // If we have a current operation, cancel it
     g_cancellable_cancel (self->cancellable);
     self->cancellable = g_cancellable_new ();
+
+    g_cancellable_cancel (self->support_cancellable);
+    g_clear_object (&self->support_cancellable);
+    self->support_cancellable = g_cancellable_new ();
 
     if (only_supported (self) && !self->wait_expired && !shell_version_known (self))
     {
@@ -454,6 +477,8 @@ on_shell_version_notify (ExmBrowsePage *self)
 {
     if (only_supported (self))
         on_search_changed (self);
+    else
+        check_support (self, 0);
 }
 
 static void

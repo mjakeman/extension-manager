@@ -25,6 +25,8 @@
 
 #include <json-glib/json-glib.h>
 
+#define MAX_UUIDS_PER_REQUEST 50
+
 struct _ExmSearchProvider
 {
     ExmRequestHandler parent_instance;
@@ -248,6 +250,151 @@ exm_search_provider_query_async (ExmSearchProvider   *self,
                                        cancellable,
                                        callback,
                                        user_data);
+}
+
+static gboolean
+query_supported_async (ExmSearchProvider   *self,
+                       GListModel          *results,
+                       GCancellable        *cancellable,
+                       GAsyncReadyCallback  callback,
+                       gpointer             user_data)
+{
+    // Query https://extensions.gnome.org/api/v1/extensions/?uuid={%s}&uuid={%s}&shell_version={%s}&status=3
+
+    g_autoptr (GString) url = g_string_new (NULL);
+    g_autofree gchar *normalized_version = normalize_shell_version (self->shell_version);
+    g_autofree gchar *base = NULL;
+    guint n_items = g_list_model_get_n_items (results);
+    guint n_uuids = 0;
+
+    if (!normalized_version)
+        return FALSE;
+
+    for (guint i = 0; i < n_items; i++)
+    {
+        g_autoptr (ExmSearchResult) result = g_list_model_get_item (results, i);
+        g_autofree gchar *uuid = NULL;
+        g_autofree gchar *escaped_uuid = NULL;
+
+        g_object_get (result, "uuid", &uuid, NULL);
+
+        if (!uuid)
+            continue;
+
+        escaped_uuid = g_uri_escape_string (uuid, NULL, FALSE);
+        g_string_append_printf (url, "&uuid=%s", escaped_uuid);
+        n_uuids++;
+    }
+
+    if (n_uuids == 0)
+        return FALSE;
+
+    base = g_strdup_printf ("https://extensions.gnome.org/api/v1/extensions/?status=3&page_size=%u&shell_version=%s",
+                            n_uuids, normalized_version);
+    g_string_prepend (url, base);
+
+    exm_request_handler_request_async (EXM_REQUEST_HANDLER (self),
+                                       url->str,
+                                       cancellable,
+                                       callback,
+                                       user_data);
+
+    return TRUE;
+}
+
+typedef struct
+{
+    ExmSearchProvider *provider;
+    GListStore *results;
+    gchar *shell_version;
+} SupportCheck;
+
+static void
+support_check_free (SupportCheck *check)
+{
+    g_object_unref (check->results);
+    g_object_unref (check->provider);
+    g_free (check->shell_version);
+    g_free (check);
+}
+
+static void
+on_support_checked (GObject      *source,
+                    GAsyncResult *res,
+                    gpointer      user_data)
+{
+    SupportCheck *check = user_data;
+    g_autoptr (GListModel) supported = NULL;
+    g_autoptr (GError) error = NULL;
+
+    supported = exm_search_provider_query_finish (EXM_SEARCH_PROVIDER (source), res, NULL, &error);
+
+    if (supported)
+    {
+        g_autoptr (GHashTable) uuids = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+        guint n_items = g_list_model_get_n_items (supported);
+
+        for (guint i = 0; i < n_items; i++)
+        {
+            g_autoptr (ExmSearchResult) result = g_list_model_get_item (supported, i);
+            gchar *uuid = NULL;
+
+            g_object_get (result, "uuid", &uuid, NULL);
+
+            if (uuid)
+                g_hash_table_add (uuids, uuid);
+        }
+
+        n_items = g_list_model_get_n_items (G_LIST_MODEL (check->results));
+
+        for (guint i = 0; i < n_items; i++)
+        {
+            g_autoptr (ExmSearchResult) result = g_list_model_get_item (G_LIST_MODEL (check->results), i);
+            g_autofree gchar *uuid = NULL;
+
+            g_object_get (result, "uuid", &uuid, NULL);
+
+            if (!uuid)
+                continue;
+
+            exm_search_result_set_unsupported (result, g_hash_table_contains (uuids, uuid) ? NULL
+                                                                                          : check->shell_version);
+        }
+    }
+
+    support_check_free (check);
+}
+
+void
+exm_search_provider_mark_unsupported (ExmSearchProvider *self,
+                                      GListModel        *results,
+                                      guint              start,
+                                      GCancellable      *cancellable)
+{
+    guint n_items = g_list_model_get_n_items (results);
+
+    for (guint i = start; i < n_items; i += MAX_UUIDS_PER_REQUEST)
+    {
+        SupportCheck *check = g_new0 (SupportCheck, 1);
+
+        check->provider = g_object_ref (self);
+        check->results = g_list_store_new (EXM_TYPE_SEARCH_RESULT);
+        check->shell_version = g_strdup (self->shell_version);
+
+        for (guint j = i; j < MIN (i + MAX_UUIDS_PER_REQUEST, n_items); j++)
+        {
+            g_autoptr (ExmSearchResult) result = g_list_model_get_item (results, j);
+
+            g_list_store_append (check->results, result);
+        }
+
+        if (!query_supported_async (self, G_LIST_MODEL (check->results), cancellable,
+                                    on_support_checked, check))
+        {
+            support_check_free (check);
+            break;
+        }
+    }
 }
 
 void

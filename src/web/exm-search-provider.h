@@ -62,6 +62,11 @@ GListModel        *exm_search_provider_query_finish (ExmSearchProvider  *self,
                                                      int                *num_pages,
                                                      GError            **error);
 
+void               exm_search_provider_mark_unsupported (ExmSearchProvider *self,
+                                                         GListModel        *results,
+                                                         guint              start,
+                                                         GCancellable      *cancellable);
+
 void                exm_search_provider_query_by_creator_async (ExmSearchProvider   *self,
                                                                 const gchar         *username,
                                                                 GCancellable        *cancellable,
