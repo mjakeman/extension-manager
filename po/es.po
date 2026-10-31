@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 17:44+0000\n"
-"PO-Revision-Date: 2026-10-15 21:51+0000\n"
+"PO-Revision-Date: 2026-10-31 18:25+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/extension-"
@@ -81,7 +81,7 @@ msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Colaboradores"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
