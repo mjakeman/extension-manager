@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-10-15 21:51+0000\n"
+"PO-Revision-Date: 2026-11-01 19:20+0000\n"
 "Last-Translator: Quentin PAGÈS <quenti@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/extension-"
 "manager/app/oc/>\n"
@@ -80,7 +80,7 @@ msgstr "Quentin PAGÈS <pages_quentin@hotmail.com>"
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Contributors"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -657,8 +657,6 @@ msgid "Sort _Enabled First"
 msgstr "Las _activadas en primièr"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "_Afichar çò pas pres en carga"
 
