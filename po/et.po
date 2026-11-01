@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-10-15 21:51+0000\n"
+"PO-Revision-Date: 2026-11-01 10:19+0000\n"
 "Last-Translator: Indrek Haav <indrekhaav@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/extension-"
 "manager/app/et/>\n"
@@ -82,7 +82,7 @@ msgstr ""
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Kaastöölised"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -652,10 +652,8 @@ msgid "Sort _Enabled First"
 msgstr "Näita _lubatud laiendused eespool"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "_Näita toetamata laiendusi"
+msgstr "_Näita mittetoetatud laiendusi"
 
 #: src/exm-window.blp:199
 msgid "_Upgrade Assistant"
