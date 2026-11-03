@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-10-17 11:51+0000\n"
+"PO-Revision-Date: 2026-11-03 19:28+0000\n"
 "Last-Translator: Trunars <trunars@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/extension-"
 "manager/app/bg/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -81,7 +81,7 @@ msgstr "trunars"
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Сътрудници"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -656,8 +656,6 @@ msgid "Sort _Enabled First"
 msgstr "Сортирай _Първо активирани"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "_Покажи неподдържани"
 
