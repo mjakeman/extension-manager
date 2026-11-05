@@ -9,14 +9,14 @@
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # Mücahit Şahin <mucahitsahin786@gmail.com>, 2025.
 # Oğuz Ersen <oguz@ersen.moe>, 2025.
-# Sabri Ünal <yakushabb@gmail.com>, 2025.
+# Sabri Ünal <yakushabb@gmail.com>, 2025, 2026.
 # Ömer Efe Bilgin <omerefebilgin916@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2025-11-15 21:52+0000\n"
+"PO-Revision-Date: 2026-10-31 20:22+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/extension-"
 "manager/app/tr/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -50,7 +50,7 @@ msgstr "Kurulu Uzantılarınız"
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
 msgstr ""
-"Masanüstünüzü özelleştirmek için GNOME Shell eklentilerine göz atın ve kurun."
+"Masanüstünüzü özelleştirmek için GNOME Shell uzantılarına göz atın ve kurun."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
@@ -89,19 +89,15 @@ msgstr ""
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Katkı Verenler"
 
 #: src/exm-author-page.blp:95
-#, fuzzy
-#| msgid "Unsupported Extension"
 msgid "Authored Extensions"
-msgstr "Desteklenmeyen Uzantı"
+msgstr "Yazılan Uzantılar"
 
 #: src/exm-author-page.blp:126
-#, fuzzy
-#| msgid "No Extensions Installed"
 msgid "No Extensions Found"
-msgstr "Kurulu Eklenti Yok"
+msgstr "Hiçbir Uzantı Bulunamadı"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:190
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
@@ -194,19 +190,15 @@ msgstr "Uzantı ayrıntıları bulunamadı"
 #. Translators: Banner title shown when the extension has a runtime error
 #: src/exm-detail-view.blp:85
 msgid "This extension has an error"
-msgstr ""
+msgstr "Bu uzantı hata içerir"
 
 #: src/exm-detail-view.blp:86
-#, fuzzy
-#| msgid "_Details"
 msgid "_View Details"
-msgstr "_Ayrıntılar"
+msgstr "_Ayrıntıları Görüntüle"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "Extension Icon"
-msgstr "Uzantı Yöneticisi"
+msgstr "Uzantı Simgesi"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -214,10 +206,8 @@ msgstr "Ada göre"
 
 #. Translators: Button tooltip to remove an installed extension
 #: src/exm-detail-view.blp:190
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Remove Extension"
-msgstr "Uzantıları Kullan"
+msgstr "Uzantıyı Kaldır"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -228,20 +218,16 @@ msgstr "Uzantı tercihlerini aç"
 #. Translators: Switch tooltip to enable or disable the extension
 #. Translators: Switch's tooltip to enable/disable this extension
 #: src/exm-detail-view.blp:210 src/exm-extension-row.blp:83
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Toggle Extension"
-msgstr "Uzantıları Kullan"
+msgstr "Uzantıyı Aç/Kapat"
 
 #: src/exm-detail-view.blp:234
 msgid "Enlarge Image"
 msgstr "Resmi Genişlet"
 
 #: src/exm-detail-view.blp:242 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "%s Ekran Görüntüsü"
+msgstr "Uzantı Ekran Görüntüsü"
 
 #: src/exm-detail-view.blp:256
 msgid "Description"
@@ -372,17 +358,13 @@ msgstr ""
 "eklediğinizden emin olun:"
 
 #: src/exm-extension-error-dialog.blp:9
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "Extension Error"
-msgstr "Uzantı Yöneticisi"
+msgstr "Uzantı Hatası"
 
 #. Translators: Button to report an extension error to its developer
 #: src/exm-extension-error-dialog.blp:77
-#, fuzzy
-#| msgid "_New Issue"
 msgid "_Report Issue"
-msgstr "_Yeni Hata"
+msgstr "Hata _Raporla"
 
 #: src/exm-extension-error-dialog.c:54
 #, c-format
@@ -433,10 +415,8 @@ msgstr "Kurulu Uzantılarınız"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
 #: src/exm-installed-page.blp:46 src/exm-window.c:602
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Select Extensions"
-msgstr "Uzantıları Kullan"
+msgstr "Uzantı Seç"
 
 #: src/exm-installed-page.blp:52 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
@@ -452,11 +432,11 @@ msgstr "Çevrimiçi Ara"
 
 #: src/exm-installed-page.blp:91 src/exm-upgrade-assistant.c:489
 msgid "No Extensions Installed"
-msgstr "Kurulu Eklenti Yok"
+msgstr "Kurulu Uzantı Yok"
 
 #: src/exm-installed-page.blp:92
 msgid "Search online to install extensions"
-msgstr "Eklentileri kurmak için çevrim içi arayın"
+msgstr "Uzantıları kurmak için çevrim içi arayın"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:393
@@ -612,37 +592,29 @@ msgstr ""
 "uzantılarınızın kullanılabilir olmaya devam edip etmeyeceğini denetleyin."
 
 #: src/exm-versions-dialog.blp:13
-#, fuzzy
-#| msgid "Version"
 msgid "Version History"
-msgstr "Sürüm"
+msgstr "Sürüm Geçmişi"
 
 #: src/exm-versions-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading Versions"
-msgstr "Ayrıntılar Yükleniyor"
+msgstr "Sürümler Yükleniyor"
 
 #: src/exm-versions-dialog.blp:34
 msgid "No Version History"
-msgstr ""
+msgstr "Sürüm Geçmişi Yok"
 
 #: src/exm-versions-dialog.blp:71
-#, fuzzy
-#| msgid "_Load More Results"
 msgid "_Load More Versions"
-msgstr "Daha Fazla Sonuç _Yükle"
+msgstr "Daha Çok Sürüm _Yükle"
 
 #. Translators: Tooltip on the installed-version indicator in the versions dialog
 #: src/exm-versions-dialog.c:240
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Installed Version"
-msgstr "Kurulu Uzantılarınız"
+msgstr "Kurulu Sürüm"
 
 #: src/exm-window.blp:61
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:69
@@ -668,30 +640,26 @@ msgid "_Browse"
 msgstr "_Göz At"
 
 #: src/exm-window.blp:129
-#, fuzzy
-#| msgid "Install…"
 msgid "Uninstall…"
-msgstr "Kur…"
+msgstr "Kaldır…"
 
 #: src/exm-window.blp:159
 msgid "GNOME Shell Unavailable"
-msgstr ""
+msgstr "GNOME Shell Kullanılamıyor"
 
 #: src/exm-window.blp:160
 msgid "Log in to a GNOME session to manage extensions"
-msgstr ""
+msgstr "Uzantıları yönetmek için GNOME oturumuyla oturum açınız"
 
 #: src/exm-window.blp:169
 msgid "_Discover GNOME"
-msgstr ""
+msgstr "GNOME'u Keşfet"
 
 #: src/exm-window.blp:186
 msgid "Sort _Enabled First"
 msgstr "_Etkinleri Önce Sırala"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "Desteklenmeyenleri _Göster"
 
@@ -728,8 +696,6 @@ msgid "_Yes"
 msgstr "_Evet"
 
 #: src/exm-window.blp:220
-#, fuzzy
-#| msgid "Uninstall Extension?"
 msgid "Uninstall Extensions?"
 msgstr "Uzantı Kaldırılsın Mı?"
 
@@ -762,13 +728,10 @@ msgstr "_Ayrıntılar"
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
-msgstr[0] ""
+msgstr[0] "%u Seçildi"
 
 #: src/exm-window.c:652
-#, fuzzy, c-format
-#| msgid ""
-#| "The extension's features and functionality will no longer be accessible. "
-#| "Are you sure you want to uninstall?"
+#, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall %u extension?"
@@ -776,8 +739,8 @@ msgid_plural ""
 "Their features and functionality will no longer be accessible. Are you sure "
 "you want to uninstall %u extensions?"
 msgstr[0] ""
-"Uzantının özelliklerine ve işlevlerine artık erişilemeyecek. Kaldırmak "
-"istediğinizden emin misiniz?"
+"Uzantı(lar)ın özelliklerine ve işlevlerine artık erişilemeyecek. %u uzantıyı "
+"kaldırmak istediğinizden emin misiniz?"
 
 #: src/web/exm-request-handler.c:145
 msgid ""

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-09-22 14:51+0000\n"
+"PO-Revision-Date: 2026-11-03 13:57+0000\n"
 "Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/extension-"
 "manager/app/be/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -83,7 +83,7 @@ msgstr "Anton Veratsenikau"
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Удзельнікі"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -191,10 +191,8 @@ msgid "_View Details"
 msgstr "_Паказаць падрабязнасці"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Памылка пашырэння"
+msgstr "Значок пашырэння"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -222,10 +220,8 @@ msgid "Enlarge Image"
 msgstr "Павялічыць відарыс"
 
 #: src/exm-detail-view.blp:242 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "Здымак %s"
+msgstr "Здымак пашырэння"
 
 #: src/exm-detail-view.blp:256
 msgid "Description"
@@ -663,10 +659,8 @@ msgid "Sort _Enabled First"
 msgstr "Сартаваць _уключаныя пашырэнні"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "_Паказаць непадтрымліваемыя"
+msgstr "_Паказваць непадтрымліваемыя"
 
 #: src/exm-window.blp:199
 msgid "_Upgrade Assistant"

@@ -14,9 +14,9 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-10-27 01:49+0000\n"
-"Last-Translator: Óscar Fernández Díaz "
-"<42654671+oscfdezdz@users.noreply.github.com>\n"
+"PO-Revision-Date: 2026-11-01 08:00+0000\n"
+"Last-Translator: Hosted Weblate user 54392 "
+"<hamburger2048@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/extension-manager/app/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -83,7 +83,7 @@ msgstr "Luke Luo <njlyf2011@hotmail.com>"
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "贡献者"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -647,8 +647,6 @@ msgid "Sort _Enabled First"
 msgstr "优先显示已启用扩展 (_E)"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
 msgstr "显示不支持的扩展 (_S)"
 

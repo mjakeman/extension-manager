@@ -8,13 +8,14 @@
 # Esteve Fernandez <esteve@users.noreply.hosted.weblate.org>, 2025.
 # Óscar Fernández Díaz <42654671+oscfdezdz@users.noreply.github.com>, 2025.
 # Jordi Mas <jmas@softcatala.org>, 2026.
+# Adolfo Jayme Barrientos <fito@libreoffice.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-08-17 22:51+0000\n"
-"Last-Translator: Jordi Mas <jmas@softcatala.org>\n"
+"PO-Revision-Date: 2026-11-05 14:04+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fito@libreoffice.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
 "manager/app/ca/>\n"
 "Language: ca\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -32,7 +33,7 @@ msgstr "Gestor d'extensions"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:12
 msgid "Manage GNOME Shell Extensions"
-msgstr "Gestiona les extensions del GNOME Shell"
+msgstr "Gestioneu les extensions del GNOME Shell"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #. Make sure to leave the original strings and add your translations afterwards, so that users can search both in English and your language.
@@ -41,20 +42,18 @@ msgid "extension;manager;shell;"
 msgstr "gestor;extensions;shell;"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:7
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Install GNOME Extensions"
-msgstr "Extensions instal·lades per l'usuari"
+msgstr "Instal·leu extensions del GNOME"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:13
-#, fuzzy
-#| msgid "Browse, install, and manage GNOME Shell Extensions."
 msgid "Browse and install GNOME Shell extensions to customise your desktop."
-msgstr "Navega, instal·la i gestiona extensions del GNOME Shell."
+msgstr ""
+"Navegueu i instal·leu extensions del GNOME Shell per a personalitzar el "
+"vostre escriptori."
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:14
 msgid "Features:"
-msgstr "Característiques:"
+msgstr "Funcionalitats:"
 
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:16
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:26
@@ -87,19 +86,15 @@ msgstr "Ícar N. S. <personal@icarns.xyz>"
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Col·laboradors"
 
 #: src/exm-author-page.blp:95
-#, fuzzy
-#| msgid "Unsupported Extension"
 msgid "Authored Extensions"
-msgstr "Extensió incompatible"
+msgstr "Extensions desenvolupades"
 
 #: src/exm-author-page.blp:126
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Found"
-msgstr "Cap extensió instalada per l'usuari"
+msgstr "No s’ha trobat cap extensió"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:190
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
@@ -115,17 +110,17 @@ msgstr "Cerca extensions"
 msgid ""
 "Enter a keyword to search 'extensions.gnome.org' for GNOME Shell Extensions"
 msgstr ""
-"Introduïu una paraula clau per cercar a «extensions.gnome.org» extensions "
-"del GNOME Shell"
+"Introduïu una paraula clau per a cercar extensions del GNOME Shell a «"
+"extensions.gnome.org»"
 
 #: src/exm-browse-page.blp:49 src/exm-browse-page.c:498
 msgid "Descending Order"
-msgstr ""
+msgstr "Ordre descendent"
 
 #: src/exm-browse-page.blp:58
 msgctxt "Sort search results"
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 #: src/exm-browse-page.blp:59
 msgid "Popularity"
@@ -150,7 +145,7 @@ msgstr "Ordena els resultats de la cerca"
 
 #: src/exm-browse-page.blp:115
 msgid "_Load More Results"
-msgstr "_Carregueu més resultas"
+msgstr "_Carrega més resultats"
 
 #: src/exm-browse-page.blp:149 src/exm-installed-page.blp:70
 msgid "No Results Found"
@@ -158,11 +153,11 @@ msgstr "No s'ha trobat cap resultat"
 
 #: src/exm-browse-page.blp:156
 msgid "Try a different search"
-msgstr "Prova una nova cerca"
+msgstr "Proveu una cerca nova"
 
 #: src/exm-browse-page.c:493
 msgid "Ascending Order"
-msgstr ""
+msgstr "Ordre ascendent"
 
 #: src/exm-comment-dialog.blp:13 src/exm-detail-view.blp:456
 msgid "Reviews and Comments"
@@ -171,7 +166,7 @@ msgstr "Opinions i comentaris"
 #: src/exm-comment-dialog.blp:25 src/exm-detail-view.c:1054
 #: src/exm-install-button.c:147
 msgid "Loading"
-msgstr "Carregant"
+msgstr "S'està carregant"
 
 #: src/exm-comment-tile.blp:35 src/exm-detail-view.blp:157
 msgid "Author"
@@ -179,7 +174,7 @@ msgstr "Autor"
 
 #: src/exm-detail-view.blp:52
 msgid "Loading Details"
-msgstr "Carregant els detalls"
+msgstr "S'estan carregant els detalls"
 
 #: src/exm-detail-view.blp:71 src/exm-window.c:504
 msgid "An Error Occurred"
@@ -192,19 +187,15 @@ msgstr "Els detalls de l'extensió no estan disponibles"
 #. Translators: Banner title shown when the extension has a runtime error
 #: src/exm-detail-view.blp:85
 msgid "This extension has an error"
-msgstr ""
+msgstr "Aquesta extensió té un error"
 
 #: src/exm-detail-view.blp:86
-#, fuzzy
-#| msgid "_Details"
 msgid "_View Details"
-msgstr "_Detalls"
+msgstr "_Visualitza els detalls"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "Extension Icon"
-msgstr "Gestor d'extensions"
+msgstr "Icona de l'extensió"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -212,10 +203,8 @@ msgstr "Nom"
 
 #. Translators: Button tooltip to remove an installed extension
 #: src/exm-detail-view.blp:190
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Remove Extension"
-msgstr "Utilitza les extensions"
+msgstr "Elimina l'extensió"
 
 #. Translators: Button tooltip to open extension preferences
 #. Translators: Button's tooltip to open extension's preferences dialog
@@ -236,10 +225,8 @@ msgid "Enlarge Image"
 msgstr "Amplia la imatge"
 
 #: src/exm-detail-view.blp:242 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "Captura de pantalla de %s"
+msgstr "Captura de pantalla de l'extensió"
 
 #: src/exm-detail-view.blp:256
 msgid "Description"
@@ -267,11 +254,11 @@ msgstr "Aquesta extensió és incompatible amb la vostra versió actual del GNOM
 
 #: src/exm-detail-view.blp:357
 msgid "Session Modes"
-msgstr ""
+msgstr "Modes de la sessió"
 
 #: src/exm-detail-view.blp:372
 msgid "Location"
-msgstr ""
+msgstr "Ubicació"
 
 #: src/exm-detail-view.blp:386
 msgid "Links"
@@ -292,26 +279,23 @@ msgstr "Visualitza a les extensions"
 #: src/exm-detail-view.blp:479
 msgid "Reviews and comments are disabled for this extension"
 msgstr ""
+"Les ressenyes i els comentaris estan desactivats per a aquesta extensió."
 
 #: src/exm-detail-view.blp:522
-#, fuzzy
-#| msgid "There are no comments."
 msgid "There are no reviews or comments"
-msgstr "No hi ha opinions."
+msgstr "No hi ha cap ressenya ni comentari"
 
 #: src/exm-detail-view.blp:551
-#, fuzzy
-#| msgid "_Show All Reviews"
 msgid "_Show All"
-msgstr "_Mostrar tots els opinions"
+msgstr "_Mostra-ho tot"
 
 #: src/exm-detail-view.c:561
 msgid "Unlock Dialog"
-msgstr ""
+msgstr "Desbloca el diàleg"
 
 #: src/exm-detail-view.c:562
 msgid "GDM"
-msgstr ""
+msgstr "GDM"
 
 #: src/exm-detail-view.c:664 src/exm-detail-view.c:770
 #: src/exm-detail-view.c:948
@@ -320,7 +304,7 @@ msgstr "No compatible"
 
 #: src/exm-detail-view.c:819
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #. Translators: '%s' = extension name
 #: src/exm-detail-view.c:917
@@ -349,10 +333,8 @@ msgid "An unexpected error occurred in Extension Manager"
 msgstr "Ha ocorregut un error inesperat en el Gestor d'extensions"
 
 #: src/exm-error-dialog.blp:36 src/exm-extension-error-dialog.blp:36
-#, fuzzy
-#| msgid "_Copy to Clipboard"
 msgid "Copy to Clipboard"
-msgstr "_Copiar al portaretalls"
+msgstr "Copia al porta-retalls"
 
 #: src/exm-error-dialog.blp:77
 msgid "_New Issue"
@@ -376,26 +358,22 @@ msgstr ""
 "Assegura't d'adjuntar la informació següent:"
 
 #: src/exm-extension-error-dialog.blp:9
-#, fuzzy
-#| msgid "Extension Manager"
 msgid "Extension Error"
-msgstr "Gestor d'extensions"
+msgstr "Error en l'extensió"
 
 #. Translators: Button to report an extension error to its developer
 #: src/exm-extension-error-dialog.blp:77
-#, fuzzy
-#| msgid "_New Issue"
 msgid "_Report Issue"
-msgstr "_Nova incidència"
+msgstr "_Informa del problema"
 
 #: src/exm-extension-error-dialog.c:54
 #, c-format
 msgid "“%s” Failed to Load"
-msgstr ""
+msgstr "No s'ha pogut carregar «%s»"
 
 #: src/exm-extension-error-dialog.c:55
 msgid "Extension Failed to Load"
-msgstr ""
+msgstr "No s'ha pogut carregar l'extensió"
 
 #. Translators: Button's tooltip to view an extension's error details
 #: src/exm-extension-row.blp:58
@@ -407,11 +385,8 @@ msgid "Install…"
 msgstr "Instal·la…"
 
 #: src/exm-install-button.c:130
-#, fuzzy
-#| msgctxt "State"
-#| msgid "Installed"
 msgid "Installing"
-msgstr "Instal·lada"
+msgstr "S'està instal·lant"
 
 #: src/exm-install-button.c:134
 msgctxt "State"
@@ -440,10 +415,8 @@ msgstr "Extensions instal·lades per l'usuari"
 
 #. Translators: Tooltip of the Select button in the user-installed extensions group
 #: src/exm-installed-page.blp:46 src/exm-window.c:602
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Select Extensions"
-msgstr "Utilitza les extensions"
+msgstr "Selecciona les extensions"
 
 #: src/exm-installed-page.blp:52 src/exm-upgrade-assistant.blp:139
 msgid "System Extensions"
@@ -451,23 +424,19 @@ msgstr "Extensions del sistema"
 
 #: src/exm-installed-page.blp:71
 msgid "Try a different search or search online"
-msgstr ""
+msgstr "Proveu una cerca diferent o cerqueu en línia"
 
 #: src/exm-installed-page.blp:78 src/exm-installed-page.blp:99
 msgid "_Search Online"
-msgstr ""
+msgstr "_Cerca en línia"
 
 #: src/exm-installed-page.blp:91 src/exm-upgrade-assistant.c:489
-#, fuzzy
-#| msgid "No User Extensions Installed"
 msgid "No Extensions Installed"
-msgstr "Cap extensió instalada per l'usuari"
+msgstr "No s'ha instal·lat cap extensió"
 
 #: src/exm-installed-page.blp:92
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search online to install extensions"
-msgstr "Cerca extensions"
+msgstr "Cerca en línia per a instal·lar extensions"
 
 #. Translators: '%d' = number of extensions that will be updated
 #: src/exm-installed-page.c:393
@@ -538,7 +507,7 @@ msgstr "Restableix ampliació"
 #: src/exm-shortcuts-dialog.blp:39
 msgctxt "shortcuts dialog"
 msgid "App"
-msgstr ""
+msgstr "Aplicació"
 
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
@@ -546,11 +515,9 @@ msgid "Toggle Search"
 msgstr ""
 
 #: src/exm-shortcuts-dialog.blp:47
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcuts dialog"
 msgid "Keyboard Shortcuts"
-msgstr "_Dreceres de teclat"
+msgstr "Dreceres de teclat"
 
 #: src/exm-shortcuts-dialog.blp:52
 msgctxt "shortcuts dialog"
@@ -586,26 +553,26 @@ msgid "%d%% Compatible"
 msgstr "%d%% compatible"
 
 #: src/exm-upgrade-assistant.c:227
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>GNOME %s</b> supports <b>%d out of %d</b> of the extensions currently "
-#| "installed on the system"
+#, c-format
 msgid ""
 "<b>%d out of %d</b> extensions currently installed on this system have been "
 "marked as supporting <b>GNOME %s</b>"
 msgstr ""
-"<b>GNOME %s</b> suporta <b>%d de %d</b> de les extensions instalades "
-"actualment al sistema"
+"<b>%d de %d</b> extensions instal·lades actualment en aquest sistema s'han "
+"marcat com a compatibles amb el <b>GNOME %s</b>"
 
 #: src/exm-upgrade-assistant.c:234
 #, c-format
 msgid "If you switch to GNOME %s now, all of your extensions should work"
 msgstr ""
+"Si canvieu ara al GNOME %s, totes les vostres extensions haurien de funcionar"
 
 #: src/exm-upgrade-assistant.c:239
 #, c-format
 msgid "If you switch to GNOME %s now, %d of your extensions might not work"
 msgstr ""
+"Si canvieu ara a GNOME %s, és possible que %d de les vostres extensions no "
+"funcionin"
 
 #. Translators: Icon's tooltip when an extension is compatible
 #: src/exm-upgrade-assistant.c:586
@@ -636,54 +603,42 @@ msgstr ""
 "i comprova si les teves extensions continuaran disponibles."
 
 #: src/exm-versions-dialog.blp:13
-#, fuzzy
-#| msgid "Version"
 msgid "Version History"
-msgstr "Versió"
+msgstr "Historial de versions"
 
 #: src/exm-versions-dialog.blp:25
-#, fuzzy
-#| msgid "Loading Details"
 msgid "Loading Versions"
-msgstr "Carregant els detalls"
+msgstr "S'estan carregant les versions"
 
 #: src/exm-versions-dialog.blp:34
 msgid "No Version History"
-msgstr ""
+msgstr "No hi ha historial de versions"
 
 #: src/exm-versions-dialog.blp:71
-#, fuzzy
-#| msgid "_Load More Results"
 msgid "_Load More Versions"
-msgstr "_Carregueu més resultas"
+msgstr "_Carrega més versions"
 
 #. Translators: Tooltip on the installed-version indicator in the versions dialog
 #: src/exm-versions-dialog.c:240
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Installed Version"
-msgstr "Extensions instal·lades per l'usuari"
+msgstr "Versió instal·lada"
 
 #: src/exm-window.blp:61
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel·la"
 
 #. Translators: Tooltip of the search icon in the header bar
 #: src/exm-window.blp:69
-#, fuzzy
-#| msgid "User-Installed Extensions"
 msgid "Search Installed Extensions"
-msgstr "Extensions instal·lades per l'usuari"
+msgstr "Cerca extensions instal·lades"
 
 #: src/exm-window.blp:78
 msgid "Main Menu"
 msgstr "Menú principal"
 
 #: src/exm-window.blp:88
-#, fuzzy
-#| msgid "Search for Extensions"
 msgid "Search for installed extensions"
-msgstr "Cerca extensions"
+msgstr "Cerca extensions instal·lades"
 
 #: src/exm-window.blp:99
 msgctxt "Navigation"
@@ -696,18 +651,16 @@ msgid "_Browse"
 msgstr "_Navega"
 
 #: src/exm-window.blp:129
-#, fuzzy
-#| msgid "Install…"
 msgid "Uninstall…"
-msgstr "Instal·la…"
+msgstr "Desinstal·la…"
 
 #: src/exm-window.blp:159
 msgid "GNOME Shell Unavailable"
-msgstr ""
+msgstr "El GNOME Shell no està disponible"
 
 #: src/exm-window.blp:160
 msgid "Log in to a GNOME session to manage extensions"
-msgstr ""
+msgstr "Inicieu una sessió del GNOME per a gestionar les extensions"
 
 #: src/exm-window.blp:169
 msgid "_Discover GNOME"
@@ -756,10 +709,8 @@ msgid "_Yes"
 msgstr "_Sí"
 
 #: src/exm-window.blp:220
-#, fuzzy
-#| msgid "Uninstall Extension?"
 msgid "Uninstall Extensions?"
-msgstr "Desinstal·lar l'extensió?"
+msgstr "Voleu desinstal·lar les extensions?"
 
 #: src/exm-window.blp:231
 msgid "Unsupported Extension"
@@ -770,8 +721,8 @@ msgid ""
 "This extension does not support your GNOME Shell version. It may cause "
 "errors if installed."
 msgstr ""
-"Aquesta extensió no suporta la teva versió de GNOME Shell. Podria causar "
-"errors si la instal·les."
+"Aquesta extensió no és compatible amb la vostra versió del GNOME Shell. Pot "
+"causar errors si s'instal·la."
 
 #: src/exm-window.blp:238
 msgid "_Install Anyway"
@@ -790,14 +741,11 @@ msgstr "_Detalls"
 #, c-format
 msgid "%u Selected"
 msgid_plural "%u Selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u seleccionada"
+msgstr[1] "%u seleccionades"
 
 #: src/exm-window.c:652
-#, fuzzy, c-format
-#| msgid ""
-#| "The extension's features and functionality will no longer be accessible. "
-#| "Are you sure you want to uninstall?"
+#, c-format
 msgid ""
 "The extension's features and functionality will no longer be accessible. Are "
 "you sure you want to uninstall %u extension?"
@@ -805,21 +753,23 @@ msgid_plural ""
 "Their features and functionality will no longer be accessible. Are you sure "
 "you want to uninstall %u extensions?"
 msgstr[0] ""
-"Les característiques i funcionalitats de l'extensió ja no estaran "
-"disponibles. Estàs segur que vols desinstal·lar-la?"
+"Les funcions i la funcionalitat de l'extensió ja no estaran disponibles. "
+"Esteu segur que voleu desinstal·lar %u extensió?"
 msgstr[1] ""
-"Les característiques i funcionalitats de l'extensió ja no estaran "
-"disponibles. Estàs segur que vols desinstal·lar-la?"
+"Les seves funcions i la funcionalitat ja no estaran disponibles. Esteu segur "
+"que voleu desinstal·lar %u extensions?"
 
 #: src/web/exm-request-handler.c:145
 msgid ""
 "Check <a href='https://status.gnome.org/'>GNOME infrastructure status</a> "
 "and try again later"
 msgstr ""
+"Comproveu l'<a href='https://status.gnome.org/'>estat de la infraestructura "
+"del GNOME</a> i torneu-ho a provar més tard"
 
 #: src/web/exm-request-handler.c:146
 msgid "Check your network status and try again"
-msgstr ""
+msgstr "Comproveu l'estat de la xarxa i torneu-ho a provar"
 
 #~ msgid "Error"
 #~ msgstr "Error"
