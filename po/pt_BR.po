@@ -8,13 +8,15 @@
 # Mateus Liberale Gomes <sergiogomes209403@gmail.com>, 2025.
 # Marcos Pereira <pereira.mvini@gmail.com>, 2025.
 # Carlos André <andre.h4rkov@gmail.com>, 2026.
+# Arabella-dev1 <arabella-dev1@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-09-30 19:51+0000\n"
-"Last-Translator: burns <ahoradocafezinho@gmail.com>\n"
+"PO-Revision-Date: 2026-11-10 19:58+0000\n"
+"Last-Translator: Arabella-dev1 <arabella-"
+"dev1@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "extension-manager/app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -22,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -84,11 +86,12 @@ msgstr ""
 "Celso Tavares https://github.com/celsotavaresdev\n"
 "Douglas Silva https://github.com/douglasilvadev\n"
 "Tiago Lucas Flach https://github.com/tiagoFlach\n"
-"Slowayy_ https://github.com/slowayy"
+"Slowayy_ https://github.com/slowayy\n"
+"Arabella https://github.com/Arabella-dev1"
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Contribuidores"
 
 #: src/exm-author-page.blp:95
 msgid "Authored Extensions"
@@ -196,10 +199,8 @@ msgid "_View Details"
 msgstr "_Ver detalhes"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Erro em extensão"
+msgstr "Icone da Extensão"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -227,10 +228,8 @@ msgid "Enlarge Image"
 msgstr "Ampliar Imagem"
 
 #: src/exm-detail-view.blp:242 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "%s Captura de tela"
+msgstr "Captura de tela da extensão"
 
 #: src/exm-detail-view.blp:256
 msgid "Description"
@@ -661,17 +660,15 @@ msgstr "Inicie uma sessão do GNOME para gerenciar extensões"
 
 #: src/exm-window.blp:169
 msgid "_Discover GNOME"
-msgstr ""
+msgstr "_Descubra GNOME"
 
 #: src/exm-window.blp:186
 msgid "Sort _Enabled First"
-msgstr "Classificar_Primeiro Ativado"
+msgstr "Classificar _Primeiro Ativado"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "Mostrar Não Suportadas"
+msgstr "_Mostrar Não Suportadas"
 
 #: src/exm-window.blp:199
 msgid "_Upgrade Assistant"
