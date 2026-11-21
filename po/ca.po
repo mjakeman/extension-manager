@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2026-11-05 14:04+0000\n"
+"PO-Revision-Date: 2026-11-09 14:17+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fito@libreoffice.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/extension-"
 "manager/app/ca/>\n"
@@ -133,11 +133,11 @@ msgstr "Baixades"
 
 #: src/exm-browse-page.blp:61
 msgid "Updated"
-msgstr ""
+msgstr "Actualització"
 
 #: src/exm-browse-page.blp:62
 msgid "Created"
-msgstr ""
+msgstr "Creació"
 
 #: src/exm-browse-page.blp:69
 msgid "Sort search results"
@@ -215,10 +215,8 @@ msgstr "Obre les preferències de l'extensió"
 #. Translators: Switch tooltip to enable or disable the extension
 #. Translators: Switch's tooltip to enable/disable this extension
 #: src/exm-detail-view.blp:210 src/exm-extension-row.blp:83
-#, fuzzy
-#| msgid "Use Extensions"
 msgid "Toggle Extension"
-msgstr "Utilitza les extensions"
+msgstr "Activa o desactiva l'extensió"
 
 #: src/exm-detail-view.blp:234
 msgid "Enlarge Image"
@@ -466,23 +464,17 @@ msgstr "Ampliar"
 #: src/exm-shortcuts-dialog.blp:6
 msgctxt "shortcuts dialog"
 msgid "Views"
-msgstr ""
+msgstr "Visualitzacions"
 
 #: src/exm-shortcuts-dialog.blp:9
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Installed Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Installed"
-msgstr "Mostra la pàgina d'instalades"
+msgstr "Canvia a Instal·lades"
 
 #: src/exm-shortcuts-dialog.blp:14
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Show Browse Page"
 msgctxt "shortcuts dialog"
 msgid "Switch to Browse"
-msgstr "Mostra la pàgina d'explorar"
+msgstr "Canvia a Explora"
 
 #: src/exm-shortcuts-dialog.blp:20
 msgctxt "shortcuts dialog"
@@ -512,7 +504,7 @@ msgstr "Aplicació"
 #: src/exm-shortcuts-dialog.blp:42
 msgctxt "shortcuts dialog"
 msgid "Toggle Search"
-msgstr ""
+msgstr "Activa o desactiva la cerca"
 
 #: src/exm-shortcuts-dialog.blp:47
 msgctxt "shortcuts dialog"
@@ -671,10 +663,8 @@ msgid "Sort _Enabled First"
 msgstr "Ordenar primer per _Habilitades"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "_Mostra no compatibles"
+msgstr "_Mostra les no-compatibles"
 
 #: src/exm-window.blp:199
 msgid "_Upgrade Assistant"
@@ -690,7 +680,7 @@ msgstr "_Quant al gestor d'extensions"
 
 #: src/exm-window.blp:206
 msgid "Uninstall Extension?"
-msgstr "Desinstal·lar l'extensió?"
+msgstr "Voleu desinstal·lar l'extensió?"
 
 #: src/exm-window.blp:208
 msgid ""
@@ -698,7 +688,7 @@ msgid ""
 "you sure you want to uninstall?"
 msgstr ""
 "Les característiques i funcionalitats de l'extensió ja no estaran "
-"disponibles. Estàs segur que vols desinstal·lar-la?"
+"disponibles. Segur que voleu desinstal·lar-la?"
 
 #: src/exm-window.blp:214 src/exm-window.blp:225
 msgid "_No"

@@ -8,22 +8,23 @@
 # AnmiTaliDev <anmitali198@gmail.com>, 2025.
 # Yurt Page <yurtpage+weblate@gmail.com>, 2025.
 # Ахматов Тамерлан <novadapresna@gmail.com>, 2025.
+# Yurt Page <yurtpage2@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: extension-manager\n"
 "Report-Msgid-Bugs-To: https://github.com/mjakeman/extension-manager/issues\n"
 "POT-Creation-Date: 2026-10-31 19:17+0100\n"
-"PO-Revision-Date: 2025-10-02 18:17+0000\n"
-"Last-Translator: Ахматов Тамерлан <novadapresna@gmail.com>\n"
+"PO-Revision-Date: 2026-11-09 14:17+0000\n"
+"Last-Translator: Yurt Page <yurtpage2@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/extension-"
 "manager/app/ru/>\n"
-"Language: ru_RU\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: data/com.mattjakeman.ExtensionManager.desktop.in.in:2
 #: data/com.mattjakeman.ExtensionManager.metainfo.xml.in.in:6
@@ -87,19 +88,15 @@ msgstr ""
 
 #: src/exm-application.c:241
 msgid "Contributors"
-msgstr ""
+msgstr "Участники"
 
 #: src/exm-author-page.blp:95
-#, fuzzy
-#| msgid "Unsupported Extension"
 msgid "Authored Extensions"
-msgstr "Неподдерживаемое расширение"
+msgstr "Свои расширения"
 
 #: src/exm-author-page.blp:126
-#, fuzzy
-#| msgid "No Extensions Installed"
 msgid "No Extensions Found"
-msgstr "Нет установленных расширений"
+msgstr "Расширения не найдены"
 
 #: src/exm-author-page.blp:159 src/exm-browse-page.blp:190
 #: src/exm-comment-dialog.blp:34 src/exm-detail-view.blp:61
@@ -199,10 +196,8 @@ msgid "_View Details"
 msgstr "_Подробнее"
 
 #: src/exm-detail-view.blp:115
-#, fuzzy
-#| msgid "Extension Error"
 msgid "Extension Icon"
-msgstr "Ошибка расширения"
+msgstr "Значок расширения"
 
 #: src/exm-detail-view.blp:142
 msgid "Name"
@@ -230,10 +225,8 @@ msgid "Enlarge Image"
 msgstr "Увеличить изображение"
 
 #: src/exm-detail-view.blp:242 src/exm-screenshot.blp:23
-#, fuzzy
-#| msgid "%s Screenshot"
 msgid "Extension Screenshot"
-msgstr "Cкриншот '%s'"
+msgstr "Снимок расширения"
 
 #: src/exm-detail-view.blp:256
 msgid "Description"
@@ -358,10 +351,10 @@ msgid ""
 "weight=\"bold\">contact the package distributor (%s) first</span> before "
 "filing an issue. Be sure to attach the following information:"
 msgstr ""
-"Вы используете стороннюю сборку Extension Manager. <span "
-"weight=\"bold\">Прежде чем обращаться с проблемой, обратитесь к "
-"распространителю пакета (%s)</span>. Обязательно приложите следующую "
-"информацию:"
+"Вы используете стороннюю сборку Менеджера Расширений (Extension Manager). "
+"Пожалуйста, <span weight=\"bold\">прежде чем обращаться с проблемой, "
+"обратитесь к распространителю пакета (%s)</span>. Обязательно приложите "
+"следующую информацию:"
 
 #: src/exm-extension-error-dialog.blp:9
 msgid "Extension Error"
@@ -675,10 +668,8 @@ msgid "Sort _Enabled First"
 msgstr "Сортировать _включенные первыми"
 
 #: src/exm-window.blp:192
-#, fuzzy
-#| msgid "_Show Unsupported"
 msgid "_Show Unsupported"
-msgstr "_Показать неподдерживаемые"
+msgstr "_Показывать неподдерживаемые"
 
 #: src/exm-window.blp:199
 msgid "_Upgrade Assistant"
@@ -747,7 +738,7 @@ msgid "%u Selected"
 msgid_plural "%u Selected"
 msgstr[0] "%u выбрано"
 msgstr[1] "%u выбрано"
-msgstr[2] "%u выбрано"
+msgstr[2] "%u выбраны"
 
 #: src/exm-window.c:652
 #, c-format
