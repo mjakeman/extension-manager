@@ -1348,7 +1348,7 @@ update_tools_stack (ExmDetailView *self)
 
         if (extension)
         {
-            gboolean has_prefs, is_user, has_update;
+            gboolean has_prefs, is_user, has_update, can_change;
             ExmExtensionState state;
             gchar *path = NULL;
             char *error_msg = NULL;
@@ -1357,6 +1357,7 @@ update_tools_stack (ExmDetailView *self)
                           "is-user",    &is_user,
                           "state",      &state,
                           "has-update", &has_update,
+                          "can_change", &can_change,
                           "path",       &path,
                           "error",      &error_msg,
                           NULL);
@@ -1385,6 +1386,7 @@ update_tools_stack (ExmDetailView *self)
             g_free (path);
             g_free (error_msg);
 
+            gtk_widget_set_sensitive (GTK_WIDGET (self->ext_toggle), can_change);
             exm_extension_bind_toggle (extension, self->ext_toggle);
             g_object_unref (extension);
         }
